@@ -46,7 +46,7 @@ const BlogPost: React.FC = () => {
               "name": "AIMasterTools",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://aimastertools.com/logo.png" // Placeholder
+                "url": "https://aimastertools.space/logo.png" // Placeholder
               }
             }
           })}

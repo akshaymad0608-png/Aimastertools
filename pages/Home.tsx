@@ -183,10 +183,10 @@ const Home: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "AIMasterTools",
-            "url": "https://aimastertools.com",
+            "url": "https://aimastertools.space",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://aimastertools.com/?search={search_term_string}",
+              "target": "https://aimastertools.space/?search={search_term_string}",
               "query-input": "required name=search_term_string"
             }
           })}
@@ -197,13 +197,13 @@ const Home: React.FC = () => {
             "@type": "CollectionPage",
             "name": "Top AI Tools Directory",
             "description": "A curated list of the best AI tools for various categories.",
-            "url": "https://aimastertools.com",
+            "url": "https://aimastertools.space",
             "hasPart": MOCK_TOOLS.slice(0, 10).map(tool => ({
               "@type": "SoftwareApplication",
               "name": tool.name,
               "description": tool.description,
               "applicationCategory": tool.category,
-              "url": `https://aimastertools.com/tool/${tool.id}`
+              "url": `https://aimastertools.space/tool/${tool.id}`
             }))
           })}
         </script>
