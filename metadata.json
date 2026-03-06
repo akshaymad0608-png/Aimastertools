@@ -1,0 +1,5 @@
+{
+  "name": "AIMasterTools",
+  "description": "A futuristic, dark-themed AI tools directory featuring a neon aesthetic, glassmorphism UI, and comprehensive categorization of the latest AI technologies.",
+  "requestFramePermissions": ["microphone"]
+}
