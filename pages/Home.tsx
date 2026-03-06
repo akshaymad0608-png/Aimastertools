@@ -174,9 +174,9 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Discover Top AI Tools" 
-        description="Explore 1000+ powerful AI tools for writing, design, coding, video editing & more. The ultimate directory for the future of technology."
-        keywords={['AI Tools', 'Artificial Intelligence', 'Directory', 'Software', 'Tech', 'Innovation', 'ChatGPT', 'Midjourney']}
+        title="Professional AI Prompt Engineering" 
+        description="अक्षय महाजन द्वारा बनाए गए एडवांस AI टूल्स और प्रॉम्प्ट इंजीनियरिंग रिसोर्सेज को एक्सप्लोर करें। अपनी AI प्रोडक्टिविटी बढ़ाएं।"
+        keywords={['AI Master Tools', 'Akshay Mahajan', 'Prompt Engineering', 'Google AI Studio tools', 'AI ML Engineering']}
       >
         <script type="application/ld+json">
           {JSON.stringify({
