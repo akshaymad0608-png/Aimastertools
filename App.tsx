@@ -27,6 +27,9 @@ function App() {
         {/* सोशल मीडिया (Open Graph) के लिए */}
         <meta property="og:title" content="AI Master Tools" />
         <meta property="og:description" content="Expert AI Tools for Prompt Engineers." />
+
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="cvZfo2cac8Ep5DmpA3PlCtAbja_c2Bhm0pZ17VyUrrQ" />
       </Helmet>
       <ThemeProvider>
         <BookmarkProvider>
