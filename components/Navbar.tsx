@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BrainCircuit, Menu, X } from 'lucide-react';
+import { BrainCircuit, Menu, X, Users } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [liveVisitors, setLiveVisitors] = useState(1243);
   const location = useLocation();
   const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    // Simulate live visitor count fluctuating
+    const interval = setInterval(() => {
+      setLiveVisitors(prev => {
+        const change = Math.floor(Math.random() * 5) - 2; // -2 to +2
+        return Math.max(1000, prev + change);
+      });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +64,15 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <Users size={14} className="text-[var(--color-text-muted)]" />
+            <span className="text-xs font-bold text-[var(--color-text-secondary)]">{liveVisitors.toLocaleString()} Online</span>
+          </div>
+
           <Link to="/" className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors relative group">
             Home
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all group-hover:w-full"></span>

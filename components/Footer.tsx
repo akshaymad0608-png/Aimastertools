@@ -105,7 +105,12 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-[var(--color-border)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-[var(--color-text-secondary)]">© 2026 AIMasterTools. All rights reserved.</p>
+          <div className="text-sm text-[var(--color-text-secondary)] flex flex-col gap-2">
+            <p>© 2026 AIMasterTools. All rights reserved.</p>
+            <p className="text-xs opacity-70 max-w-2xl">
+              <strong>Affiliate Disclosure:</strong> Some of the links on this website are affiliate links. This means that if you click on the link and make a purchase, we may receive a commission at no additional cost to you. This helps support our directory and keeps it free for users.
+            </p>
+          </div>
           <button 
             onClick={scrollToTop}
             className="p-3 bg-[var(--color-surface)] rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)] shadow-lg border border-[var(--color-border)] hover:border-[var(--color-primary)] group"

@@ -260,6 +260,39 @@ const ToolDetail: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Sponsored Tool Widget */}
+            <div className="glass-panel border border-[var(--color-primary)]/30 rounded-3xl p-6 shadow-lg relative overflow-hidden group">
+              <div className="absolute top-0 right-0 bg-[var(--color-primary)]/20 text-[var(--color-primary)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-primary)]/30">
+                Sponsored
+              </div>
+              <div className="absolute -left-10 -top-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
+              
+              <h4 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
+                <Sparkles size={16} className="text-[var(--color-accent)]" /> Featured Tool
+              </h4>
+              
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+                  <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=100" alt="Sponsored AI Tool" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h5 className="font-bold text-[var(--color-text-primary)] text-sm">NexusAI Pro</h5>
+                  <div className="flex items-center gap-1 text-[10px] text-[var(--color-text-secondary)] mt-1">
+                    <Star size={10} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                    <span>4.9 (2k+ reviews)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-sm text-[var(--color-text-secondary)] mb-5 line-clamp-2">
+                Automate your entire workflow with next-generation AI agents. Try it free for 14 days.
+              </p>
+              
+              <a href="#" className="w-full py-2.5 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all text-sm font-bold flex items-center justify-center gap-2">
+                Try NexusAI Free <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         </div>
 

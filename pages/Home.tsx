@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import ToolCard from '../components/ToolCard';
 import SEO from '../components/SEO';
 import CountUp from '../components/CountUp';
+import AdBanner from '../components/AdBanner';
 import { CATEGORIES, MOCK_TOOLS, BLOG_POSTS } from '../constants';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');
-  const [activeTab, setActiveTab] = useState<'Featured' | 'Newest'>('Featured');
+  const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(12);
 
   const searchInputRef = React.useRef<HTMLInputElement>(null);
@@ -121,6 +122,8 @@ const Home: React.FC = () => {
     if (searchTerm) {
       if (activeTab === 'Newest') {
         tools = tools.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
+      } else if (activeTab === 'Trending') {
+        tools = tools.sort((a, b) => b.rating - a.rating);
       } else {
         // Default search sort by rating
         tools = tools.sort((a, b) => b.rating - a.rating);
@@ -140,6 +143,9 @@ const Home: React.FC = () => {
           // On main page (All categories), show ONLY featured tools to keep it curated
           tools = tools.filter(t => t.featured).sort((a, b) => b.rating - a.rating);
         }
+      } else if (activeTab === 'Trending') {
+        // Simulate trending by sorting by rating and picking top ones
+        tools = tools.sort((a, b) => b.rating - a.rating);
       } else {
         tools = tools.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
       }
@@ -170,6 +176,11 @@ const Home: React.FC = () => {
       setTimeout(() => setNewsletterStatus('idle'), 3000);
     }, 1500);
   };
+
+  const spotlightTool = useMemo(() => {
+    const featured = MOCK_TOOLS.filter(t => t.featured);
+    return featured[Math.floor(Math.random() * featured.length)] || MOCK_TOOLS[0];
+  }, []);
 
   return (
     <>
@@ -243,22 +254,22 @@ const Home: React.FC = () => {
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-7xl font-bold text-[var(--color-text-primary)] mb-8 tracking-tight leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1]"
           >
-            Empower Your Business with <br />
-            <span className="text-gradient">Intelligent AI Tools</span>
+            Discover the <br className="hidden md:block" />
+            <span className="text-gradient">Future of AI</span>
           </motion.h1>
           
           <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
           >
-            Discover a curated ecosystem of 150+ enterprise-grade AI solutions. Optimize workflows, enhance creativity, and drive innovation with the power of Artificial Intelligence.
+            Your ultimate directory for discovering, comparing, and mastering the world's most powerful artificial intelligence tools. Elevate your workflow today.
           </motion.p>
 
             {/* Search Bar */}
@@ -391,29 +402,34 @@ const Home: React.FC = () => {
             </button>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {displayedCategories.map((cat, index) => {
               const Icon = cat.icon;
+              const isLarge = index === 0 || index === 1;
               return (
                 <motion.button 
                   key={cat.id}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                   onClick={() => handleCategoryClick(cat.id)}
-                  className={`p-8 rounded-xl border transition-all duration-300 flex flex-col items-center text-center gap-5 group glass-panel card-hover-effect
+                  className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center text-center gap-4 group glass-panel card-hover-effect relative overflow-hidden
+                    ${isLarge ? 'lg:col-span-2 lg:flex-row lg:text-left lg:justify-start lg:px-10' : 'col-span-1 lg:col-span-1'}
                     ${selectedCategory === cat.id 
                       ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[var(--shadow-glow)]' 
-                      : 'border-[var(--color-border)]'
+                      : 'border-[var(--color-border)] hover:bg-[var(--color-surface)]/50'
                     }`}
                 >
-                  <div className={`p-4 rounded-lg transition-colors duration-300 ${selectedCategory === cat.id ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] group-hover:text-white group-hover:bg-[var(--color-primary)]'}`}>
-                    <Icon size={32} strokeWidth={1.5} />
+                  {/* Subtle background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  
+                  <div className={`p-4 rounded-xl transition-all duration-300 relative z-10 ${selectedCategory === cat.id ? 'bg-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/30' : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] group-hover:text-white group-hover:bg-[var(--color-primary)] group-hover:shadow-lg group-hover:shadow-[var(--color-primary)]/20'}`}>
+                    <Icon size={isLarge ? 36 : 28} strokeWidth={1.5} />
                   </div>
-                  <div>
-                    <h3 className={`font-bold text-lg mb-2 ${selectedCategory === cat.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)]'}`}>{cat.name}</h3>
-                    <p className="text-xs text-[var(--color-text-muted)] font-medium bg-[var(--color-surface)] px-3 py-1 rounded-md inline-block border border-[var(--color-border)]">{cat.count} Tools</p>
+                  <div className="relative z-10">
+                    <h3 className={`font-bold ${isLarge ? 'text-xl md:text-2xl' : 'text-base md:text-lg'} mb-2 ${selectedCategory === cat.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors'}`}>{cat.name}</h3>
+                    <p className="text-xs text-[var(--color-text-muted)] font-semibold bg-[var(--color-background)]/80 backdrop-blur-sm px-3 py-1 rounded-full inline-block border border-[var(--color-border)]">{cat.count} Tools</p>
                   </div>
                 </motion.button>
               )
@@ -432,7 +448,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.7 }}
             className="relative rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl group"
           >
-            <div className="absolute inset-0 bg-[url('https://picsum.photos/seed/ai-art/1600/600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${spotlightTool.imageUrl})` }}></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/90 to-transparent"></div>
             
             <div className="relative z-10 p-8 md:p-16 max-w-2xl">
@@ -441,21 +457,28 @@ const Home: React.FC = () => {
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Unleash Creativity with <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)]">Midjourney V6</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)]">{spotlightTool.name}</span>
               </h2>
               <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-                Experience the next evolution of AI art generation. Create hyper-realistic images, unique textures, and concept art with simple text prompts.
+                {spotlightTool.description}
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="btn-primary px-8 py-3 flex items-center gap-2">
+                <a href={spotlightTool.url} target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-3 flex items-center gap-2">
                   Try It Now <ArrowRight size={18} />
-                </button>
-                <button className="px-8 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-surface)] transition-all">
+                </a>
+                <Link to={`/tool/${spotlightTool.id}`} className="px-8 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-surface)] transition-all">
                   Read Review
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Ad Banner Section */}
+      <section className="py-4">
+        <div className="container-custom">
+          <AdBanner />
         </div>
       </section>
 
@@ -465,22 +488,28 @@ const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
             <div>
               <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-3">
-                {activeTab === 'Featured' ? 'Featured' : 'Latest'} <span className="text-gradient">Innovations</span>
+                {activeTab === 'Featured' ? 'Featured' : activeTab === 'Trending' ? 'Trending' : 'Latest'} <span className="text-gradient">Innovations</span>
               </h2>
               <p className="text-[var(--color-text-secondary)] text-lg">Handpicked AI tools to elevate your business</p>
             </div>
             
             <div className="flex items-center gap-4">
-               <div className="flex bg-[var(--color-cardBg)] p-1 rounded-lg border border-[var(--color-border)]">
+               <div className="flex bg-[var(--color-cardBg)] p-1.5 rounded-xl border border-[var(--color-border)] shadow-sm">
                  <button 
                    onClick={() => setActiveTab('Featured')}
-                   className={`px-6 py-2.5 rounded-md text-sm font-bold transition-all ${activeTab === 'Featured' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Featured' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
                  >
                    Featured
                  </button>
                  <button 
+                   onClick={() => setActiveTab('Trending')}
+                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Trending' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                 >
+                   Trending
+                 </button>
+                 <button 
                    onClick={() => setActiveTab('Newest')}
-                   className={`px-6 py-2.5 rounded-md text-sm font-bold transition-all ${activeTab === 'Newest' ? 'bg-[var(--color-primary)] text-white shadow-lg' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Newest' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
                  >
                    Newest
                  </button>
@@ -572,6 +601,12 @@ const Home: React.FC = () => {
               </motion.div>
             ))}
           </div>
+          
+          <div className="mt-12 text-center">
+            <Link to="/#blog" className="inline-flex items-center gap-2 text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors">
+              View All Articles <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -611,7 +646,8 @@ const Home: React.FC = () => {
               <button className="btn-primary mt-4">Learn More About Us</button>
             </motion.div>
             
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 blur-[80px] -z-10 rounded-full"></div>
               <div className="space-y-6 mt-12">
                 <div className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
                   <h3 className="text-4xl font-bold text-[var(--color-secondary)] mb-2">
@@ -640,6 +676,20 @@ const Home: React.FC = () => {
                   <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Articles</p>
                 </div>
               </div>
+              <div className="space-y-6 mt-12 md:mt-0 col-span-2 md:col-span-1 flex flex-row md:flex-col gap-6">
+                <div className="flex-1 p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
+                  <h3 className="text-4xl font-bold text-green-400 mb-2">
+                    <CountUp to={2} suffix="M+" />
+                  </h3>
+                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Total Visitors</p>
+                </div>
+                <div className="flex-1 p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
+                  <h3 className="text-4xl font-bold text-purple-400 mb-2">
+                    <CountUp to={150} suffix="k+" />
+                  </h3>
+                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Active Users</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -663,9 +713,9 @@ const Home: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] relative"
+                className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] relative card-hover-effect group"
               >
-                <div className="absolute top-6 right-8 text-[var(--color-primary)]/20">
+                <div className="absolute top-6 right-8 text-[var(--color-primary)]/10 group-hover:text-[var(--color-primary)]/30 transition-colors duration-300">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.01697 21L5.01697 18C5.01697 16.8954 5.9124 16 7.01697 16H10.017C10.5693 16 11.017 15.5523 11.017 15V9C11.017 8.44772 10.5693 8 10.017 8H6.01697C5.46468 8 5.01697 8.44772 5.01697 9V11C5.01697 11.5523 4.56925 12 4.01697 12H3.01697V5H13.017V15C13.017 18.3137 10.3307 21 7.01697 21H5.01697Z" />
                   </svg>
