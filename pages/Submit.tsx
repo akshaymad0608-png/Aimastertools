@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Check, Loader2, Zap, Shield, ArrowRight } from 'lucide-react';
+import { Check, Loader2, Zap, Shield, ArrowRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import { usePro } from '../context/ProContext';
+import { useNavigate } from 'react-router-dom';
 
 const Submit: React.FC = () => {
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-  const [selectedPlan, setSelectedPlan] = useState<'Free' | 'Express' | 'Featured'>('Free');
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'verifying' | 'success'>('idle');
+  const [selectedPlan, setSelectedPlan] = useState<'Premium'>('Premium');
+  const [paymentId, setPaymentId] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const { isPro } = usePro();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,19 +22,44 @@ const Submit: React.FC = () => {
     e.preventDefault();
     setFormStatus('submitting');
     
-    // Simulate API call
-    setTimeout(() => {
-      setFormStatus('success');
-      // Reset after showing success
+    if (isPro) {
+      // Pro users skip payment
       setTimeout(() => {
-        setFormStatus('idle');
-        (e.target as HTMLFormElement).reset();
-      }, 4000);
+        setFormStatus('success');
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+      }, 1500);
+      return;
+    }
+
+    // Open Razorpay in a new tab for non-Pro users
+    window.open('https://razorpay.me/@aimastertools', '_blank');
+    
+    // Show verification step
+    setTimeout(() => {
+      setFormStatus('verifying');
     }, 1500);
   };
 
-  const scrollToForm = (plan: 'Free' | 'Express' | 'Featured') => {
-    setSelectedPlan(plan);
+  const handleVerify = () => {
+    if (!paymentId.trim()) {
+      setErrorMessage('Please enter a valid Payment ID');
+      return;
+    }
+    setFormStatus('submitting');
+    setErrorMessage('');
+    
+    // Simulate verification and submission
+    setTimeout(() => {
+      setFormStatus('success');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }, 2000);
+  };
+
+  const scrollToForm = () => {
     const formElement = document.getElementById('submit-form');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -60,57 +92,26 @@ const Submit: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
-            {/* Basic Plan */}
-            <div className={`glass-panel p-8 md:p-10 rounded-3xl border flex flex-col transition-all duration-300 ${selectedPlan === 'Free' ? 'border-[var(--color-primary)] shadow-[0_0_15px_rgba(59,130,246,0.2)]' : 'border-[var(--color-border)] hover:border-[var(--color-primary)]/30'}`}>
-              <h3 className="text-2xl font-bold mb-2 text-[var(--color-text-primary)]">Basic</h3>
-              <p className="text-[var(--color-text-secondary)] mb-8 h-12">Standard listing in our directory for new startups.</p>
-              <div className="text-5xl font-black mb-8 text-[var(--color-text-primary)]">Free</div>
-              <ul className="space-y-5 mb-10 flex-grow">
-                <li className="flex items-start gap-3"><Check size={20} className="text-green-500 shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">Standard Directory Listing</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-green-500 shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">Category Placement</span></li>
-                <li className="flex items-start gap-3 text-[var(--color-text-muted)]"><Check size={20} className="opacity-50 shrink-0 mt-0.5" /> <span>Review within 14-30 days</span></li>
-                <li className="flex items-start gap-3 text-[var(--color-text-muted)]"><Check size={20} className="opacity-50 shrink-0 mt-0.5" /> <span>No-Follow Link</span></li>
-              </ul>
-              <button onClick={() => scrollToForm('Free')} className={`w-full py-4 rounded-xl border transition-all font-bold text-lg flex items-center justify-center gap-2 ${selectedPlan === 'Free' ? 'bg-[var(--color-surface)] border-[var(--color-primary)] text-[var(--color-primary)]' : 'border-[var(--color-border)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)]'}`}>
-                Submit Free
-              </button>
-            </div>
-
-            {/* Pro Plan */}
-            <div className={`glass-panel p-8 md:p-10 rounded-3xl border relative transform md:-translate-y-4 flex flex-col transition-all duration-300 ${selectedPlan === 'Express' ? 'border-[var(--color-primary)] shadow-[var(--shadow-glow)] bg-[var(--color-primary)]/10' : 'border-[var(--color-primary)]/50 bg-[var(--color-primary)]/5 hover:border-[var(--color-primary)]'}`}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white px-6 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-                <Zap size={16} className="fill-white" /> Most Popular
+          <div className="max-w-lg mx-auto mb-24">
+            {/* Premium Listing Plan */}
+            <div className={`glass-panel p-8 md:p-10 rounded-3xl border ${isPro ? 'border-green-500' : 'border-[var(--color-primary)]'} shadow-[var(--shadow-glow)] ${isPro ? 'bg-green-500/10' : 'bg-[var(--color-primary)]/10'} flex flex-col relative transition-all duration-300`}>
+              <div className={`absolute -top-4 left-1/2 -translate-x-1/2 ${isPro ? 'bg-green-500' : 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]'} text-white px-6 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg whitespace-nowrap`}>
+                {isPro ? <><Star size={16} className="fill-white" /> Pro Benefit</> : <><Zap size={16} className="fill-white" /> One-Time Payment</>}
               </div>
-              <h3 className="text-2xl font-bold mb-2 text-[var(--color-primary)]">Express</h3>
-              <p className="text-[var(--color-text-secondary)] mb-8 h-12">Skip the queue and get listed fast with SEO benefits.</p>
-              <div className="text-5xl font-black mb-8 text-[var(--color-text-primary)]">$29 <span className="text-lg text-[var(--color-text-muted)] font-normal">/one-time</span></div>
+              <h3 className={`text-2xl font-bold mb-2 ${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} text-center`}>Premium Listing</h3>
+              <p className="text-[var(--color-text-secondary)] mb-8 h-12 text-center">Get your AI tool in front of thousands of potential users.</p>
+              <div className="text-5xl font-black mb-8 text-[var(--color-text-primary)] text-center">
+                {isPro ? 'Free' : '₹99'} <span className="text-lg text-[var(--color-text-muted)] font-normal">{isPro ? 'for Pro Members' : '/lifetime'}</span>
+              </div>
               <ul className="space-y-5 mb-10 flex-grow">
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-primary)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-primary)] font-medium">24-Hour Expedited Review</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-primary)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-primary)] font-medium">Do-Follow Backlink (SEO)</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-primary)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">Social Media Shoutout</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-primary)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">Permanent Listing</span></li>
+                <li className="flex items-start gap-3"><Check size={20} className={`${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} shrink-0 mt-0.5`} /> <span className="text-[var(--color-text-primary)] font-medium">Permanent Do-Follow Link</span></li>
+                <li className="flex items-start gap-3"><Check size={20} className={`${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} shrink-0 mt-0.5`} /> <span className="text-[var(--color-text-primary)] font-medium">Featured in our Weekly Newsletter</span></li>
+                <li className="flex items-start gap-3"><Check size={20} className={`${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} shrink-0 mt-0.5`} /> <span className="text-[var(--color-text-secondary)]">Priority Review (Under 24 hours)</span></li>
+                <li className="flex items-start gap-3"><Check size={20} className={`${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} shrink-0 mt-0.5`} /> <span className="text-[var(--color-text-secondary)]">Reach 10,000+ AI Enthusiasts</span></li>
+                <li className="flex items-start gap-3"><Check size={20} className={`${isPro ? 'text-green-500' : 'text-[var(--color-primary)]'} shrink-0 mt-0.5`} /> <span className="text-[var(--color-text-secondary)]">SEO Optimized Tool Page</span></li>
               </ul>
-              <button onClick={() => scrollToForm('Express')} className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all ${selectedPlan === 'Express' ? 'btn-primary shadow-lg shadow-[var(--color-primary)]/30' : 'bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-primary)]/50 hover:bg-[var(--color-primary)] hover:text-white'}`}>
-                Get Express Listing <ArrowRight size={18} />
-              </button>
-            </div>
-
-            {/* Featured Plan */}
-            <div className={`glass-panel p-8 md:p-10 rounded-3xl border flex flex-col relative overflow-hidden transition-all duration-300 ${selectedPlan === 'Featured' ? 'border-[var(--color-accent)] shadow-[0_0_20px_rgba(139,92,246,0.3)] bg-[var(--color-accent)]/10' : 'border-[var(--color-accent)]/50 hover:border-[var(--color-accent)]'}`}>
-              <div className="absolute -right-12 top-8 bg-[var(--color-accent)] text-white px-14 py-1.5 rotate-45 text-xs font-bold tracking-widest shadow-lg">PREMIUM</div>
-              <h3 className="text-2xl font-bold mb-2 text-[var(--color-accent)]">Featured</h3>
-              <p className="text-[var(--color-text-secondary)] mb-8 h-12">Maximum visibility, traffic, and premium placement.</p>
-              <div className="text-5xl font-black mb-8 text-[var(--color-text-primary)]">$99 <span className="text-lg text-[var(--color-text-muted)] font-normal">/month</span></div>
-              <ul className="space-y-5 mb-10 flex-grow">
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-accent)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-primary)] font-bold">Homepage Spotlight</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-accent)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-primary)] font-medium">Pinned at Top of Category</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-accent)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-primary)] font-medium">Newsletter Feature (10k+ subs)</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-accent)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">"Sponsored" Badge</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-[var(--color-accent)] shrink-0 mt-0.5" /> <span className="text-[var(--color-text-secondary)]">Everything in Express</span></li>
-              </ul>
-              <button onClick={() => scrollToForm('Featured')} className={`w-full py-4 rounded-xl transition-all font-bold text-lg flex items-center justify-center gap-2 ${selectedPlan === 'Featured' ? 'bg-[var(--color-accent)] text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-accent)] border border-[var(--color-accent)]/50 hover:bg-[var(--color-accent)] hover:text-white'}`}>
-                Become Featured <Shield size={18} />
+              <button onClick={scrollToForm} className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all ${isPro ? 'bg-green-500 hover:bg-green-600 text-white shadow-lg shadow-green-500/30' : 'btn-primary shadow-lg shadow-[var(--color-primary)]/30'}`}>
+                {isPro ? 'Submit Tool Now' : 'Pay ₹99 to Submit'} <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -124,7 +125,7 @@ const Submit: React.FC = () => {
               <div>
                 <h2 className="text-3xl font-bold text-[var(--color-text-primary)] tracking-tight mb-4">Complete Your Submission</h2>
                 <p className="text-[var(--color-text-secondary)] text-base leading-relaxed">
-                  You have selected the <strong className={selectedPlan === 'Free' ? 'text-[var(--color-text-primary)]' : selectedPlan === 'Express' ? 'text-[var(--color-primary)]' : 'text-[var(--color-accent)]'}>{selectedPlan}</strong> plan. Fill out the details below to get started.
+                  Fill out the details below to get started with your Premium Listing.
                 </p>
               </div>
               
@@ -181,8 +182,38 @@ const Submit: React.FC = () => {
                     </motion.p>
                   </div>
                 </motion.div>
+              ) : formStatus === 'verifying' ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center text-center space-y-6"
+                >
+                  <div className="w-20 h-20 bg-[var(--color-primary)]/20 rounded-full flex items-center justify-center text-[var(--color-primary)]">
+                    <Shield size={40} strokeWidth={2} />
+                  </div>
+                  <div className="space-y-2 w-full max-w-sm">
+                    <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Verify Payment</h3>
+                    <p className="text-[var(--color-text-secondary)] text-sm mb-6">
+                      Please pay exactly <strong>₹99</strong> on the Razorpay page, then enter the Payment ID shown on the success screen to complete your submission.
+                    </p>
+                    <input 
+                      type="text" 
+                      value={paymentId}
+                      onChange={(e) => setPaymentId(e.target.value)}
+                      placeholder="e.g. pay_SQGYVzxgtUvW78" 
+                      className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] text-center font-mono mb-2"
+                    />
+                    {errorMessage && <p className="text-red-400 text-xs mb-4">{errorMessage}</p>}
+                    <button 
+                      onClick={handleVerify}
+                      className="w-full py-3 rounded-xl font-bold text-base btn-primary mt-4"
+                    >
+                      Verify & Submit Tool
+                    </button>
+                  </div>
+                </motion.div>
               ) : (
-                <form className="space-y-5 w-full" onSubmit={handleSubmitTool}>
+                <form ref={formRef} className="space-y-5 w-full" onSubmit={handleSubmitTool}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs font-bold text-[var(--color-text-secondary)] uppercase mb-2">Tool Name</label>
@@ -239,12 +270,12 @@ const Submit: React.FC = () => {
 
                   <button 
                     disabled={formStatus === 'submitting'}
-                    className={`w-full py-4 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center text-base tracking-wide ${selectedPlan === 'Free' ? 'bg-[var(--color-surface)] border border-[var(--color-border)] hover:bg-[var(--color-primary)] hover:text-white text-[var(--color-text-primary)]' : selectedPlan === 'Express' ? 'btn-primary' : 'bg-[var(--color-accent)] hover:bg-[#7c3aed] text-white'}`}
+                    className={`w-full py-4 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center text-base tracking-wide ${isPro ? 'bg-green-500 hover:bg-green-600 text-white' : 'btn-primary'}`}
                   >
                     {formStatus === 'submitting' ? (
                       <><Loader2 className="animate-spin mr-2" size={20} /> Processing...</>
                     ) : (
-                      selectedPlan === 'Free' ? 'Submit for Free' : `Proceed to Payment ($${selectedPlan === 'Express' ? '29' : '99'})`
+                      isPro ? 'Submit Tool' : 'Proceed to Payment (₹99)'
                     )}
                   </button>
                 </form>

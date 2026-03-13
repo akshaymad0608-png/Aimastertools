@@ -1,0 +1,82 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: subscribers
+    // Document ID: {userId} (matches auth.uid)
+    // Fields:
+    //   - uid: string (required) - User's unique ID
+    //   - email: string (required) - User's email
+    //   - displayName: string (optional) - User's display name
+    //   - subscribedAt: timestamp (required) - Timestamp of subscription
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function uidUnchanged() {
+      return !('uid' in request.resource.data) || request.resource.data.uid == request.auth.uid;
+    }
+
+    function uidNotModified() {
+      return !('uid' in request.resource.data) || request.resource.data.uid == resource.data.uid;
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+    function isValidSubscriber(data) {
+      return hasOnlyAllowedFields(['uid', 'email', 'displayName', 'subscribedAt']) &&
+             data.uid is string && data.uid.size() > 0 && data.uid.size() < 100 &&
+             data.email is string && isValidEmail(data.email) && data.email.size() < 200 &&
+             (!('displayName' in data) || (data.displayName is string && data.displayName.size() < 100)) &&
+             data.subscribedAt is timestamp;
+    }
+
+    function isValidNewsletterEmail(data) {
+      return hasOnlyAllowedFields(['email', 'subscribedAt']) &&
+             data.email is string && isValidEmail(data.email) && data.email.size() < 200 &&
+             data.subscribedAt is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+    match /subscribers/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && hasRequiredFields(['uid', 'email', 'subscribedAt']) && isValidSubscriber(request.resource.data) && uidUnchanged();
+      allow update: if isOwner(userId) && isValidSubscriber(request.resource.data) && uidNotModified();
+      allow delete: if isOwner(userId);
+    }
+
+    match /newsletter_emails/{emailId} {
+      allow create: if hasRequiredFields(['email', 'subscribedAt']) && isValidNewsletterEmail(request.resource.data);
+      allow read, update, delete: if false; // Only admins can read/modify (not implemented yet)
+    }
+  }
+}

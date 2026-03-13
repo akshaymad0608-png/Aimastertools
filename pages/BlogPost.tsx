@@ -36,14 +36,15 @@ const BlogPost: React.FC = () => {
             "headline": post.title,
             "description": post.excerpt,
             "image": post.imageUrl,
-            "datePublished": post.date, // Assuming date is in a parseable format or just a string for now
+            "datePublished": new Date(post.date).toISOString(),
             "author": {
-              "@type": "Organization",
-              "name": "AIMasterTools"
+              "@type": "Person",
+              "name": "Akshay Mahajan",
+              "url": "https://aimastertools.space"
             },
             "publisher": {
               "@type": "Organization",
-              "name": "AIMasterTools",
+              "name": "AI Master Tools",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://aimastertools.space/logo.png" // Placeholder

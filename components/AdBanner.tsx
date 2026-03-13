@@ -1,8 +1,15 @@
 import React from 'react';
 import { ExternalLink, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { usePro } from '../context/ProContext';
 
 const AdBanner: React.FC = () => {
+  const { isPro } = usePro();
+
+  if (isPro) {
+    return null;
+  }
+
   return (
     <div className="w-full bg-gradient-to-r from-[var(--color-surface)] to-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 my-12 relative overflow-hidden group shadow-lg">
       <div className="absolute top-0 right-0 bg-[var(--color-primary)]/20 text-[var(--color-primary)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-primary)]/30">

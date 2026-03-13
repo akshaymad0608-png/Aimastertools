@@ -22,8 +22,8 @@ const SEO: React.FC<SEOProps> = ({
   noindex = false,
   children
 }) => {
-  const siteTitle = 'AIMasterTools';
-  const fullTitle = `${title} | ${siteTitle}`;
+  const siteTitle = 'AI Master Tools';
+  const fullTitle = title.includes(siteTitle) || title.includes('AIMasterTools') ? title : `${title} | ${siteTitle}`;
 
   return (
     <Helmet>

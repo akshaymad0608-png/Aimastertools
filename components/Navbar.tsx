@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BrainCircuit, Menu, X, Users } from 'lucide-react';
+import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { usePro } from '../context/ProContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -8,6 +11,8 @@ const Navbar: React.FC = () => {
   const [liveVisitors, setLiveVisitors] = useState(1243);
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const { isPro } = usePro();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     // Simulate live visitor count fluctuating
@@ -38,15 +43,29 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const navLinks = isHome ? [
+    { name: 'AI Categories', onClick: () => scrollToSection('categories') },
+    { name: 'Compare AI Tools', to: '/compare' },
+    { name: 'AI Blog', onClick: () => scrollToSection('blog') },
+    ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
+  ] : [
+    { name: 'AI Categories', to: '/#categories' },
+    { name: 'Compare AI Tools', to: '/compare' },
+    { name: 'AI Blog', to: '/#blog' },
+    ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
+  ];
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 border-b ${scrolled ? 'glass-panel border-[var(--color-border)] py-3 md:py-4 shadow-lg' : 'bg-transparent border-transparent py-4 md:py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[var(--color-background)]/95 backdrop-blur-lg border-[var(--color-border)] py-3 shadow-sm' : 'bg-[var(--color-background)]/90 backdrop-blur-md border-[var(--color-border)]/50 py-4'}`}>
       <div className="container-custom flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        
+        {/* Logo */}
+        <div className="flex items-center">
           <Link 
             to="/" 
-            className="flex items-center gap-3 group" 
+            className="flex items-center gap-2.5 group" 
             onClick={(e) => {
-              if (location.pathname === '/') {
+              if (isHome) {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
@@ -54,16 +73,63 @@ const Navbar: React.FC = () => {
             }}
           >
             <div className="bg-[var(--color-primary)] p-2 rounded-lg shadow-[var(--shadow-neon)] group-hover:scale-105 transition-transform duration-300">
-               <BrainCircuit className="text-white" size={24} strokeWidth={2} />
+               <BrainCircuit className="text-white" size={22} strokeWidth={2.5} />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] tracking-tight">
+            <span className="text-xl font-bold text-[var(--color-text-primary)] tracking-tight">
               AIMasterTools<span className="text-[var(--color-primary)]">.</span>
             </span>
           </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Navigation */}
+        <div className="hidden xl:flex items-center gap-8">
+          <Link 
+            to="/" 
+            className={`text-sm font-medium transition-colors ${isHome ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
+          >
+            Home
+          </Link>
+          {navLinks.map((link, i) => (
+            link.to ? (
+              <Link 
+                key={i} 
+                to={link.to} 
+                className={`text-sm font-medium transition-colors ${location.pathname === link.to ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <button 
+                key={i} 
+                onClick={link.onClick} 
+                className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+              >
+                {link.name}
+              </button>
+            )
+          ))}
+          {isPro && (
+            <div className="flex items-center gap-3">
+              <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites">
+                <Heart size={18} className="fill-red-500" />
+              </button>
+              <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border border-yellow-500/30 rounded-full text-yellow-500 text-xs font-bold tracking-wide uppercase">
+                <Star size={12} className="fill-yellow-500" /> Pro Member
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Actions */}
+        <div className="hidden xl:flex items-center gap-5">
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -72,61 +138,108 @@ const Navbar: React.FC = () => {
             <Users size={14} className="text-[var(--color-text-muted)]" />
             <span className="text-xs font-bold text-[var(--color-text-secondary)]">{liveVisitors.toLocaleString()} Online</span>
           </div>
-
-          <Link to="/" className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-colors relative group">
-            Home
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--color-primary)] transition-all group-hover:w-full"></span>
-          </Link>
-          {isHome ? (
-            <>
-              <button onClick={() => scrollToSection('categories')} className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">Solutions</button>
-              <button onClick={() => scrollToSection('tools')} className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">Portfolio</button>
-              <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">About</button>
-            </>
-          ) : (
-            <>
-              <Link to="/#categories" className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">Solutions</Link>
-              <Link to="/#tools" className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">Portfolio</Link>
-              <Link to="/#about" className="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors">About</Link>
-            </>
-          )}
           
           <Link 
             to="/submit"
-            className="btn-primary text-sm px-6 py-2.5 shadow-none hover:shadow-lg"
+            className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5 shadow-none hover:shadow-lg"
           >
-            Get Started
+            <Plus size={16} />
+            <span>Submit AI Tool</span>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-4">
-          <button className="text-[var(--color-text-primary)] p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {/* Mobile Menu Toggle */}
+        <div className="xl:hidden flex items-center gap-4">
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+            </span>
+            <span className="text-[10px] font-bold text-[var(--color-text-secondary)]">{liveVisitors}</span>
+          </div>
+          <button 
+            className="text-[var(--color-text-primary)] p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-[var(--color-background)] border-b border-[var(--color-border)] p-6 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top-5">
-          <Link to="/" className="text-lg font-medium text-[var(--color-text-primary)] hover:text-[var(--color-primary)]" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          {isHome ? (
-            <>
-              <button onClick={() => scrollToSection('categories')} className="text-lg font-medium text-[var(--color-text-secondary)] text-left hover:text-[var(--color-primary)]">Solutions</button>
-              <button onClick={() => scrollToSection('tools')} className="text-lg font-medium text-[var(--color-text-secondary)] text-left hover:text-[var(--color-primary)]">Portfolio</button>
-              <button onClick={() => scrollToSection('about')} className="text-lg font-medium text-[var(--color-text-secondary)] text-left hover:text-[var(--color-primary)]">About</button>
-            </>
-          ) : (
-            <>
-              <Link to="/#categories" className="text-lg font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]" onClick={() => setIsMobileMenuOpen(false)}>Solutions</Link>
-              <Link to="/#tools" className="text-lg font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]" onClick={() => setIsMobileMenuOpen(false)}>Portfolio</Link>
-              <Link to="/#about" className="text-lg font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-            </>
-          )}
-          <Link to="/submit" className="btn-primary text-center" onClick={() => setIsMobileMenuOpen(false)}>Get Started</Link>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: 'auto' }}
+            exit={{ opacity: 0, y: -10, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 backdrop-blur-xl border-b border-[var(--color-border)] shadow-2xl overflow-hidden"
+          >
+            <div className="p-6 flex flex-col gap-2">
+              <Link 
+                to="/" 
+                className={`flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${isHome ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+                <ChevronRight size={16} className={isHome ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'} />
+              </Link>
+              
+              {navLinks.map((link, i) => (
+                link.to ? (
+                  <Link 
+                    key={i} 
+                    to={link.to} 
+                    className={`flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${location.pathname === link.to ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                    <ChevronRight size={16} className={location.pathname === link.to ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'} />
+                  </Link>
+                ) : (
+                  <button 
+                    key={i} 
+                    onClick={link.onClick} 
+                    className="flex items-center justify-between p-3 rounded-xl font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-colors text-left w-full"
+                  >
+                    {link.name}
+                    <ChevronRight size={16} className="text-[var(--color-text-muted)]" />
+                  </button>
+                )
+              ))}
+
+              {isPro && (
+                <div className="flex items-center justify-between p-3 rounded-xl font-medium bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-500/20 text-yellow-500">
+                  <span className="flex items-center gap-2"><Star size={16} className="fill-yellow-500" /> Pro Member</span>
+                  <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites">
+                    <Heart size={20} className="fill-red-500" />
+                  </button>
+                </div>
+              )}
+              
+              <div className="pt-4 mt-2 border-t border-[var(--color-border)]">
+                <Link 
+                  to="/submit" 
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-white bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/20"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Plus size={18} />
+                  Submit AI Tool
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

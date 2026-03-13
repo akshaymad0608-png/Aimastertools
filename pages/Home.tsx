@@ -12,6 +12,9 @@ import { CATEGORIES, MOCK_TOOLS, BLOG_POSTS } from '../constants';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import VoiceSearch from '../components/VoiceSearch';
+import { signInWithPopup } from 'firebase/auth';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { auth, db, googleProvider } from '../firebase';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -165,16 +168,36 @@ const Home: React.FC = () => {
     { name: 'Elena R.', role: 'Creative Director', text: 'The design tools collection is unmatched. Found exactly what I needed for our new campaign.', company: 'CreativeStudio' }
   ];
 
-  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setNewsletterStatus('submitting');
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      
+      const subscriberData: any = {
+        uid: user.uid,
+        email: user.email,
+        subscribedAt: serverTimestamp()
+      };
+      
+      if (user.displayName) {
+        subscriberData.displayName = user.displayName;
+      }
+      
+      await setDoc(doc(db, 'subscribers', user.uid), subscriberData);
+      
       setNewsletterStatus('success');
-      setTimeout(() => setNewsletterStatus('idle'), 3000);
-    }, 1500);
+      setTimeout(() => setNewsletterStatus('idle'), 5000);
+    } catch (error: any) {
+      console.error("Error subscribing:", error);
+      setErrorMessage(error.message || 'Failed to subscribe. Please try again.');
+      setNewsletterStatus('error');
+      setTimeout(() => setNewsletterStatus('idle'), 5000);
+    }
   };
 
   const spotlightTool = useMemo(() => {
@@ -185,15 +208,15 @@ const Home: React.FC = () => {
   return (
     <>
       <SEO 
-        title="Professional AI Prompt Engineering" 
-        description="अक्षय महाजन द्वारा बनाए गए एडवांस AI टूल्स और प्रॉम्प्ट इंजीनियरिंग रिसोर्सेज को एक्सप्लोर करें। अपनी AI प्रोडक्टिविटी बढ़ाएं।"
-        keywords={['AI Master Tools', 'Akshay Mahajan', 'Prompt Engineering', 'Google AI Studio tools', 'AI ML Engineering']}
+        title="AI Master Tools | Discover, Compare & Find the Best AI Tools" 
+        description="Find, compare, and review the best AI tools and software. Get personalized AI tool suggestions to boost your productivity and business. Discover top AI solutions."
+        keywords={['AI tools directory', 'compare AI tools', 'best AI software', 'AI tool suggestions', 'AI Master Tools', 'Akshay Mahajan', 'Prompt Engineering', 'AI ML Engineering']}
       >
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "AIMasterTools",
+            "name": "AI Master Tools",
             "url": "https://aimastertools.space",
             "potentialAction": {
               "@type": "SearchAction",
@@ -206,14 +229,15 @@ const Home: React.FC = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": "Top AI Tools Directory",
-            "description": "A curated list of the best AI tools for various categories.",
+            "name": "Top AI Tools Directory for Prompt Engineering",
+            "description": "A curated list of the best AI tools and prompt engineering resources by Akshay Mahajan.",
             "url": "https://aimastertools.space",
             "hasPart": MOCK_TOOLS.slice(0, 10).map(tool => ({
               "@type": "SoftwareApplication",
               "name": tool.name,
               "description": tool.description,
               "applicationCategory": tool.category,
+              "operatingSystem": "All",
               "url": `https://aimastertools.space/tool/${tool.id}`
             }))
           })}
@@ -250,7 +274,7 @@ const Home: React.FC = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-primary)]/30 mb-8 shadow-[var(--shadow-neon)]"
           >
             <Sparkles size={16} className="text-[var(--color-secondary)]" />
-            <span className="text-sm font-semibold text-[var(--color-text-primary)] tracking-wide uppercase">Next Gen AI Solutions</span>
+            <span className="text-sm font-semibold text-[var(--color-text-primary)] tracking-wide uppercase">Discover & Compare AI Solutions</span>
           </motion.div>
           
           <motion.h1 
@@ -259,8 +283,8 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1]"
           >
-            Discover the <br className="hidden md:block" />
-            <span className="text-gradient">Future of AI</span>
+            Find & Compare The <br className="hidden md:block" />
+            <span className="text-gradient">Best AI Tools</span>
           </motion.h1>
           
           <motion.p 
@@ -269,7 +293,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
           >
-            Your ultimate directory for discovering, comparing, and mastering the world's most powerful artificial intelligence tools. Elevate your workflow today.
+            Your ultimate directory to discover, compare, and review the perfect AI software for your needs. Get personalized AI tool suggestions to boost your productivity.
           </motion.p>
 
             {/* Search Bar */}
@@ -280,25 +304,25 @@ const Home: React.FC = () => {
             className="max-w-3xl mx-auto relative mb-16"
           >
             <div className="relative flex items-center group">
-              <Search className="absolute left-6 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-primary)] transition-colors" size={24} />
+              <Search className="absolute left-4 md:left-6 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-primary)] transition-colors" size={20} />
               <input 
                 ref={searchInputRef}
                 type="text" 
                 placeholder={selectedCategory !== 'All' ? `Search in ${CATEGORIES.find(c => c.id === selectedCategory)?.name}...` : "Search for solutions (e.g., 'Automation', 'Analytics')"} 
-                className="w-full h-14 md:h-16 pl-16 pr-28 rounded-xl bg-[var(--color-cardBg)] border border-[var(--color-border)] shadow-2xl shadow-[var(--color-primary)]/10 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-base md:text-lg text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] transition-all"
+                className="w-full h-14 md:h-16 pl-12 md:pl-16 pr-20 md:pr-28 rounded-xl bg-[var(--color-cardBg)] border border-[var(--color-border)] shadow-2xl shadow-[var(--color-primary)]/10 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-sm md:text-lg text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] transition-all"
                 value={searchTerm}
                 onChange={handleSearchChange}
                 onKeyDown={handleSearchKeyDown}
               />
               
-              <div className="absolute right-4 flex items-center gap-2">
+              <div className="absolute right-2 md:right-4 flex items-center gap-1 md:gap-2">
                 {searchTerm && (
                   <button 
                     onClick={() => setSearchTerm('')}
-                    className="p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors"
+                    className="p-1.5 md:p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors"
                     aria-label="Clear search"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="18" y1="6" x2="6" y2="18"></line>
                       <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
@@ -347,17 +371,28 @@ const Home: React.FC = () => {
 
             {/* Popular Tags */}
             {!searchTerm && selectedCategory === 'All' && (
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <span className="text-sm text-[var(--color-text-muted)] font-medium uppercase tracking-wider">Trending:</span>
-                {['Analytics', 'Copywriting', 'Development', 'Video', 'Marketing'].map(tag => (
-                  <button 
-                    key={tag}
-                    onClick={() => setSearchTerm(tag)}
-                    className="text-sm text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-primary)] px-4 py-1.5 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-300"
-                  >
-                    {tag}
-                  </button>
-                ))}
+              <div className="mt-6 flex flex-col items-center gap-6">
+                <div className="flex flex-wrap justify-center gap-3">
+                  <span className="text-sm text-[var(--color-text-muted)] font-medium uppercase tracking-wider flex items-center">Trending:</span>
+                  {['Analytics', 'Copywriting', 'Development', 'Video', 'Marketing'].map(tag => (
+                    <button 
+                      key={tag}
+                      onClick={() => setSearchTerm(tag)}
+                      className="text-sm text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-primary)] px-4 py-1.5 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-300"
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+                
+                <Link 
+                  to="/compare" 
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 text-[var(--color-text-primary)] font-medium transition-all duration-300 group shadow-lg"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--color-primary)] group-hover:scale-110 transition-transform"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  Compare AI Tools Side-by-Side
+                  <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             )}
           </motion.div>
@@ -391,8 +426,8 @@ const Home: React.FC = () => {
         <div className="container-custom relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">Explore Solutions</h2>
-              <p className="text-[var(--color-text-secondary)] text-lg">Browse our comprehensive directory by category</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">Explore AI Master Tools & Solutions</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg">Browse our comprehensive directory by category to find the perfect solution for your prompt engineering needs.</p>
             </div>
             <button 
               onClick={() => setShowAllCategories(!showAllCategories)}
@@ -414,8 +449,8 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onClick={() => handleCategoryClick(cat.id)}
-                  className={`p-6 md:p-8 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center text-center gap-4 group glass-panel card-hover-effect relative overflow-hidden
-                    ${isLarge ? 'lg:col-span-2 lg:flex-row lg:text-left lg:justify-start lg:px-10' : 'col-span-1 lg:col-span-1'}
+                  className={`p-4 md:p-8 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 md:gap-4 group glass-panel card-hover-effect relative overflow-hidden
+                    ${isLarge ? 'col-span-2 lg:flex-row lg:text-left lg:justify-start lg:px-10' : 'col-span-1 lg:col-span-1'}
                     ${selectedCategory === cat.id 
                       ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[var(--shadow-glow)]' 
                       : 'border-[var(--color-border)] hover:bg-[var(--color-surface)]/50'
@@ -493,23 +528,23 @@ const Home: React.FC = () => {
               <p className="text-[var(--color-text-secondary)] text-lg">Handpicked AI tools to elevate your business</p>
             </div>
             
-            <div className="flex items-center gap-4">
-               <div className="flex bg-[var(--color-cardBg)] p-1.5 rounded-xl border border-[var(--color-border)] shadow-sm">
+            <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+               <div className="flex bg-[var(--color-cardBg)] p-1.5 rounded-xl border border-[var(--color-border)] shadow-sm min-w-max">
                  <button 
                    onClick={() => setActiveTab('Featured')}
-                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Featured' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                   className={`px-4 md:px-5 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all duration-300 ${activeTab === 'Featured' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
                  >
                    Featured
                  </button>
                  <button 
                    onClick={() => setActiveTab('Trending')}
-                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Trending' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                   className={`px-4 md:px-5 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all duration-300 ${activeTab === 'Trending' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
                  >
                    Trending
                  </button>
                  <button 
                    onClick={() => setActiveTab('Newest')}
-                   className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === 'Newest' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                   className={`px-4 md:px-5 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all duration-300 ${activeTab === 'Newest' ? 'bg-[var(--color-primary)] text-white shadow-md transform scale-105' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
                  >
                    Newest
                  </button>
@@ -560,9 +595,9 @@ const Home: React.FC = () => {
       <section id="blog" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">Latest <span className="text-gradient">Insights</span></h2>
+            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">Latest <span className="text-gradient">AI Engineering Insights</span></h2>
             <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
-              Expert analysis, tutorials, and trends in the AI landscape.
+              Expert analysis, tutorials, and trends in the AI landscape and prompt engineering.
             </p>
           </div>
           
@@ -621,10 +656,13 @@ const Home: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="space-y-8"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]">Pioneering the <span className="text-gradient">Future of AI</span></h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]">Pioneering the <span className="text-gradient">Future of AI Master Tools</span></h2>
               <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                We are a premier digital agency dedicated to curating and developing the most advanced AI solutions. 
-                Our mission is to bridge the gap between complex technology and practical business applications.
+                We are a premier digital agency dedicated to curating and developing the most advanced AI solutions and prompt engineering techniques. 
+                Led by Akshay Mahajan, our mission is to bridge the gap between complex AI ML technology and practical business applications.
+              </p>
+              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
+                Whether you are looking to optimize your workflow with the <Link to="/#tools" className="text-[var(--color-primary)] hover:underline">latest AI tools</Link> or master the art of prompt engineering, our comprehensive directory provides everything you need to succeed in the rapidly evolving AI landscape.
               </p>
               <ul className="space-y-4">
                 {['Enterprise-Grade Solutions', 'Real-time Analytics', 'Expert Consultation'].map((item, i) => (
@@ -695,6 +733,40 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* FAQ / Content Depth Section */}
+      <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">Mastering <span className="text-gradient">Prompt Engineering</span></h2>
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
+              Unlock the full potential of AI Master Tools with advanced prompt engineering strategies.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">What is Prompt Engineering?</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                Prompt engineering is the practice of designing and refining inputs (prompts) to effectively communicate with large language models (LLMs) and other AI systems. By crafting precise and context-rich prompts, you can guide AI tools to generate more accurate, relevant, and high-quality outputs. It is an essential skill for anyone looking to leverage AI Master Tools for professional tasks.
+              </p>
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Why Use an AI Tools Directory?</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                With the rapid explosion of AI ML engineering solutions, finding the right tool can be overwhelming. Our curated AI tools directory simplifies this process by categorizing the best platforms for copywriting, image generation, coding, and more. <Link to="/#categories" className="text-[var(--color-primary)] hover:underline">Explore our categories</Link> to discover solutions tailored to your specific workflow.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">How to Choose the Right AI Tool</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                When selecting an AI tool, consider your specific use case, budget, and required integrations. Many tools offer free tiers or trials, allowing you to test their capabilities before committing. Pay attention to community reviews and expert insights, which you can find in our <Link to="/#blog" className="text-[var(--color-primary)] hover:underline">latest AI engineering insights</Link>.
+              </p>
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">The Future of AI ML Engineering</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                The field of AI ML engineering is constantly evolving, with new breakthroughs in generative AI, autonomous agents, and multimodal models. Staying updated with the latest trends and continuously honing your prompt engineering skills will ensure you remain at the forefront of this technological revolution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)] relative overflow-hidden">
         <div className="container-custom relative z-10">
@@ -736,11 +808,38 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* SEO Content Section */}
+      <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto glass-panel rounded-2xl p-6 md:p-12 border border-[var(--color-border)] shadow-lg">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">Why Use AI Master Tools to Find & Compare AI Software?</h2>
+            
+            <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+              <p>
+                In today's rapidly evolving digital landscape, finding the right artificial intelligence software can be overwhelming. <strong>AI Master Tools</strong> is your premier destination to discover, compare, and review the best AI tools available in 2026. Whether you are looking for an AI writing assistant, an advanced image generator, or an enterprise-grade machine learning platform, our comprehensive directory provides personalized suggestions tailored to your specific needs.
+              </p>
+              
+              <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">How We Help You Choose the Best AI Tools</h3>
+              <ul className="list-disc pl-6 space-y-3">
+                <li><strong>Unbiased Comparisons:</strong> We evaluate tools based on features, pricing, and real user reviews so you can make an informed decision.</li>
+                <li><strong>Curated Categories:</strong> Browse through meticulously organized categories including Copywriting, Video Creation, Coding, SEO, and Productivity.</li>
+                <li><strong>Personalized Suggestions:</strong> Use our advanced search and filtering system to get recommendations that match your exact workflow requirements.</li>
+                <li><strong>Prompt Engineering Resources:</strong> Beyond just software, we provide expert insights and tutorials to help you master prompt engineering and get the most out of your AI investments.</li>
+              </ul>
+
+              <p className="mt-6">
+                Stop wasting time testing subpar solutions. Let AI Master Tools guide you to the perfect software stack. Compare features, read in-depth reviews, and discover the top-rated AI solutions that will elevate your business and personal productivity to the next level.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
       <section className="py-16 md:py-24 relative overflow-hidden border-t border-[var(--color-border)]">
         <div className="absolute inset-0 bg-[var(--color-surface)]/50 -z-10"></div>
         <div className="container-custom relative z-10">
-          <div className="glass-panel border border-[var(--color-border)] rounded-2xl p-12 md:p-20 text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
+          <div className="glass-panel border border-[var(--color-border)] rounded-2xl p-6 md:p-20 text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent opacity-50"></div>
             
             <div className="inline-flex p-4 rounded-xl bg-[var(--color-primary)]/10 mb-8 border border-[var(--color-primary)]/20 shadow-[var(--shadow-neon)]">
@@ -750,7 +849,7 @@ const Home: React.FC = () => {
             <p className="text-[var(--color-text-secondary)] mb-10 max-w-xl mx-auto text-xl leading-relaxed">
               Get exclusive access to new tools, premium tutorials, and industry insights delivered to your inbox.
             </p>
-            <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onSubmit={handleNewsletterSubmit}>
+            <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto justify-center" onSubmit={handleNewsletterSubmit}>
               {newsletterStatus === 'success' ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -761,22 +860,25 @@ const Home: React.FC = () => {
                   <span className="font-semibold">Subscribed successfully!</span>
                 </motion.div>
               ) : (
-                <>
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email address" 
-                    className="flex-grow bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-lg px-6 py-4 text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-transparent transition-all placeholder-[var(--color-text-muted)]"
-                    required
-                    disabled={newsletterStatus === 'submitting'}
-                  />
+                <div className="flex flex-col items-center w-full gap-3">
                   <button 
-                    type="submit"
+                    type="button"
+                    onClick={handleNewsletterSubmit}
                     disabled={newsletterStatus === 'submitting'}
-                    className="btn-primary px-10 py-4 rounded-lg shadow-lg whitespace-nowrap text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="btn-primary px-10 py-4 rounded-lg shadow-lg whitespace-nowrap text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full md:w-auto"
                   >
-                    {newsletterStatus === 'submitting' ? 'Joining...' : 'Subscribe'}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" className="w-6 h-6">
+                      <path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                      <path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                      <path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    {newsletterStatus === 'submitting' ? 'Connecting...' : 'Subscribe with Google'}
                   </button>
-                </>
+                  {newsletterStatus === 'error' && (
+                    <p className="text-red-400 text-sm mt-2">{errorMessage}</p>
+                  )}
+                </div>
               )}
             </form>
             <p className="text-xs text-[var(--color-text-muted)] mt-8 font-medium">No spam, unsubscribe anytime.</p>

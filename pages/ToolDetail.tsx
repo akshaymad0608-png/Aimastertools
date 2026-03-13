@@ -6,11 +6,13 @@ import { Tool } from '../types';
 import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
 import { useBookmarks } from '../context/BookmarkContext';
+import { usePro } from '../context/ProContext';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [tool, setTool] = useState<Tool | null>(null);
   const { bookmarks, toggleBookmark } = useBookmarks();
+  const { isPro } = usePro();
 
   useEffect(() => {
     // In a real app, you would fetch from API
@@ -64,22 +66,24 @@ const ToolDetail: React.FC = () => {
             "name": tool.name,
             "description": tool.description,
             "applicationCategory": tool.category,
-            "operatingSystem": "Web",
+            "operatingSystem": "Web, Windows, macOS",
+            "url": tool.url,
+            "image": tool.imageUrl,
             "offers": {
               "@type": "Offer",
-              "price": tool.pricing === "Free" ? "0" : "0", // Simplified
+              "price": tool.pricing === "Free" ? "0" : tool.pricing === "Freemium" ? "0" : "10",
               "priceCurrency": "USD"
             },
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": tool.rating,
-              "ratingCount": "100" // Placeholder count
+              "reviewCount": "150"
             }
           })}
         </script>
       </SEO>
       
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative">
+      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
@@ -91,11 +95,11 @@ const ToolDetail: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Header Section */}
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-8 md:p-10 shadow-lg relative overflow-hidden">
+            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-10 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)]/5 rounded-full blur-[80px] -z-10"></div>
               
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-md">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-md">
                    <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="flex-grow">
@@ -111,8 +115,8 @@ const ToolDetail: React.FC = () => {
                       <Calendar size={12} /> Added {tool.dateAdded}
                     </span>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight">{tool.name}</h1>
-                  <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                  <h1 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight">{tool.name}</h1>
+                  <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
                     {tool.description}
                   </p>
                 </div>
@@ -125,7 +129,7 @@ const ToolDetail: React.FC = () => {
             </div>
 
             {/* Detailed Description */}
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-8 md:p-10 shadow-lg">
+            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-10 shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)] flex items-center gap-2">
                 <span className="w-1 h-8 bg-[var(--color-primary)] rounded-full"></span>
                 About {tool.name}
@@ -158,7 +162,7 @@ const ToolDetail: React.FC = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-8 sticky top-28 shadow-xl">
+            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-8 sticky top-28 shadow-xl">
               <div className="flex items-center justify-between mb-8 pb-8 border-b border-[var(--color-border)]">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-0.5">
@@ -262,37 +266,39 @@ const ToolDetail: React.FC = () => {
             </div>
 
             {/* Sponsored Tool Widget */}
-            <div className="glass-panel border border-[var(--color-primary)]/30 rounded-3xl p-6 shadow-lg relative overflow-hidden group">
-              <div className="absolute top-0 right-0 bg-[var(--color-primary)]/20 text-[var(--color-primary)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-primary)]/30">
-                Sponsored
-              </div>
-              <div className="absolute -left-10 -top-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
-              
-              <h4 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
-                <Sparkles size={16} className="text-[var(--color-accent)]" /> Featured Tool
-              </h4>
-              
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
-                  <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=100" alt="Sponsored AI Tool" className="w-full h-full object-cover" />
+            {!isPro && (
+              <div className="glass-panel border border-[var(--color-primary)]/30 rounded-3xl p-6 shadow-lg relative overflow-hidden group">
+                <div className="absolute top-0 right-0 bg-[var(--color-primary)]/20 text-[var(--color-primary)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-primary)]/30">
+                  Sponsored
                 </div>
-                <div>
-                  <h5 className="font-bold text-[var(--color-text-primary)] text-sm">NexusAI Pro</h5>
-                  <div className="flex items-center gap-1 text-[10px] text-[var(--color-text-secondary)] mt-1">
-                    <Star size={10} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-                    <span>4.9 (2k+ reviews)</span>
+                <div className="absolute -left-10 -top-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
+                
+                <h4 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
+                  <Sparkles size={16} className="text-[var(--color-accent)]" /> Featured Tool
+                </h4>
+                
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=100" alt="Sponsored AI Tool" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-[var(--color-text-primary)] text-sm">NexusAI Pro</h5>
+                    <div className="flex items-center gap-1 text-[10px] text-[var(--color-text-secondary)] mt-1">
+                      <Star size={10} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                      <span>4.9 (2k+ reviews)</span>
+                    </div>
                   </div>
                 </div>
+                
+                <p className="text-sm text-[var(--color-text-secondary)] mb-5 line-clamp-2">
+                  Automate your entire workflow with next-generation AI agents. Try it free for 14 days.
+                </p>
+                
+                <a href="#" className="w-full py-2.5 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all text-sm font-bold flex items-center justify-center gap-2">
+                  Try NexusAI Free <ExternalLink size={14} />
+                </a>
               </div>
-              
-              <p className="text-sm text-[var(--color-text-secondary)] mb-5 line-clamp-2">
-                Automate your entire workflow with next-generation AI agents. Try it free for 14 days.
-              </p>
-              
-              <a href="#" className="w-full py-2.5 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all text-sm font-bold flex items-center justify-center gap-2">
-                Try NexusAI Free <ExternalLink size={14} />
-              </a>
-            </div>
+            )}
           </div>
         </div>
 

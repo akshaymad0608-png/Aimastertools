@@ -5,7 +5,8 @@ import {
   Database, GraduationCap, Box, DollarSign, Scale, Search,
   Music, Headphones, Globe, Cpu, Palette, Smile,
   Heart, Plane, Gamepad2, Shirt, Home, Pill, FlaskConical,
-  Users, Target, Newspaper, Share2, Bitcoin, Layout, ShoppingBag
+  Users, Target, Newspaper, Share2, Bitcoin, Layout, ShoppingBag,
+  Presentation
 } from 'lucide-react';
 
 const TAGS_BY_CATEGORY: Record<string, string[]> = {
@@ -18,6 +19,7 @@ const TAGS_BY_CATEGORY: Record<string, string[]> = {
   'Marketing': ['Social Media', 'Ad Creative', 'Influencer Marketing', 'Affiliate Marketing', 'Analytics'],
   'SEO': ['Keyword Research', 'Rank Tracking', 'On-Page SEO', 'Backlink Analysis', 'Content Optimization', 'Technical SEO', 'Local SEO', 'Competitor Analysis'],
   'Productivity': ['Workflow Automation', 'No-Code', 'Website Builder', 'App Builder', 'Document Management', 'PDF Tools', 'OCR', 'Scanning', 'Printing', 'Fax', 'Mail', 'Shipping', 'Logistics', 'Supply Chain', 'Inventory', 'Warehouse', 'Manufacturing'],
+  'Presentation': ['Slides', 'Pitch Decks', 'Storytelling', 'Templates', 'Design'],
   'Business': ['Startup', 'Management', 'Sales', 'Banking', 'Loans', 'Credit', 'Mortgage', 'Retirement', 'Estate Planning', 'Will', 'Trust', 'Divorce', 'Immigration', 'Visa', 'Passport', 'Driver License', 'ID', 'Notary', 'Signature'],
   'Career': ['Resume', 'Job Search', 'Interview'],
   'Data': ['Analytics', 'Visualization', 'Spreadsheets', 'Business Intelligence', 'Predictive Analytics', 'Data Cleaning', 'NLP', 'SQL Generator'],
@@ -56,6 +58,7 @@ const CATEGORY_META = [
   { id: 'Marketing', name: 'Marketing & Ads', icon: TrendingUp },
   { id: 'SEO', name: 'SEO & Search', icon: Globe },
   { id: 'Productivity', name: 'Productivity & Workflow', icon: Zap },
+  { id: 'Presentation', name: 'Presentations & Slides', icon: Presentation },
   { id: 'Business', name: 'Business Operations', icon: Briefcase },
   { id: 'Career', name: 'Career & Resumes', icon: FileText },
   { id: 'Data', name: 'Data & Analytics', icon: Database },
@@ -85,6 +88,45 @@ const CATEGORY_META = [
 ];
 
 export const MOCK_TOOLS: Tool[] = [
+  {
+    id: 'gamma',
+    name: 'Gamma',
+    description: 'A new medium for presenting ideas, powered by AI. Create beautiful, engaging content with none of the formatting and design work.',
+    category: 'Presentation',
+    url: 'https://gamma.app',
+    imageUrl: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Freemium',
+    rating: 4.8,
+    featured: true,
+    dateAdded: '2023-05-15',
+    tags: ['Slides', 'Pitch Decks', 'Storytelling']
+  },
+  {
+    id: 'tome',
+    name: 'Tome',
+    description: 'The AI-powered storytelling format. Tome helps you build compelling narratives with AI-generated text and images.',
+    category: 'Presentation',
+    url: 'https://tome.app',
+    imageUrl: 'https://images.unsplash.com/photo-1542744094-24638ea0b56c?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Freemium',
+    rating: 4.7,
+    featured: false,
+    dateAdded: '2023-03-10',
+    tags: ['Storytelling', 'Slides', 'Design']
+  },
+  {
+    id: 'beautiful-ai',
+    name: 'Beautiful.ai',
+    description: 'Presentation software that designs for you. Beautiful.ai uses AI to automatically format your slides as you add content.',
+    category: 'Presentation',
+    url: 'https://www.beautiful.ai',
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Paid',
+    rating: 4.6,
+    featured: false,
+    dateAdded: '2022-11-20',
+    tags: ['Slides', 'Templates', 'Design']
+  },
   {
     id: '1',
     name: 'ChatGPT',
@@ -143,7 +185,7 @@ export const MOCK_TOOLS: Tool[] = [
     description: 'AI-powered search engine that provides direct answers with citations.',
     category: 'Research',
     url: 'https://www.perplexity.ai',
-    imageUrl: 'https://images.unsplash.com/photo-1655393001768-d946c998b49c?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800',
     pricing: 'Freemium',
     rating: 4.9,
     featured: true,
@@ -6255,8 +6297,12 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>The Future of Education is Here</h2>
       <p>Artificial Intelligence is transforming the way students learn, research, and write. In 2026, the tools available are more powerful and intuitive than ever before.</p>
       
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200" alt="Students using technology" style="width: 100%; border-radius: 1rem; margin: 2rem 0; max-height: 400px; object-fit: cover;" referrerPolicy="no-referrer" />
+      
       <h3>1. Research Assistants</h3>
       <p>Tools like Perplexity and Consensus have revolutionized how students find information. Instead of sifting through endless search results, these AI assistants provide direct answers with citations.</p>
+      
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200" alt="Perplexity AI Tool Interface" style="width: 100%; border-radius: 1rem; margin: 2rem 0; max-height: 400px; object-fit: cover;" referrerPolicy="no-referrer" />
       
       <h3>2. Writing Companions</h3>
       <p>While academic integrity is paramount, AI writing tools can help with brainstorming, outlining, and grammar checking. They act as a personal tutor, guiding students to improve their writing skills.</p>
@@ -6304,6 +6350,8 @@ export const BLOG_POSTS: BlogPost[] = [
     content: `
       <h2>What's Next for AI?</h2>
       <p>The pace of AI innovation shows no signs of slowing down. Here are the key trends that are shaping the landscape in late 2025 and beyond.</p>
+      
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200" alt="AI technology trends" style="width: 100%; border-radius: 1rem; margin: 2rem 0; max-height: 400px; object-fit: cover;" referrerPolicy="no-referrer" />
       
       <h3>1. Autonomous Agents</h3>
       <p>We are moving from chatbots that respond to prompts to autonomous agents that can execute complex tasks. These agents can plan, reason, and interact with other software to achieve goals with minimal human intervention.</p>

@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BrainCircuit, Twitter, Github, Linkedin, ChevronUp, ArrowRight, Mail, Check, Loader2, Users } from 'lucide-react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     
     setStatus('submitting');
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      await addDoc(collection(db, 'newsletter_emails'), {
+        email: email,
+        subscribedAt: serverTimestamp()
+      });
       setStatus('success');
       setEmail('');
       setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -44,9 +53,9 @@ const Footer: React.FC = () => {
               Empowering businesses with cutting-edge AI solutions. We bridge the gap between imagination and reality.
             </p>
             <div className="flex gap-4">
-              <button className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="Twitter"><Twitter size={18} /></button>
-              <button className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="GitHub"><Github size={18} /></button>
-              <button className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="LinkedIn"><Linkedin size={18} /></button>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="Twitter"><Twitter size={18} /></a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="GitHub"><Github size={18} /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-all text-[var(--color-text-secondary)]" aria-label="LinkedIn"><Linkedin size={18} /></a>
             </div>
           </div>
           
@@ -64,9 +73,9 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Company</h4>
             <ul className="space-y-4 text-sm text-[var(--color-text-secondary)]">
               <li><Link to="/#about" className="hover:text-[var(--color-primary)] transition-colors">About Us</Link></li>
-              <li><Link to="#" className="hover:text-[var(--color-primary)] transition-colors">Careers</Link></li>
-              <li><Link to="#" className="hover:text-[var(--color-primary)] transition-colors">Privacy Policy</Link></li>
-              <li><Link to="#" className="hover:text-[var(--color-primary)] transition-colors">Terms of Service</Link></li>
+              <li><Link to="/careers" className="hover:text-[var(--color-primary)] transition-colors">Careers</Link></li>
+              <li><Link to="/privacy" className="hover:text-[var(--color-primary)] transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-[var(--color-primary)] transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -81,7 +90,7 @@ const Footer: React.FC = () => {
                   <Check size={16} /> Subscribed!
                 </div>
               ) : (
-                <>
+                <div className="relative">
                   <input 
                     type="email" 
                     value={email}
@@ -89,7 +98,7 @@ const Footer: React.FC = () => {
                     placeholder="Enter your email" 
                     required
                     disabled={status === 'submitting'}
-                    className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg py-3 px-4 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors pr-12 disabled:opacity-50"
+                    className={`w-full bg-[var(--color-surface)] border ${status === 'error' ? 'border-red-500' : 'border-[var(--color-border)]'} rounded-lg py-3 px-4 text-sm text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors pr-12 disabled:opacity-50`}
                   />
                   <button 
                     type="submit"
@@ -98,7 +107,10 @@ const Footer: React.FC = () => {
                   >
                     {status === 'submitting' ? <Loader2 size={16} className="animate-spin" /> : <ArrowRight size={16} />}
                   </button>
-                </>
+                </div>
+              )}
+              {status === 'error' && (
+                <p className="text-red-500 text-xs mt-2">Failed to subscribe. Please try again.</p>
               )}
             </form>
           </div>
