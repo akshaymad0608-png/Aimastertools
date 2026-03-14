@@ -79,15 +79,15 @@ const Submit: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
         <div className="container-custom relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-sm font-bold uppercase tracking-wider mb-6">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-xs md:text-sm font-bold uppercase tracking-wider mb-4 md:mb-6">
               <Zap size={16} /> Grow Your Audience
             </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-[var(--color-text-primary)]">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 tracking-tight text-[var(--color-text-primary)]">
               Reach Thousands of <br />
               <span className="text-gradient">AI Enthusiasts</span>
             </h1>
-            <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed px-4 md:px-0">
               Get your AI tool in front of our highly engaged audience. Choose a plan that fits your growth goals and start driving high-quality traffic today.
             </p>
           </div>

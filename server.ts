@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import Razorpay from 'razorpay';
 import dotenv from 'dotenv';
 import crypto from 'crypto';
+import nodemailer from 'nodemailer';
 
 dotenv.config();
 
@@ -84,6 +85,100 @@ async function startServer() {
     } catch (error: any) {
       console.error('Error verifying payment:', error);
       res.status(500).json({ error: error.message || 'Something went wrong' });
+    }
+  });
+
+  // Send Welcome Email
+  app.post('/api/send-welcome-email', async (req, res) => {
+    try {
+      const { email, name } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+      }
+
+      if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+        console.log(`[MOCK EMAIL] Welcome email sent to: ${email}`);
+        return res.json({ success: true, mock: true });
+      }
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: `"AI Master Tools" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: 'Thank You for Logging In! 🚀',
+        html: `
+          <div style="font-family: sans-serif; max-w: 600px; margin: 0 auto;">
+            <h2 style="color: #3B82F6;">Welcome back to AI Master Tools!</h2>
+            <p>Hi ${name || 'there'},</p>
+            <p>Thank you for logging in to AI Master Tools. We are thrilled to have you!</p>
+            <p>Explore the best AI tools, compare features, and boost your productivity.</p>
+            <br/>
+            <p>Best regards,</p>
+            <p><strong>The AI Master Tools Team</strong></p>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error('Error sending email:', error);
+      res.status(500).json({ error: error.message || 'Failed to send email' });
+    }
+  });
+
+  // Send Purchase Email
+  app.post('/api/send-purchase-email', async (req, res) => {
+    try {
+      const { email, name, planName } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+      }
+
+      if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+        console.log(`[MOCK EMAIL] Purchase email sent to: ${email}`);
+        return res.json({ success: true, mock: true });
+      }
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: `"AI Master Tools" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: 'Thank You for Your Purchase! 🎉',
+        html: `
+          <div style="font-family: sans-serif; max-w: 600px; margin: 0 auto;">
+            <h2 style="color: #10B981;">Payment Successful!</h2>
+            <p>Hi ${name || 'there'},</p>
+            <p>Thank you for upgrading to the <strong>${planName || 'Pro'}</strong> plan on AI Master Tools!</p>
+            <p>Your account has been successfully updated with premium features. You can now enjoy unlimited tool saves, advanced search, and priority submissions.</p>
+            <br/>
+            <p>Best regards,</p>
+            <p><strong>The AI Master Tools Team</strong></p>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error('Error sending purchase email:', error);
+      res.status(500).json({ error: error.message || 'Failed to send email' });
     }
   });
 

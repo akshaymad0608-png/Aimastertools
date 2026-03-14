@@ -1,24 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
 import { ProProvider } from './context/ProContext';
+import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import CommandPalette from './components/CommandPalette';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Submit from './pages/Submit';
-import ToolDetail from './pages/ToolDetail';
-import BlogPost from './pages/BlogPost';
-import Compare from './pages/Compare';
-import Pricing from './pages/Pricing';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import Careers from './pages/Careers';
-import NotFound from './pages/NotFound';
-import { X, AlertCircle } from 'lucide-react';
+import { X, AlertCircle, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Lazy load pages for better performance
+const Home = lazy(() => import('./pages/Home'));
+const Submit = lazy(() => import('./pages/Submit'));
+const ToolDetail = lazy(() => import('./pages/ToolDetail'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Compare = lazy(() => import('./pages/Compare'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const Careers = lazy(() => import('./pages/Careers'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+const PageLoader = () => (
+  <div className="flex-grow flex items-center justify-center min-h-[60vh]">
+    <Loader2 className="w-10 h-10 animate-spin text-[var(--color-primary)]" />
+  </div>
+);
 
 const GlobalToast = () => {
   const { bookmarkError, clearBookmarkError } = useBookmarks();
@@ -76,25 +85,28 @@ function App() {
         <meta property="og:description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan." />
       </Helmet>
       <ThemeProvider>
-        <ProProvider>
-          <BookmarkProvider>
-            <Router>
+        <AuthProvider>
+          <ProProvider>
+            <BookmarkProvider>
+              <Router>
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)] overflow-x-hidden">
               <Navbar />
               
-              <main className="flex-grow">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/submit" element={<Submit />} />
-                  <Route path="/tool/:id" element={<ToolDetail />} />
-                  <Route path="/blog/:id" element={<BlogPost />} />
-                  <Route path="/compare" element={<Compare />} />
-                  <Route path="/pricing" element={<Pricing />} />
-                  <Route path="/privacy" element={<PrivacyPolicy />} />
-                  <Route path="/terms" element={<TermsOfService />} />
-                  <Route path="/careers" element={<Careers />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+              <main className="flex-grow flex flex-col">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/submit" element={<Submit />} />
+                    <Route path="/tool/:id" element={<ToolDetail />} />
+                    <Route path="/blog/:id" element={<BlogPost />} />
+                    <Route path="/compare" element={<Compare />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/privacy" element={<PrivacyPolicy />} />
+                    <Route path="/terms" element={<TermsOfService />} />
+                    <Route path="/careers" element={<Careers />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
               </main>
 
               <Footer />
@@ -104,6 +116,7 @@ function App() {
           </Router>
           </BookmarkProvider>
         </ProProvider>
+        </AuthProvider>
       </ThemeProvider>
     </HelmetProvider>
   );

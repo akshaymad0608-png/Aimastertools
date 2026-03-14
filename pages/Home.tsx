@@ -281,7 +281,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1]"
           >
             Find & Compare The <br className="hidden md:block" />
             <span className="text-gradient">Best AI Tools</span>
@@ -291,7 +291,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
+            className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0"
           >
             Your ultimate directory to discover, compare, and review the perfect AI software for your needs. Get personalized AI tool suggestions to boost your productivity.
           </motion.p>
@@ -424,10 +424,10 @@ const Home: React.FC = () => {
       <section id="categories" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-y border-[var(--color-border)] relative">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
         <div className="container-custom relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">Explore AI Master Tools & Solutions</h2>
-              <p className="text-[var(--color-text-secondary)] text-lg">Browse our comprehensive directory by category to find the perfect solution for your prompt engineering needs.</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">Explore AI Master Tools & Solutions</h2>
+              <p className="text-[var(--color-text-secondary)] text-base md:text-lg">Browse our comprehensive directory by category to find the perfect solution for your prompt engineering needs.</p>
             </div>
             <button 
               onClick={() => setShowAllCategories(!showAllCategories)}
@@ -486,15 +486,15 @@ const Home: React.FC = () => {
             <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${spotlightTool.imageUrl})` }}></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/90 to-transparent"></div>
             
-            <div className="relative z-10 p-8 md:p-16 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/50 text-[var(--color-accent)] text-xs font-bold uppercase tracking-wider mb-6">
+            <div className="relative z-10 p-6 md:p-16 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/50 text-[var(--color-accent)] text-xs font-bold uppercase tracking-wider mb-4 md:mb-6">
                 <Sparkles size={12} /> Editor's Choice
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
                 Unleash Creativity with <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)]">{spotlightTool.name}</span>
               </h2>
-              <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-[var(--color-text-secondary)] mb-6 md:mb-8 leading-relaxed">
                 {spotlightTool.description}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -520,12 +520,12 @@ const Home: React.FC = () => {
       {/* Tools Section - Agency Portfolio Style */}
       <section id="tools" className="py-16 md:py-24 relative">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-12 gap-6 md:gap-8">
             <div>
-              <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-3">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-2 md:mb-3">
                 {activeTab === 'Featured' ? 'Featured' : activeTab === 'Trending' ? 'Trending' : 'Latest'} <span className="text-gradient">Innovations</span>
               </h2>
-              <p className="text-[var(--color-text-secondary)] text-lg">Handpicked AI tools to elevate your business</p>
+              <p className="text-[var(--color-text-secondary)] text-base md:text-lg">Handpicked AI tools to elevate your business</p>
             </div>
             
             <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
@@ -594,9 +594,9 @@ const Home: React.FC = () => {
       {/* Blog Section */}
       <section id="blog" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">Latest <span className="text-gradient">AI Engineering Insights</span></h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">Latest <span className="text-gradient">AI Engineering Insights</span></h2>
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
               Expert analysis, tutorials, and trends in the AI landscape and prompt engineering.
             </p>
           </div>
@@ -613,7 +613,7 @@ const Home: React.FC = () => {
               >
                 <div className="h-60 overflow-hidden relative">
                    <Link to={post.url} className="block w-full h-full">
-                     <img src={post.imageUrl} alt={post.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
+                     <img src={post.imageUrl} alt={post.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-80"></div>
                      <div className="absolute bottom-4 left-4 right-4">
                         <div className="flex items-center gap-3 text-xs text-[var(--color-secondary)] font-bold uppercase tracking-wider mb-2">
@@ -736,30 +736,30 @@ const Home: React.FC = () => {
       {/* FAQ / Content Depth Section */}
       <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">Mastering <span className="text-gradient">Prompt Engineering</span></h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">Mastering <span className="text-gradient">Prompt Engineering</span></h2>
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
               Unlock the full potential of AI Master Tools with advanced prompt engineering strategies.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">What is Prompt Engineering?</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">What is Prompt Engineering?</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
                 Prompt engineering is the practice of designing and refining inputs (prompts) to effectively communicate with large language models (LLMs) and other AI systems. By crafting precise and context-rich prompts, you can guide AI tools to generate more accurate, relevant, and high-quality outputs. It is an essential skill for anyone looking to leverage AI Master Tools for professional tasks.
               </p>
-              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Why Use an AI Tools Directory?</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">Why Use an AI Tools Directory?</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
                 With the rapid explosion of AI ML engineering solutions, finding the right tool can be overwhelming. Our curated AI tools directory simplifies this process by categorizing the best platforms for copywriting, image generation, coding, and more. <Link to="/#categories" className="text-[var(--color-primary)] hover:underline">Explore our categories</Link> to discover solutions tailored to your specific workflow.
               </p>
             </div>
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">How to Choose the Right AI Tool</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">How to Choose the Right AI Tool</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
                 When selecting an AI tool, consider your specific use case, budget, and required integrations. Many tools offer free tiers or trials, allowing you to test their capabilities before committing. Pay attention to community reviews and expert insights, which you can find in our <Link to="/#blog" className="text-[var(--color-primary)] hover:underline">latest AI engineering insights</Link>.
               </p>
-              <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">The Future of AI ML Engineering</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">The Future of AI ML Engineering</h3>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
                 The field of AI ML engineering is constantly evolving, with new breakthroughs in generative AI, autonomous agents, and multimodal models. Staying updated with the latest trends and continuously honing your prompt engineering skills will ensure you remain at the forefront of this technological revolution.
               </p>
             </div>
@@ -770,9 +770,9 @@ const Home: React.FC = () => {
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)] relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--color-text-primary)] mb-4">What Our <span className="text-gradient">Users Say</span></h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-lg">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">What Our <span className="text-gradient">Users Say</span></h2>
+            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
               Join thousands of professionals who trust AIMasterTools for their AI needs.
             </p>
           </div>
@@ -842,11 +842,11 @@ const Home: React.FC = () => {
           <div className="glass-panel border border-[var(--color-border)] rounded-2xl p-6 md:p-20 text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent opacity-50"></div>
             
-            <div className="inline-flex p-4 rounded-xl bg-[var(--color-primary)]/10 mb-8 border border-[var(--color-primary)]/20 shadow-[var(--shadow-neon)]">
+            <div className="inline-flex p-4 rounded-xl bg-[var(--color-primary)]/10 mb-6 md:mb-8 border border-[var(--color-primary)]/20 shadow-[var(--shadow-neon)]">
               <Sparkles className="text-[var(--color-primary)]" size={32} />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text-primary)] tracking-tight">Join the <span className="text-gradient">AI Revolution</span></h2>
-            <p className="text-[var(--color-text-secondary)] mb-10 max-w-xl mx-auto text-xl leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-[var(--color-text-primary)] tracking-tight">Join the <span className="text-gradient">AI Revolution</span></h2>
+            <p className="text-[var(--color-text-secondary)] mb-8 md:mb-10 max-w-xl mx-auto text-base md:text-xl leading-relaxed">
               Get exclusive access to new tools, premium tutorials, and industry insights delivered to your inbox.
             </p>
             <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto justify-center" onSubmit={handleNewsletterSubmit}>

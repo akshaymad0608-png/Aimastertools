@@ -115,8 +115,8 @@ const ToolDetail: React.FC = () => {
                       <Calendar size={12} /> Added {tool.dateAdded}
                     </span>
                   </div>
-                  <h1 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight">{tool.name}</h1>
-                  <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4 tracking-tight">{tool.name}</h1>
+                  <p className="text-sm sm:text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
                     {tool.description}
                   </p>
                 </div>
@@ -125,7 +125,7 @@ const ToolDetail: React.FC = () => {
 
             {/* Image/Screenshot Section */}
             <div className="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl">
-              <img src={tool.imageUrl} alt={`${tool.name} screenshot`} className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
+              <img src={tool.imageUrl} alt={`${tool.name} screenshot`} className="w-full h-auto object-cover" referrerPolicy="no-referrer" loading="lazy" />
             </div>
 
             {/* Detailed Description */}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon } from 'lucide-react';
+import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePro } from '../context/ProContext';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar: React.FC = () => {
   const isHome = location.pathname === '/';
   const { isPro } = usePro();
   const { theme, toggleTheme } = useTheme();
+  const { currentUser, login, logout } = useAuth();
 
   useEffect(() => {
     // Simulate live visitor count fluctuating
@@ -146,6 +148,24 @@ const Navbar: React.FC = () => {
             <Plus size={16} />
             <span>Submit AI Tool</span>
           </Link>
+
+          {currentUser ? (
+            <button 
+              onClick={logout}
+              className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
+            >
+              <img src={currentUser.photoURL || ''} alt="User" className="w-5 h-5 rounded-full" />
+              <span>Logout</span>
+            </button>
+          ) : (
+            <button 
+              onClick={login}
+              className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
+            >
+              <LogIn size={16} />
+              <span>Login</span>
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -226,7 +246,7 @@ const Navbar: React.FC = () => {
                 </div>
               )}
               
-              <div className="pt-4 mt-2 border-t border-[var(--color-border)]">
+              <div className="pt-4 mt-2 border-t border-[var(--color-border)] flex flex-col gap-3">
                 <Link 
                   to="/submit" 
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-white bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/20"
@@ -235,6 +255,30 @@ const Navbar: React.FC = () => {
                   <Plus size={18} />
                   Submit AI Tool
                 </Link>
+
+                {currentUser ? (
+                  <button 
+                    onClick={() => {
+                      logout();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)]"
+                  >
+                    <img src={currentUser.photoURL || ''} alt="User" className="w-5 h-5 rounded-full" />
+                    Logout
+                  </button>
+                ) : (
+                  <button 
+                    onClick={() => {
+                      login();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)]"
+                  >
+                    <LogIn size={18} />
+                    Login
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>

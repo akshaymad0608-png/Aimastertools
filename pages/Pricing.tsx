@@ -4,6 +4,7 @@ import { Check, Shield, Zap, CreditCard, X, Copy, CheckCircle2, Smartphone, Arro
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { usePro } from '../context/ProContext';
+import { useAuth } from '../context/AuthContext';
 
 declare global {
   interface Window {
@@ -17,11 +18,25 @@ const Pricing: React.FC = () => {
   const [showVerification, setShowVerification] = useState(false);
   const [paymentId, setPaymentId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [selectedPlan, setSelectedPlan] = useState('');
   const navigate = useNavigate();
   const { isPro, setProStatus } = usePro();
+  const { currentUser, login } = useAuth();
 
   const handlePayment = async (planName: string, amount: number) => {
     if (isPro) return; // Prevent payment if already pro
+    
+    // Require login before payment
+    if (!currentUser) {
+      try {
+        await login();
+      } catch (error) {
+        setErrorMessage('You must be logged in to purchase a plan.');
+        return;
+      }
+    }
+
+    setSelectedPlan(planName);
     setIsProcessing(true);
     // Open Razorpay in a new tab
     window.open('https://razorpay.me/@aimastertools', '_blank');
@@ -33,7 +48,7 @@ const Pricing: React.FC = () => {
     }, 1500);
   };
 
-  const handleVerify = () => {
+  const handleVerify = async () => {
     if (!paymentId.trim()) {
       setErrorMessage('Please enter a valid Payment ID');
       return;
@@ -42,11 +57,28 @@ const Pricing: React.FC = () => {
     setErrorMessage('');
     
     // Simulate verification
-    setTimeout(() => {
+    setTimeout(async () => {
       setIsProcessing(false);
       setShowVerification(false);
       setPaymentStatus('success');
       setProStatus(true);
+
+      // Send purchase email if user is logged in
+      if (currentUser) {
+        try {
+          await fetch('/api/send-purchase-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: currentUser.email,
+              name: currentUser.displayName,
+              planName: selectedPlan || 'Pro Plan'
+            })
+          });
+        } catch (err) {
+          console.error('Failed to send purchase email', err);
+        }
+      }
     }, 2000);
   };
 
@@ -60,9 +92,9 @@ const Pricing: React.FC = () => {
       <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
-        <div className="mb-16 text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 tracking-tight">Simple, Transparent Pricing</h1>
-          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+        <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 md:mb-6 tracking-tight">Simple, Transparent Pricing</h1>
+          <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed px-4 md:px-0">
             Unlock premium features and get the most out of AI Master Tools. Pay securely with UPI, Netbanking, or Credit/Debit Cards.
           </p>
         </div>
