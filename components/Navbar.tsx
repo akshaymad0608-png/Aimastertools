@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { usePro } from '../context/ProContext';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
+import AuthModal from './AuthModal';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [liveVisitors, setLiveVisitors] = useState(1243);
   const location = useLocation();
@@ -154,12 +156,12 @@ const Navbar: React.FC = () => {
               onClick={logout}
               className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
             >
-              <img src={currentUser.photoURL || ''} alt="User" className="w-5 h-5 rounded-full" />
+              <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" className="w-5 h-5 rounded-full" />
               <span>Logout</span>
             </button>
           ) : (
             <button 
-              onClick={login}
+              onClick={() => setIsAuthModalOpen(true)}
               className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
             >
               <LogIn size={16} />
@@ -264,13 +266,13 @@ const Navbar: React.FC = () => {
                     }}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)]"
                   >
-                    <img src={currentUser.photoURL || ''} alt="User" className="w-5 h-5 rounded-full" />
+                    <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" className="w-5 h-5 rounded-full" />
                     Logout
                   </button>
                 ) : (
                   <button 
                     onClick={() => {
-                      login();
+                      setIsAuthModalOpen(true);
                       setIsMobileMenuOpen(false);
                     }}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)]"
@@ -284,6 +286,8 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </nav>
   );
 };

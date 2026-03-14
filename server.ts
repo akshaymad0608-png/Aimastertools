@@ -46,6 +46,10 @@ async function startServer() {
         amount: amount * 100, // amount in smallest currency unit (paise)
         currency,
         receipt: `receipt_${Date.now()}`,
+        notes: {
+          planName: req.body.planName || 'Pro Plan',
+          userEmail: req.body.email || 'unknown'
+        }
       };
 
       const order = await razorpay.orders.create(options);
@@ -179,6 +183,49 @@ async function startServer() {
     } catch (error: any) {
       console.error('Error sending purchase email:', error);
       res.status(500).json({ error: error.message || 'Failed to send email' });
+    }
+  });
+
+  // Razorpay Payment ID Verification (Manual)
+  app.post('/api/verify-payment-id', async (req, res) => {
+    try {
+      const { paymentId } = req.body;
+      
+      if (!paymentId) {
+        return res.status(400).json({ error: 'Payment ID is required' });
+      }
+
+      if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+        // If no keys, allow any ID starting with 'pay_' for testing
+        if (paymentId.startsWith('pay_')) {
+          return res.json({ success: true, message: "Payment verified (Mock Mode)" });
+        }
+        return res.status(500).json({ error: 'Razorpay keys not configured' });
+      }
+
+      const razorpay = new Razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET,
+      });
+
+      const payment = await razorpay.payments.fetch(paymentId);
+
+      if (payment.status === 'captured' || payment.status === 'authorized') {
+        res.json({ 
+          success: true, 
+          message: "Payment verified successfully",
+          amount: (payment.amount as number) / 100,
+          email: payment.email
+        });
+      } else {
+        res.status(400).json({ 
+          success: false, 
+          message: `Payment status is ${payment.status}. It must be captured to activate Pro.` 
+        });
+      }
+    } catch (error: any) {
+      console.error('Error fetching payment:', error);
+      res.status(500).json({ error: error.message || 'Failed to verify payment ID' });
     }
   });
 

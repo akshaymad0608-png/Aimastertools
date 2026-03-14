@@ -14,6 +14,12 @@ service cloud.firestore {
     //   - displayName: string (optional) - User's display name
     //   - subscribedAt: timestamp (required) - Timestamp of subscription
     //
+    // Collection: users
+    // Document ID: {userId} (matches auth.uid)
+    // Fields:
+    //   - isPro: boolean (required) - Pro membership status
+    //   - updatedAt: string (optional) - ISO timestamp of last update
+    //
     // ===============================================================
 
     // ===============================================================
@@ -77,6 +83,13 @@ service cloud.firestore {
     match /newsletter_emails/{emailId} {
       allow create: if hasRequiredFields(['email', 'subscribedAt']) && isValidNewsletterEmail(request.resource.data);
       allow read, update, delete: if false; // Only admins can read/modify (not implemented yet)
+    }
+
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create, update: if request.auth != null && request.auth.uid == userId && 
+                              hasOnlyAllowedFields(['isPro', 'updatedAt']) &&
+                              request.resource.data.isPro is bool;
     }
   }
 }
