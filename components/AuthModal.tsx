@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Mail, Lock, User, LogIn, Github, Chrome, ArrowRight, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
@@ -16,7 +17,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   
-  const { login, loginWithEmail, registerWithEmail } = useAuth();
+  const { currentUser, login, loginWithRedirect, loginWithEmail, registerWithEmail } = useAuth();
+
+  useEffect(() => {
+    if (currentUser && isOpen) {
+      onClose();
+    }
+  }, [currentUser, isOpen, onClose]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,33 +57,48 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  if (!isOpen) return null;
+  const handleGoogleRedirect = async () => {
+    setError('');
+    setLoading(true);
+    try {
+      await loginWithRedirect();
+      // No need to close modal as page will redirect
+    } catch (err: any) {
+      setError(err.message || 'Redirect login failed');
+      setLoading(false);
+    }
+  };
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <AnimatePresence>
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        />
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-md bg-[var(--color-background)] border border-[var(--color-border)] rounded-2xl shadow-2xl overflow-hidden"
-        >
-          <button 
+      {isOpen && (
+        <div className="fixed inset-0 z-[100]">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors"
-          >
-            <X size={20} />
-          </button>
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+          />
           
-          <div className="p-8">
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="relative transform overflow-hidden rounded-2xl bg-[var(--color-background)] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md border border-[var(--color-border)] w-full"
+              >
+                <button 
+                  onClick={onClose}
+                  className="absolute top-4 right-4 p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors z-10 bg-[var(--color-background)] rounded-full"
+                >
+                  <X size={20} />
+                </button>
+                
+                <div className="p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">
                 {isLogin ? 'Welcome Back' : 'Create Account'}
@@ -151,14 +173,27 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <button 
-              onClick={handleGoogleLogin}
-              disabled={loading}
-              className="w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-all flex items-center justify-center gap-3"
-            >
-              <Chrome size={20} className="text-blue-500" />
-              Google Account
-            </button>
+            <div className="space-y-3">
+              <button 
+                onClick={handleGoogleLogin}
+                disabled={loading}
+                className="w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-all flex items-center justify-center gap-3"
+              >
+                <Chrome size={20} className="text-blue-500" />
+                Google Account (Popup)
+              </button>
+
+              {error && error.includes('closed') && (
+                <button 
+                  onClick={handleGoogleRedirect}
+                  disabled={loading}
+                  className="w-full py-3 rounded-xl font-bold border border-blue-500/30 bg-blue-500/5 text-blue-500 hover:bg-blue-500/10 transition-all flex items-center justify-center gap-3 text-sm"
+                >
+                  <LogIn size={18} />
+                  Use Redirect Instead
+                </button>
+              )}
+            </div>
 
             <p className="mt-8 text-center text-sm text-[var(--color-text-secondary)]">
               {isLogin ? "Don't have an account?" : "Already have an account?"}
@@ -171,8 +206,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             </p>
           </div>
         </motion.div>
-      </div>
-    </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      )}
+    </AnimatePresence>,
+    document.body
   );
 };
 

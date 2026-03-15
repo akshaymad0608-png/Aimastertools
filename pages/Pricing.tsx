@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Check, Shield, Zap, CreditCard, X, Copy, CheckCircle2, Smartphone, ArrowRight, Star, Heart, AlertCircle } from 'lucide-react';
+import { Check, Shield, Zap, CreditCard, X, Copy, CheckCircle2, ArrowRight, Star, Heart, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/SEO';
 import { usePro } from '../context/ProContext';
@@ -118,7 +118,8 @@ const Pricing: React.FC = () => {
                 name: 'All Payment Methods',
                 instruments: [
                   {
-                    method: 'upi'
+                    method: 'upi',
+                    flows: ['intent', 'collect']
                   },
                   {
                     method: 'card'
