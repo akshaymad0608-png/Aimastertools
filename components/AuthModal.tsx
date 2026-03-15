@@ -46,14 +46,13 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
   const handleGoogleLogin = async () => {
     setError('');
-    setLoading(true);
+    // Do not set loading here, as it can cause the browser to block the popup
+    // because the async state update separates the click event from the window.open call
     try {
       await login();
       onClose();
     } catch (err: any) {
       setError(err.message || 'Google login failed');
-    } finally {
-      setLoading(false);
     }
   };
 

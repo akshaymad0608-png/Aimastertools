@@ -42,41 +42,52 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const login = async () => {
-    if (loading) return;
-    
     try {
-      const provider = new GoogleAuthProvider();
-      provider.setCustomParameters({ 
-        prompt: 'select_account',
-        display: 'popup'
-      });
-      
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, googleProvider);
       sendWelcome(result.user).catch(err => console.error('Background welcome email failed', err));
     } catch (error: any) {
       console.error('Google login failed:', error);
       
-      const errorMap: Record<string, string> = {
-        'auth/popup-blocked': 'Login popup was blocked by your browser. Please allow popups for this site and try again.',
-        'auth/popup-closed-by-user': 'The login window was closed before completion. If this keeps happening, try the "Use Redirect" option.',
-        'auth/cancelled-by-user': 'Login was cancelled.',
-        'auth/network-request-failed': 'Network error. Please check your internet connection.',
-        'auth/internal-error': 'An internal error occurred. Please try again later.',
-        'auth/operation-not-allowed': 'Google login is not enabled for this project.',
-      };
+      // Handle Firebase error codes or string messages
+      const errorCode = error.code || '';
+      const errorMessage = error.message || '';
+      
+      if (
+        errorCode === 'auth/popup-closed-by-user' || 
+        errorMessage.includes('auth/popup-closed-by-user')
+      ) {
+        throw new Error('The login window was closed before completion. Please try again or use the Redirect option below.');
+      } else if (
+        errorCode === 'auth/popup-blocked' || 
+        errorMessage.includes('auth/popup-blocked')
+      ) {
+        throw new Error('Login popup was blocked by your browser. Please allow popups for this site and try again.');
+      } else if (errorCode === 'auth/cancelled-by-user' || errorMessage.includes('auth/cancelled-by-user')) {
+        throw new Error('Login was cancelled.');
+      } else if (errorCode === 'auth/network-request-failed' || errorMessage.includes('auth/network-request-failed')) {
+        throw new Error('Network error. Please check your internet connection.');
+      } else if (errorCode === 'auth/internal-error' || errorMessage.includes('auth/internal-error')) {
+        throw new Error('An internal error occurred. Please try again later.');
+      } else if (errorCode === 'auth/operation-not-allowed' || errorMessage.includes('auth/operation-not-allowed')) {
+        throw new Error('Google login is not enabled for this project.');
+      } else if (errorCode === 'auth/unauthorized-domain' || errorMessage.includes('auth/unauthorized-domain')) {
+        throw new Error('This domain is not authorized for Firebase Auth. Please add it in the Firebase Console under Authentication > Settings > Authorized domains.');
+      }
 
-      const message = errorMap[error.code] || error.message || 'Google login failed. Please try again.';
-      throw new Error(message);
+      throw new Error(errorMessage || 'Google login failed. Please try again.');
     }
   };
 
   const loginWithRedirect = async () => {
     try {
-      const provider = new GoogleAuthProvider();
-      provider.setCustomParameters({ prompt: 'select_account' });
-      await signInWithRedirect(auth, provider);
+      await signInWithRedirect(auth, googleProvider);
     } catch (error: any) {
       console.error('Redirect login failed:', error);
+      const errorCode = error.code || '';
+      const errorMessage = error.message || '';
+      if (errorCode === 'auth/unauthorized-domain' || errorMessage.includes('auth/unauthorized-domain')) {
+        throw new Error('This domain is not authorized for Firebase Auth. Please add it in the Firebase Console under Authentication > Settings > Authorized domains.');
+      }
       throw error;
     }
   };
