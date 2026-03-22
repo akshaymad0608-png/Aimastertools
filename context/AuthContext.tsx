@@ -67,6 +67,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         errorMessage.includes('auth/popup-blocked')
       ) {
         throw new Error('Login popup was blocked by your browser. Please allow popups for this site and try again.');
+      } else if (errorCode === 'auth/cancelled-popup-request' || errorMessage.includes('auth/cancelled-popup-request')) {
+        throw new Error('A login popup is already open. Please complete or close the existing popup before trying again.');
       } else if (errorCode === 'auth/cancelled-by-user' || errorMessage.includes('auth/cancelled-by-user')) {
         throw new Error('Login was cancelled.');
       } else if (errorCode === 'auth/network-request-failed' || errorMessage.includes('auth/network-request-failed')) {

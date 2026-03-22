@@ -17,6 +17,7 @@ export default async function handler(req: any, res: any) {
         id: `mock_order_${Date.now()}`,
         amount: amount * 100,
         currency: "INR",
+        key_id: "rzp_test_mock_key",
         isMock: true
       });
     }
@@ -37,7 +38,10 @@ export default async function handler(req: any, res: any) {
     };
 
     const order = await razorpay.orders.create(options);
-    res.json(order);
+    res.json({
+      ...order,
+      key_id: process.env.RAZORPAY_KEY_ID
+    });
   } catch (error: any) {
     console.error('Error creating Razorpay order:', error);
     

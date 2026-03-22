@@ -194,7 +194,18 @@ const Home: React.FC = () => {
       setTimeout(() => setNewsletterStatus('idle'), 5000);
     } catch (error: any) {
       console.error("Error subscribing:", error);
-      setErrorMessage(error.message || 'Failed to subscribe. Please try again.');
+      
+      const errorCode = error.code || '';
+      const errMsg = error.message || '';
+      
+      if (errorCode === 'auth/cancelled-popup-request' || errMsg.includes('auth/cancelled-popup-request')) {
+        setErrorMessage('A login popup is already open. Please complete or close it before trying again.');
+      } else if (errorCode === 'auth/popup-closed-by-user' || errMsg.includes('auth/popup-closed-by-user')) {
+        setErrorMessage('Login window was closed. Please try again.');
+      } else {
+        setErrorMessage(errMsg || 'Failed to subscribe. Please try again.');
+      }
+      
       setNewsletterStatus('error');
       setTimeout(() => setNewsletterStatus('idle'), 5000);
     }
