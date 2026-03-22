@@ -63,56 +63,6 @@ const Pricing: React.FC = () => {
         throw new Error(order.error || order.message || 'Failed to create order');
       }
 
-      if (order.isMock) {
-        // Skip Razorpay UI for mock orders and directly verify
-        setIsProcessing(true);
-        try {
-          const verifyRes = await fetch('/api/verify-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              razorpay_order_id: order.id,
-              razorpay_payment_id: 'mock_payment_id',
-              razorpay_signature: 'mock_signature',
-            })
-          });
-
-          let verifyData;
-          const text = await verifyRes.text();
-          try {
-            verifyData = text ? JSON.parse(text) : {};
-          } catch (e) {
-            throw new Error(`Server error (${verifyRes.status}): The server returned an invalid response.`);
-          }
-
-          if (verifyData.success || order.isMock) {
-            setPaymentStatus('success');
-            setProStatus(true);
-            
-            await fetch('/api/send-purchase-email', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                email: currentUser.email,
-                name: currentUser.displayName,
-                planName: planName,
-                amount: amount,
-                paymentId: 'mock_payment_id'
-              })
-            });
-          } else {
-            setErrorMessage(verifyData.message || 'Payment verification failed');
-            setPaymentStatus('error');
-          }
-        } catch (err: any) {
-          setErrorMessage(err.message || 'Payment verification failed');
-          setPaymentStatus('error');
-        } finally {
-          setIsProcessing(false);
-        }
-        return;
-      }
-
       const options = {
         key: order.key_id,
         amount: order.amount,
@@ -147,7 +97,7 @@ const Pricing: React.FC = () => {
               throw new Error(verifyData.error || verifyData.message || 'Payment verification failed');
             }
 
-            if (verifyData.success || order.isMock) {
+            if (verifyData.success) {
               setPaymentStatus('success');
               setProStatus(true);
               

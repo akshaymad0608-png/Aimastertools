@@ -83,14 +83,7 @@ async function startServer() {
       const { amount, currency = 'INR' } = req.body;
       
       if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-        // Return a mock order if keys are not configured so the user can test the UI
-        return res.json({
-          id: `mock_order_${Date.now()}`,
-          currency,
-          amount: amount * 100,
-          key_id: 'mock_key_id',
-          isMock: true
-        });
+        return res.status(500).json({ error: 'Razorpay keys are not configured. Please add RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to your environment variables.' });
       }
 
       const razorpay = new Razorpay({
@@ -138,9 +131,6 @@ async function startServer() {
       const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
       
       if (!process.env.RAZORPAY_KEY_SECRET) {
-        if (razorpay_order_id && razorpay_order_id.startsWith('mock_')) {
-          return res.json({ success: true, message: "Payment verified (Mock Mode)" });
-        }
         return res.status(500).json({ error: 'Razorpay secret not configured' });
       }
 

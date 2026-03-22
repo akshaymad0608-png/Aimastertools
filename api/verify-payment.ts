@@ -10,9 +10,6 @@ export default async function handler(req: any, res: any) {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
 
     if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-      if (razorpay_order_id.startsWith('mock_')) {
-        return res.json({ success: true, message: "Payment verified (Mock Mode)" });
-      }
       return res.status(500).json({ error: 'Razorpay keys not configured' });
     }
 

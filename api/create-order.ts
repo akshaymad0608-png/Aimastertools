@@ -13,13 +13,7 @@ export default async function handler(req: any, res: any) {
     }
 
     if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-      return res.json({
-        id: `mock_order_${Date.now()}`,
-        amount: amount * 100,
-        currency: "INR",
-        key_id: "rzp_test_mock_key",
-        isMock: true
-      });
+      return res.status(500).json({ error: 'Razorpay keys are not configured. Please add RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to your environment variables.' });
     }
 
     const razorpay = new Razorpay({
