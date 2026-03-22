@@ -107,7 +107,9 @@ const Pricing: React.FC = () => {
                 body: JSON.stringify({
                   email: currentUser.email,
                   name: currentUser.displayName,
-                  planName: planName
+                  planName: planName,
+                  amount: amount,
+                  paymentId: response.razorpay_payment_id || order.id
                 })
               });
             } else {
@@ -222,7 +224,9 @@ const Pricing: React.FC = () => {
             body: JSON.stringify({
               email: currentUser.email,
               name: currentUser.displayName,
-              planName: 'Pro Plan (Manual Verification)'
+              planName: 'Pro Plan (Manual Verification)',
+              amount: data.amount || 99,
+              paymentId: manualPaymentId
             })
           });
         }

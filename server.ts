@@ -5,8 +5,64 @@ import Razorpay from 'razorpay';
 import dotenv from 'dotenv';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
+import PDFDocument from 'pdfkit';
 
 dotenv.config();
+
+function generateReceiptPDF(name: string, email: string, planName: string, amount: number, paymentId: string): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    const doc = new PDFDocument({ margin: 50 });
+    const buffers: Buffer[] = [];
+    doc.on('data', buffers.push.bind(buffers));
+    doc.on('end', () => resolve(Buffer.concat(buffers)));
+    doc.on('error', reject);
+
+    // Header
+    doc.fontSize(24).font('Helvetica-Bold').text('AI Master Tools', { align: 'center' });
+    doc.fontSize(14).font('Helvetica').text('Payment Receipt', { align: 'center' });
+    doc.moveDown(2);
+
+    // Details
+    const date = new Date().toLocaleDateString('en-IN', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+    
+    doc.fontSize(12);
+    doc.font('Helvetica-Bold').text('Billed To:');
+    doc.font('Helvetica').text(`Name: ${name || 'N/A'}`);
+    doc.text(`Email: ${email}`);
+    doc.moveDown(1);
+
+    doc.font('Helvetica-Bold').text('Transaction Details:');
+    doc.font('Helvetica').text(`Date: ${date}`);
+    doc.text(`Transaction ID: ${paymentId || 'N/A'}`);
+    doc.moveDown(2);
+
+    // Table Header
+    doc.font('Helvetica-Bold');
+    doc.text('---------------------------------------------------------------------------');
+    doc.text('Description');
+    doc.text('---------------------------------------------------------------------------');
+    doc.moveDown(0.5);
+    
+    // Item
+    doc.font('Helvetica');
+    doc.text(`Subscription: ${planName}`);
+    doc.text(`Amount: Rs. ${amount || 0}`);
+    doc.moveDown(0.5);
+    doc.font('Helvetica-Bold');
+    doc.text('---------------------------------------------------------------------------');
+    doc.moveDown();
+    
+    // Total
+    doc.fontSize(16).text(`Total Paid: Rs. ${amount || 0}`);
+
+    doc.moveDown(4);
+    doc.fontSize(10).font('Helvetica-Oblique').fillColor('gray').text('Thank you for your business!', { align: 'center' });
+
+    doc.end();
+  });
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -157,7 +213,7 @@ async function startServer() {
   // Send Purchase Email
   app.post('/api/send-purchase-email', async (req, res) => {
     try {
-      const { email, name, planName } = req.body;
+      const { email, name, planName, amount, paymentId } = req.body;
       
       if (!email) {
         return res.status(400).json({ error: 'Email is required' });
@@ -178,21 +234,31 @@ async function startServer() {
         },
       });
 
+      const pdfBuffer = await generateReceiptPDF(name, email, planName, amount, paymentId);
+
       const mailOptions = {
         from: `"AI Master Tools" <${process.env.SMTP_USER}>`,
         to: email,
-        subject: 'Thank You for Your Purchase! 🎉',
+        subject: `Payment Receipt: ${planName || 'Pro Plan'}`,
         html: `
           <div style="font-family: sans-serif; max-w: 600px; margin: 0 auto;">
             <h2 style="color: #10B981;">Payment Successful!</h2>
             <p>Hi ${name || 'there'},</p>
             <p>Thank you for upgrading to the <strong>${planName || 'Pro'}</strong> plan on AI Master Tools!</p>
             <p>Your account has been successfully updated with premium features. You can now enjoy unlimited tool saves, advanced search, and priority submissions.</p>
+            <p>Please find your payment receipt attached to this email.</p>
             <br/>
             <p>Best regards,</p>
             <p><strong>The AI Master Tools Team</strong></p>
           </div>
         `,
+        attachments: [
+          {
+            filename: `Receipt-${paymentId || 'Order'}.pdf`,
+            content: pdfBuffer,
+            contentType: 'application/pdf'
+          }
+        ]
       };
 
       await transporter.sendMail(mailOptions);
