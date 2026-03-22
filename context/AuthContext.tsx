@@ -28,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const sendWelcome = async (user: User) => {
     try {
-      await fetch('/api/send-welcome-email', {
+      const res = await fetch('/api/send-welcome-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -36,6 +36,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           name: user.displayName
         })
       });
+      
+      if (!res.ok) {
+        const text = await res.text();
+        console.error('Failed to send welcome email. Server responded with:', res.status, text);
+      }
     } catch (err) {
       console.error('Failed to send welcome email', err);
     }

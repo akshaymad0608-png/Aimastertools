@@ -50,10 +50,17 @@ const Pricing: React.FC = () => {
         })
       });
 
-      const order = await response.json();
+      let order;
+      const text = await response.text();
+      try {
+        order = text ? JSON.parse(text) : {};
+      } catch (e) {
+        console.error('Failed to parse JSON:', text);
+        throw new Error(`Server error (${response.status}): The server returned an invalid response. Please try again later.`);
+      }
 
-      if (order.error) {
-        throw new Error(order.error);
+      if (!response.ok || order.error) {
+        throw new Error(order.error || order.message || 'Failed to create order');
       }
 
       const options = {
@@ -77,7 +84,18 @@ const Pricing: React.FC = () => {
               })
             });
 
-            const verifyData = await verifyRes.json();
+            let verifyData;
+            const text = await verifyRes.text();
+            try {
+              verifyData = text ? JSON.parse(text) : {};
+            } catch (e) {
+              console.error('Failed to parse JSON:', text);
+              throw new Error(`Server error (${verifyRes.status}): The server returned an invalid response. Please try again later.`);
+            }
+
+            if (!verifyRes.ok) {
+              throw new Error(verifyData.error || verifyData.message || 'Payment verification failed');
+            }
 
             if (verifyData.success || order.isMock) {
               setPaymentStatus('success');
@@ -179,7 +197,18 @@ const Pricing: React.FC = () => {
         body: JSON.stringify({ paymentId: manualPaymentId })
       });
 
-      const data = await response.json();
+      let data;
+      const text = await response.text();
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (e) {
+        console.error('Failed to parse JSON:', text);
+        throw new Error(`Server error (${response.status}): The server returned an invalid response. Please try again later.`);
+      }
+
+      if (!response.ok) {
+        throw new Error(data.error || data.message || 'Verification failed. Please check your Payment ID.');
+      }
 
       if (data.success) {
         setPaymentStatus('success');
@@ -202,7 +231,7 @@ const Pricing: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Manual verification error:', error);
-      setErrorMessage('Failed to verify. Please try again later.');
+      setErrorMessage(error.message || 'Failed to verify. Please try again later.');
     } finally {
       setIsVerifyingManual(false);
     }

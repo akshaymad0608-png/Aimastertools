@@ -62,7 +62,17 @@ async function startServer() {
       });
     } catch (error: any) {
       console.error('Error creating Razorpay order:', error);
-      res.status(500).json({ error: error.message || 'Something went wrong' });
+      
+      let errorMessage = 'Something went wrong';
+      if (error && error.error && error.error.description) {
+        errorMessage = error.error.description;
+      } else if (error && error.message) {
+        errorMessage = error.message;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+      
+      res.status(500).json({ error: errorMessage });
     }
   });
 
@@ -72,6 +82,9 @@ async function startServer() {
       const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
       
       if (!process.env.RAZORPAY_KEY_SECRET) {
+        if (razorpay_order_id && razorpay_order_id.startsWith('mock_')) {
+          return res.json({ success: true, message: "Payment verified (Mock Mode)" });
+        }
         return res.status(500).json({ error: 'Razorpay secret not configured' });
       }
 
@@ -107,7 +120,9 @@ async function startServer() {
       }
 
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: process.env.SMTP_HOST || 'smtp.gmail.com',
+        port: parseInt(process.env.SMTP_PORT || '465'),
+        secure: process.env.SMTP_SECURE !== 'false',
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
@@ -154,7 +169,9 @@ async function startServer() {
       }
 
       const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: process.env.SMTP_HOST || 'smtp.gmail.com',
+        port: parseInt(process.env.SMTP_PORT || '465'),
+        secure: process.env.SMTP_SECURE !== 'false',
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
@@ -225,7 +242,18 @@ async function startServer() {
       }
     } catch (error: any) {
       console.error('Error fetching payment:', error);
-      res.status(500).json({ error: error.message || 'Failed to verify payment ID' });
+      
+      // Extract Razorpay error description if available
+      let errorMessage = 'Failed to verify payment ID';
+      if (error && error.error && error.error.description) {
+        errorMessage = error.error.description;
+      } else if (error && error.message) {
+        errorMessage = error.message;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+      
+      res.status(500).json({ error: errorMessage });
     }
   });
 
