@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Careers: React.FC = () => {
   useEffect(() => {
@@ -14,10 +14,10 @@ const Careers: React.FC = () => {
       exit={{ opacity: 0 }}
       className="container-custom py-12 md:py-20"
     >
-      <Helmet>
-        <title>Careers | AI Master Tools</title>
-        <meta name="description" content="Join the AI Master Tools team and help build the future of AI." />
-      </Helmet>
+      <SEO 
+        title="Careers | AI Master Tools" 
+        description="Join the AI Master Tools team and help build the future of AI." 
+      />
 
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">Join Our Team</h1>

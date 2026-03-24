@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const PrivacyPolicy: React.FC = () => {
   useEffect(() => {
@@ -14,10 +14,10 @@ const PrivacyPolicy: React.FC = () => {
       exit={{ opacity: 0 }}
       className="container-custom py-12 md:py-20"
     >
-      <Helmet>
-        <title>Privacy Policy | AI Master Tools</title>
-        <meta name="description" content="Privacy Policy for AI Master Tools." />
-      </Helmet>
+      <SEO 
+        title="Privacy Policy | AI Master Tools" 
+        description="Privacy Policy for AI Master Tools." 
+      />
 
       <div className="max-w-3xl mx-auto prose prose-invert">
         <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8">Privacy Policy</h1>
