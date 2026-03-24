@@ -40,6 +40,10 @@ const Pricing: React.FC = () => {
     setErrorMessage('');
 
     try {
+      if (typeof window.Razorpay === 'undefined') {
+        throw new Error('Payment gateway (Razorpay) failed to load. Please check your internet connection or disable any ad-blockers and refresh the page.');
+      }
+
       const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -156,6 +160,11 @@ const Pricing: React.FC = () => {
   };
 
   const handleManualVerify = async () => {
+    if (!currentUser) {
+      setIsAuthModalOpen(true);
+      return;
+    }
+
     if (!manualPaymentId.trim()) {
       setErrorMessage('Please enter your Payment ID');
       return;
@@ -186,22 +195,20 @@ const Pricing: React.FC = () => {
 
       if (data.success) {
         setPaymentStatus('success');
-        setProStatus(true);
+        await setProStatus(true);
         setShowManualVerify(false);
         
-        if (currentUser) {
-          await fetch('/api/send-purchase-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: currentUser.email,
-              name: currentUser.displayName,
-              planName: 'Pro Plan (Manual Verification)',
-              amount: data.amount || 99,
-              paymentId: manualPaymentId
-            })
-          });
-        }
+        await fetch('/api/send-purchase-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: currentUser.email,
+            name: currentUser.displayName,
+            planName: 'Pro Plan (Manual Verification)',
+            amount: data.amount || 99,
+            paymentId: manualPaymentId
+          })
+        });
       } else {
         setErrorMessage(data.message || 'Verification failed. Please check your Payment ID.');
       }

@@ -1,6 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
 import { ProProvider } from './context/ProContext';
@@ -76,14 +75,12 @@ const GlobalToast = () => {
 
 function App() {
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>AI Master Tools | Professional AI Prompt Engineering</title>
-        <meta name="description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan. Boost your AI productivity with AI Master Tools." />
-        <meta name="keywords" content="AI Master Tools, Akshay Mahajan, Prompt Engineering, Google AI Studio tools, AI ML Engineering, AI Tools Directory" />
-        <meta property="og:title" content="AI Master Tools | Professional AI Prompt Engineering" />
-        <meta property="og:description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan." />
-      </Helmet>
+    <>
+      <title>AI Master Tools | Professional AI Prompt Engineering</title>
+      <meta name="description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan. Boost your AI productivity with AI Master Tools." />
+      <meta name="keywords" content="AI Master Tools, Akshay Mahajan, Prompt Engineering, Google AI Studio tools, AI ML Engineering, AI Tools Directory" />
+      <meta property="og:title" content="AI Master Tools | Professional AI Prompt Engineering" />
+      <meta property="og:description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan." />
       <ThemeProvider>
         <AuthProvider>
           <ProProvider>
@@ -118,7 +115,7 @@ function App() {
         </ProProvider>
         </AuthProvider>
       </ThemeProvider>
-    </HelmetProvider>
+    </>
   );
 }
 

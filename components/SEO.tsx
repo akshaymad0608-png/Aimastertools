@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title: string;
@@ -26,7 +25,7 @@ const SEO: React.FC<SEOProps> = ({
   const fullTitle = title.includes(siteTitle) || title.includes('AIMasterTools') ? title : `${title} | ${siteTitle}`;
 
   return (
-    <Helmet>
+    <>
       {/* Standard Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
@@ -53,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({
 
       {/* Custom Tags (like JSON-LD) */}
       {children}
-    </Helmet>
+    </>
   );
 };
 

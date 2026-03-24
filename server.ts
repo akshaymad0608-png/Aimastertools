@@ -83,7 +83,11 @@ async function startServer() {
       const { amount, currency = 'INR' } = req.body;
       
       if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-        return res.status(500).json({ error: 'Razorpay keys are not configured. Please add RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET to your environment variables.' });
+        console.error('Razorpay keys are missing in environment variables');
+        return res.status(500).json({ 
+          error: 'Payment system is currently in maintenance mode (Missing API Keys). Please contact support or try again later.',
+          details: 'RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET is not set.'
+        });
       }
 
       const razorpay = new Razorpay({
@@ -92,7 +96,7 @@ async function startServer() {
       });
 
       const options = {
-        amount: amount * 100, // amount in smallest currency unit (paise)
+        amount: Math.round(amount * 100), // amount in smallest currency unit (paise)
         currency,
         receipt: `receipt_${Date.now()}`,
         notes: {
@@ -101,7 +105,9 @@ async function startServer() {
         }
       };
 
+      console.log('Creating Razorpay order with options:', JSON.stringify(options));
       const order = await razorpay.orders.create(options);
+      console.log('Razorpay order created successfully:', order.id);
       
       res.json({
         id: order.id,
@@ -112,13 +118,11 @@ async function startServer() {
     } catch (error: any) {
       console.error('Error creating Razorpay order:', error);
       
-      let errorMessage = 'Something went wrong';
+      let errorMessage = 'Failed to initiate payment. Please try again later.';
       if (error && error.error && error.error.description) {
         errorMessage = error.error.description;
       } else if (error && error.message) {
         errorMessage = error.message;
-      } else if (typeof error === 'string') {
-        errorMessage = error;
       }
       
       res.status(500).json({ error: errorMessage });
@@ -271,9 +275,10 @@ async function startServer() {
       if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
         // If no keys, allow any ID starting with 'pay_' for testing
         if (paymentId.startsWith('pay_')) {
-          return res.json({ success: true, message: "Payment verified (Mock Mode)" });
+          console.log(`[MOCK VERIFY] Manual verification successful for ID: ${paymentId}`);
+          return res.json({ success: true, message: "Payment verified (Mock Mode for Testing)" });
         }
-        return res.status(500).json({ error: 'Razorpay keys not configured' });
+        return res.status(500).json({ error: 'Payment verification system is not configured. Please contact support.' });
       }
 
       const razorpay = new Razorpay({
