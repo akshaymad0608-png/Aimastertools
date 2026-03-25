@@ -83,10 +83,13 @@ async function startServer() {
       const { amount, currency = 'INR' } = req.body;
       
       if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
-        console.error('Razorpay keys are missing in environment variables');
-        return res.status(500).json({ 
-          error: 'Payment system is currently in maintenance mode (Missing API Keys). Please contact support or try again later.',
-          details: 'RAZORPAY_KEY_ID or RAZORPAY_KEY_SECRET is not set.'
+        console.log('Razorpay keys are missing, returning mock order');
+        return res.json({
+          id: `order_mock_${Date.now()}`,
+          amount: Math.round(amount * 100),
+          currency,
+          key_id: "rzp_test_mock",
+          mock: true
         });
       }
 

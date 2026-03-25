@@ -199,7 +199,11 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Pricing Model</span>
-                  <span className="text-[var(--color-text-primary)] font-medium bg-[var(--color-surface)] px-3 py-1 rounded-lg border border-[var(--color-border)]">{tool.pricing}</span>
+                  <span className={`font-medium px-3 py-1 rounded-lg border ${
+                    tool.pricing === 'Free' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                    tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
+                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                  }`}>{tool.pricing}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Website</span>

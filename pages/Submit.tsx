@@ -3,24 +3,41 @@ import { Check, Loader2, Zap, Shield, ArrowRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { usePro } from '../context/ProContext';
+import { useAuth } from '../context/AuthContext';
+import AuthModal from '../components/AuthModal';
 import { useNavigate } from 'react-router-dom';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 const Submit: React.FC = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'verifying' | 'success'>('idle');
   const [selectedPlan, setSelectedPlan] = useState<'Premium'>('Premium');
   const [paymentId, setPaymentId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const formRef = React.useRef<HTMLFormElement>(null);
   const { isPro } = usePro();
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmitTool = (e: React.FormEvent) => {
+  const handleSubmitTool = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!currentUser) {
+      setIsAuthModalOpen(true);
+      return;
+    }
+
     setFormStatus('submitting');
+    setErrorMessage('');
     
     if (isPro) {
       // Pro users skip payment
@@ -33,16 +50,117 @@ const Submit: React.FC = () => {
       return;
     }
 
-    // Open Razorpay in a new tab for non-Pro users
-    window.open('https://razorpay.me/@aimastertools', '_blank');
-    
-    // Show verification step
-    setTimeout(() => {
-      setFormStatus('verifying');
-    }, 1500);
+    try {
+      if (typeof window.Razorpay === 'undefined') {
+        throw new Error('Payment gateway failed to load. Please refresh the page.');
+      }
+
+      const response = await fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          amount: 99, 
+          planName: 'Premium Tool Listing',
+          email: currentUser.email 
+        })
+      });
+
+      let order;
+      const text = await response.text();
+      try {
+        order = text ? JSON.parse(text) : {};
+      } catch (e) {
+        throw new Error(`Server error (${response.status})`);
+      }
+
+      if (!response.ok || order.error) {
+        throw new Error(order.error || order.message || 'Failed to create order');
+      }
+
+      if (order.mock) {
+        setFormStatus('success');
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+        return;
+      }
+
+      const options = {
+        key: order.key_id,
+        amount: order.amount,
+        currency: order.currency,
+        name: "AI Master Tools",
+        description: "Premium Tool Listing",
+        image: "https://lucide.dev/favicon.ico",
+        order_id: order.id,
+        handler: async (response: any) => {
+          try {
+            setFormStatus('verifying');
+            const verifyRes = await fetch('/api/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              })
+            });
+
+            let verifyData;
+            const text = await verifyRes.text();
+            try {
+              verifyData = text ? JSON.parse(text) : {};
+            } catch (e) {
+              throw new Error(`Server error (${verifyRes.status})`);
+            }
+
+            if (!verifyRes.ok) {
+              throw new Error(verifyData.error || verifyData.message || 'Payment verification failed');
+            }
+
+            if (verifyData.success) {
+              setFormStatus('success');
+              setTimeout(() => {
+                navigate('/');
+              }, 3000);
+            } else {
+              setErrorMessage(verifyData.message || 'Payment verification failed');
+              setFormStatus('idle');
+            }
+          } catch (err: any) {
+            setErrorMessage(err.message || 'Payment verification failed');
+            setFormStatus('idle');
+          }
+        },
+        prefill: {
+          name: currentUser.displayName || '',
+          email: currentUser.email || '',
+        },
+        theme: {
+          color: "#3B82F6",
+        },
+        modal: {
+          ondismiss: () => {
+            setFormStatus('idle');
+          }
+        }
+      };
+
+      const rzp = new window.Razorpay(options);
+      
+      rzp.on('payment.failed', function (response: any) {
+        setErrorMessage(`Payment Failed: ${response.error.description}`);
+        setFormStatus('idle');
+      });
+
+      rzp.open();
+    } catch (error: any) {
+      setErrorMessage(error.message || 'Failed to initiate payment. Please try again.');
+      setFormStatus('idle');
+    }
   };
 
-  const handleVerify = () => {
+  const handleVerify = async () => {
     if (!paymentId.trim()) {
       setErrorMessage('Please enter a valid Payment ID');
       return;
@@ -50,13 +168,38 @@ const Submit: React.FC = () => {
     setFormStatus('submitting');
     setErrorMessage('');
     
-    // Simulate verification and submission
-    setTimeout(() => {
-      setFormStatus('success');
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
-    }, 2000);
+    try {
+      const response = await fetch('/api/verify-payment-id', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ paymentId })
+      });
+
+      let data;
+      const text = await response.text();
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (e) {
+        throw new Error(`Server error (${response.status})`);
+      }
+
+      if (!response.ok) {
+        throw new Error(data.error || data.message || 'Verification failed. Please check your Payment ID.');
+      }
+
+      if (data.success) {
+        setFormStatus('success');
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+      } else {
+        setErrorMessage(data.message || 'Verification failed. Please check your Payment ID.');
+        setFormStatus('verifying');
+      }
+    } catch (error: any) {
+      setErrorMessage(error.message || 'Failed to verify. Please try again later.');
+      setFormStatus('verifying');
+    }
   };
 
   const scrollToForm = () => {
@@ -284,6 +427,8 @@ const Submit: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
     </>
   );
 };

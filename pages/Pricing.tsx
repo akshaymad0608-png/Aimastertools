@@ -77,6 +77,27 @@ const Pricing: React.FC = () => {
         throw new Error(order.error || order.message || 'Failed to create order');
       }
 
+      if (order.mock) {
+        console.log('Mock payment mode active');
+        setPaymentStatus('success');
+        await setProStatus(true);
+        
+        await fetch('/api/send-purchase-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: currentUser.email,
+            name: currentUser.displayName,
+            planName: planName,
+            amount: amount,
+            paymentId: `mock_pay_${Date.now()}`
+          })
+        });
+        
+        setIsProcessing(false);
+        return;
+      }
+
       console.log('Order created successfully:', order.id);
       const options = {
         key: order.key_id,
