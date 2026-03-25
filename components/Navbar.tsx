@@ -60,7 +60,48 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-[var(--color-background)]/95 backdrop-blur-lg border-[var(--color-border)] py-3 shadow-sm' : 'bg-[var(--color-background)]/90 backdrop-blur-md border-[var(--color-border)]/50 py-4'}`}>
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* Trending Ticker */}
+      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1.5 overflow-hidden hidden md:block">
+        <div className="container-custom flex items-center gap-4">
+          <div className="flex items-center gap-2 px-2 py-0.5 rounded bg-[var(--color-primary)] text-white text-[10px] font-bold uppercase tracking-widest animate-pulse">
+            Trending Now
+          </div>
+          <div className="flex-1 overflow-hidden relative">
+            <div className="animate-marquee whitespace-nowrap flex gap-12 items-center">
+              {[
+                "DALL-E 3: New Image Generation Model",
+                "Framer AI: Build Websites in Seconds",
+                "Darktrace: Next-Gen Cybersecurity",
+                "Snyk: Developer Security First",
+                "Shopify Magic: AI for Commerce",
+                "Headspace AI: Personalized Wellness"
+              ].map((text, i) => (
+                <span key={i} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
+                  {text}
+                </span>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {[
+                "DALL-E 3: New Image Generation Model",
+                "Framer AI: Build Websites in Seconds",
+                "Darktrace: Next-Gen Cybersecurity",
+                "Snyk: Developer Security First",
+                "Shopify Magic: AI for Commerce",
+                "Headspace AI: Personalized Wellness"
+              ].map((text, i) => (
+                <span key={i + 10} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
+                  {text}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav className={`transition-all duration-300 border-b ${scrolled ? 'bg-[var(--color-background)]/95 backdrop-blur-lg border-[var(--color-border)] py-3 shadow-sm' : 'bg-[var(--color-background)]/90 backdrop-blur-md border-[var(--color-border)]/50 py-4'}`}>
       <div className="container-custom flex justify-between items-center">
         
         {/* Logo */}
@@ -286,9 +327,10 @@ const Navbar: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      </nav>
 
       <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
-    </nav>
+    </header>
   );
 };
 

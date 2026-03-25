@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check 
+  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2 
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ToolCard from '../components/ToolCard';
@@ -292,19 +292,19 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[0.9]"
           >
-            Find & Compare The <br className="hidden md:block" />
-            <span className="text-gradient">Best AI Tools</span>
+            Find & Compare <br className="hidden md:block" />
+            <span className="text-gradient">The Best AI Tools</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0"
+            className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-4xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0"
           >
-            Your ultimate directory to discover, compare, and review the perfect AI software for your needs. Get personalized AI tool suggestions to boost your productivity.
+            The ultimate directory for AI Master Tools. Discover, compare, and implement the perfect AI solutions to supercharge your productivity and business workflows.
           </motion.p>
 
             {/* Search Bar */}
@@ -431,6 +431,35 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="py-20 bg-[var(--color-cardBg)]/50 border-y border-[var(--color-border)]">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { step: '01', title: 'Discover', desc: 'Browse through 500+ curated AI tools across 20+ specialized categories.', icon: Search },
+              { step: '02', title: 'Compare', desc: 'Use our side-by-side comparison tool to find the best fit for your budget and needs.', icon: SlidersHorizontal },
+              { step: '03', title: 'Implement', desc: 'Get expert insights and direct links to start transforming your workflow today.', icon: BrainCircuit }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
+                className="relative p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/30 group hover:border-[var(--color-primary)] transition-all duration-500"
+              >
+                <div className="absolute -top-6 -left-6 text-6xl font-black text-[var(--color-primary)]/10 group-hover:text-[var(--color-primary)]/20 transition-colors">{item.step}</div>
+                <div className="mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] w-fit group-hover:scale-110 transition-transform">
+                  <item.icon size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">{item.title}</h3>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Categories Section - Tech Grid */}
       <section id="categories" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-y border-[var(--color-border)] relative">
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
@@ -451,7 +480,10 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {displayedCategories.map((cat, index) => {
               const Icon = cat.icon;
-              const isLarge = index === 0 || index === 1;
+              // Create a more dynamic bento-like layout
+              const isWide = index % 7 === 0;
+              const isTall = index % 5 === 0 && !isWide;
+              
               return (
                 <motion.button 
                   key={cat.id}
@@ -460,23 +492,40 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onClick={() => handleCategoryClick(cat.id)}
-                  className={`p-4 md:p-8 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 md:gap-4 group glass-panel card-hover-effect relative overflow-hidden
-                    ${isLarge ? 'col-span-2 lg:flex-row lg:text-left lg:justify-start lg:px-10' : 'col-span-1 lg:col-span-1'}
+                  className={`p-6 md:p-8 rounded-3xl border transition-all duration-500 flex flex-col gap-4 group glass-panel relative overflow-hidden
+                    ${isWide ? 'col-span-2 md:flex-row items-center text-left' : 'col-span-1 items-start text-left'}
+                    ${isTall ? 'row-span-2 justify-between' : 'justify-center'}
                     ${selectedCategory === cat.id 
                       ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[var(--shadow-glow)]' 
-                      : 'border-[var(--color-border)] hover:bg-[var(--color-surface)]/50'
+                      : 'border-[var(--color-border)] hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-surface)]/50'
                     }`}
                 >
-                  {/* Subtle background gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  {/* Background Glow */}
+                  <div className="absolute -right-4 -top-4 w-24 h-24 bg-[var(--color-primary)]/10 rounded-full blur-2xl group-hover:bg-[var(--color-primary)]/20 transition-all duration-500"></div>
                   
-                  <div className={`p-4 rounded-xl transition-all duration-300 relative z-10 ${selectedCategory === cat.id ? 'bg-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/30' : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] group-hover:text-white group-hover:bg-[var(--color-primary)] group-hover:shadow-lg group-hover:shadow-[var(--color-primary)]/20'}`}>
-                    <Icon size={isLarge ? 36 : 28} strokeWidth={1.5} />
+                  <div className={`p-4 rounded-2xl transition-all duration-500 relative z-10 ${selectedCategory === cat.id ? 'bg-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/30' : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] group-hover:text-white group-hover:bg-[var(--color-primary)] group-hover:shadow-lg group-hover:shadow-[var(--color-primary)]/20'}`}>
+                    <Icon size={isWide ? 32 : 24} strokeWidth={1.5} />
                   </div>
+                  
                   <div className="relative z-10">
-                    <h3 className={`font-bold ${isLarge ? 'text-xl md:text-2xl' : 'text-base md:text-lg'} mb-2 ${selectedCategory === cat.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors'}`}>{cat.name}</h3>
-                    <p className="text-xs text-[var(--color-text-muted)] font-semibold bg-[var(--color-background)]/80 backdrop-blur-sm px-3 py-1 rounded-full inline-block border border-[var(--color-border)]">{cat.count} Tools</p>
+                    <h3 className={`font-bold ${isWide ? 'text-xl md:text-2xl' : 'text-lg'} mb-1 ${selectedCategory === cat.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors'}`}>{cat.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-[var(--color-text-muted)] font-bold uppercase tracking-wider">{cat.count} Tools</span>
+                      <div className="w-1 h-1 rounded-full bg-[var(--color-border)]"></div>
+                      <span className="text-[10px] text-[var(--color-primary)] font-bold uppercase">Trending</span>
+                    </div>
                   </div>
+                  
+                  {isTall && (
+                    <div className="mt-4 w-full h-1 bg-[var(--color-border)] rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '70%' }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"
+                      />
+                    </div>
+                  )}
                 </motion.button>
               )
             })}
@@ -563,42 +612,100 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedTools.length > 0 ? (
-              displayedTools.map((tool, index) => (
-                <motion.div
-                  key={tool.id}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                >
-                  <ToolCard 
-                    tool={tool} 
-                    rank={activeTab === 'Featured' ? index + 1 : undefined}
-                  />
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-32 text-[var(--color-text-secondary)] glass-panel rounded-2xl border border-[var(--color-border)]">
-                <Search size={48} className="mx-auto mb-4 text-[var(--color-text-muted)] opacity-50" />
-                <p className="text-xl font-medium mb-2">No results found.</p>
-                <p className="text-sm text-[var(--color-text-muted)] mb-6">Try adjusting your search criteria.</p>
-                <button onClick={() => {setSearchTerm(''); setSelectedCategory('All');}} className="btn-primary">Clear Filters</button>
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Main Tools Grid */}
+            <div className="flex-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {displayedTools.length > 0 ? (
+                  displayedTools.map((tool, index) => (
+                    <motion.div
+                      key={tool.id}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                    >
+                      <ToolCard 
+                        tool={tool} 
+                        rank={activeTab === 'Featured' ? index + 1 : undefined}
+                      />
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-32 text-[var(--color-text-secondary)] glass-panel rounded-2xl border border-[var(--color-border)]">
+                    <Search size={48} className="mx-auto mb-4 text-[var(--color-text-muted)] opacity-50" />
+                    <p className="text-xl font-medium mb-2">No results found.</p>
+                    <p className="text-sm text-[var(--color-text-muted)] mb-6">Try adjusting your search criteria.</p>
+                    <button onClick={() => {setSearchTerm(''); setSelectedCategory('All');}} className="btn-primary">Clear Filters</button>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
 
-          {processedTools.length > visibleCount && (
-            <div className="mt-16 text-center">
-              <button 
-                onClick={() => setVisibleCount(prev => prev + 12)}
-                className="btn-primary px-8 py-4 text-lg"
-              >
-                Load More Solutions
-              </button>
+              {processedTools.length > visibleCount && (
+                <div className="mt-16 text-center">
+                  <button 
+                    onClick={() => setVisibleCount(prev => prev + 12)}
+                    className="btn-primary px-8 py-4 text-lg"
+                  >
+                    Load More Solutions
+                  </button>
+                </div>
+              )}
             </div>
-          )}
+
+            {/* Trending Sidebar */}
+            <aside className="lg:w-80 shrink-0">
+              <div className="sticky top-32 space-y-8">
+                <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 bg-[var(--color-cardBg)]/50">
+                  <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-6 flex items-center gap-2">
+                    <Sparkles className="text-[var(--color-accent)]" size={20} /> Trending Now
+                  </h3>
+                  <div className="space-y-6">
+                    {MOCK_TOOLS.slice(0, 5).map((tool, i) => (
+                      <Link 
+                        key={tool.id} 
+                        to={`/tool/${tool.id}`}
+                        className="flex items-center gap-4 group"
+                      >
+                        <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] shrink-0">
+                          <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="text-sm font-bold text-[var(--color-text-primary)] truncate group-hover:text-[var(--color-primary)] transition-colors">{tool.name}</h4>
+                          <div className="flex items-center gap-2 mt-1">
+                            <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">{tool.category}</span>
+                            <span className="text-[10px] text-[var(--color-text-muted)] flex items-center gap-0.5">
+                              ★ {tool.rating}
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <button className="w-full mt-8 py-3 rounded-xl border border-[var(--color-border)] text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] transition-all">
+                    View All Trending
+                  </button>
+                </div>
+
+                <div className="rounded-3xl overflow-hidden relative group aspect-[3/4] border border-[var(--color-border)] shadow-2xl">
+                  <img 
+                    src="https://picsum.photos/seed/ai-pro/600/800" 
+                    alt="Pro Membership" 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-8">
+                    <div className="text-[var(--color-accent)] text-xs font-black uppercase tracking-[0.2em] mb-2">Limited Offer</div>
+                    <h4 className="text-2xl font-black text-white mb-4 leading-tight">Upgrade to Pro & Save 50%</h4>
+                    <p className="text-white/70 text-sm mb-6 leading-relaxed">Get unlimited access to premium tools, advanced prompts, and priority support.</p>
+                    <Link to="/pricing" className="block w-full py-4 rounded-xl bg-white text-black text-center font-bold hover:bg-[var(--color-accent)] hover:text-white transition-all">
+                      Claim Discount
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -846,53 +953,88 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Live Community Stats */}
+      <section className="py-20 border-t border-[var(--color-border)] bg-[var(--color-cardBg)]/30">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: 'Active Users', value: '150k+', color: 'text-blue-400' },
+              { label: 'Tools Compared', value: '2.5M+', color: 'text-cyan-400' },
+              { label: 'Prompt Templates', value: '10k+', color: 'text-violet-400' },
+              { label: 'Success Rate', value: '99.9%', color: 'text-emerald-400' }
+            ].map((stat, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-8 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/20 glass-panel"
+              >
+                <div className={`text-3xl md:text-5xl font-black mb-2 ${stat.color}`}>{stat.value}</div>
+                <div className="text-xs md:text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-widest">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden border-t border-[var(--color-border)]">
-        <div className="absolute inset-0 bg-[var(--color-surface)]/50 -z-10"></div>
+      <section className="py-24 relative overflow-hidden border-t border-[var(--color-border)]">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-primary)]/5 -z-10"></div>
         <div className="container-custom relative z-10">
-          <div className="glass-panel border border-[var(--color-border)] rounded-2xl p-6 md:p-20 text-center max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent opacity-50"></div>
+          <div className="relative rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/80 backdrop-blur-3xl p-8 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]"></div>
             
-            <div className="inline-flex p-4 rounded-xl bg-[var(--color-primary)]/10 mb-6 md:mb-8 border border-[var(--color-primary)]/20 shadow-[var(--shadow-neon)]">
-              <Sparkles className="text-[var(--color-primary)]" size={32} />
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-[var(--color-text-primary)] tracking-tight">Join the <span className="text-gradient">AI Revolution</span></h2>
-            <p className="text-[var(--color-text-secondary)] mb-8 md:mb-10 max-w-xl mx-auto text-base md:text-xl leading-relaxed">
-              Get exclusive access to new tools, premium tutorials, and industry insights delivered to your inbox.
-            </p>
-            <form className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto justify-center" onSubmit={handleNewsletterSubmit}>
-              {newsletterStatus === 'success' ? (
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="w-full bg-green-500/20 border border-green-500/30 rounded-lg p-4 flex items-center justify-center gap-3 text-green-400"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest mb-8">
+                <BrainCircuit size={14} /> AI Master Newsletter
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-tight">
+                Stay Ahead of the <br/>
+                <span className="text-gradient">AI Revolution</span>
+              </h2>
+              <p className="text-lg md:text-xl text-[var(--color-text-secondary)] mb-12 leading-relaxed">
+                Join 50,000+ engineers and creators getting weekly insights on the latest AI tools, prompt engineering hacks, and industry trends.
+              </p>
+              
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  required
+                  className="flex-1 h-16 px-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none text-lg text-[var(--color-text-primary)] transition-all"
+                />
+                <button 
+                  type="submit" 
+                  disabled={newsletterStatus === 'submitting'}
+                  className="h-16 px-10 rounded-2xl bg-[var(--color-primary)] text-white font-bold text-lg hover:bg-[var(--color-primary-dark)] transition-all shadow-xl shadow-[var(--color-primary)]/20 disabled:opacity-50 flex items-center justify-center gap-2"
                 >
-                  <Check size={20} />
-                  <span className="font-semibold">Subscribed successfully!</span>
-                </motion.div>
-              ) : (
-                <div className="flex flex-col items-center w-full gap-3">
-                  <button 
-                    type="button"
-                    onClick={handleNewsletterSubmit}
-                    disabled={newsletterStatus === 'submitting'}
-                    className="btn-primary px-10 py-4 rounded-lg shadow-lg whitespace-nowrap text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 w-full md:w-auto"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" className="w-6 h-6">
-                      <path fill="#fff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="#fff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="#fff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="#fff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                    </svg>
-                    {newsletterStatus === 'submitting' ? 'Connecting...' : 'Subscribe with Google'}
-                  </button>
-                  {newsletterStatus === 'error' && (
-                    <p className="text-red-400 text-sm mt-2">{errorMessage}</p>
-                  )}
-                </div>
+                  {newsletterStatus === 'submitting' ? <Loader2 className="animate-spin" /> : 'Subscribe Now'}
+                </button>
+              </form>
+              
+              {newsletterStatus === 'success' && (
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 text-green-400 font-bold flex items-center justify-center gap-2">
+                  <Check size={20} /> Welcome to the future of AI!
+                </motion.p>
               )}
-            </form>
-            <p className="text-xs text-[var(--color-text-muted)] mt-8 font-medium">No spam, unsubscribe anytime.</p>
+              
+              {newsletterStatus === 'error' && (
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 text-red-400 font-bold">
+                  {errorMessage}
+                </motion.p>
+              )}
+              
+              <p className="mt-8 text-sm text-[var(--color-text-muted)]">
+                No spam. Only high-signal AI insights. Unsubscribe at any time.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>

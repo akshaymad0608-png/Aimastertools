@@ -28,22 +28,30 @@ const Pricing: React.FC = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const handlePayment = async (planName: string, amount: number) => {
-    if (isPro) return;
+    console.log('handlePayment called for:', planName, amount);
+    if (isPro) {
+      console.log('User is already Pro, returning');
+      return;
+    }
     
     if (!currentUser) {
+      console.log('No current user, opening AuthModal');
       setIsAuthModalOpen(true);
       return;
     }
 
+    console.log('Starting payment process for user:', currentUser.email);
     setSelectedPlan(planName);
     setIsProcessing(true);
     setErrorMessage('');
 
     try {
       if (typeof window.Razorpay === 'undefined') {
+        console.error('Razorpay SDK not found on window object');
         throw new Error('Payment gateway (Razorpay) failed to load. Please check your internet connection or disable any ad-blockers and refresh the page.');
       }
 
+      console.log('Creating order on server...');
       const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,19 +62,22 @@ const Pricing: React.FC = () => {
         })
       });
 
+      console.log('Order creation response status:', response.status);
       let order;
       const text = await response.text();
       try {
         order = text ? JSON.parse(text) : {};
       } catch (e) {
-        console.error('Failed to parse JSON:', text);
+        console.error('Failed to parse order JSON:', text);
         throw new Error(`Server error (${response.status}): The server returned an invalid response. Please try again later.`);
       }
 
       if (!response.ok || order.error) {
+        console.error('Order creation failed:', order.error || order.message);
         throw new Error(order.error || order.message || 'Failed to create order');
       }
 
+      console.log('Order created successfully:', order.id);
       const options = {
         key: order.key_id,
         amount: order.amount,
@@ -76,6 +87,7 @@ const Pricing: React.FC = () => {
         image: "https://lucide.dev/favicon.ico",
         order_id: order.id,
         handler: async (response: any) => {
+          console.log('Razorpay payment success, verifying...', response.razorpay_payment_id);
           try {
             setIsProcessing(true);
             const verifyRes = await fetch('/api/verify-payment', {
@@ -88,22 +100,25 @@ const Pricing: React.FC = () => {
               })
             });
 
+            console.log('Verification response status:', verifyRes.status);
             let verifyData;
             const text = await verifyRes.text();
             try {
               verifyData = text ? JSON.parse(text) : {};
             } catch (e) {
-              console.error('Failed to parse JSON:', text);
+              console.error('Failed to parse verification JSON:', text);
               throw new Error(`Server error (${verifyRes.status}): The server returned an invalid response. Please try again later.`);
             }
 
             if (!verifyRes.ok) {
+              console.error('Verification failed:', verifyData.error || verifyData.message);
               throw new Error(verifyData.error || verifyData.message || 'Payment verification failed');
             }
 
             if (verifyData.success) {
+              console.log('Payment verified successfully!');
               setPaymentStatus('success');
-              setProStatus(true);
+              await setProStatus(true);
               
               await fetch('/api/send-purchase-email', {
                 method: 'POST',
@@ -117,6 +132,7 @@ const Pricing: React.FC = () => {
                 })
               });
             } else {
+              console.error('Verification success was false:', verifyData.message);
               setErrorMessage(verifyData.message || 'Payment verification failed');
               setPaymentStatus('error');
             }
@@ -137,15 +153,17 @@ const Pricing: React.FC = () => {
         },
         modal: {
           ondismiss: () => {
+            console.log('Razorpay modal dismissed');
             setIsProcessing(false);
           }
         }
       };
 
+      console.log('Opening Razorpay modal...');
       const rzp = new window.Razorpay(options);
       
       rzp.on('payment.failed', function (response: any) {
-        console.error('Payment failed:', response.error);
+        console.error('Razorpay payment failed event:', response.error);
         setErrorMessage(`Payment Failed: ${response.error.description}. Code: ${response.error.code}`);
         setPaymentStatus('error');
         setIsProcessing(false);
@@ -153,8 +171,9 @@ const Pricing: React.FC = () => {
 
       rzp.open();
     } catch (error: any) {
-      console.error('Payment error:', error);
+      console.error('Payment catch block error:', error);
       setErrorMessage(error.message || 'Failed to initiate payment. Please try again.');
+      setPaymentStatus('error');
       setIsProcessing(false);
     }
   };
