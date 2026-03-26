@@ -180,6 +180,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   width: max-content;
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:hover {
@@ -253,6 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Gradient Border */
