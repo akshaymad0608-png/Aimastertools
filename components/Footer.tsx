@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BrainCircuit, Twitter, Github, Linkedin, ChevronUp, ArrowRight, Mail, Check, Loader2, Users } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -41,13 +42,18 @@ const Footer: React.FC = () => {
       <div className="container-custom mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[var(--color-primary)] p-2 rounded-lg shadow-[var(--shadow-neon)]">
-                <BrainCircuit className="text-white" size={24} strokeWidth={2} />
+            <div className="flex items-center gap-3 mb-6 group">
+              <Logo className="w-12 h-12 drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-black tracking-tight leading-none">
+                  <span className="text-[#0ea5e9]">AI</span>
+                  <span className="text-[var(--color-text-primary)]">MASTERTOOLS</span>
+                  <span className="text-[#d946ef]">.SPACE</span>
+                </span>
+                <span className="text-[0.65rem] font-bold text-[var(--color-text-muted)] tracking-[0.15em] mt-1">
+                  ALL AI TOOLS IN ONE PLACE
+                </span>
               </div>
-              <span className="text-2xl font-bold text-[var(--color-text-primary)] tracking-tight">
-                AIMasterTools<span className="text-[var(--color-primary)]">.</span>
-              </span>
             </div>
             <p className="text-[var(--color-text-secondary)] text-sm mb-8 leading-relaxed">
               Empowering businesses with cutting-edge AI solutions. We bridge the gap between imagination and reality.
