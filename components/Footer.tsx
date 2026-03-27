@@ -43,16 +43,27 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-3 mb-6 group">
-              <Logo className="w-12 h-12 drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
-              <div className="flex flex-col justify-center">
-                <span className="text-2xl font-black tracking-tight leading-none">
+              <img 
+                src="/logo.png" 
+                alt="AIMasterTools Logo" 
+                className="h-10 sm:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <div className="hidden flex flex-col justify-center">
+                <span className="text-xl sm:text-2xl font-black tracking-tight leading-none flex items-center">
                   <span className="text-[#0ea5e9]">AI</span>
-                  <span className="text-[var(--color-text-primary)]">MASTERTOOLS</span>
-                  <span className="text-[#d946ef]">.SPACE</span>
+                  <span className="text-[var(--color-text-primary)]">MasterTools</span>
                 </span>
-                <span className="text-[0.65rem] font-bold text-[var(--color-text-muted)] tracking-[0.15em] mt-1">
-                  ALL AI TOOLS IN ONE PLACE
-                </span>
+                <div className="flex items-center gap-1 w-full mt-1">
+                  <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
+                  <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
+                    .Space
+                  </span>
+                  <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
+                </div>
               </div>
             </div>
             <p className="text-[var(--color-text-secondary)] text-sm mb-8 leading-relaxed">

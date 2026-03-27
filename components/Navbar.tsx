@@ -63,13 +63,13 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Trending Ticker */}
-      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1.5 overflow-hidden hidden md:block">
-        <div className="container-custom flex items-center gap-4">
-          <div className="flex items-center gap-2 px-2 py-0.5 rounded bg-[var(--color-primary)] text-white text-[10px] font-bold uppercase tracking-widest animate-pulse">
+      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1 sm:py-1.5 overflow-hidden">
+        <div className="container-custom flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1 sm:gap-2 px-1.5 sm:px-2 py-0.5 rounded bg-[var(--color-primary)] text-white text-[8px] sm:text-[10px] font-bold uppercase tracking-widest animate-pulse whitespace-nowrap">
             Trending Now
           </div>
           <div className="flex-1 overflow-hidden relative">
-            <div className="animate-marquee whitespace-nowrap flex gap-12 items-center">
+            <div className="animate-marquee whitespace-nowrap flex gap-6 sm:gap-12 items-center">
               {[
                 "DALL-E 3: New Image Generation Model",
                 "Framer AI: Build Websites in Seconds",
@@ -118,16 +118,27 @@ const Navbar: React.FC = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            <Logo className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-105 transition-transform duration-300 drop-shadow-md" />
-            <div className="flex flex-col justify-center">
-              <span className="text-xl md:text-2xl font-black tracking-tight leading-none">
+            <img 
+              src="/logo.png" 
+              alt="AIMasterTools Logo" 
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+              }}
+            />
+            <div className="hidden flex flex-col justify-center items-center ml-1 sm:ml-2">
+              <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
                 <span className="text-[#0ea5e9]">AI</span>
-                <span className="text-[var(--color-text-primary)]">MASTERTOOLS</span>
-                <span className="text-[#d946ef]">.SPACE</span>
+                <span className="text-[var(--color-text-primary)]">MasterTools</span>
               </span>
-              <span className="text-[0.55rem] md:text-[0.65rem] font-bold text-[var(--color-text-muted)] tracking-[0.15em] mt-0.5">
-                ALL AI TOOLS IN ONE PLACE
-              </span>
+              <div className="flex items-center gap-1 w-full mt-0.5">
+                <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
+                <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
+                  .Space
+                </span>
+                <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
+              </div>
             </div>
           </Link>
         </div>
@@ -218,15 +229,15 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="xl:hidden flex items-center gap-4">
+        <div className="xl:hidden flex items-center gap-2 sm:gap-4">
           <button 
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+            className="p-1.5 sm:p-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === 'dark' ? <Sun size={16} className="sm:w-[18px] sm:h-[18px]" /> : <Moon size={16} className="sm:w-[18px] sm:h-[18px]" />}
           </button>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)]">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)]">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
@@ -234,11 +245,11 @@ const Navbar: React.FC = () => {
             <span className="text-[10px] font-bold text-[var(--color-text-secondary)]">{liveVisitors}</span>
           </div>
           <button 
-            className="text-[var(--color-text-primary)] p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors" 
+            className="text-[var(--color-text-primary)] p-1.5 sm:p-2 rounded-lg hover:bg-[var(--color-surface)] transition-colors" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} className="sm:w-[24px] sm:h-[24px]" /> : <Menu size={20} className="sm:w-[24px] sm:h-[24px]" />}
           </button>
         </div>
       </div>

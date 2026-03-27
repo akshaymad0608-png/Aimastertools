@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2 
+  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2, Youtube
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ToolCard from '../components/ToolCard';
@@ -705,6 +705,50 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Playlist Section */}
+      <section className="py-16 md:py-24 bg-[var(--color-cardBg)]/50 border-t border-[var(--color-border)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none"></div>
+        <div className="container-custom relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12 md:mb-16">
+            <div className="text-center md:text-left max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest mb-4">
+                <Youtube size={16} /> Video Tutorials
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
+                Master AI Tools with <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Our Guides</span>
+              </h2>
+              <p className="text-[var(--color-text-secondary)] text-base md:text-lg">
+                Watch our step-by-step tutorials, reviews, and tips on how to get the most out of the best AI tools available today.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <a 
+                href="https://www.youtube.com/playlist?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold transition-all shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-1"
+              >
+                <Youtube size={20} />
+                Subscribe to Channel
+              </a>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-2xl bg-black aspect-video max-w-5xl mx-auto">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            ></iframe>
           </div>
         </div>
       </section>
