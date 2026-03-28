@@ -20,7 +20,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <style>
+        #initial-loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #0f172a; /* Dark background matching the theme */
+          z-index: 9999;
+          font-family: 'Inter', sans-serif;
+        }
+        .spinner {
+          width: 40px;
+          height: 40px;
+          border: 3px solid rgba(14, 165, 233, 0.2);
+          border-radius: 50%;
+          border-top-color: #0ea5e9;
+          animation: spin 1s ease-in-out infinite;
+          margin-bottom: 16px;
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .loader-text {
+          color: #f8fafc;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1px;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      </style>
+      <div id="initial-loader">
+        <div class="spinner"></div>
+        <div class="loader-text">LOADING AI MASTER TOOLS...</div>
+      </div>
+    </div>
     <script src="https://checkout.razorpay.com/v1/checkout.js" async defer></script>
     <script type="module" src="/index.tsx"></script>
   </body>

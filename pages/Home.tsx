@@ -261,20 +261,18 @@ const Home: React.FC = () => {
         <motion.div 
           animate={{ 
             opacity: [0.4, 0.6, 0.4],
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, 0]
+            scale: [1, 1.05, 1],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"
+          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none will-change-transform transform-gpu"
         />
         <motion.div 
           animate={{ 
             opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0]
+            scale: [1, 1.1, 1],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-[100px] -z-10 pointer-events-none"
+          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-[100px] -z-10 pointer-events-none will-change-transform transform-gpu"
         />
 
         <div className="container-custom text-center relative z-10">

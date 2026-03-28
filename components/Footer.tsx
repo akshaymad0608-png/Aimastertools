@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[var(--color-background)] border-t border-[var(--color-border)] pt-16 pb-8 md:pt-20 md:pb-10 mt-auto relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
 
       <div className="container-custom mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">

@@ -75,13 +75,7 @@ const GlobalToast = () => {
 
 function App() {
   return (
-    <>
-      <title>AI Master Tools | Professional AI Prompt Engineering</title>
-      <meta name="description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan. Boost your AI productivity with AI Master Tools." />
-      <meta name="keywords" content="AI Master Tools, Akshay Mahajan, Prompt Engineering, Google AI Studio tools, AI ML Engineering, AI Tools Directory" />
-      <meta property="og:title" content="AI Master Tools | Professional AI Prompt Engineering" />
-      <meta property="og:description" content="Explore advanced AI tools and professional prompt engineering resources by Akshay Mahajan." />
-      <ThemeProvider>
+    <ThemeProvider>
         <AuthProvider>
           <ProProvider>
             <BookmarkProvider>
@@ -115,7 +109,6 @@ function App() {
         </ProProvider>
         </AuthProvider>
       </ThemeProvider>
-    </>
   );
 }
 

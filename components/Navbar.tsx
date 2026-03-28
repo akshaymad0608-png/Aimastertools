@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
             Trending Now
           </div>
           <div className="flex-1 overflow-hidden relative">
-            <div className="animate-marquee whitespace-nowrap flex gap-6 sm:gap-12 items-center">
+            <div className="animate-marquee whitespace-nowrap flex gap-6 sm:gap-12 items-center will-change-transform transform-gpu">
               {[
                 "DALL-E 3: New Image Generation Model",
                 "Framer AI: Build Websites in Seconds",
