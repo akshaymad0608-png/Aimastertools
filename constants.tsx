@@ -6,7 +6,7 @@ import {
   Music, Headphones, Globe, Cpu, Palette, Smile,
   Heart, Plane, Gamepad2, Shirt, Home, Pill, FlaskConical,
   Users, Target, Newspaper, Share2, Bitcoin, Layout, ShoppingBag,
-  Presentation, Shield, User, Sparkles
+  Presentation, Shield, User, Sparkles, Wand2, Bot, Headset, Languages
 } from 'lucide-react';
 
 const TAGS_BY_CATEGORY: Record<string, string[]> = {
@@ -48,7 +48,11 @@ const TAGS_BY_CATEGORY: Record<string, string[]> = {
   'E-commerce': ['Product Descriptions', 'Customer Support', 'Recommendation Engine', 'Inventory Management', 'Pricing Optimization', 'Fraud Detection', 'Virtual Try-on'],
   'Cybersecurity': ['Threat Detection', 'Vulnerability Scanning', 'Phishing Protection', 'Identity Management', 'Network Security', 'Code Analysis'],
   'Personal Assistant': ['Scheduling', 'Email Management', 'Travel Planning', 'Lifestyle', 'Shopping', 'Reminders'],
-  'Self-Improvement': ['Habit Tracking', 'Learning', 'Meditation', 'Goal Setting', 'Journaling', 'Coaching']
+  'Self-Improvement': ['Habit Tracking', 'Learning', 'Meditation', 'Goal Setting', 'Journaling', 'Coaching'],
+  'Prompt Engineering': ['Prompts', 'Templates', 'Optimization', 'Testing', 'Marketplace'],
+  'AI Agents': ['Autonomous', 'Task Management', 'Workflow', 'Multi-Agent', 'Browser Automation'],
+  'Customer Support': ['Helpdesk', 'Chatbots', 'Ticketing', 'Knowledge Base', 'CRM'],
+  'Language Translation': ['Translation', 'Localization', 'Dubbing', 'Subtitles', 'Multilingual']
 };
 
 const CATEGORY_META = [
@@ -91,9 +95,91 @@ const CATEGORY_META = [
   { id: 'Cybersecurity', name: 'Cybersecurity & Privacy', icon: Shield },
   { id: 'Personal Assistant', name: 'Personal Assistants', icon: User },
   { id: 'Self-Improvement', name: 'Self-Improvement', icon: Sparkles },
+  { id: 'Prompt Engineering', name: 'Prompt Engineering', icon: Wand2 },
+  { id: 'AI Agents', name: 'AI Agents', icon: Bot },
+  { id: 'Customer Support', name: 'Customer Support', icon: Headset },
+  { id: 'Language Translation', name: 'Language Translation', icon: Languages },
 ];
 
 export const MOCK_TOOLS: Tool[] = [
+  {
+    id: 'promptbase',
+    name: 'PromptBase',
+    description: 'The premier marketplace for buying and selling high-quality DALL-E, GPT-4, Midjourney, and Stable Diffusion prompts.',
+    category: 'Prompt Engineering',
+    url: 'https://promptbase.com',
+    imageUrl: 'https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Paid',
+    rating: 4.8,
+    featured: true,
+    dateAdded: '2024-05-01',
+    tags: ['Marketplace', 'Prompts', 'Templates']
+  },
+  {
+    id: 'flowgpt',
+    name: 'FlowGPT',
+    description: 'Share, discover, and learn about the most useful ChatGPT prompts that help you streamline your tasks and increase productivity.',
+    category: 'Prompt Engineering',
+    url: 'https://flowgpt.com',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Free',
+    rating: 4.7,
+    featured: false,
+    dateAdded: '2024-05-02',
+    tags: ['Prompts', 'Community', 'Templates']
+  },
+  {
+    id: 'autogpt',
+    name: 'AutoGPT',
+    description: 'An experimental open-source attempt to make GPT-4 fully autonomous. Chain together LLM thoughts to achieve any goal.',
+    category: 'AI Agents',
+    url: 'https://agpt.co',
+    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Free',
+    rating: 4.9,
+    featured: true,
+    dateAdded: '2024-05-03',
+    tags: ['Autonomous', 'Task Management', 'Multi-Agent']
+  },
+  {
+    id: 'agentgpt',
+    name: 'AgentGPT',
+    description: 'Assemble, configure, and deploy autonomous AI Agents in your browser. Give it a goal and watch it think, learn, and execute.',
+    category: 'AI Agents',
+    url: 'https://agentgpt.reworkd.ai',
+    imageUrl: 'https://images.unsplash.com/photo-1684369175833-8b88d8740128?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Freemium',
+    rating: 4.8,
+    featured: false,
+    dateAdded: '2024-05-04',
+    tags: ['Autonomous', 'Workflow', 'Browser Automation']
+  },
+  {
+    id: 'intercom-fin',
+    name: 'Intercom Fin',
+    description: 'A breakthrough AI bot that resolves customer issues instantly and accurately with zero setup required.',
+    category: 'Customer Support',
+    url: 'https://www.intercom.com/fin',
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Paid',
+    rating: 4.9,
+    featured: true,
+    dateAdded: '2024-05-05',
+    tags: ['Chatbots', 'Helpdesk', 'Knowledge Base']
+  },
+  {
+    id: 'deepl',
+    name: 'DeepL',
+    description: 'The world\'s most accurate translator. Translate texts and full document files instantly with advanced AI technology.',
+    category: 'Language Translation',
+    url: 'https://www.deepl.com',
+    imageUrl: 'https://images.unsplash.com/photo-1542744094-24638ea0b56c?auto=format&fit=crop&q=80&w=800',
+    pricing: 'Freemium',
+    rating: 5.0,
+    featured: true,
+    dateAdded: '2024-05-06',
+    tags: ['Translation', 'Multilingual', 'Localization']
+  },
   {
     id: 'gamma',
     name: 'Gamma',
