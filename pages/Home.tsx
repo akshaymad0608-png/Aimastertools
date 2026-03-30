@@ -1,13 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2, Youtube
+  Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2, Play
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ToolCard from '../components/ToolCard';
 import SEO from '../components/SEO';
-import CountUp from '../components/CountUp';
-import AdBanner from '../components/AdBanner';
 import { CATEGORIES, MOCK_TOOLS, BLOG_POSTS } from '../constants';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
@@ -23,7 +21,7 @@ const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const searchInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -85,7 +83,7 @@ const Home: React.FC = () => {
 
   const handleCategoryClick = (categoryId: Category) => {
     setSelectedCategory(categoryId);
-    setVisibleCount(12);
+    setVisibleCount(6);
     const toolsSection = document.getElementById('tools');
     if (toolsSection) {
       toolsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -93,14 +91,35 @@ const Home: React.FC = () => {
   };
 
   const displayedCategories = useMemo(() => {
-    return showAllCategories ? CATEGORIES : CATEGORIES.slice(0, 10);
-  }, [showAllCategories]);
+    let cats = CATEGORIES;
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      // Find tools that match the search term
+      const matchingTools = MOCK_TOOLS.filter(tool => 
+        tool.name.toLowerCase().includes(term) || 
+        tool.description.toLowerCase().includes(term) ||
+        tool.category.toLowerCase().includes(term) ||
+        (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(term)))
+      );
+      
+      // Get unique categories from matching tools
+      const matchingCategoryIds = new Set(matchingTools.map(t => t.category));
+      
+      cats = cats.filter(cat => 
+        cat.name.toLowerCase().includes(term) || 
+        cat.id.toLowerCase().includes(term) ||
+        matchingCategoryIds.has(cat.id)
+      );
+    }
+    return showAllCategories || searchTerm ? cats : cats.slice(0, 6);
+  }, [showAllCategories, searchTerm]);
 
   const filteredTools = useMemo(() => {
     const term = searchTerm.toLowerCase();
     return MOCK_TOOLS.filter(tool => {
       const matchesSearch = tool.name.toLowerCase().includes(term) || 
                             tool.description.toLowerCase().includes(term) ||
+                            tool.category.toLowerCase().includes(term) ||
                             (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(term)));
       const matchesCategory = selectedCategory === 'All' || tool.category === selectedCategory;
       return matchesSearch && matchesCategory;
@@ -109,7 +128,7 @@ const Home: React.FC = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    setVisibleCount(12);
+    setVisibleCount(6);
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -160,14 +179,6 @@ const Home: React.FC = () => {
     return processedTools.slice(0, visibleCount);
   }, [processedTools, visibleCount]);
 
-  const TRUSTED_COMPANIES = ['Google', 'Microsoft', 'OpenAI', 'Amazon', 'Meta', 'IBM', 'Nvidia', 'Adobe'];
-
-  const TESTIMONIALS = [
-    { name: 'Sarah J.', role: 'Product Manager', text: 'This directory helped us find the perfect AI stack for our workflow. Incredible resource!', company: 'TechFlow' },
-    { name: 'David K.', role: 'CTO', text: 'Aisev is my go-to for discovering new enterprise-grade AI solutions. Highly recommended.', company: 'InnovateX' },
-    { name: 'Elena R.', role: 'Creative Director', text: 'The design tools collection is unmatched. Found exactly what I needed for our new campaign.', company: 'CreativeStudio' }
-  ];
-
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -210,11 +221,6 @@ const Home: React.FC = () => {
       setTimeout(() => setNewsletterStatus('idle'), 5000);
     }
   };
-
-  const spotlightTool = useMemo(() => {
-    const featured = MOCK_TOOLS.filter(t => t.featured);
-    return featured[Math.floor(Math.random() * featured.length)] || MOCK_TOOLS[0];
-  }, []);
 
   return (
     <>
@@ -393,68 +399,9 @@ const Home: React.FC = () => {
                     </button>
                   ))}
                 </div>
-                
-                <Link 
-                  to="/compare" 
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 text-[var(--color-text-primary)] font-medium transition-all duration-300 group shadow-lg"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--color-primary)] group-hover:scale-110 transition-transform"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                  Compare AI Tools Side-by-Side
-                  <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                </Link>
               </div>
             )}
           </motion.div>
-
-          {/* Trusted By Section */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-20 pt-10 border-t border-[var(--color-border)]/30 overflow-hidden"
-          >
-            <p className="text-sm font-medium uppercase tracking-widest mb-8 electric-text">Trusted by industry leaders</p>
-            
-            <div className="relative w-full overflow-hidden mask-fade-sides">
-              <div className="animate-marquee flex gap-16 items-center opacity-70 hover:opacity-100 transition-opacity duration-300">
-                {/* Duplicate list 3 times for seamless loop */}
-                {[...TRUSTED_COMPANIES, ...TRUSTED_COMPANIES, ...TRUSTED_COMPANIES].map((company, i) => (
-                  <span key={i} className="text-xl md:text-2xl font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] cursor-default transition-colors whitespace-nowrap">
-                    {company}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-20 bg-[var(--color-cardBg)]/50 border-y border-[var(--color-border)]">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { step: '01', title: 'Discover', desc: 'Browse through 500+ curated AI tools across 20+ specialized categories.', icon: Search },
-              { step: '02', title: 'Compare', desc: 'Use our side-by-side comparison tool to find the best fit for your budget and needs.', icon: SlidersHorizontal },
-              { step: '03', title: 'Implement', desc: 'Get expert insights and direct links to start transforming your workflow today.', icon: BrainCircuit }
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                className="relative p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]/30 group hover:border-[var(--color-primary)] transition-all duration-500"
-              >
-                <div className="absolute -top-6 -left-6 text-6xl font-black text-[var(--color-primary)]/10 group-hover:text-[var(--color-primary)]/20 transition-colors">{item.step}</div>
-                <div className="mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] w-fit group-hover:scale-110 transition-transform">
-                  <item.icon size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">{item.title}</h3>
-                <p className="text-[var(--color-text-secondary)] leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -475,103 +422,69 @@ const Home: React.FC = () => {
             </button>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-            {displayedCategories.map((cat, index) => {
-              const Icon = cat.icon;
-              // Create a more dynamic bento-like layout
-              const isWide = index % 7 === 0;
-              const isTall = index % 5 === 0 && !isWide;
-              
-              return (
-                <motion.button 
-                  key={cat.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  onClick={() => handleCategoryClick(cat.id)}
-                  className={`p-6 md:p-8 rounded-3xl border transition-all duration-500 flex flex-col gap-4 group glass-panel relative overflow-hidden
-                    ${isWide ? 'col-span-2 md:flex-row items-center text-left' : 'col-span-1 items-start text-left'}
-                    ${isTall ? 'row-span-2 justify-between' : 'justify-center'}
-                    ${selectedCategory === cat.id 
-                      ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[var(--shadow-glow)]' 
-                      : 'border-[var(--color-border)] hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-surface)]/50'
-                    }`}
-                >
-                  {/* Background Glow */}
-                  <div className="absolute -right-4 -top-4 w-24 h-24 bg-[var(--color-primary)]/10 rounded-full blur-2xl group-hover:bg-[var(--color-primary)]/20 transition-all duration-500"></div>
-                  
-                  <div className={`p-4 rounded-2xl transition-all duration-500 relative z-10 ${selectedCategory === cat.id ? 'bg-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/30' : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] group-hover:text-white group-hover:bg-[var(--color-primary)] group-hover:shadow-lg group-hover:shadow-[var(--color-primary)]/20'}`}>
-                    <Icon size={isWide ? 32 : 24} strokeWidth={1.5} />
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <h3 className={`font-bold ${isWide ? 'text-xl md:text-2xl' : 'text-lg'} mb-1 ${selectedCategory === cat.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors'}`}>{cat.name}</h3>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-[var(--color-text-muted)] font-bold uppercase tracking-wider">{cat.count} Tools</span>
-                      <div className="w-1 h-1 rounded-full bg-[var(--color-border)]"></div>
-                      <span className="text-[10px] text-[var(--color-primary)] font-bold uppercase">Trending</span>
+          {displayedCategories.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+              {displayedCategories.map((cat, index) => {
+                const Icon = cat.icon;
+                const isSelected = selectedCategory === cat.id;
+                
+                return (
+                  <motion.button 
+                    key={cat.id}
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.03 }}
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className={`p-5 sm:p-6 rounded-[2rem] border transition-all duration-300 flex flex-col items-center text-center gap-4 group relative overflow-hidden
+                      ${isSelected 
+                        ? 'border-[var(--color-primary)] bg-gradient-to-b from-[var(--color-primary)]/10 to-transparent shadow-[0_8px_30px_rgba(var(--color-primary-rgb),0.15)] ring-1 ring-[var(--color-primary)]/50' 
+                        : 'border-[var(--color-border)] bg-[var(--color-surface)]/50 hover:border-[var(--color-primary)]/40 hover:bg-[var(--color-surface)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
+                      }`}
+                  >
+                    {/* Background Glow */}
+                    <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full blur-3xl transition-all duration-500 ${isSelected ? 'bg-[var(--color-primary)]/20' : 'bg-[var(--color-primary)]/0 group-hover:bg-[var(--color-primary)]/10'}`}></div>
+                    
+                    {/* Selection Indicator */}
+                    {isSelected && (
+                      <div className="absolute top-4 right-4 text-[var(--color-primary)] bg-[var(--color-primary)]/10 p-1 rounded-full">
+                        <Check size={14} strokeWidth={3} />
+                      </div>
+                    )}
+                    
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 relative z-10 
+                      ${isSelected 
+                        ? 'bg-[var(--color-primary)] text-white shadow-lg shadow-[var(--color-primary)]/40 scale-110 rotate-3' 
+                        : 'bg-[var(--color-background)] border border-[var(--color-border)] text-[var(--color-text-secondary)] group-hover:text-[var(--color-primary)] group-hover:bg-[var(--color-primary)]/10 group-hover:border-[var(--color-primary)]/30 group-hover:scale-110 group-hover:-rotate-3'
+                      }`}>
+                      <Icon size={26} strokeWidth={isSelected ? 2 : 1.5} className="transition-all duration-500" />
                     </div>
-                  </div>
-                  
-                  {isTall && (
-                    <div className="mt-4 w-full h-1 bg-[var(--color-border)] rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '70%' }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className="h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"
-                      />
+                    
+                    <div className="relative z-10 w-full mt-2">
+                      <h3 className={`font-bold text-sm sm:text-base mb-2 line-clamp-2 transition-colors ${isSelected ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)]'}`}>{cat.name}</h3>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className={`text-xs font-semibold tracking-wider transition-colors px-3 py-1 rounded-full ${isSelected ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'bg-[var(--color-background)] border border-[var(--color-border)] text-[var(--color-text-muted)] group-hover:bg-[var(--color-primary)]/5 group-hover:border-[var(--color-primary)]/20 group-hover:text-[var(--color-primary)]/80'}`}>{cat.count} Tools</span>
+                      </div>
                     </div>
-                  )}
-                </motion.button>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Spotlight Section */}
-      <section className="py-12">
-        <div className="container-custom">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl group"
-          >
-            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${spotlightTool.imageUrl})` }}></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-background)] via-[var(--color-background)]/90 to-transparent"></div>
-            
-            <div className="relative z-10 p-6 md:p-16 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/20 border border-[var(--color-accent)]/50 text-[var(--color-accent)] text-xs font-bold uppercase tracking-wider mb-4 md:mb-6">
-                <Sparkles size={12} /> Editor's Choice
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                Unleash Creativity with <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-accent)]">{spotlightTool.name}</span>
-              </h2>
-              <p className="text-base md:text-lg text-[var(--color-text-secondary)] mb-6 md:mb-8 leading-relaxed">
-                {spotlightTool.description}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a href={spotlightTool.url} target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-3 flex items-center gap-2">
-                  Try It Now <ArrowRight size={18} />
-                </a>
-                <Link to={`/tool/${spotlightTool.id}`} className="px-8 py-3 rounded-lg border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-surface)] transition-all">
-                  Read Review
-                </Link>
-              </div>
+                  </motion.button>
+                )
+              })}
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Ad Banner Section */}
-      <section className="py-4">
-        <div className="container-custom">
-          <AdBanner />
+          ) : (
+            <div className="text-center py-16 px-4 rounded-3xl border border-dashed border-[var(--color-border)] bg-[var(--color-surface)]/20">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--color-surface)] mb-4">
+                <Search size={24} className="text-[var(--color-text-muted)]" />
+              </div>
+              <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">No categories found</h3>
+              <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">We couldn't find any categories matching "{searchTerm}". Try adjusting your search or browse all categories.</p>
+              <button 
+                onClick={() => {setSearchTerm(''); setSelectedCategory('All');}}
+                className="mt-6 px-6 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+              >
+                Clear Search
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -610,10 +523,10 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col gap-12">
             {/* Main Tools Grid */}
-            <div className="flex-1">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {displayedTools.length > 0 ? (
                   displayedTools.map((tool, index) => (
                     <motion.div
@@ -642,7 +555,7 @@ const Home: React.FC = () => {
               {processedTools.length > visibleCount && (
                 <div className="mt-16 text-center">
                   <button 
-                    onClick={() => setVisibleCount(prev => prev + 12)}
+                    onClick={() => setVisibleCount(prev => prev + 6)}
                     className="btn-primary px-8 py-4 text-lg"
                   >
                     Load More Solutions
@@ -650,103 +563,42 @@ const Home: React.FC = () => {
                 </div>
               )}
             </div>
-
-            {/* Trending Sidebar */}
-            <aside className="lg:w-80 shrink-0">
-              <div className="sticky top-32 space-y-8">
-                <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 bg-[var(--color-cardBg)]/50">
-                  <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-6 flex items-center gap-2">
-                    <Sparkles className="text-[var(--color-accent)]" size={20} /> Trending Now
-                  </h3>
-                  <div className="space-y-6">
-                    {MOCK_TOOLS.slice(0, 5).map((tool, i) => (
-                      <Link 
-                        key={tool.id} 
-                        to={`/tool/${tool.id}`}
-                        className="flex items-center gap-4 group"
-                      >
-                        <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] shrink-0">
-                          <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-bold text-[var(--color-text-primary)] truncate group-hover:text-[var(--color-primary)] transition-colors">{tool.name}</h4>
-                          <div className="flex items-center gap-2 mt-1">
-                            <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">{tool.category}</span>
-                            <span className="text-[10px] text-[var(--color-text-muted)] flex items-center gap-0.5">
-                              ★ {tool.rating}
-                            </span>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                  <button className="w-full mt-8 py-3 rounded-xl border border-[var(--color-border)] text-xs font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] transition-all">
-                    View All Trending
-                  </button>
-                </div>
-
-                <div className="rounded-3xl overflow-hidden relative group aspect-[3/4] border border-[var(--color-border)] shadow-2xl">
-                  <img 
-                    src="https://picsum.photos/seed/ai-pro/600/800" 
-                    alt="Pro Membership" 
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 w-full p-8">
-                    <div className="text-[var(--color-accent)] text-xs font-black uppercase tracking-[0.2em] mb-2">Limited Offer</div>
-                    <h4 className="text-2xl font-black text-white mb-4 leading-tight">Upgrade to Pro & Save 50%</h4>
-                    <p className="text-white/70 text-sm mb-6 leading-relaxed">Get unlimited access to premium tools, advanced prompts, and priority support.</p>
-                    <Link to="/pricing" className="block w-full py-4 rounded-xl bg-white text-black text-center font-bold hover:bg-[var(--color-accent)] hover:text-white transition-all">
-                      Claim Discount
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
 
-      {/* YouTube Playlist Section */}
-      <section className="py-16 md:py-24 bg-[var(--color-cardBg)]/50 border-t border-[var(--color-border)] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none"></div>
-        <div className="container-custom relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12 md:mb-16">
-            <div className="text-center md:text-left max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest mb-4">
-                <Youtube size={16} /> Video Tutorials
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
-                Master AI Tools with <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Our Guides</span>
-              </h2>
-              <p className="text-[var(--color-text-secondary)] text-base md:text-lg">
-                Watch our step-by-step tutorials, reviews, and tips on how to get the most out of the best AI tools available today.
-              </p>
+      {/* YouTube Playlist */}
+      <section id="youtube" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
+        <div className="container-custom">
+          <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-3xl p-6 md:p-12 text-center shadow-lg">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Play size={36} className="text-[#FF0000]" />
+              <h2 className="text-3xl font-bold">Learn AI on YouTube</h2>
             </div>
-            <div className="shrink-0">
-              <a 
-                href="https://www.youtube.com/playlist?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold transition-all shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-1"
-              >
-                <Youtube size={20} />
-                Subscribe to Channel
-              </a>
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-8">
+              Watch our curated playlist of the best AI tutorials, prompt engineering guides, and tool reviews directly here.
+            </p>
+            
+            <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8 border border-[var(--color-border)]">
+              <iframe 
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+              ></iframe>
             </div>
-          </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-2xl bg-black aspect-video max-w-5xl mx-auto">
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
+            <a 
+              href="https://youtube.com/playlist?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J&si=j9ItQeMoUtvkn53Y" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#FF0000] text-white font-bold hover:bg-[#CC0000] transition-colors shadow-lg shadow-[#FF0000]/20"
+            >
+              <Play size={20} className="fill-white" /> Watch on YouTube
+            </a>
           </div>
         </div>
       </section>
@@ -801,222 +653,6 @@ const Home: React.FC = () => {
             <Link to="/#blog" className="inline-flex items-center gap-2 text-[var(--color-text-primary)] font-semibold hover:text-[var(--color-primary)] transition-colors">
               View All Articles <ArrowRight size={18} />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-16 md:py-24 relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)]">Pioneering the <span className="text-gradient">Future of AI Master Tools</span></h2>
-              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                We are a premier digital agency dedicated to curating and developing the most advanced AI solutions and prompt engineering techniques. 
-                Led by Akshay Mahajan, our mission is to bridge the gap between complex AI ML technology and practical business applications.
-              </p>
-              <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed">
-                Whether you are looking to optimize your workflow with the <Link to="/#tools" className="text-[var(--color-primary)] hover:underline">latest AI tools</Link> or master the art of prompt engineering, our comprehensive directory provides everything you need to succeed in the rapidly evolving AI landscape.
-              </p>
-              <ul className="space-y-4">
-                {['Enterprise-Grade Solutions', 'Real-time Analytics', 'Expert Consultation'].map((item, i) => (
-                  <motion.li 
-                    key={i} 
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 + (i * 0.1) }}
-                    className="flex items-center gap-3 text-[var(--color-text-primary)] font-medium"
-                  >
-                    <div className="bg-[var(--color-primary)]/20 p-1 rounded-full">
-                      <Check size={16} className="text-[var(--color-primary)]" />
-                    </div>
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-              <button className="btn-primary mt-4">Learn More About Us</button>
-            </motion.div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 blur-[80px] -z-10 rounded-full"></div>
-              <div className="space-y-6 mt-12">
-                <div className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-[var(--color-secondary)] mb-2">
-                    <CountUp to={MOCK_TOOLS.length} suffix="+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Tools Indexed</p>
-                </div>
-                <div className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-[var(--color-primary)] mb-2">
-                    <CountUp to={CATEGORIES.length} suffix="+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Categories</p>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-[var(--color-accent)] mb-2">
-                    <CountUp to={MOCK_TOOLS.filter(t => t.pricing === 'Free').length} suffix="+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Free Tools</p>
-                </div>
-                <div className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-white mb-2">
-                    <CountUp to={BLOG_POSTS.length} suffix="+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Articles</p>
-                </div>
-              </div>
-              <div className="space-y-6 mt-12 md:mt-0 col-span-2 md:col-span-1 flex flex-row md:flex-col gap-6">
-                <div className="flex-1 p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-green-400 mb-2">
-                    <CountUp to={2} suffix="M+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Total Visitors</p>
-                </div>
-                <div className="flex-1 p-8 glass-panel rounded-2xl border border-[var(--color-border)] text-center card-hover-effect">
-                  <h3 className="text-4xl font-bold text-purple-400 mb-2">
-                    <CountUp to={150} suffix="k+" />
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] font-bold uppercase tracking-wider">Active Users</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ / Content Depth Section */}
-      <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
-        <div className="container-custom">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">Mastering <span className="text-gradient">Prompt Engineering</span></h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
-              Unlock the full potential of AI Master Tools with advanced prompt engineering strategies.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">What is Prompt Engineering?</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
-                Prompt engineering is the practice of designing and refining inputs (prompts) to effectively communicate with large language models (LLMs) and other AI systems. By crafting precise and context-rich prompts, you can guide AI tools to generate more accurate, relevant, and high-quality outputs. It is an essential skill for anyone looking to leverage AI Master Tools for professional tasks.
-              </p>
-              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">Why Use an AI Tools Directory?</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
-                With the rapid explosion of AI ML engineering solutions, finding the right tool can be overwhelming. Our curated AI tools directory simplifies this process by categorizing the best platforms for copywriting, image generation, coding, and more. <Link to="/#categories" className="text-[var(--color-primary)] hover:underline">Explore our categories</Link> to discover solutions tailored to your specific workflow.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">How to Choose the Right AI Tool</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
-                When selecting an AI tool, consider your specific use case, budget, and required integrations. Many tools offer free tiers or trials, allowing you to test their capabilities before committing. Pay attention to community reviews and expert insights, which you can find in our <Link to="/#blog" className="text-[var(--color-primary)] hover:underline">latest AI engineering insights</Link>.
-              </p>
-              <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">The Future of AI ML Engineering</h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm md:text-base">
-                The field of AI ML engineering is constantly evolving, with new breakthroughs in generative AI, autonomous agents, and multimodal models. Staying updated with the latest trends and continuously honing your prompt engineering skills will ensure you remain at the forefront of this technological revolution.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)] relative overflow-hidden">
-        <div className="container-custom relative z-10">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4">What Our <span className="text-gradient">Users Say</span></h2>
-            <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto text-base md:text-lg px-4 md:px-0">
-              Join thousands of professionals who trust AIMasterTools for their AI needs.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((testimonial, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 glass-panel rounded-2xl border border-[var(--color-border)] relative card-hover-effect group"
-              >
-                <div className="absolute top-6 right-8 text-[var(--color-primary)]/10 group-hover:text-[var(--color-primary)]/30 transition-colors duration-300">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.01697 21L5.01697 18C5.01697 16.8954 5.9124 16 7.01697 16H10.017C10.5693 16 11.017 15.5523 11.017 15V9C11.017 8.44772 10.5693 8 10.017 8H6.01697C5.46468 8 5.01697 8.44772 5.01697 9V11C5.01697 11.5523 4.56925 12 4.01697 12H3.01697V5H13.017V15C13.017 18.3137 10.3307 21 7.01697 21H5.01697Z" />
-                  </svg>
-                </div>
-                <p className="text-[var(--color-text-secondary)] mb-6 leading-relaxed relative z-10">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center text-white font-bold">
-                    {testimonial.name[0]}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[var(--color-text-primary)]">{testimonial.name}</h4>
-                    <p className="text-xs text-[var(--color-text-muted)]">{testimonial.role} at {testimonial.company}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SEO Content Section */}
-      <section className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-t border-[var(--color-border)]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto glass-panel rounded-2xl p-6 md:p-12 border border-[var(--color-border)] shadow-lg">
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">Why Use AI Master Tools to Find & Compare AI Software?</h2>
-            
-            <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
-              <p>
-                In today's rapidly evolving digital landscape, finding the right artificial intelligence software can be overwhelming. <strong>AI Master Tools</strong> is your premier destination to discover, compare, and review the best AI tools available in 2026. Whether you are looking for an AI writing assistant, an advanced image generator, or an enterprise-grade machine learning platform, our comprehensive directory provides personalized suggestions tailored to your specific needs.
-              </p>
-              
-              <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">How We Help You Choose the Best AI Tools</h3>
-              <ul className="list-disc pl-6 space-y-3">
-                <li><strong>Unbiased Comparisons:</strong> We evaluate tools based on features, pricing, and real user reviews so you can make an informed decision.</li>
-                <li><strong>Curated Categories:</strong> Browse through meticulously organized categories including Copywriting, Video Creation, Coding, SEO, and Productivity.</li>
-                <li><strong>Personalized Suggestions:</strong> Use our advanced search and filtering system to get recommendations that match your exact workflow requirements.</li>
-                <li><strong>Prompt Engineering Resources:</strong> Beyond just software, we provide expert insights and tutorials to help you master prompt engineering and get the most out of your AI investments.</li>
-              </ul>
-
-              <p className="mt-6">
-                Stop wasting time testing subpar solutions. Let AI Master Tools guide you to the perfect software stack. Compare features, read in-depth reviews, and discover the top-rated AI solutions that will elevate your business and personal productivity to the next level.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Live Community Stats */}
-      <section className="py-20 border-t border-[var(--color-border)] bg-[var(--color-cardBg)]/30">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: 'Active Users', value: '150k+', color: 'text-blue-400' },
-              { label: 'Tools Compared', value: '2.5M+', color: 'text-cyan-400' },
-              { label: 'Prompt Templates', value: '10k+', color: 'text-violet-400' },
-              { label: 'Success Rate', value: '99.9%', color: 'text-emerald-400' }
-            ].map((stat, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center p-8 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)]/20 glass-panel"
-              >
-                <div className={`text-3xl md:text-5xl font-black mb-2 ${stat.color}`}>{stat.value}</div>
-                <div className="text-xs md:text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-widest">{stat.label}</div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

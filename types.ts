@@ -31,5 +31,6 @@ export interface CategoryStat {
   id: Category;
   name: string;
   icon: React.ComponentType<any>;
+  imageUrl?: string;
   count: number;
 }

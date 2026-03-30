@@ -19,6 +19,8 @@ const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { currentUser, login, logout } = useAuth();
 
+  const [imageError, setImageError] = useState(false);
+
   useEffect(() => {
     // Simulate live visitor count fluctuating
     const interval = setInterval(() => {
@@ -51,11 +53,13 @@ const Navbar: React.FC = () => {
   const navLinks = isHome ? [
     { name: 'AI Categories', onClick: () => scrollToSection('categories') },
     { name: 'Compare AI Tools', to: '/compare' },
+    { name: 'Discover More', to: '/discover' },
     { name: 'AI Blog', onClick: () => scrollToSection('blog') },
     ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
   ] : [
     { name: 'AI Categories', to: '/#categories' },
     { name: 'Compare AI Tools', to: '/compare' },
+    { name: 'Discover More', to: '/discover' },
     { name: 'AI Blog', to: '/#blog' },
     ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
   ];
@@ -118,28 +122,28 @@ const Navbar: React.FC = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            <img 
-              src="/logo.png" 
-              alt="AIMasterTools Logo" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-              }}
-            />
-            <div className="hidden flex flex-col justify-center items-center ml-1 sm:ml-2">
-              <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
-                <span className="text-[#0ea5e9]">AI</span>
-                <span className="text-[var(--color-text-primary)]">MasterTools</span>
-              </span>
-              <div className="flex items-center gap-1 w-full mt-0.5">
-                <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
-                <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
-                  .Space
+            {!imageError ? (
+              <img 
+                src="/logo.png" 
+                alt="AIMasterTools Logo" 
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                onError={() => setImageError(true)}
+              />
+            ) : (
+              <div className="flex flex-col justify-center items-center ml-1 sm:ml-2">
+                <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
+                  <span className="text-[#0ea5e9]">AI</span>
+                  <span className="text-[var(--color-text-primary)]">MasterTools</span>
                 </span>
-                <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
+                <div className="flex items-center gap-1 w-full mt-0.5">
+                  <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
+                  <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
+                    .Space
+                  </span>
+                  <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
+                </div>
               </div>
-            </div>
+            )}
           </Link>
         </div>
 

@@ -21,6 +21,7 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Discover = lazy(() => import('./pages/Discover'));
 
 const PageLoader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
@@ -95,6 +96,7 @@ function App() {
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/careers" element={<Careers />} />
+                    <Route path="/discover" element={<Discover />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
