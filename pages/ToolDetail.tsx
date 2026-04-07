@@ -115,7 +115,14 @@ const ToolDetail: React.FC = () => {
                       <Calendar size={12} /> Added {tool.dateAdded}
                     </span>
                   </div>
-                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-3 md:mb-4 tracking-tight">{tool.name}</h1>
+                  <div className="flex items-center gap-3 mb-3 md:mb-4">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] tracking-tight">{tool.name}</h1>
+                    {tool.featured && (
+                      <span className="flex items-center gap-1 text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded-md border border-blue-500/20" title="Verified Tool">
+                        <Check size={14} /> Verified
+                      </span>
+                    )}
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
                     {tool.description}
                   </p>
@@ -157,6 +164,20 @@ const ToolDetail: React.FC = () => {
                   ))}
                 </ul>
               </div>
+
+              {tool.tags && tool.tags.length > 0 && (
+                <div className="mt-10 pt-10 border-t border-[var(--color-border)]">
+                  <h3 className="text-xl font-bold mb-6 text-[var(--color-text-primary)]">Common Use Cases</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {tool.tags.map((tag, i) => (
+                      <div key={i} className="flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border)] px-4 py-2 rounded-xl text-sm text-[var(--color-text-secondary)]">
+                        <Sparkles size={14} className="text-[var(--color-primary)]" />
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -176,9 +197,31 @@ const ToolDetail: React.FC = () => {
                   </div>
                   <span className="text-2xl font-bold text-[var(--color-text-primary)] ml-2">{tool.rating}</span>
                 </div>
-                <button className="p-3 hover:bg-[var(--color-surface)] rounded-full transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-transparent hover:border-[var(--color-border)]">
-                  <Share2 size={20} />
-                </button>
+                <div className="flex gap-2">
+                  <button 
+                    onClick={(e) => {
+                      const btn = e.currentTarget;
+                      btn.classList.toggle('text-[var(--color-primary)]');
+                      btn.classList.toggle('border-[var(--color-primary)]');
+                      btn.classList.toggle('bg-[var(--color-primary)]/10');
+                    }}
+                    className="flex items-center gap-1.5 px-3 py-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+                    title="Upvote"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                    <span className="font-bold">{Math.floor(tool.rating * 123)}</span>
+                  </button>
+                  <button 
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      // Could add a toast here
+                    }}
+                    className="p-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+                    title="Share"
+                  >
+                    <Share2 size={20} />
+                  </button>
+                </div>
               </div>
 
               <a 

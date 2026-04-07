@@ -16,13 +16,23 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText(tool.url).then(() => {
+    const shareUrl = `${window.location.origin}/tool/${tool.id}`;
+    navigator.clipboard.writeText(shareUrl).then(() => {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     });
   };
 
   const bookmarked = isBookmarked(tool.id);
+
+  // Check if tool is new (added in the last 30 days)
+  const isNew = () => {
+    const addedDate = new Date(tool.dateAdded);
+    const currentDate = new Date();
+    const diffTime = Math.abs(currentDate.getTime() - addedDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays <= 30;
+  };
 
   return (
     <div className="group relative flex flex-col h-full glass-panel rounded-2xl border border-[var(--color-border)] overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:-translate-y-2 hover:border-[var(--color-primary)]/30 hover:bg-[var(--color-cardBg)]/90">
@@ -33,14 +43,37 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
         </div>
       )}
 
-      {/* Action Buttons (Bookmark & Share) */}
+      {/* New Badge */}
+      {!rank && isNew() && (
+        <div className="absolute top-4 left-4 z-20 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-lg shadow-lg border border-white/10 backdrop-blur-md animate-pulse">
+          New
+        </div>
+      )}
+
+      {/* Action Buttons (Bookmark & Share & Upvote) */}
       <div className="absolute top-4 right-4 z-20 flex gap-2">
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Simulate upvote
+            const btn = e.currentTarget;
+            btn.classList.toggle('text-[var(--color-primary)]');
+            btn.classList.toggle('border-[var(--color-primary)]');
+            btn.classList.toggle('bg-[var(--color-primary)]/10');
+          }}
+          className="flex items-center gap-1 px-2 py-1 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+          title="Upvote"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+          <span className="text-xs font-bold">{Math.floor(tool.rating * 123)}</span>
+        </button>
         <button 
           onClick={handleShare}
           className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Copy Link"
         >
-          {isCopied ? <Check size={18} className="text-green-500" /> : <Share2 size={18} />}
+          {isCopied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
         </button>
         <button 
           onClick={(e) => {
@@ -51,7 +84,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Bookmark"
         >
-          <Bookmark size={18} className={bookmarked ? "fill-[var(--color-primary)] text-[var(--color-primary)]" : ""} />
+          <Bookmark size={16} className={bookmarked ? "fill-[var(--color-primary)] text-[var(--color-primary)]" : ""} />
         </button>
       </div>
 

@@ -20,6 +20,7 @@ const Home: React.FC = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');
+  const [selectedPricing, setSelectedPricing] = useState<string>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -122,9 +123,10 @@ const Home: React.FC = () => {
                             tool.category.toLowerCase().includes(term) ||
                             (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(term)));
       const matchesCategory = selectedCategory === 'All' || tool.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      const matchesPricing = selectedPricing === 'All' || tool.pricing === selectedPricing;
+      return matchesSearch && matchesCategory && matchesPricing;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, selectedPricing]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -478,7 +480,7 @@ const Home: React.FC = () => {
               <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">No categories found</h3>
               <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">We couldn't find any categories matching "{searchTerm}". Try adjusting your search or browse all categories.</p>
               <button 
-                onClick={() => {setSearchTerm(''); setSelectedCategory('All');}}
+                onClick={() => {setSearchTerm(''); setSelectedCategory('All'); setSelectedPricing('All');}}
                 className="mt-6 px-6 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-semibold hover:bg-[var(--color-primary)] hover:text-white transition-colors"
               >
                 Clear Search
@@ -500,6 +502,19 @@ const Home: React.FC = () => {
             </div>
             
             <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+               <div className="flex items-center gap-2 mr-2">
+                 <span className="text-sm font-medium text-[var(--color-text-secondary)]">Pricing:</span>
+                 <select 
+                   value={selectedPricing}
+                   onChange={(e) => setSelectedPricing(e.target.value)}
+                   className="bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] text-sm rounded-lg focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-2"
+                 >
+                   <option value="All">All</option>
+                   <option value="Free">Free</option>
+                   <option value="Freemium">Freemium</option>
+                   <option value="Paid">Paid</option>
+                 </select>
+               </div>
                <div className="flex bg-[var(--color-cardBg)] p-1.5 rounded-xl border border-[var(--color-border)] shadow-sm min-w-max">
                  <button 
                    onClick={() => setActiveTab('Featured')}
@@ -547,7 +562,7 @@ const Home: React.FC = () => {
                     <Search size={48} className="mx-auto mb-4 text-[var(--color-text-muted)] opacity-50" />
                     <p className="text-xl font-medium mb-2">No results found.</p>
                     <p className="text-sm text-[var(--color-text-muted)] mb-6">Try adjusting your search criteria.</p>
-                    <button onClick={() => {setSearchTerm(''); setSelectedCategory('All');}} className="btn-primary">Clear Filters</button>
+                    <button onClick={() => {setSearchTerm(''); setSelectedCategory('All'); setSelectedPricing('All');}} className="btn-primary">Clear Filters</button>
                   </div>
                 )}
               </div>
@@ -563,6 +578,21 @@ const Home: React.FC = () => {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Submit Tool Banner */}
+      <section className="py-12 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 border-y border-[var(--color-border)]">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[var(--color-cardBg)] p-8 rounded-2xl border border-[var(--color-border)] shadow-lg">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Know a great AI tool?</h3>
+              <p className="text-[var(--color-text-secondary)]">Help us grow the directory by submitting your favorite AI tools. It's free and takes only a minute.</p>
+            </div>
+            <Link to="/submit" className="btn-primary whitespace-nowrap px-8 py-4 text-lg shadow-xl shadow-[var(--color-primary)]/20">
+              Submit an AI Tool
+            </Link>
           </div>
         </div>
       </section>
