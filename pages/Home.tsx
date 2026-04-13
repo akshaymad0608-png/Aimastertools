@@ -362,7 +362,7 @@ const Home: React.FC = () => {
                 {selectedCategory !== 'All' && (
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-sm font-medium">
                     {CATEGORIES.find(c => c.id === selectedCategory)?.name}
-                    <button onClick={() => setSelectedCategory('All')} className="hover:text-[var(--color-text-primary)] ml-1">
+                    <button onClick={() => setSelectedCategory('All')} className="hover:text-[var(--color-text-primary)] ml-1" aria-label="Clear category filter">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                   </span>
@@ -371,7 +371,7 @@ const Home: React.FC = () => {
                 {searchTerm && (
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[var(--color-secondary)]/10 border border-[var(--color-secondary)]/20 text-[var(--color-secondary)] text-sm font-medium">
                     "{searchTerm}"
-                    <button onClick={() => setSearchTerm('')} className="hover:text-[var(--color-text-primary)] ml-1">
+                    <button onClick={() => setSearchTerm('')} className="hover:text-[var(--color-text-primary)] ml-1" aria-label="Clear search filter">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                   </span>
@@ -655,7 +655,7 @@ const Home: React.FC = () => {
               >
                 <div className="h-60 overflow-hidden relative">
                    <Link to={post.url} className="block w-full h-full">
-                     <img src={post.imageUrl} alt={post.title} referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                     <img src={post.imageUrl} alt={post.title} width="400" height="240" decoding="async" referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-80"></div>
                      <div className="absolute bottom-4 left-4 right-4">
                         <div className="flex items-center gap-3 text-xs text-[var(--color-secondary)] font-bold uppercase tracking-wider mb-2">

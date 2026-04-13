@@ -49,6 +49,10 @@ const Footer: React.FC = () => {
                 <img 
                   src="/logo.png" 
                   alt="AIMasterTools Logo" 
+                  width="200"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 sm:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                   onError={() => setImageError(true)}
                 />
@@ -125,6 +129,7 @@ const Footer: React.FC = () => {
                     type="submit"
                     disabled={status === 'submitting'}
                     className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-[var(--color-primary)] rounded-md text-white hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Subscribe to newsletter"
                   >
                     {status === 'submitting' ? <Loader2 size={16} className="animate-spin" /> : <ArrowRight size={16} />}
                   </button>

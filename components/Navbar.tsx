@@ -121,6 +121,10 @@ const Navbar: React.FC = () => {
               <img 
                 src="/logo.png" 
                 alt="AIMasterTools Logo" 
+                width="200"
+                height="48"
+                fetchPriority="high"
+                decoding="async"
                 className="h-8 sm:h-10 md:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                 onError={() => setImageError(true)}
               />
@@ -213,7 +217,7 @@ const Navbar: React.FC = () => {
               onClick={logout}
               className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
             >
-              <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" className="w-5 h-5 rounded-full" />
+              <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" width="20" height="20" decoding="async" loading="lazy" className="w-5 h-5 rounded-full" />
               <span>Logout</span>
             </button>
           ) : (
@@ -323,7 +327,7 @@ const Navbar: React.FC = () => {
                     }}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)]"
                   >
-                    <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" className="w-5 h-5 rounded-full" />
+                    <img src={currentUser.photoURL || `https://ui-avatars.com/api/?name=${currentUser.displayName || 'User'}`} alt="User" width="20" height="20" decoding="async" loading="lazy" className="w-5 h-5 rounded-full" />
                     Logout
                   </button>
                 ) : (

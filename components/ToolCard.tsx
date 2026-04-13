@@ -64,6 +64,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           }}
           className="flex items-center gap-1 px-2 py-1 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Upvote"
+          aria-label={`Upvote ${tool.name}`}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
           <span className="text-xs font-bold">{Math.floor(tool.rating * 123)}</span>
@@ -72,6 +73,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           onClick={handleShare}
           className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Copy Link"
+          aria-label={`Copy link for ${tool.name}`}
         >
           {isCopied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
         </button>
@@ -83,6 +85,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           }}
           className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Bookmark"
+          aria-label={bookmarked ? `Remove ${tool.name} from bookmarks` : `Bookmark ${tool.name}`}
         >
           <Bookmark size={16} className={bookmarked ? "fill-[var(--color-primary)] text-[var(--color-primary)]" : ""} />
         </button>
@@ -94,6 +97,9 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
         <img 
           src={tool.imageUrl} 
           alt={tool.name} 
+          width="400"
+          height="208"
+          decoding="async"
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
           referrerPolicy="no-referrer"
           loading="lazy"
