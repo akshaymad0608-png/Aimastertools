@@ -36,13 +36,13 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[var(--color-background)] border-t border-[var(--color-border)] pt-16 pb-8 md:pt-20 md:pb-10 mt-auto relative overflow-hidden">
+    <footer className="bg-[var(--color-background)] border-t border-[var(--color-border)] pt-12 pb-8 md:pt-20 md:pb-10 mt-auto relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
 
-      <div className="container-custom mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+      <div className="container-custom mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-3 mb-6 group">
               {!imageError ? (
@@ -137,8 +137,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-[var(--color-border)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-[var(--color-text-secondary)] flex flex-col gap-2">
+        <div className="border-t border-[var(--color-border)] pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+          <div className="text-sm text-[var(--color-text-secondary)] flex flex-col gap-2 text-center md:text-left">
             <p>© 2026 AIMasterTools. All rights reserved.</p>
             <p className="text-xs opacity-70 max-w-2xl">
               <strong>Affiliate Disclosure:</strong> Some of the links on this website are affiliate links. This means that if you click on the link and make a purchase, we may receive a commission at no additional cost to you. This helps support our directory and keeps it free for users.

@@ -51,7 +51,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
       )}
 
       {/* Action Buttons (Bookmark & Share & Upvote) */}
-      <div className="absolute top-4 right-4 z-20 flex gap-2">
+      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 flex gap-1.5 sm:gap-2">
         <button 
           onClick={(e) => {
             e.preventDefault();
@@ -100,7 +100,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
         />
         
         {/* Pricing Badge */}
-        <div className="absolute bottom-4 left-4 z-20">
+        <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-20">
           <span className={`px-3 py-1 text-xs font-bold rounded-md border backdrop-blur-md ${
             tool.pricing === 'Free' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
             tool.pricing === 'Paid' ? 'bg-red-500/20 text-red-400 border-red-500/30' :
@@ -112,7 +112,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col flex-grow p-6">
+      <div className="flex flex-col flex-grow p-4 sm:p-6">
         <div className="flex justify-between items-start mb-3">
           <div className="flex items-center gap-2 text-xs font-medium text-[var(--color-secondary)] uppercase tracking-wider">
              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)]"></span>
@@ -133,7 +133,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
           {tool.tags?.slice(0, 2).map((tag, i) => (
             <span key={i} className="text-xs bg-[var(--color-surface)] text-[var(--color-text-muted)] px-2.5 py-1 rounded-md border border-[var(--color-border)] hover:border-[var(--color-primary)]/30 transition-colors">
               {tag}

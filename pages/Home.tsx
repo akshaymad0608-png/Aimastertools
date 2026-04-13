@@ -264,7 +264,7 @@ const Home: React.FC = () => {
       </SEO>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      <section id="home" className="relative pt-28 pb-16 md:pt-40 md:pb-32 overflow-hidden">
         {/* Background Effects */}
         <motion.div 
           animate={{ 
@@ -298,7 +298,7 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[0.9]"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1] sm:leading-[0.9]"
           >
             Find & Compare <br className="hidden md:block" />
             <span className="text-gradient">The Best AI Tools</span>
@@ -501,7 +501,7 @@ const Home: React.FC = () => {
               <p className="text-[var(--color-text-secondary)] text-base md:text-lg">Handpicked AI tools to elevate your business</p>
             </div>
             
-            <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+            <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
                <div className="flex items-center gap-2 mr-2">
                  <span className="text-sm font-medium text-[var(--color-text-secondary)]">Pricing:</span>
                  <select 
@@ -688,10 +688,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-24 relative overflow-hidden border-t border-[var(--color-border)]">
+      <section className="py-16 md:py-24 relative overflow-hidden border-t border-[var(--color-border)]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-primary)]/5 -z-10"></div>
         <div className="container-custom relative z-10">
-          <div className="relative rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/80 backdrop-blur-3xl p-8 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
+          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/80 backdrop-blur-3xl p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]"></div>
             
             <motion.div
@@ -700,10 +700,10 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
                 <BrainCircuit size={14} /> AI Master Newsletter
               </div>
-              <h2 className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-tight">
+              <h2 className="text-3xl md:text-6xl font-black text-[var(--color-text-primary)] mb-4 md:mb-6 tracking-tighter leading-tight">
                 Stay Ahead of the <br/>
                 <span className="text-gradient">AI Revolution</span>
               </h2>

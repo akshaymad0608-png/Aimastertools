@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,6 +7,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from './AuthModal';
 import Logo from './Logo';
+import { MOCK_TOOLS } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,6 +19,14 @@ const Navbar: React.FC = () => {
   const { isPro } = usePro();
   const { theme, toggleTheme } = useTheme();
   const { currentUser, login, logout } = useAuth();
+
+  const trendingItems = useMemo(() => {
+    return MOCK_TOOLS
+      .filter(t => t.featured)
+      .sort((a, b) => b.rating - a.rating)
+      .slice(0, 6)
+      .map(t => `${t.name}: ${t.category} AI`);
+  }, []);
 
   const [imageError, setImageError] = useState(false);
 
@@ -74,28 +83,14 @@ const Navbar: React.FC = () => {
           </div>
           <div className="flex-1 overflow-hidden relative">
             <div className="animate-marquee whitespace-nowrap flex gap-6 sm:gap-12 items-center will-change-transform transform-gpu">
-              {[
-                "DALL-E 3: New Image Generation Model",
-                "Framer AI: Build Websites in Seconds",
-                "Darktrace: Next-Gen Cybersecurity",
-                "Snyk: Developer Security First",
-                "Shopify Magic: AI for Commerce",
-                "Headspace AI: Personalized Wellness"
-              ].map((text, i) => (
+              {trendingItems.map((text, i) => (
                 <span key={i} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
                   {text}
                 </span>
               ))}
               {/* Duplicate for seamless loop */}
-              {[
-                "DALL-E 3: New Image Generation Model",
-                "Framer AI: Build Websites in Seconds",
-                "Darktrace: Next-Gen Cybersecurity",
-                "Snyk: Developer Security First",
-                "Shopify Magic: AI for Commerce",
-                "Headspace AI: Personalized Wellness"
-              ].map((text, i) => (
+              {trendingItems.map((text, i) => (
                 <span key={i + 10} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
                   {text}
@@ -268,7 +263,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.2 }}
             className="xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 backdrop-blur-xl border-b border-[var(--color-border)] shadow-2xl overflow-hidden"
           >
-            <div className="p-6 flex flex-col gap-2">
+            <div className="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
               <Link 
                 to="/" 
                 className={`flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${isHome ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
