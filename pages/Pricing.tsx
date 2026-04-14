@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Check, Shield, Zap, CreditCard, X, Copy, CheckCircle2, ArrowRight, Star, Heart, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -26,6 +26,23 @@ const Pricing: React.FC = () => {
   const { isPro, setProStatus } = usePro();
   const { currentUser } = useAuth();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  useEffect(() => {
+    const loadRazorpay = () => {
+      return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+        script.onload = () => {
+          resolve(true);
+        };
+        script.onerror = () => {
+          resolve(false);
+        };
+        document.body.appendChild(script);
+      });
+    };
+    loadRazorpay();
+  }, []);
 
   const handlePayment = async (planName: string, amount: number) => {
     console.log('handlePayment called for:', planName, amount);

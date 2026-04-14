@@ -503,8 +503,11 @@ const Home: React.FC = () => {
             
             <div className="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
                <div className="flex items-center gap-2 mr-2">
+                 <label htmlFor="pricing-filter" className="sr-only">Filter by pricing</label>
                  <span className="text-sm font-medium text-[var(--color-text-secondary)]">Pricing:</span>
                  <select 
+                   id="pricing-filter"
+                   aria-label="Filter by pricing"
                    value={selectedPricing}
                    onChange={(e) => setSelectedPricing(e.target.value)}
                    className="bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] text-sm rounded-lg focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] block p-2"
@@ -554,6 +557,7 @@ const Home: React.FC = () => {
                       <ToolCard 
                         tool={tool} 
                         rank={activeTab === 'Featured' ? index + 1 : undefined}
+                        priority={index < 2}
                       />
                     </motion.div>
                   ))
@@ -587,7 +591,7 @@ const Home: React.FC = () => {
         <div className="container-custom">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[var(--color-cardBg)] p-8 rounded-2xl border border-[var(--color-border)] shadow-lg">
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Know a great AI tool?</h3>
+              <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Know a great AI tool?</h2>
               <p className="text-[var(--color-text-secondary)]">Help us grow the directory by submitting your favorite AI tools. It's free and takes only a minute.</p>
             </div>
             <Link to="/submit" className="btn-primary whitespace-nowrap px-8 py-4 text-lg shadow-xl shadow-[var(--color-primary)]/20">
@@ -612,7 +616,7 @@ const Home: React.FC = () => {
             <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl mb-8 border border-[var(--color-border)]">
               <iframe 
                 className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
+                src="https://www.youtube-nocookie.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -653,7 +657,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group cursor-pointer glass-panel rounded-xl overflow-hidden border border-[var(--color-border)] card-hover-effect"
               >
-                <div className="h-60 overflow-hidden relative">
+                <div className="h-60 overflow-hidden relative aspect-video">
                    <Link to={post.url} className="block w-full h-full">
                      <img src={post.imageUrl} alt={post.title} width="400" height="240" decoding="async" referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-80"></div>

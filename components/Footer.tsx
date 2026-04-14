@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Solutions</h4>
+            <h3 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Solutions</h3>
             <ul className="space-y-4 text-sm text-[var(--color-text-secondary)]">
               <li><Link to="/?category=Business" className="hover:text-[var(--color-primary)] transition-colors flex items-center gap-2"><span className="w-1 h-1 bg-[var(--color-primary)] rounded-full"></span> Business Automation</Link></li>
               <li><Link to="/?category=Content" className="hover:text-[var(--color-primary)] transition-colors flex items-center gap-2"><span className="w-1 h-1 bg-[var(--color-primary)] rounded-full"></span> Content Creation</Link></li>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Company</h4>
+            <h3 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Company</h3>
             <ul className="space-y-4 text-sm text-[var(--color-text-secondary)]">
               <li><Link to="/discover#about" className="hover:text-[var(--color-primary)] transition-colors">About Us</Link></li>
               <li><Link to="/discover#faq" className="hover:text-[var(--color-primary)] transition-colors">FAQ</Link></li>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Newsletter</h4>
+            <h3 className="font-bold text-[var(--color-text-primary)] mb-6 text-lg">Newsletter</h3>
             <p className="text-sm text-[var(--color-text-secondary)] mb-4">
               Subscribe to get the latest AI trends and updates.
             </p>

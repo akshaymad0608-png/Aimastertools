@@ -7,9 +7,10 @@ import { useBookmarks } from '../context/BookmarkContext';
 interface ToolCardProps {
   tool: Tool;
   rank?: number;
+  priority?: boolean;
 }
 
-const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
+const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => {
   const [isCopied, setIsCopied] = useState(false);
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
@@ -92,7 +93,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
       </div>
 
       {/* Image Section */}
-      <div className="relative h-52 overflow-hidden bg-[var(--color-cardBg)] border-b border-[var(--color-border)]">
+      <div className="relative h-52 overflow-hidden bg-[var(--color-cardBg)] border-b border-[var(--color-border)] aspect-video">
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-60 z-10"></div>
         <img 
           src={tool.imageUrl} 
@@ -102,7 +103,8 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank }) => {
           decoding="async"
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
           referrerPolicy="no-referrer"
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
         />
         
         {/* Pricing Badge */}

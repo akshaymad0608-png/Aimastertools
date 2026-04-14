@@ -5,7 +5,6 @@ import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
 import { ProProvider } from './context/ProContext';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
-import CommandPalette from './components/CommandPalette';
 import Footer from './components/Footer';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,6 +21,7 @@ const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Discover = lazy(() => import('./pages/Discover'));
+const CommandPalette = lazy(() => import('./components/CommandPalette'));
 
 const PageLoader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
@@ -103,7 +103,9 @@ function App() {
               </main>
 
               <Footer />
-              <CommandPalette />
+              <Suspense fallback={null}>
+                <CommandPalette />
+              </Suspense>
               <GlobalToast />
             </div>
           </Router>

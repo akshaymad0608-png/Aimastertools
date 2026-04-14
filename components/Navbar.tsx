@@ -76,8 +76,8 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Trending Ticker */}
-      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1 sm:py-1.5 overflow-hidden">
-        <div className="container-custom flex items-center gap-2 sm:gap-4">
+      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1 sm:py-1.5 overflow-hidden h-7 sm:h-8">
+        <div className="container-custom flex items-center gap-2 sm:gap-4 h-full">
           <div className="flex items-center gap-1 sm:gap-2 px-1.5 sm:px-2 py-0.5 rounded bg-[var(--color-primary)] text-white text-[8px] sm:text-[10px] font-bold uppercase tracking-widest animate-pulse whitespace-nowrap">
             Trending Now
           </div>
