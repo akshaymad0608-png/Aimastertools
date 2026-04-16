@@ -9,12 +9,44 @@ import Logo from './Logo';
 const AuthModal = React.lazy(() => import('./AuthModal'));
 
 const TRENDING_ITEMS = [
+  "Gemini: Text & Vision AI",
+  "ChatGPT: Text AI",
+  "Claude: Analysis AI",
+  "Perplexity: Search AI",
   "Midjourney: Image AI",
   "Sora: Video AI",
-  "ChatGPT: Text AI",
+  "Runway: Video AI",
+  "ElevenLabs: Voice AI",
   "Notion AI: Productivity AI",
   "GitHub Copilot: Coding AI",
-  "Jasper: Writing AI"
+  "HeyGen: Avatar AI",
+  "Suno: Music Generation",
+  "Udio: Audio AI",
+  "Mistral: Open Source LLM",
+  "Devin: Autonomous Engineer",
+  "Leonardo AI: Image Generation",
+  "Synthesia: AI Video Generator",
+  "Luma Dream Machine: Video AI",
+  "Character.ai: AI Persona Chat",
+  "Gamma: Presentation AI",
+  "Opus Clip: Short Form Video",
+  "Descript: AI Video Editor",
+  "Groq: Fast Inference AI",
+  "Phind: Developer Search",
+  "Meta Llama 3: Open Weight AI",
+  "Jasper: Copywriting AI",
+  "Hugging Face: AI Models",
+  "Stable Diffusion: Image AI",
+  "Pika: AI Video",
+  "Magnific AI: Image Upscaling",
+  "Pi: Personal Assistant AI",
+  "Ideogram: AI Typography Image",
+  "Krea: Real-time Image AI",
+  "Veed: Online Video AI",
+  "Adobe Firefly: Generative Image",
+  "Cursor: AI Code Editor",
+  "InVideo: AI Video Creation",
+  "Framer AI: Website Generation"
 ];
 
 const Navbar: React.FC = () => {
