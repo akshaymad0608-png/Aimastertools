@@ -9,8 +9,9 @@ import Footer from './components/Footer';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Home from './pages/Home';
+
 // Lazy load pages for better performance
-const Home = lazy(() => import('./pages/Home'));
 const Submit = lazy(() => import('./pages/Submit'));
 const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
@@ -65,7 +66,7 @@ const GlobalToast = () => {
               Upgrade to Pro &rarr;
             </button>
           </div>
-          <button onClick={clearBookmarkError} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]">
+          <button onClick={clearBookmarkError} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close notification">
             <X size={16} />
           </button>
         </motion.div>

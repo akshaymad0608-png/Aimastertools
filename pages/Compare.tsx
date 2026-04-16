@@ -112,7 +112,7 @@ const Compare: React.FC = () => {
                 >
                   <X size={14} />
                 </button>
-                <img src={tool.imageUrl} alt={tool.name} className="w-12 h-12 rounded-lg object-cover border border-[var(--color-border)]" referrerPolicy="no-referrer" />
+                <img src={tool.imageUrl} alt={tool.name} width="48" height="48" decoding="async" className="w-12 h-12 rounded-lg object-cover border border-[var(--color-border)]" referrerPolicy="no-referrer" loading="lazy" />
                 <div>
                   <h3 className="font-bold text-[var(--color-text-primary)]">{tool.name}</h3>
                   <span className="text-xs text-[var(--color-text-secondary)]">{tool.category}</span>
@@ -133,7 +133,7 @@ const Compare: React.FC = () => {
               <div className="glass-panel border border-[var(--color-border)] rounded-xl p-4 w-full sm:min-w-[300px] relative z-20">
                 <div className="flex justify-between items-center mb-3">
                   <h3 className="font-semibold text-sm text-[var(--color-text-primary)]">Search Tools</h3>
-                  <button onClick={() => setIsSelecting(false)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]">
+                  <button onClick={() => setIsSelecting(false)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close search">
                     <X size={16} />
                   </button>
                 </div>
@@ -153,7 +153,7 @@ const Compare: React.FC = () => {
                         onClick={() => handleAddTool(tool.id)}
                         className="w-full text-left px-3 py-2 rounded-lg hover:bg-[var(--color-surface)] text-sm flex items-center gap-3 transition-colors"
                       >
-                        <img src={tool.imageUrl} alt="" className="w-6 h-6 rounded object-cover" referrerPolicy="no-referrer" />
+                        <img src={tool.imageUrl} alt="" width="24" height="24" decoding="async" className="w-6 h-6 rounded object-cover" referrerPolicy="no-referrer" loading="lazy" />
                         <span className="truncate flex-grow text-[var(--color-text-primary)]">{tool.name}</span>
                         <span className="text-xs text-[var(--color-text-muted)]">{tool.category}</span>
                       </button>
@@ -177,7 +177,7 @@ const Compare: React.FC = () => {
                   {selectedTools.map(tool => (
                     <th key={tool.id} className="p-6 w-1/4 border-l border-[var(--color-border)]/50">
                       <div className="flex flex-col items-center text-center">
-                        <img src={tool.imageUrl} alt={tool.name} className="w-16 h-16 rounded-xl object-cover border border-[var(--color-border)] mb-3 shadow-md" referrerPolicy="no-referrer" />
+                        <img src={tool.imageUrl} alt={tool.name} width="64" height="64" decoding="async" className="w-16 h-16 rounded-xl object-cover border border-[var(--color-border)] mb-3 shadow-md" referrerPolicy="no-referrer" loading="lazy" />
                         <h3 className="font-bold text-lg text-[var(--color-text-primary)]">{tool.name}</h3>
                       </div>
                     </th>

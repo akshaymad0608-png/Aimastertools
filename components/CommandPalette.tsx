@@ -121,6 +121,7 @@ const CommandPalette: React.FC = () => {
                   <button 
                     onClick={() => setIsOpen(false)}
                     className="p-1 hover:bg-[var(--color-surface)] rounded-md transition-colors"
+                    aria-label="Close Command Palette"
                   >
                     <X size={18} className="text-[var(--color-text-secondary)]" />
                   </button>

@@ -365,7 +365,7 @@ const Pricing: React.FC = () => {
               {isPro ? 'Active Plan' : 'Most Popular'}
             </div>
             
-            <button className="absolute top-6 right-6 text-red-500 hover:text-red-600 transition-transform hover:scale-110" aria-label="Love this plan">
+            <button className="absolute top-6 right-6 text-red-500 hover:text-red-600 transition-transform hover:scale-110" aria-label="Favorite this plan">
               <Heart className="w-6 h-6 fill-red-500" />
             </button>
             

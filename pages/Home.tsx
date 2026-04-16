@@ -9,10 +9,11 @@ import SEO from '../components/SEO';
 import { CATEGORIES, MOCK_TOOLS, BLOG_POSTS } from '../constants';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
-import VoiceSearch from '../components/VoiceSearch';
 import { signInWithPopup } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase';
+
+const VoiceSearch = React.lazy(() => import('../components/VoiceSearch'));
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -284,41 +285,32 @@ const Home: React.FC = () => {
         />
 
         <div className="container-custom text-center relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-primary)]/30 mb-8 shadow-[var(--shadow-neon)]"
+          <div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-primary)]/30 mb-8 shadow-[var(--shadow-neon)] animate-fade-in-up"
           >
             <Sparkles size={16} className="text-[var(--color-secondary)]" />
             <span className="text-sm font-semibold text-[var(--color-text-primary)] tracking-wide uppercase">Discover & Compare AI Solutions</span>
-          </motion.div>
+          </div>
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1] sm:leading-[0.9]"
+          <h1 
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1] sm:leading-[0.9] animate-fade-in-up"
+            style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
           >
             Find & Compare <br className="hidden md:block" />
             <span className="text-gradient">The Best AI Tools</span>
-          </motion.h1>
+          </h1>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-4xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0"
+          <p 
+            className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-4xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0 animate-fade-in-up"
+            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
             The ultimate directory for AI Master Tools. Discover, compare, and implement the perfect AI solutions to supercharge your productivity and business workflows.
-          </motion.p>
+          </p>
 
             {/* Search Bar */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="max-w-3xl mx-auto relative mb-16"
+          <div 
+            className="max-w-3xl mx-auto relative mb-16 animate-fade-in-up"
+            style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
           >
             <div className="relative flex items-center group">
               <Search className="absolute left-4 md:left-6 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-primary)] transition-colors" size={20} />
@@ -346,7 +338,9 @@ const Home: React.FC = () => {
                   </button>
                 )}
                 
-                <VoiceSearch onTranscript={handleVoiceTranscript} />
+                <React.Suspense fallback={<div className="w-10 h-10"></div>}>
+                  <VoiceSearch onTranscript={handleVoiceTranscript} />
+                </React.Suspense>
 
                 <div className="hidden md:flex items-center gap-2 pointer-events-none ml-2">
                   <kbd className="px-2 py-1 rounded bg-[var(--color-surface)] border border-[var(--color-border)] text-xs text-[var(--color-text-muted)] font-mono">⌘K</kbd>
@@ -403,13 +397,12 @@ const Home: React.FC = () => {
                 </div>
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Categories Section - Tech Grid */}
       <section id="categories" className="py-16 md:py-24 bg-[var(--color-surface)]/30 border-y border-[var(--color-border)] relative">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none"></div>
         <div className="container-custom relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-6">
             <div>
@@ -445,7 +438,7 @@ const Home: React.FC = () => {
                       }`}
                   >
                     {/* Background Glow */}
-                    <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full blur-3xl transition-all duration-500 ${isSelected ? 'bg-[var(--color-primary)]/20' : 'bg-[var(--color-primary)]/0 group-hover:bg-[var(--color-primary)]/10'}`}></div>
+                    <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl transition-all duration-500 ${isSelected ? 'bg-[var(--color-primary)]/20' : 'bg-[var(--color-primary)]/0 group-hover:bg-[var(--color-primary)]/10'}`}></div>
                     
                     {/* Selection Indicator */}
                     {isSelected && (
@@ -557,7 +550,7 @@ const Home: React.FC = () => {
                       <ToolCard 
                         tool={tool} 
                         rank={activeTab === 'Featured' ? index + 1 : undefined}
-                        priority={index < 2}
+                        priority={false}
                       />
                     </motion.div>
                   ))
@@ -617,11 +610,12 @@ const Home: React.FC = () => {
               <iframe 
                 className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube-nocookie.com/embed/videoseries?list=PLa3Uyoo-UhyGcmhIa20x8p9MTm121rY_J" 
-                title="YouTube video player" 
+                title="Learn AI on YouTube Playlist" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
                 allowFullScreen
+                loading="lazy"
               ></iframe>
             </div>
 
@@ -657,7 +651,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group cursor-pointer glass-panel rounded-xl overflow-hidden border border-[var(--color-border)] card-hover-effect"
               >
-                <div className="h-60 overflow-hidden relative aspect-video">
+                <div className="w-full overflow-hidden relative aspect-video">
                    <Link to={post.url} className="block w-full h-full">
                      <img src={post.imageUrl} alt={post.title} width="400" height="240" decoding="async" referrerPolicy="no-referrer" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-80"></div>
@@ -695,7 +689,7 @@ const Home: React.FC = () => {
       <section className="py-16 md:py-24 relative overflow-hidden border-t border-[var(--color-border)]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-primary)]/5 -z-10"></div>
         <div className="container-custom relative z-10">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/80 backdrop-blur-3xl p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
+          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/90 backdrop-blur-lg p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]"></div>
             
             <motion.div

@@ -126,7 +126,7 @@ const Discover: React.FC = () => {
                     <Link to="/tool/chatgpt" className="btn-primary inline-flex">View Details</Link>
                   </div>
                   <div className="w-full md:w-1/2 aspect-video bg-[var(--color-background)] rounded-2xl border border-[var(--color-border)] shadow-2xl overflow-hidden flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fm=webp&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" width="800" height="450" decoding="async" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
                   </div>
                 </div>
               </div>

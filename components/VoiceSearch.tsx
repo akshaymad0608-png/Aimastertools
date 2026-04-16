@@ -78,6 +78,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
         onClick={toggleModal}
         className="p-3 text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors rounded-full hover:bg-[var(--color-surface)]"
         title="Voice Search"
+        aria-label="Voice Search"
       >
         <Mic size={24} />
       </button>
@@ -95,6 +96,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
               <button 
                 onClick={() => setShowModal(false)}
                 className="absolute top-4 right-4 p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors"
+                aria-label="Close Voice Search"
               >
                 <X size={20} />
               </button>
@@ -106,12 +108,14 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                     <button
                       onClick={() => setLanguage('en-IN')}
                       className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'en-IN' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
+                      aria-label="Switch to English (India)"
                     >
                       EN (IN)
                     </button>
                     <button
                       onClick={() => setLanguage('hi-IN')}
                       className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'hi-IN' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
+                      aria-label="Switch to Hindi (India)"
                     >
                       हिन्दी
                     </button>
@@ -134,6 +138,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                     onClick={isListening ? () => {} : startListening}
                     disabled={isListening}
                     className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${isListening ? 'bg-[var(--color-primary)] text-white scale-110 shadow-[0_0_40px_rgba(var(--color-primary-rgb),0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'}`}
+                    aria-label={isListening ? "Listening" : "Start Listening"}
                   >
                     {isListening ? <Loader2 size={40} className="animate-spin" /> : <Mic size={40} />}
                   </button>

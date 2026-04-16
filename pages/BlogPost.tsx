@@ -83,12 +83,16 @@ const BlogPost: React.FC = () => {
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden mb-12 border border-[var(--color-border)] shadow-2xl">
+            <div className="rounded-2xl overflow-hidden mb-12 border border-[var(--color-border)] shadow-2xl aspect-video">
               <img 
                 src={post.imageUrl} 
                 alt={post.title} 
-                className="w-full h-[400px] object-cover"
+                width="800"
+                height="450"
+                decoding="async"
+                className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
 

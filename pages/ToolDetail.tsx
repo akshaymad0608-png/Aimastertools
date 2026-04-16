@@ -100,7 +100,7 @@ const ToolDetail: React.FC = () => {
               
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-md">
-                   <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                   <img src={tool.imageUrl} alt={tool.name} width="112" height="112" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -131,8 +131,8 @@ const ToolDetail: React.FC = () => {
             </div>
 
             {/* Image/Screenshot Section */}
-            <div className="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl">
-              <img src={tool.imageUrl} alt={`${tool.name} screenshot`} className="w-full h-auto object-cover" referrerPolicy="no-referrer" loading="lazy" />
+            <div className="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl aspect-video">
+              <img src={tool.imageUrl} alt={`${tool.name} screenshot`} width="800" height="450" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
             </div>
 
             {/* Detailed Description */}
@@ -207,6 +207,7 @@ const ToolDetail: React.FC = () => {
                     }}
                     className="flex items-center gap-1.5 px-3 py-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
                     title="Upvote"
+                    aria-label={`Upvote ${tool.name}`}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                     <span className="font-bold">{Math.floor(tool.rating * 123)}</span>
@@ -218,6 +219,7 @@ const ToolDetail: React.FC = () => {
                     }}
                     className="p-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
                     title="Share"
+                    aria-label={`Share ${tool.name}`}
                   >
                     <Share2 size={20} />
                   </button>
@@ -320,16 +322,16 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="absolute -left-10 -top-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
                 
-                <h4 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
                   <Sparkles size={16} className="text-[var(--color-accent)]" /> Featured Tool
-                </h4>
+                </h2>
                 
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=100" alt="Sponsored AI Tool" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fm=webp&fit=crop&q=80&w=100" alt="Sponsored AI Tool" width="48" height="48" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
                   </div>
                   <div>
-                    <h5 className="font-bold text-[var(--color-text-primary)] text-sm">NexusAI Pro</h5>
+                    <h3 className="font-bold text-[var(--color-text-primary)] text-sm">NexusAI Pro</h3>
                     <div className="flex items-center gap-1 text-[10px] text-[var(--color-text-secondary)] mt-1">
                       <Star size={10} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
                       <span>4.9 (2k+ reviews)</span>

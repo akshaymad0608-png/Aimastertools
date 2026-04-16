@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
           ))}
           {isPro && (
             <div className="flex items-center gap-3">
-              <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites">
+              <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
                 <Heart size={18} className="fill-red-500" />
               </button>
               <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border border-yellow-500/30 rounded-full text-yellow-500 text-xs font-bold tracking-wide uppercase">
@@ -303,7 +303,7 @@ const Navbar: React.FC = () => {
               {isPro && (
                 <div className="flex items-center justify-between p-3 rounded-xl font-medium bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-500/20 text-yellow-500">
                   <span className="flex items-center gap-2"><Star size={16} className="fill-yellow-500" /> Pro Member</span>
-                  <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites">
+                  <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
                     <Heart size={20} className="fill-red-500" />
                   </button>
                 </div>

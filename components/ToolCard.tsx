@@ -93,7 +93,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
       </div>
 
       {/* Image Section */}
-      <div className="relative h-52 overflow-hidden bg-[var(--color-cardBg)] border-b border-[var(--color-border)] aspect-video">
+      <div className="relative w-full aspect-video overflow-hidden bg-[var(--color-cardBg)] border-b border-[var(--color-border)]">
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-cardBg)] to-transparent opacity-60 z-10"></div>
         <img 
           src={tool.imageUrl} 
