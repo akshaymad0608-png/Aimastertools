@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Search, SlidersHorizontal, ArrowRight, BrainCircuit, Sparkles, Check, Loader2, Play
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import ToolCard from '../components/ToolCard';
 import SEO from '../components/SEO';
 import { CATEGORIES, MOCK_TOOLS, BLOG_POSTS } from '../constants';
@@ -267,42 +266,30 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section id="home" className="relative pt-28 pb-16 md:pt-40 md:pb-32 overflow-hidden">
         {/* Background Effects */}
-        <motion.div 
-          animate={{ 
-            opacity: [0.4, 0.6, 0.4],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none will-change-transform transform-gpu"
+        <div 
+          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none will-change-transform transform-gpu animate-pulse"
         />
-        <motion.div 
-          animate={{ 
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-[100px] -z-10 pointer-events-none will-change-transform transform-gpu"
+        <div 
+          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-[100px] -z-10 pointer-events-none will-change-transform transform-gpu animate-pulse"
         />
 
         <div className="container-custom text-center relative z-10">
           <div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-primary)]/30 mb-8 shadow-[var(--shadow-neon)] animate-fade-in-up"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-primary)]/30 mb-8 shadow-[var(--shadow-neon)]"
           >
             <Sparkles size={16} className="text-[var(--color-secondary)]" />
             <span className="text-sm font-semibold text-[var(--color-text-primary)] tracking-wide uppercase">Discover & Compare AI Solutions</span>
           </div>
           
           <h1 
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1] sm:leading-[0.9] animate-fade-in-up"
-            style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter leading-[1.1] sm:leading-[0.9]"
           >
             Find & Compare <br className="hidden md:block" />
             <span className="text-gradient">The Best AI Tools</span>
           </h1>
           
           <p 
-            className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-4xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0 animate-fade-in-up"
-            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+            className="text-lg md:text-2xl text-[var(--color-text-secondary)] max-w-4xl mx-auto mb-12 leading-relaxed font-medium px-4 md:px-0"
           >
             The ultimate directory for AI Master Tools. Discover, compare, and implement the perfect AI solutions to supercharge your productivity and business workflows.
           </p>
@@ -310,7 +297,6 @@ const Home: React.FC = () => {
             {/* Search Bar */}
           <div 
             className="max-w-3xl mx-auto relative mb-16 animate-fade-in-up"
-            style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
           >
             <div className="relative flex items-center group">
               <Search className="absolute left-4 md:left-6 text-[var(--color-text-muted)] group-focus-within:text-[var(--color-primary)] transition-colors" size={20} />
@@ -424,18 +410,15 @@ const Home: React.FC = () => {
                 const isSelected = selectedCategory === cat.id;
                 
                 return (
-                  <motion.button 
+                  <button 
                     key={cat.id}
-                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.03 }}
                     onClick={() => handleCategoryClick(cat.id)}
-                    className={`p-5 sm:p-6 rounded-[2rem] border transition-all duration-300 flex flex-col items-center text-center gap-4 group relative overflow-hidden
+                    className={`animate-fade-in-up p-5 sm:p-6 rounded-[2rem] border transition-all duration-300 flex flex-col items-center text-center gap-4 group relative overflow-hidden
                       ${isSelected 
                         ? 'border-[var(--color-primary)] bg-gradient-to-b from-[var(--color-primary)]/10 to-transparent shadow-[0_8px_30px_rgba(var(--color-primary-rgb),0.15)] ring-1 ring-[var(--color-primary)]/50' 
                         : 'border-[var(--color-border)] bg-[var(--color-surface)]/50 hover:border-[var(--color-primary)]/40 hover:bg-[var(--color-surface)] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]'
                       }`}
+                    style={{ animationDelay: `${index * 0.03}s`, animationFillMode: 'both' }}
                   >
                     {/* Background Glow */}
                     <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl transition-all duration-500 ${isSelected ? 'bg-[var(--color-primary)]/20' : 'bg-[var(--color-primary)]/0 group-hover:bg-[var(--color-primary)]/10'}`}></div>
@@ -461,7 +444,7 @@ const Home: React.FC = () => {
                         <span className={`text-xs font-semibold tracking-wider transition-colors px-3 py-1 rounded-full ${isSelected ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'bg-[var(--color-background)] border border-[var(--color-border)] text-[var(--color-text-muted)] group-hover:bg-[var(--color-primary)]/5 group-hover:border-[var(--color-primary)]/20 group-hover:text-[var(--color-primary)]/80'}`}>{cat.count} Tools</span>
                       </div>
                     </div>
-                  </motion.button>
+                  </button>
                 )
               })}
             </div>
@@ -540,19 +523,17 @@ const Home: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {displayedTools.length > 0 ? (
                   displayedTools.map((tool, index) => (
-                    <motion.div
+                    <div
                       key={tool.id}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                      className="animate-fade-in-up"
+                      style={{ animationDelay: `${index * 0.05}s`, animationFillMode: 'both' }}
                     >
                       <ToolCard 
                         tool={tool} 
                         rank={activeTab === 'Featured' ? index + 1 : undefined}
                         priority={false}
                       />
-                    </motion.div>
+                    </div>
                   ))
                 ) : (
                   <div className="col-span-full text-center py-32 text-[var(--color-text-secondary)] glass-panel rounded-2xl border border-[var(--color-border)]">
@@ -643,13 +624,10 @@ const Home: React.FC = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {BLOG_POSTS.map((post, index) => (
-              <motion.div 
+              <div 
                 key={post.id} 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer glass-panel rounded-xl overflow-hidden border border-[var(--color-border)] card-hover-effect"
+                className="group cursor-pointer glass-panel rounded-xl overflow-hidden border border-[var(--color-border)] card-hover-effect animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'both' }}
               >
                 <div className="w-full overflow-hidden relative aspect-video">
                    <Link to={post.url} className="block w-full h-full">
@@ -673,7 +651,7 @@ const Home: React.FC = () => {
                     Read Article <ArrowRight size={16} />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
           
@@ -692,12 +670,7 @@ const Home: React.FC = () => {
           <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/90 backdrop-blur-lg p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]"></div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
+            <div className="max-w-3xl mx-auto animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 text-[var(--color-primary)] text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
                 <BrainCircuit size={14} /> AI Master Newsletter
               </div>
@@ -726,21 +699,21 @@ const Home: React.FC = () => {
               </form>
               
               {newsletterStatus === 'success' && (
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 text-green-400 font-bold flex items-center justify-center gap-2">
+                <p className="mt-6 text-green-400 font-bold flex items-center justify-center gap-2 animate-fade-in-up">
                   <Check size={20} /> Welcome to the future of AI!
-                </motion.p>
+                </p>
               )}
               
               {newsletterStatus === 'error' && (
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 text-red-400 font-bold">
+                <p className="mt-6 text-red-400 font-bold animate-fade-in-up">
                   {errorMessage}
-                </motion.p>
+                </p>
               )}
               
               <p className="mt-8 text-sm text-[var(--color-text-muted)]">
                 No spam. Only high-signal AI insights. Unsubscribe at any time.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

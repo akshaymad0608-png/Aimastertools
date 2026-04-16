@@ -1,13 +1,21 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { usePro } from '../context/ProContext';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
-import AuthModal from './AuthModal';
 import Logo from './Logo';
-import { MOCK_TOOLS } from '../constants';
+
+const AuthModal = React.lazy(() => import('./AuthModal'));
+
+const TRENDING_ITEMS = [
+  "Midjourney: Image AI",
+  "Sora: Video AI",
+  "ChatGPT: Text AI",
+  "Notion AI: Productivity AI",
+  "GitHub Copilot: Coding AI",
+  "Jasper: Writing AI"
+];
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,15 +27,6 @@ const Navbar: React.FC = () => {
   const { isPro } = usePro();
   const { theme, toggleTheme } = useTheme();
   const { currentUser, login, logout } = useAuth();
-
-  const trendingItems = useMemo(() => {
-    return MOCK_TOOLS
-      .filter(t => t.featured)
-      .sort((a, b) => b.rating - a.rating)
-      .slice(0, 6)
-      .map(t => `${t.name}: ${t.category} AI`);
-  }, []);
-
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
@@ -83,14 +82,14 @@ const Navbar: React.FC = () => {
           </div>
           <div className="flex-1 overflow-hidden relative">
             <div className="animate-marquee whitespace-nowrap flex gap-6 sm:gap-12 items-center will-change-transform transform-gpu">
-              {trendingItems.map((text, i) => (
+              {TRENDING_ITEMS.map((text, i) => (
                 <span key={i} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
                   {text}
                 </span>
               ))}
               {/* Duplicate for seamless loop */}
-              {trendingItems.map((text, i) => (
+              {TRENDING_ITEMS.map((text, i) => (
                 <span key={i + 10} className="text-[11px] font-bold text-[var(--color-text-primary)] uppercase tracking-wider flex items-center gap-2">
                   <span className="w-1 h-1 rounded-full bg-[var(--color-primary)]"></span>
                   {text}
@@ -117,32 +116,19 @@ const Navbar: React.FC = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            {!imageError ? (
-              <img 
-                src="/logo.png" 
-                alt="AIMasterTools Logo" 
-                width="200"
-                height="48"
-                fetchPriority="high"
-                decoding="async"
-                className="h-8 sm:h-10 md:h-12 w-auto object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
-                onError={() => setImageError(true)}
-              />
-            ) : (
-              <div className="flex flex-col justify-center items-center ml-1 sm:ml-2">
-                <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
-                  <span className="text-[#0ea5e9]">AI</span>
-                  <span className="text-[var(--color-text-primary)]">MasterTools</span>
+            <div className="flex flex-col justify-center items-center ml-1 sm:ml-2">
+              <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
+                <span className="text-[#0ea5e9]">AI</span>
+                <span className="text-[var(--color-text-primary)]">MasterTools</span>
+              </span>
+              <div className="flex items-center gap-1 w-full mt-0.5">
+                <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
+                <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
+                  .Space
                 </span>
-                <div className="flex items-center gap-1 w-full mt-0.5">
-                  <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
-                  <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
-                    .Space
-                  </span>
-                  <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
-                </div>
+                <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
               </div>
-            )}
+            </div>
           </Link>
         </div>
 
@@ -258,16 +244,10 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -10, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: 'auto' }}
-            exit={{ opacity: 0, y: -10, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 backdrop-blur-xl border-b border-[var(--color-border)] shadow-2xl overflow-hidden"
-          >
-            <div className="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+      <div 
+        className={`xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 backdrop-blur-xl border-b border-[var(--color-border)] shadow-2xl overflow-hidden transition-all duration-300 origin-top ${isMobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 h-0'}`}
+      >
+        <div className="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
               <Link 
                 to="/" 
                 className={`flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${isHome ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
@@ -344,12 +324,14 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
       </nav>
 
-      <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
+      {isAuthModalOpen && (
+        <React.Suspense fallback={null}>
+          <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
+        </React.Suspense>
+      )}
     </header>
   );
 };

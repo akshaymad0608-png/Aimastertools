@@ -7,7 +7,6 @@ import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import Home from './pages/Home';
 
@@ -43,35 +42,30 @@ const GlobalToast = () => {
     }
   }, [bookmarkError, clearBookmarkError]);
 
+  if (!bookmarkError) return null;
+
   return (
-    <AnimatePresence>
-      {bookmarkError && (
-        <motion.div
-          initial={{ opacity: 0, y: 50, x: '-50%' }}
-          animate={{ opacity: 1, y: 0, x: '-50%' }}
-          exit={{ opacity: 0, y: 50, x: '-50%' }}
-          className="fixed bottom-6 left-1/2 z-[100] flex w-[90%] max-w-md items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4 shadow-2xl backdrop-blur-md"
+    <div
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex w-[90%] max-w-md items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4 shadow-2xl backdrop-blur-md animate-fade-in-up"
+    >
+      <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
+      <div className="flex-1">
+        <h4 className="text-sm font-bold text-red-500">Action Restricted</h4>
+        <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{bookmarkError}</p>
+        <button 
+          onClick={() => {
+            clearBookmarkError();
+            navigate('/pricing');
+          }}
+          className="mt-3 text-xs font-bold text-[var(--color-primary)] hover:underline"
         >
-          <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
-          <div className="flex-1">
-            <h4 className="text-sm font-bold text-red-500">Action Restricted</h4>
-            <p className="mt-1 text-sm text-[var(--color-text-secondary)]">{bookmarkError}</p>
-            <button 
-              onClick={() => {
-                clearBookmarkError();
-                navigate('/pricing');
-              }}
-              className="mt-3 text-xs font-bold text-[var(--color-primary)] hover:underline"
-            >
-              Upgrade to Pro &rarr;
-            </button>
-          </div>
-          <button onClick={clearBookmarkError} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close notification">
-            <X size={16} />
-          </button>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          Upgrade to Pro &rarr;
+        </button>
+      </div>
+      <button onClick={clearBookmarkError} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close notification">
+        <X size={16} />
+      </button>
+    </div>
   );
 };
 
