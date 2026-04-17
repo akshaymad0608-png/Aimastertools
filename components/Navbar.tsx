@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut } from 'lucide-react';
+import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut, Loader2 } from 'lucide-react';
 import { usePro } from '../context/ProContext';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
   const isHome = location.pathname === '/';
   const { isPro } = usePro();
   const { theme, toggleTheme } = useTheme();
-  const { currentUser, login, logout } = useAuth();
+  const { currentUser, login, logout, loading } = useAuth();
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
@@ -230,7 +230,11 @@ const Navbar: React.FC = () => {
             <span>Submit AI Tool</span>
           </Link>
 
-          {currentUser ? (
+          {loading ? (
+            <div className="flex items-center justify-center w-[90px] h-[42px] rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <Loader2 size={16} className="animate-spin text-[var(--color-text-muted)]" />
+            </div>
+          ) : currentUser ? (
             <button 
               onClick={logout}
               className="flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-border)] transition-colors"
@@ -331,7 +335,11 @@ const Navbar: React.FC = () => {
                   Submit AI Tool
                 </Link>
 
-                {currentUser ? (
+                {loading ? (
+                  <div className="flex items-center justify-center w-full py-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+                    <Loader2 size={18} className="animate-spin text-[var(--color-text-muted)]" />
+                  </div>
+                ) : currentUser ? (
                   <button 
                     onClick={() => {
                       logout();

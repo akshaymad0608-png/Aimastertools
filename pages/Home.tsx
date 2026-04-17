@@ -267,10 +267,10 @@ const Home: React.FC = () => {
       <section id="home" className="relative pt-28 pb-16 md:pt-40 md:pb-32 overflow-hidden">
         {/* Background Effects */}
         <div 
-          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none will-change-transform transform-gpu animate-pulse"
+          className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"
         />
         <div 
-          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-[100px] -z-10 pointer-events-none will-change-transform transform-gpu animate-pulse"
+          className="hidden md:block absolute bottom-0 right-0 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-secondary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"
         />
 
         <div className="container-custom text-center relative z-10">
@@ -531,7 +531,7 @@ const Home: React.FC = () => {
                       <ToolCard 
                         tool={tool} 
                         rank={activeTab === 'Featured' ? index + 1 : undefined}
-                        priority={false}
+                        priority={index < 3}
                       />
                     </div>
                   ))
