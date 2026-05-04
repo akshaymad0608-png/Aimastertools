@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Command, X, ArrowRight, Zap } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { MOCK_TOOLS } from '../constants';
 
 const CommandPalette: React.FC = () => {
@@ -80,24 +79,17 @@ const CommandPalette: React.FC = () => {
         </span>
       </button>
 
-      <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh] px-4">
             {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <div
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
             />
 
             {/* Palette */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="relative w-full max-w-2xl bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[60vh]"
+            <div
+              className="relative w-full max-w-2xl bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[60vh] animate-fade-in-up"
             >
               {/* Header / Input */}
               <div className="flex items-center px-4 py-4 border-b border-[var(--color-border)]">
@@ -178,10 +170,9 @@ const CommandPalette: React.FC = () => {
                 </div>
                 <span>{MOCK_TOOLS.length} tools indexed</span>
               </div>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
     </>
   );
 };

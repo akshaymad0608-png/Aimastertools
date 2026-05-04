@@ -285,7 +285,7 @@ const Pricing: React.FC = () => {
       />
       
       <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
         <div className="mb-12 md:mb-16 text-center max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 md:mb-6 tracking-tight">Simple, Transparent Pricing</h1>
@@ -437,7 +437,7 @@ const Pricing: React.FC = () => {
 
           {!isPro && (
             <div className="mt-16 text-center max-w-2xl mx-auto">
-              <div className="p-8 glass-panel border border-blue-500/30 rounded-3xl bg-blue-500/5 backdrop-blur-xl shadow-2xl">
+              <div className="p-8 glass-panel border border-blue-500/30 rounded-3xl bg-blue-500/5 shadow-2xl">
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <Shield className="w-6 h-6 text-blue-400" />
                   <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Payment Stuck? Fix it Instantly</h3>

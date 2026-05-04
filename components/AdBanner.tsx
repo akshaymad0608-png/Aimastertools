@@ -17,7 +17,7 @@ const AdBanner: React.FC = () => {
       </div>
       
       {/* Background Glow */}
-      <div className="absolute -left-20 -top-20 w-64 h-64 bg-[var(--color-primary)]/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
+      <div className="absolute -left-20 -top-20 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-20 pointer-events-none group-hover:opacity-30 transition-opacity duration-500 rounded-full"></div>
       
       <div className="flex items-center gap-6 z-10 w-full md:w-auto">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/20 flex items-center justify-center flex-shrink-0 border border-[var(--color-primary)]/30 shadow-[var(--shadow-neon)]">

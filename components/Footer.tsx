@@ -38,8 +38,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[var(--color-background)] border-t border-[var(--color-border)] pt-12 pb-8 md:pt-20 md:pb-10 mt-auto relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-primary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 rounded-full blur-[120px] pointer-events-none will-change-transform transform-gpu"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full pointer-events-none will-change-transform transform-gpu"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--color-secondary)_0%,_transparent_70%)] opacity-10 rounded-full pointer-events-none will-change-transform transform-gpu"></div>
 
       <div className="container-custom mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
@@ -98,6 +98,7 @@ const Footer: React.FC = () => {
               <li><Link to="/discover#about" className="hover:text-[var(--color-primary)] transition-colors">About Us</Link></li>
               <li><Link to="/discover#faq" className="hover:text-[var(--color-primary)] transition-colors">FAQ</Link></li>
               <li><Link to="/discover#testimonials" className="hover:text-[var(--color-primary)] transition-colors">Testimonials</Link></li>
+              <li><Link to="/bookmarks" className="hover:text-[var(--color-primary)] transition-colors">My Favorites</Link></li>
               <li><Link to="/careers" className="hover:text-[var(--color-primary)] transition-colors">Careers</Link></li>
               <li><Link to="/privacy" className="hover:text-[var(--color-primary)] transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-[var(--color-primary)] transition-colors">Terms of Service</Link></li>

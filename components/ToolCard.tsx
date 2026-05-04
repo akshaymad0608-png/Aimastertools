@@ -63,7 +63,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
             btn.classList.toggle('border-[var(--color-primary)]');
             btn.classList.toggle('bg-[var(--color-primary)]/10');
           }}
-          className="flex items-center gap-1 px-2 py-1 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+          className="flex items-center justify-center gap-1 min-h-[40px] px-3 bg-[var(--color-cardBg)]/90 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Upvote"
           aria-label={`Upvote ${tool.name}`}
         >
@@ -72,7 +72,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
         </button>
         <button 
           onClick={handleShare}
-          className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+          className="flex items-center justify-center min-h-[40px] min-w-[40px] bg-[var(--color-cardBg)]/90 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Copy Link"
           aria-label={`Copy link for ${tool.name}`}
         >
@@ -84,7 +84,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
             e.stopPropagation();
             toggleBookmark(tool.id);
           }}
-          className="p-2 bg-[var(--color-cardBg)]/80 backdrop-blur-md rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+          className="flex items-center justify-center min-h-[40px] min-w-[40px] bg-[var(--color-cardBg)]/90 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-all border border-[var(--color-border)] hover:border-[var(--color-primary)]"
           title="Bookmark"
           aria-label={bookmarked ? `Remove ${tool.name} from bookmarks` : `Bookmark ${tool.name}`}
         >
@@ -109,10 +109,10 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
         
         {/* Pricing Badge */}
         <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-20">
-          <span className={`px-3 py-1 text-xs font-bold rounded-md border backdrop-blur-md ${
-            tool.pricing === 'Free' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
-            tool.pricing === 'Paid' ? 'bg-red-500/20 text-red-400 border-red-500/30' :
-            'bg-amber-500/20 text-amber-400 border-amber-500/30'
+          <span className={`px-3 py-1 text-xs font-bold rounded-md border ${
+            tool.pricing === 'Free' ? 'bg-green-500/80 text-white border-green-500' :
+            tool.pricing === 'Paid' ? 'bg-red-500/80 text-white border-red-500' :
+            'bg-amber-500/80 text-white border-amber-500'
           }`}>
             {tool.pricing}
           </span>
@@ -156,7 +156,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
         <div className="flex items-center gap-3 mt-auto pt-4 border-t border-[var(--color-border)]">
           <Link 
             to={`/tool/${tool.id}`}
-            className="p-2.5 rounded-lg text-[var(--color-text-secondary)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all"
+            className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg text-[var(--color-text-secondary)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all"
             aria-label="View Details"
           >
             <ArrowRight size={18} />
@@ -165,7 +165,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
             href={tool.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex-1 py-2.5 rounded-lg text-sm font-semibold text-center text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all shadow-lg shadow-[var(--color-primary)]/20 flex items-center justify-center gap-2 group/btn"
+            className="flex-1 min-h-[44px] rounded-lg text-sm font-semibold text-center text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all shadow-lg shadow-[var(--color-primary)]/20 flex items-center justify-center gap-2 group/btn"
           >
             Visit Website <ExternalLink size={14} className="group-hover/btn:translate-x-0.5 transition-transform" />
           </a>

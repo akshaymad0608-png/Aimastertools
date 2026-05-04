@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Mic, MicOff, Languages, X, Loader2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface VoiceSearchProps {
   onTranscript: (transcript: string) => void;
@@ -83,14 +82,10 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
         <Mic size={24} />
       </button>
 
-      <AnimatePresence>
-        {showModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="glass-panel w-full max-w-md p-8 rounded-3xl border border-[var(--color-border)] shadow-2xl relative overflow-hidden"
+      {showModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+            <div
+              className="glass-panel w-full max-w-md p-8 rounded-3xl border border-[var(--color-border)] shadow-2xl relative overflow-hidden animate-fade-in-up"
             >
               {/* Close Button */}
               <button 
@@ -123,21 +118,16 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                 </div>
 
                 <div className="relative flex justify-center py-8">
-                  <AnimatePresence>
                     {isListening && (
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        className="absolute inset-0 bg-[var(--color-primary)]/20 rounded-full blur-3xl"
+                      <div
+                        className="absolute inset-0 bg-[var(--color-primary)]/20 rounded-full animate-pulse"
                       />
                     )}
-                  </AnimatePresence>
                   
                   <button
                     onClick={isListening ? () => {} : startListening}
                     disabled={isListening}
-                    className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${isListening ? 'bg-[var(--color-primary)] text-white scale-110 shadow-[0_0_40px_rgba(var(--color-primary-rgb),0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'}`}
+                    className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${isListening ? 'bg-[var(--color-primary)] text-white scale-110 shadow-[0_0_40px_rgba(59,130,246,0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'}`}
                     aria-label={isListening ? "Listening" : "Start Listening"}
                   >
                     {isListening ? <Loader2 size={40} className="animate-spin" /> : <Mic size={40} />}
@@ -167,10 +157,9 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
     </>
   );
 };

@@ -85,7 +85,7 @@ const ToolDetail: React.FC = () => {
       
       <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative overflow-hidden">
         {/* Background Glow */}
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
         <a href="/#tools" className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] mb-8 transition-colors font-medium group">
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Back to Directory
@@ -96,7 +96,7 @@ const ToolDetail: React.FC = () => {
           <div className="lg:col-span-2 space-y-8">
             {/* Header Section */}
             <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-10 shadow-lg relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)]/5 rounded-full blur-[80px] -z-10"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-5 rounded-full -z-10"></div>
               
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                 <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-md">
@@ -217,7 +217,7 @@ const ToolDetail: React.FC = () => {
                       navigator.clipboard.writeText(window.location.href);
                       // Could add a toast here
                     }}
-                    className="p-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+                    className="flex items-center justify-center min-h-[44px] min-w-[44px] hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
                     title="Share"
                     aria-label={`Share ${tool.name}`}
                   >
@@ -320,7 +320,7 @@ const ToolDetail: React.FC = () => {
                 <div className="absolute top-0 right-0 bg-[var(--color-primary)]/20 text-[var(--color-primary)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-primary)]/30">
                   Sponsored
                 </div>
-                <div className="absolute -left-10 -top-10 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-[40px] pointer-events-none group-hover:bg-[var(--color-primary)]/20 transition-colors duration-500"></div>
+                <div className="absolute -left-10 -top-10 w-32 h-32 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-20 pointer-events-none group-hover:opacity-30 transition-opacity duration-500 rounded-full"></div>
                 
                 <h2 className="text-lg font-bold text-[var(--color-text-primary)] mb-4 flex items-center gap-2">
                   <Sparkles size={16} className="text-[var(--color-accent)]" /> Featured Tool

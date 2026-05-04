@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { BLOG_POSTS } from '../constants';
 
@@ -63,11 +62,7 @@ const BlogPost: React.FC = () => {
             <ArrowLeft size={20} /> Back to Home
           </Link>
 
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <article className="animate-fade-in-up">
             <div className="mb-8">
               <div className="flex items-center gap-4 text-sm text-[var(--color-text-muted)] mb-4">
                 <span className="flex items-center gap-1"><Calendar size={14} /> {post.date}</span>
@@ -114,7 +109,7 @@ const BlogPost: React.FC = () => {
                 <Share2 size={18} /> Share Article
               </button>
             </div>
-          </motion.article>
+          </article>
         </div>
       </div>
     </>

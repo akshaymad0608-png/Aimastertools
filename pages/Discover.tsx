@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Play, Star, Users, Activity, HelpCircle, Info, TrendingUp, Award } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Link, useLocation } from 'react-router-dom';
@@ -32,25 +31,20 @@ const Discover: React.FC = () => {
         <div className="container-custom">
           
           <div className="text-center mb-16">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter"
+            <h1 
+              className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter animate-fade-in-up"
             >
               Discover <span className="text-gradient">More</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto"
+            </h1>
+            <p 
+              className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto animate-fade-in-up"
             >
               Everything else you need to know about AI Master Tools, from our mission to user testimonials and live stats.
-            </motion.p>
+            </p>
           </div>
 
           {/* Quick Navigation Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-20">
+          <div className="flex flex-wrap justify-center gap-4 mb-20 animate-fade-in-up">
             {[
               { id: 'about', icon: Info, label: 'About Us' },
               { id: 'stats', icon: Activity, label: 'Live Stats' },
@@ -58,17 +52,14 @@ const Discover: React.FC = () => {
               { id: 'testimonials', icon: Star, label: 'Testimonials' },
               { id: 'faq', icon: HelpCircle, label: 'FAQ' },
             ].map((btn, i) => (
-              <motion.a
+              <a
                 key={btn.id}
                 href={`#${btn.id}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.05 }}
                 className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm hover:shadow-md font-semibold"
               >
                 <btn.icon size={18} />
                 {btn.label}
-              </motion.a>
+              </a>
             ))}
           </div>
 
@@ -77,7 +68,7 @@ const Discover: React.FC = () => {
             {/* About Section */}
             <section id="about" className="scroll-mt-32">
               <div className="glass-panel p-8 md:p-12 rounded-3xl border border-[var(--color-border)] relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-primary)]/10 blur-3xl rounded-full -z-10"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10"></div>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3"><Info className="text-[var(--color-primary)]" /> About AI Master Tools</h2>
                 <div className="prose prose-invert max-w-none text-[var(--color-text-secondary)]">
                   <p className="text-lg leading-relaxed mb-4">

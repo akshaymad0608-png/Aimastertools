@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut, Loader2 } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { BrainCircuit, Menu, X, Plus, ChevronRight, Users, Star, Heart, Sun, Moon, LogIn, LogOut, Loader2, Dices, Sparkles } from 'lucide-react';
 import { usePro } from '../context/ProContext';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 import Logo from './Logo';
+import { MOCK_TOOLS } from '../constants';
 
 const AuthModal = React.lazy(() => import('./AuthModal'));
 
@@ -55,11 +56,19 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [liveVisitors, setLiveVisitors] = useState(1243);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
   const { isPro } = usePro();
   const { theme, toggleTheme } = useTheme();
   const { currentUser, login, logout, loading } = useAuth();
   const [imageError, setImageError] = useState(false);
+
+  const handleSurpriseMe = () => {
+    const randomIndex = Math.floor(Math.random() * MOCK_TOOLS.length);
+    const randomTool = MOCK_TOOLS[randomIndex];
+    setIsMobileMenuOpen(false);
+    navigate(`/tool/${randomTool.id}`);
+  };
 
   useEffect(() => {
     // Simulate live visitor count fluctuating
@@ -90,16 +99,20 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const navLinks = isHome ? [
+  const navLinks: { name: string; to?: string; onClick?: () => void; isSpecial?: boolean }[] = isHome ? [
+    { name: 'Find My Tool', to: '/find', isSpecial: true },
     { name: 'AI Categories', onClick: () => scrollToSection('categories') },
     { name: 'Compare AI Tools', to: '/compare' },
     { name: 'Discover More', to: '/discover' },
+    { name: 'Favorites', to: '/bookmarks' },
     { name: 'AI Blog', onClick: () => scrollToSection('blog') },
     ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
   ] : [
+    { name: 'Find My Tool', to: '/find', isSpecial: true },
     { name: 'AI Categories', to: '/#categories' },
     { name: 'Compare AI Tools', to: '/compare' },
     { name: 'Discover More', to: '/discover' },
+    { name: 'Favorites', to: '/bookmarks' },
     { name: 'AI Blog', to: '/#blog' },
     ...(isPro ? [] : [{ name: 'Pricing', to: '/pricing' }]),
   ];
@@ -107,7 +120,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Trending Ticker */}
-      <div className="bg-[var(--color-primary)]/10 backdrop-blur-md border-b border-[var(--color-primary)]/20 py-1 sm:py-1.5 overflow-hidden h-7 sm:h-8">
+      <div className="bg-[var(--color-primary)]/10 border-b border-[var(--color-primary)]/20 py-1 sm:py-1.5 overflow-hidden h-7 sm:h-8">
         <div className="container-custom flex items-center gap-2 sm:gap-4 h-full">
           <div className="flex items-center gap-1 sm:gap-2 px-1.5 sm:px-2 py-0.5 rounded bg-[var(--color-primary)] text-white text-[8px] sm:text-[10px] font-bold uppercase tracking-widest animate-pulse whitespace-nowrap">
             Trending Now
@@ -132,7 +145,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      <nav className={`transition-all duration-300 border-b ${scrolled ? 'bg-[var(--color-background)]/95 backdrop-blur-lg border-[var(--color-border)] py-3 shadow-sm' : 'bg-[var(--color-background)]/90 backdrop-blur-md border-[var(--color-border)]/50 py-4'}`}>
+      <nav className={`transition-all duration-300 border-b ${scrolled ? 'bg-[var(--color-background)]/95 border-[var(--color-border)] py-3 shadow-sm' : 'bg-[var(--color-background)]/95 border-[var(--color-border)]/50 py-4'}`}>
       <div className="container-custom flex justify-between items-center">
         
         {/* Logo */}
@@ -148,18 +161,11 @@ const Navbar: React.FC = () => {
               setIsMobileMenuOpen(false);
             }}
           >
+            <Logo className="w-8 h-8 sm:w-10 sm:h-10 transform group-hover:scale-105 transition-transform duration-300" />
             <div className="flex flex-col justify-center items-center ml-1 sm:ml-2">
-              <span className="text-base sm:text-xl md:text-2xl font-black tracking-tight leading-none flex items-center">
-                <span className="text-[#0ea5e9]">AI</span>
-                <span className="text-[var(--color-text-primary)]">MasterTools</span>
+              <span className="text-base sm:text-lg font-black tracking-[0.15em] leading-none flex items-center text-[#22d3ee] uppercase" style={{ fontFamily: 'monospace' }}>
+                AIMASTERTOOLS
               </span>
-              <div className="flex items-center gap-1 w-full mt-0.5">
-                <div className="h-[2px] flex-grow bg-gradient-to-r from-transparent to-[#f97316] rounded-full"></div>
-                <span className="text-[0.55rem] sm:text-[0.65rem] font-bold text-[#f97316] tracking-wider leading-none">
-                  .Space
-                </span>
-                <div className="h-[2px] flex-grow bg-gradient-to-l from-transparent to-[#f97316] rounded-full"></div>
-              </div>
             </div>
           </Link>
         </div>
@@ -177,8 +183,13 @@ const Navbar: React.FC = () => {
               <Link 
                 key={i} 
                 to={link.to} 
-                className={`text-sm font-medium transition-colors ${location.pathname === link.to ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
+                className={
+                  link.isSpecial
+                    ? "flex items-center gap-1 text-sm font-bold text-[var(--color-primary)] bg-[var(--color-primary)]/10 px-3 py-1.5 rounded-full hover:bg-[var(--color-primary)]/20 transition-colors"
+                    : `text-sm font-medium transition-colors ${location.pathname === link.to ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`
+                }
               >
+                {link.isSpecial && <Sparkles size={14} className="animate-pulse" />}
                 {link.name}
               </Link>
             ) : (
@@ -193,9 +204,9 @@ const Navbar: React.FC = () => {
           ))}
           {isPro && (
             <div className="flex items-center gap-3">
-              <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
+              <Link to="/bookmarks" className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
                 <Heart size={18} className="fill-red-500" />
-              </button>
+              </Link>
               <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 border border-yellow-500/30 rounded-full text-yellow-500 text-xs font-bold tracking-wide uppercase">
                 <Star size={12} className="fill-yellow-500" /> Pro Member
               </div>
@@ -221,6 +232,14 @@ const Navbar: React.FC = () => {
             <Users size={14} className="text-[var(--color-text-muted)]" />
             <span className="text-xs font-bold text-[var(--color-text-secondary)]">{liveVisitors.toLocaleString()} Online</span>
           </div>
+          
+          <button
+            onClick={handleSurpriseMe}
+            className="group flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-[var(--color-secondary)]/50 text-[var(--color-secondary)] bg-[var(--color-secondary)]/5 hover:bg-[var(--color-secondary)]/20 transition-all font-bold"
+          >
+            <Dices size={16} className="group-hover:animate-bounce transition-transform" />
+            <span>Surprise Me</span>
+          </button>
           
           <Link 
             to="/submit"
@@ -281,7 +300,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 backdrop-blur-xl border-b border-[var(--color-border)] shadow-2xl overflow-hidden transition-all duration-300 origin-top ${isMobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 h-0'}`}
+        className={`xl:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 border-b border-[var(--color-border)] shadow-2xl overflow-hidden transition-all duration-300 origin-top ${isMobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 h-0'}`}
       >
         <div className="p-6 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
               <Link 
@@ -298,11 +317,18 @@ const Navbar: React.FC = () => {
                   <Link 
                     key={i} 
                     to={link.to} 
-                    className={`flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${location.pathname === link.to ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`}
+                    className={
+                      link.isSpecial
+                        ? "flex items-center justify-between p-3 rounded-xl font-bold transition-colors bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
+                        : `flex items-center justify-between p-3 rounded-xl font-medium transition-colors ${location.pathname === link.to ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]' : 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)]'}`
+                    }
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link.name}
-                    <ChevronRight size={16} className={location.pathname === link.to ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'} />
+                    <span className="flex items-center gap-2">
+                      {link.isSpecial && <Sparkles size={16} className="animate-pulse" />}
+                      {link.name}
+                    </span>
+                    <ChevronRight size={16} className={location.pathname === link.to || link.isSpecial ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)]'} />
                   </Link>
                 ) : (
                   <button 
@@ -319,13 +345,21 @@ const Navbar: React.FC = () => {
               {isPro && (
                 <div className="flex items-center justify-between p-3 rounded-xl font-medium bg-gradient-to-r from-yellow-400/10 to-yellow-600/10 border border-yellow-500/20 text-yellow-500">
                   <span className="flex items-center gap-2"><Star size={16} className="fill-yellow-500" /> Pro Member</span>
-                  <button className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
+                  <Link to="/bookmarks" onClick={() => setIsMobileMenuOpen(false)} className="text-red-500 hover:text-red-600 transition-transform hover:scale-110" title="Favorites" aria-label="View Favorites">
                     <Heart size={20} className="fill-red-500" />
-                  </button>
+                  </Link>
                 </div>
               )}
               
               <div className="pt-4 mt-2 border-t border-[var(--color-border)] flex flex-col gap-3">
+                <button 
+                  onClick={handleSurpriseMe}
+                  className="group flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] border border-[var(--color-secondary)]/30"
+                >
+                  <Dices size={18} className="group-hover:animate-bounce transition-transform" />
+                  Surprise Me
+                </button>
+                
                 <Link 
                   to="/submit" 
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl font-bold text-white bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/20"

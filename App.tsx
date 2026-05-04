@@ -21,6 +21,8 @@ const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Discover = lazy(() => import('./pages/Discover'));
+const Bookmarks = lazy(() => import('./pages/Bookmarks'));
+const FindMyTool = lazy(() => import('./pages/FindMyTool'));
 const CommandPalette = lazy(() => import('./components/CommandPalette'));
 
 const PageLoader = () => (
@@ -87,11 +89,13 @@ function App() {
                     <Route path="/tool/:id" element={<ToolDetail />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
                     <Route path="/compare" element={<Compare />} />
+                    <Route path="/bookmarks" element={<Bookmarks />} />
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/careers" element={<Careers />} />
                     <Route path="/discover" element={<Discover />} />
+                    <Route path="/find" element={<FindMyTool />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

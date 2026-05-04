@@ -105,6 +105,74 @@ const CATEGORY_META = [
 
 export const MOCK_TOOLS: Tool[] = [
   {
+    id: "looka",
+    name: "Looka",
+    description: "Use Looka's AI-powered platform to design a logo and build a brand you love.",
+    category: "Image",
+    url: "https://looka.com",
+    imageUrl: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Paid",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-05-15",
+    tags: [
+      "Logo Design",
+      "Branding",
+      "Design"
+    ]
+  },
+  {
+    id: "logoai",
+    name: "LogoAI",
+    description: "An AI logo maker and brand-building platform that can help you create professional logos, design matching identities, and automate brand promotion.",
+    category: "Image",
+    url: "https://www.logoai.com",
+    imageUrl: "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2024-05-16",
+    tags: [
+      "Logo Design",
+      "Brand Identity",
+      "Design"
+    ]
+  },
+  {
+    id: "brandmark",
+    name: "Brandmark",
+    description: "Create a unique, professional logo for your business. Kickstart your brand with business card designs, social media graphics, app icons, letterheads and more.",
+    category: "Image",
+    url: "https://brandmark.io",
+    imageUrl: "https://images.unsplash.com/photo-1629752187687-3d3c7ea3a21b?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Paid",
+    rating: 4.6,
+    featured: false,
+    dateAdded: "2024-05-17",
+    tags: [
+      "Logo Design",
+      "Styleguide",
+      "AI Logo"
+    ]
+  },
+  {
+    id: "canva",
+    name: "Canva AI",
+    description: "Canva incorporates powerful AI tools for image generation, magic design, and rapid logo creation within its massive design ecosystem.",
+    category: "Design",
+    url: "https://www.canva.com",
+    imageUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2024-05-18",
+    tags: [
+      "Logo Design",
+      "Graphic Design",
+      "Image Gen"
+    ]
+  },
+  {
     id: "flux-1",
     name: "Flux.1",
     description: "State-of-the-art open-source image generation model by Black Forest Labs, offering unparalleled photorealism and prompt adherence.",
@@ -1208,38 +1276,82 @@ export const MOCK_TOOLS: Tool[] = [
     ]
   },
   {
-    id: "40",
+    id: "grok",
     name: "Grok",
-    description: "An AI modeled after the Hitchhiker's Guide to the Galaxy.",
+    description: "An AI modeled after the Hitchhiker's Guide to the Galaxy, designed to answer spicy questions and exhibit humor.",
     category: "Chatbots",
     url: "https://grok.x.ai",
-    imageUrl: "https://picsum.photos/seed/ai-tool-40/400/200",
+    imageUrl: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?auto=format&fm=webp&fit=crop&q=80&w=800",
     pricing: "Paid",
     rating: 4.6,
     featured: false,
     dateAdded: "2024-04-23",
-    tags: [
-      "X",
-      "Real-time",
-      "Humor"
-    ]
+    tags: ["X", "Real-time", "Humor"]
   },
   {
-    id: "41",
-    name: "Ideogram",
-    description: "Advanced text-to-image generator with superior typography capabilities.",
-    category: "Image",
-    url: "https://ideogram.ai",
-    imageUrl: "https://picsum.photos/seed/ai-tool-41/400/200",
+    id: "perplexity-ai",
+    name: "Perplexity AI",
+    description: "AI search engine that provides complex answers along with citations, combining the best of search and conversational AI.",
+    category: "Chatbots",
+    url: "https://www.perplexity.ai",
+    imageUrl: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fm=webp&fit=crop&q=80&w=800",
     pricing: "Freemium",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2024-01-10",
+    tags: ["Search", "Research", "Citations"]
+  },
+  {
+    id: "huggingface",
+    name: "Hugging Face",
+    description: "The AI community building the future. Build, train and deploy state of the art models powered by the reference open source in machine learning.",
+    category: "Coding",
+    url: "https://huggingface.co",
+    imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2023-11-20",
+    tags: ["Models", "Open Source", "Platform"]
+  },
+  {
+    id: "copy-ai",
+    name: "Copy.ai",
+    description: "AI copywriter that generates high-quality marketing copy in seconds.",
+    category: "Writing",
+    url: "https://www.copy.ai",
+    imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead27d8?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2023-10-05",
+    tags: ["Copywriting", "Marketing", "Content"]
+  },
+  {
+    id: "jaspar",
+    name: "Jasper",
+    description: "AI copilot for marketing teams that helps create high-performing content faster.",
+    category: "Writing",
+    url: "https://www.jasper.ai",
+    imageUrl: "https://images.unsplash.com/photo-1664575602276-acd073f1300c?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Paid",
+    rating: 4.7,
+    featured: true,
+    dateAdded: "2023-09-12",
+    tags: ["Copywriting", "Marketing", "Enterprise"]
+  },
+  {
+    id: "synthesia",
+    name: "Synthesia",
+    description: "AI video generation platform. Turn text into video with AI avatars and voiceovers.",
+    category: "Video",
+    url: "https://www.synthesia.io",
+    imageUrl: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Paid",
     rating: 4.8,
     featured: true,
-    dateAdded: "2024-04-07",
-    tags: [
-      "Image Gen",
-      "Typography",
-      "Design"
-    ]
+    dateAdded: "2023-08-25",
+    tags: ["Avatars", "Video Gen", "Presentations"]
   },
   {
     id: "42",
@@ -8226,6 +8338,201 @@ export const MOCK_TOOLS: Tool[] = [
       "Free",
       "Multilingual"
     ]
+  },
+  {
+    id: "ollama",
+    name: "Ollama",
+    description: "Get up and running with large language models locally.",
+    category: "Coding",
+    url: "https://ollama.com",
+    imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2024-05-18",
+    tags: ["Open Source", "Local AI", "LLMs"]
+  },
+  {
+    id: "comfyui",
+    name: "ComfyUI",
+    description: "The most powerful and modular stable diffusion GUI and backend.",
+    category: "Image",
+    url: "https://github.com/comfyanonymous/ComfyUI",
+    imageUrl: "https://images.unsplash.com/photo-1633424694931-15fe2fbbaa54?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-05-19",
+    tags: ["Image Gen", "GUI", "Stable Diffusion"]
+  },
+  {
+    id: "aider",
+    name: "Aider",
+    description: "AI pair programming in your terminal.",
+    category: "Coding",
+    url: "https://aider.chat",
+    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-05-20",
+    tags: ["Coding", "Terminal", "Developer Tools"]
+  },
+  {
+    id: "cline",
+    name: "Cline",
+    description: "An AI assistant that can use your CLI and Editor. Formerly known as Claude Dev.",
+    category: "Coding",
+    url: "https://github.com/cline/cline",
+    imageUrl: "https://images.unsplash.com/photo-1618401471353-b98afee6b2eb?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2024-05-21",
+    tags: ["VS Code", "IDE", "Coding Assistant"]
+  },
+  {
+    id: "lm-studio",
+    name: "LM Studio",
+    description: "Discover, download, and run local LLMs.",
+    category: "Coding",
+    url: "https://lmstudio.ai",
+    imageUrl: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: false,
+    dateAdded: "2024-05-22",
+    tags: ["Local AI", "LLMs", "Desktop"]
+  },
+  {
+    id: "exa-ai",
+    name: "Exa.ai",
+    description: "The search engine built for AI.",
+    category: "Research",
+    url: "https://exa.ai",
+    imageUrl: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2024-05-23",
+    tags: ["Search", "API", "Research"]
+  },
+  {
+    id: "tavily",
+    name: "Tavily",
+    description: "The search engine for AI agents.",
+    category: "Research",
+    url: "https://tavily.com",
+    imageUrl: "https://images.unsplash.com/photo-1542621334-a25420a9a4d8?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2024-05-24",
+    tags: ["Search", "API", "Agents"]
+  },
+  {
+    id: "dify",
+    name: "Dify.ai",
+    description: "The innovation engine for generative AI applications.",
+    category: "Coding",
+    url: "https://dify.ai",
+    imageUrl: "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-05-25",
+    tags: ["Workflow", "App Builder", "Platform"]
+  },
+  {
+    id: "coze",
+    name: "Coze",
+    description: "Next-generation AI bot building platform.",
+    category: "Chatbots",
+    url: "https://www.coze.com",
+    imageUrl: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2024-05-26",
+    tags: ["Bot Builder", "Agents", "Chatbots"]
+  },
+  {
+    id: "supermaven",
+    name: "Supermaven",
+    description: "The fastest copilot.",
+    category: "Coding",
+    url: "https://supermaven.com",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.8,
+    featured: false,
+    dateAdded: "2024-05-27",
+    tags: ["Copilot", "Coding Assistant", "Productivity"]
+  },
+  {
+    id: "warp",
+    name: "Warp",
+    description: "The terminal for the 21st century with built-in AI.",
+    category: "Coding",
+    url: "https://www.warp.dev",
+    imageUrl: "https://images.unsplash.com/photo-1629654297299-c8506221eca9?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Freemium",
+    rating: 4.9,
+    featured: true,
+    dateAdded: "2024-05-28",
+    tags: ["Terminal", "Productivity", "Developer Tools"]
+  },
+  {
+    id: "mochi-1",
+    name: "Mochi 1",
+    description: "State-of-the-art open source video generation model by Genmo.",
+    category: "Video",
+    url: "https://genmo.ai",
+    imageUrl: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-05-29",
+    tags: ["Video Gen", "Open Source", "Models"]
+  },
+  {
+    id: "jan",
+    name: "Jan",
+    description: "Open-source alternative to ChatGPT that runs 100% offline.",
+    category: "Chatbots",
+    url: "https://jan.ai",
+    imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.7,
+    featured: false,
+    dateAdded: "2024-05-30",
+    tags: ["Offline AI", "Local AI", "Privacy"]
+  },
+  {
+    id: "anything-llm",
+    name: "AnythingLLM",
+    description: "The all-in-one desktop application for local AI.",
+    category: "Coding",
+    url: "https://anythingllm.com",
+    imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: false,
+    dateAdded: "2024-05-31",
+    tags: ["RAG", "Local AI", "Docs"]
+  },
+  {
+    id: "openhands",
+    name: "OpenHands",
+    description: "An open source AI software engineer (formerly OpenDevin).",
+    category: "Coding",
+    url: "https://github.com/All-Hands-AI/OpenHands",
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fm=webp&fit=crop&q=80&w=800",
+    pricing: "Free",
+    rating: 4.8,
+    featured: true,
+    dateAdded: "2024-06-01",
+    tags: ["Agents", "Open Source", "Software Engineer"]
   }
 ];
 

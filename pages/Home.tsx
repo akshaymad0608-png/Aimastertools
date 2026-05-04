@@ -23,8 +23,10 @@ const Home: React.FC = () => {
   const [selectedPricing, setSelectedPricing] = useState<string>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(6);
+  const [isSearchSticky, setIsSearchSticky] = useState(false);
 
   const searchInputRef = React.useRef<HTMLInputElement>(null);
+  const mobileSearchInputRef = React.useRef<HTMLInputElement>(null);
 
   const handleVoiceTranscript = (transcript: string) => {
     setSearchTerm(transcript);
@@ -38,10 +40,19 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setIsSearchSticky(window.scrollY > 350);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         searchInputRef.current?.focus();
+        mobileSearchInputRef.current?.focus();
       }
       if (e.key === 'Escape') {
         searchInputRef.current?.blur();
@@ -226,6 +237,36 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <div 
+        className={`md:hidden fixed top-0 left-0 w-full bg-[var(--color-background)]/90 backdrop-blur-md pt-[70px] pb-3 px-4 z-40 transition-transform duration-300 border-b border-[var(--color-border)] shadow-md ${isSearchSticky ? 'translate-y-0' : '-translate-y-full'}`}
+      >
+        <div className="relative flex items-center">
+          <Search className="absolute left-3 text-[var(--color-text-muted)]" size={18} />
+          <input 
+            ref={mobileSearchInputRef}
+            type="text" 
+            placeholder="Search tools..." 
+            className="w-full h-12 pl-10 pr-12 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] focus:ring-2 focus:ring-[var(--color-primary)] outline-none text-[var(--color-text-primary)]"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            onKeyDown={handleSearchKeyDown}
+          />
+          <div className="absolute right-2 flex items-center">
+            {searchTerm && (
+              <button 
+                onClick={() => setSearchTerm('')}
+                className="p-1 mr-1 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            )}
+            <React.Suspense fallback={<div className="w-8 h-8"></div>}>
+              <VoiceSearch onTranscript={handleVoiceTranscript} />
+            </React.Suspense>
+          </div>
+        </div>
+      </div>
+
       <SEO 
         title="AI Master Tools | Discover, Compare & Find the Best AI Tools" 
         description="Find, compare, and review the best AI tools and software. Get personalized AI tool suggestions to boost your productivity and business. Discover top AI solutions."
@@ -667,7 +708,7 @@ const Home: React.FC = () => {
       <section className="py-16 md:py-24 relative overflow-hidden border-t border-[var(--color-border)]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-primary)]/5 -z-10"></div>
         <div className="container-custom relative z-10">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/90 backdrop-blur-lg p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
+          <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-[var(--color-border)] bg-[var(--color-cardBg)]/95 p-6 md:p-24 text-center max-w-6xl mx-auto shadow-[0_0_100px_rgba(59,130,246,0.1)]">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)]"></div>
             
             <div className="max-w-3xl mx-auto animate-fade-in-up">

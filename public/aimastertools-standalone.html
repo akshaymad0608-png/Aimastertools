@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Master Tools | Discover, Compare & Find the Best AI Tools</title>
+    <meta name="description" content="Find and compare 1200+ AI tools across 48 categories. Free, honest reviews to help you choose the best AI software for writing, coding, design, and more.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="AI Master Tools | Discover, Compare & Find the Best AI Tools">
+    <meta property="og:description" content="Find and compare 1200+ AI tools across 48 categories. Free, honest reviews to help you choose the best AI software for writing, coding, design, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aimastertools.space">
+    <meta property="og:image" content="https://aimastertools.space/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI Master Tools",
+      "url": "https://aimastertools.space",
+      "description": "Discover, Compare & Find the Best AI Tools",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://aimastertools.space/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #378ADD;
+            --primary-hover: #2873C2;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --card-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        header {
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: var(--bg);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-outline {
+            border-color: var(--border);
+            color: var(--text-main);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            padding: 8px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background-color: var(--bg);
+            color: var(--text-main);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(55, 138, 221, 0.2);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-top: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            text-align: left;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-results ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-results li {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-results li:last-child {
+            border-bottom: none;
+        }
+
+        .search-results li:hover {
+            background-color: var(--surface);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Tool Finder */
+        .tool-finder {
+            padding: 40px 0;
+            background-color: var(--bg);
+        }
+
+        .finder-input-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .finder-input-wrapper h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Section Global */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            border-radius: 50px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .filter-chip:hover, .filter-chip.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Tool Card */
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.hot { background: #fee2e2; color: #ef4444; }
+        .badge.new { background: #dcfce7; color: #10b981; }
+        .badge.trending { background: #fef3c7; color: #f59e0b; }
+        .badge.none { display: none; }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .tool-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .tool-category {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .tool-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tool-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+
+        .tool-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tool-price {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            background: var(--surface);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-controls {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .compare-controls select {
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-main);
+            min-width: 200px;
+        }
+
+        .compare-table-wrapper {
+            overflow-x: auto;
+            max-width: 800px;
+            margin: 0 auto;
+            display: none; /* hidden until selection */
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .compare-table th, .compare-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-table th {
+            background-color: var(--surface);
+            font-weight: 600;
+            width: 33.33%;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary);
+            background-color: var(--surface);
+        }
+
+        .cat-name {
+            font-weight: 600;
+        }
+
+        .cat-count {
+            background: var(--surface);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        /* Banner Sections */
+        .newsletter, .submit-banner {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .newsletter h2, .submit-banner h2 {
+            margin-bottom: 12px;
+        }
+
+        .newsletter p, .submit-banner p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 100%;
+            max-width: 300px;
+            background: var(--bg);
+            color: var(--text-main);
+        }
+
+        .submit-banner-wrapper {
+            background-color: #378ADD10;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background: var(--bg);
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            transform: translateY(-20px);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                AI Master Tools
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#featured">Browse</a>
+                <a href="#compare">Compare</a>
+                <a href="#categories">Categories</a>
+                <a href="#" onclick="openModal(event)">Submit Tool</a>
+                <a href="#" class="btn btn-outline" style="display: none;" id="mobileSignIn">Sign In</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">🌙</button>
+                <a href="#" class="btn btn-primary" id="desktopSignIn">Sign In</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Discover the Best AI Tools for Every Need</h1>
+            <p>Compare, review, and find AI tools trusted by 50,000+ professionals.</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" id="heroSearch" placeholder="Search 1200+ AI tools...">
+                <div class="search-results" id="searchResults">
+                    <ul id="searchResultsList"></ul>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> 1,247 Tools</span>
+                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> 48 Categories</span>
+                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 12,000+ Reviews</span>
+                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> 50k+ Users/mo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tool Finder -->
+    <section class="tool-finder border-bottom border-gray-200">
+        <div class="container">
+            <div class="finder-input-wrapper">
+                <h2>Find the right tool for your specific task</h2>
+                <input type="text" class="search-input" id="intentSearch" placeholder="I need an AI tool for...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tools -->
+    <section id="featured" class="container">
+        <div class="section-header">
+            <h2 class="section-title">Trending This Week</h2>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-chip active" data-filter="All">All</button>
+            <button class="filter-chip" data-filter="Free">Free</button>
+            <button class="filter-chip" data-filter="Freemium">Freemium</button>
+            <button class="filter-chip" data-filter="Paid">Paid</button>
+            <button class="filter-chip" data-filter="Trending">Trending</button>
+            <button class="filter-chip" data-filter="New">New</button>
+        </div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools injected via JS -->
+        </div>
+    </section>
+
+    <!-- Compare Section -->
+    <section id="compare" class="comparison-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 20px;">Compare AI Tools</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-muted);">Select two tools to see how they stack up against each other.</p>
+            
+            <div class="compare-controls">
+                <select id="compareSelect1">
+                    <option value="" disabled selected>Select Tool 1</option>
+                </select>
+                <span style="font-weight: 600; color: var(--text-muted);">VS</span>
+                <select id="compareSelect2">
+                    <option value="" disabled selected>Select Tool 2</option>
+                </select>
+                <button class="btn btn-primary" onclick="compareTools()">Compare</button>
+            </div>
+
+            <div class="compare-table-wrapper" id="compareTableWrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th id="compareCol1">Tool 1</th>
+                            <th id="compareCol2">Tool 2</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compareBody">
+                        <!-- Rows injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="container">
+        <h2 class="section-title">Browse by Category</h2>
+        <div class="categories-grid" id="categoriesGrid">
+            <!-- Categories injected via JS -->
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="container">
+        <div class="newsletter">
+            <h2>Get Top 5 AI Tools Every Week — Free</h2>
+            <p>Join 50,000+ professionals receiving our weekly digest of the AI landscape.</p>
+            <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Submit Tool Section -->
+    <section class="container">
+        <div class="submit-banner-wrapper submit-banner">
+            <h2>Have an AI tool? Get listed for free</h2>
+            <p>Reach thousands of professionals actively looking for AI solutions in your specific category.</p>
+            <button class="btn btn-primary" onclick="openModal(event)">Submit Your Tool</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">AI Master Tools</div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Discover, compare, and find the best AI tools trusted by professionals worldwide.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="#featured">Browse Tools</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#compare">Compare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#" onclick="openModal(event)">Submit Tool</a></li>
+                        <li><a href="#">Advertise</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 AI Master Tools. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Submit Modal -->
+    <div class="modal-overlay" id="submitModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 style="margin-bottom: 24px; font-size: 1.5rem;">Submit an AI Tool</h3>
+            <form onsubmit="handleToolSubmit(event)">
+                <div class="form-group">
+                    <label>Tool Name</label>
+                    <input type="text" required placeholder="e.g., ChatGPT">
+                </div>
+                <div class="form-group">
+                    <label>Website URL</label>
+                    <input type="url" required placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select required>
+                        <option value="Writing">Writing</option>
+                        <option value="Image Gen">Image Generation</option>
+                        <option value="Coding">Coding</option>
+                        <option value="Video">Video</option>
+                        <option value="Audio">Audio</option>
+                        <option value="SEO">SEO</option>
+                        <option value="Chatbots">Chatbots</option>
+                        <option value="Research">Research</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brief Description</label>
+                    <textarea rows="3" required placeholder="What does this tool do?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" required placeholder="For updates regarding your submission">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Tool</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Success! Message goes here.</div>
+
+    <!-- JavaScript -->
+    <script>
+        // Data
+        const tools = [
+            { name: "ChatGPT", category: "Chatbots", price: "Freemium", rating: 4.8, badge: "Hot", desc: "OpenAI's powerful conversational AI assistant", bestFor: "General use, writing, coding", icon: "💬" },
+            { name: "Claude", category: "Chatbots", price: "Freemium", rating: 4.8, badge: "Trending", desc: "Anthropic's safe and intelligent AI assistant", bestFor: "Long documents, analysis, coding", icon: "🤖" },
+            { name: "Gemini", category: "Chatbots", price: "Freemium", rating: 4.6, badge: "New", desc: "Google's multimodal AI model", bestFor: "Research, Google Workspace", icon: "✨" },
+            { name: "Midjourney", category: "Image Gen", price: "Paid", rating: 4.9, badge: "Hot", desc: "Best AI image generation tool", bestFor: "Art, design, creative projects", icon: "🎨" },
+            { name: "Sora", category: "Video", price: "Freemium", rating: 4.5, badge: "New", desc: "OpenAI's AI video generation model", bestFor: "Video creation, filmmaking", icon: "🎥" },
+            { name: "Cursor", category: "Coding", price: "Freemium", rating: 4.7, badge: "Trending", desc: "AI-powered code editor", bestFor: "Software development", icon: "⌨️" },
+            { name: "Perplexity", category: "Research", price: "Freemium", rating: 4.6, badge: "Hot", desc: "AI-powered search and research engine", bestFor: "Research, fact-checking", icon: "🔍" },
+            { name: "ElevenLabs", category: "Audio", price: "Freemium", rating: 4.7, badge: "Trending", desc: "AI voice generation and cloning", bestFor: "Podcasts, audiobooks, voiceovers", icon: "🎙️" },
+            { name: "DALL-E 3", category: "Image Gen", price: "Freemium", rating: 4.5, badge: "Hot", desc: "OpenAI's image generation model", bestFor: "Quick image creation", icon: "🖼️" },
+            { name: "GitHub Copilot", category: "Coding", price: "Paid", rating: 4.6, badge: "Hot", desc: "AI pair programmer by GitHub", bestFor: "Code completion, bug fixing", icon: "💻" },
+            { name: "Jasper", category: "Writing", price: "Paid", rating: 4.3, badge: "Trending", desc: "AI writing assistant for marketing", bestFor: "Marketing copy, blogs", icon: "✍️" },
+            { name: "Notion AI", category: "Productivity", price: "Freemium", rating: 4.4, badge: "New", desc: "AI features built into Notion", bestFor: "Notes, docs, project management", icon: "📝" }
+        ];
+
+        const categories = [
+            { name: "Writing", count: 142, icon: "✍️" },
+            { name: "Image Gen", count: 89, icon: "🎨" },
+            { name: "Coding", count: 76, icon: "💻" },
+            { name: "Video", count: 54, icon: "🎥" },
+            { name: "Audio", count: 38, icon: "🎙️" },
+            { name: "SEO", count: 61, icon: "📈" },
+            { name: "Chatbots", count: 45, icon: "💬" },
+            { name: "Research", count: 33, icon: "🔍" },
+            { name: "Marketing", count: 55, icon: "🎯" },
+            { name: "Productivity", count: 48, icon: "⚡" },
+            { name: "Education", count: 29, icon: "🎓" },
+            { name: "Business", count: 41, icon: "💼" }
+        ];
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTools(tools);
+            renderCategories();
+            populateCompareSelects();
+            
+            // Set initial theme
+            if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const mobileBtn = document.getElementById('mobileSignIn');
+            navLinks.classList.toggle('mobile-active');
+            if(navLinks.classList.contains('mobile-active')) {
+                mobileBtn.style.display = 'inline-block';
+                mobileBtn.style.textAlign = 'center';
+            } else {
+                mobileBtn.style.display = 'none';
+            }
+        }
+
+        // Render Tool Cards
+        function renderTools(toolsToRender) {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = toolsToRender.map(tool => `
+                <div class="tool-card">
+                    <span class="badge ${tool.badge ? tool.badge.toLowerCase() : 'none'}">${tool.badge || ''}</span>
+                    <div class="tool-header">
+                        <div class="tool-icon">${tool.icon || '🚀'}</div>
+                        <div>
+                            <h3 class="tool-title">${tool.name}</h3>
+                            <span class="tool-category">${tool.category}</span>
+                        </div>
+                    </div>
+                    <p class="tool-desc">${tool.desc}</p>
+                    <div class="tool-footer">
+                        <span class="tool-rating">★ ${tool.rating}</span>
+                        <span class="tool-price">${tool.price}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Categories
+        function renderCategories() {
+            const grid = document.getElementById('categoriesGrid');
+            grid.innerHTML = categories.map(cat => `
+                <div class="category-card" onclick="filterByCategory('${cat.name}')">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.5rem;">${cat.icon}</span>
+                        <span class="cat-name">${cat.name}</span>
+                    </div>
+                    <span class="cat-count">${cat.count}</span>
+                </div>
+            `).join('');
+        }
+
+        // Filter Logic
+        document.getElementById('filterBar').addEventListener('click', (e) => {
+            if(e.target.tagName === 'BUTTON') {
+                // Update active class
+                document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+
+                const filter = e.target.getAttribute('data-filter');
+                let filtered = tools;
+
+                if (filter === 'Free' || filter === 'Freemium' || filter === 'Paid') {
+                    filtered = tools.filter(t => t.price === filter);
+                } else if (filter === 'Trending' || filter === 'New') {
+                    filtered = tools.filter(t => t.badge === filter);
+                }
+
+                renderTools(filtered);
+            }
+        });
+
+        function filterByCategory(category) {
+            document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+            
+            // Remove active from all chips
+            document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+
+            const filtered = tools.filter(t => t.category === category);
+            renderTools(filtered);
+        }
+
+        // Live Search / Intent Search
+        const handleSearch = (e) => {
+            const query = e.target.value.toLowerCase();
+            const resultsBox = document.getElementById('searchResults');
+            const resultsList = document.getElementById('searchResultsList');
+            
+            if (query.length < 2) {
+                if(e.target.id === 'heroSearch') resultsBox.style.display = 'none';
+                renderTools(tools);
+                return;
+            }
+
+            const filtered = tools.filter(t => 
+                t.name.toLowerCase().includes(query) || 
+                t.desc.toLowerCase().includes(query) ||
+                t.category.toLowerCase().includes(query) ||
+                t.bestFor.toLowerCase().includes(query)
+            );
+
+            // If intent search, render cards
+            if(e.target.id === 'intentSearch') {
+                document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+                renderTools(filtered);
+                if(filtered.length > 0) {
+                    document.getElementById('toolsGrid').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            } 
+            // If hero search, show dropdown
+            else if (e.target.id === 'heroSearch') {
+                if (filtered.length > 0) {
+                    resultsList.innerHTML = filtered.map(t => `
+                        <li onclick="selectSearchResult('${t.name}')">
+                            <span style="font-weight: 500;">${t.icon} ${t.name}</span>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">${t.category}</span>
+                        </li>
+                    `).join('');
+                    resultsBox.style.display = 'block';
+                } else {
+                    resultsList.innerHTML = `<li style="color: var(--text-muted);">No tools found matching "${query}"</li>`;
+                    resultsBox.style.display = 'block';
+                }
+            }
+        };
+
+        function selectSearchResult(name) {
+            document.getElementById('heroSearch').value = name;
+            document.getElementById('searchResults').style.display = 'none';
+            const filtered = tools.filter(t => t.name === name);
+            renderTools(filtered);
+            document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('heroSearch').addEventListener('input', handleSearch);
+        document.getElementById('intentSearch').addEventListener('input', handleSearch);
+
+        // Hide search dropdown on click outside
+        document.addEventListener('click', (e) => {
+            if(e.target.id !== 'heroSearch') {
+                const resultsBox = document.getElementById('searchResults');
+                if(resultsBox) resultsBox.style.display = 'none';
+            }
+        });
+
+        // Comparison feature
+        function populateCompareSelects() {
+            const s1 = document.getElementById('compareSelect1');
+            const s2 = document.getElementById('compareSelect2');
+            const options = tools.map(t => `<option value="${t.name}">${t.name}</option>`).join('');
+            s1.innerHTML += options;
+            s2.innerHTML += options;
+        }
+
+        function compareTools() {
+            const sel1 = document.getElementById('compareSelect1').value;
+            const sel2 = document.getElementById('compareSelect2').value;
+
+            if(!sel1 || !sel2) {
+                showToast("Please select two tools to compare.");
+                return;
+            }
+
+            if(sel1 === sel2) {
+                showToast("Please select different tools.");
+                return;
+            }
+
+            const t1 = tools.find(t => t.name === sel1);
+            const t2 = tools.find(t => t.name === sel2);
+
+            document.getElementById('compareCol1').innerHTML = `<span style="font-size:1.5rem; margin-right:8px">${t1.icon}</span> ${t1.name}`;
+            document.getElementById('compareCol2').innerHTML = `<span style="font-size:1.5rem; margin-right:8px">${t2.icon}</span> ${t2.name}`;
+
+            const tbody = document.getElementById('compareBody');
+            tbody.innerHTML = `
+                <tr>
+                    <td><strong>Category</strong></td>
+                    <td>${t1.category}</td>
+                    <td>${t2.category}</td>
+                </tr>
+                <tr>
+                    <td><strong>Pricing</strong></td>
+                    <td>${t1.price}</td>
+                    <td>${t2.price}</td>
+                </tr>
+                <tr>
+                    <td><strong>Rating</strong></td>
+                    <td>⭐ ${t1.rating}</td>
+                    <td>⭐ ${t2.rating}</td>
+                </tr>
+                <tr>
+                    <td><strong>Best For</strong></td>
+                    <td>${t1.bestFor}</td>
+                    <td>${t2.bestFor}</td>
+                </tr>
+            `;
+
+            document.getElementById('compareTableWrapper').style.display = 'block';
+        }
+
+        // Forms & Modals
+        function handleSubscribe(e) {
+            e.preventDefault();
+            e.target.reset();
+            showToast("Successfully subscribed to newsletter!");
+        }
+
+        function handleToolSubmit(e) {
+            e.preventDefault();
+            e.target.reset();
+            closeModal();
+            showToast("Tool submitted successfully! We'll review it shortly.");
+        }
+
+        function openModal(e) {
+            e.preventDefault();
+            document.getElementById('submitModal').classList.add('active');
+            // Close mobile menu if open
+            if(document.getElementById('navLinks').classList.contains('mobile-active')){
+                toggleMobileMenu();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('submitModal').classList.remove('active');
+        }
+
+        // Toast
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

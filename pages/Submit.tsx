@@ -219,7 +219,7 @@ const Submit: React.FC = () => {
       
       <div className="pt-32 pb-16 relative overflow-hidden bg-[var(--color-background)]">
         {/* Background Effects */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
         <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
