@@ -8,6 +8,8 @@ export interface Tool {
   description: string;
   category: Category;
   url: string;
+  domain?: string;
+  brandColor?: string;
   imageUrl: string;
   pricing: 'Free' | 'Freemium' | 'Paid';
   rating: number;
@@ -30,7 +32,9 @@ export interface BlogPost {
 export interface CategoryStat {
   id: Category;
   name: string;
-  icon: React.ComponentType<any>;
+  icon: string | any;
   imageUrl?: string;
   count: number;
+  bg?: string;
+  color?: string;
 }

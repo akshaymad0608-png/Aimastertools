@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 import SEO from '../components/SEO';
-import { BLOG_POSTS } from '../constants';
+import { blogPosts } from '../data/blogs';
+import ReactMarkdown from 'react-markdown';
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
-  const post = BLOG_POSTS.find(p => p.id === id);
+  // Try to find the post by slug first, then by id string matching just in case
+  const post = blogPosts.find(p => p.slug === id || p.id.toString() === id);
 
   useEffect(() => {
     if (!post) {
-      navigate('/');
+      navigate('/#blog');
     }
     window.scrollTo(0, 0);
   }, [post, navigate]);
@@ -26,7 +28,6 @@ const BlogPost: React.FC = () => {
         description={post.excerpt}
         keywords={['AI', 'Blog', 'Technology', 'Trends']}
         type="article"
-        image={post.imageUrl}
       >
         <script type="application/ld+json">
           {JSON.stringify({
@@ -34,11 +35,10 @@ const BlogPost: React.FC = () => {
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.excerpt,
-            "image": post.imageUrl,
             "datePublished": new Date(post.date).toISOString(),
             "author": {
               "@type": "Person",
-              "name": "Akshay Mahajan",
+              "name": "AI Master Tools",
               "url": "https://aimastertools.space"
             },
             "publisher": {
@@ -46,70 +46,66 @@ const BlogPost: React.FC = () => {
               "name": "AI Master Tools",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://aimastertools.space/logo.png" // Placeholder
+                "url": "https://aimastertools.space/logo.png"
               }
             }
           })}
         </script>
       </SEO>
       
-      <div className="pt-32 pb-24 min-h-screen">
-        <div className="container-custom max-w-4xl">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] mb-8 transition-colors"
-          >
-            <ArrowLeft size={20} /> Back to Home
+      <div className="pt-32 pb-24 min-h-screen bg-white">
+        <div style={{ maxWidth: "720px", margin: "0 auto", padding: "0 24px" }}>
+          
+          {/* Back link */}
+          <Link to="/#blog" style={{ fontSize: "13px", color: "#534AB7", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", marginBottom: "24px" }}>
+            ← Back to Blog
           </Link>
 
-          <article className="animate-fade-in-up">
-            <div className="mb-8">
-              <div className="flex items-center gap-4 text-sm text-[var(--color-text-muted)] mb-4">
-                <span className="flex items-center gap-1"><Calendar size={14} /> {post.date}</span>
-                <span className="flex items-center gap-1"><Clock size={14} /> {post.readTime}</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 leading-tight">
-                {post.title}
-              </h1>
-              
-              <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed border-l-4 border-[var(--color-primary)] pl-6 italic">
-                {post.excerpt}
-              </p>
-            </div>
+          {/* Category badge */}
+          <div>
+            <span style={{
+              display: "inline-block", fontSize: "11px", fontWeight: "600",
+              padding: "4px 12px", borderRadius: "20px", marginBottom: "14px",
+              background: post.catBg, color: post.catColor,
+              textTransform: "uppercase", letterSpacing: "0.4px"
+            }}>
+              {post.category}
+            </span>
+          </div>
 
-            <div className="rounded-2xl overflow-hidden mb-12 border border-[var(--color-border)] shadow-2xl aspect-video">
-              <img 
-                src={post.imageUrl} 
-                alt={post.title} 
-                width="800"
-                height="450"
-                decoding="async"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
-            </div>
+          {/* Title */}
+          <h1 style={{ fontSize: "32px", fontWeight: "700", color: "#1a1a2e", lineHeight: "1.3", marginBottom: "12px" }}>
+            {post.title}
+          </h1>
 
-            <div 
-              className="prose prose-lg prose-invert max-w-none text-[var(--color-text-secondary)] 
-                prose-headings:text-[var(--color-text-primary)] prose-headings:font-bold
-                prose-a:text-[var(--color-primary)] prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-[var(--color-text-primary)]
-                prose-code:text-[var(--color-accent)] prose-code:bg-[var(--color-surface)] prose-code:px-1 prose-code:rounded
-                prose-blockquote:border-l-[var(--color-primary)] prose-blockquote:bg-[var(--color-surface)]/30 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg"
-              dangerouslySetInnerHTML={{ __html: post.content || '' }}
-            />
+          {/* Meta */}
+          <div style={{ fontSize: "13px", color: "#888", marginBottom: "28px" }}>
+            {post.date} &nbsp;·&nbsp; {post.readTime}
+          </div>
 
-            <div className="mt-12 pt-8 border-t border-[var(--color-border)] flex justify-between items-center">
-              <div className="text-[var(--color-text-muted)]">
-                Thanks for reading!
-              </div>
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] hover:bg-[var(--color-primary)]/10 text-[var(--color-text-primary)] transition-colors border border-[var(--color-border)]">
-                <Share2 size={18} /> Share Article
-              </button>
+          {/* Hero image */}
+          <div style={{
+            width: "100%", height: "260px", borderRadius: "16px",
+            background: post.imgBg, display: "flex",
+            alignItems: "center", justifyContent: "center",
+            fontSize: "80px", marginBottom: "36px"
+          }}>
+            {post.imgEmoji}
+          </div>
+
+          {/* Content */}
+          <div className="blog-content" style={{ fontSize: "15px", lineHeight: "1.8", color: "#333" }}>
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-[var(--color-border)] flex justify-between items-center">
+            <div className="text-[var(--color-text-muted)]">
+              Thanks for reading!
             </div>
-          </article>
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--color-surface)] hover:bg-[var(--color-primary)]/10 text-[var(--color-text-primary)] transition-colors border border-[var(--color-border)]">
+              <Share2 size={18} /> Share Article
+            </button>
+          </div>
         </div>
       </div>
     </>

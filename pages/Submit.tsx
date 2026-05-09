@@ -51,10 +51,6 @@ const Submit: React.FC = () => {
     }
 
     try {
-      if (typeof window.Razorpay === 'undefined') {
-        throw new Error('Payment gateway failed to load. Please refresh the page.');
-      }
-
       const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -83,6 +79,10 @@ const Submit: React.FC = () => {
           navigate('/');
         }, 3000);
         return;
+      }
+
+      if (typeof window.Razorpay === 'undefined') {
+        throw new Error('Payment gateway failed to load. Please refresh the page.');
       }
 
       const options = {

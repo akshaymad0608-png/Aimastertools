@@ -23,7 +23,6 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 const Discover = lazy(() => import('./pages/Discover'));
 const Bookmarks = lazy(() => import('./pages/Bookmarks'));
 const FindMyTool = lazy(() => import('./pages/FindMyTool'));
-const CommandPalette = lazy(() => import('./components/CommandPalette'));
 
 const PageLoader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
@@ -102,9 +101,6 @@ function App() {
               </main>
 
               <Footer />
-              <Suspense fallback={null}>
-                <CommandPalette />
-              </Suspense>
               <GlobalToast />
             </div>
           </Router>

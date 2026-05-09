@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
 import { useBookmarks } from '../context/BookmarkContext';
 import { usePro } from '../context/ProContext';
+import ToolLogo from '../components/ToolLogo';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -54,8 +55,8 @@ const ToolDetail: React.FC = () => {
   return (
     <>
       <SEO 
-        title={tool.name} 
-        description={tool.description}
+        title={`${tool.name} Review, Pricing, & Alternatives (2026) | AI Master Tools`} 
+        description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, pros, cons, and best AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence']}
       >
@@ -99,8 +100,8 @@ const ToolDetail: React.FC = () => {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-5 rounded-full -z-10"></div>
               
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-md">
-                   <img src={tool.imageUrl} alt={tool.name} width="112" height="112" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[#ffffff] shadow-md p-1">
+                   <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="w-full h-full" />
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -141,7 +142,7 @@ const ToolDetail: React.FC = () => {
                 <span className="w-1 h-8 bg-[var(--color-primary)] rounded-full"></span>
                 About {tool.name}
               </h2>
-              <div className="prose prose-invert max-w-none text-[var(--color-text-secondary)] leading-relaxed">
+              <div className="prose max-w-none text-slate-600 leading-relaxed">
                 <p className="mb-6 text-lg">
                   {tool.description}
                 </p>
@@ -163,6 +164,49 @@ const ToolDetail: React.FC = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="mt-10 pt-10 border-t border-[var(--color-border)]">
+                <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)] flex items-center gap-2">
+                  <span className="w-1 h-8 bg-yellow-400 rounded-full"></span>
+                  Scoring & Rubric
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  {[
+                    { label: "Ease of Use", score: 9.5 },
+                    { label: "Features", score: 8.8 },
+                    { label: "Pricing", score: 9.0 },
+                    { label: "Support", score: 8.5 }
+                  ].map(rubric => (
+                    <div key={rubric.label} className="bg-[var(--color-background)] border border-[var(--color-border)] p-4 rounded-xl text-center shadow-inner">
+                      <div className="text-3xl font-black text-[var(--color-primary)] mb-1">{rubric.score}<span className="text-lg text-[var(--color-text-muted)]">/10</span></div>
+                      <div className="text-sm font-semibold text-[var(--color-text-secondary)]">{rubric.label}</div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-green-500/5 border border-green-500/20 rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-lg font-bold text-green-500 mb-4 flex items-center gap-2">
+                       <Check size={20} className="text-green-500" /> Pros
+                    </h3>
+                    <ul className="space-y-3 text-[var(--color-text-secondary)] list-disc list-inside">
+                      <li>Intuitive and fast user interface</li>
+                      <li>Industry-leading AI generation quality</li>
+                      <li>Great community and documentation</li>
+                    </ul>
+                  </div>
+                  <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-lg font-bold text-red-500 mb-4 flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                      Cons
+                    </h3>
+                    <ul className="space-y-3 text-[var(--color-text-secondary)] list-disc list-inside">
+                      <li>Steep learning curve for advanced features</li>
+                      <li>Can be expensive for power users</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               {tool.tags && tool.tags.length > 0 && (

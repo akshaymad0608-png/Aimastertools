@@ -63,11 +63,6 @@ const Pricing: React.FC = () => {
     setErrorMessage('');
 
     try {
-      if (typeof window.Razorpay === 'undefined') {
-        console.error('Razorpay SDK not found on window object');
-        throw new Error('Payment gateway (Razorpay) failed to load. Please check your internet connection or disable any ad-blockers and refresh the page.');
-      }
-
       console.log('Creating order on server...');
       const response = await fetch('/api/create-order', {
         method: 'POST',
@@ -113,6 +108,11 @@ const Pricing: React.FC = () => {
         
         setIsProcessing(false);
         return;
+      }
+
+      if (typeof window.Razorpay === 'undefined') {
+        console.error('Razorpay SDK not found on window object');
+        throw new Error('Payment gateway (Razorpay) failed to load. Please check your internet connection or disable any ad-blockers and refresh the page.');
       }
 
       console.log('Order created successfully:', order.id);

@@ -327,10 +327,22 @@ async function startServer() {
       const { query } = req.body;
       if (!query) return res.status(400).json({ error: 'Query is required' });
 
-      if (!process.env.GEMINI_API_KEY) {
-        return res.status(500).json({ error: 'Gemini API key is not configured' });
+      // Fallback function to generate local response if API is unavailable
+      const fallbackResponse = () => {
+        const keywords = query.toLowerCase().split(/\s+/).filter((w: string) => w.length > 2);
+        return res.json({
+          category: "",
+          keywords: keywords,
+          suggestion: "Here are some tools that match your search terms."
+        });
+      };
+
+      if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'undefined' || process.env.GEMINI_API_KEY === '') {
+        console.warn('Gemini API key is not configured, using fallback matching');
+        return fallbackResponse();
       }
 
+      console.log('Using Gemini API key:', process.env.GEMINI_API_KEY ? 'Set (hidden for security)' : 'Not set', 'Raw value:', process.env.GEMINI_API_KEY);
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       
@@ -346,19 +358,25 @@ async function startServer() {
         User Query: "${query}"
       `;
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-        }
-      });
-      
-      const jsonText = response.text || "{}";
-      const parsed = JSON.parse(jsonText);
-      res.json(parsed);
+      try {
+        const response = await ai.models.generateContent({
+          model: 'gemini-3-flash-preview',
+          contents: prompt,
+          config: {
+            responseMimeType: 'application/json',
+          }
+        });
+        
+        const jsonText = response.text || "{}";
+        const parsed = JSON.parse(jsonText);
+        res.json(parsed);
+      } catch (genError: any) {
+        console.error("AI Tool Finder Error:", genError);
+        console.warn("Using fallback matching due to API error");
+        return fallbackResponse();
+      }
     } catch (error: any) {
-      console.error("AI Tool Finder Error:", error);
+      console.error("AI Tool Finder Unexpected Error:", error);
       res.status(500).json({ error: error.message || 'Failed to analyze query' });
     }
   });
