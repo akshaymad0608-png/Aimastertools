@@ -337,14 +337,15 @@ async function startServer() {
         });
       };
 
-      if (!process.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY === 'undefined' || process.env.GEMINI_API_KEY === '') {
+      if (!process.env.GEMINI_API_KEY && !process.env.API_KEY) {
         console.warn('Gemini API key is not configured, using fallback matching');
         return fallbackResponse();
       }
 
-      console.log('Using Gemini API key:', process.env.GEMINI_API_KEY ? 'Set (hidden for security)' : 'Not set', 'Raw value:', process.env.GEMINI_API_KEY);
+      const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+      console.log('Using Gemini API key:', apiKey ? 'Set (hidden for security)' : 'Not set');
       const { GoogleGenAI } = await import('@google/genai');
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = new GoogleGenAI({ apiKey: apiKey });
       
       const prompt = `
         Analyze the following user query representing their need for an AI tool.
@@ -360,7 +361,7 @@ async function startServer() {
 
       try {
         const response = await ai.models.generateContent({
-          model: 'gemini-3-flash-preview',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',

@@ -60,9 +60,12 @@ const TAGS_BY_CATEGORY: Record<string, string[]> = {
 
 export const CATEGORY_META = [
   { id: 'AI Writing & Content',      name: 'AI Writing & Content',      icon: 'ti-pencil',       bg: '#EEEDFE', color: '#534AB7' },
+  { id: 'Gen AI Creator Tools',      name: 'Gen AI Creator Tools',      icon: 'ti-wand',         bg: '#EEEDFE', color: '#534AB7' },
   { id: 'Image & Art Generation',    name: 'Image & Art Generation',    icon: 'ti-palette',      bg: '#E6F1FB', color: '#185FA5' },
   { id: 'Code & Development',        name: 'Code & Development',        icon: 'ti-code',         bg: '#EAF3DE', color: '#3B6D11' },
+  { id: 'Voice Creator Tools',       name: 'Voice Creator Tools',       icon: 'ti-microphone',     bg: '#FBEAF0', color: '#72243E' },
   { id: 'Video & Audio Tools',       name: 'Video & Audio Tools',       icon: 'ti-video',        bg: '#FAEEDA', color: '#633806' },
+  { id: 'Chatbot Creator Tools',     name: 'Chatbot Creator Tools',     icon: 'ti-messages',     bg: '#EAF3DE', color: '#3B6D11' },
   { id: 'AI Chatbots & Assistants',  name: 'AI Chatbots & Assistants',  icon: 'ti-robot',        bg: '#E1F5EE', color: '#0F6E56' },
   { id: 'Marketing & SEO',           name: 'Marketing & SEO',           icon: 'ti-speakerphone', bg: '#FBEAF0', color: '#72243E' },
   { id: 'Productivity & Automation', name: 'Productivity & Automation', icon: 'ti-bolt',         bg: '#FAECE7', color: '#712B13' },
@@ -74,6 +77,209 @@ export const CATEGORY_META = [
 ];
 
 export const MOCK_TOOLS: Tool[] = [
+  {
+    "id": "runwayml",
+    "name": "Runway",
+    "description": "Advancing creativity with artificial intelligence. Offers Gen-3 Alpha for high-fidelity text-to-video and image-to-video generation.",
+    "category": "Gen AI Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/runwayml.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://runwayml.com", "domain": "runwayml.com", "brandColor": "#000000",
+    "featured": true,
+    "rating": 4.9,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Video Generation", "Generative AI", "Creative Suite"]
+  },
+  {
+    "id": "luma-dream-machine",
+    "name": "Luma Dream Machine",
+    "description": "An AI model that makes high quality, realistic videos fast from text and images.",
+    "category": "Gen AI Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/lumalabs.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://lumalabs.ai/dream-machine", "domain": "lumalabs.ai", "brandColor": "#000000",
+    "featured": true,
+    "rating": 4.8,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Video Generation", "Text-to-Video", "Generative AI"]
+  },
+  {
+    "id": "pika-labs",
+    "name": "Pika",
+    "description": "An idea-to-video platform that sets your creativity in motion. Generate videos from text, images, or existing videos.",
+    "category": "Gen AI Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/pika.art?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://pika.art", "domain": "pika.art", "brandColor": "#f8f9fb",
+    "featured": false,
+    "rating": 4.7,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Video Generation", "Animation", "Generative AI"]
+  },
+  {
+    "id": "scenario-gg",
+    "name": "Scenario",
+    "description": "AI-generated game assets. Train your own AI models to generate consistent assets matching your game's art style.",
+    "category": "Gen AI Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/scenario.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://scenario.com", "domain": "scenario.com", "brandColor": "#0e1117",
+    "featured": false,
+    "rating": 4.6,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Game Development", "Assets", "Generative AI"]
+  },
+  {
+    "id": "leonardo-ai-gen",
+    "name": "Leonardo.Ai",
+    "description": "Create production-quality visual assets with unprecedented quality, speed, and style-consistency.",
+    "category": "Gen AI Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/leonardo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://leonardo.ai", "domain": "leonardo.ai", "brandColor": "#15181c",
+    "featured": false,
+    "rating": 4.8,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Image Generation", "Assets", "Generative AI"]
+  },
+
+  {
+    "id": "voiceflow",
+    "name": "Voiceflow",
+    "description": "Collaborative AI agent builder. Design, test, and launch conversational assistants and chatbots.",
+    "category": "Chatbot Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/voiceflow.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://voiceflow.com", "domain": "voiceflow.com", "brandColor": "#0b5bff",
+    "featured": true,
+    "rating": 4.8,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Chatbots", "AI Agents", "No-Code"]
+  },
+  {
+    "id": "botpress",
+    "name": "Botpress",
+    "description": "The first OpenAI-powered generative AI platform for building ChatGPT-like bots for your business.",
+    "category": "Chatbot Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/botpress.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://botpress.com", "domain": "botpress.com", "brandColor": "#292e35",
+    "featured": true,
+    "rating": 4.7,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Chatbots", "Customer Service", "GPT-4"]
+  },
+  {
+    "id": "chatbase",
+    "name": "Chatbase",
+    "description": "Custom ChatGPT for your data. Upload documents or add a link to your website and get a chatbot that answers questions about it.",
+    "category": "Chatbot Creator Tools",
+    "pricing": "Paid",
+    "imageUrl": "https://img.logo.dev/chatbase.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://chatbase.co", "domain": "chatbase.co", "brandColor": "#000000",
+    "featured": false,
+    "rating": 4.6,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Chatbots", "Data", "Knowledge Base"]
+  },
+  {
+    "id": "dante-ai",
+    "name": "Dante AI",
+    "description": "Create custom AI chatbots powered by GPT-4 trained on your own data in minutes with zero coding.",
+    "category": "Chatbot Creator Tools",
+    "pricing": "Freemium",
+    "imageUrl": "https://img.logo.dev/dante-ai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://dante-ai.com", "domain": "dante-ai.com", "brandColor": "#534AB7",
+    "featured": false,
+    "rating": 4.5,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Chatbots", "No-Code", "AI Agents"]
+  },
+  {
+    "id": "stack-ai",
+    "name": "Stack AI",
+    "description": "No-code AI platform to build, deploy, and scale enterprise-grade AI applications and chatbots.",
+    "category": "Chatbot Creator Tools",
+    "pricing": "Paid",
+    "imageUrl": "https://img.logo.dev/stack-ai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://stack-ai.com", "domain": "stack-ai.com", "brandColor": "#0f172a",
+    "featured": false,
+    "rating": 4.7,
+    "dateAdded": "2026-05-09T00:00:00Z",
+    "tags": ["Chatbots", "Enterprise", "Workflow"]
+  },
+
+  {
+    "id": "playht",
+    "name": "PlayHT",
+    "description": "Ultra-realistic text-to-speech voice generation. Clone your voice or choose from hundreds of languages and accents.",
+    "category": "Voice Creator Tools",
+    pricing: "Freemium",
+    imageUrl: "https://img.logo.dev/play.ht?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://play.ht", "domain": "play.ht", "brandColor": "#0c0c0c",
+    featured: true,
+    "rating": 4.8,
+    
+    dateAdded: "2026-05-09T00:00:00Z",
+    "tags": ["TTS", "Voiceover", "Audio"]
+  },
+  {
+    "id": "murf-ai",
+    "name": "Murf AI",
+    "description": "Create studio-quality voiceovers in minutes. Features pitch control, emphasis, and audio sync.",
+    "category": "Voice Creator Tools",
+    pricing: "Freemium",
+    imageUrl: "https://img.logo.dev/murf.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://murf.ai", "domain": "murf.ai", "brandColor": "#0a1f44",
+    featured: true,
+    "rating": 4.7,
+    
+    dateAdded: "2026-05-09T00:00:00Z",
+    "tags": ["Voiceover", "Presentation", "Audio"]
+  },
+  {
+    "id": "speechify-voice",
+    "name": "Speechify",
+    "description": "Listen to docs, articles, PDF, email, and various other formats. Also offers a robust text-to-speech creation tool.",
+    "category": "Voice Creator Tools",
+    pricing: "Freemium",
+    imageUrl: "https://img.logo.dev/speechify.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://speechify.com", "domain": "speechify.com", "brandColor": "#1d6afa",
+    featured: false,
+    "rating": 4.9,
+    
+    dateAdded: "2026-05-09T00:00:00Z",
+    "tags": ["TTS", "Accessibility", "Voice"]
+  },
+  {
+    "id": "lovo-ai",
+    "name": "Lovo.ai",
+    "description": "Award-winning AI Voice Generator and text to speech platform with 500+ voices in 100 languages.",
+    "category": "Voice Creator Tools",
+    pricing: "Freemium",
+    imageUrl: "https://img.logo.dev/lovo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://lovo.ai", "domain": "lovo.ai", "brandColor": "#8d43ff",
+    featured: false,
+    "rating": 4.6,
+    
+    dateAdded: "2026-05-09T00:00:00Z",
+    "tags": ["TTS", "Video Creation", "Audio"]
+  },
+  {
+    "id": "resemble-ai",
+    "name": "Resemble AI",
+    "description": "Generate AI voices for your games, videos, and applications. Offers real-time voice cloning APIs.",
+    "category": "Voice Creator Tools",
+    pricing: "Paid",
+    imageUrl: "https://img.logo.dev/resemble.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://resemble.ai", "domain": "resemble.ai", "brandColor": "#0b1521",
+    featured: false,
+    "rating": 4.5,
+    
+    dateAdded: "2026-05-09T00:00:00Z",
+    "tags": ["Voice Cloning", "Developers", "Audio"]
+  },
+
   {
     "id": "trending-chatgpt",
     "name": "ChatGPT (GPT-5.5)",

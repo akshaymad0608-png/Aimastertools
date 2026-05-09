@@ -189,6 +189,7 @@ const Home: React.FC = () => {
 
   const handleVoiceTranscript = (transcript: string) => {
     setSearchTerm(transcript);
+    setSelectedCategory('All');
     // Scroll to tools section
     setTimeout(() => {
       const toolsSection = document.getElementById('content');
@@ -264,34 +265,29 @@ const Home: React.FC = () => {
   const displayedCategories = useMemo(() => {
     let cats = CATEGORIES;
     if (searchTerm) {
-      const term = searchTerm.toLowerCase();
+      const terms = searchTerm.toLowerCase().split(' ').filter(String);
       // Find tools that match the search term
-      const matchingTools = MOCK_TOOLS.filter(tool => 
-        tool.name.toLowerCase().includes(term) || 
-        tool.description.toLowerCase().includes(term) ||
-        tool.category.toLowerCase().includes(term) ||
-        (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(term)))
-      );
+      const matchingTools = MOCK_TOOLS.filter(tool => {
+        const toolText = `${tool.name} ${tool.description} ${tool.category} ${(tool.tags || []).join(' ')}`.toLowerCase();
+        return terms.every(term => toolText.includes(term));
+      });
       
       // Get unique categories from matching tools
       const matchingCategoryIds = new Set(matchingTools.map(t => t.category));
       
-      cats = cats.filter(cat => 
-        cat.name.toLowerCase().includes(term) || 
-        cat.id.toLowerCase().includes(term) ||
-        matchingCategoryIds.has(cat.id)
-      );
+      cats = cats.filter(cat => {
+        const catText = `${cat.name} ${cat.id}`.toLowerCase();
+        return terms.every(term => catText.includes(term)) || matchingCategoryIds.has(cat.id);
+      });
     }
     return showAllCategories || searchTerm ? cats : cats.slice(0, 6);
   }, [showAllCategories, searchTerm]);
 
   const filteredTools = useMemo(() => {
-    const term = searchTerm.toLowerCase();
+    const terms = searchTerm.toLowerCase().split(' ').filter(String);
     return MOCK_TOOLS.filter(tool => {
-      const matchesSearch = tool.name.toLowerCase().includes(term) || 
-                            tool.description.toLowerCase().includes(term) ||
-                            tool.category.toLowerCase().includes(term) ||
-                            (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(term)));
+      const toolText = `${tool.name} ${tool.description} ${tool.category} ${(tool.tags || []).join(' ')}`.toLowerCase();
+      const matchesSearch = terms.length === 0 || terms.every(term => toolText.includes(term));
       const matchesCategory = selectedCategory === 'All' || tool.category === selectedCategory;
       const matchesPricing = selectedPricing === 'All' || tool.pricing === selectedPricing;
       return matchesSearch && matchesCategory && matchesPricing;
@@ -300,13 +296,10 @@ const Home: React.FC = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    setVisibleCount(6);
-  };
-
-  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (e.target.value.length > 0) {
+      setSelectedCategory('All');
     }
+    setVisibleCount(6);
   };
 
   const processedTools = useMemo(() => {
@@ -395,7 +388,7 @@ const Home: React.FC = () => {
       <div 
         className={`md:hidden fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md pt-[70px] pb-3 px-4 z-40 transition-transform duration-300 border-b border-gray-200 shadow-sm ${isSearchSticky ? 'translate-y-0' : '-translate-y-full'}`}
       >
-        <div className="relative flex items-center">
+        <form onSubmit={(e) => { e.preventDefault(); document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); mobileSearchInputRef.current?.blur(); }} className="relative flex items-center">
           <Search className="absolute left-3 text-gray-400" size={18} />
           <input 
             ref={mobileSearchInputRef}
@@ -404,22 +397,13 @@ const Home: React.FC = () => {
             className="w-full h-12 pl-10 pr-12 rounded-lg bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-500 outline-none text-gray-900"
             value={searchTerm}
             onChange={handleSearchChange}
-            onKeyDown={handleSearchKeyDown}
           />
           <div className="absolute right-2 flex items-center">
-            {searchTerm && (
-              <button 
-                onClick={() => setSearchTerm('')}
-                className="p-1 mr-1 text-gray-400 hover:text-gray-600"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </button>
-            )}
             <React.Suspense fallback={<div className="w-8 h-8"></div>}>
               <VoiceSearch onTranscript={handleVoiceTranscript} />
             </React.Suspense>
           </div>
-        </div>
+        </form>
       </div>
 
       <SEO 
@@ -471,49 +455,31 @@ const Home: React.FC = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-3xl mx-auto mb-16 animate-fade-in-up">
-            <div className="relative flex items-center shadow-sm hover:shadow-md transition-shadow rounded-2xl border border-gray-200 bg-white p-1.5 focus-within:ring-4 focus-within:ring-blue-500/10 focus-within:border-blue-500">
+          <div className="max-w-3xl mx-auto mb-12 animate-fade-in-up">
+            <form 
+              onSubmit={(e) => { 
+                e.preventDefault(); 
+                document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+              }}
+              className="relative flex items-center shadow-sm hover:shadow-md transition-shadow rounded-2xl border border-gray-200 bg-white p-1.5 focus-within:ring-4 focus-within:ring-blue-500/10 focus-within:border-blue-500"
+            >
               <Search className="absolute left-5 text-gray-400" size={20} strokeWidth={2.5} />
               <input 
                 ref={searchInputRef}
                 type="text" 
                 placeholder='Search tools, categories, or use cases...'
-                className="w-full h-14 pl-14 pr-12 bg-transparent border-none focus:ring-0 outline-none text-slate-900 placeholder-slate-400 text-[17px] font-medium"
+                className="w-full h-14 pl-14 pr-12 sm:pr-[150px] bg-transparent border-none focus:ring-0 outline-none text-slate-900 placeholder-slate-400 text-[17px] font-medium"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                onKeyDown={handleSearchKeyDown}
               />
               
-              {searchTerm && (
-                <button 
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-16 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X size={18} />
-                </button>
-              )}
-              
               <button 
-                onClick={() => document.getElementById('content')?.scrollIntoView({ behavior: 'smooth' })}
+                type="submit"
                 className="absolute right-1.5 top-1.5 bottom-1.5 hidden sm:flex items-center px-6 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors"
               >
                 Search
               </button>
-            </div>
-            
-            {/* Quick search tags */}
-            <div className="flex flex-wrap justify-center gap-2 mt-5">
-              <span className="text-sm font-medium text-slate-400 mr-2 mt-1">Try:</span>
-              {["Video generator", "Coding assistant", "SEO text", "Logo maker"].map((query, i) => (
-                <button 
-                  key={i}
-                  onClick={() => { setSearchTerm(query); setVisibleCount(6); }}
-                  className="px-3 py-1.5 rounded-full bg-slate-50 border border-gray-100 text-slate-600 text-[13px] font-medium hover:bg-slate-100 hover:text-slate-900 transition-colors"
-                >
-                  {query}
-                </button>
-              ))}
-            </div>
+            </form>
           </div>
         </div>
       </section>
@@ -626,14 +592,16 @@ const Home: React.FC = () => {
       {/* Newsletter Section */}
       <section className="py-16 md:py-20 relative bg-white border-b border-gray-100">
         <div className="container-custom max-w-5xl mx-auto px-4 sm:px-0">
-          <div style={{
-            background: "#534AB7",
-            borderRadius: "20px",
-            padding: "52px 40px",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}>
+          <div 
+            className="px-6 py-10 md:px-10 md:py-14"
+            style={{
+              background: "#534AB7",
+              borderRadius: "20px",
+              textAlign: "center",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
             {/* Background circles (depth dots) */}
             <div style={{ position: "absolute", top: "-50px", left: "-50px", width: "200px", height: "200px", borderRadius: "50%", background: "#fff", opacity: 0.06 }} />
             <div style={{ position: "absolute", bottom: "-80px", right: "-20px", width: "250px", height: "250px", borderRadius: "50%", background: "#fff", opacity: 0.06 }} />
