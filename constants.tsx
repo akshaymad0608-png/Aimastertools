@@ -74,9 +74,414 @@ export const CATEGORY_META = [
   { id: 'Business & Finance AI',     name: 'Business & Finance AI',     icon: 'ti-briefcase',    bg: '#EAF3DE', color: '#3B6D11' },
   { id: 'Learning & Education',      name: 'Learning & Education',      icon: 'ti-book',         bg: '#FAEEDA', color: '#633806' },
   { id: 'AI Agents & Automation',    name: 'AI Agents & Automation',    icon: 'ti-brain',        bg: '#E1F5EE', color: '#0F6E56' },
+  { id: 'LLM Providers & APIs',      name: 'LLM Providers & APIs',      icon: 'ti-server',         bg: '#EAF3DE', color: '#3B6D11' },
 ];
 
 export const MOCK_TOOLS: Tool[] = [
+{
+  "id": "openrouter",
+  "name": "OpenRouter",
+  "description": "A unified API for accessing dozens of LLMs (like GPT-4, Claude 3, Llama 3) through a single interface with competitive pricing.",
+  "category": "LLM Providers & APIs",
+  "pricing": "Usage Based",
+  "imageUrl": "https://img.logo.dev/openrouter.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://openrouter.ai",
+  "domain": "openrouter.ai",
+  "brandColor": "#2B2B2B",
+  "featured": true,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:57:40.975Z",
+  "tags": [
+    "LLM",
+    "API",
+    "Developer Tools"
+  ]
+},
+{
+  "id": "flowise",
+  "name": "Flowise",
+  "description": "Open source drag-and-drop UI to build your customized LLM flows using Langchain.",
+  "category": "AI Agents & Automation",
+  "pricing": "Open Source",
+  "imageUrl": "https://img.logo.dev/flowiseai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://flowiseai.com",
+  "domain": "flowiseai.com",
+  "brandColor": "#2BB0E2",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:57:40.976Z",
+  "tags": [
+    "No Code",
+    "Langchain",
+    "Agents"
+  ]
+},
+{
+  "id": "langflow",
+  "name": "Langflow",
+  "description": "Langflow is a dynamic graph for LangChain. It allows you to experiment with and prototype LLM apps effortlessly.",
+  "category": "AI Agents & Automation",
+  "pricing": "Open Source",
+  "imageUrl": "https://img.logo.dev/langflow.org?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.langflow.org",
+  "domain": "langflow.org",
+  "brandColor": "#E65100",
+  "featured": false,
+  "rating": 4.6,
+  "dateAdded": "2026-05-10T05:57:40.976Z",
+  "tags": [
+    "No Code",
+    "Graph",
+    "Langchain"
+  ]
+},
+{
+  "id": "modelcontextprotocol",
+  "name": "Model Context Protocol (MCP)",
+  "description": "An open standard that enables AI models to fetch contextual data from tools and systems effortlessly.",
+  "category": "Code & Development",
+  "pricing": "Open Source",
+  "imageUrl": "https://img.logo.dev/modelcontextprotocol.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://modelcontextprotocol.io/",
+  "domain": "modelcontextprotocol.io",
+  "brandColor": "#000000",
+  "featured": true,
+  "rating": 4.9,
+  "dateAdded": "2026-05-10T05:57:40.976Z",
+  "tags": [
+    "Standard",
+    "Context",
+    "Data",
+    "Agents"
+  ]
+},
+{
+  "id": "ideogram",
+  "name": "Ideogram",
+  "description": "State-of-the-art AI image generator that actually understands text and typography.",
+  "category": "Image & Art Generation",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/ideogram.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://ideogram.ai",
+  "domain": "ideogram.ai",
+  "brandColor": "#000000",
+  "featured": true,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:57:40.976Z",
+  "tags": [
+    "Text to Image",
+    "Typography",
+    "Design"
+  ]
+},
+{
+  "id": "gauth",
+  "name": "Gauth",
+  "description": "AI homework helper and math solver app that provides step-by-step solutions.",
+  "category": "Learning & Education",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/gauthmath.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.gauthmath.com/",
+  "domain": "gauthmath.com",
+  "brandColor": "#5B4EB5",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:57:40.976Z",
+  "tags": [
+    "Math",
+    "Homework",
+    "Education",
+    "Students"
+  ]
+},
+
+{
+  "id": "agentgpt",
+  "name": "AgentGPT",
+  "description": "Assemble, configure, and deploy autonomous AI agents in your browser. Give it a goal, and watch it think, learn, and take action.",
+  "category": "AI Agents & Automation",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/agentgpt.reworkd.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://agentgpt.reworkd.ai/",
+  "domain": "agentgpt.reworkd.ai",
+  "brandColor": "#2B2B2B",
+  "featured": false,
+  "rating": 4.6,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Agents",
+    "Automation",
+    "Autonomous"
+  ]
+},
+{
+  "id": "lindy-ai",
+  "name": "Lindy",
+  "description": "Build AI employees in minutes. Your personal AI assistant that can help with emails, calendar management, and custom automations.",
+  "category": "AI Agents & Automation",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/lindy.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.lindy.ai",
+  "domain": "lindy.ai",
+  "brandColor": "#FF5E5E",
+  "featured": true,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Assistant",
+    "Agents",
+    "Workflows",
+    "Productivity"
+  ]
+},
+{
+  "id": "crewai",
+  "name": "CrewAI",
+  "description": "Cutting-edge framework for orchestrating role-playing, autonomous AI agents. Foster collaborative intelligence for complex tasks.",
+  "category": "AI Agents & Automation",
+  "pricing": "Open Source",
+  "imageUrl": "https://img.logo.dev/crewai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.crewai.com",
+  "domain": "crewai.com",
+  "brandColor": "#F56A49",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Agents",
+    "Multi-Agent",
+    "Framework"
+  ]
+},
+{
+  "id": "multion",
+  "name": "MultiOn",
+  "description": "Build autonomous AI agents for the web. Supercharge your applications with AI agents that can browse, click, and interact with web pages.",
+  "category": "AI Agents & Automation",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/multion.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.multion.ai",
+  "domain": "multion.ai",
+  "brandColor": "#1A1A1A",
+  "featured": false,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Web Agent",
+    "Browser Automation"
+  ]
+},
+{
+  "id": "cognition-devin",
+  "name": "Devin",
+  "description": "The first autonomous AI software engineer. Devin can plan, execute, and collaborate on complex software engineering tasks.",
+  "category": "AI Agents & Automation",
+  "pricing": "Paid",
+  "imageUrl": "https://img.logo.dev/cognition.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.cognition.ai",
+  "domain": "cognition.ai",
+  "brandColor": "#000000",
+  "featured": true,
+  "rating": 4.9,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Software Engineering",
+    "Autonomous",
+    "Coding"
+  ]
+},
+{
+  "id": "autogpt",
+  "name": "AutoGPT",
+  "description": "An experimental open-source attempt to make GPT-4 fully autonomous. AutoGPT strings together LLM thoughts to autonomously achieve whatever goal you set.",
+  "category": "AI Agents & Automation",
+  "pricing": "Open Source",
+  "imageUrl": "https://img.logo.dev/autogpt.net?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://autogpt.net",
+  "domain": "autogpt.net",
+  "brandColor": "#2B2B2B",
+  "featured": false,
+  "rating": 4.5,
+  "dateAdded": "2026-05-10T05:53:07.183Z",
+  "tags": [
+    "Autonomous",
+    "Agents",
+    "Open Source"
+  ]
+},
+
+{
+  "id": "photoresizer",
+  "name": "PhotoResizer",
+  "description": "Quickly resize, crop, and optimize photos using an easy-to-use interface.",
+  "category": "Image & Art Generation",
+  "pricing": "Free",
+  "imageUrl": "https://img.logo.dev/photoresizer.click?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://photoresizer.click",
+  "domain": "photoresizer.click",
+  "brandColor": "#3B82F6",
+  "featured": false,
+  "rating": 4.6,
+  "dateAdded": "2026-05-10T05:50:32.819Z",
+  "tags": [
+    "Image",
+    "Resize",
+    "Design",
+    "Optimization"
+  ]
+},
+{
+  "id": "quickresume",
+  "name": "QuickResume",
+  "description": "Create professional, ATS-friendly resumes quickly and optimize them for your next job application.",
+  "category": "AI Writing & Content",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/quickresume.business?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://quickresume.business",
+  "domain": "quickresume.business",
+  "brandColor": "#10B981",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:50:32.819Z",
+  "tags": [
+    "Resume",
+    "Career",
+    "ATS",
+    "Job Search"
+  ]
+},
+
+{
+  "id": "rezi",
+  "name": "Rezi",
+  "description": "AI resume builder that helps you create ATS-compliant resumes with smart content generation.",
+  "category": "AI Writing & Content",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/rezi.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.rezi.ai",
+  "domain": "rezi.ai",
+  "brandColor": "#000000",
+  "featured": false,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Resume",
+    "ATS",
+    "Career",
+    "Writing"
+  ]
+},
+{
+  "id": "teal",
+  "name": "Teal",
+  "description": "AI resume builder and job tracker to optimize your resume for specific job descriptions.",
+  "category": "Productivity & Automation",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/tealhq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.tealhq.com",
+  "domain": "tealhq.com",
+  "brandColor": "#055C4A",
+  "featured": true,
+  "rating": 4.9,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Resume",
+    "Job Search",
+    "Career",
+    "ATS"
+  ]
+},
+{
+  "id": "kickresume",
+  "name": "Kickresume",
+  "description": "AI resume and cover letter builder that helps you land jobs faster with professional templates.",
+  "category": "AI Writing & Content",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/kickresume.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.kickresume.com",
+  "domain": "kickresume.com",
+  "brandColor": "#0066FF",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Resume",
+    "Cover Letter",
+    "Career"
+  ]
+},
+{
+  "id": "yoodli",
+  "name": "Yoodli",
+  "description": "AI speech coaching and interview prep tool that provides real-time feedback on your communication skills.",
+  "category": "Learning & Education",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/yoodli.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://yoodli.ai",
+  "domain": "yoodli.ai",
+  "brandColor": "#6142E0",
+  "featured": true,
+  "rating": 4.8,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Interview Prep",
+    "Speech Coaching",
+    "Communication"
+  ]
+},
+{
+  "id": "interview-warmup",
+  "name": "Interview Warmup",
+  "description": "Google's AI tool to practice answering interview questions and get insights on your responses.",
+  "category": "Learning & Education",
+  "pricing": "Free",
+  "imageUrl": "https://img.logo.dev/grow.google?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://grow.google/certificates/interview-warmup/",
+  "domain": "grow.google",
+  "brandColor": "#4285F4",
+  "featured": false,
+  "rating": 4.7,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Interview Prep",
+    "Google",
+    "Career"
+  ]
+},
+{
+  "id": "huru",
+  "name": "Huru",
+  "description": "AI-powered job interview preparation app to practice interviews with simulated questions and feedback.",
+  "category": "Learning & Education",
+  "pricing": "Freemium",
+  "imageUrl": "https://img.logo.dev/huru.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "url": "https://www.huru.ai/",
+  "domain": "huru.ai",
+  "brandColor": "#FF5E5E",
+  "featured": false,
+  "rating": 4.6,
+  "dateAdded": "2026-05-10T05:48:19.595Z",
+  "tags": [
+    "Interview Prep",
+    "Career"
+  ]
+},
+
+  {
+    "id": "vapi",
+    "name": "Vapi",
+    "description": "Build, test, and deploy advanced voice AI agents in minutes. Make voice AI simple and accessible for developers.",
+    "category": "Voice Creator Tools",
+    "pricing": "Paid",
+    "imageUrl": "https://img.logo.dev/vapi.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "url": "https://vapi.ai",
+    "domain": "vapi.ai",
+    "brandColor": "#000000",
+    "featured": false,
+    "rating": 4.8,
+    "dateAdded": new Date().toISOString(),
+    "tags": ["Voice AI", "Agents", "Developer Tools", "API"]
+  },
   {
     "id": "runwayml",
     "name": "Runway",
