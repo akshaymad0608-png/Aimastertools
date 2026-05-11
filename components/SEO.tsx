@@ -50,7 +50,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:creator" content="@AIMasterTools" />
 
-      {/* Custom Tags (like JSON-LD) */}
+      {/* Custom Tags */}
       {children}
     </>
   );

@@ -82,6 +82,32 @@ const ToolDetail: React.FC = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://aimastertools.space/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": tool.category,
+                "item": "https://aimastertools.space/?search=" + encodeURIComponent(tool.category)
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": tool.name,
+                "item": "https://aimastertools.space/tool/" + tool.id
+              }
+            ]
+          })}
+        </script>
       </SEO>
       
       <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative overflow-hidden">

@@ -11,7 +11,7 @@ export interface Tool {
   domain?: string;
   brandColor?: string;
   imageUrl: string;
-  pricing: 'Free' | 'Freemium' | 'Paid';
+  pricing: 'Free' | 'Freemium' | 'Paid' | 'Open Source' | 'Usage Based';
   rating: number;
   featured: boolean;
   dateAdded: string; // ISO date string

@@ -46,9 +46,35 @@ const BlogPost: React.FC = () => {
               "name": "AI Master Tools",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://aimastertools.space/logo.png"
+                "url": "https://aimastertools.space/favicon.svg"
               }
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://aimastertools.space/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://aimastertools.space/#blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": "https://aimastertools.space/blog/" + post.id
+              }
+            ]
           })}
         </script>
       </SEO>
