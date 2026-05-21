@@ -6,6 +6,8 @@ import { ProProvider } from './context/ProContext';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import MobileBottomNav from './components/MobileBottomNav';
+import ScrollToTop from './components/ScrollToTop';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 
 import Home from './pages/Home';
@@ -80,7 +82,7 @@ function App() {
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)] overflow-x-hidden">
               <Navbar />
               
-              <main className="flex-grow flex flex-col">
+              <main className="flex-grow flex flex-col pb-16 md:pb-0">
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<Home />} />
@@ -101,6 +103,8 @@ function App() {
               </main>
 
               <Footer />
+              <MobileBottomNav />
+              <ScrollToTop />
               <GlobalToast />
             </div>
           </Router>

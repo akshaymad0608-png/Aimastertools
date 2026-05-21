@@ -598,7 +598,7 @@ const Home: React.FC = () => {
           {/* Horizontal Category Cards */}
           <div className="mb-12 w-full relative">
              <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none z-10 md:hidden" />
-             <div className="flex flex-nowrap md:flex-wrap gap-4 overflow-x-auto md:overflow-visible hide-scrollbar pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory" style={{ scrollPaddingLeft: '1rem' }}>
+             <div className="flex flex-nowrap md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 overflow-x-auto md:overflow-visible hide-scrollbar pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory" style={{ scrollPaddingLeft: '1rem' }}>
                  <CategoryCard
                    name="All Tools"
                    icon="ti-layout-grid"
