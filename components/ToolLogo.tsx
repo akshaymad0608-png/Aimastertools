@@ -26,18 +26,19 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
   };
 
   const defaultBoxStyle: React.CSSProperties = {
-    width: "46px", height: "46px",
     borderRadius: "12px",
     display: "flex", alignItems: "center", justifyContent: "center",
     flexShrink: 0,
     ...style
   };
 
+  const defaultClasses = className || "w-[46px] h-[46px]";
+
   // Fallback: colored box with initials
   if (failed || !src) {
     return (
       <div 
-        className={className}
+        className={defaultClasses}
         style={{
           ...defaultBoxStyle,
           background: brandColor || "#534AB7",
@@ -52,7 +53,7 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
   // Primary: real logo
   return (
     <div 
-      className={className}
+      className={defaultClasses}
       style={{
         ...defaultBoxStyle,
         border: "0.5px solid #efefef",

@@ -17,6 +17,7 @@ import Home from './pages/Home';
 const Submit = lazy(() => import('./pages/Submit'));
 const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 const Compare = lazy(() => import('./pages/Compare'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -90,6 +91,7 @@ function App() {
                     <Route path="/submit" element={<Submit />} />
                     <Route path="/tool/:id" element={<ToolDetail />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
+                    <Route path="/blog" element={<BlogIndex />} />
                     <Route path="/compare" element={<Compare />} />
                     <Route path="/bookmarks" element={<Bookmarks />} />
                     <Route path="/pricing" element={<Pricing />} />

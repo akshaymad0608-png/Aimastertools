@@ -7,8 +7,8 @@ export default function FindMyTool() {
   }, []);
 
   return (
-    <div className="pt-24 pb-16 min-h-screen">
-      <div className="container mx-auto px-4">
+    <div className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen bg-[var(--color-background)]">
+      <div className="container-custom mx-auto">
         <AIToolFinder />
       </div>
     </div>

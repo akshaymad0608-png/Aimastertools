@@ -518,7 +518,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section id="home" className="relative pt-32 pb-16 md:pt-44 md:pb-20 bg-white hero-mesh">
         <div className="container-custom text-center relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
-          <h1 className="text-5xl sm:text-[4rem] leading-[1.1] md:text-[5rem] md:leading-[1] font-extrabold text-slate-900 mb-6 tracking-tight font-sans">
+          <h1 className="text-4xl sm:text-5xl leading-[1.2] md:text-[5rem] md:leading-[1] font-extrabold text-slate-900 mb-6 tracking-tight font-sans">
             Find the best <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 typewriter-text">AI tools</span>
           </h1>
           
@@ -547,9 +547,11 @@ const Home: React.FC = () => {
               <span className="absolute right-20 sm:right-[120px] text-xs font-mono text-slate-400 border border-slate-200 rounded px-1.5 py-0.5 hidden sm:inline-block">⌘K</span>
               <button 
                 type="submit"
-                className="absolute right-1.5 top-1.5 bottom-1.5 hidden sm:flex items-center px-6 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors"
+                className="absolute right-1.5 top-1.5 bottom-1.5 flex items-center justify-center px-4 sm:px-6 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-colors"
+                aria-label="Submit search"
               >
-                Search
+                <span className="hidden sm:inline">Search</span>
+                <Search size={18} className="sm:hidden" />
               </button>
             </form>
           </div>

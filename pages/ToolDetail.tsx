@@ -14,6 +14,7 @@ const ToolDetail: React.FC = () => {
   const [tool, setTool] = useState<Tool | null>(null);
   const { bookmarks, toggleBookmark } = useBookmarks();
   const { isPro } = usePro();
+  const [copyFeedback, setCopyFeedback] = useState(false);
 
   useEffect(() => {
     // In a real app, you would fetch from API
@@ -110,7 +111,7 @@ const ToolDetail: React.FC = () => {
         </script>
       </SEO>
       
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative overflow-hidden">
+      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
@@ -118,7 +119,7 @@ const ToolDetail: React.FC = () => {
           <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" /> Back to Directory
         </a>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Header Section */}
@@ -283,21 +284,29 @@ const ToolDetail: React.FC = () => {
                     <span className="font-bold">{Math.floor(tool.rating * 123)}</span>
                   </button>
                   <button 
-                    onClick={() => {
-                      navigator.clipboard.writeText(window.location.href);
-                      const currentBtn = document.getElementById('share-btn-icon');
-                      if (currentBtn) {
-                        currentBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                        setTimeout(() => {
-                           currentBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>';
-                        }, 2000);
+                    onClick={async () => {
+                      const url = window.location.href;
+                      if (navigator.share) {
+                        try {
+                          await navigator.share({
+                            title: tool.name,
+                            text: `Check out ${tool.name} on AI Master Tools!`,
+                            url: url,
+                          });
+                        } catch (err) {
+                           // do nothing
+                        }
+                      } else {
+                        navigator.clipboard.writeText(url);
+                        setCopyFeedback(true);
+                        setTimeout(() => setCopyFeedback(false), 2000);
                       }
                     }}
                     className="flex items-center justify-center min-h-[44px] min-w-[44px] hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
                     title="Share"
                     aria-label={`Share ${tool.name}`}
                   >
-                    <div id="share-btn-icon"><Share2 size={20} /></div>
+                    {copyFeedback ? <Check size={20} className="text-green-500" /> : <Share2 size={20} />}
                   </button>
                 </div>
               </div>
@@ -430,7 +439,7 @@ const ToolDetail: React.FC = () => {
         {/* Related Tools Section */}
         {relatedTools.length > 0 && (
           <div className="mt-24">
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
                 <h2 className="text-3xl font-bold text-[var(--color-text-primary)] flex items-center gap-3">
                   <Sparkles className="text-[var(--color-accent)]" /> 
@@ -440,7 +449,7 @@ const ToolDetail: React.FC = () => {
                   Discover other AI tools similar to {tool.name}
                 </p>
               </div>
-              <Link to={`/?category=${tool.category}`} className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-2">
+              <Link to={`/?category=${tool.category}`} className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-2 whitespace-nowrap">
                 View all {tool.category} <ArrowRight size={16} />
               </Link>
             </div>
