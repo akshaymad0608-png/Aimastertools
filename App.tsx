@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
+import FabSubmit from './components/FabSubmit';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 
 import Home from './pages/Home';
@@ -105,6 +106,7 @@ function App() {
               <Footer />
               <MobileBottomNav />
               <ScrollToTop />
+              <FabSubmit />
               <GlobalToast />
             </div>
           </Router>

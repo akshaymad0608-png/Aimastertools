@@ -285,13 +285,19 @@ const ToolDetail: React.FC = () => {
                   <button 
                     onClick={() => {
                       navigator.clipboard.writeText(window.location.href);
-                      // Could add a toast here
+                      const currentBtn = document.getElementById('share-btn-icon');
+                      if (currentBtn) {
+                        currentBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                        setTimeout(() => {
+                           currentBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>';
+                        }, 2000);
+                      }
                     }}
                     className="flex items-center justify-center min-h-[44px] min-w-[44px] hover:bg-[var(--color-surface)] rounded-lg transition-colors text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
                     title="Share"
                     aria-label={`Share ${tool.name}`}
                   >
-                    <Share2 size={20} />
+                    <div id="share-btn-icon"><Share2 size={20} /></div>
                   </button>
                 </div>
               </div>

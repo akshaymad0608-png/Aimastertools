@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bookmark, Check, ChevronUp, Star, ExternalLink } from 'lucide-react';
+import { Bookmark, Check, ChevronUp, Star, ExternalLink, Share2 } from 'lucide-react';
 import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import ToolLogo from './ToolLogo';
@@ -14,12 +14,35 @@ interface ToolCardProps {
 const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => {
   const { bookmarks, toggleBookmark } = useBookmarks();
   const [isUpvoted, setIsUpvoted] = useState(false);
+  const [copyFeedback, setCopyFeedback] = useState(false);
   
   // Generate a consistent save count and upvote count
   const saveCount = Math.floor(tool.rating * tool.id.charCodeAt(0) * 1.5) || Math.floor(tool.rating * 153);
   const upvoteCount = saveCount;
   
   const isBookmarked = bookmarks.includes(tool.id);
+
+  const handleShare = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    const url = `${window.location.origin}/tool/${tool.id}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: tool.name,
+          text: `Check out ${tool.name} on AI Master Tools!`,
+          url: url,
+        });
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          console.error('Share failed', err);
+        }
+      }
+    } else {
+      navigator.clipboard.writeText(url);
+      setCopyFeedback(true);
+      setTimeout(() => setCopyFeedback(false), 2000);
+    }
+  };
 
   const pricingColors: Record<string, string> = {
     'Free': 'bg-green-100 text-green-700 border-green-200',
@@ -52,7 +75,12 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
         <div className="flex flex-col justify-center min-w-0 pr-2">
           <div className="flex items-center gap-2 mb-1 flex-wrap">
             <Link to={`/tool/${tool.id}`} className="block group-hover:text-blue-600 transition-colors truncate max-w-full">
-              <h3 className="text-[20px] font-extrabold text-slate-800 leading-tight tracking-tight truncate">{tool.name}</h3>
+              <h3 className="text-[20px] font-extrabold text-slate-800 leading-tight tracking-tight truncate flex items-center gap-2">
+                {rank && rank <= 3 && (
+                  <span className="inline-block bg-gradient-to-r from-[#FF512F] to-[#DD2476] text-transparent bg-clip-text font-black text-[16px] italic pr-0.5">#{rank}</span>
+                )}
+                {tool.name}
+              </h3>
             </Link>
             <div className="flex items-center bg-amber-50 border border-amber-100 px-1.5 py-0.5 rounded-full">
               <Star size={12} className="text-amber-500 fill-amber-500 mr-1" />
@@ -80,7 +108,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
       </div>
 
       {/* Action Buttons on the Right */}
-      <div className="flex items-center justify-end gap-2 w-full sm:w-auto mt-3 sm:mt-0 shrink-0 relative transition-transform">
+      <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto mt-4 sm:mt-0 shrink-0 relative overflow-hidden sm:overflow-visible">
         <div className="flex gap-2 sm:group-hover:opacity-0 transition-opacity duration-300">
           <button 
             onClick={(e) => {
@@ -110,6 +138,18 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
             <ChevronUp size={18} className={`mb-[1px] ${isUpvoted ? 'text-emerald-600' : 'text-emerald-500'}`} strokeWidth={isUpvoted ? 3.5 : 2.5} />
             <span className="text-[10px] font-bold leading-none">{isUpvoted ? upvoteCount + 1 : upvoteCount}</span>
           </button>
+          <button 
+            onClick={handleShare}
+            className="flex flex-col items-center justify-center min-w-[44px] h-[44px] rounded-xl border border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50 text-slate-500 hover:text-slate-700 shadow-sm hover:shadow transition-colors"
+            title="Share Tool"
+          >
+            {copyFeedback ? (
+              <Check size={16} className="mb-[1px] text-green-500" strokeWidth={2.5} />
+            ) : (
+              <Share2 size={16} className="mb-[1px]" strokeWidth={2} />
+            )}
+            <span className="text-[10px] font-bold leading-none">{copyFeedback ? 'Copied' : 'Share'}</span>
+          </button>
         </div>
         
         {/* Visit Site Button (Slide in on Hover) */}
@@ -117,10 +157,10 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
           href={tool.url} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="absolute right-0 opacity-0 group-hover:opacity-100 sm:translate-x-4 sm:group-hover:translate-x-0 transition-all duration-300 ease-out flex items-center justify-center pointer-events-none group-hover:pointer-events-auto"
+          className="flex-1 sm:flex-none sm:absolute sm:right-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:translate-x-4 sm:group-hover:translate-x-0 transition-all duration-300 ease-out flex items-center justify-center pointer-events-auto sm:pointer-events-none sm:group-hover:pointer-events-auto"
         >
-          <div className="flex items-center gap-1.5 h-[44px] px-4 rounded-xl bg-[#534AB7] hover:bg-[#433b9b] text-white shadow-sm transition-colors text-sm font-semibold">
-            Visit Site
+          <div className="flex items-center justify-center gap-1.5 h-[44px] px-4 w-full rounded-xl bg-[#534AB7] hover:bg-[#433b9b] text-white shadow-sm transition-colors text-sm font-semibold">
+            Visit<span className="hidden sm:inline"> Site</span>
             <ExternalLink size={14} />
           </div>
         </a>
