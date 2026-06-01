@@ -39,49 +39,6 @@ const Compare: React.FC = () => {
     setSelectedToolIds(selectedToolIds.filter(tId => tId !== id));
   };
 
-  if (!isPro) {
-    return (
-      <>
-        <SEO 
-          title="Compare AI Tools | AI Master Tools" 
-          description="Compare the best AI tools side-by-side. Analyze features, pricing, and ratings to find the perfect artificial intelligence software for your needs."
-          keywords={["compare AI tools", "AI software comparison", "best AI tools", "AI tool features", "AI pricing comparison"]}
-        />
-        <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[var(--color-primary)]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-          
-          <div className="glass-panel border border-[var(--color-border)] rounded-2xl p-8 md:p-12 text-center max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]"></div>
-            
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-6 border border-[var(--color-primary)]/20 shadow-inner">
-              <Lock size={32} />
-            </div>
-            
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">Pro Feature Locked</h1>
-            <p className="text-lg text-[var(--color-text-secondary)] mb-8 leading-relaxed">
-              Side-by-side tool comparisons are exclusively available for Pro members. Upgrade your account to analyze features, pricing, and ratings of multiple AI tools at once.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => navigate('/pricing')}
-                className="btn-primary text-base px-8 py-3 shadow-lg shadow-[var(--color-primary)]/25"
-              >
-                Upgrade to Pro
-              </button>
-              <button 
-                onClick={() => navigate('/')}
-                className="btn-secondary text-base px-8 py-3"
-              >
-                Back to Home
-              </button>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <SEO 

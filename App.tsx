@@ -19,7 +19,7 @@ const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 const Compare = lazy(() => import('./pages/Compare'));
-const Pricing = lazy(() => import('./pages/Pricing'));
+// Pricing page removed
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
@@ -51,7 +51,7 @@ const GlobalToast = () => {
 
   return (
     <div
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex w-[90%] max-w-md items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4 shadow-2xl backdrop-blur-md animate-fade-in-up"
+      className="fixed bottom-24 md:bottom-6 left-1/2 -translate-x-1/2 z-[100] flex w-[90%] max-w-md items-start gap-3 rounded-xl border border-red-500/20 bg-red-500/10 p-4 shadow-2xl backdrop-blur-md animate-fade-in-up"
     >
       <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-500" />
       <div className="flex-1">
@@ -60,11 +60,10 @@ const GlobalToast = () => {
         <button 
           onClick={() => {
             clearBookmarkError();
-            navigate('/pricing');
           }}
           className="mt-3 text-xs font-bold text-[var(--color-primary)] hover:underline"
         >
-          Upgrade to Pro &rarr;
+          Dismiss &rarr;
         </button>
       </div>
       <button onClick={clearBookmarkError} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close notification">
@@ -84,7 +83,7 @@ function App() {
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)] overflow-x-hidden">
               <Navbar />
               
-              <main className="flex-grow flex flex-col pb-16 md:pb-0">
+              <main className="flex-grow flex flex-col pb-20 md:pb-0">
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<Home />} />
@@ -94,7 +93,6 @@ function App() {
                     <Route path="/blog" element={<BlogIndex />} />
                     <Route path="/compare" element={<Compare />} />
                     <Route path="/bookmarks" element={<Bookmarks />} />
-                    <Route path="/pricing" element={<Pricing />} />
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/careers" element={<Careers />} />

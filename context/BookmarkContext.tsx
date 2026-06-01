@@ -29,10 +29,6 @@ export const BookmarkProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setBookmarkError(null);
         return prev.filter(b => b !== id);
       } else {
-        if (!isPro && prev.length >= 5) {
-          setBookmarkError('Free plan limit reached: You can only save up to 5 tools. Please upgrade to Pro for unlimited saves.');
-          return prev;
-        }
         setBookmarkError(null);
         return [...prev, id];
       }

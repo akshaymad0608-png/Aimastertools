@@ -449,7 +449,7 @@ const Home: React.FC = () => {
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[70] px-6 py-3 rounded-full shadow-2xl font-semibold text-sm animate-fade-in-up flex items-center border ${
+        <div className={`fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[110] px-6 py-3 rounded-full shadow-2xl font-semibold text-sm animate-fade-in-up flex items-center border ${
           toastMessage.type === 'success' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-red-50 text-red-600 border-red-200'
         }`}>
           {toastMessage.type === 'success' && <Check size={16} className="mr-2" strokeWidth={3} />}
@@ -708,7 +708,7 @@ const Home: React.FC = () => {
     </section>
 
       {/* Floating Chat Widget */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center justify-end gap-3 animate-fade-in-up" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
+      <div className="hidden md:flex fixed bottom-6 right-6 z-50 items-center justify-end gap-3 animate-fade-in-up" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
         {showChatTooltip && (
           <div className="bg-white rounded-2xl p-4 shadow-xl border border-gray-100 relative min-w-[200px] max-w-[240px]">
             <p className="text-[14px] text-gray-800 font-medium leading-snug pr-2">
@@ -734,7 +734,7 @@ const Home: React.FC = () => {
         <div className="container-custom max-w-5xl mx-auto px-4 sm:px-0 relative">
           
           <div 
-            className="px-6 py-10 md:px-10 md:py-14"
+            className="px-4 py-10 sm:px-6 md:px-10 md:py-14 w-full"
             style={{
               background: "#534AB7",
               borderRadius: "24px",
@@ -774,56 +774,19 @@ const Home: React.FC = () => {
               </p>
 
               {/* Form container */}
-              <form onSubmit={handleNewsletterSubmit} style={{
-                display: "flex",
-                gap: "8px",
-                background: "rgba(255,255,255,0.15)",
-                border: "1px solid rgba(255,255,255,0.25)",
-                padding: "8px",
-                borderRadius: "14px",
-                maxWidth: "460px",
-                margin: "0 auto",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.1)"
-              }}>
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 bg-white/15 border border-white/25 p-2 rounded-2xl sm:rounded-[16px] max-w-[460px] w-full mx-auto shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
                 <input 
                   type="email" 
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
                   placeholder="Enter your email" 
                   required
-                  style={{
-                    flex: 1,
-                    background: "transparent",
-                    border: "none",
-                    outline: "none",
-                    color: "#fff",
-                    padding: "0 16px",
-                    fontSize: "15px"
-                  }}
-                  className="placeholder-white/70 font-medium"
+                  className="w-full sm:flex-1 bg-transparent border-none outline-none text-white px-4 py-3 sm:py-0 text-[15px] placeholder-white/70 font-medium text-center sm:text-left"
                 />
                 <button 
                   type="submit" 
                   disabled={newsletterStatus === 'submitting'}
-                  style={{
-                    background: "#ffffff",
-                    color: "#534AB7",
-                    border: "none",
-                    borderRadius: "10px",
-                    padding: "12px 24px",
-                    fontSize: "14px",
-                    fontWeight: "700",
-                    cursor: "pointer",
-                    whiteSpace: "nowrap",
-                    flexShrink: 0,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "6px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                    transition: "all 0.2s"
-                  }}
-                  className="hover:-translate-y-[1px] hover:shadow-md"
+                  className="w-full sm:w-auto bg-white text-[#534AB7] border-none rounded-xl px-6 py-3.5 min-h-[44px] text-[14px] font-bold cursor-pointer whitespace-nowrap shrink-0 flex items-center justify-center gap-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-[1px] hover:shadow-md"
                 >
                   {newsletterStatus === 'submitting' ? <Loader2 size={16} className="animate-spin" /> : 'Get Weekly Updates →'}
                 </button>
@@ -831,15 +794,7 @@ const Home: React.FC = () => {
               <p className="mt-4 mb-10 text-[13px] text-white/70 font-medium">🔒 No spam. Unsubscribe anytime.</p>
 
               {/* Stats border-top */}
-              <div style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "48px",
-                borderTop: "1px solid rgba(255,255,255,0.15)",
-                paddingTop: "32px",
-                maxWidth: "600px",
-                margin: "0 auto"
-              }}>
+              <div className="flex justify-center flex-wrap gap-8 sm:gap-12 border-t border-white/15 pt-8 max-w-[600px] mx-auto">
                 <div>
                   <div style={{ color: "#fff", fontSize: "28px", fontWeight: "800", marginBottom: "4px", letterSpacing: "-0.5px" }}>50k+</div>
                   <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "13px", fontWeight: 500 }}>Subscribers</div>

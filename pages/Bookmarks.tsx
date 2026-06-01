@@ -39,11 +39,7 @@ const Bookmarks: React.FC = () => {
               My Favorites
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
-              Your personally curated collection of AI tools. {!isPro && (
-                <span className="block mt-1 text-sm text-amber-500 font-medium bg-amber-500/10 px-3 py-1 rounded-md border border-amber-500/20 inline-block">
-                  Free Plan: {bookmarks.length} / 5 bookmarks used. <Link to="/pricing" className="underline hover:text-amber-400">Upgrade</Link> for unlimited.
-                </span>
-              )}
+              Your personally curated collection of AI tools.
             </p>
           </div>
         </div>
