@@ -6,6 +6,8 @@ import { usePro } from '../context/ProContext';
 import { useAuth } from '../context/AuthContext';
 import AuthModal from '../components/AuthModal';
 import { useNavigate } from 'react-router-dom';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 declare global {
   interface Window {
@@ -39,13 +41,33 @@ const Submit: React.FC = () => {
     setFormStatus('submitting');
     setErrorMessage('');
     
-    // Process form
-    setTimeout(() => {
-      setFormStatus('success');
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
-    }, 1500);
+    if (formRef.current) {
+      try {
+        const formData = new FormData(formRef.current);
+        const tagsString = formData.get('tags') as string;
+        
+        await addDoc(collection(db, 'submitted_tools'), {
+          name: formData.get('toolName'),
+          url: formData.get('url'),
+          email: formData.get('email'),
+          category: formData.get('category'),
+          pricing: formData.get('pricing'),
+          tags: tagsString ? tagsString.split(',').map(tag => tag.trim()) : [],
+          description: formData.get('description'),
+          submittedBy: currentUser.uid,
+          submittedAt: serverTimestamp()
+        });
+
+        setFormStatus('success');
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
+      } catch (err: any) {
+        console.error('Error submitting tool:', err);
+        setErrorMessage(err.message || 'Failed to submit tool. Please try again.');
+        setFormStatus('idle');
+      }
+    }
   };
 
   const scrollToForm = () => {
@@ -155,12 +177,12 @@ const Submit: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><Type size={14} className="text-[var(--color-primary)]" /> Tool Name <span className="text-red-500">*</span></label>
-                      <input required type="text" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="e.g. WriteFlow AI" />
+                      <input required name="toolName" type="text" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="e.g. WriteFlow AI" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><Globe size={14} className="text-[var(--color-primary)]" /> Website URL <span className="text-red-500">*</span></label>
                       <div className="relative">
-                        <input required type="url" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="https://..." />
+                        <input required name="url" type="url" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="https://..." />
                       </div>
                     </div>
                   </div>
@@ -168,11 +190,11 @@ const Submit: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><Mail size={14} className="text-[var(--color-primary)]" /> Contact Email <span className="text-red-500">*</span></label>
-                      <input required type="email" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="founder@example.com" />
+                      <input required name="email" type="email" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="founder@example.com" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><LayoutGrid size={14} className="text-[var(--color-primary)]" /> Primary Category <span className="text-red-500">*</span></label>
-                      <select required defaultValue="" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all appearance-none cursor-pointer font-medium">
+                      <select required name="category" defaultValue="" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all appearance-none cursor-pointer font-medium">
                         <option value="" disabled>Select category...</option>
                         <option value="Writing">Writing & Content</option>
                         <option value="Image">Image Generation</option>
@@ -189,7 +211,7 @@ const Submit: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><Banknote size={14} className="text-[var(--color-primary)]" /> Pricing Model <span className="text-red-500">*</span></label>
-                      <select required defaultValue="" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all appearance-none cursor-pointer font-medium">
+                      <select required name="pricing" defaultValue="" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all appearance-none cursor-pointer font-medium">
                         <option value="" disabled>Select pricing...</option>
                         <option value="Free">Completely Free</option>
                         <option value="Freemium">Freemium (Has free tier)</option>
@@ -199,18 +221,18 @@ const Submit: React.FC = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><Hash size={14} className="text-[var(--color-primary)]" /> Search Tags</label>
-                      <input type="text" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="e.g. SEO, Automation, GPT-4" />
+                      <input type="text" name="tags" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none transition-all placeholder-[var(--color-text-muted)] font-medium" placeholder="e.g. SEO, Automation, GPT-4" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider flex items-center gap-1.5"><FileText size={14} className="text-[var(--color-primary)]" /> Short Description <span className="text-red-500">*</span></label>
-                    <textarea required className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none h-28 transition-all resize-none placeholder-[var(--color-text-muted)] font-medium" placeholder="Briefly describe what your tool does in 1-2 sentences..." />
+                    <textarea required name="description" className="w-full bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text-primary)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none h-28 transition-all resize-none placeholder-[var(--color-text-muted)] font-medium" placeholder="Briefly describe what your tool does in 1-2 sentences..." />
                   </div>
 
                   <button 
                     disabled={formStatus === 'submitting'}
-                    className="w-full py-4 mt-6 font-bold rounded-xl shadow-[0_4px_14px_rgba(83,74,183,0.3)] hover:shadow-[0_6px_20px_rgba(83,74,183,0.4)] transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex justify-center items-center text-lg tracking-wide text-white bg-[#534AB7] group"
+                    className="w-full py-4 mt-6 font-bold rounded-xl shadow-[0_4px_14px_var(--color-primary)]/30 hover:shadow-[0_6px_20px_var(--color-primary)]/40 transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 flex justify-center items-center text-lg tracking-wide text-white bg-[var(--color-primary)] group"
                   >
                     {formStatus === 'submitting' ? (
                       <><Loader2 className="animate-spin mr-2" size={20} /> Processing Submission...</>

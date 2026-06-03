@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Check, X, ExternalLink, Star, Plus, Lock } from 'lucide-react';
-import { MOCK_TOOLS } from '../constants';
+import { MOCK_TOOLS } from '../data/tools';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import { usePro } from '../context/ProContext';
@@ -10,7 +10,14 @@ import ToolLogo from '../components/ToolLogo';
 const Compare: React.FC = () => {
   const { isPro } = usePro();
   const navigate = useNavigate();
-  const [selectedToolIds, setSelectedToolIds] = useState<string[]>([]);
+  const [selectedToolIds, setSelectedToolIds] = useState<string[]>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const toolsParam = params.get('tools');
+    if (toolsParam) {
+      return toolsParam.split(',').filter(Boolean).slice(0, 3);
+    }
+    return [];
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [isSelecting, setIsSelecting] = useState(false);
 

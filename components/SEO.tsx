@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title: string;
@@ -28,11 +29,11 @@ const SEO: React.FC<SEOProps> = ({
   const fullTitle = title.includes(siteTitle) || title.includes('AIMasterTools') ? title : `${title} | ${siteTitle}`;
 
   return (
-    <>
+    <Helmet>
       {/* Standard Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords.join(', ')} />
+      {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
       <link rel="canonical" href={canonicalUrl} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -55,7 +56,7 @@ const SEO: React.FC<SEOProps> = ({
 
       {/* Custom Tags */}
       {children}
-    </>
+    </Helmet>
   );
 };
 

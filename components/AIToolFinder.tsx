@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, ArrowRight, ExternalLink, Loader2, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { MOCK_TOOLS } from '../constants';
+import { MOCK_TOOLS } from '../data/tools';
 import { Tool } from '../types';
 
 export default function AIToolFinder() {

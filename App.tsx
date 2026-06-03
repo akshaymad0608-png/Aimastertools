@@ -1,5 +1,6 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
 import { ProProvider } from './context/ProContext';
@@ -75,11 +76,12 @@ const GlobalToast = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-        <AuthProvider>
-          <ProProvider>
-            <BookmarkProvider>
-              <Router>
+    <HelmetProvider>
+      <ThemeProvider>
+          <AuthProvider>
+            <ProProvider>
+              <BookmarkProvider>
+                <Router>
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)] overflow-x-hidden">
               <Navbar />
               
@@ -110,10 +112,11 @@ function App() {
               <GlobalToast />
             </div>
           </Router>
-          </BookmarkProvider>
-        </ProProvider>
-        </AuthProvider>
-      </ThemeProvider>
+            </BookmarkProvider>
+          </ProProvider>
+          </AuthProvider>
+        </ThemeProvider>
+      </HelmetProvider>
   );
 }
 

@@ -6,6 +6,7 @@ export interface Tool {
   id: string;
   name: string;
   description: string;
+  longDescription?: string;
   category: Category;
   url: string;
   domain?: string;
@@ -16,6 +17,8 @@ export interface Tool {
   featured: boolean;
   dateAdded: string; // ISO date string
   tags?: string[];
+  useCases?: string[];
+  launchYear?: number;
 }
 
 export interface BlogPost {
@@ -27,6 +30,8 @@ export interface BlogPost {
   imageUrl: string;
   url: string;
   content?: string;
+  category?: string;
+  slug?: string;
 }
 
 export interface CategoryStat {

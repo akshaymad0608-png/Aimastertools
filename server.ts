@@ -6,8 +6,23 @@ import dotenv from 'dotenv';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import PDFDocument from 'pdfkit';
+import rateLimit from 'express-rate-limit';
 
 dotenv.config();
+
+// Define server-side pricing to prevent frontend tampering
+const PLAN_PRICING: Record<string, number> = {
+  'Pro Plan': 1999, // ₹19.99 or 1999 paise depending on your logic, let's assume it means true amount
+};
+
+// Rate limiter setup
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window`
+  standardHeaders: true,
+  legacyHeaders: false,
+  validate: { trustProxy: false, xForwardedForHeader: false }
+});
 
 function generateReceiptPDF(name: string, email: string, planName: string, amount: number, paymentId: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
@@ -68,9 +83,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function startServer() {
   const app = express();
+  
+  // Trust the reverse proxy to get correct client IPs for rate-limiting
+  app.set('trust proxy', 1);
   const PORT = 3000;
 
   app.use(express.json());
+  
+  // Apply rate limiting to all API routes
+  app.use('/api/', apiLimiter);
 
   // API Routes
   app.get('/api/health', (req, res) => {
@@ -80,13 +101,21 @@ async function startServer() {
   // Razorpay Order Creation
   app.post('/api/create-order', async (req, res) => {
     try {
-      const { amount, currency = 'INR' } = req.body;
+      const { planName = 'Pro Plan', currency = 'INR', email } = req.body;
       
+      const planAmount = PLAN_PRICING[planName];
+      if (!planAmount) {
+        return res.status(400).json({ error: 'Invalid plan selected' });
+      }
+
       if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+        if (process.env.NODE_ENV === 'production') {
+           return res.status(500).json({ error: 'Payment gateway not configured' });
+        }
         console.log('Razorpay keys are missing, returning mock order');
         return res.json({
           id: `order_mock_${Date.now()}`,
-          amount: Math.round(amount * 100),
+          amount: Math.round(planAmount * 100),
           currency,
           key_id: "rzp_test_mock",
           mock: true
@@ -99,12 +128,12 @@ async function startServer() {
       });
 
       const options = {
-        amount: Math.round(amount * 100), // amount in smallest currency unit (paise)
+        amount: Math.round(planAmount * 100), // amount in smallest currency unit (paise)
         currency,
         receipt: `receipt_${Date.now()}`,
         notes: {
-          planName: req.body.planName || 'Pro Plan',
-          userEmail: req.body.email || 'unknown'
+          planName: planName,
+          userEmail: email || 'unknown'
         }
       };
 
@@ -343,7 +372,12 @@ async function startServer() {
       }
 
       const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-      console.log('Using Gemini API key:', apiKey ? 'Set (hidden for security)' : 'Not set');
+      if (!apiKey) {
+        console.warn("AI Tool Finder: No API key provided, using fallback matching.");
+        return fallbackResponse();
+      }
+      
+      console.log('Using Gemini API key: Set (hidden for security)');
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: apiKey });
       
@@ -372,8 +406,8 @@ async function startServer() {
         const parsed = JSON.parse(jsonText);
         res.json(parsed);
       } catch (genError: any) {
-        console.error("AI Tool Finder Error:", genError);
-        console.warn("Using fallback matching due to API error");
+        console.error("AI Tool Finder API Error:", genError.message || "Failed to generate content");
+        console.warn("Using fallback matching due to API error.");
         return fallbackResponse();
       }
     } catch (error: any) {

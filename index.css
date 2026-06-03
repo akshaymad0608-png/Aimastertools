@@ -24,38 +24,42 @@
   --shadow-neon: var(--shadow-neon-val);
 }
 
-:root, .dark, .light {
-  --brand-primary: #534AB7;
-  --brand-light: #EEEDFE;
-  --brand-dark: #3C3489;
-  --tag-free-bg: #EAF3DE;
-  --tag-free-text: #3B6D11;
-  --tag-paid-bg: #EEEDFE;
-  --tag-paid-text: #3C3489;
-  --tag-freemium-bg: #FAEEDA;
-  --tag-freemium-text: #633806;
-  --star-color: #EF9F27;
-  
-  --bg-color: #F8FAFC; /* Slate 50 */
-  --card-bg-color: #FFFFFF; /* White */
-  --surface-color: #F1F5F9; /* Slate 100 */
-  --text-primary-color: #0F172A; /* Slate 900 */
-  --text-secondary-color: #334155; /* Slate 700 */
-  --text-muted-color: #64748B; /* Slate 500 */
-  --border-color: #E2E8F0; /* Slate 200 */
-  --primary-color: #2563EB; /* Blue 600 */
-  --primary-dark-color: #1D4ED8; /* Blue 700 */
-  --secondary-color: #0891B2; /* Cyan 600 */
-  --accent-color: #7C3AED; /* Violet 600 */
+:root, .light {
+  --brand-primary: #2563eb;
+  --bg-color: #f8fafc;
+  --card-bg-color: #ffffff;
+  --surface-color: #f1f5f9;
+  --text-primary-color: #0f172a;
+  --text-secondary-color: #334155;
+  --text-muted-color: #64748b;
+  --border-color: #e2e8f0;
+  --primary-color: #2563eb;
+  --primary-dark-color: #1d4ed8;
+  --secondary-color: #06b6d4;
+  --accent-color: #8b5cf6;
   --shadow-card-val: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-glow-val: 0 0 25px rgba(37, 99, 235, 0.15);
-  --shadow-neon-val: 0 0 10px rgba(8, 145, 178, 0.3), 0 0 20px rgba(37, 99, 235, 0.2);
-  --grid-color: rgba(226, 232, 240, 0.8);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --scrollbar-track: #F8FAFC;
-  --scrollbar-thumb: #CBD5E1;
-  --scrollbar-thumb-hover: #94A3B8;
+  --scrollbar-track: #f8fafc;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+}
+
+.dark {
+  --brand-primary: #3b82f6;
+  --bg-color: #020617;
+  --card-bg-color: #0f172a;
+  --surface-color: #1e293b;
+  --text-primary-color: #f8fafc;
+  --text-secondary-color: #cbd5e1;
+  --text-muted-color: #94a3b8;
+  --border-color: #1e293b;
+  --primary-color: #3b82f6;
+  --primary-dark-color: #2563eb;
+  --secondary-color: #22d3ee;
+  --accent-color: #a78bfa;
+  --shadow-card-val: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --scrollbar-track: #020617;
+  --scrollbar-thumb: #334155;
+  --scrollbar-thumb-hover: #475569;
 }
 
 /* Global Font Settings */
@@ -65,15 +69,14 @@ html, body {
 
 body {
   font-family: var(--font-sans);
-  background-color: #F8FAFC;
-  color: #0F172A;
+  background-color: var(--bg-color);
+  color: var(--text-primary-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.025em;
-  color: #0F172A;
 }
 
 /* Custom Scrollbar */

@@ -1,0 +1,9968 @@
+import { Tool, CategoryStat, BlogPost } from '../types';
+
+export const MOCK_TOOLS: Tool[] = [
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "description": "OpenAI's advanced conversational assistant capable of answering questions, writing essays, coding, and multi-modal searches.",
+    "longDescription": "Comprehensive review of ChatGPT, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://chatgpt.com",
+    "domain": "chatgpt.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/chatgpt.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-06-01T08:16:11.375Z",
+    "tags": [
+      "Chatbot",
+      "Conversational",
+      "Assistant"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "description": "Anthropic's state-of-the-art assistant, renowned for deep logical analysis, creative writing, and high-quality coding assistance.",
+    "longDescription": "Comprehensive review of Claude, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://claude.ai",
+    "domain": "claude.ai",
+    "brandColor": "#D97706",
+    "imageUrl": "https://img.logo.dev/claude.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-05-30T08:16:11.375Z",
+    "tags": [
+      "LLM",
+      "Coding",
+      "Writing"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "description": "Google's multi-modal AI assistant integrated deeply with search and Google Workspace. Exceptionally fast and precise.",
+    "longDescription": "Comprehensive review of Google Gemini, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://gemini.google.com",
+    "domain": "google.com",
+    "brandColor": "#1A73E8",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2026-05-28T08:16:11.375Z",
+    "tags": [
+      "Multi-modal",
+      "Search",
+      "Google"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "copilot",
+    "name": "Microsoft Copilot",
+    "description": "Your everyday AI assistant built into Windows, Edge, and Microsoft Office, powered by state-of-the-art OpenAI models.",
+    "longDescription": "Comprehensive review of Microsoft Copilot, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://copilot.microsoft.com",
+    "domain": "microsoft.com",
+    "brandColor": "#00A4EF",
+    "imageUrl": "https://img.logo.dev/microsoft.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-26T08:16:11.375Z",
+    "tags": [
+      "Windows",
+      "Office",
+      "Search"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "perplexity-assistant",
+    "name": "Perplexity AI",
+    "description": "An intelligent conversational research assistant that synthesizes web information with immediate citation sourcing.",
+    "longDescription": "Comprehensive review of Perplexity AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://perplexity.ai",
+    "domain": "perplexity.ai",
+    "brandColor": "#00A389",
+    "imageUrl": "https://img.logo.dev/perplexity.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-24T08:16:11.375Z",
+    "tags": [
+      "Search",
+      "Research",
+      "Citations"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "grok",
+    "name": "Grok",
+    "description": "A conversational bot developed by xAI, with real-time access to the X platform, offering humorous and up-to-date responses.",
+    "longDescription": "Comprehensive review of Grok, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://grok.com",
+    "domain": "grok.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/grok.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-22T08:16:11.375Z",
+    "tags": [
+      "Realtime",
+      "X",
+      "Social"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "meta-ai",
+    "name": "Meta AI",
+    "description": "Meta's helpful assistant powered by Llama models, integrated natively across WhatsApp, Instagram, Facebook, and Messenger.",
+    "longDescription": "Comprehensive review of Meta AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://meta.ai",
+    "domain": "meta.ai",
+    "brandColor": "#0668E1",
+    "imageUrl": "https://img.logo.dev/meta.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-05-20T08:16:11.375Z",
+    "tags": [
+      "Social",
+      "Llama",
+      "Meta"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "poe",
+    "name": "Poe",
+    "description": "Quora's centralized hub for querying top LLM models, permitting users to build custom-guided conversational agents.",
+    "longDescription": "Comprehensive review of Poe, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://poe.com",
+    "domain": "poe.com",
+    "brandColor": "#AE1A1A",
+    "imageUrl": "https://img.logo.dev/poe.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-18T08:16:11.375Z",
+    "tags": [
+      "Aggregator",
+      "Chatbots",
+      "Custom Bots"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "you-ai",
+    "name": "You.com AI",
+    "description": "Personalized AI assistant and search agent that empowers developers and researchers with multi-modal tools.",
+    "longDescription": "Comprehensive review of You.com AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://you.com",
+    "domain": "you.com",
+    "brandColor": "#0072FF",
+    "imageUrl": "https://img.logo.dev/you.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-05-16T08:16:11.375Z",
+    "tags": [
+      "Search",
+      "Chatbot",
+      "Coding"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "character-ai",
+    "name": "Character AI",
+    "description": "An immersive platform allowing users to design and chat with detailed custom-developed virtual personas.",
+    "longDescription": "Comprehensive review of Character AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://character.ai",
+    "domain": "character.ai",
+    "brandColor": "#F6AE2D",
+    "imageUrl": "https://img.logo.dev/character.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-14T08:16:11.375Z",
+    "tags": [
+      "Chatbot",
+      "Entertainment",
+      "Roleplay"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "pi-ai",
+    "name": "Pi AI",
+    "description": "A supportive, highly empathetic companion designed by Inflection AI for deep advice and warm dialogue.",
+    "longDescription": "Comprehensive review of Pi AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://pi.ai",
+    "domain": "pi.ai",
+    "brandColor": "#2A9D8F",
+    "imageUrl": "https://img.logo.dev/pi.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-12T08:16:11.375Z",
+    "tags": [
+      "Personal Assistant",
+      "Therapy",
+      "Conversational"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mistral-le-chat",
+    "name": "Mistral Le Chat",
+    "description": "The user-friendly gateway to Mistral AI's bleeding-edge open weights models, designed and built in Europe.",
+    "longDescription": "Comprehensive review of Mistral Le Chat, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2024, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://chat.mistral.ai",
+    "domain": "mistral.ai",
+    "brandColor": "#FF601C",
+    "imageUrl": "https://img.logo.dev/mistral.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2026-05-10T08:16:11.375Z",
+    "tags": [
+      "Mistral",
+      "Paris",
+      "Assistant"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "huggingchat",
+    "name": "HuggingChat",
+    "description": "The premier open-source workspace for interacting with advanced community-driven chat models.",
+    "longDescription": "Comprehensive review of HuggingChat, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://huggingface.co",
+    "domain": "huggingface.co",
+    "brandColor": "#FFD21E",
+    "imageUrl": "https://img.logo.dev/huggingface.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-08T08:16:11.375Z",
+    "tags": [
+      "Open Source",
+      "Llama",
+      "HuggingFace"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "phind",
+    "name": "Phind",
+    "description": "The search engine for software developers, providing fast answers to complicated syntax and repository queries.",
+    "longDescription": "Comprehensive review of Phind, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://phind.com",
+    "domain": "phind.com",
+    "brandColor": "#2B5C8F",
+    "imageUrl": "https://img.logo.dev/phind.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-06T08:16:11.375Z",
+    "tags": [
+      "Search",
+      "Programming",
+      "Cody"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "deepseek-chat",
+    "name": "DeepSeek Chat",
+    "description": "Outstanding, ultra-cheap chat and coder assistant utilizing DeepSeek's powerful Mixture-of-Experts architecture.",
+    "longDescription": "Comprehensive review of DeepSeek Chat, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://deepseek.com",
+    "domain": "deepseek.com",
+    "brandColor": "#0047BB",
+    "imageUrl": "https://img.logo.dev/deepseek.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-04T08:16:11.375Z",
+    "tags": [
+      "DeepSeek",
+      "Coding",
+      "Mathematics"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "kimi-ai",
+    "name": "Kimi AI",
+    "description": "Moonshot AI's model with phenomenal long-context windows, perfect for reading massive financial manuals.",
+    "longDescription": "Comprehensive review of Kimi AI, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://kimi.ai",
+    "domain": "kimi.ai",
+    "brandColor": "#23AC38",
+    "imageUrl": "https://img.logo.dev/kimi.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-02T08:16:11.375Z",
+    "tags": [
+      "Moonshot",
+      "Long Context",
+      "Doc Summarizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "qwen-chat",
+    "name": "Qwen Chat",
+    "description": "Alibaba's advanced bilingual chat assistant, leading open rankings on mathematics and reasoning challenges.",
+    "longDescription": "Comprehensive review of Qwen Chat, including features, user experience, and key performance reviews in AI Chatbots & Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://tongyi.aliyun.com",
+    "domain": "aliyun.com",
+    "brandColor": "#8E44AD",
+    "imageUrl": "https://img.logo.dev/aliyun.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-30T08:16:11.375Z",
+    "tags": [
+      "Alibaba",
+      "Qwen",
+      "Bilingual"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chatbots & Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "description": "The world's most widely adopted AI programmer, delivering custom in-line suggestions directly in VS Code.",
+    "longDescription": "Comprehensive review of GitHub Copilot, including features, user experience, and key performance reviews in Code & Development. Built in 2021, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://github.com",
+    "domain": "github.com",
+    "brandColor": "#24292F",
+    "imageUrl": "https://img.logo.dev/github.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-28T08:16:11.375Z",
+    "tags": [
+      "Coding",
+      "IDE",
+      "Autopilot"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "description": "An AI-first code editor designed for team pair-programming. Edit, test, and write huge repositories cleanly.",
+    "longDescription": "Comprehensive review of Cursor, including features, user experience, and key performance reviews in Code & Development. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://cursor.com",
+    "domain": "cursor.com",
+    "brandColor": "#0A0A0A",
+    "imageUrl": "https://img.logo.dev/cursor.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-04-26T08:16:11.375Z",
+    "tags": [
+      "IDE",
+      "Coding",
+      "Autopilot"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "windsurf",
+    "name": "Windsurf",
+    "description": "The first agentic IDE, orchestrating file editing, terminal execution, and context mapping in absolute unison.",
+    "longDescription": "Comprehensive review of Windsurf, including features, user experience, and key performance reviews in Code & Development. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://codeium.com",
+    "domain": "codeium.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/codeium.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-24T08:16:11.375Z",
+    "tags": [
+      "IDE",
+      "Agentic",
+      "Flow"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "replit-ai",
+    "name": "Replit AI",
+    "description": "Interactive AI coding companion built directly inside the cloud-hosted Replit software workspace.",
+    "longDescription": "Comprehensive review of Replit AI, including features, user experience, and key performance reviews in Code & Development. Built in 2022, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://replit.com",
+    "domain": "replit.com",
+    "brandColor": "#FF6C37",
+    "imageUrl": "https://img.logo.dev/replit.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-22T08:16:11.375Z",
+    "tags": [
+      "In-browser",
+      "Cloud IDE",
+      "Coding"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "bolt-new",
+    "name": "Bolt.new",
+    "description": "Deploy full-stack web environments in browser using WebContainers. Perfect for prototyping instantly.",
+    "longDescription": "Comprehensive review of Bolt.new, including features, user experience, and key performance reviews in Code & Development. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://bolt.new",
+    "domain": "bolt.new",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/bolt.new?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-20T08:16:11.375Z",
+    "tags": [
+      "Stackblitz",
+      "Web Containers",
+      "App Builder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "lovable-code",
+    "name": "Lovable",
+    "description": "Construct production-ready web apps starting with human text descriptions. Translates thoughts into pristine React code.",
+    "longDescription": "Comprehensive review of Lovable, including features, user experience, and key performance reviews in Code & Development. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://lovable.dev",
+    "domain": "lovable.dev",
+    "brandColor": "#E0218A",
+    "imageUrl": "https://img.logo.dev/lovable.dev?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-18T08:16:11.375Z",
+    "tags": [
+      "Frontend",
+      "AI Developer",
+      "React"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "v0-vercel",
+    "name": "v0 by Vercel",
+    "description": "Vercel's visual frontend designer. Feed it screenshots or ideas and receive clean, copyable Tailwind UI.",
+    "longDescription": "Comprehensive review of v0 by Vercel, including features, user experience, and key performance reviews in Code & Development. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://v0.dev",
+    "domain": "vercel.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/vercel.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-04-16T08:16:11.375Z",
+    "tags": [
+      "UI",
+      "Tailwind",
+      "Shadcn"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "claude-code",
+    "name": "Claude Code",
+    "description": "Anthropic's interactive command-line tool, authorizing Claude to review local repositories and compile changes.",
+    "longDescription": "Comprehensive review of Claude Code, including features, user experience, and key performance reviews in Code & Development. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://anthropic.com",
+    "domain": "anthropic.com",
+    "brandColor": "#D97706",
+    "imageUrl": "https://img.logo.dev/anthropic.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Usage Based",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-14T08:16:11.375Z",
+    "tags": [
+      "CLI",
+      "Agent",
+      "Coding"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "openai-codex",
+    "name": "OpenAI Codex",
+    "description": "OpenAI's legendary translating engine, converting natural human text commands into highly complex software APIs.",
+    "longDescription": "Comprehensive review of OpenAI Codex, including features, user experience, and key performance reviews in Code & Development. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://openai.com",
+    "domain": "openai.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Usage Based",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-12T08:16:11.375Z",
+    "tags": [
+      "API",
+      "Models",
+      "Code Translation"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "tabnine",
+    "name": "Tabnine",
+    "description": "Privacy-conscious AI autocomplete adapter. Securely trained exclusively on fully validated permissive open repositories.",
+    "longDescription": "Comprehensive review of Tabnine, including features, user experience, and key performance reviews in Code & Development. Built in 2018, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://tabnine.com",
+    "domain": "tabnine.com",
+    "brandColor": "#4900F5",
+    "imageUrl": "https://img.logo.dev/tabnine.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-04-10T08:16:11.375Z",
+    "tags": [
+      "Autocomplete",
+      "Privacy",
+      "Self-hosted"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "codeium",
+    "name": "Codeium",
+    "description": "Ultra-fast free code completion engine integrated seamlessly inside over 40 popular software editors.",
+    "longDescription": "Comprehensive review of Codeium, including features, user experience, and key performance reviews in Code & Development. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://codeium.com",
+    "domain": "codeium.com",
+    "brandColor": "#09B3AF",
+    "imageUrl": "https://img.logo.dev/codeium.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-08T08:16:11.376Z",
+    "tags": [
+      "Free",
+      "Autocomplete",
+      "Multi-Language"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "sourcegraph-cody",
+    "name": "Sourcegraph Cody",
+    "description": "Feature-rich assistant leveraging huge contextual maps to answer system queries across massive business repositories.",
+    "longDescription": "Comprehensive review of Sourcegraph Cody, including features, user experience, and key performance reviews in Code & Development. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://sourcegraph.com",
+    "domain": "sourcegraph.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/sourcegraph.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-06T08:16:11.376Z",
+    "tags": [
+      "Code Search",
+      "Enterprise",
+      "Cody"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "devin",
+    "name": "Devin AI",
+    "description": "Cognition's fully autonomous AI software developer capable of executing full terminal commands and fixing server bugs.",
+    "longDescription": "Comprehensive review of Devin AI, including features, user experience, and key performance reviews in Code & Development. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://cognition.ai",
+    "domain": "cognition.ai",
+    "brandColor": "#0550E1",
+    "imageUrl": "https://img.logo.dev/cognition.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-04T08:16:11.376Z",
+    "tags": [
+      "Software Engineer",
+      "Autonomous",
+      "Agent"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "amazon-q",
+    "name": "Amazon Q Developer",
+    "description": "Generative AI partner embedded in the AWS environment, giving exact hints on cloud infrastructure operations.",
+    "longDescription": "Comprehensive review of Amazon Q Developer, including features, user experience, and key performance reviews in Code & Development. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://aws.amazon.com",
+    "domain": "aws.amazon.com",
+    "brandColor": "#FF9900",
+    "imageUrl": "https://img.logo.dev/aws.amazon.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-04-02T08:16:11.376Z",
+    "tags": [
+      "AWS",
+      "Cloud",
+      "Developer Companion"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mutable-ai",
+    "name": "Mutable AI",
+    "description": "Automatically refactors codebase architecture and exports pristine, synchronized documentation manuals.",
+    "longDescription": "Comprehensive review of Mutable AI, including features, user experience, and key performance reviews in Code & Development. Built in 2022, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://mutable.ai",
+    "domain": "mutable.ai",
+    "brandColor": "#11C7D5",
+    "imageUrl": "https://img.logo.dev/mutable.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-03-31T08:16:11.376Z",
+    "tags": [
+      "Documentation",
+      "Refactoring",
+      "Python"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "coderabbit",
+    "name": "CodeRabbit",
+    "description": "Your proactive AI pull request reviewer, reducing manual engineering check times down to minutes.",
+    "longDescription": "Comprehensive review of CodeRabbit, including features, user experience, and key performance reviews in Code & Development. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Code & Development",
+    "url": "https://coderabbit.ai",
+    "domain": "coderabbit.ai",
+    "brandColor": "#FA4D2A",
+    "imageUrl": "https://img.logo.dev/coderabbit.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-29T08:16:11.376Z",
+    "tags": [
+      "Pull Request",
+      "Reviewer",
+      "GitHub"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Code & Development business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "lovable",
+    "name": "Lovable",
+    "description": "Full-scale companion that turns complex ideas into fully deployed web applications in standard React and Tailwind.",
+    "longDescription": "Comprehensive review of Lovable, including features, user experience, and key performance reviews in AI App Builders. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://lovable.dev",
+    "domain": "lovable.dev",
+    "brandColor": "#E0218A",
+    "imageUrl": "https://img.logo.dev/lovable.dev?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-03-27T08:16:11.376Z",
+    "tags": [
+      "Frontend",
+      "AI Developer",
+      "React"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "bolt-new-builder",
+    "name": "Bolt.new",
+    "description": "Instantly create and preview full-stack Node.js environments directly on the web using natural prompts.",
+    "longDescription": "Comprehensive review of Bolt.new, including features, user experience, and key performance reviews in AI App Builders. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://bolt.new",
+    "domain": "bolt.new",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/bolt.new?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-25T08:16:11.376Z",
+    "tags": [
+      "Development",
+      "App Builder",
+      "Stackblitz"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "replit",
+    "name": "Replit",
+    "description": "Write, host, and launch dynamic web apps instantly from a cooperative in-browser container workspace.",
+    "longDescription": "Comprehensive review of Replit, including features, user experience, and key performance reviews in AI App Builders. Built in 2016, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://replit.com",
+    "domain": "replit.com",
+    "brandColor": "#FF6C37",
+    "imageUrl": "https://img.logo.dev/replit.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": true,
+    "dateAdded": "2026-03-23T08:16:11.376Z",
+    "tags": [
+      "Cloud IDE",
+      "Server Hosting",
+      "Workspace"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "bubble-ai",
+    "name": "Bubble AI",
+    "description": "The power of Bubble's massive visual programming editor, now supercharged with prompt-driven AI builders.",
+    "longDescription": "Comprehensive review of Bubble AI, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://bubble.io",
+    "domain": "bubble.io",
+    "brandColor": "#0040FF",
+    "imageUrl": "https://img.logo.dev/bubble.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-03-21T08:16:11.376Z",
+    "tags": [
+      "No-Code",
+      "Database",
+      "Workflows"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "flutterflow-ai",
+    "name": "FlutterFlow AI",
+    "description": "Generate complete native cross-platform mobile programs with Flutter code directly from descriptions.",
+    "longDescription": "Comprehensive review of FlutterFlow AI, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://flutterflow.io",
+    "domain": "flutterflow.io",
+    "brandColor": "#4B39EF",
+    "imageUrl": "https://img.logo.dev/flutterflow.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-19T08:16:11.376Z",
+    "tags": [
+      "Mobile Apps",
+      "Flutter",
+      "iOS & Android"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "softr-ai",
+    "name": "Softr AI",
+    "description": "Convert your workspace sheets and Airtable databases into gorgeous member portals in seconds.",
+    "longDescription": "Comprehensive review of Softr AI, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://softr.io",
+    "domain": "softr.io",
+    "brandColor": "#00E0A6",
+    "imageUrl": "https://img.logo.dev/softr.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-03-17T08:16:11.376Z",
+    "tags": [
+      "Airtable",
+      "No-code Client Portal",
+      "Web app"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "builder-io",
+    "name": "Builder.io",
+    "description": "A headless CMS and design interpreter that translates design layouts into fully functional react/vue blocks.",
+    "longDescription": "Comprehensive review of Builder.io, including features, user experience, and key performance reviews in AI App Builders. Built in 2018, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://builder.io",
+    "domain": "builder.io",
+    "brandColor": "#1B2A4A",
+    "imageUrl": "https://img.logo.dev/builder.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-03-15T08:16:11.376Z",
+    "tags": [
+      "Headless CMS",
+      "Figma to Code",
+      "Visual Editor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "framer-ai",
+    "name": "Framer AI",
+    "description": "Design highly responsive and beautifully animated marketing websites quickly with Framer's smart layout engine.",
+    "longDescription": "Comprehensive review of Framer AI, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://framer.com",
+    "domain": "framer.com",
+    "brandColor": "#0055FF",
+    "imageUrl": "https://img.logo.dev/framer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-13T08:16:11.376Z",
+    "tags": [
+      "Web Design",
+      "Interactive",
+      "Animations"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "durable-ai-builder",
+    "name": "Durable AI",
+    "description": "Generate complete business platforms containing customized copy, contact forms, and scheduling in 30 seconds.",
+    "longDescription": "Comprehensive review of Durable AI, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://durable.co",
+    "domain": "durable.co",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/durable.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-03-11T08:16:11.376Z",
+    "tags": [
+      "Startups",
+      "Service Businesses",
+      "Instant Website"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "create-xyz",
+    "name": "Create.xyz",
+    "description": "A high-fidelity prompt sandbox that instantly spins up functioning database tables, integrations and layouts.",
+    "longDescription": "Comprehensive review of Create.xyz, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://create.xyz",
+    "domain": "create.xyz",
+    "brandColor": "#FC3F92",
+    "imageUrl": "https://img.logo.dev/create.xyz?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-09T08:16:11.376Z",
+    "tags": [
+      "React",
+      "No-code Database",
+      "Embeds"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tempo-labs",
+    "name": "Tempo Labs",
+    "description": "An intelligent designer specialized in directly parsing and editing raw React source files dynamically.",
+    "longDescription": "Comprehensive review of Tempo Labs, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://tempolabs.ai",
+    "domain": "tempolabs.ai",
+    "brandColor": "#1E1E2F",
+    "imageUrl": "https://img.logo.dev/tempolabs.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-03-07T08:16:11.376Z",
+    "tags": [
+      "React UI Designer",
+      "Figma",
+      "Tailwind"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "softgen",
+    "name": "Softgen",
+    "description": "A startup-friendly application incubator that scaffolds SaaS modules like payments, profiles, and databases.",
+    "longDescription": "Comprehensive review of Softgen, including features, user experience, and key performance reviews in AI App Builders. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://softgen.ai",
+    "domain": "softgen.ai",
+    "brandColor": "#E11D48",
+    "imageUrl": "https://img.logo.dev/softgen.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-03-05T08:16:11.376Z",
+    "tags": [
+      "SaaS Boilerplate",
+      "No-code SaaS",
+      "App Builder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "base44",
+    "name": "Base44",
+    "description": "A backend-centric workspace to quickly structure, map, and output scalable JSON endpoints.",
+    "longDescription": "Comprehensive review of Base44, including features, user experience, and key performance reviews in AI App Builders. Built in 2024, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI App Builders",
+    "url": "https://base44.co",
+    "domain": "base44.co",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/base44.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-03-03T08:16:11.376Z",
+    "tags": [
+      "Backend",
+      "Workflow Database",
+      "APIs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "uizard",
+    "name": "Uizard",
+    "description": "Design high-fidelity smartphone prototype apps instantly from sketches and doodles.",
+    "longDescription": "Comprehensive review of Uizard, including features, user experience, and key performance reviews in AI App Builders. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://uizard.io",
+    "domain": "uizard.io",
+    "brandColor": "#00C39C",
+    "imageUrl": "https://img.logo.dev/uizard.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-01T08:16:11.376Z",
+    "tags": [
+      "UX/UI wireframe",
+      "Figma converter",
+      "Mockup design"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI App Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "description": "The gold standard for generative imagery, producing breathtaking, artistic visuals inside user Discord servers.",
+    "longDescription": "Comprehensive review of Midjourney, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://midjourney.com",
+    "domain": "midjourney.com",
+    "brandColor": "#1982FC",
+    "imageUrl": "https://img.logo.dev/midjourney.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-02-27T08:16:11.376Z",
+    "tags": [
+      "Generative Art",
+      "Illustration",
+      "Cooperative Canvas"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "dalle",
+    "name": "DALL-E",
+    "description": "OpenAI's masterful photo-generator, producing highly accurate, photorealistic results directly from text cues.",
+    "longDescription": "Comprehensive review of DALL-E, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://openai.com",
+    "domain": "openai.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-25T08:16:11.376Z",
+    "tags": [
+      "OpenAI",
+      "Image Creator",
+      "Outpainting"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "description": "Safe corporate-trained media generator integrated directly inside Adobe Illustrator and Photoshop frameworks.",
+    "longDescription": "Comprehensive review of Adobe Firefly, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://firefly.adobe.com",
+    "domain": "adobe.com",
+    "brandColor": "#FA0F00",
+    "imageUrl": "https://img.logo.dev/adobe.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-23T08:16:11.376Z",
+    "tags": [
+      "Photoshop",
+      "Commercial Safe",
+      "Generative Fill"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "leonardo-ai",
+    "name": "Leonardo AI",
+    "description": "A comprehensive design control center featuring customizable model fine-tunes and live canvas painting.",
+    "longDescription": "Comprehensive review of Leonardo AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://leonardo.ai",
+    "domain": "leonardo.ai",
+    "brandColor": "#6A0DAD",
+    "imageUrl": "https://img.logo.dev/leonardo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-21T08:16:11.376Z",
+    "tags": [
+      "Gaming assets",
+      "Realtime generation",
+      "Fine-tuning"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "stable-diffusion",
+    "name": "Stable Diffusion",
+    "description": "The ultimate open source text-to-image foundation model engine, powering deep visual fine-tuning setups.",
+    "longDescription": "Comprehensive review of Stable Diffusion, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://stability.ai",
+    "domain": "stability.ai",
+    "brandColor": "#3F0FF8",
+    "imageUrl": "https://img.logo.dev/stability.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Open Source",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-19T08:16:11.376Z",
+    "tags": [
+      "Open Source",
+      "Stability",
+      "ControlNet"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "flux-ai",
+    "name": "Flux AI",
+    "description": "The sensational open-weight photo-generator by Black Forest Labs, rendering photoreal fingers and text.",
+    "longDescription": "Comprehensive review of Flux AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://blackforestlabs.ai",
+    "domain": "blackforestlabs.ai",
+    "brandColor": "#0B0C10",
+    "imageUrl": "https://img.logo.dev/blackforestlabs.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Open Source",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-17T08:16:11.376Z",
+    "tags": [
+      "Photorealism",
+      "Black Forest",
+      "Typography"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "ideogram",
+    "name": "Ideogram",
+    "description": "The top tool for rendering sharp and readable text overlayed perfectly inside customized graphics.",
+    "longDescription": "Comprehensive review of Ideogram, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://ideogram.ai",
+    "domain": "ideogram.ai",
+    "brandColor": "#252B33",
+    "imageUrl": "https://img.logo.dev/ideogram.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-15T08:16:11.376Z",
+    "tags": [
+      "Typography",
+      "Logo Text",
+      "Visual Layouts"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "krea-ai",
+    "name": "Krea AI",
+    "description": "Interactive painting utility that regenerates visual outcomes instantly while adjusting layout blocks.",
+    "longDescription": "Comprehensive review of Krea AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://krea.ai",
+    "domain": "krea.ai",
+    "brandColor": "#050505",
+    "imageUrl": "https://img.logo.dev/krea.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-13T08:16:11.376Z",
+    "tags": [
+      "Realtime Editor",
+      "Image Upscaler",
+      "Interactive Painting"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "playground-ai",
+    "name": "Playground AI",
+    "description": "An expansive virtual graphic workspace that integrates multiple diffusion variants into single canvas blocks.",
+    "longDescription": "Comprehensive review of Playground AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2022, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://playground.com",
+    "domain": "playground.com",
+    "brandColor": "#E22765",
+    "imageUrl": "https://img.logo.dev/playground.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-11T08:16:11.376Z",
+    "tags": [
+      "Image editor",
+      "Canvas",
+      "Mixed assets"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "canva-ai",
+    "name": "Canva AI",
+    "description": "Canva's Magic Studio suite, making graphic layout and social asset generation simple for marketing teams.",
+    "longDescription": "Comprehensive review of Canva AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://canva.com",
+    "domain": "canva.com",
+    "brandColor": "#00C4CC",
+    "imageUrl": "https://img.logo.dev/canva.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-09T08:16:11.376Z",
+    "tags": [
+      "Presentations",
+      "Business graphics",
+      "Magic Design"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "freepik-ai",
+    "name": "Freepik AI",
+    "description": "Generates royalty-free vectors, professional PSD mockups, and high-quality stock illustrations.",
+    "longDescription": "Comprehensive review of Freepik AI, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://freepik.com",
+    "domain": "freepik.com",
+    "brandColor": "#0D2240",
+    "imageUrl": "https://img.logo.dev/freepik.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-02-07T08:16:11.376Z",
+    "tags": [
+      "Vector generator",
+      "Stock Mockups",
+      "Photo tools"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "bing-image-creator",
+    "name": "Bing Image Creator",
+    "description": "Microsoft's user-friendly playground, powered by OpenAI's DALL-E 3 engine within search dashboards.",
+    "longDescription": "Comprehensive review of Bing Image Creator, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://bing.com",
+    "domain": "bing.com",
+    "brandColor": "#005EAC",
+    "imageUrl": "https://img.logo.dev/bing.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-05T08:16:11.376Z",
+    "tags": [
+      "Copilot Image",
+      "DALL-E 3",
+      "Microsoft Search"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "nightcafe",
+    "name": "NightCafe",
+    "description": "A vibrant social art community that organizes daily render tournaments and multiplayer collaborative challenges.",
+    "longDescription": "Comprehensive review of NightCafe, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2019, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://nightcafe.studio",
+    "domain": "nightcafe.studio",
+    "brandColor": "#1F0443",
+    "imageUrl": "https://img.logo.dev/nightcafe.studio?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2026-02-03T08:16:11.376Z",
+    "tags": [
+      "Art Community",
+      "SDXL",
+      "Daily Challenges"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "lexica",
+    "name": "Lexica",
+    "description": "An absolute visual encyclopedia for high-fidelity prompt searching across millions of indexed images.",
+    "longDescription": "Comprehensive review of Lexica, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2022, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://lexica.art",
+    "domain": "lexica.art",
+    "brandColor": "#E090F1",
+    "imageUrl": "https://img.logo.dev/lexica.art?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-01T08:16:11.376Z",
+    "tags": [
+      "Stable Diffusion search",
+      "Aesthetic prompts",
+      "Aperture model"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "dreamstudio",
+    "name": "DreamStudio",
+    "description": "Stability AI's official control panel, supporting prompt weights, negative terms, and custom dimensions.",
+    "longDescription": "Comprehensive review of DreamStudio, including features, user experience, and key performance reviews in Image & Art Generation. Built in 2022, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Image & Art Generation",
+    "url": "https://dreamstudio.ai",
+    "domain": "dreamstudio.ai",
+    "brandColor": "#FF3B30",
+    "imageUrl": "https://img.logo.dev/dreamstudio.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Usage Based",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-01-30T08:16:11.376Z",
+    "tags": [
+      "Stability API",
+      "Image editor",
+      "Advanced variables"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Image & Art Generation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "sora",
+    "name": "Sora",
+    "description": "OpenAI's groundbreaking video simulator, rendering rich cinematic scenes directly from simple descriptions.",
+    "longDescription": "Comprehensive review of Sora, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://openai.com",
+    "domain": "openai.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-28T08:16:11.376Z",
+    "tags": [
+      "Video Generation",
+      "OpenAI",
+      "Simulation"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "veo",
+    "name": "Google Veo",
+    "description": "Google DeepMind's flagship video director, matching stylized photoreal prompts with physics consistency.",
+    "longDescription": "Comprehensive review of Google Veo, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://deepmind.google",
+    "domain": "google.com",
+    "brandColor": "#1A73E8",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-26T08:16:11.376Z",
+    "tags": [
+      "DeepMind",
+      "Cinematic 1080p",
+      "Video AI"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "runway-ml",
+    "name": "Runway ML",
+    "description": "The choice tool for Hollywood editors. The latest Gen-3 Alpha model outputs impressive visual dynamics.",
+    "longDescription": "Comprehensive review of Runway ML, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://runwayml.com",
+    "domain": "runwayml.com",
+    "brandColor": "#111111",
+    "imageUrl": "https://img.logo.dev/runwayml.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-24T08:16:11.376Z",
+    "tags": [
+      "Gen-3 Alpha",
+      "Virtual camera",
+      "Frame synthesis"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "pika",
+    "name": "Pika",
+    "description": "An incredibly approachable video animator, making cartoon styles, clothing changes, and background swaps easy.",
+    "longDescription": "Comprehensive review of Pika, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://pika.art",
+    "domain": "pika.art",
+    "brandColor": "#2B9E7A",
+    "imageUrl": "https://img.logo.dev/pika.art?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-22T08:16:11.376Z",
+    "tags": [
+      "3D Animation",
+      "Cartoon styles",
+      "Video effects"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "kling-ai",
+    "name": "Kling AI",
+    "description": "Impressive video model that features highly accurate native physics, realistic chewing, and smooth movements.",
+    "longDescription": "Comprehensive review of Kling AI, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://klingai.com",
+    "domain": "klingai.com",
+    "brandColor": "#FA4A0A",
+    "imageUrl": "https://img.logo.dev/klingai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-20T08:16:11.376Z",
+    "tags": [
+      "Realistic physics",
+      "Long cinematic",
+      "Photo to Video"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "luma-dream-machine",
+    "name": "Luma Dream Machine",
+    "description": "A rapid camera pan and zoom generator, designed by Lumalabs with impressive 3D camera tracker accuracy.",
+    "longDescription": "Comprehensive review of Luma Dream Machine, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://lumalabs.ai",
+    "domain": "lumalabs.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/lumalabs.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-18T08:16:11.376Z",
+    "tags": [
+      "Dream Machine",
+      "Realtime pan",
+      "Lumalabs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "description": "Seamless virtual presenter generation. Create photorealistic avatars with perfect lipsync and global translation.",
+    "longDescription": "Comprehensive review of HeyGen, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://heygen.com",
+    "domain": "heygen.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/heygen.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-16T08:16:11.376Z",
+    "tags": [
+      "AI Avatar",
+      "Translation dubbing",
+      "Personal brand"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "synthesia",
+    "name": "Synthesia",
+    "description": "The gold standard for interactive corporate employee onboarding and instruction tutorial videos.",
+    "longDescription": "Comprehensive review of Synthesia, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2017, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://synthesia.io",
+    "domain": "synthesia.io",
+    "brandColor": "#0E11F6",
+    "imageUrl": "https://img.logo.dev/synthesia.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-14T08:16:11.376Z",
+    "tags": [
+      "Enterprise training",
+      "HR Video",
+      "Studio Avatar"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "d-id",
+    "name": "D-ID",
+    "description": "Breathes live speech, conversational blinking, and expressive nods into flat corporate portrait photos.",
+    "longDescription": "Comprehensive review of D-ID, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2017, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://d-id.com",
+    "domain": "d-id.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/d-id.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-01-12T08:16:11.376Z",
+    "tags": [
+      "Portrait animator",
+      "Live agent",
+      "Speak photo"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "descript",
+    "name": "Descript",
+    "description": "Edit audio and video dialogues as simply as adjusting standard text document file paragraphs.",
+    "longDescription": "Comprehensive review of Descript, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2017, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://descript.com",
+    "domain": "descript.com",
+    "brandColor": "#22C55E",
+    "imageUrl": "https://img.logo.dev/descript.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2026-01-10T08:16:11.376Z",
+    "tags": [
+      "Video Podcast",
+      "Text script editor",
+      "Overdub voice"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "opusclip",
+    "name": "OpusClip",
+    "description": "Slice long webinars into highly viral TikTok, Youtube, and Reel vertically formatted video clips.",
+    "longDescription": "Comprehensive review of OpusClip, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://opus.pro",
+    "domain": "opus.pro",
+    "brandColor": "#5447F3",
+    "imageUrl": "https://img.logo.dev/opus.pro?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-08T08:16:11.376Z",
+    "tags": [
+      "TikTok Shorts",
+      "Virality score",
+      "Auto caption"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "capcut-ai",
+    "name": "CapCut AI",
+    "description": "ByteDance's editor, fully supercharged with prompt-driven template visual effects and background removals.",
+    "longDescription": "Comprehensive review of CapCut AI, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://capcut.com",
+    "domain": "capcut.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/capcut.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-06T08:16:11.376Z",
+    "tags": [
+      "TikTok editor",
+      "Background remover",
+      "Auto caption"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "veed-ai",
+    "name": "VEED AI",
+    "description": "A versatile online editor offering instant audio noise cleanups and auto-translated subtitle burns.",
+    "longDescription": "Comprehensive review of VEED AI, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2018, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://veed.io",
+    "domain": "veed.io",
+    "brandColor": "#FF1F62",
+    "imageUrl": "https://img.logo.dev/veed.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-04T08:16:11.376Z",
+    "tags": [
+      "Subtitles",
+      "Noise clean",
+      "In-browser clip"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "fliki",
+    "name": "Fliki",
+    "description": "Transforms written blog links into styled video scripts overlayed with high-quality voice narrator tracks.",
+    "longDescription": "Comprehensive review of Fliki, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://fliki.ai",
+    "domain": "fliki.ai",
+    "brandColor": "#0091FF",
+    "imageUrl": "https://img.logo.dev/fliki.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-01-02T08:16:11.376Z",
+    "tags": [
+      "Blog to video",
+      "AI vocal",
+      "Media library"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "invideo-ai",
+    "name": "InVideo AI",
+    "description": "Instantly constructs styled promotional layout drafts overlayed with rich sound effects from text.",
+    "longDescription": "Comprehensive review of InVideo AI, including features, user experience, and key performance reviews in Video & Audio Tools. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Video & Audio Tools",
+    "url": "https://invideo.io",
+    "domain": "invideo.io",
+    "brandColor": "#0052FF",
+    "imageUrl": "https://img.logo.dev/invideo.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-31T08:16:11.376Z",
+    "tags": [
+      "Prompt to full draft",
+      "Voiceover outline",
+      "Ad maker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Video & Audio Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "description": "Phenomenal voice clone synthetically tracking human emotions, laughter levels, and native tones.",
+    "longDescription": "Comprehensive review of ElevenLabs, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://elevenlabs.io",
+    "domain": "elevenlabs.io",
+    "brandColor": "#5F4D3C",
+    "imageUrl": "https://img.logo.dev/elevenlabs.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-12-29T08:16:11.376Z",
+    "tags": [
+      "Voice Clone",
+      "Vocal translation",
+      "SFX synthesis"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "suno",
+    "name": "Suno AI",
+    "description": "Spit out stunning, full radio-quality musical tracks complete with vocals from brief textual inputs.",
+    "longDescription": "Comprehensive review of Suno AI, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://suno.com",
+    "domain": "suno.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/suno.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-12-27T08:16:11.376Z",
+    "tags": [
+      "Full orchestrations",
+      "Lyric generator",
+      "Genre customizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "udio",
+    "name": "Udio",
+    "description": "A masterful sound compiler creating lossless music across jazz, pop, rock, and electronic styles.",
+    "longDescription": "Comprehensive review of Udio, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://udio.com",
+    "domain": "udio.com",
+    "brandColor": "#FF3366",
+    "imageUrl": "https://img.logo.dev/udio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-12-25T08:16:11.376Z",
+    "tags": [
+      "Lossless vocals",
+      "Musical loops",
+      "Stereo spacing"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "murf-ai",
+    "name": "Murf AI",
+    "description": "Studio-quality reading voices, ideally structured for commercial promotions and corporate onboarding.",
+    "longDescription": "Comprehensive review of Murf AI, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://murf.ai",
+    "domain": "murf.ai",
+    "brandColor": "#007D8A",
+    "imageUrl": "https://img.logo.dev/murf.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-23T08:16:11.376Z",
+    "tags": [
+      "Commercial voiceover",
+      "E-learning narration",
+      "Pitch tuner"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "playht",
+    "name": "PlayHT",
+    "description": "Sub-millisecond low latency vocal streaming, designed for live interactive customer service phone systems.",
+    "longDescription": "Comprehensive review of PlayHT, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2016, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://play.ht",
+    "domain": "play.ht",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/play.ht?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-21T08:16:11.376Z",
+    "tags": [
+      "Podcast host API",
+      "Conversational speech",
+      "Realtime latency"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "speechify",
+    "name": "Speechify",
+    "description": "Converts massive PDF books, documents, and online journals into warm reading audio files.",
+    "longDescription": "Comprehensive review of Speechify, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2016, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://speechify.com",
+    "domain": "speechify.com",
+    "brandColor": "#2B56FE",
+    "imageUrl": "https://img.logo.dev/speechify.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-12-19T08:16:11.376Z",
+    "tags": [
+      "Book reader",
+      "Voice mimic",
+      "Study helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "resemble-ai",
+    "name": "Resemble AI",
+    "description": "Interactive game character vocal modeler with advanced security checks, keeping deepfakes labeled.",
+    "longDescription": "Comprehensive review of Resemble AI, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2019, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://resemble.ai",
+    "domain": "resemble.ai",
+    "brandColor": "#E03F3B",
+    "imageUrl": "https://img.logo.dev/resemble.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-12-17T08:16:11.376Z",
+    "tags": [
+      "Deepfake monitor",
+      "Game character",
+      "Vocal edit"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "krisp-ai",
+    "name": "Krisp AI",
+    "description": "Strips out coffeehouse clanging and dog barks from live calls in real-time.",
+    "longDescription": "Comprehensive review of Krisp AI, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://krisp.ai",
+    "domain": "krisp.ai",
+    "brandColor": "#06B6D4",
+    "imageUrl": "https://img.logo.dev/krisp.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-12-15T08:16:11.376Z",
+    "tags": [
+      "Acoustic filter",
+      "Echo cancellation",
+      "Webinar clear"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "adobe-podcast",
+    "name": "Adobe Podcast AI",
+    "description": "Adobe's free vocal enhancer that converts muddy phone recordings into crisp studio quality.",
+    "longDescription": "Comprehensive review of Adobe Podcast AI, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://podcast.adobe.com",
+    "domain": "adobe.com",
+    "brandColor": "#FA0F00",
+    "imageUrl": "https://img.logo.dev/adobe.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-12-13T08:16:11.376Z",
+    "tags": [
+      "Vocal enhancer",
+      "Microphone checker",
+      "Level analyzer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "lalals",
+    "name": "Lalals",
+    "description": "Transform recorded singing vocals into various classic iconic performer timbres instantly.",
+    "longDescription": "Comprehensive review of Lalals, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2021, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://lalals.com",
+    "domain": "lalals.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/lalals.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-12-11T08:16:11.376Z",
+    "tags": [
+      "Vocal transformer",
+      "Instrument splitter",
+      "Acappella extractor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "voicemod",
+    "name": "Voicemod",
+    "description": "Real-time gaming microphone changer, providing voice customization and dynamic soundboards.",
+    "longDescription": "Comprehensive review of Voicemod, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2014, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://voicemod.net",
+    "domain": "voicemod.net",
+    "brandColor": "#EA1F59",
+    "imageUrl": "https://img.logo.dev/voicemod.net?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-09T08:16:11.376Z",
+    "tags": [
+      "Gaming live voice",
+      "Vocal soundboard",
+      "Discord mic"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2014
+  },
+  {
+    "id": "aiva",
+    "name": "AIVA",
+    "description": "An artificial creative composer that formats elegant MIDI tracks for movies, trailers, and apps.",
+    "longDescription": "Comprehensive review of AIVA, including features, user experience, and key performance reviews in Voice & Audio AI. Built in 2016, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Voice & Audio AI",
+    "url": "https://aiva.ai",
+    "domain": "aiva.ai",
+    "brandColor": "#1F64FF",
+    "imageUrl": "https://img.logo.dev/aiva.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-12-07T08:16:11.376Z",
+    "tags": [
+      "Classical synth",
+      "Midi composer",
+      "Game themes"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Voice & Audio AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "jasper",
+    "name": "Jasper AI",
+    "description": "The premier content workspace for marketing teams, creating aligned copy, emails, and campaign assets.",
+    "longDescription": "Comprehensive review of Jasper AI, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://jasper.ai",
+    "domain": "jasper.ai",
+    "brandColor": "#6A26FF",
+    "imageUrl": "https://img.logo.dev/jasper.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-12-05T08:16:11.376Z",
+    "tags": [
+      "Marketing copy",
+      "SEO briefs",
+      "Team workspace"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "copy-ai",
+    "name": "Copy.ai",
+    "description": "Automate outbound messaging campaigns, taglines, and social posts with specialized brand voice parameters.",
+    "longDescription": "Comprehensive review of Copy.ai, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://copy.ai",
+    "domain": "copy.ai",
+    "brandColor": "#0DF5A4",
+    "imageUrl": "https://img.logo.dev/copy.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-03T08:16:11.376Z",
+    "tags": [
+      "Ad headlines",
+      "Cold emails",
+      "Workflow writer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "writesonic",
+    "name": "Writesonic",
+    "description": "Rapidly draft SEO-optimized articles, listicles, and Google ad copy with a built-in search checker.",
+    "longDescription": "Comprehensive review of Writesonic, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://writesonic.com",
+    "domain": "writesonic.com",
+    "brandColor": "#0062FF",
+    "imageUrl": "https://img.logo.dev/writesonic.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-12-01T08:16:11.376Z",
+    "tags": [
+      "Blog templates",
+      "Article writer",
+      "SEO check"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "rytr",
+    "name": "Rytr",
+    "description": "A cozy and affordable writing aid suited for social headlines and personalized review responses.",
+    "longDescription": "Comprehensive review of Rytr, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2021, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://rytr.me",
+    "domain": "rytr.me",
+    "brandColor": "#F28C0F",
+    "imageUrl": "https://img.logo.dev/rytr.me?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-11-29T08:16:11.376Z",
+    "tags": [
+      "Cheap content",
+      "Vibe options",
+      "Blog intro"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "grammarly",
+    "name": "Grammarly",
+    "description": "Your proactive typing companion. Fixes grammar, corrects sentence style, and refines wording on any site.",
+    "longDescription": "Comprehensive review of Grammarly, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2009, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://grammarly.com",
+    "domain": "grammarly.com",
+    "brandColor": "#15C076",
+    "imageUrl": "https://img.logo.dev/grammarly.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-27T08:16:11.376Z",
+    "tags": [
+      "Syllabus check",
+      "Tone checker",
+      "Grammar correction"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2009
+  },
+  {
+    "id": "quillbot",
+    "name": "QuillBot",
+    "description": "An outstanding rewriting aid that formats, checks, and restructures copy to improve readability.",
+    "longDescription": "Comprehensive review of QuillBot, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://quillbot.com",
+    "domain": "quillbot.com",
+    "brandColor": "#00A859",
+    "imageUrl": "https://img.logo.dev/quillbot.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-11-25T08:16:11.376Z",
+    "tags": [
+      "Paraphraser",
+      "Summarizer",
+      "Synonym finder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "wordtune",
+    "name": "Wordtune",
+    "description": "AI writing assistant that suggests multiple alternative ways to express your thoughts clearly.",
+    "longDescription": "Comprehensive review of Wordtune, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://wordtune.com",
+    "domain": "wordtune.com",
+    "brandColor": "#5446FE",
+    "imageUrl": "https://img.logo.dev/wordtune.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-11-23T08:16:11.376Z",
+    "tags": [
+      "Inline editor",
+      "Sentence expander",
+      "Vocal tone adjuster"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "notion-ai",
+    "name": "Notion AI",
+    "description": "An integrated command-line tool within Notion to summarize sheets, generate content, and outline briefs.",
+    "longDescription": "Comprehensive review of Notion AI, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://notion.so",
+    "domain": "notion.so",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/notion.so?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-21T08:16:11.376Z",
+    "tags": [
+      "Notion workspace",
+      "Document helper",
+      "Table translator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sudowrite",
+    "name": "Sudowrite",
+    "description": "The creative writing assistant that helps novelists brainstorm plots, expand dialogues, and beat writer's block.",
+    "longDescription": "Comprehensive review of Sudowrite, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://sudowrite.com",
+    "domain": "sudowrite.com",
+    "brandColor": "#FF4A00",
+    "imageUrl": "https://img.logo.dev/sudowrite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-19T08:16:11.376Z",
+    "tags": [
+      "Novel editor",
+      "Plot developer",
+      "Descriptive expansion"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "hyperwrite",
+    "name": "HyperWrite",
+    "description": "Advanced typing companion that learns your personal writing style to draft emails and posts quickly.",
+    "longDescription": "Comprehensive review of HyperWrite, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://hyperwriteai.com",
+    "domain": "hyperwriteai.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/hyperwriteai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-11-17T08:16:11.376Z",
+    "tags": [
+      "Email helper",
+      "Autopilot search",
+      "Extension helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "anyword",
+    "name": "Anyword",
+    "description": "The enterprise platform that scores marketing copy effectiveness and user click rates beforehand.",
+    "longDescription": "Comprehensive review of Anyword, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2013, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://anyword.com",
+    "domain": "anyword.com",
+    "brandColor": "#00AAFF",
+    "imageUrl": "https://img.logo.dev/anyword.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-11-15T08:16:11.376Z",
+    "tags": [
+      "Performance score",
+      "Copywriter",
+      "Landing page optimization"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2013
+  },
+  {
+    "id": "writer-com",
+    "name": "Writer.com",
+    "description": "An enterprise generative model designed around data privacy, specific brand rules, and styling.",
+    "longDescription": "Comprehensive review of Writer.com, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://writer.com",
+    "domain": "writer.com",
+    "brandColor": "#0047FF",
+    "imageUrl": "https://img.logo.dev/writer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-11-13T08:16:11.376Z",
+    "tags": [
+      "Business safe LLM",
+      "Factual accuracy",
+      "Legal review compliance"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "jenni-ai",
+    "name": "Jenni AI",
+    "description": "The academic thesis writing assistant that formats citations and generates logical next sentences.",
+    "longDescription": "Comprehensive review of Jenni AI, including features, user experience, and key performance reviews in AI Writing & Content. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Writing & Content",
+    "url": "https://jenni.ai",
+    "domain": "jenni.ai",
+    "brandColor": "#FF2C2C",
+    "imageUrl": "https://img.logo.dev/jenni.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-11T08:16:11.376Z",
+    "tags": [
+      "Citation formatting",
+      "Thesis outlines",
+      "Paper summaries"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Writing & Content business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "surfer-seo",
+    "name": "Surfer SEO",
+    "description": "Analyze search patterns to design optimized structures, headers, and keyword frequencies.",
+    "longDescription": "Comprehensive review of Surfer SEO, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2017, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://surferseo.com",
+    "domain": "surferseo.com",
+    "brandColor": "#FF3F66",
+    "imageUrl": "https://img.logo.dev/surferseo.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-09T08:16:11.376Z",
+    "tags": [
+      "SEO auditor",
+      "Keyword mapping",
+      "Topic outline"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "semrush-ai",
+    "name": "Semrush AI",
+    "description": "The market standard for competitive intelligence, fully supercharged with rank trackers.",
+    "longDescription": "Comprehensive review of Semrush AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://semrush.com",
+    "domain": "semrush.com",
+    "brandColor": "#FF642D",
+    "imageUrl": "https://img.logo.dev/semrush.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-07T08:16:11.376Z",
+    "tags": [
+      "Ad analytics",
+      "Competitor charts",
+      "Backlink auditor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ahrefs-ai",
+    "name": "Ahrefs AI",
+    "description": "Highly validated suite providing custom keyword generator tools, anchors, and site audits.",
+    "longDescription": "Comprehensive review of Ahrefs AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://ahrefs.com",
+    "domain": "ahrefs.com",
+    "brandColor": "#FF7D10",
+    "imageUrl": "https://img.logo.dev/ahrefs.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-11-05T08:16:11.376Z",
+    "tags": [
+      "Alt text maker",
+      "Keyword rank tracker",
+      "Crawler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "frase",
+    "name": "Frase",
+    "description": "Instantly scrapes search queries of competitors to construct content briefs in seconds.",
+    "longDescription": "Comprehensive review of Frase, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2016, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://frase.io",
+    "domain": "frase.io",
+    "brandColor": "#003AFF",
+    "imageUrl": "https://img.logo.dev/frase.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-11-03T08:16:11.376Z",
+    "tags": [
+      "SERP analyzer",
+      "Outline engine",
+      "Content briefs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "neuronwriter",
+    "name": "NeuronWriter",
+    "description": "Semantic layout compiler that matches written copies with Google search recommendations.",
+    "longDescription": "Comprehensive review of NeuronWriter, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://neuronwriter.com",
+    "domain": "neuronwriter.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/neuronwriter.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-11-01T08:16:11.376Z",
+    "tags": [
+      "LSI keyword check",
+      "Optimized content",
+      "Competition scores"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "marketmuse",
+    "name": "MarketMuse",
+    "description": "Intelligent layout compiler mapping missing terms in your articles compared to the competition.",
+    "longDescription": "Comprehensive review of MarketMuse, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2015, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://marketmuse.com",
+    "domain": "marketmuse.com",
+    "brandColor": "#00C39C",
+    "imageUrl": "https://img.logo.dev/marketmuse.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-10-30T08:16:11.376Z",
+    "tags": [
+      "Gap checker",
+      "E-E-A-T score",
+      "Topic mapping"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "adcreative-ai",
+    "name": "AdCreative AI",
+    "description": "Generate conversion-oriented ad banners, headlines, and visuals in seconds with dynamic scores.",
+    "longDescription": "Comprehensive review of AdCreative AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://adcreative.ai",
+    "domain": "adcreative.ai",
+    "brandColor": "#005EF6",
+    "imageUrl": "https://img.logo.dev/adcreative.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-10-28T08:16:11.376Z",
+    "tags": [
+      "Ad banner maker",
+      "Performance check",
+      "Social creatives"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "predis-ai-marketing",
+    "name": "Predis AI",
+    "description": "A creative compiler that generates videos, captions, and hashtag arrays from brief prompts.",
+    "longDescription": "Comprehensive review of Predis AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://predis.ai",
+    "domain": "predis.ai",
+    "brandColor": "#3B1EF6",
+    "imageUrl": "https://img.logo.dev/predis.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-26T08:16:11.376Z",
+    "tags": [
+      "Competitor briefs",
+      "Social designer",
+      "Bulk queue"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "ocoya-marketing",
+    "name": "Ocoya",
+    "description": "One-stop shop for generating copy, applying graphic layouts, and scheduling campaigns.",
+    "longDescription": "Comprehensive review of Ocoya, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://ocoya.com",
+    "domain": "ocoya.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/ocoya.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-10-24T08:16:11.376Z",
+    "tags": [
+      "Copy assistant",
+      "Scheduler",
+      "Shopify integrations"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "buffer-ai-marketing",
+    "name": "Buffer AI",
+    "description": "Create, transform, and schedule social posts across popular channels from a single dashboard.",
+    "longDescription": "Comprehensive review of Buffer AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://buffer.com",
+    "domain": "buffer.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/buffer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-22T08:16:11.376Z",
+    "tags": [
+      "Idea helper",
+      "Social queue",
+      "Thread optimizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hubspot-ai",
+    "name": "HubSpot AI",
+    "description": "Enriches the CRM ecosystem with automated customer behavior summaries and email drafts.",
+    "longDescription": "Comprehensive review of HubSpot AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://hubspot.com",
+    "domain": "hubspot.com",
+    "brandColor": "#FF7A59",
+    "imageUrl": "https://img.logo.dev/hubspot.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-20T08:16:11.376Z",
+    "tags": [
+      "CRM marketing",
+      "Call logger",
+      "Email campaign generator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hootsuite-ai-marketing",
+    "name": "Hootsuite AI",
+    "description": "Track competitor campaigns, log brand sentiment, and queue marketing messages in advance.",
+    "longDescription": "Comprehensive review of Hootsuite AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://hootsuite.com",
+    "domain": "hootsuite.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/hootsuite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-10-18T08:16:11.376Z",
+    "tags": [
+      "Social queue",
+      "Sentiment logger",
+      "Brand monitoring"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "flick-ai",
+    "name": "Flick AI",
+    "description": "An intelligent hashtag auditor and social scheduler designed for fast-growing agencies.",
+    "longDescription": "Comprehensive review of Flick AI, including features, user experience, and key performance reviews in Marketing & SEO. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Marketing & SEO",
+    "url": "https://flick.social",
+    "domain": "flick.social",
+    "brandColor": "#E0218A",
+    "imageUrl": "https://img.logo.dev/flick.social?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-10-16T08:16:11.376Z",
+    "tags": [
+      "Hashtag auditor",
+      "Campaign scheduling",
+      "Copy scheduler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Marketing & SEO business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "zapier",
+    "name": "Zapier AI",
+    "description": "Build automated application connections and complex task routing flows using simple language.",
+    "longDescription": "Comprehensive review of Zapier AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://zapier.com",
+    "domain": "zapier.com",
+    "brandColor": "#FF4F00",
+    "imageUrl": "https://img.logo.dev/zapier.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-10-14T08:16:11.376Z",
+    "tags": [
+      "Visual diagrams",
+      "API logs helper",
+      "Data router"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "make-ai",
+    "name": "Make AI",
+    "description": "Allows groups to configure multi language chat assistants with API actions easily.",
+    "longDescription": "Comprehensive review of Make AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Workflow Automation",
+    "url": "https://make.com",
+    "domain": "make.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/make.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-12T08:16:11.376Z",
+    "tags": [
+      "Visual canvas router",
+      "Flowchart editor",
+      "Custom JSON API"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "description": "Secure node-based developer workflow canvas to integrate APIs, databases, and custom JS.",
+    "longDescription": "Comprehensive review of n8n, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2019, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Workflow Automation",
+    "url": "https://n8n.io",
+    "domain": "n8n.io",
+    "brandColor": "#FF6C37",
+    "imageUrl": "https://img.logo.dev/n8n.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-10-10T08:16:11.376Z",
+    "tags": [
+      "Open Source workflow",
+      "Privacy safe",
+      "Node script integration"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "bardeen-ai",
+    "name": "Bardeen AI",
+    "description": "Proactive desktop helper that automates data scraping and schedules links behind normal clicks.",
+    "longDescription": "Comprehensive review of Bardeen AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://bardeen.ai",
+    "domain": "bardeen.ai",
+    "brandColor": "#2B6AFE",
+    "imageUrl": "https://img.logo.dev/bardeen.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-08T08:16:11.376Z",
+    "tags": [
+      "Chrome scrapper",
+      "Calendar connector",
+      "Action tab"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "lindy-ai",
+    "name": "Lindy AI",
+    "description": "Highly autonomous assistant agents, capable of filtering emails and updating calendars.",
+    "longDescription": "Comprehensive review of Lindy AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://lindy.ai",
+    "domain": "lindy.ai",
+    "brandColor": "#9333EA",
+    "imageUrl": "https://img.logo.dev/lindy.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-10-06T08:16:11.376Z",
+    "tags": [
+      "Autonomous HR bot",
+      "Email inbox filter",
+      "Calendar tracker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "relevance-ai",
+    "name": "Relevance AI",
+    "description": "Build, test, and manage an entire team of autonomous, prompt-driven AI employees.",
+    "longDescription": "Comprehensive review of Relevance AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://relevanceai.com",
+    "domain": "relevanceai.com",
+    "brandColor": "#111827",
+    "imageUrl": "https://img.logo.dev/relevanceai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-10-04T08:16:11.376Z",
+    "tags": [
+      "Autonomous agent team",
+      "Data scraper",
+      "Customer outbound"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "taskade-ai",
+    "name": "Taskade AI",
+    "description": "Cooperative multiplayer dashboard with automated mind maps and task organizers.",
+    "longDescription": "Comprehensive review of Taskade AI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Workflow Automation",
+    "url": "https://taskade.com",
+    "domain": "taskade.com",
+    "brandColor": "#FF1F62",
+    "imageUrl": "https://img.logo.dev/taskade.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-10-02T08:16:11.376Z",
+    "tags": [
+      "Framer dashboard",
+      "Multi-user whiteboard",
+      "Mind map organizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "relay-app",
+    "name": "Relay.app",
+    "description": "A fresh automated workspace adding human-in-the-loop approvals to dynamic workflows.",
+    "longDescription": "Comprehensive review of Relay.app, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Workflow Automation",
+    "url": "https://relay.app",
+    "domain": "relay.app",
+    "brandColor": "#319795",
+    "imageUrl": "https://img.logo.dev/relay.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-09-30T08:16:11.376Z",
+    "tags": [
+      "Approval loop",
+      "Clean logs tracker",
+      "No-code API"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "gumloop",
+    "name": "Gumloop",
+    "description": "A powerful developer canvas to drag-and-drop web scrapers and unstructured data parser pipes.",
+    "longDescription": "Comprehensive review of Gumloop, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://gumloop.com",
+    "domain": "gumloop.com",
+    "brandColor": "#059669",
+    "imageUrl": "https://img.logo.dev/gumloop.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-09-28T08:16:11.376Z",
+    "tags": [
+      "Web scraper",
+      "JSON formatter",
+      "Enterprise automation"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "agenthub",
+    "name": "AgentHub",
+    "description": "No-code workspace to orchestrate multi agent tasks, scraping pipelines, and JSON compilers.",
+    "longDescription": "Comprehensive review of AgentHub, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Workflow Automation",
+    "url": "https://agenthub.dev",
+    "domain": "agenthub.dev",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/agenthub.dev?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-09-26T08:16:11.376Z",
+    "tags": [
+      "Agent canvas",
+      "YAML custom scripts",
+      "API orchestrator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "crewai",
+    "name": "CrewAI",
+    "description": "Highly adopted Python framework to orchestrate team roleplay task hierarchies.",
+    "longDescription": "Comprehensive review of CrewAI, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://crewai.com",
+    "domain": "crewai.com",
+    "brandColor": "#5B21B6",
+    "imageUrl": "https://img.logo.dev/crewai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Open Source",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-09-24T08:16:11.376Z",
+    "tags": [
+      "Multi-Agent",
+      "Python framework",
+      "Roleplay tasking"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "autogpt",
+    "name": "AutoGPT",
+    "description": "Legendary open-source agent sandbox that navigates directories to fulfill text commands.",
+    "longDescription": "Comprehensive review of AutoGPT, including features, user experience, and key performance reviews in AI Workflow Automation. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Agents & Automation",
+    "url": "https://agpt.co",
+    "domain": "agpt.co",
+    "brandColor": "#1E3A8A",
+    "imageUrl": "https://img.logo.dev/agpt.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Open Source",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-09-22T08:16:11.376Z",
+    "tags": [
+      "Agentic system",
+      "Docker executor",
+      "Interactive shell"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Workflow Automation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "fireflies-ai",
+    "name": "Fireflies AI",
+    "description": "The premier call companion. Auto logs Zoom discussions, notes key metrics, and updates CRMs.",
+    "longDescription": "Comprehensive review of Fireflies AI, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://fireflies.ai",
+    "domain": "fireflies.ai",
+    "brandColor": "#6366F1",
+    "imageUrl": "https://img.logo.dev/fireflies.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-09-20T08:16:11.376Z",
+    "tags": [
+      "Call recorder",
+      "CRM sync",
+      "Sentiment tracking"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "otter-ai",
+    "name": "Otter AI",
+    "description": "Highly validated text transcribing assistant, displaying words in real time on screens.",
+    "longDescription": "Comprehensive review of Otter AI, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2016, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://otter.ai",
+    "domain": "otter.ai",
+    "brandColor": "#0055FE",
+    "imageUrl": "https://img.logo.dev/otter.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-09-18T08:16:11.376Z",
+    "tags": [
+      "Transcriber",
+      "Real-time subtitle",
+      "Speech notes"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "fathom",
+    "name": "Fathom",
+    "description": "Highly popular free call recorder compiling bullet outlines and action items.",
+    "longDescription": "Comprehensive review of Fathom, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2020, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://fathom.video",
+    "domain": "fathom.video",
+    "brandColor": "#6A0DAD",
+    "imageUrl": "https://img.logo.dev/fathom.video?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-09-16T08:16:11.376Z",
+    "tags": [
+      "Zoom companion",
+      "Instant recording clips",
+      "Action items list"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "tldv",
+    "name": "tl;dv",
+    "description": "Record, index, and translate virtual meetings, sharing direct highlighted timestamps.",
+    "longDescription": "Comprehensive review of tl;dv, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://tldv.io",
+    "domain": "tldv.io",
+    "brandColor": "#00F0A0",
+    "imageUrl": "https://img.logo.dev/tldv.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-09-14T08:16:11.376Z",
+    "tags": [
+      "Call translator",
+      "G-meet sidebar",
+      "Time stamps list"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "avoma",
+    "name": "Avoma",
+    "description": "An intelligent platform designed to track sales pipelines and customer objections.",
+    "longDescription": "Comprehensive review of Avoma, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://avoma.com",
+    "domain": "avoma.com",
+    "brandColor": "#2B52F1",
+    "imageUrl": "https://img.logo.dev/avoma.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": true,
+    "dateAdded": "2025-09-12T08:16:11.376Z",
+    "tags": [
+      "CRM integration",
+      "Customer objections logger",
+      "Topic trend tracker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "sembly-ai",
+    "name": "Sembly AI",
+    "description": "Translates speech into dynamic lists of action items, formatted into PDF summaries.",
+    "longDescription": "Comprehensive review of Sembly AI, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://sembly.ai",
+    "domain": "sembly.ai",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/sembly.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-09-10T08:16:11.376Z",
+    "tags": [
+      "Task planner",
+      "PDF summary doc",
+      "Voice analyzer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "krisp-meeting",
+    "name": "Krisp Meeting",
+    "description": "Mutes background noises during live calls while generating summaries.",
+    "longDescription": "Comprehensive review of Krisp Meeting, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://krisp.ai",
+    "domain": "krisp.ai",
+    "brandColor": "#06B6D4",
+    "imageUrl": "https://img.logo.dev/krisp.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-09-08T08:16:11.376Z",
+    "tags": [
+      "Noise filter",
+      "Transcriber",
+      "Sound checker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "meetgeek",
+    "name": "MeetGeek",
+    "description": "Sends custom automated meeting notes and emails to relevant team members.",
+    "longDescription": "Comprehensive review of MeetGeek, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://meetgeek.ai",
+    "domain": "meetgeek.ai",
+    "brandColor": "#111827",
+    "imageUrl": "https://img.logo.dev/meetgeek.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-09-06T08:16:11.376Z",
+    "tags": [
+      "Zoom logger",
+      "Auto task sender",
+      "Workflow email"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "supernormal",
+    "name": "Supernormal",
+    "description": "Beautiful template summary creator, customizing logs to fit your team's style.",
+    "longDescription": "Comprehensive review of Supernormal, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://supernormal.com",
+    "domain": "supernormal.com",
+    "brandColor": "#E0218A",
+    "imageUrl": "https://img.logo.dev/supernormal.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-09-04T08:16:11.376Z",
+    "tags": [
+      "Template editor",
+      "SaaS client dashboard",
+      "Google Meet integration"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "read-ai",
+    "name": "Read AI",
+    "description": "Analyzes attention levels and tracking sentiments during larger calls.",
+    "longDescription": "Comprehensive review of Read AI, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://read.ai",
+    "domain": "read.ai",
+    "brandColor": "#5B21B6",
+    "imageUrl": "https://img.logo.dev/read.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-09-02T08:16:11.376Z",
+    "tags": [
+      "Attention metric",
+      "Sentiment tracker",
+      "Dashboard analytics"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "circleback",
+    "name": "Circleback",
+    "description": "Proactive assistant draft writer that syncs notes to complex tables.",
+    "longDescription": "Comprehensive review of Circleback, including features, user experience, and key performance reviews in AI Meeting Assistants. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Meeting Assistants",
+    "url": "https://circleback.ai",
+    "domain": "circleback.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/circleback.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-31T08:16:11.376Z",
+    "tags": [
+      "Email logs",
+      "Custom CRM mapping",
+      "Google Meet helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Meeting Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "gamma",
+    "name": "Gamma",
+    "description": "Interactive markdown generator that creates professional presentation slide cards instantly.",
+    "longDescription": "Comprehensive review of Gamma, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://gamma.app",
+    "domain": "gamma.app",
+    "brandColor": "#FF3B6B",
+    "imageUrl": "https://img.logo.dev/gamma.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-08-29T08:16:11.376Z",
+    "tags": [
+      "Slideshow",
+      "Docs to presentation",
+      "Vector cards"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tome",
+    "name": "Tome",
+    "description": "A creative canvas formatting dynamic pages, outlines, and images from prompt logs.",
+    "longDescription": "Comprehensive review of Tome, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2022, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://tome.app",
+    "domain": "tome.app",
+    "brandColor": "#0A0A0A",
+    "imageUrl": "https://img.logo.dev/tome.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-27T08:16:11.376Z",
+    "tags": [
+      "Visual storyteller",
+      "Text-to-slide outlines",
+      "Custom dimensions"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "beautiful-ai",
+    "name": "Beautiful.ai",
+    "description": "Intelligent layout assistant fixing margins, alignment, and column structures.",
+    "longDescription": "Comprehensive review of Beautiful.ai, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2017, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://beautiful.ai",
+    "domain": "beautiful.ai",
+    "brandColor": "#2B6AFE",
+    "imageUrl": "https://img.logo.dev/beautiful.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-25T08:16:11.376Z",
+    "tags": [
+      "Constraint templates",
+      "Proportion engine",
+      "Financial graphs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "canva-presentation",
+    "name": "Canva AI Presentation",
+    "description": "Canva's Magic Presentation builder, formatting custom assets from templates.",
+    "longDescription": "Comprehensive review of Canva AI Presentation, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://canva.com",
+    "domain": "canva.com",
+    "brandColor": "#00C4CC",
+    "imageUrl": "https://img.logo.dev/canva.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-23T08:16:11.376Z",
+    "tags": [
+      "Magic design templates",
+      "Social exports",
+      "Cooperative slides"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "decktopus",
+    "name": "Decktopus",
+    "description": "Generate presentation decks complete with tailored forms and image layouts.",
+    "longDescription": "Comprehensive review of Decktopus, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2019, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://decktopus.com",
+    "domain": "decktopus.com",
+    "brandColor": "#E1523D",
+    "imageUrl": "https://img.logo.dev/decktopus.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-21T08:16:11.376Z",
+    "tags": [
+      "Questionnaire generator",
+      "Instant forms",
+      "SDR presentations"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "pitch-ai",
+    "name": "Pitch AI",
+    "description": "Fabulous team workspace to customize dynamic templates with real-time analytics.",
+    "longDescription": "Comprehensive review of Pitch AI, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://pitch.com",
+    "domain": "pitch.com",
+    "brandColor": "#00E5A3",
+    "imageUrl": "https://img.logo.dev/pitch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2025-08-19T08:16:11.376Z",
+    "tags": [
+      "Pitch decks creator",
+      "Startup tables",
+      "SVG export"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "slidesai",
+    "name": "SlidesAI",
+    "description": "Chrome add-on that translates document paragraphs directly into Google Slides.",
+    "longDescription": "Comprehensive review of SlidesAI, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://slidesai.io",
+    "domain": "slidesai.io",
+    "brandColor": "#FFBB00",
+    "imageUrl": "https://img.logo.dev/slidesai.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-08-17T08:16:11.376Z",
+    "tags": [
+      "Google slides plug",
+      "Paragraph importer",
+      "Outline compiler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "plus-ai",
+    "name": "Plus AI",
+    "description": "Creates dynamic presentation decks inside corporate templates using real-time figures.",
+    "longDescription": "Comprehensive review of Plus AI, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://useplus.com",
+    "domain": "useplus.com",
+    "brandColor": "#9333EA",
+    "imageUrl": "https://img.logo.dev/useplus.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-15T08:16:11.376Z",
+    "tags": [
+      "Google slides companion",
+      "Metrics graph",
+      "Powerpoint creator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "napkin-ai",
+    "name": "Napkin AI",
+    "description": "Extract logical insights from sentences to shape clean visual flowcharts.",
+    "longDescription": "Comprehensive review of Napkin AI, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://napkin.ai",
+    "domain": "napkin.ai",
+    "brandColor": "#EF4444",
+    "imageUrl": "https://img.logo.dev/napkin.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-13T08:16:11.376Z",
+    "tags": [
+      "Visual flowcharts",
+      "Infographics maker",
+      "Diagrams helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "presentations-ai",
+    "name": "Presentations AI",
+    "description": "Converts ideas into custom brand presentations in seconds.",
+    "longDescription": "Comprehensive review of Presentations AI, including features, user experience, and key performance reviews in AI Presentation Tools. Built in 2020, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Presentation Tools",
+    "url": "https://presentations.ai",
+    "domain": "presentations.ai",
+    "brandColor": "#2563EB",
+    "imageUrl": "https://img.logo.dev/presentations.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-08-11T08:16:11.376Z",
+    "tags": [
+      "Automated designs",
+      "Brand style logs",
+      "PDF slide downloader"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Presentation Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "chatpdf",
+    "name": "ChatPDF",
+    "description": "Excellent interface that lets students query long PDF files and get immediate citations.",
+    "longDescription": "Comprehensive review of ChatPDF, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://chatpdf.com",
+    "domain": "chatpdf.com",
+    "brandColor": "#FA4D2B",
+    "imageUrl": "https://img.logo.dev/chatpdf.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-09T08:16:11.376Z",
+    "tags": [
+      "PDF scanner",
+      "Instant translation",
+      "Exam studies Helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "pdf-ai",
+    "name": "PDF.ai",
+    "description": "Interactive document reader featuring an inline highlight lookup sidebar.",
+    "longDescription": "Comprehensive review of PDF.ai, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://pdf.ai",
+    "domain": "pdf.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/pdf.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-07T08:16:11.376Z",
+    "tags": [
+      "E-book tracker",
+      "Contract auditor",
+      "Chrome expansion"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "humata",
+    "name": "Humata",
+    "description": "Speedy document analyzer capable of summarizing and querying vast data collections.",
+    "longDescription": "Comprehensive review of Humata, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://humata.ai",
+    "domain": "humata.ai",
+    "brandColor": "#006BFE",
+    "imageUrl": "https://img.logo.dev/humata.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-05T08:16:11.376Z",
+    "tags": [
+      "Patent analysis",
+      "Scientific paper",
+      "Knowledge Base"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "askyourpdf",
+    "name": "AskYourPDF",
+    "description": "A reliable partner to scan books and extract structured data tables.",
+    "longDescription": "Comprehensive review of AskYourPDF, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://askyourpdf.com",
+    "domain": "askyourpdf.com",
+    "brandColor": "#23C55E",
+    "imageUrl": "https://img.logo.dev/askyourpdf.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-08-03T08:16:11.376Z",
+    "tags": [
+      "Doc scanner",
+      "Text translation",
+      "Source citation finder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "adobe-acrobat-ai",
+    "name": "Adobe Acrobat AI",
+    "description": "Adobe's official document reader partner, offering reliable summaries and citation checkers.",
+    "longDescription": "Comprehensive review of Adobe Acrobat AI, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2024, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://adobe.com",
+    "domain": "adobe.com",
+    "brandColor": "#FA0F00",
+    "imageUrl": "https://img.logo.dev/adobe.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-08-01T08:16:11.376Z",
+    "tags": [
+      "Acrobat reader",
+      "PDF compiler",
+      "Verified links"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "updf-ai",
+    "name": "UPDF AI",
+    "description": "Enriches the UPDF design editing app with instant paragraphs translate.",
+    "longDescription": "Comprehensive review of UPDF AI, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://updf.com",
+    "domain": "updf.com",
+    "brandColor": "#EA580C",
+    "imageUrl": "https://img.logo.dev/updf.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-07-30T08:16:11.376Z",
+    "tags": [
+      "PDF editor",
+      "Page arranger",
+      "Translator tool"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "documind",
+    "name": "Documind",
+    "description": "Construct structured databases from bulk collections of product manuals.",
+    "longDescription": "Comprehensive review of Documind, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://documind.chat",
+    "domain": "documind.chat",
+    "brandColor": "#1E3A8A",
+    "imageUrl": "https://img.logo.dev/documind.chat?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-07-28T08:16:11.376Z",
+    "tags": [
+      "Bulk pdf scanner",
+      "Database exports",
+      "Manual cataloging"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sharly-ai",
+    "name": "Sharly AI",
+    "description": "Collaborate with peers inside a shared document chat interface.",
+    "longDescription": "Comprehensive review of Sharly AI, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://sharly.ai",
+    "domain": "sharly.ai",
+    "brandColor": "#11C7D5",
+    "imageUrl": "https://img.logo.dev/sharly.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-07-26T08:16:11.376Z",
+    "tags": [
+      "Shared doc chat",
+      "Student notes helper",
+      "Summary bullets"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "explainpaper",
+    "name": "Explainpaper",
+    "description": "Simply highlight complex scientific terms to receive clear, simplified explanations.",
+    "longDescription": "Comprehensive review of Explainpaper, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://explainpaper.com",
+    "domain": "explainpaper.com",
+    "brandColor": "#0A0A0A",
+    "imageUrl": "https://img.logo.dev/explainpaper.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-24T08:16:11.376Z",
+    "tags": [
+      "Technical terms highlighter",
+      "Tutor assistant",
+      "Research papers"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "mapdeduce",
+    "name": "MapDeduce",
+    "description": "Audits corporate contracts to spot hidden fees and missing parameters.",
+    "longDescription": "Comprehensive review of MapDeduce, including features, user experience, and key performance reviews in AI PDF & Document Tools. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI PDF & Document Tools",
+    "url": "https://mapdeduce.com",
+    "domain": "mapdeduce.com",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/mapdeduce.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-07-22T08:16:11.376Z",
+    "tags": [
+      "Patent details checker",
+      "Financial data compiler",
+      "Log auditor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI PDF & Document Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "notebooklm",
+    "name": "NotebookLM",
+    "description": "Google's smart personal notebook. Ingests source manuals and drafts comparative outlines.",
+    "longDescription": "Comprehensive review of NotebookLM, including features, user experience, and key performance reviews in Research & Analysis. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://notebooklm.google.com",
+    "domain": "google.com",
+    "brandColor": "#4285F5",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-07-20T08:16:11.376Z",
+    "tags": [
+      "Podcast generation",
+      "Document analyzer",
+      "Gemini helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "elicit",
+    "name": "Elicit",
+    "description": "Finds peer consensus across papers and builds comparative literature review tables.",
+    "longDescription": "Comprehensive review of Elicit, including features, user experience, and key performance reviews in Research & Analysis. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://elicit.com",
+    "domain": "elicit.com",
+    "brandColor": "#3B82FE",
+    "imageUrl": "https://img.logo.dev/elicit.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-18T08:16:11.376Z",
+    "tags": [
+      "Consensus grid",
+      "Technical reviews",
+      "Citation finder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "consensus",
+    "name": "Consensus",
+    "description": "Evidence-based search engine returning direct answers compiled from peer-reviewed databases.",
+    "longDescription": "Comprehensive review of Consensus, including features, user experience, and key performance reviews in Research & Analysis. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://consensus.app",
+    "domain": "consensus.app",
+    "brandColor": "#D946F0",
+    "imageUrl": "https://img.logo.dev/consensus.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-16T08:16:11.376Z",
+    "tags": [
+      "Evidence engine",
+      "Science check",
+      "Academic sources"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "scispace",
+    "name": "SciSpace",
+    "description": "A supportive tutor helping students decipher advanced academic articles.",
+    "longDescription": "Comprehensive review of SciSpace, including features, user experience, and key performance reviews in Research & Analysis. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://typeset.io",
+    "domain": "typeset.io",
+    "brandColor": "#10B990",
+    "imageUrl": "https://img.logo.dev/typeset.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-14T08:16:11.376Z",
+    "tags": [
+      "Literature check",
+      "Math formula helper",
+      "Paper summaries"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "perplexity-research",
+    "name": "Perplexity",
+    "description": "Conversational answer engine delivering cited facts compiled from real-time sources.",
+    "longDescription": "Comprehensive review of Perplexity, including features, user experience, and key performance reviews in Research & Analysis. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://perplexity.ai",
+    "domain": "perplexity.ai",
+    "brandColor": "#00A389",
+    "imageUrl": "https://img.logo.dev/perplexity.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-07-12T08:16:11.376Z",
+    "tags": [
+      "Search AI",
+      "Citation sources",
+      "Copilot search"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "research-rabbit",
+    "name": "Research Rabbit",
+    "description": "A beautiful spatial map visualizer illustrating relationships between authors.",
+    "longDescription": "Comprehensive review of Research Rabbit, including features, user experience, and key performance reviews in Research & Analysis. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://researchrabbitapp.com",
+    "domain": "researchrabbitapp.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/researchrabbitapp.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-10T08:16:11.376Z",
+    "tags": [
+      "Graph visualizer",
+      "Collection mapper",
+      "Email tracker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "connected-papers",
+    "name": "Connected Papers",
+    "description": "Visualize the academic citation graph of specific research domains.",
+    "longDescription": "Comprehensive review of Connected Papers, including features, user experience, and key performance reviews in Research & Analysis. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://connectedpapers.com",
+    "domain": "connectedpapers.com",
+    "brandColor": "#2563EB",
+    "imageUrl": "https://img.logo.dev/connectedpapers.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-07-08T08:16:11.376Z",
+    "tags": [
+      "Reference map",
+      "Academic collections",
+      "Similar paper finder"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "semantic-scholar",
+    "name": "Semantic Scholar AI",
+    "description": "Allen Institute's advanced academic search indexer with impact tracking.",
+    "longDescription": "Comprehensive review of Semantic Scholar AI, including features, user experience, and key performance reviews in Research & Analysis. Built in 2015, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://semanticscholar.org",
+    "domain": "semanticscholar.org",
+    "brandColor": "#2B3A8F",
+    "imageUrl": "https://img.logo.dev/semanticscholar.org?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-07-06T08:16:11.376Z",
+    "tags": [
+      "Paper indexer",
+      "Impact tracking",
+      "Allen Institute"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "scholarcy",
+    "name": "Scholarcy",
+    "description": "Converts complex paper research papers into readable summary cards.",
+    "longDescription": "Comprehensive review of Scholarcy, including features, user experience, and key performance reviews in Research & Analysis. Built in 2018, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://scholarcy.com",
+    "domain": "scholarcy.com",
+    "brandColor": "#0D9488",
+    "imageUrl": "https://img.logo.dev/scholarcy.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-07-04T08:16:11.376Z",
+    "tags": [
+      "Flashcard outlines",
+      "Key data summaries",
+      "Text screen reader"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "explainpaper-research",
+    "name": "Explainpaper",
+    "description": "Highlight confusing equations or terms to get instant contextual definitions.",
+    "longDescription": "Comprehensive review of Explainpaper, including features, user experience, and key performance reviews in Research & Analysis. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Research & Analysis",
+    "url": "https://explainpaper.com",
+    "domain": "explainpaper.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/explainpaper.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2025-07-02T08:16:11.376Z",
+    "tags": [
+      "Term lookup",
+      "Paper translator",
+      "Academic guide"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Research & Analysis business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "description": "Conversational lookup engine synthesizing direct responses from web results.",
+    "longDescription": "Comprehensive review of Perplexity, including features, user experience, and key performance reviews in AI Search Engines. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://perplexity.ai",
+    "domain": "perplexity.ai",
+    "brandColor": "#00A389",
+    "imageUrl": "https://img.logo.dev/perplexity.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-06-30T08:16:11.376Z",
+    "tags": [
+      "Conversational Search",
+      "Research Citations",
+      "GPT-4o"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "you-ai-search",
+    "name": "You AI Search",
+    "description": "Personalized search portal with agent tools for comparative market analysis.",
+    "longDescription": "Comprehensive review of You AI Search, including features, user experience, and key performance reviews in AI Search Engines. Built in 2020, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://you.com",
+    "domain": "you.com",
+    "brandColor": "#0072FF",
+    "imageUrl": "https://img.logo.dev/you.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-06-28T08:16:11.376Z",
+    "tags": [
+      "Developer tools",
+      "Agent mode",
+      "Multi-tabs search"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "phind-search",
+    "name": "Phind",
+    "description": "Search engine for programmers, providing direct coding answers with sources.",
+    "longDescription": "Comprehensive review of Phind, including features, user experience, and key performance reviews in AI Search Engines. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://phind.com",
+    "domain": "phind.com",
+    "brandColor": "#2B5C8F",
+    "imageUrl": "https://img.logo.dev/phind.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-26T08:16:11.376Z",
+    "tags": [
+      "Code search",
+      "Developer search",
+      "Instant scripts"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "andi-ai",
+    "name": "Andi AI",
+    "description": "A cozy, ad-free private search bot that explains results in simple chat boxes.",
+    "longDescription": "Comprehensive review of Andi AI, including features, user experience, and key performance reviews in AI Search Engines. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://andisearch.com",
+    "domain": "andisearch.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/andisearch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-06-24T08:16:11.376Z",
+    "tags": [
+      "Conversational",
+      "Ad-free search",
+      "Clean UI"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "komo-ai",
+    "name": "Komo AI",
+    "description": "A specialized search aid prioritizing community forum answers.",
+    "longDescription": "Comprehensive review of Komo AI, including features, user experience, and key performance reviews in AI Search Engines. Built in 2022, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://komo.ai",
+    "domain": "komo.ai",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/komo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-06-22T08:16:11.376Z",
+    "tags": [
+      "Speedy search",
+      "Discussion forums",
+      "Subtle layout"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "exa-ai",
+    "name": "Exa AI",
+    "description": "Neural search engine styled for programmers, finding items via semantic intent.",
+    "longDescription": "Comprehensive review of Exa AI, including features, user experience, and key performance reviews in AI Search Engines. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://exa.ai",
+    "domain": "exa.ai",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/exa.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-20T08:16:11.376Z",
+    "tags": [
+      "Neural search",
+      "API keys finder",
+      "Aesthetic database"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "consensus-search",
+    "name": "Consensus",
+    "description": "Search tool queries clinical manuals to output verified evidence percentages.",
+    "longDescription": "Comprehensive review of Consensus, including features, user experience, and key performance reviews in AI Search Engines. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://consensus.app",
+    "domain": "consensus.app",
+    "brandColor": "#D946F0",
+    "imageUrl": "https://img.logo.dev/consensus.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-18T08:16:11.376Z",
+    "tags": [
+      "Science search",
+      "Factual answers",
+      "Peer reviewed sources"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "arc-search",
+    "name": "Arc Search",
+    "description": "Mobile browser that compiles custom summaries of multiple web sources instantly.",
+    "longDescription": "Comprehensive review of Arc Search, including features, user experience, and key performance reviews in AI Search Engines. Built in 2024, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Search Engines",
+    "url": "https://browsercompany.com",
+    "domain": "browsercompany.com",
+    "brandColor": "#FA2B6F",
+    "imageUrl": "https://img.logo.dev/browsercompany.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-06-16T08:16:11.376Z",
+    "tags": [
+      "Mobile browser",
+      "Browse for Me",
+      "Clean pages"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Search Engines business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "predis-ai",
+    "name": "Predis AI",
+    "description": "Converts text ideas into completed marketing Reels, captions, and hashtag lists.",
+    "longDescription": "Comprehensive review of Predis AI, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://predis.ai",
+    "domain": "predis.ai",
+    "brandColor": "#3B1EF6",
+    "imageUrl": "https://img.logo.dev/predis.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-06-14T08:16:11.376Z",
+    "tags": [
+      "Social designs",
+      "Auto Reel creator",
+      "Calendar scheduler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "ocoya",
+    "name": "Ocoya",
+    "description": "Create graphics, generate copy, and schedule multi-channel campaigns within clicks.",
+    "longDescription": "Comprehensive review of Ocoya, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://ocoya.com",
+    "domain": "ocoya.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/ocoya.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-06-12T08:16:11.376Z",
+    "tags": [
+      "Graphic templates",
+      "Caption planner",
+      "SaaS manager"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "buffer-ai",
+    "name": "Buffer AI",
+    "description": "Enriches Buffer's queue with smart generators for draft replies and scheduling.",
+    "longDescription": "Comprehensive review of Buffer AI, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://buffer.com",
+    "domain": "buffer.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/buffer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-06-10T08:16:11.376Z",
+    "tags": [
+      "Social queue",
+      "Topic mapping",
+      "Thread scheduler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hootsuite-ai",
+    "name": "Hootsuite AI",
+    "description": "Enables teams to track brand mentions, schedule social posts, and summarize reviews.",
+    "longDescription": "Comprehensive review of Hootsuite AI, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://hootsuite.com",
+    "domain": "hootsuite.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/hootsuite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-06-08T08:16:11.376Z",
+    "tags": [
+      "Outbound dashboard",
+      "Auditor",
+      "Competitor tracker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "feedhive",
+    "name": "FeedHive",
+    "description": "Clean publisher interface using virality scoring to optimize post times.",
+    "longDescription": "Comprehensive review of FeedHive, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://feedhive.com",
+    "domain": "feedhive.com",
+    "brandColor": "#FA4D2B",
+    "imageUrl": "https://img.logo.dev/feedhive.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-06T08:16:11.376Z",
+    "tags": [
+      "Virality scoring",
+      "Thread builder",
+      "Auto retweet queue"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "taplio",
+    "name": "Taplio",
+    "description": "LinkedIn growth tool with viral post templates, scheduling, and lead databases.",
+    "longDescription": "Comprehensive review of Taplio, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://taplio.com",
+    "domain": "taplio.com",
+    "brandColor": "#007DFF",
+    "imageUrl": "https://img.logo.dev/taplio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-04T08:16:11.376Z",
+    "tags": [
+      "LinkedIn growth",
+      "Engagement CRM",
+      "Carousel creator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "tweet-hunter",
+    "name": "Tweet Hunter",
+    "description": "Analyze high-performing tweets to scale your personal brand on X.",
+    "longDescription": "Comprehensive review of Tweet Hunter, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://tweethunter.io",
+    "domain": "tweethunter.io",
+    "brandColor": "#1D9BF0",
+    "imageUrl": "https://img.logo.dev/tweethunter.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-06-02T08:16:11.376Z",
+    "tags": [
+      "Twitter scheduler",
+      "Engagement assistant",
+      "Viral hooks"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "vista-social",
+    "name": "Vista Social AI",
+    "description": "Consolidated agency social workspace with automated customer support replies.",
+    "longDescription": "Comprehensive review of Vista Social AI, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2022, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://vistasocial.com",
+    "domain": "vistasocial.com",
+    "brandColor": "#0E9F6E",
+    "imageUrl": "https://img.logo.dev/vistasocial.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-31T08:16:11.376Z",
+    "tags": [
+      "Team dashboard",
+      "Review tracker",
+      "AI writer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "publer-ai",
+    "name": "Publer AI",
+    "description": "Vibrant visual scheduler with hashtag helpers and blog recycling rules.",
+    "longDescription": "Comprehensive review of Publer AI, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://publer.io",
+    "domain": "publer.io",
+    "brandColor": "#0083FF",
+    "imageUrl": "https://img.logo.dev/publer.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-05-29T08:16:11.376Z",
+    "tags": [
+      "Hashtag helper",
+      "Pinterest tool",
+      "SaaS automation"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "contentstudio",
+    "name": "ContentStudio",
+    "description": "Curate viral industry articles, write social captions, and queue posts in advance.",
+    "longDescription": "Comprehensive review of ContentStudio, including features, user experience, and key performance reviews in AI Social Media Tools. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Social Media Tools",
+    "url": "https://contentstudio.io",
+    "domain": "contentstudio.io",
+    "brandColor": "#2B5CFF",
+    "imageUrl": "https://img.logo.dev/contentstudio.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-27T08:16:11.376Z",
+    "tags": [
+      "Blog recycling",
+      "Influencer search",
+      "Curation engine"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Social Media Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "superhuman-ai",
+    "name": "Superhuman AI",
+    "description": "The fastest email client in the world, drafting clear context replies in seconds.",
+    "longDescription": "Comprehensive review of Superhuman AI, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://superhuman.com",
+    "domain": "superhuman.com",
+    "brandColor": "#E021A4",
+    "imageUrl": "https://img.logo.dev/superhuman.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-05-25T08:16:11.376Z",
+    "tags": [
+      "Fast client",
+      "Draft expander",
+      "Instant calendar"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "shortwave",
+    "name": "Shortwave",
+    "description": "Convert cluttered Gmail folders into crisp lists of summaries and tasks.",
+    "longDescription": "Comprehensive review of Shortwave, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://shortwave.com",
+    "domain": "shortwave.com",
+    "brandColor": "#0A0A0B",
+    "imageUrl": "https://img.logo.dev/shortwave.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-05-23T08:16:11.376Z",
+    "tags": [
+      "Inbox summarizer",
+      "Task schedules",
+      "Clean gmail"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "flowrite",
+    "name": "Flowrite",
+    "description": "Converts brief bullet points into fully formatted, customized email drafts.",
+    "longDescription": "Comprehensive review of Flowrite, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://flowrite.com",
+    "domain": "flowrite.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/flowrite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-21T08:16:11.376Z",
+    "tags": [
+      "Bullet compiler",
+      "Tone settings",
+      "Outbound template"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "lavender-ai",
+    "name": "Lavender AI",
+    "description": "Sales email assistant scoring layouts based on response chance.",
+    "longDescription": "Comprehensive review of Lavender AI, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://lavender.ai",
+    "domain": "lavender.ai",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/lavender.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-05-19T08:16:11.376Z",
+    "tags": [
+      "Sales scoring",
+      "Tone checker",
+      "Inbox stats"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "sanebox",
+    "name": "SaneBox",
+    "description": "Sorts non-essential newsletters into separate archives dynamically.",
+    "longDescription": "Comprehensive review of SaneBox, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2011, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://sanebox.com",
+    "domain": "sanebox.com",
+    "brandColor": "#FF9900",
+    "imageUrl": "https://img.logo.dev/sanebox.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-17T08:16:11.376Z",
+    "tags": [
+      "Folder sorter",
+      "Newsletter binder",
+      "Do-not-disturb"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "mailbutler",
+    "name": "Mailbutler",
+    "description": "Apple and Outlook add-on to summarize threads and track read states.",
+    "longDescription": "Comprehensive review of Mailbutler, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2015, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://mailbutler.io",
+    "domain": "mailbutler.io",
+    "brandColor": "#2A9D8F",
+    "imageUrl": "https://img.logo.dev/mailbutler.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-05-15T08:16:11.376Z",
+    "tags": [
+      "SDR tracker",
+      "Email signature",
+      "Template notes"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "missive-ai",
+    "name": "Missive AI",
+    "description": "Cooperative shared inbox workspace integrating prompt templates for team consensus.",
+    "longDescription": "Comprehensive review of Missive AI, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://missiveapp.com",
+    "domain": "missiveapp.com",
+    "brandColor": "#0A83FF",
+    "imageUrl": "https://img.logo.dev/missiveapp.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-05-13T08:16:11.376Z",
+    "tags": [
+      "Shared team client",
+      "Live chat support",
+      "Custom templates"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "fyxer-ai",
+    "name": "Fyxer AI",
+    "description": "Executive partner agent sorting priorities and queueing responses.",
+    "longDescription": "Comprehensive review of Fyxer AI, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://fyxer.ai",
+    "domain": "fyxer.ai",
+    "brandColor": "#FB7185",
+    "imageUrl": "https://img.logo.dev/fyxer.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-05-11T08:16:11.376Z",
+    "tags": [
+      "Executive assistant",
+      "Action tasking",
+      "SaaS inbox planner"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ellie-ai",
+    "name": "Ellie AI",
+    "description": "Chrome expansion that drafting intuitive email responses styled after your tone.",
+    "longDescription": "Comprehensive review of Ellie AI, including features, user experience, and key performance reviews in AI Email Assistants. Built in 2022, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Email Assistants",
+    "url": "https://ellie.ai",
+    "domain": "ellie.ai",
+    "brandColor": "#06B6D4",
+    "imageUrl": "https://img.logo.dev/ellie.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-05-09T08:16:11.376Z",
+    "tags": [
+      "Chat mimic",
+      "Paragraph reader",
+      "Bilingual translator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Email Assistants business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "framer-web-builder",
+    "name": "Framer AI",
+    "description": "Design animated landing blocks and websites rapidly utilizing Framer's editor.",
+    "longDescription": "Comprehensive review of Framer AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://framer.com",
+    "domain": "framer.com",
+    "brandColor": "#0055FF",
+    "imageUrl": "https://img.logo.dev/framer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-05-07T08:16:11.376Z",
+    "tags": [
+      "Interaction designer",
+      "Canvas",
+      "Marketing pages"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "wix-ai",
+    "name": "Wix AI",
+    "description": "Wix's prompt generator compiles multi page structures with catalogs and booking tools.",
+    "longDescription": "Comprehensive review of Wix AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://wix.com",
+    "domain": "wix.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/wix.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-05T08:16:11.376Z",
+    "tags": [
+      "Instant page",
+      "SaaS client booking",
+      "Store catalog"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "durable",
+    "name": "Durable AI",
+    "description": "A great companion to generate complete startup and service websites in seconds.",
+    "longDescription": "Comprehensive review of Durable AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://durable.co",
+    "domain": "durable.co",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/durable.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-03T08:16:11.376Z",
+    "tags": [
+      "Instant local site",
+      "Invoicing",
+      "SEO copy"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "10web",
+    "name": "10Web",
+    "description": "Translate generic URLs into fully editable Elementor layouts in seconds.",
+    "longDescription": "Comprehensive review of 10Web, including features, user experience, and key performance reviews in AI Website Builders. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://10web.io",
+    "domain": "10web.io",
+    "brandColor": "#1E3B8B",
+    "imageUrl": "https://img.logo.dev/10web.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-05-01T08:16:11.376Z",
+    "tags": [
+      "WordPress cloning",
+      "Elementor builder",
+      "Host services"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "hostinger-ai",
+    "name": "Hostinger AI Builder",
+    "description": "Hostinger's site designer compiling pages with payment checkouts.",
+    "longDescription": "Comprehensive review of Hostinger AI Builder, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://hostinger.com",
+    "domain": "hostinger.com",
+    "brandColor": "#673DE6",
+    "imageUrl": "https://img.logo.dev/hostinger.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-04-29T08:16:11.376Z",
+    "tags": [
+      "Web host",
+      "Store checkout",
+      "Logo helper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "jimdo-ai",
+    "name": "Jimdo AI",
+    "description": "A beginner-friendly portfolio compiler with automatic legal text settings.",
+    "longDescription": "Comprehensive review of Jimdo AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://jimdo.com",
+    "domain": "jimdo.com",
+    "brandColor": "#0062FF",
+    "imageUrl": "https://img.logo.dev/jimdo.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-04-27T08:16:11.376Z",
+    "tags": [
+      "No-code portfolio",
+      "Store blocks",
+      "Legal disclaimer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "webflow-ai",
+    "name": "Webflow AI",
+    "description": "Webflow's smart helper optimizing layout classes, tags, and CMS pages.",
+    "longDescription": "Comprehensive review of Webflow AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Website Builders",
+    "url": "https://webflow.com",
+    "domain": "webflow.com",
+    "brandColor": "#4353FF",
+    "imageUrl": "https://img.logo.dev/webflow.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-04-25T08:16:11.376Z",
+    "tags": [
+      "Style classes logs",
+      "CMS list",
+      "Web interactions"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "relume-ai",
+    "name": "Relume AI",
+    "description": "Outstanding sitemap and wireframe modeler exporting pristine Figma layouts.",
+    "longDescription": "Comprehensive review of Relume AI, including features, user experience, and key performance reviews in AI Website Builders. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://relume.io",
+    "domain": "relume.io",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/relume.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-04-23T08:16:11.376Z",
+    "tags": [
+      "Wireframe outline",
+      "Figma design blocks",
+      "Sitemap"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Website Builders business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "intercom-fin",
+    "name": "Intercom Fin",
+    "description": "Accurately references help manuals to resolve customer issues instantly.",
+    "longDescription": "Comprehensive review of Intercom Fin, including features, user experience, and key performance reviews in Customer Support. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://intercom.com",
+    "domain": "intercom.com",
+    "brandColor": "#005CFF",
+    "imageUrl": "https://img.logo.dev/intercom.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2025-04-21T08:16:11.376Z",
+    "tags": [
+      "Instant responder",
+      "Knowledge syncing",
+      "Ticket logger"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "zendesk-ai",
+    "name": "Zendesk AI",
+    "description": "Flags customer intent and updates reply tones in real time.",
+    "longDescription": "Comprehensive review of Zendesk AI, including features, user experience, and key performance reviews in Customer Support. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Customer Support",
+    "url": "https://zendesk.com",
+    "domain": "zendesk.com",
+    "brandColor": "#033640",
+    "imageUrl": "https://img.logo.dev/zendesk.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-04-19T08:16:11.376Z",
+    "tags": [
+      "Sentiment checker",
+      "Dynamic routing",
+      "Helpdesk summary"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tidio",
+    "name": "Tidio AI",
+    "description": "Lyro bot answering common store user queries from handbook links.",
+    "longDescription": "Comprehensive review of Tidio AI, including features, user experience, and key performance reviews in Customer Support. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://tidio.com",
+    "domain": "tidio.com",
+    "brandColor": "#004FFF",
+    "imageUrl": "https://img.logo.dev/tidio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-04-17T08:16:11.376Z",
+    "tags": [
+      "Lyro chatbot",
+      "Live chat widgets",
+      "E-commerce bots"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "chatbase",
+    "name": "Chatbase",
+    "description": "Upload manuals and files to build custom chat widgets in clicks.",
+    "longDescription": "Comprehensive review of Chatbase, including features, user experience, and key performance reviews in Customer Support. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://chatbase.co",
+    "domain": "chatbase.co",
+    "brandColor": "#050518",
+    "imageUrl": "https://img.logo.dev/chatbase.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-04-15T08:16:11.376Z",
+    "tags": [
+      "Embedded script",
+      "Folder upload",
+      "Lead logger"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "botpress",
+    "name": "Botpress",
+    "description": "Flowchart canvas allows teams to build complex chatbot helpers.",
+    "longDescription": "Comprehensive review of Botpress, including features, user experience, and key performance reviews in Customer Support. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://botpress.com",
+    "domain": "botpress.com",
+    "brandColor": "#3F3F56",
+    "imageUrl": "https://img.logo.dev/botpress.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-04-13T08:16:11.376Z",
+    "tags": [
+      "Flowchart canvas",
+      "Language routing",
+      "Database links"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "voiceflow",
+    "name": "Voiceflow",
+    "description": "Visually construct dialogue trees and export working customer support blocks.",
+    "longDescription": "Comprehensive review of Voiceflow, including features, user experience, and key performance reviews in Customer Support. Built in 2019, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://voiceflow.com",
+    "domain": "voiceflow.com",
+    "brandColor": "#EF4452",
+    "imageUrl": "https://img.logo.dev/voiceflow.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-04-11T08:16:11.376Z",
+    "tags": [
+      "Dialogue tree designer",
+      "Cooperative prototype",
+      "Support logs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "freshdesk-ai",
+    "name": "Freshdesk AI",
+    "description": "Freddy AI companion summarizes tickets and drafts support templates.",
+    "longDescription": "Comprehensive review of Freshdesk AI, including features, user experience, and key performance reviews in Customer Support. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Customer Support",
+    "url": "https://freshworks.com",
+    "domain": "freshworks.com",
+    "brandColor": "#007DFF",
+    "imageUrl": "https://img.logo.dev/freshworks.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-04-09T08:16:11.376Z",
+    "tags": [
+      "Freddy bot helper",
+      "Agent helper",
+      "Ticket sorter"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ada-ai-support",
+    "name": "Ada AI",
+    "description": "Automate complex enterprise client requests like account resets and bookings.",
+    "longDescription": "Comprehensive review of Ada AI, including features, user experience, and key performance reviews in Customer Support. Built in 2016, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Customer Support",
+    "url": "https://ada.cx",
+    "domain": "ada.cx",
+    "brandColor": "#4B0082",
+    "imageUrl": "https://img.logo.dev/ada.cx?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-04-07T08:16:11.376Z",
+    "tags": [
+      "Enterprise bot",
+      "CRM routing",
+      "Account settings"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "crisp-ai",
+    "name": "Crisp AI",
+    "description": "Simplifies live chat queues with automated help article linking.",
+    "longDescription": "Comprehensive review of Crisp AI, including features, user experience, and key performance reviews in Customer Support. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Customer Support",
+    "url": "https://crisp.chat",
+    "domain": "crisp.chat",
+    "brandColor": "#1A56F6",
+    "imageUrl": "https://img.logo.dev/crisp.chat?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-04-05T08:16:11.376Z",
+    "tags": [
+      "Vibe reply mimic",
+      "Article recommender",
+      "Translated logs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Customer Support business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ramp-ai",
+    "name": "Ramp AI",
+    "description": "Corporate expense program automatically categorizing card receipts and cost leaks.",
+    "longDescription": "Comprehensive review of Ramp AI, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://ramp.com",
+    "domain": "ramp.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/ramp.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-04-03T08:16:11.376Z",
+    "tags": [
+      "Expense checker",
+      "Receipt match logger",
+      "Cost auditor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "brex-ai",
+    "name": "Brex AI",
+    "description": "Ensures legal budget limit compliance on travel plans.",
+    "longDescription": "Comprehensive review of Brex AI, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://brex.com",
+    "domain": "brex.com",
+    "brandColor": "#FF4A00",
+    "imageUrl": "https://img.logo.dev/brex.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-04-01T08:16:11.376Z",
+    "tags": [
+      "Travel bills audit",
+      "Budget tracker",
+      "VAT match"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "vic-ai",
+    "name": "Vic.ai",
+    "description": "Automates complex accounts payable tasks by copying invoices directly into ledgers.",
+    "longDescription": "Comprehensive review of Vic.ai, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://vic.ai",
+    "domain": "vic.ai",
+    "brandColor": "#0D2240",
+    "imageUrl": "https://img.logo.dev/vic.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-03-30T08:16:11.376Z",
+    "tags": [
+      "Invoice ledger",
+      "Vendor logs check",
+      "Tax rules"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "booke-ai",
+    "name": "Booke AI",
+    "description": "Fixes multi category booking mistakes in Quickbooks reports.",
+    "longDescription": "Comprehensive review of Booke AI, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2021, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://booke.ai",
+    "domain": "booke.ai",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/booke.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": true,
+    "dateAdded": "2025-03-28T08:16:11.376Z",
+    "tags": [
+      "Quickbooks sync",
+      "Receipt scanner",
+      "Anomaly check"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "datarails-ai",
+    "name": "Datarails AI",
+    "description": "Translates standard offline financial sheets into synchronized cloud folders.",
+    "longDescription": "Comprehensive review of Datarails AI, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://datarails.com",
+    "domain": "datarails.com",
+    "brandColor": "#00D28F",
+    "imageUrl": "https://img.logo.dev/datarails.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-26T08:16:11.376Z",
+    "tags": [
+      "Excel templates helper",
+      "FP&A reports",
+      "Figures compiler"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "fathom-finance",
+    "name": "Fathom Finance",
+    "description": "Generates clear visual dashboard charts explaining performance files.",
+    "longDescription": "Comprehensive review of Fathom Finance, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://fathomhq.com",
+    "domain": "fathomhq.com",
+    "brandColor": "#FF3F66",
+    "imageUrl": "https://img.logo.dev/fathomhq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-03-24T08:16:11.376Z",
+    "tags": [
+      "Shareholder slides",
+      "Tax sheets",
+      "Growth matrices"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "digits-ai",
+    "name": "Digits AI",
+    "description": "Provides instantly updated accounting reports and interactive graph dashboards.",
+    "longDescription": "Comprehensive review of Digits AI, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://digits.com",
+    "domain": "digits.com",
+    "brandColor": "#00AAFF",
+    "imageUrl": "https://img.logo.dev/digits.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-22T08:16:11.376Z",
+    "tags": [
+      "Realtime reports",
+      "Ledgers graph",
+      "Cost parser"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "finaloop",
+    "name": "Finaloop",
+    "description": "Fully automated bookkeeper tailored for direct-to-consumer e-commerce players.",
+    "longDescription": "Comprehensive review of Finaloop, including features, user experience, and key performance reviews in Business & Finance AI. Built in 2020, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Business & Finance AI",
+    "url": "https://finaloop.com",
+    "domain": "finaloop.com",
+    "brandColor": "#FA3B00",
+    "imageUrl": "https://img.logo.dev/finaloop.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-03-20T08:16:11.376Z",
+    "tags": [
+      "Shopify books",
+      "Payment gateway log",
+      "Ecom stats"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Business & Finance AI business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "eightfold-ai",
+    "name": "Eightfold AI",
+    "description": "Enterprise platform mapping team skills and finding career progression tracks.",
+    "longDescription": "Comprehensive review of Eightfold AI, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2016, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://eightfold.ai",
+    "domain": "eightfold.ai",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/eightfold.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-18T08:16:11.376Z",
+    "tags": [
+      "Workforce planners",
+      "Talent indexing",
+      "Skill map"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "hirevue-ai",
+    "name": "HireVue AI",
+    "description": "Integrates specialized coding tasks and online assessments for high volume hiring.",
+    "longDescription": "Comprehensive review of HireVue AI, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2015, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://hirevue.com",
+    "domain": "hirevue.com",
+    "brandColor": "#0062FF",
+    "imageUrl": "https://img.logo.dev/hirevue.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-03-16T08:16:11.376Z",
+    "tags": [
+      "Video scanner",
+      "Skill challenges",
+      "Role fit scoring"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "paradox-olivia",
+    "name": "Paradox Olivia",
+    "description": "Recruiting assistant Olivia chats with job candidates over text to organize interviews.",
+    "longDescription": "Comprehensive review of Paradox Olivia, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2016, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://paradox.ai",
+    "domain": "paradox.ai",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/paradox.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-14T08:16:11.376Z",
+    "tags": [
+      "Olivia chat app",
+      "SMS scheduler",
+      "Onboarding logs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "seekout-ai",
+    "name": "SeekOut AI",
+    "description": "Allows technical recruiters to find passive engineers and niche researchers.",
+    "longDescription": "Comprehensive review of SeekOut AI, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2017, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://seekout.com",
+    "domain": "seekout.com",
+    "brandColor": "#1E3B8B",
+    "imageUrl": "https://img.logo.dev/seekout.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-03-12T08:16:11.376Z",
+    "tags": [
+      "Outreach SDR",
+      "Engineer scout",
+      "Patent records"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "fetcher-ai",
+    "name": "Fetcher AI",
+    "description": "Scouts job candidates and sends personalized follow-up emails.",
+    "longDescription": "Comprehensive review of Fetcher AI, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2017, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://fetcher.ai",
+    "domain": "fetcher.ai",
+    "brandColor": "#3B1EF6",
+    "imageUrl": "https://img.logo.dev/fetcher.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-03-10T08:16:11.376Z",
+    "tags": [
+      "Auto outreach folder",
+      "Drip message",
+      "Lead dashboard"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2017
+  },
+  {
+    "id": "manatal-ai",
+    "name": "Manatal AI",
+    "description": "Intuitive ATS software parser matching candidate profiles with open jobs.",
+    "longDescription": "Comprehensive review of Manatal AI, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://manatal.com",
+    "domain": "manatal.com",
+    "brandColor": "#00E0A6",
+    "imageUrl": "https://img.logo.dev/manatal.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-08T08:16:11.376Z",
+    "tags": [
+      "ATS CRM",
+      "Social profile scanner",
+      "Hire checklist"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "textio",
+    "name": "Textio",
+    "description": "Flags gender bias and jargon in job descriptions to attract diverse talent.",
+    "longDescription": "Comprehensive review of Textio, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2014, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://textio.com",
+    "domain": "textio.com",
+    "brandColor": "#00C39C",
+    "imageUrl": "https://img.logo.dev/textio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-03-06T08:16:11.376Z",
+    "tags": [
+      "Bias check",
+      "Tone suggestions",
+      "JD optimizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2014
+  },
+  {
+    "id": "skillate",
+    "name": "Skillate",
+    "description": "Resume parsing AI offering candidate matching and automated screening.",
+    "longDescription": "Comprehensive review of Skillate, including features, user experience, and key performance reviews in HR & Recruiting. Built in 2016, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "HR & Recruiting",
+    "url": "https://skillate.com",
+    "domain": "skillate.com",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/skillate.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-03-04T08:16:11.376Z",
+    "tags": [
+      "Resume matching",
+      "Anonymizer logs",
+      "HR tables"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard HR & Recruiting business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "datarobot",
+    "name": "DataRobot",
+    "description": "Enterprise AutoML workspace to build, check, and monitor forecasting algorithms.",
+    "longDescription": "Comprehensive review of DataRobot, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2012, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://datarobot.com",
+    "domain": "datarobot.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/datarobot.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-03-02T08:16:11.376Z",
+    "tags": [
+      "AutoML modeler",
+      "Feature mapper",
+      "Cloud deploy"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2012
+  },
+  {
+    "id": "h2o-ai",
+    "name": "H2O.ai",
+    "description": "Highly customizable model sandbox for predictive fraud and risk telemetry scoring.",
+    "longDescription": "Comprehensive review of H2O.ai, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2012, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://h2o.ai",
+    "domain": "h2o.ai",
+    "brandColor": "#0D2240",
+    "imageUrl": "https://img.logo.dev/h2o.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Open Source",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-02-28T08:16:11.376Z",
+    "tags": [
+      "LLM fine tuning",
+      "Forecasting",
+      "H2O driverless"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2012
+  },
+  {
+    "id": "obviously-ai",
+    "name": "Obviously AI",
+    "description": "Build machine learning models from spreadsheet spreadsheets without coding.",
+    "longDescription": "Comprehensive review of Obviously AI, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2018, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://obviously.ai",
+    "domain": "obviously.ai",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/obviously.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-02-26T08:16:11.376Z",
+    "tags": [
+      "No-code prediction",
+      "SaaS client logs",
+      "CSV tables import"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "julius-ai",
+    "name": "Julius AI",
+    "description": "Chat assistant that writes clean Python code to graph and clean custom charts.",
+    "longDescription": "Comprehensive review of Julius AI, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://julius.ai",
+    "domain": "julius.ai",
+    "brandColor": "#014B3E",
+    "imageUrl": "https://img.logo.dev/julius.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-02-24T08:16:11.376Z",
+    "tags": [
+      "Chat spreadsheet data",
+      "R scripts editor",
+      "Python canvas"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "akkio",
+    "name": "Akkio",
+    "description": "A clean dashboard designed for marketing teams to model customer behavior.",
+    "longDescription": "Comprehensive review of Akkio, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2020, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://akkio.com",
+    "domain": "akkio.com",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/akkio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-22T08:16:11.376Z",
+    "tags": [
+      "Interactive metrics",
+      "SDR tracker",
+      "Dashboard analytics"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "tableau-ai",
+    "name": "Tableau AI",
+    "description": "Enriches the Tableau ecosystem with automated slide descriptions and charts.",
+    "longDescription": "Comprehensive review of Tableau AI, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://tableau.com",
+    "domain": "tableau.com",
+    "brandColor": "#E090F1",
+    "imageUrl": "https://img.logo.dev/tableau.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-20T08:16:11.376Z",
+    "tags": [
+      "Salesforce dashboard",
+      "Viz panels",
+      "Data prep"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "power-bi-copilot",
+    "name": "Power BI Copilot",
+    "description": "Generates custom DAX code and dashboard panels for business teams.",
+    "longDescription": "Comprehensive review of Power BI Copilot, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://powerbi.microsoft.com",
+    "domain": "microsoft.com",
+    "brandColor": "#F2C811",
+    "imageUrl": "https://img.logo.dev/microsoft.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-02-18T08:16:11.376Z",
+    "tags": [
+      "DAX helpers",
+      "Corporate analytics",
+      "SQL tables viewer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "polymer-search",
+    "name": "Polymer Search",
+    "description": "Converts chaotic spreadsheets into beautiful, searchable interactive directories.",
+    "longDescription": "Comprehensive review of Polymer Search, including features, user experience, and key performance reviews in Data Science & Analytics. Built in 2021, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Data Science & Analytics",
+    "url": "https://polymerproject.org",
+    "domain": "google.com",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-02-16T08:16:11.376Z",
+    "tags": [
+      "Graph logs generator",
+      "CSV catalog organizer",
+      "Metrics tracker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Data Science & Analytics business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "glass-health",
+    "name": "Glass Health",
+    "description": "Clinical reasoning assistant for doctors, drafting diagnostics from symptom lists.",
+    "longDescription": "Comprehensive review of Glass Health, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://glass.health",
+    "domain": "glass.health",
+    "brandColor": "#006BFE",
+    "imageUrl": "https://img.logo.dev/glass.health?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-14T08:16:11.376Z",
+    "tags": [
+      "Clinical reasoning",
+      "Schema logs advisor",
+      "Diagnostics paper"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "ada-health",
+    "name": "Ada Health",
+    "description": "CE-certified symptom checker assessing risks and suggesting next steps.",
+    "longDescription": "Comprehensive review of Ada Health, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2011, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://ada.com",
+    "domain": "ada.com",
+    "brandColor": "#0A83FF",
+    "imageUrl": "https://img.logo.dev/ada.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-02-12T08:16:11.376Z",
+    "tags": [
+      "Symptom checker",
+      "Doctor finder",
+      "Medical files"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "hippocratic-ai",
+    "name": "Hippocratic AI",
+    "description": "Empathy-driven virtual care agents supporting appointment planning and follow-ups.",
+    "longDescription": "Comprehensive review of Hippocratic AI, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://hippocraticai.com",
+    "domain": "hippocraticai.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/hippocraticai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-10T08:16:11.376Z",
+    "tags": [
+      "Clinician nurse bot",
+      "Care tracking",
+      "Legal HIPAA safe"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "abridge",
+    "name": "Abridge",
+    "description": "Listens to patient check-ups of doctors to format clinical notes for EMRs.",
+    "longDescription": "Comprehensive review of Abridge, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2018, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://abridge.com",
+    "domain": "abridge.com",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/abridge.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2025-02-08T08:16:11.376Z",
+    "tags": [
+      "Medical notes dictation",
+      "EMR database",
+      "Physician guide"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "nabla",
+    "name": "Nabla",
+    "description": "Speedy copilot transcribing patient conversations into structured notes.",
+    "longDescription": "Comprehensive review of Nabla, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2018, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://nabla.com",
+    "domain": "nabla.com",
+    "brandColor": "#FF1F62",
+    "imageUrl": "https://img.logo.dev/nabla.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-06T08:16:11.376Z",
+    "tags": [
+      "Symptom summaries",
+      "EMR dashboard",
+      "Copilot app"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "freed-ai",
+    "name": "Freed AI",
+    "description": "A secure assistant that listens to patient check-ups to write standard medical history.",
+    "longDescription": "Comprehensive review of Freed AI, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://getfreed.ai",
+    "domain": "getfreed.ai",
+    "brandColor": "#014B3E",
+    "imageUrl": "https://img.logo.dev/getfreed.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-04T08:16:11.376Z",
+    "tags": [
+      "Acoustic dictation",
+      "EMR checklist",
+      "Daily schedule advisor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "openevidence",
+    "name": "OpenEvidence",
+    "description": "Expert search tool providing cited references from professional clinical journals.",
+    "longDescription": "Comprehensive review of OpenEvidence, including features, user experience, and key performance reviews in AI Healthcare Tools. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Healthcare Tools",
+    "url": "https://openevidence.com",
+    "domain": "openevidence.com",
+    "brandColor": "#2B5CFF",
+    "imageUrl": "https://img.logo.dev/openevidence.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-02-02T08:16:11.376Z",
+    "tags": [
+      "Clinical evidence search",
+      "Medical consensus checker",
+      "Doctor guidelines"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Healthcare Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "darktrace",
+    "name": "Darktrace",
+    "description": "Threat management suite detecting and blocking system anomalies in real time.",
+    "longDescription": "Comprehensive review of Darktrace, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2013, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://darktrace.com",
+    "domain": "darktrace.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/darktrace.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-01-31T08:16:11.376Z",
+    "tags": [
+      "Autonomous security",
+      "Anomalies tracker",
+      "Email scan"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2013
+  },
+  {
+    "id": "crowdstrike-charlotte",
+    "name": "CrowdStrike Charlotte AI",
+    "description": "Charlotte companion helps analysts track threats and compile system reports.",
+    "longDescription": "Comprehensive review of CrowdStrike Charlotte AI, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://crowdstrike.com",
+    "domain": "crowdstrike.com",
+    "brandColor": "#FF0000",
+    "imageUrl": "https://img.logo.dev/crowdstrike.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-01-29T08:16:11.376Z",
+    "tags": [
+      "Charlotte agent",
+      "Malware blocks",
+      "Log analytics"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "microsoft-security-copilot",
+    "name": "Microsoft Security Copilot",
+    "description": "Integrates threat intel directly inside corporate cloud defense frameworks.",
+    "longDescription": "Comprehensive review of Microsoft Security Copilot, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://microsoft.com",
+    "domain": "microsoft.com",
+    "brandColor": "#00A4EF",
+    "imageUrl": "https://img.logo.dev/microsoft.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-27T08:16:11.376Z",
+    "tags": [
+      "Sentinel rules tracker",
+      "Attack vector map",
+      "Incident report"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sentinelone-purple",
+    "name": "SentinelOne Purple AI",
+    "description": "Threat hunting assistant that queries end point logs to fix system breaches.",
+    "longDescription": "Comprehensive review of SentinelOne Purple AI, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://sentinelone.com",
+    "domain": "sentinelone.com",
+    "brandColor": "#E1523D",
+    "imageUrl": "https://img.logo.dev/sentinelone.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-01-25T08:16:11.376Z",
+    "tags": [
+      "Endpoint log scan",
+      "Automated patch",
+      "Incident log"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "vectra-ai",
+    "name": "Vectra AI",
+    "description": "Threat monitoring tool logging anomalous user sessions on SaaS platforms.",
+    "longDescription": "Comprehensive review of Vectra AI, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2008, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://vectra.ai",
+    "domain": "vectra.ai",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/vectra.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-01-23T08:16:11.376Z",
+    "tags": [
+      "Cloud logs check",
+      "Lateral trace network",
+      "Threat score"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2008
+  },
+  {
+    "id": "abnormal-security",
+    "name": "Abnormal Security",
+    "description": "Stops inbound social engineering and executive mimic attacks.",
+    "longDescription": "Comprehensive review of Abnormal Security, including features, user experience, and key performance reviews in AI Cybersecurity Tools. Built in 2018, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://abnormalsecurity.com",
+    "domain": "abnormalsecurity.com",
+    "brandColor": "#FF5200",
+    "imageUrl": "https://img.logo.dev/abnormalsecurity.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2025-01-21T08:16:11.376Z",
+    "tags": [
+      "Phishing filter",
+      "CEO mimic log blocker",
+      "Email scan"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Cybersecurity Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "zillow-ai",
+    "name": "Zillow AI",
+    "description": "Enriches the Zillow dashboard search with direct descriptions and automated tags.",
+    "longDescription": "Comprehensive review of Zillow AI, including features, user experience, and key performance reviews in AI Real Estate Tools. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Real Estate Tools",
+    "url": "https://zillow.com",
+    "domain": "zillow.com",
+    "brandColor": "#006AFF",
+    "imageUrl": "https://img.logo.dev/zillow.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-19T08:16:11.376Z",
+    "tags": [
+      "Interactive search",
+      "Home value forecast",
+      "Floor plan creator"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Real Estate Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "restb-ai",
+    "name": "Restb.ai",
+    "description": "Scans property photos to automatically tag fireplace types and granite counters.",
+    "longDescription": "Comprehensive review of Restb.ai, including features, user experience, and key performance reviews in AI Real Estate Tools. Built in 2015, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Real Estate Tools",
+    "url": "https://restb.ai",
+    "domain": "restb.ai",
+    "brandColor": "#1E3A8A",
+    "imageUrl": "https://img.logo.dev/restb.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-17T08:16:11.376Z",
+    "tags": [
+      "Listing tagging",
+      "Damage scanner",
+      "MLS database sync"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Real Estate Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "reimaginehome",
+    "name": "REimagineHome AI",
+    "description": "Re-imagines physical spaces of empty properties with virtual staging.",
+    "longDescription": "Comprehensive review of REimagineHome AI, including features, user experience, and key performance reviews in AI Real Estate Tools. Built in 2022, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Real Estate Tools",
+    "url": "https://reimaginehome.ai",
+    "domain": "reimaginehome.ai",
+    "brandColor": "#E0218A",
+    "imageUrl": "https://img.logo.dev/reimaginehome.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": true,
+    "dateAdded": "2025-01-15T08:16:11.376Z",
+    "tags": [
+      "Virtual stager",
+      "Color customizer",
+      "Furniture blocks"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Real Estate Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "epique-ai",
+    "name": "Epique AI",
+    "description": "Fabulous platform drafting property descriptions and local flyers for agents.",
+    "longDescription": "Comprehensive review of Epique AI, including features, user experience, and key performance reviews in AI Real Estate Tools. Built in 2023, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI Real Estate Tools",
+    "url": "https://epique.ai",
+    "domain": "epique.ai",
+    "brandColor": "#046A38",
+    "imageUrl": "https://img.logo.dev/epique.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2025-01-13T08:16:11.376Z",
+    "tags": [
+      "Brochure generator",
+      "Legal contract helper",
+      "SDR emails"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Real Estate Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "housecanary",
+    "name": "HouseCanary",
+    "description": "Combines predictive analytics to estimate accurate listing valuations.",
+    "longDescription": "Comprehensive review of HouseCanary, including features, user experience, and key performance reviews in AI Real Estate Tools. Built in 2013, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Real Estate Tools",
+    "url": "https://housecanary.com",
+    "domain": "housecanary.com",
+    "brandColor": "#FF9900",
+    "imageUrl": "https://img.logo.dev/housecanary.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-11T08:16:11.376Z",
+    "tags": [
+      "Valuation index",
+      "Risk scoring metrics",
+      "Real estate tables"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Real Estate Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2013
+  },
+  {
+    "id": "shopify-magic",
+    "name": "Shopify Magic",
+    "description": "Draft product catalogs and manage customer support directly inside shop dashboards.",
+    "longDescription": "Comprehensive review of Shopify Magic, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://shopify.com",
+    "domain": "shopify.com",
+    "brandColor": "#96BF48",
+    "imageUrl": "https://img.logo.dev/shopify.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-01-09T08:16:11.376Z",
+    "tags": [
+      "Product descriptions creator",
+      "Discount scheduler",
+      "Email followups"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "clerk-io",
+    "name": "Clerk.io",
+    "description": "Provides specialized search fields and smart suggestions that boost checkouts.",
+    "longDescription": "Comprehensive review of Clerk.io, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2011, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://clerk.io",
+    "domain": "clerk.io",
+    "brandColor": "#2B52F1",
+    "imageUrl": "https://img.logo.dev/clerk.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-07T08:16:11.376Z",
+    "tags": [
+      "Cross seller",
+      "Search box helper",
+      "Inbox marketing"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "visenze-ai",
+    "name": "ViSenze AI",
+    "description": "Directly matches screenshots of prospective buyers with store inventory.",
+    "longDescription": "Comprehensive review of ViSenze AI, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2012, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://visenze.com",
+    "domain": "visenze.com",
+    "brandColor": "#00E0A6",
+    "imageUrl": "https://img.logo.dev/visenze.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2025-01-05T08:16:11.376Z",
+    "tags": [
+      "Visual search box",
+      "Similar clothing",
+      "Visual tags"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2012
+  },
+  {
+    "id": "vue-ai",
+    "name": "Vue.ai",
+    "description": "Virtual avatar dressing systems updating product catalogs in clicks.",
+    "longDescription": "Comprehensive review of Vue.ai, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2016, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://vue.ai",
+    "domain": "vue.ai",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/vue.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2025-01-03T08:16:11.376Z",
+    "tags": [
+      "Model stager clothing",
+      "Catalog analyzer",
+      "Pricing tool"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "lily-ai",
+    "name": "Lily AI",
+    "description": "Identifies subjective shopper emotions to match catalogs with customer context.",
+    "longDescription": "Comprehensive review of Lily AI, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2015, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://lily.ai",
+    "domain": "lily.ai",
+    "brandColor": "#FA3B00",
+    "imageUrl": "https://img.logo.dev/lily.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2025-01-01T08:16:11.376Z",
+    "tags": [
+      "Emotion buyer mapper",
+      "Feminine tags",
+      "DTC tables"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2015
+  },
+  {
+    "id": "nosto-ai",
+    "name": "Nosto AI",
+    "description": "Tailors homepage hero banners and banners based on user purchase history.",
+    "longDescription": "Comprehensive review of Nosto AI, including features, user experience, and key performance reviews in AI Ecommerce Tools. Built in 2011, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://nosto.com",
+    "domain": "nosto.com",
+    "brandColor": "#111827",
+    "imageUrl": "https://img.logo.dev/nosto.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-12-30T08:16:11.376Z",
+    "tags": [
+      "Personalized page",
+      "Cart abandoner",
+      "Dynamic headers"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Ecommerce Tools business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "merlin",
+    "name": "Merlin AI",
+    "description": "An integrated portal summarizes Youtube transcripts and drafts replies.",
+    "longDescription": "Comprehensive review of Merlin AI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://getmerlin.in",
+    "domain": "google.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-12-28T08:16:11.376Z",
+    "tags": [
+      "Youtube summary",
+      "X copy assistant",
+      "Google overlay"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "monica",
+    "name": "Monica AI",
+    "description": "A sidebar utility hosting major chat models within a single browser extension.",
+    "longDescription": "Comprehensive review of Monica AI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://monica.im",
+    "domain": "google.com",
+    "brandColor": "#0A0B0D",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-12-26T08:16:11.376Z",
+    "tags": [
+      "Copilot sidebar",
+      "Text selector translate",
+      "Aesthetic layout"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sider-ai",
+    "name": "Sider AI",
+    "description": "A browser copilot helping readers parse contract terms and explain code files.",
+    "longDescription": "Comprehensive review of Sider AI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://sider.ai",
+    "domain": "google.com",
+    "brandColor": "#FB923C",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-12-24T08:16:11.376Z",
+    "tags": [
+      "Explain coding rules",
+      "PDF highlighter reviewer",
+      "Translate assistant"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "maxai",
+    "name": "MaxAI",
+    "description": "Advanced extension that corrects typing flow and summaries Gmail folders.",
+    "longDescription": "Comprehensive review of MaxAI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://maxai.me",
+    "domain": "google.com",
+    "brandColor": "#0062FF",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2024-12-22T08:16:11.376Z",
+    "tags": [
+      "Gmail assistant",
+      "Search optimizer",
+      "Readability checks"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "harpa-ai",
+    "name": "HARPA AI",
+    "description": "A browser macro orchestrator that monitors stock levels and price leaks.",
+    "longDescription": "Comprehensive review of HARPA AI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://harpa.ai",
+    "domain": "google.com",
+    "brandColor": "#3B1EF6",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-12-20T08:16:11.376Z",
+    "tags": [
+      "Automated web scrapers",
+      "Price tracker logs",
+      "Macro logs"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "compose-ai",
+    "name": "Compose AI",
+    "description": "Google Docs styling extension completing sentences sequentially.",
+    "longDescription": "Comprehensive review of Compose AI, including features, user experience, and key performance reviews in AI Chrome Extensions. Built in 2020, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "AI Chrome Extensions",
+    "url": "https://compose.ai",
+    "domain": "google.com",
+    "brandColor": "#11C7D5",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2024-12-18T08:16:11.376Z",
+    "tags": [
+      "Autocomplete companion",
+      "Email lines writer",
+      "Cheap text"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard AI Chrome Extensions business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "khanmigo",
+    "name": "Khanmigo",
+    "description": "Socratic tutoring partner checking calculation homework logic without giving answers.",
+    "longDescription": "Comprehensive review of Khanmigo, including features, user experience, and key performance reviews in Learning & Education. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://khanacademy.org",
+    "domain": "khanacademy.org",
+    "brandColor": "#0083FF",
+    "imageUrl": "https://img.logo.dev/khanacademy.org?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-12-16T08:16:11.376Z",
+    "tags": [
+      "Socratic tutor",
+      "Math equation guide",
+      "Syllabus editor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "duolingo-max",
+    "name": "Duolingo Max",
+    "description": "Roleplay features simulating life situations with real-time corrections.",
+    "longDescription": "Comprehensive review of Duolingo Max, including features, user experience, and key performance reviews in Learning & Education. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://duolingo.com",
+    "domain": "duolingo.com",
+    "brandColor": "#56CD02",
+    "imageUrl": "https://img.logo.dev/duolingo.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-12-14T08:16:11.376Z",
+    "tags": [
+      "Roleplay dialogue",
+      "Explain grammar mistake",
+      "Speech test"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "quizlet-ai",
+    "name": "Quizlet AI",
+    "description": "Enriches study guides with customized test preparations and memory flashcards.",
+    "longDescription": "Comprehensive review of Quizlet AI, including features, user experience, and key performance reviews in Learning & Education. Built in 2023, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://quizlet.com",
+    "domain": "quizlet.com",
+    "brandColor": "#3B2FFF",
+    "imageUrl": "https://img.logo.dev/quizlet.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-12-12T08:16:11.376Z",
+    "tags": [
+      "Flashcard builder",
+      "Syllabus memory organizer",
+      "Smart tests"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "socratic",
+    "name": "Socratic",
+    "description": "A supportive Google learning app that scans photo questions to display maps.",
+    "longDescription": "Comprehensive review of Socratic, including features, user experience, and key performance reviews in Learning & Education. Built in 2019, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://socratic.org",
+    "domain": "socratic.org",
+    "brandColor": "#FA4D2B",
+    "imageUrl": "https://img.logo.dev/socratic.org?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-12-10T08:16:11.376Z",
+    "tags": [
+      "Google learning app",
+      "Photo scan question",
+      "Math explanation"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "magicschool-ai",
+    "name": "MagicSchool AI",
+    "description": "A lifesaver for educators, formatting customized classroom games and lesson plans.",
+    "longDescription": "Comprehensive review of MagicSchool AI, including features, user experience, and key performance reviews in Learning & Education. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://magicschool.ai",
+    "domain": "magicschool.ai",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/magicschool.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2024-12-08T08:16:11.376Z",
+    "tags": [
+      "Teacher templates",
+      "Classroom game customizer",
+      "IEP goals planner"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tutor-ai",
+    "name": "Tutor AI",
+    "description": "Fabulous learning aid structuring custom learning modules out of single tags.",
+    "longDescription": "Comprehensive review of Tutor AI, including features, user experience, and key performance reviews in Learning & Education. Built in 2022, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://tutorai.me",
+    "domain": "tutorai.me",
+    "brandColor": "#00E0A6",
+    "imageUrl": "https://img.logo.dev/tutorai.me?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2024-12-06T08:16:11.376Z",
+    "tags": [
+      "Module designer",
+      "Interactive quizzes",
+      "Self pace study"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "studyable",
+    "name": "Studyable",
+    "description": "Automated essays feedback tool flagging logic flow mistakes and citing targets.",
+    "longDescription": "Comprehensive review of Studyable, including features, user experience, and key performance reviews in Learning & Education. Built in 2023, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Learning & Education",
+    "url": "https://studyable.app",
+    "domain": "studyable.app",
+    "brandColor": "#10B990",
+    "imageUrl": "https://img.logo.dev/studyable.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2024-12-04T08:16:11.376Z",
+    "tags": [
+      "Essay grader",
+      "Study guides maker",
+      "Anatomy assistant"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Learning & Education business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "harvey-ai",
+    "name": "Harvey AI",
+    "description": "Legal framework helping lawyers browse trial records and draft briefs.",
+    "longDescription": "Comprehensive review of Harvey AI, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2022, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://harvey.ai",
+    "domain": "harvey.ai",
+    "brandColor": "#1F2937",
+    "imageUrl": "https://img.logo.dev/harvey.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2024-12-02T08:16:11.376Z",
+    "tags": [
+      "Enterprise legal reviewer",
+      "Case match logs",
+      "Factual search"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "spellbook",
+    "name": "Spellbook",
+    "description": "Analyzes contract terms in MS Word, detecting hidden fee traps.",
+    "longDescription": "Comprehensive review of Spellbook, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://spellbook.legal",
+    "domain": "spellbook.legal",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/spellbook.legal?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-30T08:16:11.376Z",
+    "tags": [
+      "Contract editor",
+      "Drafting helper",
+      "Anomaly lookup"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "casetext-cocounsel",
+    "name": "Casetext CoCounsel",
+    "description": "Comprehensive legal companion sorting trial documents and planner.",
+    "longDescription": "Comprehensive review of Casetext CoCounsel, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://casetext.com",
+    "domain": "casetext.com",
+    "brandColor": "#004AD6",
+    "imageUrl": "https://img.logo.dev/casetext.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2024-11-28T08:16:11.376Z",
+    "tags": [
+      "Trial advisor",
+      "Deposition planner",
+      "Document verification"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "robin-ai",
+    "name": "Robin AI",
+    "description": "Proactive platform helping companies review commercial NDAs and manage contracts.",
+    "longDescription": "Comprehensive review of Robin AI, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2019, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://robinai.com",
+    "domain": "robinai.com",
+    "brandColor": "#0D2240",
+    "imageUrl": "https://img.logo.dev/robinai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-11-26T08:16:11.376Z",
+    "tags": [
+      "NDA reviewer",
+      "Contract repository",
+      "Margin checker"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2019
+  },
+  {
+    "id": "lexion",
+    "name": "Lexion",
+    "description": "Operations pipeline helping enterprise departments coordinate compliance checks.",
+    "longDescription": "Comprehensive review of Lexion, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2018, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://lexion.ai",
+    "domain": "lexion.ai",
+    "brandColor": "#2E5BFF",
+    "imageUrl": "https://img.logo.dev/lexion.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-11-24T08:16:11.376Z",
+    "tags": [
+      "Corporate books checker",
+      "VAT compliance",
+      "Workflow dashboards"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "lawgeex",
+    "name": "Lawgeex",
+    "description": "Automates corporate contract review to ensure compliance with playbooks.",
+    "longDescription": "Comprehensive review of Lawgeex, including features, user experience, and key performance reviews in Legal & Compliance. Built in 2014, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Legal & Compliance",
+    "url": "https://lawgeex.com",
+    "domain": "lawgeex.com",
+    "brandColor": "#FA3B00",
+    "imageUrl": "https://img.logo.dev/lawgeex.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2024-11-22T08:16:11.376Z",
+    "tags": [
+      "Auto NDAs check",
+      "Standard parameters logs",
+      "Contract check"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Legal & Compliance business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2014
+  },
+  {
+    "id": "spline-ai",
+    "name": "Spline AI",
+    "description": "Design outstanding 3D models and interactive web environments from simple commands.",
+    "longDescription": "Comprehensive review of Spline AI, including features, user experience, and key performance reviews in 3D & Animation. Built in 2023, this platform has achieved a 4.9/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://spline.design",
+    "domain": "spline.design",
+    "brandColor": "#E021A4",
+    "imageUrl": "https://img.logo.dev/spline.design?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2024-11-20T08:16:11.376Z",
+    "tags": [
+      "3D visual modeler",
+      "Interactive objects",
+      "React exports"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "meshy-ai",
+    "name": "Meshy AI",
+    "description": "Convert text or images into fully gamelike 3D meshes and maps.",
+    "longDescription": "Comprehensive review of Meshy AI, including features, user experience, and key performance reviews in 3D & Animation. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://meshy.ai",
+    "domain": "meshy.ai",
+    "brandColor": "#FF6C37",
+    "imageUrl": "https://img.logo.dev/meshy.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-18T08:16:11.376Z",
+    "tags": [
+      "Text to 3D mesh",
+      "Texture mapper",
+      "OBJ downloader"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "luma-ai-3d",
+    "name": "Luma AI",
+    "description": "Generates high fidelity NeRF scenes and Gaussian 3D files from videos.",
+    "longDescription": "Comprehensive review of Luma AI, including features, user experience, and key performance reviews in 3D & Animation. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://lumalabs.ai",
+    "domain": "lumalabs.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/lumalabs.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-16T08:16:11.376Z",
+    "tags": [
+      "3D scan smartphone",
+      "NeRF camera views",
+      "Splat editor"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "kaedim",
+    "name": "Kaedim",
+    "description": "Translates stylized flat illustrations into OBJ game files in minutes.",
+    "longDescription": "Comprehensive review of Kaedim, including features, user experience, and key performance reviews in 3D & Animation. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://kaedim3d.com",
+    "domain": "kaedim3d.com",
+    "brandColor": "#0062FF",
+    "imageUrl": "https://img.logo.dev/kaedim3d.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-11-14T08:16:11.376Z",
+    "tags": [
+      "2D to OBJ converter",
+      "Game files organizer",
+      "Polygon optimizer"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "scenario-ai-3d",
+    "name": "Scenario AI",
+    "description": "Consistent gaming asset generation model, allowing granular fine-tuning.",
+    "longDescription": "Comprehensive review of Scenario AI, including features, user experience, and key performance reviews in 3D & Animation. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://scenario.com",
+    "domain": "scenario.com",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/scenario.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-12T08:16:11.376Z",
+    "tags": [
+      "Assets fine tune",
+      "Texture generator",
+      "Style cataloging"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "masterpiece-x",
+    "name": "Masterpiece X",
+    "description": "A beginner-friendly tool to quickly skin and rig skeletons of characters.",
+    "longDescription": "Comprehensive review of Masterpiece X, including features, user experience, and key performance reviews in 3D & Animation. Built in 2021, this platform has achieved a 4.5/5 rating for reliability and design clarity.",
+    "category": "3D & Animation",
+    "url": "https://masterpiecex.com",
+    "domain": "masterpiecex.com",
+    "brandColor": "#10B990",
+    "imageUrl": "https://img.logo.dev/masterpiecex.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2024-11-10T08:16:11.376Z",
+    "tags": [
+      "Virtual stagers",
+      "Interactive skeletons",
+      "FBX downloader"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard 3D & Animation business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "inworld-ai",
+    "name": "Inworld AI",
+    "description": "Design expressive NPCs that respond with unique personality traits in-game.",
+    "longDescription": "Comprehensive review of Inworld AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2021, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://inworld.ai",
+    "domain": "inworld.ai",
+    "brandColor": "#0B0C10",
+    "imageUrl": "https://img.logo.dev/inworld.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-08T08:16:11.376Z",
+    "tags": [
+      "NPC dialogue trees",
+      "Unity engine partner",
+      "Blinking mimic"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2021
+  },
+  {
+    "id": "scenario-ai",
+    "name": "Scenario AI",
+    "description": "Enables designers to train visual styles to produce consistent game assets.",
+    "longDescription": "Comprehensive review of Scenario AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2022, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://scenario.com",
+    "domain": "scenario.com",
+    "brandColor": "#A855F7",
+    "imageUrl": "https://img.logo.dev/scenario.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2024-11-06T08:16:11.376Z",
+    "tags": [
+      "Game style consistency",
+      "Vector cards",
+      "Assets database"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "leonardo-ai-gaming",
+    "name": "Leonardo AI",
+    "description": "A great companion to stage fantasy visual environments and conceptual models.",
+    "longDescription": "Comprehensive review of Leonardo AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2023, this platform has achieved a 4.8/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://leonardo.ai",
+    "domain": "leonardo.ai",
+    "brandColor": "#6A0DAD",
+    "imageUrl": "https://img.logo.dev/leonardo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2024-11-04T08:16:11.376Z",
+    "tags": [
+      "Gamelike models",
+      "Fine tune shapes",
+      "Concept art"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "charisma-ai",
+    "name": "Charisma AI",
+    "description": "Construct dialogue maps for cinematic scripts and interactive literature.",
+    "longDescription": "Comprehensive review of Charisma AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2018, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://charisma.ai",
+    "domain": "charisma.ai",
+    "brandColor": "#FA4D2B",
+    "imageUrl": "https://img.logo.dev/charisma.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2024-11-02T08:16:11.376Z",
+    "tags": [
+      "Interactive stories",
+      "Movie dialogue trees",
+      "Voiceover integration"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2018
+  },
+  {
+    "id": "rosebud-ai",
+    "name": "Rosebud AI",
+    "description": "Design responsive browser web games by providing simple text instructions.",
+    "longDescription": "Comprehensive review of Rosebud AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2020, this platform has achieved a 4.7/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://rosebud.ai",
+    "domain": "rosebud.ai",
+    "brandColor": "#00D28F",
+    "imageUrl": "https://img.logo.dev/rosebud.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2024-10-31T08:16:11.376Z",
+    "tags": [
+      "Text to Phaser code",
+      "Indie games creator",
+      "Web host"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "ludo-ai",
+    "name": "Ludo AI",
+    "description": "An intelligent brainstorm companion mapping trending game mechanics and layouts.",
+    "longDescription": "Comprehensive review of Ludo AI, including features, user experience, and key performance reviews in Gaming & Entertainment. Built in 2020, this platform has achieved a 4.6/5 rating for reliability and design clarity.",
+    "category": "Gaming & Entertainment",
+    "url": "https://ludo.ai",
+    "domain": "ludo.ai",
+    "brandColor": "#3B1EF6",
+    "imageUrl": "https://img.logo.dev/ludo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2024-10-29T08:16:11.376Z",
+    "tags": [
+      "Game stats analyzer",
+      "Theme brainstormer",
+      "Visual wireframe"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard Gaming & Entertainment business operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2020
+  }
+,
+  {
+    "id": "kickresume",
+    "name": "Kickresume",
+    "description": "Build your resume and cover letter in minutes with AI.",
+    "longDescription": "Comprehensive review of Kickresume, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://kickresume.com",
+    "domain": "kickresume.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/kickresume.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.851Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "rezi",
+    "name": "Rezi",
+    "description": "AI resume builder tailored for ATS systems.",
+    "longDescription": "Comprehensive review of Rezi, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://rezi.ai",
+    "domain": "rezi.ai",
+    "brandColor": "#EF4444",
+    "imageUrl": "https://img.logo.dev/rezi.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.852Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "teal",
+    "name": "Teal",
+    "description": "Career toolkit with an AI resume builder and job tracker.",
+    "longDescription": "Comprehensive review of Teal, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://tealhq.com",
+    "domain": "tealhq.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/tealhq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.852Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "resume-io",
+    "name": "Resume.io",
+    "description": "Professional resumes made easy with AI suggestions.",
+    "longDescription": "Comprehensive review of Resume.io, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://resume.io",
+    "domain": "resume.io",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/resume.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "enhancv",
+    "name": "Enhancv",
+    "description": "Stand out with a modern, AI-assisted resume.",
+    "longDescription": "Comprehensive review of Enhancv, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://enhancv.com",
+    "domain": "enhancv.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/enhancv.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "jobscan",
+    "name": "Jobscan",
+    "description": "Optimize your resume against ATS using AI.",
+    "longDescription": "Comprehensive review of Jobscan, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://jobscan.co",
+    "domain": "jobscan.co",
+    "brandColor": "#3E4491",
+    "imageUrl": "https://img.logo.dev/jobscan.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "wonsultingai",
+    "name": "WonsultingAI",
+    "description": "AI tools for job search and networking.",
+    "longDescription": "Comprehensive review of WonsultingAI, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://wonsulting.com",
+    "domain": "wonsulting.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/wonsulting.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "careerflow-ai",
+    "name": "Careerflow AI",
+    "description": "AI-powered job search copilot.",
+    "longDescription": "Comprehensive review of Careerflow AI, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://careerflow.ai",
+    "domain": "careerflow.ai",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/careerflow.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "huntr",
+    "name": "Huntr",
+    "description": "Track jobs and build resumes with AI.",
+    "longDescription": "Comprehensive review of Huntr, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://huntr.co",
+    "domain": "huntr.co",
+    "brandColor": "#06B6D4",
+    "imageUrl": "https://img.logo.dev/huntr.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "interview-warmup",
+    "name": "Interview Warmup",
+    "description": "Practice for job interviews with Google AI.",
+    "longDescription": "Comprehensive review of Interview Warmup, including features, user experience, and key performance reviews in AI Resume & Career Tools.",
+    "category": "AI Resume & Career Tools",
+    "url": "https://grow.google/certificates/interview-warmup",
+    "domain": "grow.google",
+    "brandColor": "#EA4335",
+    "imageUrl": "https://img.logo.dev/grow.google?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.853Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "manychat",
+    "name": "Manychat",
+    "description": "Chat marketing powered by AI.",
+    "longDescription": "Comprehensive review of Manychat, including features, user experience, and key performance reviews in Chatbot Creator Tools.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://manychat.com",
+    "domain": "manychat.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/manychat.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.854Z",
+    "tags": [
+      "Chatbot",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "landbot",
+    "name": "Landbot",
+    "description": "Lead generation chatbot builder without code.",
+    "longDescription": "Comprehensive review of Landbot, including features, user experience, and key performance reviews in Chatbot Creator Tools.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://landbot.io",
+    "domain": "landbot.io",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/landbot.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.854Z",
+    "tags": [
+      "Chatbot",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "dante-ai",
+    "name": "Dante AI",
+    "description": "Train an AI on your own data.",
+    "longDescription": "Comprehensive review of Dante AI, including features, user experience, and key performance reviews in Chatbot Creator Tools.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://dante-ai.com",
+    "domain": "dante-ai.com",
+    "brandColor": "#EF4444",
+    "imageUrl": "https://img.logo.dev/dante-ai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.855Z",
+    "tags": [
+      "Chatbot",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "customgpt",
+    "name": "CustomGPT",
+    "description": "Create custom AI models based on business data.",
+    "longDescription": "Comprehensive review of CustomGPT, including features, user experience, and key performance reviews in Chatbot Creator Tools.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://customgpt.ai",
+    "domain": "customgpt.ai",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/customgpt.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.855Z",
+    "tags": [
+      "Chatbot",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "botsonic",
+    "name": "Botsonic",
+    "description": "No-code AI chatbot builder by Writesonic.",
+    "longDescription": "Comprehensive review of Botsonic, including features, user experience, and key performance reviews in Chatbot Creator Tools.",
+    "category": "Chatbot Creator Tools",
+    "url": "https://writesonic.com/botsonic",
+    "domain": "writesonic.com",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/writesonic.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.855Z",
+    "tags": [
+      "Chatbot",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "microsoft-designer",
+    "name": "Microsoft Designer",
+    "description": "Create stunning designs in a flash with AI.",
+    "longDescription": "Comprehensive review of Microsoft Designer, including features, user experience, and key performance reviews in Gen AI Creator Tools.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://designer.microsoft.com",
+    "domain": "designer.microsoft.com",
+    "brandColor": "#00A4EF",
+    "imageUrl": "https://img.logo.dev/designer.microsoft.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.855Z",
+    "tags": [
+      "Gen",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "runway",
+    "name": "Runway",
+    "description": "Advancing creativity with artificial intelligence.",
+    "longDescription": "Comprehensive review of Runway, including features, user experience, and key performance reviews in Gen AI Creator Tools.",
+    "category": "Gen AI Creator Tools",
+    "url": "https://runwayml.com",
+    "domain": "runwayml.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/runwayml.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.855Z",
+    "tags": [
+      "Gen",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "galileo-ai",
+    "name": "Galileo AI",
+    "description": "AI for interface design generation.",
+    "longDescription": "Comprehensive review of Galileo AI, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://usegalileo.ai",
+    "domain": "usegalileo.ai",
+    "brandColor": "#3E4491",
+    "imageUrl": "https://img.logo.dev/usegalileo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.856Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "figma-ai",
+    "name": "Figma AI",
+    "description": "AI features woven into Figma to help you design faster.",
+    "longDescription": "Comprehensive review of Figma AI, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://figma.com",
+    "domain": "figma.com",
+    "brandColor": "#F24E1E",
+    "imageUrl": "https://img.logo.dev/figma.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.856Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "visily",
+    "name": "Visily",
+    "description": "AI-powered UI design tool for non-designers.",
+    "longDescription": "Comprehensive review of Visily, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://visily.ai",
+    "domain": "visily.ai",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/visily.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.856Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "khroma",
+    "name": "Khroma",
+    "description": "AI color tool for designers.",
+    "longDescription": "Comprehensive review of Khroma, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://khroma.co",
+    "domain": "khroma.co",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/khroma.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.856Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "magician-for-figma",
+    "name": "Magician for Figma",
+    "description": "A magical design tool for Figma powered by AI.",
+    "longDescription": "Comprehensive review of Magician for Figma, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://magician.design",
+    "domain": "magician.design",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/magician.design?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.856Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "diagram",
+    "name": "Diagram",
+    "description": "AI tools for Figma.",
+    "longDescription": "Comprehensive review of Diagram, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://diagram.com",
+    "domain": "diagram.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/diagram.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.857Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "penpot-ai",
+    "name": "Penpot AI",
+    "description": "Open-source design tool with emerging AI capabilities.",
+    "longDescription": "Comprehensive review of Penpot AI, including features, user experience, and key performance reviews in UI/UX & Design Tools.",
+    "category": "UI/UX & Design Tools",
+    "url": "https://penpot.app",
+    "domain": "penpot.app",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/penpot.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.857Z",
+    "tags": [
+      "UI/UX",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "agentgpt",
+    "name": "AgentGPT",
+    "description": "Assemble, configure, and deploy autonomous AI agents in your browser.",
+    "longDescription": "Comprehensive review of AgentGPT, including features, user experience, and key performance reviews in AI Agents & Automation.",
+    "category": "AI Agents & Automation",
+    "url": "https://agentgpt.reworkd.ai",
+    "domain": "agentgpt.reworkd.ai",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/agentgpt.reworkd.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.857Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "description": "Building applications with LLMs through composability.",
+    "longDescription": "Comprehensive review of LangChain, including features, user experience, and key performance reviews in AI Agents & Automation.",
+    "category": "AI Agents & Automation",
+    "url": "https://langchain.com",
+    "domain": "langchain.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/langchain.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.857Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "flowise",
+    "name": "Flowise",
+    "description": "Drag & drop UI to build your customized LLM flow.",
+    "longDescription": "Comprehensive review of Flowise, including features, user experience, and key performance reviews in AI Agents & Automation.",
+    "category": "AI Agents & Automation",
+    "url": "https://flowiseai.com",
+    "domain": "flowiseai.com",
+    "brandColor": "#4F46E5",
+    "imageUrl": "https://img.logo.dev/flowiseai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.857Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "openai-api",
+    "name": "OpenAI API",
+    "description": "API access to top-tier models like GPT-4.",
+    "longDescription": "Comprehensive review of OpenAI API, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://platform.openai.com",
+    "domain": "openai.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "anthropic-claude-api",
+    "name": "Anthropic Claude API",
+    "description": "API for Claude, a next-generation AI assistant.",
+    "longDescription": "Comprehensive review of Anthropic Claude API, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://console.anthropic.com",
+    "domain": "anthropic.com",
+    "brandColor": "#D97706",
+    "imageUrl": "https://img.logo.dev/anthropic.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "google-gemini-api",
+    "name": "Google Gemini API",
+    "description": "Access Google's multimodal Gemini models.",
+    "longDescription": "Comprehensive review of Google Gemini API, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://ai.google.dev",
+    "domain": "google.com",
+    "brandColor": "#1A73E8",
+    "imageUrl": "https://img.logo.dev/google.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mistral-ai",
+    "name": "Mistral AI",
+    "description": "Frontier AI in your hands.",
+    "longDescription": "Comprehensive review of Mistral AI, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://mistral.ai",
+    "domain": "mistral.ai",
+    "brandColor": "#FF601C",
+    "imageUrl": "https://img.logo.dev/mistral.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "cohere",
+    "name": "Cohere",
+    "description": "The leading AI platform for enterprise.",
+    "longDescription": "Comprehensive review of Cohere, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://cohere.com",
+    "domain": "cohere.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/cohere.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "description": "The LPU Inference Engine provider.",
+    "longDescription": "Comprehensive review of Groq, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://groq.com",
+    "domain": "groq.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/groq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.858Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "together-ai",
+    "name": "Together AI",
+    "description": "Cloud platform for training and inferencing AI models.",
+    "longDescription": "Comprehensive review of Together AI, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://together.ai",
+    "domain": "together.ai",
+    "brandColor": "#06B6D4",
+    "imageUrl": "https://img.logo.dev/together.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.859Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "replicate",
+    "name": "Replicate",
+    "description": "Run AI models with an API.",
+    "longDescription": "Comprehensive review of Replicate, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://replicate.com",
+    "domain": "replicate.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/replicate.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.859Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hugging-face",
+    "name": "Hugging Face",
+    "description": "The AI community building the future.",
+    "longDescription": "Comprehensive review of Hugging Face, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://huggingface.co",
+    "domain": "huggingface.co",
+    "brandColor": "#FFD21E",
+    "imageUrl": "https://img.logo.dev/huggingface.co?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.859Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "perplexity-api",
+    "name": "Perplexity API",
+    "description": "API access to Perplexity's online LLMs.",
+    "longDescription": "Comprehensive review of Perplexity API, including features, user experience, and key performance reviews in LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://docs.perplexity.ai",
+    "domain": "perplexity.ai",
+    "brandColor": "#00A389",
+    "imageUrl": "https://img.logo.dev/perplexity.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T09:30:08.859Z",
+    "tags": [
+      "LLM",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  }
+,
+  {
+    "id": "dall-e-3",
+    "name": "DALL-E 3",
+    "description": "OpenAI's latest text-to-image AI model, available in ChatGPT Plus.",
+    "longDescription": "Comprehensive review of DALL-E 3, including features, user experience, and key performance reviews in Image & Art Generation.",
+    "category": "Image & Art Generation",
+    "url": "https://openai.com/dall-e-3",
+    "domain": "openai.com",
+    "brandColor": "#10A37F",
+    "imageUrl": "https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.608Z",
+    "tags": [
+      "Image",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "deepdream",
+    "name": "DeepDream",
+    "description": "An AI image generator using deep learning algorithms.",
+    "longDescription": "Comprehensive review of DeepDream, including features, user experience, and key performance reviews in Image & Art Generation.",
+    "category": "Image & Art Generation",
+    "url": "https://deepdreamgenerator.com",
+    "domain": "deepdreamgenerator.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/deepdreamgenerator.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.609Z",
+    "tags": [
+      "Image",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "runwayml",
+    "name": "RunwayML",
+    "description": "AI magic tools for creators, including text-to-video capabilities.",
+    "longDescription": "Comprehensive review of RunwayML, including features, user experience, and key performance reviews in Video & Audio Tools.",
+    "category": "Video & Audio Tools",
+    "url": "https://runwayml.com",
+    "domain": "runwayml.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/runwayml.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.609Z",
+    "tags": [
+      "Video",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mubert",
+    "name": "Mubert",
+    "description": "AI generative music for all your needs.",
+    "longDescription": "Comprehensive review of Mubert, including features, user experience, and key performance reviews in Video & Audio Tools.",
+    "category": "Video & Audio Tools",
+    "url": "https://mubert.com",
+    "domain": "mubert.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/mubert.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.610Z",
+    "tags": [
+      "Video",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "vercel-v0",
+    "name": "Vercel v0",
+    "description": "Generate UI with AI.",
+    "longDescription": "Comprehensive review of Vercel v0, including features, user experience, and key performance reviews in Code & Development.",
+    "category": "Code & Development",
+    "url": "https://v0.dev",
+    "domain": "v0.dev",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/v0.dev?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.610Z",
+    "tags": [
+      "Code",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "you-com",
+    "name": "You.com",
+    "description": "The AI search engine you control.",
+    "longDescription": "Comprehensive review of You.com, including features, user experience, and key performance reviews in AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://you.com",
+    "domain": "you.com",
+    "brandColor": "#2563EB",
+    "imageUrl": "https://img.logo.dev/you.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.610Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "andi",
+    "name": "Andi",
+    "description": "Search for the next generation.",
+    "longDescription": "Comprehensive review of Andi, including features, user experience, and key performance reviews in AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://andisearch.com",
+    "domain": "andisearch.com",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/andisearch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.611Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "komo",
+    "name": "Komo",
+    "description": "AI Search Engine for fast answers.",
+    "longDescription": "Comprehensive review of Komo, including features, user experience, and key performance reviews in AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://komo.ai",
+    "domain": "komo.ai",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/komo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.611Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "jasper",
+    "name": "Jasper",
+    "description": "AI copilot for enterprise marketing teams.",
+    "longDescription": "Comprehensive review of Jasper, including features, user experience, and key performance reviews in Marketing & SEO.",
+    "category": "Marketing & SEO",
+    "url": "https://jasper.ai",
+    "domain": "jasper.ai",
+    "brandColor": "#2563EB",
+    "imageUrl": "https://img.logo.dev/jasper.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.611Z",
+    "tags": [
+      "Marketing",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mutiny",
+    "name": "Mutiny",
+    "description": "No-code AI platform that converts your website visitors.",
+    "longDescription": "Comprehensive review of Mutiny, including features, user experience, and key performance reviews in Marketing & SEO.",
+    "category": "Marketing & SEO",
+    "url": "https://mutinyhq.com",
+    "domain": "mutinyhq.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/mutinyhq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:30:16.611Z",
+    "tags": [
+      "Marketing",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  }
+,
+  {
+    "id": "otter-ai",
+    "name": "Otter.ai",
+    "description": "Provides meeting transcription and summaries.",
+    "longDescription": "Comprehensive review of Otter.ai, including features, user experience, and key performance reviews in AI Meeting Assistants.",
+    "category": "AI Meeting Assistants",
+    "url": "https://otter.ai",
+    "domain": "otter.ai",
+    "brandColor": "#2563EB",
+    "imageUrl": "https://img.logo.dev/otter.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.221Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "fireflies-ai",
+    "name": "Fireflies.ai",
+    "description": "Automates meeting notes and transcripts.",
+    "longDescription": "Comprehensive review of Fireflies.ai, including features, user experience, and key performance reviews in AI Meeting Assistants.",
+    "category": "AI Meeting Assistants",
+    "url": "https://fireflies.ai",
+    "domain": "fireflies.ai",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/fireflies.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.222Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "krisp",
+    "name": "Krisp",
+    "description": "AI noise cancellation and meeting transcription.",
+    "longDescription": "Comprehensive review of Krisp, including features, user experience, and key performance reviews in AI Meeting Assistants.",
+    "category": "AI Meeting Assistants",
+    "url": "https://krisp.ai",
+    "domain": "krisp.ai",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/krisp.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.222Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "pitch",
+    "name": "Pitch",
+    "description": "Fast, collaborative presentation software.",
+    "longDescription": "Comprehensive review of Pitch, including features, user experience, and key performance reviews in AI Presentation Tools.",
+    "category": "AI Presentation Tools",
+    "url": "https://pitch.com",
+    "domain": "pitch.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/pitch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.223Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "description": "The AI-first customer service platform.",
+    "longDescription": "Comprehensive review of Intercom, including features, user experience, and key performance reviews in Customer Support.",
+    "category": "Customer Support",
+    "url": "https://intercom.com",
+    "domain": "intercom.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/intercom.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.223Z",
+    "tags": [
+      "Customer",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "gorgias",
+    "name": "Gorgias",
+    "description": "Ecommerce helpdesk connected to your store.",
+    "longDescription": "Comprehensive review of Gorgias, including features, user experience, and key performance reviews in Customer Support.",
+    "category": "Customer Support",
+    "url": "https://gorgias.com",
+    "domain": "gorgias.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/gorgias.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.224Z",
+    "tags": [
+      "Customer",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "kustomer",
+    "name": "Kustomer",
+    "description": "AI-powered CRM for modern customer service.",
+    "longDescription": "Comprehensive review of Kustomer, including features, user experience, and key performance reviews in Customer Support.",
+    "category": "Customer Support",
+    "url": "https://kustomer.com",
+    "domain": "kustomer.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/kustomer.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.224Z",
+    "tags": [
+      "Customer",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "forethought",
+    "name": "Forethought",
+    "description": "Generative AI for customer support.",
+    "longDescription": "Comprehensive review of Forethought, including features, user experience, and key performance reviews in Customer Support.",
+    "category": "Customer Support",
+    "url": "https://forethought.ai",
+    "domain": "forethought.ai",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/forethought.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.224Z",
+    "tags": [
+      "Customer",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "polymer",
+    "name": "Polymer",
+    "description": "Business Intelligence without the learning curve.",
+    "longDescription": "Comprehensive review of Polymer, including features, user experience, and key performance reviews in Data Science & Analytics.",
+    "category": "Data Science & Analytics",
+    "url": "https://polymersearch.com",
+    "domain": "polymersearch.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/polymersearch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.224Z",
+    "tags": [
+      "Data",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mendeley",
+    "name": "Mendeley",
+    "description": "Reference management software & researcher network.",
+    "longDescription": "Comprehensive review of Mendeley, including features, user experience, and key performance reviews in Research & Analysis.",
+    "category": "Research & Analysis",
+    "url": "https://mendeley.com",
+    "domain": "mendeley.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/mendeley.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:31:45.225Z",
+    "tags": [
+      "Research",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  }
+,
+  {
+    "id": "epique",
+    "name": "Epique",
+    "description": "First AI-based real estate brokerage.",
+    "longDescription": "Comprehensive review of Epique, including features, user experience, and key performance reviews in AI Real Estate Tools.",
+    "category": "AI Real Estate Tools",
+    "url": "https://epiquerealty.com",
+    "domain": "epiquerealty.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/epiquerealty.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.003Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hyro",
+    "name": "Hyro",
+    "description": "Conversational AI for real estate.",
+    "longDescription": "Comprehensive review of Hyro, including features, user experience, and key performance reviews in AI Real Estate Tools.",
+    "category": "AI Real Estate Tools",
+    "url": "https://hyro.ai",
+    "domain": "hyro.ai",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/hyro.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.004Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "rechat",
+    "name": "Rechat",
+    "description": "AI-powered real estate CRM.",
+    "longDescription": "Comprehensive review of Rechat, including features, user experience, and key performance reviews in AI Real Estate Tools.",
+    "category": "AI Real Estate Tools",
+    "url": "https://rechat.com",
+    "domain": "rechat.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/rechat.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.004Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "localize",
+    "name": "Localize",
+    "description": "AI home hunting platform.",
+    "longDescription": "Comprehensive review of Localize, including features, user experience, and key performance reviews in AI Real Estate Tools.",
+    "category": "AI Real Estate Tools",
+    "url": "https://localize.city",
+    "domain": "localize.city",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/localize.city?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.004Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "make",
+    "name": "Make",
+    "description": "Automate anything across apps.",
+    "longDescription": "Comprehensive review of Make, including features, user experience, and key performance reviews in AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://make.com",
+    "domain": "make.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/make.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.004Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "zapier",
+    "name": "Zapier",
+    "description": "Automate your workflows easily.",
+    "longDescription": "Comprehensive review of Zapier, including features, user experience, and key performance reviews in AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://zapier.com",
+    "domain": "zapier.com",
+    "brandColor": "#FF4A00",
+    "imageUrl": "https://img.logo.dev/zapier.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.004Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tray-io",
+    "name": "Tray.io",
+    "description": "AI-powered automation platform.",
+    "longDescription": "Comprehensive review of Tray.io, including features, user experience, and key performance reviews in AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://tray.io",
+    "domain": "tray.io",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/tray.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.005Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "workato",
+    "name": "Workato",
+    "description": "Enterprise automation platform.",
+    "longDescription": "Comprehensive review of Workato, including features, user experience, and key performance reviews in AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://workato.com",
+    "domain": "workato.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/workato.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.005Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "harvey",
+    "name": "Harvey",
+    "description": "AI for legal work.",
+    "longDescription": "Comprehensive review of Harvey, including features, user experience, and key performance reviews in Legal & Compliance.",
+    "category": "Legal & Compliance",
+    "url": "https://harvey.ai",
+    "domain": "harvey.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/harvey.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.005Z",
+    "tags": [
+      "Legal",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "cocounsel",
+    "name": "CoCounsel",
+    "description": "AI legal assistant.",
+    "longDescription": "Comprehensive review of CoCounsel, including features, user experience, and key performance reviews in Legal & Compliance.",
+    "category": "Legal & Compliance",
+    "url": "https://casetext.com",
+    "domain": "casetext.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/casetext.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.005Z",
+    "tags": [
+      "Legal",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "luminance",
+    "name": "Luminance",
+    "description": "AI for legal process automation.",
+    "longDescription": "Comprehensive review of Luminance, including features, user experience, and key performance reviews in Legal & Compliance.",
+    "category": "Legal & Compliance",
+    "url": "https://luminance.com",
+    "domain": "luminance.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/luminance.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.006Z",
+    "tags": [
+      "Legal",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "scenario",
+    "name": "Scenario",
+    "description": "AI-generated game assets.",
+    "longDescription": "Comprehensive review of Scenario, including features, user experience, and key performance reviews in Gaming & Entertainment.",
+    "category": "Gaming & Entertainment",
+    "url": "https://scenario.com",
+    "domain": "scenario.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/scenario.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.006Z",
+    "tags": [
+      "Gaming",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "leonardo-ai",
+    "name": "Leonardo.ai",
+    "description": "Asset generation for games.",
+    "longDescription": "Comprehensive review of Leonardo.ai, including features, user experience, and key performance reviews in Gaming & Entertainment.",
+    "category": "Gaming & Entertainment",
+    "url": "https://leonardo.ai",
+    "domain": "leonardo.ai",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/leonardo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.007Z",
+    "tags": [
+      "Gaming",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ludo-ai",
+    "name": "Ludo.ai",
+    "description": "AI platform for game research and design.",
+    "longDescription": "Comprehensive review of Ludo.ai, including features, user experience, and key performance reviews in Gaming & Entertainment.",
+    "category": "Gaming & Entertainment",
+    "url": "https://ludo.ai",
+    "domain": "ludo.ai",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/ludo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.007Z",
+    "tags": [
+      "Gaming",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "crowdstrike",
+    "name": "CrowdStrike",
+    "description": "AI-native endpoint security.",
+    "longDescription": "Comprehensive review of CrowdStrike, including features, user experience, and key performance reviews in AI Cybersecurity Tools.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://crowdstrike.com",
+    "domain": "crowdstrike.com",
+    "brandColor": "#FF0000",
+    "imageUrl": "https://img.logo.dev/crowdstrike.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.007Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sentinelone",
+    "name": "SentinelOne",
+    "description": "Autonomous AI endpoint security.",
+    "longDescription": "Comprehensive review of SentinelOne, including features, user experience, and key performance reviews in AI Cybersecurity Tools.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://sentinelone.com",
+    "domain": "sentinelone.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/sentinelone.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.007Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "cylance",
+    "name": "Cylance",
+    "description": "Predictive cybersecurity powered by AI.",
+    "longDescription": "Comprehensive review of Cylance, including features, user experience, and key performance reviews in AI Cybersecurity Tools.",
+    "category": "AI Cybersecurity Tools",
+    "url": "https://blackberry.com/cylance",
+    "domain": "blackberry.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/blackberry.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.008Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "octane-ai",
+    "name": "Octane AI",
+    "description": "AI quizzes and insights for Shopify.",
+    "longDescription": "Comprehensive review of Octane AI, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://octaneai.com",
+    "domain": "octaneai.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/octaneai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.008Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "tidio",
+    "name": "Tidio",
+    "description": "Customer service chatbot for ecommerce.",
+    "longDescription": "Comprehensive review of Tidio, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://tidio.com",
+    "domain": "tidio.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/tidio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.008Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "klevu",
+    "name": "Klevu",
+    "description": "AI search and discovery for ecommerce.",
+    "longDescription": "Comprehensive review of Klevu, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://klevu.com",
+    "domain": "klevu.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/klevu.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.008Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "syte",
+    "name": "Syte",
+    "description": "Visual AI for ecommerce discovery.",
+    "longDescription": "Comprehensive review of Syte, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://syte.ai",
+    "domain": "syte.ai",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/syte.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.009Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "dynamic-yield",
+    "name": "Dynamic Yield",
+    "description": "Experience optimization for ecommerce.",
+    "longDescription": "Comprehensive review of Dynamic Yield, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
+    "category": "AI Ecommerce Tools",
+    "url": "https://dynamicyield.com",
+    "domain": "dynamicyield.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/dynamicyield.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:35:37.009Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  }
+,
+  {
+    "id": "monica",
+    "name": "Monica",
+    "description": "Your AI copilot across the web.",
+    "longDescription": "Comprehensive review of Monica, including features, user experience, and key performance reviews in AI Chrome Extensions.",
+    "category": "AI Chrome Extensions",
+    "url": "https://monica.im",
+    "domain": "monica.im",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/monica.im?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.094Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "sider",
+    "name": "Sider",
+    "description": "ChatGPT & Claude sidebar extension.",
+    "longDescription": "Comprehensive review of Sider, including features, user experience, and key performance reviews in AI Chrome Extensions.",
+    "category": "AI Chrome Extensions",
+    "url": "https://sider.ai",
+    "domain": "sider.ai",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/sider.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.094Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "harpa-ai",
+    "name": "Harpa AI",
+    "description": "Hybrid AI agent for web automation.",
+    "longDescription": "Comprehensive review of Harpa AI, including features, user experience, and key performance reviews in AI Chrome Extensions.",
+    "category": "AI Chrome Extensions",
+    "url": "https://harpa.ai",
+    "domain": "harpa.ai",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/harpa.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.094Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "webchatgpt",
+    "name": "WebChatGPT",
+    "description": "Enhances ChatGPT with web access.",
+    "longDescription": "Comprehensive review of WebChatGPT, including features, user experience, and key performance reviews in AI Chrome Extensions.",
+    "category": "AI Chrome Extensions",
+    "url": "https://chrome.google.com/webstore",
+    "domain": "webchatgpt.app",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/webchatgpt.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.094Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "scispace-copilot",
+    "name": "SciSpace Copilot",
+    "description": "AI copilot for research papers.",
+    "longDescription": "Comprehensive review of SciSpace Copilot, including features, user experience, and key performance reviews in AI Chrome Extensions.",
+    "category": "AI Chrome Extensions",
+    "url": "https://typeset.io",
+    "domain": "typeset.io",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/typeset.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.095Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "csm",
+    "name": "CSM",
+    "description": "3D models from any image or video.",
+    "longDescription": "Comprehensive review of CSM, including features, user experience, and key performance reviews in 3D & Animation.",
+    "category": "3D & Animation",
+    "url": "https://csm.ai",
+    "domain": "csm.ai",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/csm.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.095Z",
+    "tags": [
+      "3D",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "masterpiece-studio",
+    "name": "Masterpiece Studio",
+    "description": "Generate 3D assets easily.",
+    "longDescription": "Comprehensive review of Masterpiece Studio, including features, user experience, and key performance reviews in 3D & Animation.",
+    "category": "3D & Animation",
+    "url": "https://masterpiecestudio.com",
+    "domain": "masterpiecestudio.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/masterpiecestudio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.095Z",
+    "tags": [
+      "3D",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "plask",
+    "name": "Plask",
+    "description": "AI motion capture tool.",
+    "longDescription": "Comprehensive review of Plask, including features, user experience, and key performance reviews in 3D & Animation.",
+    "category": "3D & Animation",
+    "url": "https://plask.ai",
+    "domain": "plask.ai",
+    "brandColor": "#EC4899",
+    "imageUrl": "https://img.logo.dev/plask.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.096Z",
+    "tags": [
+      "3D",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "knewton",
+    "name": "Knewton",
+    "description": "Adaptive learning platform.",
+    "longDescription": "Comprehensive review of Knewton, including features, user experience, and key performance reviews in Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://knewton.com",
+    "domain": "knewton.com",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/knewton.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.096Z",
+    "tags": [
+      "Learning",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "edurite",
+    "name": "Edurite",
+    "description": "Smart educational tools.",
+    "longDescription": "Comprehensive review of Edurite, including features, user experience, and key performance reviews in Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://edurite.com",
+    "domain": "edurite.com",
+    "brandColor": "#F59E0B",
+    "imageUrl": "https://img.logo.dev/edurite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.097Z",
+    "tags": [
+      "Learning",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "dora",
+    "name": "Dora",
+    "description": "Design and publish 3D sites with AI.",
+    "longDescription": "Comprehensive review of Dora, including features, user experience, and key performance reviews in AI Website Builders.",
+    "category": "AI Website Builders",
+    "url": "https://dora.run",
+    "domain": "dora.run",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/dora.run?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.097Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "hocoos",
+    "name": "Hocoos",
+    "description": "AI website builder.",
+    "longDescription": "Comprehensive review of Hocoos, including features, user experience, and key performance reviews in AI Website Builders.",
+    "category": "AI Website Builders",
+    "url": "https://hocoos.com",
+    "domain": "hocoos.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/hocoos.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.097Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "b12",
+    "name": "B12",
+    "description": "Websites designed by AI.",
+    "longDescription": "Comprehensive review of B12, including features, user experience, and key performance reviews in AI Website Builders.",
+    "category": "AI Website Builders",
+    "url": "https://b12.io",
+    "domain": "b12.io",
+    "brandColor": "#3B82F6",
+    "imageUrl": "https://img.logo.dev/b12.io?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-03T14:37:28.097Z",
+    "tags": [
+      "AI",
+      "AI",
+      "Utility"
+    ],
+    "useCases": [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    "launchYear": 2023
+  }
+];
+

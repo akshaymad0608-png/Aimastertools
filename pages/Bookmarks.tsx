@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
 import { useBookmarks } from '../context/BookmarkContext';
 import { usePro } from '../context/ProContext';
-import { MOCK_TOOLS } from '../constants';
+import { MOCK_TOOLS } from '../data/tools';
 
 const Bookmarks: React.FC = () => {
   const { bookmarks } = useBookmarks();

@@ -1,95 +1,96 @@
 const fs = require('fs');
+const file = 'constants.tsx';
+let data = fs.readFileSync(file, 'utf8');
 
-let content = fs.readFileSync('constants.tsx', 'utf8');
+const regex = /export const MOCK_TOOLS: Tool\[\] = \[([\s\S]+?)\];\n\nexport const CATEGORIES/m;
+const match = data.match(regex);
+if (!match) {
+  console.log("Could not find MOCK_TOOLS array!");
+  process.exit(1);
+}
 
-// 1. Add categories
-const newCategories = `  { id: 'Customer Support',          name: 'Customer Support',          icon: 'ti-headphone-alt',  bg: '#EAF3DE', color: '#3B6D11' },
-  { id: 'HR & Recruiting',           name: 'HR & Recruiting',           icon: 'ti-id-badge',       bg: '#FBEAF0', color: '#72243E' },
-  { id: '3D & Animation',            name: '3D & Animation',            icon: 'ti-box',            bg: '#E6F1FB', color: '#185FA5' },
-  { id: 'Data Science & Analytics',  name: 'Data Science & Analytics',  icon: 'ti-bar-chart',      bg: '#FAEEDA', color: '#633806' },
-  { id: 'Legal & Compliance',        name: 'Legal & Compliance',        icon: 'ti-ruler-pencil',   bg: '#EEEDFE', color: '#534AB7' },
-  { id: 'Gaming & Entertainment',    name: 'Gaming & Entertainment',    icon: 'ti-game',           bg: '#E1F5EE', color: '#0F6E56' },
-`;
+const newTools = [
+  // Image & Art Generation
+  {name: "Midjourney", category: "Image & Art Generation", domain: "midjourney.com", color: "#FFFFFF", initDesc: "An independent research lab exploring new mediums of thought with AI image generation.", url: "https://midjourney.com"},
+  {name: "DALL-E 3", category: "Image & Art Generation", domain: "openai.com", color: "#10A37F", initDesc: "OpenAI's latest text-to-image AI model, available in ChatGPT Plus.", url: "https://openai.com/dall-e-3"},
+  {name: "Stable Diffusion", category: "Image & Art Generation", domain: "stability.ai", color: "#6C1D45", initDesc: "A powerful, open-source latent text-to-image diffusion model.", url: "https://stability.ai/"},
+  {name: "Playground AI", category: "Image & Art Generation", domain: "playgroundai.com", color: "#2563EB", initDesc: "A free-to-use online AI image creator.", url: "https://playgroundai.com"},
+  {name: "DeepDream", category: "Image & Art Generation", domain: "deepdreamgenerator.com", color: "#F59E0B", initDesc: "An AI image generator using deep learning algorithms.", url: "https://deepdreamgenerator.com"},
+  {name: "NightCafe", category: "Image & Art Generation", domain: "nightcafe.studio", color: "#3B82F6", initDesc: "AI Art Generator App.", url: "https://creator.nightcafe.studio"},
 
-content = content.replace(/  \{ id: 'LLM Providers & APIs'.*\n\];/, match => {
-  return match.replace('];', newCategories + '];');
-});
+  // Video & Audio Tools
+  {name: "RunwayML", category: "Video & Audio Tools", domain: "runwayml.com", color: "#000000", initDesc: "AI magic tools for creators, including text-to-video capabilities.", url: "https://runwayml.com"},
+  {name: "Descript", category: "Video & Audio Tools", domain: "descript.com", color: "#10B981", initDesc: "All-in-one audio and video editing, as easy as a doc.", url: "https://descript.com"},
+  {name: "Mubert", category: "Video & Audio Tools", domain: "mubert.com", color: "#F59E0B", initDesc: "AI generative music for all your needs.", url: "https://mubert.com"},
+  {name: "ElevenLabs", category: "Video & Audio Tools", domain: "elevenlabs.io", color: "#000000", initDesc: "Prime AI text to speech and voice cloning.", url: "https://elevenlabs.io"},
+  {name: "Synthesia", category: "Video & Audio Tools", domain: "synthesia.io", color: "#2563EB", initDesc: "Create professional AI videos from text in 120+ languages.", url: "https://synthesia.io"},
+  
+  // Code & Development
+  {name: "GitHub Copilot", category: "Code & Development", domain: "github.com", color: "#000000", initDesc: "Your AI pair programmer.", url: "https://github.com/features/copilot"},
+  {name: "Cursor", category: "Code & Development", domain: "cursor.sh", color: "#000000", initDesc: "The AI-first code editor.", url: "https://cursor.sh"},
+  {name: "Codeium", category: "Code & Development", domain: "codeium.com", color: "#10B981", initDesc: "Free AI code completion and chat.", url: "https://codeium.com"},
+  {name: "Tabnine", category: "Code & Development", domain: "tabnine.com", color: "#3B82F6", initDesc: "AI assistant for software developers.", url: "https://tabnine.com"},
+  {name: "Vercel v0", category: "Code & Development", domain: "v0.dev", color: "#000000", initDesc: "Generate UI with AI.", url: "https://v0.dev"},
 
-const brands = [
-    ["Intercom AI", "intercom.com", "Customer Support", "Answers customer queries instantly using AI.", "#000000", "Paid"],
-    ["Zendesk AI", "zendesk.com", "Customer Support", "Advanced AI bots for quick ticket resolution and self-service.", "#03363D", "Paid"],
-    ["Kustomer", "kustomer.com", "Customer Support", "CRM that leverages AI to proactively resolve support issues.", "#2A3D4C", "Paid"],
-    ["Eightfold", "eightfold.ai", "HR & Recruiting", "Talent intelligence platform using AI for hiring and retention.", "#000000", "Paid"],
-    ["SeekOut", "seekout.com", "HR & Recruiting", "AI-powered recruiting platform to find diverse and hidden talent.", "#1D4ED8", "Paid"],
-    ["Textio", "textio.com", "HR & Recruiting", "Augmented writing platform that helps write unbiased job descriptions.", "#14B8A6", "Freemium"],
-    ["Spline", "spline.design", "3D & Animation", "3D design tool with AI features for web and collaborative modeling.", "#8B5CF6", "Freemium"],
-    ["Luma AI", "lumalabs.ai", "3D & Animation", "Create life-like 3D models using AI from photos or text.", "#000000", "Freemium"],
-    ["Masterpiece X", "masterpiecex.com", "3D & Animation", "AI text-to-3D model generation for games and creators.", "#EC4899", "Free"],
-    ["Tableau GPT", "tableau.com", "Data Science & Analytics", "AI analytics to democratize data insights using conversational UI.", "#F97316", "Paid"],
-    ["Akkio", "akkio.com", "Data Science & Analytics", "No-code AI platform for forecasting and predictive analytics.", "#111827", "Freemium"],
-    ["Julius AI", "julius.ai", "Data Science & Analytics", "Your AI data analyst. Chat with your data and create charts instantly.", "#2563EB", "Freemium"],
-    ["Harvey", "harvey.ai", "Legal & Compliance", "Generative AI for elite law firms to assist in drafting and research.", "#09090B", "Paid"],
-    ["Robin AI", "robinai.com", "Legal & Compliance", "Legal copilot for drafting, editing, and querying contracts.", "#0EA5E9", "Paid"],
-    ["Lexion", "lexion.ai", "Legal & Compliance", "AI-powered contract management system for legal teams.", "#4F46E5", "Paid"],
-    ["Inworld AI", "inworld.ai", "Gaming & Entertainment", "Create intelligent non-player characters (NPCs) for games and VR.", "#10B981", "Freemium"],
-    ["Scenario", "scenario.com", "Gaming & Entertainment", "Train custom AI models to generate game assets consistently.", "#6366F1", "Freemium"],
-    ["Rosebud AI", "rosebud.ai", "Gaming & Entertainment", "AI that helps developers build games from text descriptions.", "#EF4444", "Freemium"],
-    ["Writesonic", "writesonic.com", "AI Writing & Content", "AI writer that creates SEO-friendly content for blogs and ads.", "#0F172A", "Freemium"],
-    ["Rytr", "rytr.me", "AI Writing & Content", "An AI writing assistant that helps you create high-quality content.", "#F59E0B", "Freemium"],
-    ["Anyword", "anyword.com", "AI Writing & Content", "AI copywriting software that uses data to optimize conversions.", "#3B82F6", "Paid"],
-    ["Synthesia", "synthesia.io", "Video & Audio Tools", "Create professional AI videos from text in over 120 languages.", "#1E40AF", "Paid"],
-    ["HeyGen", "heygen.com", "Video & Audio Tools", "AI video generator for producing studio-quality videos with avatars.", "#7C3AED", "Freemium"],
-    ["Descript", "descript.com", "Video & Audio Tools", "Reimagine video & audio editing as easy as editing a text doc.", "#3B82F6", "Freemium"],
-    ["ElevenLabs", "elevenlabs.io", "Video & Audio Tools", "The most realistic text-to-speech and AI voice generator.", "#171717", "Freemium"],
-    ["GitHub Copilot", "github.com/features/copilot", "Code & Development", "Your AI pair programmer that suggests code and entire functions.", "#1F2328", "Paid"],
-    ["Cursor", "cursor.sh", "Code & Development", "The AI-first IDE built to help you code faster and smarter.", "#000000", "Freemium"],
-    ["Tabnine", "tabnine.com", "Code & Development", "AI assistant for software developers, prioritizing privacy.", "#2563EB", "Freemium"],
-    ["Codeium", "codeium.com", "Code & Development", "The modern coding superpower for autocomplete and chat.", "#10B981", "Free"],
-    ["Midjourney", "midjourney.com", "Image & Art Generation", "An independent research lab producing proprietary artificial intelligence programs that create images from textual descriptions.", "#000000", "Paid"],
-    ["Stable Diffusion", "stability.ai", "Image & Art Generation", "A latent text-to-image diffusion model capable of generating photo-realistic images.", "#6366F1", "Open Source"],
-    ["Leonardo.ai", "leonardo.ai", "Image & Art Generation", "Generate production-quality assets for your creative projects.", "#F472B6", "Freemium"],
-    ["Glean", "glean.com", "Productivity & Automation", "Workplace search and AI assistant that connects all your company data.", "#2563EB", "Paid"],
-    ["Notion AI", "notion.so", "Productivity & Automation", "Work smart, write faster, and think bigger right inside Notion.", "#000000", "Paid"],
-    ["Mem", "mem.ai", "Productivity & Automation", "The AI workspace that is personalized to you and your team.", "#6366F1", "Freemium"],
-    ["Rewind", "rewind.ai", "Productivity & Automation", "The search engine for your life. Find anything you've seen, said, or heard.", "#8B5CF6", "Paid"],
-    ["Tome", "tome.app", "Productivity & Automation", "The AI-powered storytelling format to build presentations faster.", "#EC4899", "Freemium"],
-    ["Gamma", "gamma.app", "Productivity & Automation", "A new medium for presenting ideas, powered by AI. No formatting needed.", "#F59E0B", "Freemium"],
-    ["Fireflies.ai", "fireflies.ai", "Productivity & Automation", "Automate your meeting notes. Record, transcribe, search and analyze voice conversations.", "#3B82F6", "Freemium"],
-    ["Fathom", "fathom.video", "Productivity & Automation", "Free AI Meeting Assistant that records, transcribes, and summarizes Zoom calls.", "#10B981", "Free"],
-    ["Taskade", "taskade.com", "Productivity & Automation", "AI productivity workspace for remote teams. Chat, plan, and work together.", "#EC4899", "Freemium"]
+  // Search Engines
+  {name: "Perplexity", category: "AI Search Engines", domain: "perplexity.ai", color: "#00A389", initDesc: "Where knowledge begins: AI-powered search.", url: "https://perplexity.ai"},
+  {name: "You.com", category: "AI Search Engines", domain: "you.com", color: "#2563EB", initDesc: "The AI search engine you control.", url: "https://you.com"},
+  {name: "Andi", category: "AI Search Engines", domain: "andisearch.com", color: "#EC4899", initDesc: "Search for the next generation.", url: "https://andisearch.com"},
+  {name: "Komo", category: "AI Search Engines", domain: "komo.ai", color: "#F59E0B", initDesc: "AI Search Engine for fast answers.", url: "https://komo.ai"},
+  
+  // Marketing & SEO
+  {name: "Jasper", category: "Marketing & SEO", domain: "jasper.ai", color: "#2563EB", initDesc: "AI copilot for enterprise marketing teams.", url: "https://jasper.ai"},
+  {name: "Copy.ai", category: "Marketing & SEO", domain: "copy.ai", color: "#10B981", initDesc: "Whatever you want to ask, our AI has the answer.", url: "https://copy.ai"},
+  {name: "Surfer SEO", category: "Marketing & SEO", domain: "surferseo.com", color: "#3B82F6", initDesc: "SEO workflow that boosts organic traffic.", url: "https://surferseo.com"},
+  {name: "Writesonic", category: "Marketing & SEO", domain: "writesonic.com", color: "#EC4899", initDesc: "Best AI Writer, Copywriting & Paraphrasing Tool.", url: "https://writesonic.com"},
+  {name: "Mutiny", category: "Marketing & SEO", domain: "mutinyhq.com", color: "#000000", initDesc: "No-code AI platform that converts your website visitors.", url: "https://mutinyhq.com"}
 ];
 
-let output = "";
-brands.forEach((brand) => {
-    const id = brand[0].toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-    output += "  },\n";
-    output += "  {\n";
-    output += "    id: '" + id + "',\n";
-    output += "    name: '" + brand[0].replace(/'/g, "\\'") + "',\n";
-    output += "    description: '" + brand[3].replace(/'/g, "\\'") + "',\n";
-    output += "    category: '" + brand[2] + "',\n";
-    output += "    url: 'https://" + brand[1] + "',\n";
-    output += "    domain: '" + brand[1] + "',\n";
-    output += "    brandColor: '" + brand[4] + "',\n";
-    output += "    imageUrl: 'https://img.logo.dev/" + brand[1] + "?token=pk_Yy124-7wSK-z-Hym446V9A',\n";
-    output += "    pricing: '" + brand[5] + "',\n";
-    output += "    rating: " + (4.5 + Math.random() * 0.4).toFixed(1) + ",\n";
-    output += "    featured: " + (Math.random() > 0.7) + ",\n";
-    let day = String(10 + Math.floor(Math.random()*15)).padStart(2,'0');
-    output += "    dateAdded: '2026-05-" + day + "T10:00:00.000Z',\n";
-    output += "    tags: ['" + brand[2].split(' ')[0] + "', 'AI']\n";
-});
-
-const newToolsSnippet = output + "  }\n];";
-
-const marker = 'export const CATEGORIES';
-const index = content.indexOf(marker);
-if (index !== -1) {
-    let before = content.substring(0, index);
-    let after = content.substring(index);
-    before = before.replace(/  \}\n\];\n*$/, newToolsSnippet + '\n\n');
-    fs.writeFileSync('constants.tsx', before + after);
-    console.log("Categories and tools added!");
-} else {
-    console.log("Failed to find marker");
+let addedToolsStr = "";
+for (let i = 0; i < newTools.length; i++) {
+  const t = newTools[i];
+  if (data.includes('"name": "' + t.name + '"')) {
+    continue;
+  }
+  const toolObj = {
+    id: t.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+    name: t.name,
+    description: t.initDesc,
+    longDescription: "Comprehensive review of " + t.name + ", including features, user experience, and key performance reviews in " + t.category + ".",
+    category: t.category,
+    url: t.url,
+    domain: t.domain,
+    brandColor: t.color,
+    imageUrl: "https://img.logo.dev/" + t.domain + "?token=pk_Yy124-7wSK-z-Hym446V9A",
+    pricing: "Freemium",
+    rating: parseFloat((4.5 + Math.random() * 0.4).toFixed(1)),
+    featured: false,
+    dateAdded: new Date().toISOString(),
+    tags: [t.category.split(' ')[0], "AI", "Utility"],
+    useCases: [
+      "Accelerating workflows in standard operations",
+      "Empowering startups containing remote collaborative units",
+      "Automating complex daily checkups and documentation lists"
+    ],
+    launchYear: 2023
+  };
+  addedToolsStr += ",\n  " + JSON.stringify(toolObj, null, 2).replace(/\n/g, "\n  ");
 }
+
+let newData = data.replace(
+  /export const MOCK_TOOLS: Tool\[\] = \[([\s\S]+?)\];\n\nexport const CATEGORIES/m,
+  (match, p1) => {
+    return "export const MOCK_TOOLS: Tool[] = [" + p1 + addedToolsStr + "\n];\n\nexport const CATEGORIES";
+  }
+);
+
+newData = newData.replace(
+  /export const CATEGORIES: CategoryStat\[\] = CATEGORY_META\.map\(meta => \(\{\n\s*\.\.\.meta,\n\s*count: MOCK_TOOLS\.filter\(tool => tool\.category === meta\.id\)\.length\n\}\)\)\.filter\(cat => cat\.count > 0\)\.sort\(\(a, b\) => b\.count - a\.count\);/m,
+  "export const CATEGORIES: CategoryStat[] = CATEGORY_META.map(meta => ({\n" +
+  "  ...meta,\n" +
+  "  count: MOCK_TOOLS.filter(tool => tool.category === meta.id).length\n" +
+  "})).filter(cat => cat.count > 0).sort((a, b) => b.count - a.count);"
+);
+
+fs.writeFileSync(file, newData);
+console.log("Updated constants.tsx");

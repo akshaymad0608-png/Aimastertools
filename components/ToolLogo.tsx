@@ -10,17 +10,17 @@ interface ToolLogoProps {
 
 const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className, style }) => {
   const [src, setSrc] = useState<string | null>(
-    domain ? `https://logo.clearbit.com/${domain}?size=80` : null
+    domain ? `https://img.logo.dev/${domain}?token=pk_Yy124-7wSK-z-Hym446V9A` : null
   );
   const [failed, setFailed] = useState(false);
   const initials = name?.slice(0, 2).toUpperCase() || "AI";
 
   const handleError = () => {
-    if (src?.includes("clearbit") && domain) {
-      // Try Google favicon as second option
-      setSrc(`https://www.google.com/s2/favicons?domain=${domain}&sz=64`);
+    if (src?.includes("logo.dev") && domain) {
+      // Fallback to Google favicon
+      setSrc(`https://www.google.com/s2/favicons?domain=${domain}&sz=128`);
     } else {
-      // Give up, show initials
+      // Give up and use fallback styled initials
       setFailed(true);
     }
   };
@@ -41,7 +41,7 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
         className={defaultClasses}
         style={{
           ...defaultBoxStyle,
-          background: brandColor || "#534AB7",
+          background: brandColor || "var(--color-primary)",
           fontSize: "15px", fontWeight: "600", color: "#fff",
           border: "0.5px solid rgba(0,0,0,0.08)",
         }}>
@@ -64,6 +64,8 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
         src={src}
         alt={name}
         onError={handleError}
+        loading="lazy"
+        decoding="async"
         style={{
           width: "74%", height: "74%",
           objectFit: "contain"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ExternalLink, Star, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles } from 'lucide-react';
-import { MOCK_TOOLS } from '../constants';
+import { MOCK_TOOLS } from '../data/tools';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
@@ -169,7 +169,7 @@ const ToolDetail: React.FC = () => {
                 <span className="w-1 h-8 bg-[var(--color-primary)] rounded-full"></span>
                 About {tool.name}
               </h2>
-              <div className="prose max-w-none text-slate-600 leading-relaxed">
+              <div className="prose max-w-none text-[var(--color-text-secondary)] leading-relaxed">
                 <p className="mb-6 text-lg">
                   {tool.description}
                 </p>

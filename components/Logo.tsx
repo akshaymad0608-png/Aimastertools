@@ -9,18 +9,21 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ size = "md" }) => {
   const isSmall = size === "sm";
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+    <div className="flex items-center gap-2.5 select-none text-decoration-none">
       
-      {/* Icon Box */}
-      <div style={{
-        width: isSmall ? "30px" : "38px",
-        height: isSmall ? "30px" : "38px",
-        background: "#534AB7",
-        borderRadius: isSmall ? "8px" : "10px",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        flexShrink: 0
-      }}>
-        <svg width={isSmall ? "17" : "22"} height={isSmall ? "17" : "22"} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Premium Dynamic Gradient Icon Box */}
+      <div 
+        className={`${
+          isSmall ? "w-8 h-8 rounded-lg" : "w-10 h-10 rounded-xl"
+        } bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(99,102,241,0.25)]`}
+      >
+        <svg 
+          width={isSmall ? "16" : "20"} 
+          height={isSmall ? "16" : "20"} 
+          viewBox="0 0 22 22" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <circle cx="11" cy="11" r="4" fill="white" fillOpacity="0.95"/>
           <path d="M11 2v3.5M11 16.5V20M2 11h3.5M16.5 11H20"
             stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -29,19 +32,20 @@ const Logo: React.FC<LogoProps> = ({ size = "md" }) => {
         </svg>
       </div>
 
-      {/* Text */}
-      <div style={{ lineHeight: "1.1" }}>
-        <div style={{
-          fontSize: isSmall ? "13px" : "15px",
-          fontWeight: "600",
-          color: "#1a1a2e"
-        }}>AI Master Tools</div>
-        <div style={{
-          fontSize: "9px",
-          color: "#888",
-          letterSpacing: "0.7px",
-          textTransform: "uppercase"
-        }}>Discover · Compare · Find</div>
+      {/* Styled Responsive Branding Text */}
+      <div className="leading-tight">
+        <div 
+          className={`${
+            isSmall ? "text-[14px]" : "text-[17px]"
+          } font-black tracking-tight text-[var(--color-text-primary)]`}
+        >
+          AI Master Tools
+        </div>
+        <div 
+          className="text-[9px] font-bold text-[var(--color-text-muted)] tracking-widest uppercase font-mono mt-0.5"
+        >
+          Discover · Compare · Find
+        </div>
       </div>
 
     </div>

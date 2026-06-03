@@ -29,7 +29,7 @@ export default function FabSubmit() {
   return (
     <Link
       to="/submit"
-      className={`md:hidden fixed bottom-[140px] right-4 bg-[#534AB7] text-white p-4 rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ease-in-out ${
+      className={`md:hidden fixed bottom-[90px] right-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white p-4 rounded-full shadow-lg z-50 flex items-center justify-center transition-all duration-300 ease-in-out ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'
       }`}
       aria-label="Submit a new tool"

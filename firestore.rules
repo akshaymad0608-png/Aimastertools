@@ -85,11 +85,29 @@ service cloud.firestore {
       allow read, update, delete: if false; // Only admins can read/modify (not implemented yet)
     }
 
+    match /submitted_tools/{toolId} {
+      allow create: if isAuthenticated() && hasRequiredFields(['name', 'url', 'email', 'category', 'pricing', 'description', 'submittedBy', 'submittedAt']) &&
+                    request.resource.data.name is string &&
+                    request.resource.data.url is string &&
+                    request.resource.data.email is string &&
+                    isValidEmail(request.resource.data.email) &&
+                    request.resource.data.category is string &&
+                    request.resource.data.pricing is string &&
+                    request.resource.data.description is string &&
+                    request.resource.data.submittedBy == request.auth.uid &&
+                    request.resource.data.submittedAt is timestamp;
+      allow read: if isOwner(resource.data.submittedBy);
+      allow update, delete: if false;
+    }
+
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
-      allow create, update: if request.auth != null && request.auth.uid == userId && 
+      allow create: if request.auth != null && request.auth.uid == userId && 
                               hasOnlyAllowedFields(['isPro', 'updatedAt']) &&
-                              request.resource.data.isPro is bool;
+                              request.resource.data.isPro == false; // Initial creation must be false
+      allow update: if request.auth != null && request.auth.uid == userId && 
+                              hasOnlyAllowedFields(['isPro', 'updatedAt']) &&
+                              request.resource.data.isPro == resource.data.isPro; // Cannot change isPro status in frontend
     }
   }
 }
