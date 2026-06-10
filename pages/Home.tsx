@@ -29,7 +29,6 @@ const Home: React.FC = () => {
   const [selectedPricing, setSelectedPricing] = useState<string>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(8);
-  const [isSearchSticky, setIsSearchSticky] = useState(false);
   const [showChatTooltip, setShowChatTooltip] = useState(true);
 
   const navigate = useNavigate();
@@ -52,14 +51,6 @@ const Home: React.FC = () => {
       }
     }, 500);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSearchSticky(window.scrollY > 350);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowChatTooltip(false), 5000);
@@ -223,28 +214,6 @@ const Home: React.FC = () => {
           {toastMessage.text}
         </div>
       )}
-
-      {/* Sticky Mobile Search Header */}
-      <div 
-        className={`md:hidden fixed top-[60px] left-0 w-full bg-[var(--color-surface)]/95 backdrop-blur-md pt-3 pb-3 px-4 z-[60] transition-transform duration-300 border-b border-[var(--color-border)] shadow-sm ${isSearchSticky ? 'translate-y-0' : '-translate-y-full'}`}
-      >
-        <form onSubmit={(e) => { e.preventDefault(); document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); mobileSearchInputRef.current?.blur(); }} className="relative flex items-center">
-          <Search className="absolute left-3 text-[var(--color-text-muted)]" size={18} />
-          <input 
-            ref={mobileSearchInputRef}
-            type="text" 
-            placeholder="Search tools..." 
-            className="w-full h-12 pl-10 pr-12 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] focus:ring-2 focus:ring-[var(--color-primary)] outline-none text-[var(--color-text-primary)]"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <div className="absolute right-2 flex items-center">
-            <React.Suspense fallback={<div className="w-8 h-8"></div>}>
-              <VoiceSearch onTranscript={handleVoiceTranscript} />
-            </React.Suspense>
-          </div>
-        </form>
-      </div>
 
       <SEO 
         title={seoTitle} 

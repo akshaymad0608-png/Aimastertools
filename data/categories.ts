@@ -254,6 +254,42 @@ export const CATEGORY_META = [
     "bg": "#E1F5EE",
     "color": "#0F6E56"
   }
+,
+  {
+    "id": "Video & Audio Generation",
+    "name": "Video & Audio Generation",
+    "icon": "ti-video",
+    "bg": "#FAEEDA",
+    "color": "#633806"
+},
+  {
+    "id": "Text & Writing",
+    "name": "Text & Writing",
+    "icon": "ti-pencil",
+    "bg": "#EEEDFE",
+    "color": "#534AB7"
+},
+  {
+    "id": "SEO & Marketing Tools",
+    "name": "SEO & Marketing Tools",
+    "icon": "ti-speakerphone",
+    "bg": "#FBEAF0",
+    "color": "#72243E"
+},
+  {
+    "id": "Productivity & Collaboration",
+    "name": "Productivity & Collaboration",
+    "icon": "ti-briefcase",
+    "bg": "#EAF3DE",
+    "color": "#3B6D11"
+},
+  {
+    "id": "Personal Assistant",
+    "name": "Personal Assistant",
+    "icon": "ti-headphone-alt",
+    "bg": "#EEEDFE",
+    "color": "#534AB7"
+}
 ];
 
 export const CATEGORIES: CategoryStat[] = CATEGORY_META.map(meta => ({

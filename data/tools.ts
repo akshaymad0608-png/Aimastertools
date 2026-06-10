@@ -1,4 +1,4 @@
-import { Tool, CategoryStat, BlogPost } from '../types';
+import { Tool } from '../types';
 
 export const MOCK_TOOLS: Tool[] = [
   {
@@ -7566,8 +7566,7 @@ export const MOCK_TOOLS: Tool[] = [
       "Automating complex daily checkups and documentation lists"
     ],
     "launchYear": 2020
-  }
-,
+  },
   {
     "id": "kickresume",
     "name": "Kickresume",
@@ -8529,8 +8528,7 @@ export const MOCK_TOOLS: Tool[] = [
       "Automating complex daily checkups and documentation lists"
     ],
     "launchYear": 2023
-  }
-,
+  },
   {
     "id": "dall-e-3",
     "name": "DALL-E 3",
@@ -8740,32 +8738,6 @@ export const MOCK_TOOLS: Tool[] = [
     "launchYear": 2023
   },
   {
-    "id": "jasper",
-    "name": "Jasper",
-    "description": "AI copilot for enterprise marketing teams.",
-    "longDescription": "Comprehensive review of Jasper, including features, user experience, and key performance reviews in Marketing & SEO.",
-    "category": "Marketing & SEO",
-    "url": "https://jasper.ai",
-    "domain": "jasper.ai",
-    "brandColor": "#2563EB",
-    "imageUrl": "https://img.logo.dev/jasper.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.8,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:30:16.611Z",
-    "tags": [
-      "Marketing",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
     "id": "mutiny",
     "name": "Mutiny",
     "description": "No-code AI platform that converts your website visitors.",
@@ -8781,59 +8753,6 @@ export const MOCK_TOOLS: Tool[] = [
     "dateAdded": "2026-06-03T14:30:16.611Z",
     "tags": [
       "Marketing",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  }
-,
-  {
-    "id": "otter-ai",
-    "name": "Otter.ai",
-    "description": "Provides meeting transcription and summaries.",
-    "longDescription": "Comprehensive review of Otter.ai, including features, user experience, and key performance reviews in AI Meeting Assistants.",
-    "category": "AI Meeting Assistants",
-    "url": "https://otter.ai",
-    "domain": "otter.ai",
-    "brandColor": "#2563EB",
-    "imageUrl": "https://img.logo.dev/otter.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.7,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:31:45.221Z",
-    "tags": [
-      "AI",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
-    "id": "fireflies-ai",
-    "name": "Fireflies.ai",
-    "description": "Automates meeting notes and transcripts.",
-    "longDescription": "Comprehensive review of Fireflies.ai, including features, user experience, and key performance reviews in AI Meeting Assistants.",
-    "category": "AI Meeting Assistants",
-    "url": "https://fireflies.ai",
-    "domain": "fireflies.ai",
-    "brandColor": "#10B981",
-    "imageUrl": "https://img.logo.dev/fireflies.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.6,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:31:45.222Z",
-    "tags": [
-      "AI",
       "AI",
       "Utility"
     ],
@@ -9051,8 +8970,7 @@ export const MOCK_TOOLS: Tool[] = [
       "Automating complex daily checkups and documentation lists"
     ],
     "launchYear": 2023
-  }
-,
+  },
   {
     "id": "epique",
     "name": "Epique",
@@ -9169,32 +9087,6 @@ export const MOCK_TOOLS: Tool[] = [
     "imageUrl": "https://img.logo.dev/make.com?token=pk_Yy124-7wSK-z-Hym446V9A",
     "pricing": "Freemium",
     "rating": 4.7,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:35:37.004Z",
-    "tags": [
-      "AI",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
-    "id": "zapier",
-    "name": "Zapier",
-    "description": "Automate your workflows easily.",
-    "longDescription": "Comprehensive review of Zapier, including features, user experience, and key performance reviews in AI Workflow Automation.",
-    "category": "AI Workflow Automation",
-    "url": "https://zapier.com",
-    "domain": "zapier.com",
-    "brandColor": "#FF4A00",
-    "imageUrl": "https://img.logo.dev/zapier.com?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.6,
     "featured": false,
     "dateAdded": "2026-06-03T14:35:37.004Z",
     "tags": [
@@ -9366,58 +9258,6 @@ export const MOCK_TOOLS: Tool[] = [
     "launchYear": 2023
   },
   {
-    "id": "leonardo-ai",
-    "name": "Leonardo.ai",
-    "description": "Asset generation for games.",
-    "longDescription": "Comprehensive review of Leonardo.ai, including features, user experience, and key performance reviews in Gaming & Entertainment.",
-    "category": "Gaming & Entertainment",
-    "url": "https://leonardo.ai",
-    "domain": "leonardo.ai",
-    "brandColor": "#3B82F6",
-    "imageUrl": "https://img.logo.dev/leonardo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.7,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:35:37.007Z",
-    "tags": [
-      "Gaming",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
-    "id": "ludo-ai",
-    "name": "Ludo.ai",
-    "description": "AI platform for game research and design.",
-    "longDescription": "Comprehensive review of Ludo.ai, including features, user experience, and key performance reviews in Gaming & Entertainment.",
-    "category": "Gaming & Entertainment",
-    "url": "https://ludo.ai",
-    "domain": "ludo.ai",
-    "brandColor": "#EC4899",
-    "imageUrl": "https://img.logo.dev/ludo.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.8,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:35:37.007Z",
-    "tags": [
-      "Gaming",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
     "id": "crowdstrike",
     "name": "CrowdStrike",
     "description": "AI-native endpoint security.",
@@ -9522,32 +9362,6 @@ export const MOCK_TOOLS: Tool[] = [
     "launchYear": 2023
   },
   {
-    "id": "tidio",
-    "name": "Tidio",
-    "description": "Customer service chatbot for ecommerce.",
-    "longDescription": "Comprehensive review of Tidio, including features, user experience, and key performance reviews in AI Ecommerce Tools.",
-    "category": "AI Ecommerce Tools",
-    "url": "https://tidio.com",
-    "domain": "tidio.com",
-    "brandColor": "#10B981",
-    "imageUrl": "https://img.logo.dev/tidio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.8,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:35:37.008Z",
-    "tags": [
-      "AI",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
     "id": "klevu",
     "name": "Klevu",
     "description": "AI search and discovery for ecommerce.",
@@ -9624,33 +9438,6 @@ export const MOCK_TOOLS: Tool[] = [
       "Automating complex daily checkups and documentation lists"
     ],
     "launchYear": 2023
-  }
-,
-  {
-    "id": "monica",
-    "name": "Monica",
-    "description": "Your AI copilot across the web.",
-    "longDescription": "Comprehensive review of Monica, including features, user experience, and key performance reviews in AI Chrome Extensions.",
-    "category": "AI Chrome Extensions",
-    "url": "https://monica.im",
-    "domain": "monica.im",
-    "brandColor": "#3B82F6",
-    "imageUrl": "https://img.logo.dev/monica.im?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.8,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:37:28.094Z",
-    "tags": [
-      "AI",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
   },
   {
     "id": "sider",
@@ -9662,32 +9449,6 @@ export const MOCK_TOOLS: Tool[] = [
     "domain": "sider.ai",
     "brandColor": "#10B981",
     "imageUrl": "https://img.logo.dev/sider.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
-    "pricing": "Freemium",
-    "rating": 4.6,
-    "featured": false,
-    "dateAdded": "2026-06-03T14:37:28.094Z",
-    "tags": [
-      "AI",
-      "AI",
-      "Utility"
-    ],
-    "useCases": [
-      "Accelerating workflows in standard operations",
-      "Empowering startups containing remote collaborative units",
-      "Automating complex daily checkups and documentation lists"
-    ],
-    "launchYear": 2023
-  },
-  {
-    "id": "harpa-ai",
-    "name": "Harpa AI",
-    "description": "Hybrid AI agent for web automation.",
-    "longDescription": "Comprehensive review of Harpa AI, including features, user experience, and key performance reviews in AI Chrome Extensions.",
-    "category": "AI Chrome Extensions",
-    "url": "https://harpa.ai",
-    "domain": "harpa.ai",
-    "brandColor": "#EC4899",
-    "imageUrl": "https://img.logo.dev/harpa.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
@@ -9963,6 +9724,1642 @@ export const MOCK_TOOLS: Tool[] = [
       "Automating complex daily checkups and documentation lists"
     ],
     "launchYear": 2023
+  },
+  {
+    "id": "paradox-ai",
+    "name": "Paradox",
+    "description": "Conversational recruiting software featuring Olivia, an AI assistant who screens and schedules candidates.",
+    "longDescription": "Comprehensive review of Paradox AI. Helps leading brands automate the recruiting process from application to interview scheduling seamlessly.",
+    "category": "HR & Recruiting",
+    "url": "https://paradox.ai",
+    "domain": "paradox.ai",
+    "brandColor": "#00A1E0",
+    "imageUrl": "https://img.logo.dev/paradox.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:14:40.252Z",
+    "tags": [
+      "Recruiting",
+      "Screening",
+      "Interviews"
+    ],
+    "useCases": [
+      "High-volume hiring",
+      "Automated candidate screening"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "corti",
+    "name": "Corti",
+    "description": "AI co-pilot for healthcare professionals, offering real-time guidance during patient consultations.",
+    "longDescription": "Comprehensive review of Corti. Assures high-quality patient encounters by listening to conversations and suggesting diagnoses and workflows.",
+    "category": "AI Healthcare Tools",
+    "url": "https://corti.ai",
+    "domain": "corti.ai",
+    "brandColor": "#151B26",
+    "imageUrl": "https://img.logo.dev/corti.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:14:40.252Z",
+    "tags": [
+      "Voice Analysis",
+      "Diagnosis",
+      "Co-pilot"
+    ],
+    "useCases": [
+      "Emergency dispatch guidance",
+      "Clinical consultation transcription"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "butterfly-network",
+    "name": "Butterfly Network",
+    "description": "Handheld ultrasound technology empowered by sophisticated AI analytics for rapid, portable medical imaging.",
+    "longDescription": "Comprehensive review of Butterfly iQ+. Uses AI to guide users to better ultrasound images, democratizing medical imaging globally.",
+    "category": "AI Healthcare Tools",
+    "url": "https://butterflynetwork.com",
+    "domain": "butterflynetwork.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/butterflynetwork.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-06-10T09:14:40.252Z",
+    "tags": [
+      "Imaging",
+      "Ultrasound",
+      "Diagnostics"
+    ],
+    "useCases": [
+      "Point-of-care ultrasound",
+      "Remote healthcare clinics"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "alpha-sense",
+    "name": "AlphaSense",
+    "description": "Market intelligence and search platform designed specifically for finance professionals to uncover data insights.",
+    "longDescription": "Comprehensive review of AlphaSense. Indexes billions of financial documents, applying AI to extract critical signals hidden within earnings calls and filings.",
+    "category": "Business & Finance AI",
+    "url": "https://alpha-sense.com",
+    "domain": "alpha-sense.com",
+    "brandColor": "#0A253F",
+    "imageUrl": "https://img.logo.dev/alpha-sense.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:14:40.252Z",
+    "tags": [
+      "Market Research",
+      "Financial Data",
+      "Search Engine"
+    ],
+    "useCases": [
+      "Equity research analysis",
+      "Competitive market intelligence"
+    ],
+    "launchYear": 2011
+  },
+  {
+    "id": "highradius",
+    "name": "HighRadius",
+    "description": "AI-driven order-to-cash and treasury management software for enterprise finance and accounting teams.",
+    "longDescription": "Comprehensive review of HighRadius. Automates heavily manual financial processes like cash application, credit management, and billing using predictive AI.",
+    "category": "Business & Finance AI",
+    "url": "https://highradius.com",
+    "domain": "highradius.com",
+    "brandColor": "#00539B",
+    "imageUrl": "https://img.logo.dev/highradius.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:14:40.252Z",
+    "tags": [
+      "Accounting",
+      "Treasury",
+      "Invoice Management"
+    ],
+    "useCases": [
+      "B2B payment automation",
+      "Cash flow forecasting"
+    ],
+    "launchYear": 2006
+  },
+  {
+    "id": "suno-ai",
+    "name": "Suno AI",
+    "description": "Groundbreaking music generation model capable of creating full songs with realistic vocals from text.",
+    "longDescription": "Comprehensive review of Suno AI. Allows anyone to type a prompt and receive fully produced musical tracks featuring surprisingly human-sounding vocalists.",
+    "category": "Video & Audio Generation",
+    "url": "https://suno.com",
+    "domain": "suno.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/suno.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-06-10T09:15:42.678Z",
+    "tags": [
+      "Music",
+      "Vocals",
+      "Audio"
+    ],
+    "useCases": [
+      "Podcast intro music",
+      "Personalized song creation"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "pika-art",
+    "name": "Pika Labs",
+    "description": "Powerful text-to-video platform ideal for creating realistic motion animations and cinematic clips.",
+    "longDescription": "Comprehensive review of Pika Labs. Rapidly turning text and images into engaging 3D animations, cinematic sequences, and anime styling.",
+    "category": "Video & Audio Generation",
+    "url": "https://pika.art",
+    "domain": "pika.art",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/pika.art?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:15:42.679Z",
+    "tags": [
+      "Text to Video",
+      "Animation",
+      "Cinematic"
+    ],
+    "useCases": [
+      "Commercial video b-roll",
+      "Animated storytelling"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "freepik-pikaso",
+    "name": "Freepik Pikaso",
+    "description": "Real-time AI sketching and image generation tool built smoothly into Freepik's expansive asset catalog.",
+    "longDescription": "Comprehensive review of Freepik Pikaso. Lets artists draw crude sketches and watch them render into photorealistic outputs in absolute real-time.",
+    "category": "Image & Art Generation",
+    "url": "https://freepik.com",
+    "domain": "freepik.com",
+    "brandColor": "#1273EB",
+    "imageUrl": "https://img.logo.dev/freepik.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-10T09:15:42.679Z",
+    "tags": [
+      "Real-time",
+      "Sketch to Image",
+      "Assets"
+    ],
+    "useCases": [
+      "Rapid concept iteration",
+      "Graphic design assets"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "pexo",
+    "name": "PEXO",
+    "description": "AI-powered creative and design assistant.",
+    "longDescription": "PEXO helps users create stunning visuals and designs using advanced AI features.",
+    "category": "Image & Art Generation",
+    "url": "https://pexo.example.com",
+    "domain": "pexo.example.com",
+    "brandColor": "#2A5DEB",
+    "imageUrl": "https://img.logo.dev/pexo.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.558Z",
+    "tags": [
+      "Design",
+      "Creative",
+      "Generative AI"
+    ],
+    "useCases": [
+      "Marketing assets",
+      "Social media graphics"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "magica",
+    "name": "MAGICa",
+    "description": "Magic AI tools for quick image manipulation.",
+    "longDescription": "MAGICa provides magical AI tools for instant image generation and editing.",
+    "category": "Image & Art Generation",
+    "url": "https://magica.example.com",
+    "domain": "magica.example.com",
+    "brandColor": "#FF007F",
+    "imageUrl": "https://img.logo.dev/magica.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Editing",
+      "Manipulation",
+      "Magic"
+    ],
+    "useCases": [
+      "Photo editing",
+      "Rapid prototyping"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "dzine",
+    "name": "Dzine",
+    "description": "Generative AI for UX/UI designers.",
+    "longDescription": "Dzine is a next-generation platform utilizing AI to generate User Interfaces and User Experiences.",
+    "category": "Code & Development",
+    "url": "https://dzine.ai",
+    "domain": "dzine.ai",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/dzine.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "UI/UX",
+      "Design",
+      "Wireframing"
+    ],
+    "useCases": [
+      "App design",
+      "Website mockups"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "holo",
+    "name": "Holo",
+    "description": "Holographic and 3D AI generator.",
+    "longDescription": "Holo uses deep learning to generate 3D models and holographic displays from 2D images.",
+    "category": "3D & Animation",
+    "url": "https://holo.example.com",
+    "domain": "holo.example.com",
+    "brandColor": "#00E5FF",
+    "imageUrl": "https://img.logo.dev/holo.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.4,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "3D",
+      "Hologram",
+      "Modeling"
+    ],
+    "useCases": [
+      "Game development",
+      "AR/VR assets"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "ai-overview-optimizer",
+    "name": "AI Overview Optimizer",
+    "description": "Optimize your content for AI search overviews.",
+    "longDescription": "AI Overview Optimizer analyzes your content to ensure it is frequently cited by AI search engines like Google's SGE.",
+    "category": "SEO & Marketing Tools",
+    "url": "https://overviewoptimizer.example.com",
+    "domain": "overviewoptimizer.example.com",
+    "brandColor": "#FF5722",
+    "imageUrl": "https://img.logo.dev/overviewoptimizer.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "SEO",
+      "AEO",
+      "Search"
+    ],
+    "useCases": [
+      "Content optimization",
+      "AI rankings"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "capcut",
+    "name": "CapCut",
+    "description": "Versatile video editor with powerful AI tools.",
+    "longDescription": "CapCut is a popular video editing app with robust AI features for auto-captions, background removal, and smart effects.",
+    "category": "Video & Audio Generation",
+    "url": "https://capcut.com",
+    "domain": "capcut.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/capcut.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": true,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Video Editing",
+      "Social Media",
+      "Effects"
+    ],
+    "useCases": [
+      "TikTok creation",
+      "YouTube Shorts"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "pixmax-ai",
+    "name": "Pixmax AI",
+    "description": "High-resolution AI image upscaling and enhancement.",
+    "longDescription": "Pixmax AI provides advanced algorithms to upscale, denoise, and enhance images without losing quality.",
+    "category": "Image & Art Generation",
+    "url": "https://pixmax.example.com",
+    "domain": "pixmax.example.com",
+    "brandColor": "#1E88E5",
+    "imageUrl": "https://img.logo.dev/pixmax.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Upscaler",
+      "Enhancer",
+      "Photography"
+    ],
+    "useCases": [
+      "Restoring old photos",
+      "Print preparation"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "terabox-ai",
+    "name": "TeraBox AI",
+    "description": "Smart cloud storage with AI-powered file organization.",
+    "longDescription": "TeraBox AI gives you vast cloud storage space, automatically categorizing and tagging your files and photos using AI.",
+    "category": "Productivity & Collaboration",
+    "url": "https://terabox.com",
+    "domain": "terabox.com",
+    "brandColor": "#0057FF",
+    "imageUrl": "https://img.logo.dev/terabox.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Cloud Storage",
+      "File Management",
+      "Organization"
+    ],
+    "useCases": [
+      "Photo backup",
+      "Document organization"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "blaze",
+    "name": "Blaze",
+    "description": "AI content engine for marketing teams and agencies.",
+    "longDescription": "Blaze helps you create, organize, and publish marketing content 10x faster using your brand's unique voice.",
+    "category": "Text & Writing",
+    "url": "https://blaze.ai",
+    "domain": "blaze.ai",
+    "brandColor": "#FF4500",
+    "imageUrl": "https://img.logo.dev/blaze.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Marketing",
+      "Brand Voice",
+      "Content Engine"
+    ],
+    "useCases": [
+      "Campaign management",
+      "Blog writing"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "coursebox-ai-tutor",
+    "name": "Coursebox AI Tutor",
+    "description": "AI course creator and personalized learning tutor.",
+    "longDescription": "Coursebox builds comprehensive online courses in minutes and provides an interactive AI tutor for students.",
+    "category": "Learning & Education",
+    "url": "https://coursebox.ai",
+    "domain": "coursebox.ai",
+    "brandColor": "#60A5FA",
+    "imageUrl": "https://img.logo.dev/coursebox.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Course Creation",
+      "LMS",
+      "Tutor"
+    ],
+    "useCases": [
+      "Employee training",
+      "Online education"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "fotor",
+    "name": "Fotor",
+    "description": "Online photo editor and AI image generator.",
+    "longDescription": "Fotor makes online photo editing easy and includes a suite of AI features like background removal, avatars, and text-to-image.",
+    "category": "Image & Art Generation",
+    "url": "https://fotor.com",
+    "domain": "fotor.com",
+    "brandColor": "#3A3A3A",
+    "imageUrl": "https://img.logo.dev/fotor.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": true,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Photo Editing",
+      "Text to Image",
+      "Collage"
+    ],
+    "useCases": [
+      "Social media posts",
+      "Graphic design"
+    ],
+    "launchYear": 2012
+  },
+  {
+    "id": "clico",
+    "name": "Clico",
+    "description": "AI-powered conversion rate optimization platform.",
+    "longDescription": "Clico uses AI to analyze user behavior dynamically and optimize website layouts and copy for maximum conversion.",
+    "category": "SEO & Marketing Tools",
+    "url": "https://clico.example.com",
+    "domain": "clico.example.com",
+    "brandColor": "#8B5CF6",
+    "imageUrl": "https://img.logo.dev/clico.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "CRO",
+      "Analytics",
+      "Optimization"
+    ],
+    "useCases": [
+      "Landing page testing",
+      "E-commerce sales"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "i10x",
+    "name": "i10x",
+    "description": "AI tool to boost developer productivity by 10x.",
+    "longDescription": "i10x integrates with your IDE to provide hyper-contextual code suggestions, tests, and refactoring tips.",
+    "category": "Code & Development",
+    "url": "https://i10x.example.com",
+    "domain": "i10x.example.com",
+    "brandColor": "#10B981",
+    "imageUrl": "https://img.logo.dev/i10x.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Coding Assistant",
+      "Developer Tool",
+      "Productivity"
+    ],
+    "useCases": [
+      "Faster coding",
+      "Automated testing"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "manychat-ai",
+    "name": "Manychat AI",
+    "description": "Automate Instagram, WhatsApp, and Facebook Messenger using AI.",
+    "longDescription": "Manychat now integrates AI to automatically reply to DMs, capture leads, and answer complex customer questions 24/7.",
+    "category": "AI Email Assistants",
+    "url": "https://manychat.com",
+    "domain": "manychat.com",
+    "brandColor": "#0084FF",
+    "imageUrl": "https://img.logo.dev/manychat.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Chatbots",
+      "Social Media",
+      "Automation"
+    ],
+    "useCases": [
+      "Instagram DM automation",
+      "Lead generation"
+    ],
+    "launchYear": 2016
+  },
+  {
+    "id": "munch-studio",
+    "name": "Munch Studio",
+    "description": "Extract the most engaging clips from long-form videos.",
+    "longDescription": "Munch uses AI to analyze your long videos and automatically pull the most engaging moments specifically for TikTok, Reels, and Shorts.",
+    "category": "Video & Audio Generation",
+    "url": "https://getmunch.com",
+    "domain": "getmunch.com",
+    "brandColor": "#E3F2FD",
+    "imageUrl": "https://img.logo.dev/getmunch.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": true,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Clipping",
+      "Shorts",
+      "Social Media"
+    ],
+    "useCases": [
+      "Podcast clipping",
+      "YouTube Shorts creation"
+    ],
+    "launchYear": 2022
+  },
+  {
+    "id": "vidnoz",
+    "name": "Vidnoz",
+    "description": "Free AI video generator with templates and avatars.",
+    "longDescription": "Vidnoz provides a fast and free way to generate AI videos with realistic avatars, voices, and ready-made templates.",
+    "category": "Video & Audio Generation",
+    "url": "https://vidnoz.com",
+    "domain": "vidnoz.com",
+    "brandColor": "#6C63FF",
+    "imageUrl": "https://img.logo.dev/vidnoz.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Avatars",
+      "Video Generator",
+      "Templates"
+    ],
+    "useCases": [
+      "Explainer videos",
+      "Sales outreach"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "klap",
+    "name": "Klap",
+    "description": "Turn YouTube videos into ready-to-publish short clips.",
+    "longDescription": "Klap instantly reformats any YouTube link into multiple viral-ready shorts with dynamic captions and smart reframing.",
+    "category": "Video & Audio Generation",
+    "url": "https://klap.app",
+    "domain": "klap.app",
+    "brandColor": "#F43F5E",
+    "imageUrl": "https://img.logo.dev/klap.app?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "YouTube",
+      "Shorts",
+      "Auto-Captions"
+    ],
+    "useCases": [
+      "Content repurposing",
+      "TikTok growth"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "whisper-flow",
+    "name": "Wisper Flow",
+    "description": "Seamless dictation and voice workflow automation.",
+    "longDescription": "Wisper Flow allows you to dictate your thoughts and automatically routes them to notes, emails, or tasks using AI formatting.",
+    "category": "Productivity & Collaboration",
+    "url": "https://wisperflow.example.com",
+    "domain": "wisperflow.example.com",
+    "brandColor": "#14B8A6",
+    "imageUrl": "https://img.logo.dev/wisperflow.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Dictation",
+      "Voice to Text",
+      "Workflow"
+    ],
+    "useCases": [
+      "Meeting notes",
+      "Email drafting via voice"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "novamira",
+    "name": "Novamira",
+    "description": "Next-gen AI assistant for immersive world-building and writing.",
+    "longDescription": "Novamira specializes in maintaining deep lore, complex continuity, and dynamic character generation for authors and game designers.",
+    "category": "Text & Writing",
+    "url": "https://novamira.example.com",
+    "domain": "novamira.example.com",
+    "brandColor": "#818CF8",
+    "imageUrl": "https://img.logo.dev/novamira.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Worldbuilding",
+      "Storytelling",
+      "Lore"
+    ],
+    "useCases": [
+      "Novel writing",
+      "Tabletop RPG campaigns"
+    ],
+    "launchYear": 2024
+  },
+  {
+    "id": "pictory",
+    "name": "Pictory",
+    "description": "Easy video creation using AI for content marketers.",
+    "longDescription": "Pictory automatically matches your text script or blog post with relevant stock footage, AI voices, and captions to create a video in minutes.",
+    "category": "Video & Audio Generation",
+    "url": "https://pictory.ai",
+    "domain": "pictory.ai",
+    "brandColor": "#0F4C81",
+    "imageUrl": "https://img.logo.dev/pictory.ai?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Paid",
+    "rating": 4.7,
+    "featured": true,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Text to Video",
+      "Stock Footage",
+      "Marketers"
+    ],
+    "useCases": [
+      "Blog to video",
+      "Faceless YouTube channels"
+    ],
+    "launchYear": 2020
+  },
+  {
+    "id": "aimey",
+    "name": "Aimey",
+    "description": "Your personal empathic AI conversational companion.",
+    "longDescription": "Aimey is designed to be a supportive active listener, helping people reflect on their day, practice mindfulness, and vent safely.",
+    "category": "Personal Assistant",
+    "url": "https://aimey.example.com",
+    "domain": "aimey.example.com",
+    "brandColor": "#F472B6",
+    "imageUrl": "https://img.logo.dev/aimey.example.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:03:02.559Z",
+    "tags": [
+      "Companion",
+      "Empathy",
+      "Wellness"
+    ],
+    "useCases": [
+      "Daily reflection",
+      "Stress management"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "jasper-ai",
+    "name": "Jasper AI",
+    "description": "The leading Jasper AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Jasper AI. It provides powerful AI capabilities for Text & Writing.",
+    "category": "Text & Writing",
+    "url": "https://jasperai.com",
+    "domain": "jasperai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/jasperai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.750738668642727,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.561Z",
+    "tags": [
+      "Text",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "designrr",
+    "name": "Designrr",
+    "description": "The leading Designrr platform using advanced AI.",
+    "longDescription": "Comprehensive review of Designrr. It provides powerful AI capabilities for Text & Writing.",
+    "category": "Text & Writing",
+    "url": "https://designrr.com",
+    "domain": "designrr.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/designrr.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.677701832388545,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Text",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "runway-gen-4",
+    "name": "Runway Gen-4",
+    "description": "The leading Runway Gen-4 platform using advanced AI.",
+    "longDescription": "Comprehensive review of Runway Gen-4. It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://runwaygen4.com",
+    "domain": "runwaygen4.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/runwaygen4.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.664965117631522,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "pika-labs",
+    "name": "Pika Labs",
+    "description": "The leading Pika Labs platform using advanced AI.",
+    "longDescription": "Comprehensive review of Pika Labs. It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://pikalabs.com",
+    "domain": "pikalabs.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/pikalabs.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.652804485630481,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "luma-ai-dream-machine",
+    "name": "Luma AI (Dream Machine)",
+    "description": "The leading Luma AI (Dream Machine) platform using advanced AI.",
+    "longDescription": "Comprehensive review of Luma AI (Dream Machine). It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://lumaaidreammachine.com",
+    "domain": "lumaaidreammachine.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/lumaaidreammachine.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.697860655055261,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "videogen",
+    "name": "VideoGen",
+    "description": "The leading VideoGen platform using advanced AI.",
+    "longDescription": "Comprehensive review of VideoGen. It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://videogen.com",
+    "domain": "videogen.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/videogen.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.604835586866286,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "reve-image",
+    "name": "Reve Image",
+    "description": "The leading Reve Image platform using advanced AI.",
+    "longDescription": "Comprehensive review of Reve Image. It provides powerful AI capabilities for Image & Art Generation.",
+    "category": "Image & Art Generation",
+    "url": "https://reveimage.com",
+    "domain": "reveimage.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/reveimage.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.880562893866443,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Image",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "artbreeder",
+    "name": "Artbreeder",
+    "description": "The leading Artbreeder platform using advanced AI.",
+    "longDescription": "Comprehensive review of Artbreeder. It provides powerful AI capabilities for Image & Art Generation.",
+    "category": "Image & Art Generation",
+    "url": "https://artbreeder.com",
+    "domain": "artbreeder.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/artbreeder.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6685079427071985,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Image",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "whisper-openai",
+    "name": "Whisper (OpenAI)",
+    "description": "The leading Whisper (OpenAI) platform using advanced AI.",
+    "longDescription": "Comprehensive review of Whisper (OpenAI). It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://whisperopenai.com",
+    "domain": "whisperopenai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/whisperopenai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.664941526136752,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "descript-audio",
+    "name": "Descript Audio",
+    "description": "The leading Descript Audio platform using advanced AI.",
+    "longDescription": "Comprehensive review of Descript Audio. It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://descriptaudio.com",
+    "domain": "descriptaudio.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/descriptaudio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.741646391289804,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "soundraw",
+    "name": "Soundraw",
+    "description": "The leading Soundraw platform using advanced AI.",
+    "longDescription": "Comprehensive review of Soundraw. It provides powerful AI capabilities for Video & Audio Generation.",
+    "category": "Video & Audio Generation",
+    "url": "https://soundraw.com",
+    "domain": "soundraw.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/soundraw.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.889481498757604,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Video",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "claude-anthropic",
+    "name": "Claude (Anthropic)",
+    "description": "The leading Claude (Anthropic) platform using advanced AI.",
+    "longDescription": "Comprehensive review of Claude (Anthropic). It provides powerful AI capabilities for Code & Development.",
+    "category": "Code & Development",
+    "url": "https://claudeanthropic.com",
+    "domain": "claudeanthropic.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/claudeanthropic.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.581965840014636,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Code",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "kuberns",
+    "name": "Kuberns",
+    "description": "The leading Kuberns platform using advanced AI.",
+    "longDescription": "Comprehensive review of Kuberns. It provides powerful AI capabilities for Code & Development.",
+    "category": "Code & Development",
+    "url": "https://kuberns.com",
+    "domain": "kuberns.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/kuberns.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.740443053087094,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Code",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "taskade",
+    "name": "Taskade",
+    "description": "The leading Taskade platform using advanced AI.",
+    "longDescription": "Comprehensive review of Taskade. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://taskade.com",
+    "domain": "taskade.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/taskade.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.824758606729862,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "granola",
+    "name": "Granola",
+    "description": "The leading Granola platform using advanced AI.",
+    "longDescription": "Comprehensive review of Granola. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://granola.com",
+    "domain": "granola.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/granola.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.80630682712986,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "motion",
+    "name": "Motion",
+    "description": "The leading Motion platform using advanced AI.",
+    "longDescription": "Comprehensive review of Motion. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://motion.com",
+    "domain": "motion.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/motion.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.617008805557051,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "reclaim-ai",
+    "name": "Reclaim AI",
+    "description": "The leading Reclaim AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Reclaim AI. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://reclaimai.com",
+    "domain": "reclaimai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/reclaimai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.755013045102609,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "mem-ai",
+    "name": "Mem AI",
+    "description": "The leading Mem AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Mem AI. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://memai.com",
+    "domain": "memai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/memai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.671557594111358,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "magical",
+    "name": "Magical",
+    "description": "The leading Magical platform using advanced AI.",
+    "longDescription": "Comprehensive review of Magical. It provides powerful AI capabilities for Productivity & Collaboration.",
+    "category": "Productivity & Collaboration",
+    "url": "https://magical.com",
+    "domain": "magical.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/magical.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.724644530048717,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Productivity",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "jasper-marketing",
+    "name": "Jasper (Marketing)",
+    "description": "The leading Jasper (Marketing) platform using advanced AI.",
+    "longDescription": "Comprehensive review of Jasper (Marketing). It provides powerful AI capabilities for SEO & Marketing Tools.",
+    "category": "SEO & Marketing Tools",
+    "url": "https://jaspermarketing.com",
+    "domain": "jaspermarketing.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/jaspermarketing.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.896836146588063,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "SEO",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "superscale-ai",
+    "name": "Superscale AI",
+    "description": "The leading Superscale AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Superscale AI. It provides powerful AI capabilities for SEO & Marketing Tools.",
+    "category": "SEO & Marketing Tools",
+    "url": "https://superscaleai.com",
+    "domain": "superscaleai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/superscaleai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.6731883313038765,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "SEO",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "blaze-ai",
+    "name": "Blaze AI",
+    "description": "The leading Blaze AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Blaze AI. It provides powerful AI capabilities for SEO & Marketing Tools.",
+    "category": "SEO & Marketing Tools",
+    "url": "https://blazeai.com",
+    "domain": "blazeai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/blazeai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.570185101764789,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "SEO",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "perplexity-ai",
+    "name": "Perplexity AI",
+    "description": "The leading Perplexity AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Perplexity AI. It provides powerful AI capabilities for AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://perplexityai.com",
+    "domain": "perplexityai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/perplexityai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.720330389578949,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "scite",
+    "name": "Scite",
+    "description": "The leading Scite platform using advanced AI.",
+    "longDescription": "Comprehensive review of Scite. It provides powerful AI capabilities for AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://scite.com",
+    "domain": "scite.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/scite.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.620815489975978,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "notegpt",
+    "name": "NoteGPT",
+    "description": "The leading NoteGPT platform using advanced AI.",
+    "longDescription": "Comprehensive review of NoteGPT. It provides powerful AI capabilities for AI Search Engines.",
+    "category": "AI Search Engines",
+    "url": "https://notegpt.com",
+    "domain": "notegpt.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/notegpt.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.802562872763925,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "zapier-ai",
+    "name": "Zapier AI",
+    "description": "The leading Zapier AI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Zapier AI. It provides powerful AI capabilities for AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://zapierai.com",
+    "domain": "zapierai.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/zapierai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.60247010968904,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "make-integromat",
+    "name": "Make (Integromat)",
+    "description": "The leading Make (Integromat) platform using advanced AI.",
+    "longDescription": "Comprehensive review of Make (Integromat). It provides powerful AI capabilities for AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://makeintegromat.com",
+    "domain": "makeintegromat.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/makeintegromat.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.52319160608907,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "salesforce-einstein",
+    "name": "Salesforce Einstein",
+    "description": "The leading Salesforce Einstein platform using advanced AI.",
+    "longDescription": "Comprehensive review of Salesforce Einstein. It provides powerful AI capabilities for AI Workflow Automation.",
+    "category": "AI Workflow Automation",
+    "url": "https://salesforceeinstein.com",
+    "domain": "salesforceeinstein.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/salesforceeinstein.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.725089895428145,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "AI",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "google-gemini",
+    "name": "Google Gemini",
+    "description": "The leading Google Gemini platform using advanced AI.",
+    "longDescription": "Comprehensive review of Google Gemini. It provides powerful AI capabilities for LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://googlegemini.com",
+    "domain": "googlegemini.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/googlegemini.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.5450918016784545,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "LLM",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "microsoft-copilot",
+    "name": "Microsoft Copilot",
+    "description": "The leading Microsoft Copilot platform using advanced AI.",
+    "longDescription": "Comprehensive review of Microsoft Copilot. It provides powerful AI capabilities for LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://microsoftcopilot.com",
+    "domain": "microsoftcopilot.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/microsoftcopilot.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.583584349234236,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "LLM",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "description": "The leading DeepSeek platform using advanced AI.",
+    "longDescription": "Comprehensive review of DeepSeek. It provides powerful AI capabilities for LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://deepseek.com",
+    "domain": "deepseek.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/deepseek.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.699535631035128,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "LLM",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "poe-by-quora",
+    "name": "Poe by Quora",
+    "description": "The leading Poe by Quora platform using advanced AI.",
+    "longDescription": "Comprehensive review of Poe by Quora. It provides powerful AI capabilities for LLM Providers & APIs.",
+    "category": "LLM Providers & APIs",
+    "url": "https://poebyquora.com",
+    "domain": "poebyquora.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/poebyquora.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.548074975912925,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "LLM",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "khan-academy-khanmigo",
+    "name": "Khan Academy Khanmigo",
+    "description": "The leading Khan Academy Khanmigo platform using advanced AI.",
+    "longDescription": "Comprehensive review of Khan Academy Khanmigo. It provides powerful AI capabilities for Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://khanacademykhanmigo.com",
+    "domain": "khanacademykhanmigo.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/khanacademykhanmigo.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.855167460856239,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Learning",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "quizlet-q-chat",
+    "name": "Quizlet Q-Chat",
+    "description": "The leading Quizlet Q-Chat platform using advanced AI.",
+    "longDescription": "Comprehensive review of Quizlet Q-Chat. It provides powerful AI capabilities for Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://quizletqchat.com",
+    "domain": "quizletqchat.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/quizletqchat.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.883753482049069,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Learning",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "wolfram-alpha",
+    "name": "Wolfram Alpha",
+    "description": "The leading Wolfram Alpha platform using advanced AI.",
+    "longDescription": "Comprehensive review of Wolfram Alpha. It provides powerful AI capabilities for Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://wolframalpha.com",
+    "domain": "wolframalpha.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/wolframalpha.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.585083915259813,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Learning",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "socratic-by-google",
+    "name": "Socratic by Google",
+    "description": "The leading Socratic by Google platform using advanced AI.",
+    "longDescription": "Comprehensive review of Socratic by Google. It provides powerful AI capabilities for Learning & Education.",
+    "category": "Learning & Education",
+    "url": "https://socraticbygoogle.com",
+    "domain": "socraticbygoogle.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/socraticbygoogle.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.759786672457354,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Learning",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "wix-adi",
+    "name": "Wix ADI",
+    "description": "The leading Wix ADI platform using advanced AI.",
+    "longDescription": "Comprehensive review of Wix ADI. It provides powerful AI capabilities for Code & Development.",
+    "category": "Code & Development",
+    "url": "https://wixadi.com",
+    "domain": "wixadi.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/wixadi.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.821225136077993,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Code",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
+  },
+  {
+    "id": "softr",
+    "name": "Softr",
+    "description": "The leading Softr platform using advanced AI.",
+    "longDescription": "Comprehensive review of Softr. It provides powerful AI capabilities for Code & Development.",
+    "category": "Code & Development",
+    "url": "https://softr.com",
+    "domain": "softr.com",
+    "brandColor": "#000000",
+    "imageUrl": "https://img.logo.dev/softr.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+    "pricing": "Freemium",
+    "rating": 4.848881415093312,
+    "featured": false,
+    "dateAdded": "2026-06-10T10:17:38.562Z",
+    "tags": [
+      "Code",
+      "AI Tool"
+    ],
+    "useCases": [
+      "Automation",
+      "Efficiency"
+    ],
+    "launchYear": 2023
   }
 ];
-

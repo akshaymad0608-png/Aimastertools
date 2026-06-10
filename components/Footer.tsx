@@ -52,12 +52,12 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Categories</h3>
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Resources</h3>
             <ul className="space-y-4 text-[15px] text-[var(--color-text-secondary)]">
-              <li><Link to="/?category=Business" className="hover:text-[var(--color-primary)] transition-colors">Business Automation</Link></li>
-              <li><Link to="/?category=Content" className="hover:text-[var(--color-primary)] transition-colors">Content Creation</Link></li>
-              <li><Link to="/?category=Data" className="hover:text-[var(--color-primary)] transition-colors">Data Analytics</Link></li>
-              <li><Link to="/?category=Development" className="hover:text-[var(--color-primary)] transition-colors">Development</Link></li>
+              <li><Link to="/prompts" className="hover:text-[var(--color-primary)] transition-colors">Prompt Library</Link></li>
+              <li><Link to="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare AI</Link></li>
+              <li><Link to="/find" className="hover:text-[var(--color-primary)] transition-colors">Find My Tool</Link></li>
+              <li><Link to="/blog" className="hover:text-[var(--color-primary)] transition-colors">AI Blog</Link></li>
             </ul>
           </div>
 

@@ -21,7 +21,8 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Directory', to: '/', icon: Compass },
-    { name: 'Compare AI', to: '/compare', icon: Code },
+    { name: 'Prompts', to: '/prompts', icon: Code },
+    { name: 'Compare', to: '/compare', icon: Star },
     { name: 'Bookmarks', to: '/bookmarks', icon: Star },
   ];
 

@@ -29,6 +29,8 @@ const Discover = lazy(() => import('./pages/Discover'));
 const Bookmarks = lazy(() => import('./pages/Bookmarks'));
 const FindMyTool = lazy(() => import('./pages/FindMyTool'));
 
+const Prompts = lazy(() => import('./pages/Prompts'));
+
 const PageLoader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
     <Loader2 className="w-10 h-10 animate-spin text-[var(--color-primary)]" />
@@ -100,6 +102,7 @@ function App() {
                     <Route path="/careers" element={<Careers />} />
                     <Route path="/discover" element={<Discover />} />
                     <Route path="/find" element={<FindMyTool />} />
+                    <Route path="/prompts" element={<Prompts />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

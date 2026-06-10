@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
-import { Play, Star, Users, Activity, HelpCircle, Info, TrendingUp, Award } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Play, Star, Users, Activity, HelpCircle, Info, TrendingUp, Award, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Link, useLocation } from 'react-router-dom';
+import { MOCK_TOOLS } from '../data/tools';
+import { Tool } from '../types';
+import ToolCard from '../components/ToolCard';
 
 const Discover: React.FC = () => {
   const location = useLocation();
+  const [recentTools, setRecentTools] = useState<Tool[]>([]);
 
   useEffect(() => {
     if (location.hash) {
@@ -17,6 +21,20 @@ const Discover: React.FC = () => {
       }
     } else {
       window.scrollTo(0, 0);
+    }
+    
+    // Load recently viewed tools
+    try {
+      const recentStr = localStorage.getItem('recent_tools');
+      if (recentStr) {
+        const ids: string[] = JSON.parse(recentStr);
+        const mapped = ids
+          .map(id => MOCK_TOOLS.find(t => t.id === id))
+          .filter((t): t is Tool => t !== undefined);
+        setRecentTools(mapped);
+      }
+    } catch (e) {
+      console.error(e);
     }
   }, [location]);
 
@@ -46,9 +64,11 @@ const Discover: React.FC = () => {
           {/* Quick Navigation Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-20 animate-fade-in-up">
             {[
+              ...(recentTools.length > 0 ? [{ id: 'recent', icon: Clock, label: 'Recently Viewed' }] : []),
               { id: 'about', icon: Info, label: 'About Us' },
               { id: 'stats', icon: Activity, label: 'Live Stats' },
               { id: 'spotlight', icon: Award, label: 'Featured Spotlight' },
+              { id: 'insights', icon: TrendingUp, label: 'Insights & Trends' },
               { id: 'testimonials', icon: Star, label: 'Testimonials' },
               { id: 'faq', icon: HelpCircle, label: 'FAQ' },
             ].map((btn, i) => (
@@ -65,6 +85,18 @@ const Discover: React.FC = () => {
 
           <div className="flex flex-col gap-24">
             
+            {/* Recently Viewed */}
+            {recentTools.length > 0 && (
+              <section id="recent" className="scroll-mt-32">
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Clock className="text-blue-500" /> Recently Viewed</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {recentTools.slice(0, 4).map(tool => (
+                    <ToolCard key={tool.id} tool={tool} />
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* About Section */}
             <section id="about" className="scroll-mt-32">
               <div className="glass-panel p-8 md:p-12 rounded-3xl border border-[var(--color-border)] relative overflow-hidden">
@@ -120,6 +152,61 @@ const Discover: React.FC = () => {
                     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fm=webp&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" width="800" height="450" decoding="async" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* Insights and Trends */}
+            <section id="insights" className="scroll-mt-32">
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><TrendingUp className="text-[var(--color-primary)]" /> Insights & Trends</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: 'The Rise of Video Gen',
+                    description: 'Video generation tools have seen a 300% increase in submissions this year, with platforms like Runway and Sora leading the paradigm shift towards text-to-video.',
+                    icon: Play,
+                    color: 'text-rose-500'
+                  },
+                  {
+                    title: 'Agents Are Taking Over',
+                    description: 'Autonomous AI agents are shifting from a niche novelty to enterprise-ready solutions. 40% of our top trending workflow tools now implement agentic capabilities.',
+                    icon: Activity,
+                    color: 'text-indigo-500'
+                  },
+                  {
+                    title: 'Open Source Resilience',
+                    description: 'Local and open-source models like Llama 3 and Mistral are driving a massive surge in developer tools, providing viable offline alternatives to major APIs.',
+                    icon: Users,
+                    color: 'text-green-500'
+                  },
+                  {
+                    title: 'The Fall of Simple Wrappers',
+                    description: 'Basic GPT wrappers are seeing a sharp decline in retention. Users now demand deep workflow integration, specialized UIs, and proprietary data moats.',
+                    icon: TrendingUp,
+                    color: 'text-orange-500'
+                  },
+                  {
+                    title: 'Multi-Modal Interfaces',
+                    description: 'Text-only chatbots are evolving. Over 60% of new conversational interfaces now support voice input, image analysis, and document processing simultaneously.',
+                    icon: HelpCircle,
+                    color: 'text-blue-500'
+                  },
+                  {
+                    title: 'AI in Enterprise Security',
+                    description: 'With data privacy concerns growing, on-premise AI deployments and tools specializing in PII redaction and secure LLM routing have surged by 150%.',
+                    icon: Info,
+                    color: 'text-teal-500'
+                  }
+                ].map((insight, i) => (
+                  <div key={i} className="glass-panel p-6 rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center mb-4">
+                      <insight.icon className={insight.color} size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
+                    <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                      {insight.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </section>
 

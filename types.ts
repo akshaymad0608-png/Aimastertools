@@ -34,6 +34,15 @@ export interface BlogPost {
   slug?: string;
 }
 
+export interface Prompt {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  promptText: string;
+  platform: 'ChatGPT' | 'Midjourney' | 'Claude' | 'General' | string;
+}
+
 export interface CategoryStat {
   id: Category;
   name: string;

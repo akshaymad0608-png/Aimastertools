@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ExternalLink, Star, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
+import { PROMPT_LIBRARY } from '../data/prompts';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
@@ -14,6 +15,7 @@ const ToolDetail: React.FC = () => {
   const [tool, setTool] = useState<Tool | null>(null);
   const { bookmarks, toggleBookmark } = useBookmarks();
   const { isPro } = usePro();
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyFeedback, setCopyFeedback] = useState(false);
 
   useEffect(() => {
@@ -21,6 +23,25 @@ const ToolDetail: React.FC = () => {
     const foundTool = MOCK_TOOLS.find(t => t.id === id);
     setTool(foundTool || null);
     window.scrollTo(0, 0);
+    
+    // Save to recently viewed
+    if (foundTool) {
+      try {
+        const recentStr = localStorage.getItem('recent_tools');
+        let recent: string[] = recentStr ? JSON.parse(recentStr) : [];
+        // Remove if exists
+        recent = recent.filter(tid => tid !== foundTool.id);
+        // Add to front
+        recent.unshift(foundTool.id);
+        // Keep only top 8
+        if (recent.length > 8) {
+          recent = recent.slice(0, 8);
+        }
+        localStorage.setItem('recent_tools', JSON.stringify(recent));
+      } catch (e) {
+        console.error("Failed to save recently viewed:", e);
+      }
+    }
   }, [id]);
 
   const relatedTools = useMemo(() => {
@@ -40,6 +61,14 @@ const ToolDetail: React.FC = () => {
       .filter(t => t.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 4);
+  }, [tool]);
+
+  const relatedPrompts = useMemo(() => {
+    if (!tool) return [];
+    return PROMPT_LIBRARY.filter(p => 
+      tool.name.toLowerCase().includes(p.platform.toLowerCase()) || 
+      p.platform.toLowerCase() === 'general'
+    ).slice(0, 3);
   }, [tool]);
 
   if (!tool) {
@@ -402,6 +431,52 @@ const ToolDetail: React.FC = () => {
             {/* Navigation removed sponsored ad */}
           </div>
         </div>
+
+        {/* Related Prompts Section */}
+        {relatedPrompts.length > 0 && (
+          <div className="mt-24 border-t border-[var(--color-border)] pt-16">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <h2 className="text-3xl font-bold text-[var(--color-text-primary)] flex items-center gap-3">
+                  <Tag className="text-[var(--color-primary)]" /> 
+                  Useful <span className="text-gradient">Prompts</span>
+                </h2>
+                <p className="text-[var(--color-text-secondary)] mt-2">
+                  Ready-to-use prompts you can try with {tool.name}
+                </p>
+              </div>
+              <Link to="/prompts" className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-2 whitespace-nowrap">
+                Browse Prompt Library <ArrowRight size={16} />
+              </Link>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {relatedPrompts.map(prompt => (
+                <div key={prompt.id} className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-6 flex flex-col shadow-sm hover:border-[var(--color-primary)]/50 transition-colors">
+                  <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{prompt.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] mb-6 flex-grow">{prompt.description}</p>
+                  
+                  <div className="relative group">
+                    <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 pr-12 text-xs text-[var(--color-text-primary)] font-mono overflow-auto h-[100px] scrollbar-hide line-clamp-4">
+                      {prompt.promptText}
+                    </div>
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText(prompt.promptText);
+                        setCopiedId(prompt.id);
+                        setTimeout(() => setCopiedId(null), 2000);
+                      }}
+                      className="absolute top-2 right-2 p-2 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors"
+                      aria-label="Copy prompt"
+                    >
+                      {copiedId === prompt.id ? <Check size={14} className="text-green-500" /> : <ExternalLink size={14} />}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Related Tools Section */}
         {relatedTools.length > 0 && (

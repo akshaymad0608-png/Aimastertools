@@ -8,7 +8,7 @@ export default function MobileBottomNav() {
 
   const navItems = [
     { name: 'Home', path: '/', icon: Home },
-    { name: 'Discover', path: '/discover', icon: Compass },
+    { name: 'Prompts', path: '/prompts', icon: Compass },
     { name: 'Find', path: '/find', icon: Search },
     { name: 'Saved', path: '/bookmarks', icon: Bookmark },
   ];
