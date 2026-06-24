@@ -1,7 +1,8 @@
 import React from 'react';
-import { Search, Sparkles, TrendingUp, Cpu, Award } from 'lucide-react';
+import { Search, TrendingUp, Cpu, Award, Users, Clock, Rocket, Star, Code, Video, Edit3, Image as ImageIcon, ArrowRight, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import CountUp from './CountUp';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   searchTerm: string;
@@ -10,210 +11,113 @@ interface HeroSectionProps {
   onChipClick?: (val: string) => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ 
-  searchTerm, 
-  handleSearchChange, 
-  searchInputRef,
-  onChipClick 
-}) => {
-  const trendingQueries = [
-    'ChatGPT',
-    'AI Image',
-    'Writing',
-    'Voice Sync',
-    'Developer',
-    'Video Gen'
-  ];
-
-  const handleChipClick = (query: string) => {
-    if (onChipClick) {
-      onChipClick(query);
-    }
-  };
+const HeroSection: React.FC<HeroSectionProps> = ({ searchTerm, handleSearchChange, searchInputRef, onChipClick }) => {
+  const trendingQueries = ['ChatGPT', 'Midjourney', 'Writing', 'Coding', 'Agents', 'Video Gen'];
 
   return (
-    <section id="home" className="relative pt-32 pb-16 md:pt-44 md:pb-24 bg-[var(--color-background)] overflow-hidden transition-colors duration-350">
-      
-      {/* Premium Tech Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.04)_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+    <section id="home" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden" style={{ background: 'var(--color-background)' }}>
+      {/* Mesh bg */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(16,185,129,0.12) 0%, transparent 65%)' }} />
+        <div style={{ position:'absolute', top:'30%', left:'-10%', width:'500px', height:'500px', borderRadius:'50%', background:'radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%)', filter:'blur(80px)' }} />
+        <div style={{ position:'absolute', top:'20%', right:'-5%', width:'400px', height:'400px', borderRadius:'50%', background:'radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)', filter:'blur(80px)' }} />
+        <div style={{ position:'absolute', inset:0, backgroundImage:'radial-gradient(rgba(16,185,129,0.15) 1px, transparent 1px)', backgroundSize:'28px 28px', maskImage:'radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 100%)' }} />
+      </div>
 
-      {/* Futuristic Glowing Gradient Blobs */}
-      <div className="absolute top-1/4 left-1/4 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.1)_0%,transparent_70%)] blur-[80px] md:blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-[30%] right-1/4 -translate-y-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_70%)] blur-[80px] md:blur-[120px] pointer-events-none z-0"></div>
+      {/* Floating icons */}
+      <motion.div animate={{ y:[0,-18,0], opacity:[0.4,0.7,0.4] }} transition={{ duration:5, repeat:Infinity, ease:'easeInOut' }} className="absolute top-[22%] left-[8%] hidden md:flex items-center justify-center w-11 h-11 rounded-2xl border shadow-lg z-0" style={{ background:'var(--color-surface)', borderColor:'rgba(16,185,129,0.25)', color:'#10b981' }}><Code size={18} /></motion.div>
+      <motion.div animate={{ y:[0,16,0], opacity:[0.3,0.6,0.3] }} transition={{ duration:6.5, repeat:Infinity, ease:'easeInOut', delay:1 }} className="absolute top-[38%] right-[10%] hidden md:flex items-center justify-center w-12 h-12 rounded-2xl border shadow-lg z-0" style={{ background:'var(--color-surface)', borderColor:'rgba(6,182,212,0.25)', color:'#06b6d4' }}><ImageIcon size={22} /></motion.div>
+      <motion.div animate={{ y:[0,-12,0], opacity:[0.3,0.5,0.3] }} transition={{ duration:4.5, repeat:Infinity, ease:'easeInOut', delay:2.5 }} className="absolute bottom-[28%] left-[18%] hidden lg:flex items-center justify-center w-10 h-10 rounded-2xl border shadow-lg z-0" style={{ background:'var(--color-surface)', borderColor:'rgba(168,85,247,0.25)', color:'#a855f7' }}><Edit3 size={16} /></motion.div>
+      <motion.div animate={{ y:[0,20,0], opacity:[0.4,0.65,0.4] }} transition={{ duration:5.5, repeat:Infinity, ease:'easeInOut', delay:0.8 }} className="absolute top-[18%] right-[22%] hidden lg:flex items-center justify-center w-11 h-11 rounded-2xl border shadow-lg z-0" style={{ background:'var(--color-surface)', borderColor:'rgba(251,146,60,0.25)', color:'#f97316' }}><Video size={18} /></motion.div>
 
       <div className="container-custom text-center relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-        
-        {/* Animated Badge */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[var(--color-surface)] to-[var(--color-background)] border border-[var(--color-border)] shadow-sm text-xs sm:text-sm font-semibold text-[var(--color-text-secondary)] mb-6 hover:border-[var(--color-primary)]/40 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer"
-        >
-          <Sparkles size={14} className="text-purple-500 animate-pulse" />
-          <span className="text-[var(--color-text-primary)] font-bold">AI Master Tools v2.0</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]"></span>
-          <span>The Ultimate AI Directory</span>
+
+        {/* Badge */}
+        <motion.div initial={{ opacity:0, y:-16 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs sm:text-sm font-semibold mb-7 cursor-pointer transition-all hover:-translate-y-0.5" style={{ background:'var(--color-surface)', borderColor:'rgba(16,185,129,0.35)', color:'var(--color-text-secondary)', boxShadow:'0 0 20px rgba(16,185,129,0.08)' }}>
+          <Zap size={13} className="text-emerald-400" />
+          <span style={{ color:'var(--color-text-primary)', fontWeight:700 }}>AI Master Tools 2026</span>
+          <span className="w-1 h-1 rounded-full" style={{ background:'rgba(16,185,129,0.5)' }} />
+          <span>Next-Gen Platform</span>
         </motion.div>
 
         {/* Headline */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-black text-[var(--color-text-primary)] tracking-tight font-sans leading-[1.1] mb-6 sm:mb-8"
-        >
-          Discover the Best <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-purple-500 to-cyan-500 font-extrabold select-none drop-shadow-sm">
-            AI Tools
-          </span> for Work, Creativity & Growth
+        <motion.h1 initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.1 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tight leading-[1.08] mb-6" style={{ color:'var(--color-text-primary)' }}>
+          Discover the World's Best
+          <br className="hidden sm:block" />
+          <span style={{ WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text', backgroundImage:'linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #6366f1 100%)' }}>{' '}AI Tools</span>
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl lg:text-2xl text-[var(--color-text-secondary)] mb-10 max-w-3xl mx-auto font-medium leading-relaxed"
-        >
-          Curated collection of 500+ breakthrough artificial intelligence services & platforms, updated daily for performance.
+        <motion.p initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.2 }} className="text-lg md:text-xl mb-10 max-w-2xl mx-auto font-medium leading-relaxed" style={{ color:'var(--color-text-secondary)' }}>
+          Explore 500+ handpicked AI tools for writing, coding, images, videos, automation, business and productivity.
         </motion.p>
 
-        {/* Search Bar Frame */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="max-w-3xl mx-auto mb-6"
-        >
-          <form 
-            onSubmit={(e) => { 
-              e.preventDefault(); 
-              document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-            }}
-            className="relative flex items-center shadow-[0_12px_40px_-15px_rgba(37,99,235,0.12)] hover:shadow-[0_12px_40px_-5px_rgba(37,99,235,0.18)] transition-all duration-300 rounded-2xl border border-[var(--color-border)] bg-[var(--color-cardBg)] p-2 focus-within:ring-4 focus-within:ring-[var(--color-primary)]/10 focus-within:border-[var(--color-primary)]"
-          >
-            <Search className="absolute left-5 text-[var(--color-text-muted)]" size={20} strokeWidth={2.5} />
-            <input 
-              ref={searchInputRef}
-              type="text" 
-              placeholder="Search by keyword, product name, or field..."
-              className="w-full h-14 pl-14 pr-24 sm:pr-[155px] bg-transparent border-none focus:ring-0 outline-none text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] text-[17px] font-medium"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <span className="absolute right-22 sm:right-[124px] text-[10px] font-mono text-[var(--color-text-muted)] bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md px-2 py-1.5 hidden sm:inline-block tracking-widest font-bold">⌘K</span>
-            <button 
-              type="submit"
-              className="absolute right-2 top-2 bottom-2 flex items-center justify-center px-4 sm:px-6 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-dark)] transition-all shadow-[0_4px_12px_rgba(37,99,235,0.25)] hover:shadow-[0_4px_20px_rgba(37,99,235,0.4)]"
-              aria-label="Submit search"
-            >
-              <span className="hidden sm:inline">Search Directory</span>
+        {/* Search */}
+        <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.7, delay:0.3 }} className="max-w-3xl mx-auto mb-8">
+          <form onSubmit={(e) => { e.preventDefault(); document.getElementById('content')?.scrollIntoView({ behavior:'smooth', block:'start' }); }} className="relative flex items-center rounded-2xl border p-2 transition-all duration-300" style={{ background:'var(--color-surface)', borderColor:'rgba(16,185,129,0.25)', boxShadow:'0 12px 40px -10px rgba(16,185,129,0.12)' }}>
+            <Search className="absolute left-5" size={20} strokeWidth={2.5} style={{ color:'var(--color-text-muted)' }} />
+            <input ref={searchInputRef} type="text" placeholder="Search ChatGPT, Midjourney, Video AI..." className="w-full h-14 pl-14 pr-28 bg-transparent border-none focus:ring-0 outline-none text-[17px] font-medium" style={{ color:'var(--color-text-primary)' }} value={searchTerm} onChange={handleSearchChange} />
+            <span className="absolute right-[122px] text-[10px] font-mono border rounded-md px-2 py-1.5 hidden sm:inline-block tracking-widest font-bold" style={{ color:'var(--color-text-muted)', background:'var(--color-background)', borderColor:'var(--color-border)' }}>⌘K</span>
+            <button type="submit" className="absolute right-2 top-2 bottom-2 flex items-center justify-center px-5 sm:px-7 rounded-xl font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5" style={{ background:'linear-gradient(135deg, #10b981 0%, #059669 100%)' }}>
+              <span className="hidden sm:inline">Search</span>
               <Search size={18} className="sm:hidden" />
             </button>
           </form>
         </motion.div>
 
-        {/* Trending Search Chips Row */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-2 mb-12 sm:mb-16 max-w-2xl mx-auto"
-        >
-          <span className="text-xs font-semibold text-[var(--color-text-muted)] flex items-center gap-1">
-            <TrendingUp size={13} className="text-blue-500" /> Trending:
+        {/* CTA Buttons */}
+        <motion.div initial={{ opacity:0, y:14 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.6, delay:0.4 }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          <button onClick={() => document.getElementById('content')?.scrollIntoView({ behavior:'smooth', block:'start' })} className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-base text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2" style={{ background:'linear-gradient(135deg, #10b981 0%, #0891b2 100%)' }}>
+            <Rocket size={18} /> Explore AI Tools
+          </button>
+          <Link to="/submit" className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-base border shadow-sm hover:-translate-y-1 transition-all flex items-center justify-center gap-2" style={{ background:'var(--color-surface)', borderColor:'var(--color-border)', color:'var(--color-text-primary)' }}>
+            <Star size={18} style={{ color:'#f59e0b' }} /> Submit Your Tool
+          </Link>
+        </motion.div>
+
+        {/* Trending Chips */}
+        <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ duration:0.6, delay:0.5 }} className="flex flex-wrap items-center justify-center gap-2 mb-16 max-w-2xl mx-auto">
+          <span className="text-xs font-semibold flex items-center gap-1" style={{ color:'var(--color-text-muted)' }}>
+            <TrendingUp size={13} style={{ color:'#10b981' }} /> Trending:
           </span>
           {trendingQueries.map((query) => (
-            <button
-              key={query}
-              type="button"
-              onClick={() => handleChipClick(query)}
-              className="text-xs font-medium px-2.5 py-1 rounded-lg bg-[var(--color-surface)] hover:bg-[var(--color-primary)]/10 text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]/40 cursor-pointer transition-all duration-200"
-            >
+            <button key={query} type="button" onClick={() => onChipClick?.(query)} className="text-xs font-medium px-3 py-1.5 rounded-full border cursor-pointer transition-all duration-200 hover:-translate-y-0.5" style={{ background:'var(--color-surface)', borderColor:'var(--color-border)', color:'var(--color-text-secondary)' }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor='rgba(16,185,129,0.5)'; e.currentTarget.style.color='#10b981'; e.currentTarget.style.background='rgba(16,185,129,0.06)'; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor='var(--color-border)'; e.currentTarget.style.color='var(--color-text-secondary)'; e.currentTarget.style.background='var(--color-surface)'; }}>
               {query}
             </button>
           ))}
         </motion.div>
 
-        {/* Premium Animated Bounding Cards for Statistics */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-16"
-        >
-          {/* Card 1: 500+ AI Tools */}
-          <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[var(--color-cardBg)] border border-[var(--color-border)] shadow-sm hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all group overflow-hidden relative">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-blue-500 group-hover:scale-y-110 transition-transform"></div>
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3 text-blue-500">
-              <Cpu size={20} />
+        {/* Stats */}
+        <motion.div initial={{ opacity:0, y:28 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.6 }} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto mb-16">
+          {[
+            { icon:<Cpu size={22}/>, color:'#10b981', gradient:'from-emerald-500 to-teal-500', bg:'rgba(16,185,129,0.08)', value:<CountUp to={500} suffix="+"/>, label:'AI Tools' },
+            { icon:<Award size={22}/>, color:'#6366f1', gradient:'from-violet-500 to-indigo-500', bg:'rgba(99,102,241,0.08)', value:<CountUp to={50} suffix="+"/>, label:'Categories' },
+            { icon:<Users size={22}/>, color:'#06b6d4', gradient:'from-cyan-500 to-sky-500', bg:'rgba(6,182,212,0.08)', value:<CountUp to={100} suffix="K+"/>, label:'Monthly Users' },
+            { icon:<Clock size={22}/>, color:'#f97316', gradient:'from-orange-500 to-amber-400', bg:'rgba(249,115,22,0.08)', value:<span className="text-2xl md:text-3xl font-extrabold">Daily</span>, label:'Updates' },
+          ].map((s, i) => (
+            <div key={i} className={`group relative flex flex-col items-center justify-center p-6 rounded-2xl border transition-all hover:-translate-y-1 overflow-hidden`} style={{ background:'var(--color-surface)', borderColor:'var(--color-border)' }}>
+              <div className={`absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background:s.bg, color:s.color }}>{s.icon}</div>
+              <div className="text-3xl md:text-4xl font-extrabold mb-1" style={{ color:'var(--color-text-primary)' }}>{s.value}</div>
+              <div className="text-sm font-semibold" style={{ color:'var(--color-text-secondary)' }}>{s.label}</div>
             </div>
-            <div className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] mb-1">
-              <CountUp to={500} suffix="+" />
-            </div>
-            <div className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest">
-              AI Tools Indexed
-            </div>
-          </div>
+          ))}
+        </motion.div>
 
-          {/* Card 2: 50+ Categories */}
-          <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[var(--color-cardBg)] border border-[var(--color-border)] shadow-sm hover:border-purple-500/30 hover:shadow-md transition-all group overflow-hidden relative">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-purple-500 group-hover:scale-y-110 transition-transform"></div>
-            <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-3 text-purple-500">
-              <Award size={20} />
-            </div>
-            <div className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] mb-1">
-              <CountUp to={50} suffix="+" />
-            </div>
-            <div className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest">
-              Niche Categories
-            </div>
-          </div>
-
-          {/* Card 3: Free Forever */}
-          <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-[var(--color-cardBg)] border border-[var(--color-border)] shadow-sm hover:border-cyan-500/30 hover:shadow-md transition-all group overflow-hidden relative">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-cyan-400 group-hover:scale-y-110 transition-transform"></div>
-            <div className="w-10 h-10 rounded-xl bg-cyan-400/10 flex items-center justify-center mb-3 text-cyan-400">
-              <Sparkles size={20} />
-            </div>
-            <div className="text-3xl md:text-4xl font-extrabold text-[var(--color-text-primary)] mb-1 flex items-center justify-center gap-1">
-              100%
-            </div>
-            <div className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest">
-              Free to Explore
-            </div>
+        {/* Trusted By */}
+        <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ duration:1, delay:0.8 }} className="pt-8 border-t" style={{ borderColor:'var(--color-border)' }}>
+          <p className="text-xs font-bold mb-6 tracking-widest uppercase" style={{ color:'var(--color-text-muted)' }}>Trusted by professionals at</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 transition-all duration-500" style={{ opacity:0.5, filter:'grayscale(1)' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.opacity='1'; (e.currentTarget as HTMLDivElement).style.filter='grayscale(0)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.opacity='0.5'; (e.currentTarget as HTMLDivElement).style.filter='grayscale(1)'; }}>
+            {['GitHub','Google','Meta','Stripe','OpenAI'].map(name => (
+              <span key={name} className="font-bold text-lg tracking-tight" style={{ color:'var(--color-text-primary)' }}>{name}</span>
+            ))}
           </div>
         </motion.div>
 
-        {/* Trusted By Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="pt-6 border-t border-[var(--color-border)]/50"
-        >
-          <p className="text-sm font-semibold text-[var(--color-text-muted)] mb-6 tracking-wide uppercase">Trusted by professionals at</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="flex items-center gap-2 font-bold text-xl text-[var(--color-text-primary)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              GitHub
-            </div>
-            <div className="flex items-center gap-2 font-bold text-xl text-[var(--color-text-primary)] tracking-tight">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              Google
-            </div>
-            <div className="flex items-center gap-2 font-bold text-xl text-[var(--color-text-primary)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M11.5 2C16.7467 2 21 6.25329 21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 6.25329 6.25329 2 11.5 2ZM11.5 17.5C14.8137 17.5 17.5 14.8137 17.5 11.5C17.5 8.18629 14.8137 5.5 11.5 5.5C8.18629 5.5 5.5 8.18629 5.5 11.5C5.5 14.8137 8.18629 17.5 11.5 17.5ZM11.5 8C13.433 8 15 9.567 15 11.5C15 13.433 13.433 15 11.5 15C9.567 15 8 13.433 8 11.5C8 9.567 9.567 8 11.5 8ZM11.5 10.5C10.9477 10.5 10.5 10.9477 10.5 11.5C10.5 12.0523 10.9477 12.5 11.5 12.5C12.0523 12.5 12.5 12.0523 12.5 11.5C12.5 10.9477 12.0523 10.5 11.5 10.5Z"/></svg>
-              Meta
-            </div>
-            <div className="flex items-center gap-2 font-black text-xl text-[var(--color-text-primary)] italic">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6"><path d="M14.502 6.643l-4.48 4.475-2.02-2.015-3.03 3.025 5.05 5.04 7.51-7.5-3.03-3.025zm1.515 1.51l3.03-3.025L14.007.083l-3.03 3.025 5.04 5.045zM8.96 14.195L5.93 17.22 10.98 22.27l3.03-3.025-5.05-5.05z"/></svg>
-              STRIPE
-            </div>
-          </div>
-        </motion.div>
-        
       </div>
     </section>
   );

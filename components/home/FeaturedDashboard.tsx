@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Clock, Award, GitCompare } from 'lucide-react';
+import { TrendingUp, Award, GitCompare, Zap } from 'lucide-react';
 import { Tool } from '../../types';
 import ToolCard from '../ToolCard';
 
@@ -10,120 +10,94 @@ interface FeaturedDashboardProps {
   topFreeToolsCurated: Tool[];
 }
 
-export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({
-  trendingToolsCurated,
-  recentlyAddedToolsCurated,
-  topFreeToolsCurated
-}) => {
+export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({ trendingToolsCurated, recentlyAddedToolsCurated, topFreeToolsCurated }) => {
   return (
     <div className="flex flex-col gap-12 sm:gap-16 mb-16">
-      
-      {/* 1. 🔥 CURATED TRENDING AI TOOLS Grid */}
+
+      {/* TRENDING */}
       <div>
-        <div className="flex items-center gap-2.5 mb-6">
-          <div className="p-2 w-9 h-9 rounded-lg bg-orange-500/10 text-orange-500 border border-orange-500/20 flex items-center justify-center">
-            <TrendingUp size={16} />
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background:'rgba(249,115,22,0.1)', color:'#f97316', border:'1px solid rgba(249,115,22,0.2)' }}><TrendingUp size={20} strokeWidth={2.5} /></div>
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-black leading-none tracking-tight flex items-center gap-2" style={{ color:'var(--color-text-primary)' }}>Trending This Week <span className="text-xl">🔥</span></h3>
+              <p className="text-sm mt-1 font-medium" style={{ color:'var(--color-text-secondary)' }}>The most active, highly rated AI platforms.</p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--color-text-primary)] leading-none tracking-tight">Today's Trending AI</h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-secondary)] mt-1 font-medium">The most active, highly rated AI platforms engineered for fast growth.</p>
-          </div>
+          <Link to="/?tab=Trending" className="hidden sm:flex items-center gap-2 text-sm font-bold transition-colors px-4 py-2 rounded-lg" style={{ color:'#f97316', background:'rgba(249,115,22,0.08)' }}>View All Trending</Link>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4.5 sm:gap-6">
-          {trendingToolsCurated.map((tool) => (
-            <ToolCard key={`trending-${tool.id}`} tool={tool} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {trendingToolsCurated.map((tool, index) => (
+            <div key={`trending-${tool.id}`} className="relative group">
+              <div className="absolute -top-3 -right-2 z-10 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md flex items-center gap-1" style={{ background:'linear-gradient(135deg,#10b981,#059669)', border:'1px solid rgba(255,255,255,0.2)' }}>
+                <TrendingUp size={10} /> +{Math.floor(Math.random() * 50) + 10}%
+              </div>
+              <div className="h-full"><ToolCard tool={tool} rank={index + 1} layout="vertical" /></div>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* 2. ⚔ AI TOOL COMPARISON DUELS */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-blue-600/10 via-indigo-600/5 to-purple-600/10 border border-indigo-500/20 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-96 h-96 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none -translate-y-12 translate-x-12 glowing-orb-bg"></div>
-        
-        <div className="relative z-10 flex flex-col xl:flex-row xl:items-center justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/20 text-[10px] font-bold text-indigo-500 uppercase tracking-wider mb-2.5">
-              <GitCompare size={10} />
-              Side-By-Side Duels
+      {/* COMPARE BANNER */}
+      <div className="p-6 sm:p-10 rounded-[24px] relative overflow-hidden" style={{ background:'linear-gradient(135deg, rgba(6,78,59,0.5) 0%, rgba(6,95,70,0.35) 40%, rgba(8,51,68,0.45) 100%)', border:'1px solid rgba(16,185,129,0.2)', backdropFilter:'blur(12px)' }}>
+        <div style={{ position:'absolute', right:'-5%', top:'-10%', width:'380px', height:'380px', borderRadius:'50%', background:'rgba(16,185,129,0.15)', filter:'blur(90px)', pointerEvents:'none' }} />
+        <div style={{ position:'absolute', left:'-5%', bottom:'-10%', width:'280px', height:'280px', borderRadius:'50%', background:'rgba(6,182,212,0.12)', filter:'blur(70px)', pointerEvents:'none' }} />
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4" style={{ background:'rgba(16,185,129,0.15)', border:'1px solid rgba(16,185,129,0.3)', color:'#34d399' }}><GitCompare size={12} /> Compare AI Tools Side by Side</div>
+            <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">Find the perfect match for your workflow.</h3>
+            <p className="text-base sm:text-lg font-medium max-w-xl" style={{ color:'rgba(209,250,229,0.8)' }}>Don't guess. Compare pricing, accuracy, speed, and best use cases side-by-side before you subscribe.</p>
+            <div className="mt-6">
+              <Link to="/compare" className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-0.5" style={{ background:'linear-gradient(135deg,#10b981,#059669)', boxShadow:'0 8px 25px rgba(16,185,129,0.3)' }}>Start Comparing <GitCompare size={16} /></Link>
             </div>
-            <h3 className="text-lg sm:text-2xl font-black text-[var(--color-text-primary)] tracking-tight">AI Tool Comparative Battles</h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-secondary)] mt-1 font-medium max-w-xl">
-              Prebuilt specifications matchups. Instantly match capabilities, rates, pricing schemes, and real ratings.
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 shrink-0">
-            <Link 
-              to="/compare?tools=flowise,langflow"
-              className="p-4 rounded-2xl bg-[var(--color-cardBg)] hover:bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-indigo-500/30 transition-all shadow-sm flex items-center justify-between gap-6 group"
-            >
-              <div className="min-w-0">
-                <div className="text-[13px] font-bold text-[var(--color-text-primary)] truncate">Flowise vs Langflow</div>
-                <div className="text-[10px] text-indigo-500 font-bold uppercase tracking-wider mt-0.5">Agents & Flows</div>
-              </div>
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                ⚔
-              </div>
-            </Link>
-
-            <Link 
-              to="/compare?tools=openrouter,modelcontextprotocol"
-              className="p-4 rounded-2xl bg-[var(--color-cardBg)] hover:bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-indigo-500/30 transition-all shadow-sm flex items-center justify-between gap-6 group"
-            >
-              <div className="min-w-0">
-                <div className="text-[13px] font-bold text-[var(--color-text-primary)] truncate">OpenRouter vs MCP</div>
-                <div className="text-[10px] text-indigo-500 font-bold uppercase tracking-wider mt-0.5">APIs & Connectors</div>
-              </div>
-              <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                ⚔
-              </div>
-            </Link>
+          <div className="flex flex-col gap-4 w-full lg:w-auto shrink-0">
+            {[
+              { to:'/compare?tools=chatgpt,claude', img1:'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg', alt1:'ChatGPT', img2:'https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Ai.svg', alt2:'Claude', label:'ChatGPT vs Claude', sublabel:'LLM Giants Clash', hoverColor:'rgba(16,185,129,0.4)', sublabelColor:'#34d399' },
+              { to:'/compare?tools=midjourney,dall-e', img1:'https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png', alt1:'Midjourney', img2:'https://upload.wikimedia.org/wikipedia/commons/a/a2/DALL-E_3_Logo.svg', alt2:'DALL-E', label:'Midjourney vs DALL-E', sublabel:'Image Generation', hoverColor:'rgba(6,182,212,0.4)', sublabelColor:'#22d3ee' },
+            ].map((item, i) => (
+              <Link key={i} to={item.to} className="p-5 rounded-2xl transition-all flex items-center justify-between gap-8 group" style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', backdropFilter:'blur(8px)' }}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = item.hoverColor)}
+                onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}>
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-10 shadow-sm overflow-hidden"><img src={item.img1} alt={item.alt1} className="w-full h-full object-contain" /></div>
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-20 shadow-sm overflow-hidden"><img src={item.img2} alt={item.alt2} className="w-full h-full object-contain" /></div>
+                  </div>
+                  <div>
+                    <div className="text-[15px] font-black text-white">{item.label.replace(' vs ', ' ')}<span className="font-normal text-white/50"> vs </span>{item.label.split(' vs ')[1]}</div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider mt-0.5" style={{ color:item.sublabelColor }}>{item.sublabel}</div>
+                  </div>
+                </div>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.15)', color:'rgba(255,255,255,0.7)' }}><GitCompare size={18} /></div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* 3. TWO-COLUMN BENTO GRID: 🆕 Recently Added vs 🏆 Top Free Tools */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        
-        {/* Column A: Recently Added */}
-        <div>
-          <div className="flex items-center gap-2 mb-5">
-            <div className="p-2 w-9 h-9 rounded-lg bg-blue-500/10 text-blue-500 border border-blue-500/20 flex items-center justify-center">
-              <Clock size={16} />
+      {/* NEW ARRIVALS + EDITOR'S CHOICE */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        {[
+          { title:'New Arrivals', sub:'Just added this week', icon:<Zap size={20} strokeWidth={2.5}/>, color:'#06b6d4', bg:'rgba(6,182,212,0.1)', border:'rgba(6,182,212,0.2)', linkColor:'#06b6d4', linkBg:'rgba(6,182,212,0.08)', to:'/?tab=Newest', tools:recentlyAddedToolsCurated, prefix:'recent' },
+          { title:"Editor's Choice", sub:'Top free & open source', icon:<Award size={20} strokeWidth={2.5}/>, color:'#10b981', bg:'rgba(16,185,129,0.1)', border:'rgba(16,185,129,0.2)', linkColor:'#10b981', linkBg:'rgba(16,185,129,0.08)', to:'/?pricing=Free', tools:topFreeToolsCurated, prefix:'free' },
+        ].map((col, i) => (
+          <div key={i} className="rounded-[24px] border p-6 sm:p-8 shadow-sm transition-shadow hover:shadow-md" style={{ background:'var(--color-cardBg)', borderColor:'var(--color-border)' }}>
+            <div className="flex items-center justify-between mb-7 border-b pb-5" style={{ borderColor:'var(--color-border)' }}>
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background:col.bg, color:col.color, border:`1px solid ${col.border}` }}>{col.icon}</div>
+                <div>
+                  <h3 className="text-xl font-black tracking-tight" style={{ color:'var(--color-text-primary)' }}>{col.title}</h3>
+                  <p className="text-[13px] font-medium" style={{ color:'var(--color-text-secondary)' }}>{col.sub}</p>
+                </div>
+              </div>
+              <Link to={col.to} className="text-xs font-bold px-3 py-1.5 rounded-lg transition-colors" style={{ color:col.linkColor, background:col.linkBg }}>See All</Link>
             </div>
-            <div>
-              <h3 className="text-lg font-black text-[var(--color-text-primary)]">Recently Added Tools</h3>
-              <p className="text-xs text-[var(--color-text-secondary)]">The newest additions to our directories, updated weekly.</p>
-            </div>
-          </div>
-          
-          <div className="flex flex-col gap-3.5">
-            {recentlyAddedToolsCurated.map((tool) => (
-              <ToolCard key={`recent-${tool.id}`} tool={tool} />
-            ))}
-          </div>
-        </div>
-
-        {/* Column B: Top Free Tools */}
-        <div>
-          <div className="flex items-center gap-2 mb-5">
-            <div className="p-2 w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 flex items-center justify-center">
-              <Award size={16} />
-            </div>
-            <div>
-              <h3 className="text-lg font-black text-[var(--color-text-primary)]">Top Free & Open Source</h3>
-              <p className="text-xs text-[var(--color-text-secondary)]">Pragmatic, powerful tools with 100% free accessibility models.</p>
+            <div className="flex flex-col gap-4">
+              {col.tools.map(tool => <ToolCard key={`${col.prefix}-${tool.id}`} tool={tool} />)}
             </div>
           </div>
-          
-          <div className="flex flex-col gap-3.5">
-            {topFreeToolsCurated.map((tool) => (
-              <ToolCard key={`free-${tool.id}`} tool={tool} />
-            ))}
-          </div>
-        </div>
-
+        ))}
       </div>
 
     </div>

@@ -41,6 +41,12 @@ const Home: React.FC = () => {
     setSelectedCategory('All');
   };
 
+  const handleChipClick = (val: string) => {
+    setSearchTerm(val);
+    setSelectedCategory('All');
+    document.getElementById('content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const handleVoiceTranscript = (transcript: string) => {
     setSearchTerm(transcript);
     setSelectedCategory('All');
@@ -87,17 +93,36 @@ const Home: React.FC = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get('category');
+    const tabParam = params.get('tab');
+    const pricingParam = params.get('pricing');
+
+    let shouldScroll = false;
+
     if (categoryParam) {
       const categoryExists = CATEGORIES.some(c => c.id === categoryParam);
       if (categoryExists) {
         setSelectedCategory(categoryParam as Category);
-        setTimeout(() => {
-          const toolsSection = document.getElementById('content');
-          if (toolsSection) {
-            toolsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+        shouldScroll = true;
       }
+    }
+    
+    if (tabParam && ['Featured', 'Newest', 'Trending'].includes(tabParam)) {
+      setActiveTab(tabParam as any);
+      shouldScroll = true;
+    }
+
+    if (pricingParam) {
+      setSelectedPricing(pricingParam);
+      shouldScroll = true;
+    }
+
+    if (shouldScroll) {
+      setTimeout(() => {
+        const toolsSection = document.getElementById('content');
+        if (toolsSection) {
+          toolsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
   }, [location.search]);
 
@@ -112,7 +137,7 @@ const Home: React.FC = () => {
 
   // Curated lists of actual tools matching real specifications
   const trendingToolsCurated = useMemo(() => {
-    return MOCK_TOOLS.filter(t => t.rating >= 4.7).slice(0, 4);
+    return MOCK_TOOLS.filter(t => t.rating >= 4.7).slice(0, 5);
   }, []);
 
   const recentlyAddedToolsCurated = useMemo(() => {
@@ -256,6 +281,7 @@ const Home: React.FC = () => {
         searchTerm={searchTerm} 
         handleSearchChange={handleSearchChange} 
         searchInputRef={searchInputRef} 
+        onChipClick={handleChipClick}
       />
       
       {/* Category Selection Sidebar Slider & Content */}

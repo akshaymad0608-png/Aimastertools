@@ -10,9 +10,10 @@ interface ToolCardProps {
   tool: Tool;
   rank?: number;
   priority?: boolean;
+  layout?: 'horizontal' | 'vertical';
 }
 
-const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => {
+const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layout = 'horizontal' }) => {
   const { bookmarks, toggleBookmark } = useBookmarks();
   const [copyFeedback, setCopyFeedback] = useState(false);
   
@@ -54,12 +55,14 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
     <motion.div 
       whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="group relative flex flex-col md:flex-row items-stretch md:items-center bg-[var(--color-cardBg)] rounded-[20px] border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/40 transition-colors gap-5 overflow-hidden shadow-sm"
+      className={`group relative flex bg-[var(--color-cardBg)] rounded-[20px] border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/40 transition-colors gap-5 overflow-hidden shadow-sm ${
+        layout === 'vertical' ? 'flex-col h-full' : 'flex-col md:flex-row items-stretch md:items-center'
+      }`}
       style={{ borderLeft: `5px solid ${tool.brandColor || 'var(--color-primary)'}` }}
     >
       
       {/* Tool logo and meta information */}
-      <div className="flex flex-1 items-start gap-4.5 w-full min-w-0">
+      <div className={`flex flex-1 items-start w-full min-w-0 ${layout === 'vertical' ? 'flex-col gap-4' : 'gap-4.5'}`}>
         
         {/* Logo container block with subtle glows and checkmark */}
         <div className="relative shrink-0">
@@ -130,18 +133,22 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
         </div>
       </div>
 
-      {/* Button cluster on the right */}
-      <div className="flex items-center justify-between md:justify-end gap-2.5 w-full md:w-auto shrink-0 relative md:overflow-visible border-t border-[var(--color-border)]/50 pt-3 md:pt-0 md:border-t-0">
+      {/* Button cluster on the right/bottom */}
+      <div className={`flex shrink-0 relative pt-3 md:pt-0 ${
+        layout === 'vertical' 
+          ? 'flex-col items-stretch w-full border-t border-[var(--color-border)]/50 gap-3 mt-auto' 
+          : 'flex-col md:flex-row items-center justify-between md:justify-end w-full md:w-auto gap-2.5 md:overflow-visible border-t border-[var(--color-border)]/50 md:border-t-0'
+      }`}>
         
         {/* Bookmark and Share action strip */}
-        <div className="flex gap-2.5 md:group-hover:opacity-0 md:group-hover:pointer-events-none transition-all duration-300">
+        <div className={`flex gap-2.5 w-full ${layout === 'vertical' ? 'flex-row' : 'md:w-auto'}`}>
           <button 
             type="button"
             onClick={(e) => {
               e.preventDefault();
               toggleBookmark(tool.id);
             }}
-            className={`flex items-center justify-center w-11 h-11 rounded-xl border transition-all cursor-pointer ${
+            className={`flex items-center justify-center w-11 h-11 shrink-0 rounded-xl border transition-all cursor-pointer ${
               isBookmarked 
                 ? 'border-blue-500/20 bg-blue-500/10 text-blue-500' 
                 : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] shadow-sm'
@@ -151,32 +158,23 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false }) => 
             <Bookmark size={17} className={`${isBookmarked ? 'fill-blue-500' : ''}`} strokeWidth={isBookmarked ? 2.5 : 2} />
           </button>
           
-          <button 
-            type="button"
-            onClick={handleShare}
-            className="flex items-center justify-center w-11 h-11 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] shadow-sm cursor-pointer transition-colors"
-            title="Share Tool"
+          <Link 
+            to={`/compare?tool1=${tool.id}`}
+            className={`flex-1 flex items-center justify-center gap-1.5 h-11 px-3 sm:px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-primary)] shadow-sm cursor-pointer transition-colors font-bold text-xs whitespace-nowrap ${layout !== 'vertical' ? 'md:flex-none' : ''}`}
+            title="Compare Tool"
           >
-            {copyFeedback ? (
-              <Check size={17} className="text-emerald-500" strokeWidth={2.5} />
-            ) : (
-              <Share2 size={17} strokeWidth={2} />
-            )}
-          </button>
+            Compare
+          </Link>
+          
+          <a 
+            href={tool.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`flex-1 flex items-center justify-center gap-1.5 h-11 px-3 sm:px-4 rounded-xl bg-[var(--color-text-primary)] text-[var(--color-background)] shadow-sm hover:opacity-90 transition-all font-bold text-xs whitespace-nowrap ${layout !== 'vertical' ? 'md:flex-none' : ''}`}
+          >
+            Visit <ExternalLink size={13} />
+          </a>
         </div>
-        
-        {/* Visit CTA button with hover sliding overlay in Desktop */}
-        <a 
-          href={tool.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex-1 md:flex-none md:absolute md:right-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:translate-x-4 md:group-hover:translate-x-0 transition-all duration-300 ease-out flex items-center justify-center pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto"
-        >
-          <div className="flex items-center justify-center gap-2 h-11 px-5 w-full md:w-auto rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm hover:shadow-[0_4px_15px_rgba(99,102,241,0.35)] transition-all text-sm font-bold">
-            Visit Tool
-            <ExternalLink size={13} />
-          </div>
-        </a>
       </div>
 
     </motion.div>
