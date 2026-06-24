@@ -19,7 +19,10 @@ export const CategorySection: React.FC<CategorySectionProps> = ({
 }) => {
   return (
     <div className="mb-12 w-full relative">
-       <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[var(--color-surface)] to-transparent pointer-events-none z-10 md:hidden" />
+       <div className="flex items-center justify-between mb-4">
+         <h2 className="text-xl font-bold text-[var(--color-text-primary)]">Popular Categories</h2>
+       </div>
+       <div className="absolute right-0 top-12 bottom-0 w-12 bg-gradient-to-l from-[var(--color-surface)] to-transparent pointer-events-none z-10 md:hidden" />
        <div className="flex flex-nowrap md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 overflow-x-auto md:overflow-visible hide-scrollbar pb-3 md:pb-0 snap-x snap-mandatory">
             <CategoryCard
               name="All Tools"

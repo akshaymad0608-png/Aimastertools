@@ -11362,4 +11362,1085 @@ export const MOCK_TOOLS: Tool[] = [
     ],
     "launchYear": 2023
   }
+,
+  {
+  "id": "sora",
+  "name": "Sora",
+  "description": "The leading Sora platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Sora. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://sora.com",
+  "domain": "sora.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/sora.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.848396994827546,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "groq",
+  "name": "Groq",
+  "description": "The leading Groq platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Groq. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://groq.com",
+  "domain": "groq.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/groq.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.877804979964254,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "claude-3-5-sonnet",
+  "name": "Claude 3.5 Sonnet",
+  "description": "The leading Claude 3.5 Sonnet platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Claude 3.5 Sonnet. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://claude35sonnet.com",
+  "domain": "claude35sonnet.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/claude35sonnet.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.789128236140911,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "gemini-1-5-pro",
+  "name": "Gemini 1.5 Pro",
+  "description": "The leading Gemini 1.5 Pro platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Gemini 1.5 Pro. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://gemini15pro.com",
+  "domain": "gemini15pro.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/gemini15pro.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.616749907000662,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "runway-gen-3-alpha",
+  "name": "Runway Gen-3 Alpha",
+  "description": "The leading Runway Gen-3 Alpha platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Runway Gen-3 Alpha. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://runwaygen3alpha.com",
+  "domain": "runwaygen3alpha.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/runwaygen3alpha.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.682776714728112,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "suno-v3",
+  "name": "Suno v3",
+  "description": "The leading Suno v3 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Suno v3. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://sunov3.com",
+  "domain": "sunov3.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/sunov3.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.570782951090513,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "udio",
+  "name": "Udio",
+  "description": "The leading Udio platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Udio. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://udio.com",
+  "domain": "udio.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/udio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.529858030877163,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "luma-dream-machine",
+  "name": "Luma Dream Machine",
+  "description": "The leading Luma Dream Machine platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Luma Dream Machine. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://lumadreammachine.com",
+  "domain": "lumadreammachine.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/lumadreammachine.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.837897868099265,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "kling-ai",
+  "name": "Kling AI",
+  "description": "The leading Kling AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Kling AI. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://klingai.com",
+  "domain": "klingai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/klingai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.723453152988925,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "hailuo-minimax",
+  "name": "Hailuo MiniMax",
+  "description": "The leading Hailuo MiniMax platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Hailuo MiniMax. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://hailuominimax.com",
+  "domain": "hailuominimax.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/hailuominimax.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.854742655957391,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "vercel-v0",
+  "name": "Vercel v0",
+  "description": "The leading Vercel v0 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Vercel v0. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://vercelv0.com",
+  "domain": "vercelv0.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/vercelv0.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.6004352175258685,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "bolt-new",
+  "name": "Bolt.new",
+  "description": "The leading Bolt.new platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Bolt.new. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://boltnew.com",
+  "domain": "boltnew.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/boltnew.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.878644624558513,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "lovable-dev",
+  "name": "Lovable.dev",
+  "description": "The leading Lovable.dev platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Lovable.dev. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://lovabledev.com",
+  "domain": "lovabledev.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/lovabledev.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.618588064977127,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "windsurf",
+  "name": "Windsurf",
+  "description": "The leading Windsurf platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Windsurf. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://windsurf.com",
+  "domain": "windsurf.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/windsurf.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.6551069190643775,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "perplexity-pro",
+  "name": "Perplexity Pro",
+  "description": "The leading Perplexity Pro platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Perplexity Pro. It provides powerful AI capabilities for AI Search Engines.",
+  "category": "AI Search Engines",
+  "url": "https://perplexitypro.com",
+  "domain": "perplexitypro.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/perplexitypro.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.741371092732815,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "AI",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "chatbox",
+  "name": "Chatbox",
+  "description": "The leading Chatbox platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Chatbox. It provides powerful AI capabilities for AI Chatbots & Assistants.",
+  "category": "AI Chatbots & Assistants",
+  "url": "https://chatbox.com",
+  "domain": "chatbox.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/chatbox.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.722614978119812,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "AI",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "anythingllm",
+  "name": "AnythingLLM",
+  "description": "The leading AnythingLLM platform using advanced AI.",
+  "longDescription": "Comprehensive overview of AnythingLLM. It provides powerful AI capabilities for AI Chatbots & Assistants.",
+  "category": "AI Chatbots & Assistants",
+  "url": "https://anythingllm.com",
+  "domain": "anythingllm.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/anythingllm.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.844326151975424,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "AI",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "ollama",
+  "name": "Ollama",
+  "description": "The leading Ollama platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Ollama. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://ollama.com",
+  "domain": "ollama.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/ollama.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.566264699457493,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "lm-studio",
+  "name": "LM Studio",
+  "description": "The leading LM Studio platform using advanced AI.",
+  "longDescription": "Comprehensive overview of LM Studio. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://lmstudio.com",
+  "domain": "lmstudio.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/lmstudio.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.629588443943854,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "gpt4all",
+  "name": "GPT4All",
+  "description": "The leading GPT4All platform using advanced AI.",
+  "longDescription": "Comprehensive overview of GPT4All. It provides powerful AI capabilities for Code & Development.",
+  "category": "Code & Development",
+  "url": "https://gpt4all.com",
+  "domain": "gpt4all.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/gpt4all.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.830472548870355,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Code",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "webui-forge",
+  "name": "WebUI Forge",
+  "description": "The leading WebUI Forge platform using advanced AI.",
+  "longDescription": "Comprehensive overview of WebUI Forge. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://webuiforge.com",
+  "domain": "webuiforge.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/webuiforge.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.650526899327296,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "comfyui",
+  "name": "ComfyUI",
+  "description": "The leading ComfyUI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of ComfyUI. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://comfyui.com",
+  "domain": "comfyui.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/comfyui.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.567847614126147,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "midjourney-v6",
+  "name": "Midjourney v6",
+  "description": "The leading Midjourney v6 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Midjourney v6. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://midjourneyv6.com",
+  "domain": "midjourneyv6.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/midjourneyv6.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.726002304930009,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "flux-1",
+  "name": "Flux.1",
+  "description": "The leading Flux.1 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Flux.1. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://flux1.com",
+  "domain": "flux1.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/flux1.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.864989057625291,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "ideogram-2-0",
+  "name": "Ideogram 2.0",
+  "description": "The leading Ideogram 2.0 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Ideogram 2.0. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://ideogram20.com",
+  "domain": "ideogram20.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/ideogram20.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.830460866224487,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "elevenlabs-reader",
+  "name": "ElevenLabs Reader",
+  "description": "The leading ElevenLabs Reader platform using advanced AI.",
+  "longDescription": "Comprehensive overview of ElevenLabs Reader. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://elevenlabsreader.com",
+  "domain": "elevenlabsreader.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/elevenlabsreader.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.7962260975479065,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "recraft-v3",
+  "name": "Recraft v3",
+  "description": "The leading Recraft v3 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Recraft v3. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://recraftv3.com",
+  "domain": "recraftv3.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/recraftv3.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.752005806498018,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "leonardo-phoenix",
+  "name": "Leonardo Phoenix",
+  "description": "The leading Leonardo Phoenix platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Leonardo Phoenix. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://leonardophoenix.com",
+  "domain": "leonardophoenix.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/leonardophoenix.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.530796149262928,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "pika-1-5",
+  "name": "Pika 1.5",
+  "description": "The leading Pika 1.5 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Pika 1.5. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://pika15.com",
+  "domain": "pika15.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/pika15.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.8490691865984505,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "heygen-2-0",
+  "name": "HeyGen 2.0",
+  "description": "The leading HeyGen 2.0 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of HeyGen 2.0. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://heygen20.com",
+  "domain": "heygen20.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/heygen20.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.681525884754637,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "elevenlabs-voice-design",
+  "name": "ElevenLabs Voice Design",
+  "description": "The leading ElevenLabs Voice Design platform using advanced AI.",
+  "longDescription": "Comprehensive overview of ElevenLabs Voice Design. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://elevenlabsvoicedesign.com",
+  "domain": "elevenlabsvoicedesign.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/elevenlabsvoicedesign.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.564931273975751,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "napkin-ai",
+  "name": "Napkin AI",
+  "description": "The leading Napkin AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Napkin AI. It provides powerful AI capabilities for UI/UX & Design Tools.",
+  "category": "UI/UX & Design Tools",
+  "url": "https://napkinai.com",
+  "domain": "napkinai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/napkinai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.879538997871628,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "UI/UX",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "relume-library",
+  "name": "Relume Library",
+  "description": "The leading Relume Library platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Relume Library. It provides powerful AI capabilities for UI/UX & Design Tools.",
+  "category": "UI/UX & Design Tools",
+  "url": "https://relumelibrary.com",
+  "domain": "relumelibrary.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/relumelibrary.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.740704310200406,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "UI/UX",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "galileo-ai",
+  "name": "Galileo AI",
+  "description": "The leading Galileo AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Galileo AI. It provides powerful AI capabilities for UI/UX & Design Tools.",
+  "category": "UI/UX & Design Tools",
+  "url": "https://galileoai.com",
+  "domain": "galileoai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/galileoai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.88927047583962,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "UI/UX",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "uizard-autodesigner",
+  "name": "Uizard Autodesigner",
+  "description": "The leading Uizard Autodesigner platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Uizard Autodesigner. It provides powerful AI capabilities for UI/UX & Design Tools.",
+  "category": "UI/UX & Design Tools",
+  "url": "https://uizardautodesigner.com",
+  "domain": "uizardautodesigner.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/uizardautodesigner.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.756759680712541,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "UI/UX",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "krea-ai",
+  "name": "Krea AI",
+  "description": "The leading Krea AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Krea AI. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://kreaai.com",
+  "domain": "kreaai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/kreaai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.641652967007986,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "magnific-ai",
+  "name": "Magnific AI",
+  "description": "The leading Magnific AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Magnific AI. It provides powerful AI capabilities for Image & Art Generation.",
+  "category": "Image & Art Generation",
+  "url": "https://magnificai.com",
+  "domain": "magnificai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/magnificai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.832139023098156,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Image",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "topaz-video-ai",
+  "name": "Topaz Video AI",
+  "description": "The leading Topaz Video AI platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Topaz Video AI. It provides powerful AI capabilities for Video & Audio Generation.",
+  "category": "Video & Audio Generation",
+  "url": "https://topazvideoai.com",
+  "domain": "topazvideoai.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/topazvideoai.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.757046516748241,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Video",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "mendel",
+  "name": "Mendel",
+  "description": "The leading Mendel platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Mendel. It provides powerful AI capabilities for Research & Analysis.",
+  "category": "Research & Analysis",
+  "url": "https://mendel.com",
+  "domain": "mendel.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/mendel.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.712673614930377,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Research",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "alphafold-3",
+  "name": "AlphaFold 3",
+  "description": "The leading AlphaFold 3 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of AlphaFold 3. It provides powerful AI capabilities for Research & Analysis.",
+  "category": "Research & Analysis",
+  "url": "https://alphafold3.com",
+  "domain": "alphafold3.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/alphafold3.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.77406447007697,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "Research",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "grok-2",
+  "name": "Grok 2",
+  "description": "The leading Grok 2 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Grok 2. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://grok2.com",
+  "domain": "grok2.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/grok2.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.7556193122425165,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "meta-llama-3-1",
+  "name": "Meta Llama 3.1",
+  "description": "The leading Meta Llama 3.1 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Meta Llama 3.1. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://metallama31.com",
+  "domain": "metallama31.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/metallama31.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.887867591671368,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "mistral-large",
+  "name": "Mistral Large",
+  "description": "The leading Mistral Large platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Mistral Large. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://mistrallarge.com",
+  "domain": "mistrallarge.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/mistrallarge.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.570824597583378,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "cohere-command-r",
+  "name": "Cohere Command R+",
+  "description": "The leading Cohere Command R+ platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Cohere Command R+. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://coherecommandr.com",
+  "domain": "coherecommandr.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/coherecommandr.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.630540920587665,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+},
+  {
+  "id": "qwen-2-5",
+  "name": "Qwen 2.5",
+  "description": "The leading Qwen 2.5 platform using advanced AI.",
+  "longDescription": "Comprehensive overview of Qwen 2.5. It provides powerful AI capabilities for LLM Providers & APIs.",
+  "category": "LLM Providers & APIs",
+  "url": "https://qwen25.com",
+  "domain": "qwen25.com",
+  "brandColor": "#000000",
+  "imageUrl": "https://img.logo.dev/qwen25.com?token=pk_Yy124-7wSK-z-Hym446V9A",
+  "pricing": "Freemium",
+  "rating": 4.775329056182736,
+  "featured": false,
+  "dateAdded": "2026-06-24T03:39:08.872Z",
+  "tags": [
+    "LLM",
+    "AI Tool"
+  ],
+  "useCases": [
+    "Automation",
+    "Efficiency"
+  ],
+  "launchYear": 2024
+}
 ];

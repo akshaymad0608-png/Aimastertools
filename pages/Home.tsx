@@ -315,6 +315,41 @@ const Home: React.FC = () => {
         </button>
       </div>
 
+      {/* Prompt Engineering Teaser */}
+      <section className="py-12 bg-gradient-to-r from-[var(--color-primary)]/5 via-purple-500/5 to-transparent border-t border-b border-[var(--color-border)]">
+        <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 font-bold text-xs uppercase tracking-wider mb-4 border border-blue-500/20">
+                <Sparkles size={14} /> For Prompt Engineers
+              </div>
+              <h2 className="text-3xl font-bold mb-4 text-[var(--color-text-primary)]">Master the Art of Prompting</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg mb-6 leading-relaxed">
+                Unlock the true potential of LLMs. Explore our dedicated library of advanced prompt frameworks, including Chain-of-Thought, Zero-Shot, and persona injection templates.
+              </p>
+              <Link to="/prompts" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold hover:bg-[var(--color-primary-dark)] transition-colors">
+                Explore Prompt Library <ArrowRight size={18} />
+              </Link>
+            </div>
+            <div className="w-full md:w-1/3 relative">
+               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl z-0"></div>
+               <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] p-6 rounded-3xl relative z-10 shadow-lg font-mono text-sm">
+                 <div className="flex items-center gap-2 mb-4 border-b border-[var(--color-border)] pb-2">
+                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                   <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                   <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                   <span className="ml-2 text-[var(--color-text-muted)] font-bold text-xs">megaprompt.txt</span>
+                 </div>
+                 <p className="text-[var(--color-primary)] mb-2">{'// Persona Definition'}</p>
+                 <p className="text-[var(--color-text-primary)] mb-4">Act as an expert Systems Architect...</p>
+                 <p className="text-purple-500 mb-2">{'// Constraints'}</p>
+                 <p className="text-[var(--color-text-primary)]">1. Use TypeScript<br/>2. Zero-shot reasoning</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Curated Blog Posts */}
       <BlogSection />
 
