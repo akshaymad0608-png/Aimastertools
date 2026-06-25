@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
     { name: 'Directory', to: '/', icon: Compass },
     { name: 'AI Prompts', to: '/prompts', icon: Code },
     { name: 'Compare', to: '/compare', icon: GitCompare },
-    { name: 'Categories', to: '/categories', icon: Grid },
+    { name: 'Find Tool', to: '/find', icon: Sparkles },
     { name: 'Blog', to: '/blog', icon: FileText },
     { name: 'Bookmarks', to: '/bookmarks', icon: Star },
   ];

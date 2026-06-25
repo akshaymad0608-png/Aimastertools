@@ -6,6 +6,7 @@ import { PROMPT_LIBRARY } from '../data/prompts';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import ToolCard from '../components/ToolCard';
+import { ReviewsSection } from '../components/ReviewsSection';
 import { useBookmarks } from '../context/BookmarkContext';
 import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
@@ -477,6 +478,9 @@ const ToolDetail: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Reviews Section */}
+        <ReviewsSection toolId={tool.id} />
 
         {/* Related Tools Section */}
         {relatedTools.length > 0 && (

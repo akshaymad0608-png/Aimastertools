@@ -35,19 +35,13 @@ const NotFound: React.FC = () => {
             <Home size={18} />
             Back to Home
           </Link>
-          <button 
-            onClick={() => {
-              const searchEvent = new KeyboardEvent('keydown', {
-                key: 'k',
-                metaKey: true,
-              });
-              window.dispatchEvent(searchEvent);
-            }}
+          <Link 
+            to="/?search=true"
             className="px-6 py-3 rounded-lg font-semibold bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
           >
             <Search size={18} />
             Search Tools
-          </button>
+          </Link>
         </div>
       </div>
     </div>

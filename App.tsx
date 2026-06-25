@@ -84,10 +84,10 @@ function App() {
             <ProProvider>
               <BookmarkProvider>
                 <Router>
-            <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)] overflow-x-hidden">
+            <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)]">
               <Navbar />
               
-              <main className="flex-grow flex flex-col pb-20 md:pb-0">
+              <main className="flex-grow flex flex-col pb-[112px] md:pb-0" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 7rem)' }}>
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<Home />} />

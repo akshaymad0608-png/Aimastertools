@@ -116,7 +116,15 @@ const Home: React.FC = () => {
       shouldScroll = true;
     }
 
-    if (shouldScroll) {
+    const searchParam = params.get('search');
+    if (searchParam === 'true') {
+      setTimeout(() => {
+        if (searchInputRef.current) {
+          searchInputRef.current.focus();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
+    } else if (shouldScroll) {
       setTimeout(() => {
         const toolsSection = document.getElementById('content');
         if (toolsSection) {

@@ -51,22 +51,24 @@ export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({ trendingTo
               <Link to="/compare" className="inline-flex items-center gap-2 text-white px-6 py-3 rounded-xl font-bold shadow-lg transition-all hover:-translate-y-0.5" style={{ background:'linear-gradient(135deg,#10b981,#059669)', boxShadow:'0 8px 25px rgba(16,185,129,0.3)' }}>Start Comparing <GitCompare size={16} /></Link>
             </div>
           </div>
-          <div className="flex flex-col gap-4 w-full lg:w-auto shrink-0">
+          <div className="flex flex-col gap-4 w-full lg:w-[340px] shrink-0">
             {[
-              { to:'/compare?tools=chatgpt,claude', img1:'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg', alt1:'ChatGPT', img2:'https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Ai.svg', alt2:'Claude', label:'ChatGPT vs Claude', sublabel:'LLM Giants Clash', hoverColor:'rgba(16,185,129,0.4)', sublabelColor:'#34d399' },
-              { to:'/compare?tools=midjourney,dall-e', img1:'https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png', alt1:'Midjourney', img2:'https://upload.wikimedia.org/wikipedia/commons/a/a2/DALL-E_3_Logo.svg', alt2:'DALL-E', label:'Midjourney vs DALL-E', sublabel:'Image Generation', hoverColor:'rgba(6,182,212,0.4)', sublabelColor:'#22d3ee' },
+              { to:'/compare?tools=chatgpt,claude', img1:'https://img.logo.dev/chatgpt.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt1:'ChatGPT', img2:'https://img.logo.dev/claude.ai?token=pk_Yy124-7wSK-z-Hym446V9A', alt2:'Claude', label:'ChatGPT vs Claude', sublabel:'LLM Giants Clash', hoverColor:'rgba(16,185,129,0.4)', sublabelColor:'#34d399' },
+              { to:'/compare?tools=midjourney,dall-e', img1:'https://img.logo.dev/midjourney.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt1:'Midjourney', img2:'https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt2:'DALL-E', label:'Midjourney vs DALL-E', sublabel:'Image Generation', hoverColor:'rgba(6,182,212,0.4)', sublabelColor:'#22d3ee' },
             ].map((item, i) => (
-              <Link key={i} to={item.to} className="p-5 rounded-2xl transition-all flex items-center justify-between gap-8 group" style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', backdropFilter:'blur(8px)' }}
+              <Link key={i} to={item.to} className="p-4 sm:p-5 rounded-2xl transition-all flex items-center justify-between gap-4 group" style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', backdropFilter:'blur(8px)' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = item.hoverColor)}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}>
-                <div className="flex items-center gap-4">
-                  <div className="flex -space-x-3">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-10 shadow-sm overflow-hidden"><img src={item.img1} alt={item.alt1} className="w-full h-full object-contain" /></div>
-                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-20 shadow-sm overflow-hidden"><img src={item.img2} alt={item.alt2} className="w-full h-full object-contain" /></div>
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="flex -space-x-3 shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-10 shadow-sm overflow-hidden bg-white"><img src={item.img1} alt={item.alt1} className="w-full h-full object-contain" /></div>
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-20 shadow-sm overflow-hidden bg-white"><img src={item.img2} alt={item.alt2} className="w-full h-full object-contain" /></div>
                   </div>
-                  <div>
-                    <div className="text-[15px] font-black text-white">{item.label.replace(' vs ', ' ')}<span className="font-normal text-white/50"> vs </span>{item.label.split(' vs ')[1]}</div>
-                    <div className="text-[11px] font-bold uppercase tracking-wider mt-0.5" style={{ color:item.sublabelColor }}>{item.sublabel}</div>
+                  <div className="min-w-0">
+                    <div className="text-[15px] font-black text-white leading-tight truncate">
+                      {item.label.split(' vs ')[0]} <span className="font-normal text-white/50">vs</span> {item.label.split(' vs ')[1]}
+                    </div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider mt-0.5 truncate" style={{ color:item.sublabelColor }}>{item.sublabel}</div>
                   </div>
                 </div>
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background:'rgba(255,255,255,0.08)', border:'1px solid rgba(255,255,255,0.15)', color:'rgba(255,255,255,0.7)' }}><GitCompare size={18} /></div>
