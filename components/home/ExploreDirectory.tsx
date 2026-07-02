@@ -29,7 +29,7 @@ export const ExploreDirectory: React.FC<ExploreDirectoryProps> = ({
   onReset
 }) => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 scroll-mt-24">
       
       {/* Toolbar title containing Active states and selectors */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[var(--color-border)] pb-5 pt-4">

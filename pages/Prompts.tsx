@@ -39,10 +39,10 @@ export default function Prompts() {
 
       <div className="container-custom mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 font-bold text-xs uppercase tracking-wider mb-4 border border-blue-500/20">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-bold text-xs uppercase tracking-wider mb-4">
             <Sparkles size={14} /> Power Up Your AI
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[var(--color-text-primary)] mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] mb-6 tracking-tight">
             The Ultimate Prompt Library
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)]">
@@ -51,7 +51,7 @@ export default function Prompts() {
         </div>
 
         {/* Prompt Engineering Insights */}
-        <div className="mb-12 bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] border border-[var(--color-border)] rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="mb-12 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6 sm:p-8 shadow-sm">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--color-text-primary)]">
             <Sparkles className="text-[var(--color-primary)]" /> Mastering Prompt Engineering
           </h2>

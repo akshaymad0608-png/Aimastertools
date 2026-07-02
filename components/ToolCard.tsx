@@ -88,7 +88,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
             <Link to={`/tool/${tool.id}`} className="block group-hover:text-[var(--color-primary)] transition-colors truncate max-w-full">
               <h3 className="text-[18px] sm:text-[20px] font-black text-[var(--color-text-primary)] leading-tight tracking-tight truncate flex items-center gap-2">
                 {rank && rank <= 3 && (
-                  <span className="inline-block bg-gradient-to-r from-orange-500 through-red-500 to-pink-500 text-transparent bg-clip-text font-black text-[16px] italic pr-0.5">#{rank}</span>
+                  <span className="inline-block text-[var(--color-primary)] font-black text-[16px] italic pr-0.5">#{rank}</span>
                 )}
                 {tool.name}
               </h3>

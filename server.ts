@@ -79,7 +79,17 @@ function generateReceiptPDF(name: string, email: string, planName: string, amoun
   });
 }
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const getDirname = () => {
+  if (typeof __dirname !== 'undefined') {
+    return __dirname;
+  }
+  try {
+    return path.dirname(fileURLToPath(import.meta.url));
+  } catch (e) {
+    return process.cwd();
+  }
+};
+const _dirname = getDirname();
 
 async function startServer() {
   const app = express();
@@ -426,9 +436,9 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     // Production static file serving
-    app.use(express.static(path.resolve(__dirname, 'dist')));
+    app.use(express.static(path.resolve(_dirname, 'dist')));
     app.get('*all', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
+      res.sendFile(path.resolve(_dirname, 'dist', 'index.html'));
     });
   }
 

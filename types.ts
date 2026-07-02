@@ -18,6 +18,7 @@ export interface Tool {
   dateAdded: string; // ISO date string
   tags?: string[];
   useCases?: string[];
+  features?: string[];
   launchYear?: number;
 }
 

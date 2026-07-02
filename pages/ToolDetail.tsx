@@ -439,9 +439,9 @@ const ToolDetail: React.FC = () => {
           <div className="mt-24 border-t border-[var(--color-border)] pt-16">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <h2 className="text-3xl font-bold text-[var(--color-text-primary)] flex items-center gap-3">
+                <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] flex items-center gap-3">
                   <Tag className="text-[var(--color-primary)]" /> 
-                  Useful <span className="text-gradient">Prompts</span>
+                  Useful <span className="text-[var(--color-primary)]">Prompts</span>
                 </h2>
                 <p className="text-[var(--color-text-secondary)] mt-2">
                   Ready-to-use prompts you can try with {tool.name}
@@ -488,9 +488,9 @@ const ToolDetail: React.FC = () => {
           <div className="mt-24">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <h2 className="text-3xl font-bold text-[var(--color-text-primary)] flex items-center gap-3">
+                <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] flex items-center gap-3">
                   <Sparkles className="text-[var(--color-accent)]" /> 
-                  Related <span className="text-gradient">Tools</span>
+                  Related <span className="text-[var(--color-primary)]">Tools</span>
                 </h2>
                 <p className="text-[var(--color-text-secondary)] mt-2">
                   Discover other AI tools similar to {tool.name}

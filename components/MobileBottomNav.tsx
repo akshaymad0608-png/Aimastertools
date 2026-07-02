@@ -14,7 +14,7 @@ export default function MobileBottomNav() {
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] z-[100] shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.1)]" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+    <div  className="md:hidden fixed bottom-0 left-0 right-0 bg-[var(--color-surface)] border-t border-[var(--color-border)] z-[100] shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.1)] pb-safe">
       <div className="flex justify-around items-center h-16 pointer-events-auto">
         {navItems.map((item) => {
           const isActive = pathname === item.path;

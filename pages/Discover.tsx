@@ -53,7 +53,7 @@ const Discover: React.FC = () => {
             <h1 
               className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter animate-fade-in-up"
             >
-              Discover <span className="text-gradient">More</span>
+              Discover <span className="text-[var(--color-primary)]">More</span>
             </h1>
             <p 
               className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-3xl mx-auto animate-fade-in-up"
@@ -119,7 +119,7 @@ const Discover: React.FC = () => {
 
             {/* Live Stats */}
             <section id="stats" className="scroll-mt-32">
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Activity className="text-[var(--color-secondary)]" /> Platform Stats</h2>
+              <h2 className="text-3xl font-extrabold mb-8 flex items-center gap-3"><Activity className="text-[var(--color-primary)]" /> Platform Stats</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
                   { label: 'Active Tools', value: '500+' },
@@ -127,8 +127,8 @@ const Discover: React.FC = () => {
                   { label: 'Pro Members', value: '1,500+' },
                   { label: 'Categories', value: '45+' },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6 text-center hover:border-[var(--color-primary)]/50 transition-colors">
-                    <div className="text-3xl md:text-4xl font-black text-gradient mb-2">{stat.value}</div>
+                  <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 text-center hover:border-[var(--color-primary)] transition-colors">
+                    <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-2">{stat.value}</div>
                     <div className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
@@ -137,20 +137,20 @@ const Discover: React.FC = () => {
 
             {/* Featured Spotlight */}
             <section id="spotlight" className="scroll-mt-32">
-              <div className="bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 border border-[var(--color-primary)]/30 rounded-3xl p-8 md:p-12">
+              <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-8 md:p-12">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   <div className="flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold uppercase tracking-widest mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] text-xs font-bold uppercase tracking-widest mb-4">
                       <Award size={14} /> Tool of the Month
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">ChatGPT Advanced Data Analysis</h2>
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4">ChatGPT Advanced Data Analysis</h2>
                     <p className="text-lg text-[var(--color-text-secondary)] mb-6">
                       Transform how you interact with data. Upload spreadsheets, run Python code, and generate beautiful charts instantly using natural language.
                     </p>
                     <Link to="/tool/chatgpt" className="btn-primary inline-flex">View Details</Link>
                   </div>
-                  <div className="w-full md:w-1/2 aspect-video bg-[var(--color-background)] rounded-2xl border border-[var(--color-border)] shadow-2xl overflow-hidden flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fm=webp&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" width="800" height="450" decoding="async" className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+                  <div className="w-full md:w-1/2 aspect-video bg-[var(--color-background)] rounded-xl border border-[var(--color-border)] overflow-hidden flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fm=webp&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" width="800" height="450" decoding="async" className="w-full h-full object-cover transition-opacity" loading="lazy" />
                   </div>
                 </div>
               </div>
