@@ -122,7 +122,7 @@ const BlogPost: React.FC = () => {
         </script>
       </SEO>
       
-      <div className="pt-28 pb-20 md:pt-36 md:pb-28 min-h-screen bg-[var(--color-background)]">
+      <div className="pt-32 pb-20 md:pt-40 lg:pt-44 md:pb-28 min-h-screen bg-[var(--color-background)]">
         <div className="max-w-[760px] mx-auto px-4 sm:px-6">
           
           {/* Back link */}

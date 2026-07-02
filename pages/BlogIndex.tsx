@@ -31,10 +31,11 @@ const BlogIndex = () => {
   };
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen bg-[var(--color-background)]">
+    <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 min-h-screen bg-[var(--color-background)]">
       <SEO 
         title="AI Master Tools Blog - Insights, Guides & Prompt Engineering" 
         description="Stay updated with the latest in AI, tool reviews, and prompt engineering tutorials by Akshay Mahajan." 
+        keywords={["ai blog", "prompt engineering", "ai tool reviews", "best ai tools", "free ai tools", "ai tools list", "ai for video creation"]}
       />
       <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
         

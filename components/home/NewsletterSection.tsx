@@ -35,7 +35,13 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ showToast 
             <span className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-5" style={{ background:'rgba(16,185,129,0.15)', border:'1px solid rgba(16,185,129,0.3)', color:'#34d399' }}><Sparkles size={11} /> Weekly AI Digest</span>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-3">Stay ahead of the AI curve.</h2>
             <p className="text-base font-medium leading-relaxed" style={{ color:'rgba(167,243,208,0.8)' }}>Get the top 5 AI tools, prompts, and breakthroughs delivered to your inbox every week. No noise — just signal.</p>
-            <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium" style={{ color:'rgba(167,243,208,0.7)' }}>
+            <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-medium" style={{ color:'rgba(167,243,208,0.7)' }}>
+              <div className="flex -space-x-2 mr-2">
+                <img className="w-6 h-6 rounded-full border border-teal-900" src="https://i.pravatar.cc/100?img=1" alt="" />
+                <img className="w-6 h-6 rounded-full border border-teal-900" src="https://i.pravatar.cc/100?img=2" alt="" />
+                <img className="w-6 h-6 rounded-full border border-teal-900" src="https://i.pravatar.cc/100?img=3" alt="" />
+                <div className="w-6 h-6 rounded-full border border-teal-900 bg-teal-800 flex items-center justify-center text-[8px] text-white font-bold">+100k</div>
+              </div>
               {['New tools weekly','Exclusive prompts','AI news roundup'].map(item => (
                 <span key={item} className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full" style={{ background:'#10b981' }} />{item}</span>
               ))}

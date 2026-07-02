@@ -30,10 +30,11 @@ export default function Prompts() {
   };
 
   return (
-    <div className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen">
+    <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 min-h-screen">
       <SEO 
         title="Prompt Library | AI Master Tools" 
         description="Discover our curated library of the best AI prompts for ChatGPT, Midjourney, Claude and more. Copy and paste to get better results instantly." 
+        keywords={["AI prompts", "best chatgpt prompts", "midjourney prompts", "free ai tools", "best ai tools", "ai tools free", "free ai tools like chatgpt", "ai prompts list"]}
       />
 
       <div className="container-custom mx-auto">

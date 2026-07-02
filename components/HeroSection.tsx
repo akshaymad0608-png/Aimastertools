@@ -70,9 +70,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ searchTerm, handleSearchChang
           <button onClick={() => document.getElementById('content')?.scrollIntoView({ behavior:'smooth', block:'start' })} className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-base text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-2" style={{ background:'linear-gradient(135deg, #10b981 0%, #0891b2 100%)' }}>
             <Rocket size={18} /> Explore AI Tools
           </button>
-          <Link to="/submit" className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold text-base border shadow-sm hover:-translate-y-1 transition-all flex items-center justify-center gap-2" style={{ background:'var(--color-surface)', borderColor:'var(--color-border)', color:'var(--color-text-primary)' }}>
-            <Star size={18} style={{ color:'#f59e0b' }} /> Submit Your Tool
-          </Link>
         </motion.div>
 
         {/* Trending Chips */}
@@ -119,6 +116,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ searchTerm, handleSearchChang
         </motion.div>
 
       </div>
+      {/* Social Proof (Acquisition & Trust) */}
+      <motion.div initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.7 }} className="mt-20 pt-10 border-t border-[var(--color-border)] max-w-4xl mx-auto flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-opacity">
+        <p className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-6">Trusted by professionals at</p>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60">
+          {/* Mock company names for trust */}
+          <div className="text-xl font-black font-serif italic text-[var(--color-text-secondary)]">TechCorp</div>
+          <div className="text-xl font-black tracking-tighter text-[var(--color-text-secondary)]">INNOVATE</div>
+          <div className="text-xl font-bold uppercase tracking-widest text-[var(--color-text-secondary)]">Nexus</div>
+          <div className="text-xl font-extrabold lowercase text-[var(--color-text-secondary)]">quantum.ai</div>
+          <div className="text-xl font-black text-[var(--color-text-secondary)]">OXYGEN</div>
+        </div>
+      </motion.div>
     </section>
   );
 };

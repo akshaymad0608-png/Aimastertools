@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { TrendingUp, Award, GitCompare, Zap } from 'lucide-react';
 import { Tool } from '../../types';
 import ToolCard from '../ToolCard';
+import ToolLogo from '../ToolLogo';
 
 interface FeaturedDashboardProps {
   trendingToolsCurated: Tool[];
@@ -13,6 +14,28 @@ interface FeaturedDashboardProps {
 export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({ trendingToolsCurated, recentlyAddedToolsCurated, topFreeToolsCurated }) => {
   return (
     <div className="flex flex-col gap-12 sm:gap-16 mb-16">
+      
+      {/* TOOL OF THE DAY (Retention hook) */}
+      <div className="rounded-[24px] overflow-hidden border shadow-lg relative bg-[var(--color-surface)] border-[var(--color-border)]">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 pointer-events-none" />
+        <div className="p-6 md:p-8 relative z-10 flex flex-col md:flex-row items-center gap-8 justify-between">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-md">
+              <Award size={14} /> Tool of the Day
+            </div>
+            <h3 className="text-3xl font-black text-[var(--color-text-primary)] mb-2">Claude 3.5 Sonnet</h3>
+            <p className="text-[var(--color-text-secondary)] font-medium mb-6">Anthropic's latest model sets a new standard for intelligence, speed, and coding capabilities. See why developers are switching.</p>
+            <Link to="/tool/2" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white shadow-md transition-all hover:-translate-y-0.5 bg-[var(--color-primary)]">
+              View Tool Deep Dive
+            </Link>
+          </div>
+          <div className="shrink-0 w-full md:w-[340px]">
+            {recentlyAddedToolsCurated.length > 0 && (
+               <ToolCard tool={recentlyAddedToolsCurated[0]} layout="horizontal" />
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* TRENDING */}
       <div>
@@ -53,16 +76,16 @@ export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({ trendingTo
           </div>
           <div className="flex flex-col gap-4 w-full lg:w-[340px] shrink-0">
             {[
-              { to:'/compare?tools=chatgpt,claude', img1:'https://img.logo.dev/chatgpt.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt1:'ChatGPT', img2:'https://img.logo.dev/claude.ai?token=pk_Yy124-7wSK-z-Hym446V9A', alt2:'Claude', label:'ChatGPT vs Claude', sublabel:'LLM Giants Clash', hoverColor:'rgba(16,185,129,0.4)', sublabelColor:'#34d399' },
-              { to:'/compare?tools=midjourney,dall-e', img1:'https://img.logo.dev/midjourney.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt1:'Midjourney', img2:'https://img.logo.dev/openai.com?token=pk_Yy124-7wSK-z-Hym446V9A', alt2:'DALL-E', label:'Midjourney vs DALL-E', sublabel:'Image Generation', hoverColor:'rgba(6,182,212,0.4)', sublabelColor:'#22d3ee' },
+              { to:'/compare?tools=chatgpt,claude', domain1:'chatgpt.com', alt1:'ChatGPT', domain2:'claude.ai', alt2:'Claude', label:'ChatGPT vs Claude', sublabel:'LLM Giants Clash', hoverColor:'rgba(16,185,129,0.4)', sublabelColor:'#34d399' },
+              { to:'/compare?tools=midjourney,dall-e', domain1:'midjourney.com', alt1:'Midjourney', domain2:'openai.com', alt2:'DALL-E', label:'Midjourney vs DALL-E', sublabel:'Image Generation', hoverColor:'rgba(6,182,212,0.4)', sublabelColor:'#22d3ee' },
             ].map((item, i) => (
               <Link key={i} to={item.to} className="p-4 sm:p-5 rounded-2xl transition-all flex items-center justify-between gap-4 group" style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', backdropFilter:'blur(8px)' }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = item.hoverColor)}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}>
                 <div className="flex items-center gap-4 min-w-0">
                   <div className="flex -space-x-3 shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-10 shadow-sm overflow-hidden bg-white"><img src={item.img1} alt={item.alt1} className="w-full h-full object-contain" /></div>
-                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-20 shadow-sm overflow-hidden bg-white"><img src={item.img2} alt={item.alt2} className="w-full h-full object-contain" /></div>
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-10 shadow-sm overflow-hidden bg-white"><ToolLogo domain={item.domain1} name={item.alt1} className="w-full h-full object-contain" /></div>
+                    <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center p-2 z-20 shadow-sm overflow-hidden bg-white"><ToolLogo domain={item.domain2} name={item.alt2} className="w-full h-full object-contain" /></div>
                   </div>
                   <div className="min-w-0">
                     <div className="text-[15px] font-black text-white leading-tight truncate">

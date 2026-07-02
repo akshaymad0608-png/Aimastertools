@@ -9,13 +9,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
-import FabSubmit from './components/FabSubmit';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 
 import Home from './pages/Home';
 
 // Lazy load pages for better performance
-const Submit = lazy(() => import('./pages/Submit'));
 const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
@@ -91,7 +89,6 @@ function App() {
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/submit" element={<Submit />} />
                     <Route path="/tool/:id" element={<ToolDetail />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
                     <Route path="/blog" element={<BlogIndex />} />
@@ -111,7 +108,6 @@ function App() {
               <Footer />
               <MobileBottomNav />
               <ScrollToTop />
-              <FabSubmit />
               <GlobalToast />
             </div>
           </Router>

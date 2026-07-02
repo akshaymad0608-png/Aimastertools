@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
       <nav className={`transition-all duration-300 ${scrolled ? 'py-3' : 'py-5'}`}>
         <div className="container-custom max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6">
           
-          {/* Logo & Subtitle */}
-          <div className="flex flex-col">
+          {/* Logo */}
+          <div className="flex items-center">
             <Link 
               to="/" 
               className="flex items-center gap-3 transition-transform duration-200 active:scale-95" 
@@ -52,9 +52,6 @@ const Navbar: React.FC = () => {
             >
               <Logo size="md" />
             </Link>
-            <span className="hidden md:block text-[10px] font-medium text-[var(--color-text-muted)] tracking-wider uppercase mt-0.5 ml-[38px]">
-              Discover • Compare • Find
-            </span>
           </div>
 
           {/* Center Navigation */}
@@ -96,15 +93,6 @@ const Navbar: React.FC = () => {
             >
                <User size={17} />
             </button>
-
-            {/* Premium CTA Button */}
-            <Link 
-              to="/submit"
-              className="relative px-5 py-2.5 rounded-full bg-[var(--color-text-primary)] text-[var(--color-background)] hover:opacity-90 font-bold text-sm shadow-md active:scale-95 flex items-center gap-1.5 transition-all"
-            >
-              <Sparkles size={14} className="text-yellow-400" />
-              Submit Tool
-            </Link>
           </div>
 
           {/* Mobile Actions Overlay */}
@@ -155,16 +143,6 @@ const Navbar: React.FC = () => {
                     </Link>
                   );
                 })}
-                
-                <div className="pt-3 mt-1.5 border-t border-[var(--color-border)]">
-                  <Link 
-                    to="/submit" 
-                    className="flex items-center justify-center w-full py-3.5 rounded-xl font-extrabold text-sm bg-[var(--color-text-primary)] text-[var(--color-background)] shadow-md"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <Sparkles size={16} className="text-yellow-400 mr-2" /> Submit Tool
-                  </Link>
-                </div>
               </div>
             </motion.div>
           )}

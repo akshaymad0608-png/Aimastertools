@@ -20,9 +20,10 @@ const Bookmarks: React.FC = () => {
       <SEO 
         title="My Bookmarked Tools | AI Master Tools" 
         description="View your saved and bookmarked AI tools to access them quickly later."
+        keywords={["bookmarked ai tools", "saved ai tools", "best ai tools", "free ai tools", "ai tools directory"]}
       />
       
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative min-h-screen">
+      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto px-6 relative min-h-screen">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 

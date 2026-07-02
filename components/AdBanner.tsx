@@ -1,6 +1,5 @@
 import React from 'react';
 import { ExternalLink, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { usePro } from '../context/ProContext';
 
 const AdBanner: React.FC = () => {
@@ -33,9 +32,9 @@ const AdBanner: React.FC = () => {
         </div>
       </div>
       
-      <Link to="/submit" className="btn-primary px-8 py-3 text-sm md:text-base whitespace-nowrap z-10 flex items-center gap-2 w-full md:w-auto justify-center">
+      <button className="btn-primary px-8 py-3 text-sm md:text-base whitespace-nowrap z-10 flex items-center gap-2 w-full md:w-auto justify-center">
         Advertise with us <ExternalLink size={16} />
-      </Link>
+      </button>
     </div>
   );
 };

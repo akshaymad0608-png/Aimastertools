@@ -43,6 +43,7 @@ const Discover: React.FC = () => {
       <SEO 
         title="Discover More | AI Master Tools" 
         description="Learn more about AI Master Tools, read FAQs, testimonials, and discover featured AI spotlights and tutorials."
+        keywords={["discover ai tools", "best ai tools", "free ai tools", "ai tools free", "free ai tools list"]}
       />
       
       <div className="pt-32 pb-20 md:pt-40 md:pb-32">
@@ -244,7 +245,6 @@ const Discover: React.FC = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   { q: 'How often are new tools added?', a: 'We update our directory daily. Our team constantly monitors the AI landscape for new and innovative solutions.' },
-                  { q: 'Can I submit my own AI tool?', a: 'Yes! You can use the "Submit AI Tool" button in the navigation bar to suggest a tool for our directory.' },
                   { q: 'Is AI Master Tools free to use?', a: 'Browsing the directory is completely free. We also offer a Pro membership for advanced features like saving favorites and removing ads.' },
                   { q: 'How do you rank the tools?', a: 'Tools are ranked based on user reviews, features, pricing value, and our internal testing metrics.' },
                 ].map((faq, i) => (

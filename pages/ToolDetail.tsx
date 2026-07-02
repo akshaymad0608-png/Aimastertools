@@ -10,6 +10,7 @@ import { ReviewsSection } from '../components/ReviewsSection';
 import { useBookmarks } from '../context/BookmarkContext';
 import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
+import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -89,7 +90,7 @@ const ToolDetail: React.FC = () => {
         title={`${tool.name} Review, Pricing, & Alternatives (2026) | AI Master Tools`} 
         description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, pros, cons, and best AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
-        keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence']}
+        keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
       >
         <script type="application/ld+json">
           {JSON.stringify({
@@ -141,7 +142,7 @@ const ToolDetail: React.FC = () => {
         </script>
       </SEO>
       
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto relative overflow-hidden">
+      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
@@ -429,7 +430,7 @@ const ToolDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Navigation removed sponsored ad */}
+            <TrendingSidebarWidget />
           </div>
         </div>
 

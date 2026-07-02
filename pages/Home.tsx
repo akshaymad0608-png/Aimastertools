@@ -20,6 +20,7 @@ import { CategorySection } from '../components/home/CategorySection';
 import { FeaturedDashboard } from '../components/home/FeaturedDashboard';
 import { ExploreDirectory } from '../components/home/ExploreDirectory';
 import { NewsletterSection } from '../components/home/NewsletterSection';
+import { TrendingToolsSection } from '../components/TrendingToolsSection';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -251,7 +252,7 @@ const Home: React.FC = () => {
       <SEO 
         title={seoTitle} 
         description={seoDesc} 
-        keywords={['AI tools directory', 'compare AI tools', 'best AI software', 'AI tool suggestions', 'AI Master Tools', 'Akshay Mahajan', 'Prompt Engineering', 'AI ML Engineering', 'best AI tools list 2026', 'free AI tools Hindi', 'ChatGPT alternative free']}
+        keywords={['ai tools free', 'free ai tools', 'best ai tools', 'free ai tools list', 'ai detection tool free', 'free ai paraphrasing tool', 'best ai tools for students', 'best ai tool for coding', 'free ai tools for video creation', 'best ai tool for ppt', 'best free ai tools', 'free ai tools like chatgpt', 'AI tools directory', 'compare AI tools', 'AI Master Tools', 'Akshay Mahajan']}
       >
         <script type="application/ld+json">
           {JSON.stringify({
@@ -291,6 +292,8 @@ const Home: React.FC = () => {
         searchInputRef={searchInputRef} 
         onChipClick={handleChipClick}
       />
+
+      <TrendingToolsSection />
       
       {/* Category Selection Sidebar Slider & Content */}
       <section id="content" className="py-12 md:py-16 relative bg-[var(--color-surface)] border-t border-[var(--color-border)]">

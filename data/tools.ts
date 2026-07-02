@@ -11628,7 +11628,7 @@ export const MOCK_TOOLS: Tool[] = [
   "launchYear": 2024
 },
   {
-  "id": "bolt-new",
+  "id": "bolt-new-2",
   "name": "Bolt.new",
   "description": "The leading Bolt.new platform using advanced AI.",
   "longDescription": "Comprehensive overview of Bolt.new. It provides powerful AI capabilities for Code & Development.",
@@ -12156,7 +12156,7 @@ export const MOCK_TOOLS: Tool[] = [
   "launchYear": 2024
 },
   {
-  "id": "galileo-ai",
+  "id": "galileo-ai-2",
   "name": "Galileo AI",
   "description": "The leading Galileo AI platform using advanced AI.",
   "longDescription": "Comprehensive overview of Galileo AI. It provides powerful AI capabilities for UI/UX & Design Tools.",

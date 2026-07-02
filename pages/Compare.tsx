@@ -51,10 +51,10 @@ const Compare: React.FC = () => {
       <SEO 
         title="Compare AI Tools | AI Master Tools" 
         description="Compare the best AI tools side-by-side. Analyze features, pricing, and ratings to find the perfect artificial intelligence software for your needs."
-        keywords={["compare AI tools", "AI software comparison", "best AI tools", "AI tool features", "AI pricing comparison"]}
+        keywords={["compare AI tools", "AI software comparison", "best ai tools", "best free ai tools", "free ai tools", "free ai tools list", "AI pricing comparison"]}
       />
       
-      <div className="pt-24 pb-16 md:pt-32 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
+      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
