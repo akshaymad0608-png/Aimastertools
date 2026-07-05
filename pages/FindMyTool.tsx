@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import AIToolFinder from '../components/AIToolFinder';
+import { AIToolFinder } from '../components/AIToolFinder';
 import SEO from '../components/SEO';
 
 export default function FindMyTool() {

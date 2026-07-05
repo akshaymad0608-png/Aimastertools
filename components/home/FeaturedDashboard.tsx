@@ -58,10 +58,14 @@ export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({ trendingTo
       </div>
 
       {/* COMPARE BANNER */}
-      <div className="p-6 sm:p-10 rounded-[16px] bg-[var(--color-cardBg)] border border-[var(--color-border)] relative overflow-hidden">
+      <div className="p-6 sm:p-10 rounded-[16px] bg-[var(--color-cardBg)] border border-[var(--color-border)] relative overflow-hidden shadow-sm">
+        {/* Decorative Gradients */}
+        <div className="absolute top-[-30%] right-[-10%] w-[50%] h-[150%] bg-[var(--color-primary)] opacity-[0.05] blur-[80px] pointer-events-none mix-blend-screen" />
+        <div className="absolute bottom-[-30%] left-[-10%] w-[50%] h-[150%] bg-[var(--color-accent)] opacity-[0.05] blur-[80px] pointer-events-none mix-blend-screen" />
+        
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-widest mb-4 bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-widest mb-4 bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] shadow-sm">
               <GitCompare size={12} /> Compare AI Tools
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-3">Find the perfect match for your workflow.</h3>

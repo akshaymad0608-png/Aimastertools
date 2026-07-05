@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
@@ -18,12 +18,20 @@ const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 const Compare = lazy(() => import('./pages/Compare'));
+const Categories = lazy(() => import('./pages/Categories'));
 // Pricing page removed
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
+const Workflows = lazy(() => import('./pages/Workflows'));
+const WorkflowDetail = lazy(() => import('./pages/WorkflowDetail'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const CategoryPage = lazy(() => import('./pages/CategoryPage'));
+const AlternativesPage = lazy(() => import('./pages/AlternativesPage'));
+
 const Discover = lazy(() => import('./pages/Discover'));
+const Collections = lazy(() => import('./pages/Collections'));
+const CollectionDetail = lazy(() => import('./pages/CollectionDetail'));
 const Bookmarks = lazy(() => import('./pages/Bookmarks'));
 const FindMyTool = lazy(() => import('./pages/FindMyTool'));
 
@@ -92,14 +100,23 @@ function App() {
                     <Route path="/tool/:id" element={<ToolDetail />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
                     <Route path="/blog" element={<BlogIndex />} />
+                    <Route path="/blogs" element={<Navigate to="/blog" replace />} />
                     <Route path="/compare" element={<Compare />} />
+                    <Route path="/categories" element={<Categories />} />
                     <Route path="/bookmarks" element={<Bookmarks />} />
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/careers" element={<Careers />} />
+                    <Route path="/collections" element={<Collections />} />
+                    <Route path="/collections/:slug" element={<CollectionDetail />} />
                     <Route path="/discover" element={<Discover />} />
                     <Route path="/find" element={<FindMyTool />} />
                     <Route path="/prompts" element={<Prompts />} />
+                    
+                    <Route path="/category/:slug" element={<CategoryPage />} />
+                    <Route path="/alternatives/:slug" element={<AlternativesPage />} />
+                                        <Route path="/workflows" element={<Workflows />} />
+                    <Route path="/workflows/:id" element={<WorkflowDetail />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

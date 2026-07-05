@@ -1,7 +1,6 @@
 import React from 'react';
-import { Search, Rocket } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   searchTerm: string;
@@ -14,102 +13,118 @@ const HeroSection: React.FC<HeroSectionProps> = ({ searchTerm, handleSearchChang
   const trendingQueries = ['ChatGPT', 'Midjourney', 'Writing', 'Coding', 'Agents', 'Video Gen'];
 
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-[var(--color-background)]">
+    <section id="home" className="relative pt-24 pb-16 md:pt-44 md:pb-28 overflow-hidden bg-[var(--color-background)]">
+      {/* Dynamic Background Effects */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[20%] w-[60%] h-[60%] rounded-full bg-[var(--color-primary)] opacity-[0.08] blur-[120px] mix-blend-screen"></div>
+        <div className="absolute top-[20%] right-[-10%] w-[40%] h-[50%] rounded-full bg-[var(--color-accent)] opacity-[0.05] blur-[100px] mix-blend-screen"></div>
+      </div>
+      
       <div className="container-custom text-center relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        
+        {/* Intro Pill */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm mb-8 mx-auto"
+        >
+          <Sparkles size={14} className="text-[var(--color-primary)]" />
+          <span className="text-xs sm:text-sm font-semibold text-[var(--color-text-secondary)]">Discover the next generation of AI tools</span>
+        </motion.div>
 
         {/* Headline */}
         <motion.h1 
-          initial={{ opacity: 0, y: 10 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.5 }} 
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-[var(--color-text-primary)]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-[var(--color-text-primary)]"
         >
-          Discover the World's Best AI Tools
+          Supercharge your workflow <br className="hidden sm:block" /> with the best <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]">AI Tools</span>
         </motion.h1>
-
+        
         {/* Subtitle */}
         <motion.p 
-          initial={{ opacity: 0, y: 10 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.5, delay: 0.1 }} 
-          className="text-lg md:text-xl mb-10 max-w-2xl mx-auto font-medium leading-relaxed text-[var(--color-text-secondary)]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium leading-relaxed text-[var(--color-text-secondary)]"
         >
-          Explore 500+ handpicked AI tools for writing, coding, images, videos, automation, business and productivity.
+          Explore our curated directory of 500+ handpicked AI tools for writing, coding, images, videos, business, and productivity.
         </motion.p>
-
+        
         {/* Search */}
         <motion.div 
-          initial={{ opacity: 0, y: 10 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.5, delay: 0.2 }} 
-          className="max-w-2xl mx-auto mb-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+          className="max-w-3xl mx-auto mb-8 relative z-20"
         >
           <form 
-            onSubmit={(e) => { e.preventDefault(); document.getElementById('search-results')?.scrollIntoView({ behavior:'smooth', block:'start' }); }} 
-            className="relative flex items-center bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-xl shadow-sm transition-all focus-within:ring-2 focus-within:ring-[var(--color-primary)] focus-within:border-[var(--color-primary)]"
+            onSubmit={(e) => { e.preventDefault(); document.getElementById('search-results')?.scrollIntoView({ behavior:'smooth', block:'start' }); }}
+            className="relative flex items-center bg-[var(--color-cardBg)]/90 backdrop-blur-3xl border border-[var(--color-border)] rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all focus-within:shadow-[0_8px_40px_rgba(var(--color-primary-rgb),0.12)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]/30 focus-within:border-[var(--color-primary)]/50"
           >
-            <Search className="absolute left-4 text-[var(--color-text-muted)]" size={20} />
+            <Search className="absolute left-5 sm:left-6 text-[var(--color-text-muted)]" size={22} strokeWidth={2.5} />
             <input 
-              ref={searchInputRef} 
+              ref={searchInputRef}
               type="text" 
-              placeholder="Search tools, categories, or use cases..." 
-              className="w-full h-14 pl-12 pr-24 bg-transparent border-none outline-none text-base text-[var(--color-text-primary)]" 
-              value={searchTerm} 
-              onChange={handleSearchChange} 
+              placeholder="Search AI tools (e.g. video generator)..." 
+              className="w-full h-16 sm:h-20 pl-14 sm:pl-16 pr-20 sm:pr-36 bg-transparent border-none outline-none text-base sm:text-lg text-[var(--color-text-primary)] font-medium placeholder-[var(--color-text-muted)]"
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
             <button 
-              type="submit" 
-              className="absolute right-2 top-2 bottom-2 px-4 rounded-lg bg-[var(--color-primary)] text-white font-medium hover:bg-[var(--color-primary-dark)] transition-colors hidden sm:flex items-center"
+              type="submit"
+              className="absolute right-2 sm:right-3 top-2 sm:top-3 bottom-2 sm:bottom-3 px-6 rounded-xl bg-[var(--color-primary)] text-white font-bold hover:bg-[var(--color-primary-dark)] transition-all shadow-md hover:shadow-lg hidden sm:flex items-center gap-2"
             >
               Search
             </button>
             <button 
-              type="submit" 
-              className="absolute right-2 top-2 bottom-2 w-10 flex items-center justify-center rounded-lg bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors sm:hidden"
+              type="submit"
+              className="absolute right-2 top-2 bottom-2 w-12 flex items-center justify-center rounded-xl bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors sm:hidden"
             >
-              <Search size={18} />
+              <Search size={20} strokeWidth={2.5} />
             </button>
           </form>
         </motion.div>
-
+        
         {/* Trending Chips */}
         <motion.div 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ duration: 0.5, delay: 0.3 }} 
-          className="flex flex-wrap items-center justify-center gap-2 mb-16 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-2.5 mb-16 max-w-2xl mx-auto relative z-20"
         >
-          <span className="text-sm font-medium text-[var(--color-text-muted)] mr-2">
-            Trending:
+          <span className="text-xs font-bold text-[var(--color-text-muted)] mr-1 tracking-wider uppercase">
+            Trending
           </span>
           {trendingQueries.map((query) => (
             <button 
-              key={query} 
-              type="button" 
-              onClick={() => onChipClick?.(query)} 
-              className="text-sm font-medium px-3 py-1.5 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+              key={query}
+              type="button"
+              onClick={() => onChipClick?.(query)}
+              className="text-sm font-semibold px-4 py-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)]/40 hover:text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5 transition-all shadow-sm"
             >
               {query}
             </button>
           ))}
         </motion.div>
-
       </div>
       
       {/* Social Proof */}
       <motion.div 
-        initial={{ opacity: 0, y: 10 }} 
-        animate={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.5, delay: 0.5 }} 
-        className="mt-12 pt-8 border-t border-[var(--color-border)] max-w-4xl mx-auto flex flex-col items-center justify-center"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="mt-8 pt-10 border-t border-[var(--color-border)]/60 max-w-4xl mx-auto flex flex-col items-center justify-center relative z-10"
       >
-        <p className="text-sm font-medium text-[var(--color-text-muted)] tracking-wide mb-6">TRUSTED BY PROFESSIONALS AT</p>
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60">
-          <div className="text-lg font-bold text-[var(--color-text-secondary)]">Google</div>
-          <div className="text-lg font-bold text-[var(--color-text-secondary)]">Meta</div>
-          <div className="text-lg font-bold text-[var(--color-text-secondary)]">OpenAI</div>
-          <div className="text-lg font-bold text-[var(--color-text-secondary)]">Stripe</div>
-          <div className="text-lg font-bold text-[var(--color-text-secondary)]">Vercel</div>
+        <p className="text-[11px] font-bold text-[var(--color-text-muted)] tracking-[0.2em] uppercase mb-8">Trusted by Professionals At</p>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+          <div className="text-xl font-extrabold text-[var(--color-text-secondary)] tracking-tight select-none">Google</div>
+          <div className="text-xl font-extrabold text-[var(--color-text-secondary)] tracking-tight select-none">Meta</div>
+          <div className="text-xl font-extrabold text-[var(--color-text-secondary)] tracking-tight select-none">OpenAI</div>
+          <div className="text-xl font-extrabold text-[var(--color-text-secondary)] tracking-tight select-none">Stripe</div>
+          <div className="text-xl font-extrabold text-[var(--color-text-secondary)] tracking-tight select-none">Vercel</div>
         </div>
       </motion.div>
     </section>

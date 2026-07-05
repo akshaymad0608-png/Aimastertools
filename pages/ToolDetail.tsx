@@ -496,7 +496,7 @@ const ToolDetail: React.FC = () => {
                   Discover other AI tools similar to {tool.name}
                 </p>
               </div>
-              <Link to={`/?category=${tool.category}`} className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-2 whitespace-nowrap">
+              <Link to={`/?category=${encodeURIComponent(tool.category)}`} className="text-[var(--color-primary)] hover:underline font-semibold flex items-center gap-2 whitespace-nowrap">
                 View all {tool.category} <ArrowRight size={16} />
               </Link>
             </div>

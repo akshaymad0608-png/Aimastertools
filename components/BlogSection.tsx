@@ -75,6 +75,7 @@ const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: s
 };
 
 export const BlogSection: React.FC = () => {
+  const [heroImageError, setHeroImageError] = useState(false);
   // Extract specific blog post categories to align with requested layout
   const chatbotPost = blogPosts.find(p => p.category?.toLowerCase().includes('chatbot')) || blogPosts[0];
   
@@ -126,29 +127,29 @@ export const BlogSection: React.FC = () => {
   });
 
   return (
-    <section id="blog" className="relative bg-[#0d1117] py-20 dark:bg-[#0d1117]">
+    <section id="blog" className="relative bg-slate-50 dark:bg-[#09090b] py-20">
       {/* Premium ambient backdrop glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-indigo-900/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-900/10 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 dark:bg-blue-900/20 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-900/20 blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-2 text-sm font-black uppercase tracking-widest text-purple-400">
+            <p className="mb-2 text-sm font-black uppercase tracking-widest text-blue-600 dark:text-blue-400">
               Latest Insights
             </p>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl leading-tight">
-              <span className="text-white">Learn AI tools, workflows & comparisons</span>
+              <span className="text-slate-900 dark:text-white">Learn AI tools, workflows & comparisons</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-slate-350">
+            <p className="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
               Stay updated with expert reviews, tool comparisons, and prompt engineering tutorials.
             </p>
           </div>
           <Link 
             to="/blog" 
-            className="group font-bold text-purple-400 hover:text-purple-350 inline-flex items-center gap-1.5 shrink-0 transition"
+            className="group font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:text-blue-300 inline-flex items-center gap-1.5 shrink-0 transition"
           >
             <span>View All Insights</span>
             <span className="inline-block transition group-hover:translate-x-1 font-extrabold">→</span>
@@ -173,19 +174,22 @@ export const BlogSection: React.FC = () => {
                 
                 {/* HERO BANNER */}
                 <div className="relative w-full h-[260px] sm:h-[320px] overflow-hidden flex flex-col items-center justify-center px-6 bg-[var(--color-surface)] border-b border-[var(--color-border)]">
-                  <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-[var(--color-background)] rounded-md border border-[var(--color-border)] text-xs font-bold text-[var(--color-text-primary)] uppercase tracking-wider leading-none">
+                  {chatbotPost.imageUrl && !heroImageError ? (
+                    <img src={chatbotPost.imageUrl} alt={chatbotPost.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" onError={() => setHeroImageError(true)} />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-blue-500/10 overflow-hidden">
+                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--color-text-primary) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+                      <div className="relative z-10 w-24 h-24 rounded-2xl bg-[var(--color-cardBg)]/80 backdrop-blur-md border border-[var(--color-border)] flex flex-col items-center justify-center shadow-xl mb-4 group-hover:scale-110 transition-transform duration-500">
+                        <Bot size={40} className="text-[var(--color-primary)] mb-2" />
+                        <div className="text-[10px] font-bold text-[var(--color-text-secondary)] uppercase tracking-widest">AI INSIGHT</div>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-[var(--color-background)]/90 backdrop-blur-sm rounded-md border border-[var(--color-border)] text-xs font-bold text-[var(--color-text-primary)] uppercase tracking-wider leading-none z-10 shadow-sm">
                     <span className="text-[var(--color-primary)] animate-pulse text-[8px]">●</span>
                     <span>FEATURED INSIGHT</span>
                   </div>
-
-                  {/* Center icon */}
-                  <div className="relative flex flex-col items-center justify-center z-10 mt-6 sm:mt-4">
-                    <div className="w-16 h-16 rounded-xl bg-[var(--color-cardBg)] border border-[var(--color-border)] flex items-center justify-center shadow-sm">
-                      <Bot size={32} className="text-[var(--color-primary)]" />
-                    </div>
-                  </div>
                 </div>
-
                 {/* Substantive Article Metadata and Body */}
                 <div className="p-6 sm:p-8 flex-1 flex flex-col bg-[var(--color-cardBg)]">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -251,7 +255,7 @@ export const BlogSection: React.FC = () => {
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                 >
                   <Link 
-                    to={`/blog/${post.slug}`}
+                    to={`/blog/${post.slug || post.id}`}
                     className="group flex gap-4 bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-4 shadow-sm hover:shadow-lg hover:border-[var(--color-primary)] transition-all duration-300"
                   >
                     {/* Consistent 64x64px square image thumbnail with smart error fallback */}

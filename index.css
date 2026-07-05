@@ -257,3 +257,61 @@ h1, h2, h3, h4, h5, h6 {
 .blog-content th { background: var(--surface-color); padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid var(--border-color); }
 .blog-content td { padding: 10px 14px; border: 1px solid var(--border-color); color: var(--text-secondary-color); }
 .blog-content strong { color: var(--text-primary-color); font-weight: 600; }
+
+/* Glassmorphism & Modern UI */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-nav {
+  background: rgba(10, 10, 10, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Premium Gradients */
+.bg-gradient-premium {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 50%, var(--color-accent) 100%);
+}
+
+.text-gradient-premium {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 50%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.4);
+}
+
+
+/* Global body padding for mobile nav */
+@media (max-width: 768px) {
+  #root { padding-bottom: 72px; }
+}
+
+:root, .light {
+  --color-primary-rgb: 37, 99, 235;
+}
+.dark {
+  --color-primary-rgb: 59, 130, 246;
+}

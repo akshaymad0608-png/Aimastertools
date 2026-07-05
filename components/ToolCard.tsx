@@ -114,7 +114,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
           {/* Footer Interactive tags */}
           <div className="flex flex-wrap items-center gap-2.5">
             <Link 
-              to={`/?category=${tool.category.toLowerCase()}`} 
+              to={`/?category=${encodeURIComponent(tool.category)}`} 
               className="text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/40 transition-colors"
             >
               {tool.category}

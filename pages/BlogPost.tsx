@@ -184,7 +184,7 @@ const BlogPost: React.FC = () => {
 
           {/* Content rendering */}
           <article className="blog-content prose dark:prose-invert max-w-none text-[var(--color-text-primary)] leading-relaxed text-base sm:text-lg">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown>{post.content || ''}</ReactMarkdown>
           </article>
 
           {/* Action Footer share clusters */}

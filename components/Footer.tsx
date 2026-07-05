@@ -54,10 +54,11 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Resources</h3>
             <ul className="space-y-4 text-[15px] text-[var(--color-text-secondary)]">
-              <li><Link to="/prompts" className="hover:text-[var(--color-primary)] transition-colors">Prompt Library</Link></li>
-              <li><Link to="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare AI</Link></li>
-              <li><Link to="/find" className="hover:text-[var(--color-primary)] transition-colors">Find My Tool</Link></li>
-              <li><Link to="/blog" className="hover:text-[var(--color-primary)] transition-colors">AI Blog</Link></li>
+              <li><Link to="/collections" className="hover:text-[var(--color-primary)] transition-colors">Collections</Link></li>
+              <li><Link to="/prompts" className="hover:text-[var(--color-primary)] transition-colors">Prompts</Link></li>
+              <li><Link to="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare Tools</Link></li>
+              <li><Link to="/find" className="hover:text-[var(--color-primary)] transition-colors">AI Tool Finder</Link></li>
+              <li><a href="mailto:submit@aimastertools.com" className="hover:text-[var(--color-primary)] transition-colors">Submit Tool</a></li>
             </ul>
           </div>
 

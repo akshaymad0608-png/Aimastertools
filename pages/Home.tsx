@@ -14,11 +14,13 @@ import { doc, setDoc, serverTimestamp, addDoc, collection } from 'firebase/fires
 import { db } from '../firebase';
 
 const VoiceSearch = React.lazy(() => import('../components/VoiceSearch'));
+import { CollectionsSection } from '../components/home/CollectionsSection';
 import { BlogSection } from '../components/BlogSection';
 import HeroSection from '../components/HeroSection';
 import { CategorySection } from '../components/home/CategorySection';
 import { FeaturedDashboard } from '../components/home/FeaturedDashboard';
 import { ExploreDirectory } from '../components/home/ExploreDirectory';
+import { FAQSection } from '../components/home/FAQSection';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
 
@@ -100,9 +102,9 @@ const Home: React.FC = () => {
     let shouldScroll = false;
 
     if (categoryParam) {
-      const categoryExists = CATEGORIES.some(c => c.id === categoryParam);
-      if (categoryExists) {
-        setSelectedCategory(categoryParam as Category);
+      const matchedCategory = CATEGORIES.find(c => c.id.toLowerCase() === categoryParam.toLowerCase());
+      if (matchedCategory) {
+        setSelectedCategory(matchedCategory.id as Category);
         shouldScroll = true;
       }
     }
@@ -387,8 +389,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Curated Blog Posts */}
+      <CollectionsSection />
       <BlogSection />
 
+      <FAQSection />
       <NewsletterSection showToast={showToast} />
     </>
   );

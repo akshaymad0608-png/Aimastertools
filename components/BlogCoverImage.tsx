@@ -54,6 +54,7 @@ export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
           className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           onError={() => setImgError(true)}
           loading="lazy"
+          referrerPolicy="no-referrer"
         />
       </div>
     );

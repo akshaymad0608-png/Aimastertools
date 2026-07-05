@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, ArrowUpRight, Code, Compass, Star, Grid, FileText, User, Sparkles, GitCompare } from 'lucide-react';
+import { Menu, X, Sun, Moon, ArrowUpRight, Code, Compass, Star, Grid, FileText, User, Sparkles, GitCompare, GitMerge } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -21,11 +21,11 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Directory', to: '/', icon: Compass },
-    { name: 'AI Prompts', to: '/prompts', icon: Code },
-    { name: 'Compare', to: '/compare', icon: GitCompare },
+    { name: 'Categories', to: '/categories', icon: Grid },
+    { name: 'Prompts', to: '/prompts', icon: Code },
+    { name: 'Workflows', to: '/workflows', icon: GitMerge },
     { name: 'Find Tool', to: '/find', icon: Sparkles },
     { name: 'Blog', to: '/blog', icon: FileText },
-    { name: 'Bookmarks', to: '/bookmarks', icon: Star },
   ];
 
   return (
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Center Navigation */}
-          <div className="hidden lg:flex items-center gap-1 bg-[var(--color-surface)]/50 backdrop-blur-md px-1.5 py-1.5 rounded-2xl border border-[var(--color-border)] shadow-sm">
+          <div className="hidden lg:flex items-center gap-1 glass-nav px-1.5 py-1.5 rounded-2xl border border-[var(--color-border)] shadow-sm">
             {navLinks.map((link, i) => {
               const isActive = location.pathname === link.to;
               return (

@@ -48,8 +48,28 @@ export interface CategoryStat {
   id: Category;
   name: string;
   icon: string | any;
+  emoji?: string;
   imageUrl?: string;
   count: number;
   bg?: string;
   color?: string;
+}
+
+export interface CollectionFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface SEOCollection {
+  id: string;
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  intro: string;
+  toolIds: string[];
+  faqs: CollectionFAQ[];
+  relatedCollectionIds?: string[];
+  ctaText?: string;
+  ctaUrl?: string;
 }

@@ -9,16 +9,27 @@ interface ToolLogoProps {
 }
 
 const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className, style }) => {
+  React.useEffect(() => { 
+    if (domain) {
+      // Clean domain just in case
+      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
+      setSrc(`https://logo.clearbit.com/${cleanDomain}`);
+      setFailed(false);
+    } else {
+      setSrc(null);
+    }
+  }, [domain]);
   const [src, setSrc] = useState<string | null>(
-    domain ? `https://img.logo.dev/${domain}?token=pk_Yy124-7wSK-z-Hym446V9A` : null
+    domain ? `https://logo.clearbit.com/${domain}` : null
   );
   const [failed, setFailed] = useState(false);
   const initials = name?.slice(0, 2).toUpperCase() || "AI";
 
   const handleError = () => {
-    if (src?.includes("logo.dev") && domain) {
+    if (src?.includes("logo.clearbit.com") && domain) {
+      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
       // Fallback to Google favicon
-      setSrc(`https://www.google.com/s2/favicons?domain=${domain}&sz=128`);
+      setSrc(`https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`);
     } else {
       // Give up and use fallback styled initials
       setFailed(true);
@@ -65,6 +76,7 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
         alt={name}
         onError={handleError}
         loading="lazy"
+        referrerPolicy="no-referrer"
         decoding="async"
         style={{
           width: "74%", height: "74%",
