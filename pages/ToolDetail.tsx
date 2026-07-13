@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ExternalLink, Star, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Star, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles, Instagram } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
 import { PROMPT_LIBRARY } from '../data/prompts';
 import { Tool } from '../types';
@@ -11,6 +11,7 @@ import { useBookmarks } from '../context/BookmarkContext';
 import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
 import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
+import { StoryShareModal } from '../components/StoryShareModal';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +20,7 @@ const ToolDetail: React.FC = () => {
   const { isPro } = usePro();
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyFeedback, setCopyFeedback] = useState(false);
+  const [isStoryModalOpen, setIsStoryModalOpen] = useState(false);
 
   useEffect(() => {
     // In a real app, you would fetch from API
@@ -397,7 +399,7 @@ const ToolDetail: React.FC = () => {
 
                 <div className="pt-6 border-t border-[var(--color-border)] mt-2">
                   <span className="text-[var(--color-text-secondary)] text-xs font-bold uppercase tracking-wider block mb-4">Share</span>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mb-4">
                     <a 
                       href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Check out ${tool.name} on AIMasterTools!`)}&url=${encodeURIComponent(window.location.href)}`}
                       target="_blank"
@@ -426,6 +428,13 @@ const ToolDetail: React.FC = () => {
                       <Facebook size={18} />
                     </a>
                   </div>
+                  <button
+                    onClick={() => setIsStoryModalOpen(true)}
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-lg py-3 transition-all hover:opacity-90 hover:scale-[1.02] shadow-md hover:shadow-pink-500/25 font-bold"
+                  >
+                    <Instagram size={18} />
+                    <span>Share to IG Story</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -512,6 +521,12 @@ const ToolDetail: React.FC = () => {
           </div>
         )}
       </div>
+
+      <StoryShareModal
+        isOpen={isStoryModalOpen}
+        onClose={() => setIsStoryModalOpen(false)}
+        tool={tool}
+      />
     </>
   );
 };

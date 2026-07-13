@@ -35,7 +35,7 @@ const BlogIndex = () => {
       <SEO 
         title="AI Master Tools Blog - Insights, Guides & Prompt Engineering" 
         description="Stay updated with the latest in AI, tool reviews, and prompt engineering tutorials by Akshay Mahajan." 
-        keywords={["ai blog", "prompt engineering", "ai tool reviews", "best ai tools", "free ai tools", "ai tools list", "ai for video creation"]}
+        keywords={["ai blog", "prompt engineering", "ai tool reviews", "artificial intelligence news", "best ai tools", "free ai tools", "generative ai updates", "ai guides"]}
       />
       <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
         

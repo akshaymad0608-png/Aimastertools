@@ -21,6 +21,11 @@ export default function Prompts() {
     const matchesCategory = selectedCategory === 'All' || prompt.category === selectedCategory;
     const matchesPlatform = selectedPlatform === 'All' || prompt.platform === selectedPlatform;
     return matchesSearch && matchesCategory && matchesPlatform;
+  }).sort((a, b) => {
+    if (a.dateAdded && b.dateAdded) {
+      return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+    }
+    return 0;
   });
 
   const handleCopy = (id: string, text: string) => {
@@ -34,7 +39,7 @@ export default function Prompts() {
       <SEO 
         title="Prompt Library | AI Master Tools" 
         description="Discover our curated library of the best AI prompts for ChatGPT, Midjourney, Claude and more. Copy and paste to get better results instantly." 
-        keywords={["AI prompts", "best chatgpt prompts", "midjourney prompts", "free ai tools", "best ai tools", "ai tools free", "free ai tools like chatgpt", "ai prompts list"]}
+        keywords={["AI prompts", "best chatgpt prompts", "midjourney prompts", "claude prompts", "prompt engineering", "free ai prompts", "best ai tools", "chatgpt alternative"]}
       />
 
       <div className="container-custom mx-auto">
@@ -129,22 +134,44 @@ export default function Prompts() {
                       {prompt.platform}
                     </span>
                   </div>
+                  {prompt.dateAdded && (
+                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider font-bold">
+                      {new Date(prompt.dateAdded).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                    </span>
+                  )}
                 </div>
                 
                 <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">{prompt.title}</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] mb-6 flex-grow">{prompt.description}</p>
+                <p className="text-sm text-[var(--color-text-secondary)] mb-6">{prompt.description}</p>
                 
-                <div className="relative group">
-                  <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 pr-12 text-sm text-[var(--color-text-primary)] font-mono overflow-auto max-h-[150px] scrollbar-hide">
-                    {prompt.promptText}
+                <div className="flex-grow flex flex-col justify-end">
+                  {prompt.exampleResultImage && (
+                    <div className="mb-4 rounded-xl overflow-hidden border border-[var(--color-border)] aspect-video bg-[var(--color-surface)]">
+                      <img src={prompt.exampleResultImage} alt="Prompt result" className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  {prompt.exampleResultText && (
+                    <div className="mb-4 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text-secondary)] overflow-hidden relative max-h-[120px]">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-surface)] z-10 pointer-events-none mt-10"></div>
+                      <div className="whitespace-pre-wrap">{prompt.exampleResultText}</div>
+                    </div>
+                  )}
+
+                  <div className="relative group mt-auto">
+                    <div className="absolute -top-3 left-4 px-2 bg-[var(--color-cardBg)] text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider z-10">
+                      Copy Prompt
+                    </div>
+                    <div className="bg-[var(--color-surface)] border border-[var(--color-primary)]/30 rounded-xl p-4 pt-5 pr-12 text-sm text-[var(--color-text-primary)] font-mono overflow-auto max-h-[150px] scrollbar-hide relative shadow-sm">
+                      {prompt.promptText}
+                    </div>
+                    <button 
+                      onClick={() => handleCopy(prompt.id, prompt.promptText)}
+                      className="absolute top-4 right-2 p-2 bg-[var(--color-primary)] rounded-lg text-white hover:bg-[var(--color-primary-dark)] transition-colors shadow-md"
+                      aria-label="Copy prompt"
+                    >
+                      {copiedId === prompt.id ? <CheckCircle2 size={16} /> : <Copy size={16} />}
+                    </button>
                   </div>
-                  <button 
-                    onClick={() => handleCopy(prompt.id, prompt.promptText)}
-                    className="absolute top-2 right-2 p-2 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors"
-                    aria-label="Copy prompt"
-                  >
-                    {copiedId === prompt.id ? <CheckCircle2 size={16} className="text-green-500" /> : <Copy size={16} />}
-                  </button>
                 </div>
               </div>
             ))

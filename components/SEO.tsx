@@ -28,12 +28,20 @@ const SEO: React.FC<SEOProps> = ({
   const ogUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
   const fullTitle = title.includes(siteTitle) || title.includes('AIMasterTools') ? title : `${title} | ${siteTitle}`;
 
+  const defaultKeywords = [
+    'AI tools directory', 'compare AI tools', 'best AI software', 'AI tool suggestions', 'AI Master Tools', 'Akshay Mahajan',
+    'Prompt Engineering', 'best AI tools list 2026', 'free AI tools', 'ChatGPT alternatives', 'generative AI tools',
+    'AI productivity tools', 'top AI software'
+  ];
+
+  const mergedKeywords = Array.from(new Set([...defaultKeywords, ...keywords]));
+
   return (
     <Helmet>
       {/* Standard Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+      <meta name="keywords" content={mergedKeywords.join(', ')} />
       <link rel="canonical" href={canonicalUrl} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 

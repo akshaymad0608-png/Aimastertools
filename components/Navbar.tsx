@@ -1,11 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, ArrowUpRight, Code, Compass, Star, Grid, FileText, User, Sparkles, GitCompare, GitMerge } from 'lucide-react';
+import { Menu, X, Sun, Moon, ArrowUpRight, Code, Compass, Star, Grid, FileText, User, Sparkles, GitCompare, GitMerge, Share2, Check } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import toast from 'react-hot-toast';
+
 
 const Navbar: React.FC = () => {
+  const [isSharing, setIsSharing] = useState(false);
+  
+  const handleShare = async () => {
+    const shareData = {
+      title: 'AI Master Tools',
+      text: 'Find, compare, and review the best AI tools and software.',
+      url: window.location.origin,
+    };
+    
+    if (navigator.share && /Mobi|Android/i.test(navigator.userAgent)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error('Error sharing:', err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        setIsSharing(true);
+        
+        setTimeout(() => setIsSharing(false), 2000);
+      } catch (err) {
+        console.error('Failed to copy!', err);
+      }
+    }
+  };
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -77,6 +106,16 @@ const Navbar: React.FC = () => {
           
           {/* Right Actions */}
           <div className="hidden md:flex items-center gap-3">
+                        {/* Share Site Button */}
+            <button
+              onClick={handleShare}
+              className="p-2.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)]/50 backdrop-blur-sm hover:bg-[var(--color-border)] rounded-full border border-[var(--color-border)] cursor-pointer transition-all active:scale-95 flex items-center justify-center shadow-sm"
+              aria-label="Share Site"
+              title="Share AI Master Tools"
+            >
+              {isSharing ? <Check size={17} className="text-green-500" /> : <Share2 size={17} />}
+            </button>
+
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -86,17 +125,18 @@ const Navbar: React.FC = () => {
               {theme === 'dark' ? <Sun size={17} className="text-amber-400" /> : <Moon size={17} className="text-indigo-400" />}
             </button>
 
-            {/* Profile Button */}
-            <button
-              className="p-2.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)]/50 backdrop-blur-sm hover:bg-[var(--color-border)] rounded-full border border-[var(--color-border)] cursor-pointer transition-all active:scale-95 flex items-center justify-center shadow-sm"
-              aria-label="User Profile"
-            >
-               <User size={17} />
-            </button>
+
           </div>
 
           {/* Mobile Actions Overlay */}
           <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={handleShare}
+              className="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)] rounded-lg border border-[var(--color-border)] cursor-pointer"
+              aria-label="Share Site Mobile"
+            >
+              {isSharing ? <Check size={18} className="text-green-500" /> : <Share2 size={18} />}
+            </button>
             <button
               onClick={toggleTheme}
               className="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-surface)] rounded-lg border border-[var(--color-border)] cursor-pointer"

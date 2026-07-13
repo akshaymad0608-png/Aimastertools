@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bookmark, Check, Star, ExternalLink, Share2 } from 'lucide-react';
+import toast from 'react-hot-toast';
 import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import ToolLogo from './ToolLogo';
@@ -37,6 +38,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
     } else {
       navigator.clipboard.writeText(url);
       setCopyFeedback(true);
+      toast.success("Link copied to clipboard!");
       setTimeout(() => setCopyFeedback(false), 2000);
     }
   };
@@ -53,9 +55,9 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
 
   return (
     <motion.div 
-      whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
+      whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgba(var(--color-primary-rgb), 0.1), 0 8px 10px -6px rgba(var(--color-primary-rgb), 0.1)" }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`group relative flex bg-[var(--color-cardBg)] rounded-[20px] border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/40 transition-colors gap-5 overflow-hidden shadow-sm ${
+      className={`group relative flex bg-[var(--color-cardBg)] rounded-[20px] border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/40 hover:shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.15)] transition-all duration-300 gap-5 overflow-hidden shadow-sm ${
         layout === 'vertical' ? 'flex-col h-full' : 'flex-col md:flex-row items-stretch md:items-center'
       }`}
       style={{ borderLeft: `5px solid ${tool.brandColor || 'var(--color-primary)'}` }}
@@ -157,7 +159,16 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
           >
             <Bookmark size={17} className={`${isBookmarked ? 'fill-blue-500' : ''}`} strokeWidth={isBookmarked ? 2.5 : 2} />
           </button>
-          
+
+          <button 
+            type="button"
+            onClick={handleShare}
+            className={`flex items-center justify-center w-11 h-11 shrink-0 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] shadow-sm transition-all cursor-pointer`}
+            title="Copy Share Link"
+          >
+            {copyFeedback ? <Check size={17} className="text-green-500" /> : <Share2 size={17} />}
+          </button>
+
           <Link 
             to={`/compare?tool1=${tool.id}`}
             className={`flex-1 flex items-center justify-center gap-1.5 h-11 px-3 sm:px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-primary)] shadow-sm cursor-pointer transition-colors font-bold text-xs whitespace-nowrap ${layout !== 'vertical' ? 'md:flex-none' : ''}`}

@@ -20,7 +20,7 @@ const Bookmarks: React.FC = () => {
       <SEO 
         title="My Bookmarked Tools | AI Master Tools" 
         description="View your saved and bookmarked AI tools to access them quickly later."
-        keywords={["bookmarked ai tools", "saved ai tools", "best ai tools", "free ai tools", "ai tools directory"]}
+        keywords={["bookmarked ai tools", "saved ai tools", "favorite ai tools", "my ai tools", "best ai tools 2026", "free ai tools list", "ai tools directory"]}
       />
       
       <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto px-6 relative min-h-screen">

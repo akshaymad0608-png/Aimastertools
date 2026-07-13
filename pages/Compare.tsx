@@ -51,7 +51,7 @@ const Compare: React.FC = () => {
       <SEO 
         title="Compare AI Tools | AI Master Tools" 
         description="Compare the best AI tools side-by-side. Analyze features, pricing, and ratings to find the perfect artificial intelligence software for your needs."
-        keywords={["compare AI tools", "AI software comparison", "best ai tools", "best free ai tools", "free ai tools", "free ai tools list", "AI pricing comparison"]}
+        keywords={["compare AI tools", "AI software comparison", "best ai tools", "free ai tools list", "AI pricing comparison", "chatgpt vs claude", "top ai tools 2026"]}
       />
       
       <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">

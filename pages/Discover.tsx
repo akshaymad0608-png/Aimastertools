@@ -43,7 +43,7 @@ const Discover: React.FC = () => {
       <SEO 
         title="Discover More | AI Master Tools" 
         description="Learn more about AI Master Tools, read FAQs, testimonials, and discover featured AI spotlights and tutorials."
-        keywords={["discover ai tools", "best ai tools", "free ai tools", "ai tools free", "free ai tools list"]}
+        keywords={["discover ai tools", "latest ai tools", "trending ai tools", "new ai software", "best ai tools", "free ai tools", "ai tools directory"]}
       />
       
       <div className="pt-32 pb-20 md:pt-40 md:pb-32">

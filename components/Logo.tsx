@@ -1,53 +1,40 @@
 import React from 'react';
+import { Hexagon, Zap } from 'lucide-react';
 
 interface LogoProps {
   size?: "sm" | "md" | string;
-  showText?: boolean; // kept for backwards compatibility but ignored
+  showText?: boolean;
   className?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ size = "md" }) => {
+const Logo: React.FC<LogoProps> = ({ size = "md", className = "" }) => {
   const isSmall = size === "sm";
+
   return (
-    <div className="flex items-center gap-2.5 select-none text-decoration-none">
+    <div className={`group flex items-center gap-2.5 select-none text-decoration-none transition-transform hover:scale-[1.02] active:scale-[0.98] ${className}`}>
       
-      {/* Premium Dynamic Gradient Icon Box */}
-      <div 
-        className={`${
-          isSmall ? "w-8 h-8 rounded-lg" : "w-10 h-10 rounded-xl"
-        } bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-[0_4px_12px_rgba(99,102,241,0.25)]`}
-      >
-        <svg 
-          width={isSmall ? "16" : "20"} 
-          height={isSmall ? "16" : "20"} 
-          viewBox="0 0 22 22" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="11" cy="11" r="4" fill="white" fillOpacity="0.95"/>
-          <path d="M11 2v3.5M11 16.5V20M2 11h3.5M16.5 11H20"
-            stroke="white" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M5.4 5.4l2.5 2.5M14.1 14.1l2.5 2.5M16.6 5.4l-2.5 2.5M7.9 14.1l-2.5 2.5"
-            stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6"/>
-        </svg>
+      {/* Icon */}
+      <div className={`${isSmall ? 'w-8 h-8' : 'w-10 h-10'} relative flex items-center justify-center text-indigo-500`}>
+        <Hexagon size={isSmall ? 32 : 40} className="absolute text-indigo-500 fill-indigo-500/10 stroke-[1.5]" />
+        <Zap size={isSmall ? 16 : 20} className="absolute text-purple-500 fill-purple-500/80 drop-shadow-sm" />
       </div>
 
       {/* Styled Responsive Branding Text */}
-      <div className="leading-tight">
+      <div className="leading-tight flex flex-col justify-center">
         <div 
           className={`${
-            isSmall ? "text-[14px]" : "text-[17px]"
-          } font-black tracking-tight text-[var(--color-text-primary)]`}
+            isSmall ? "text-[18px]" : "text-[24px]"
+          } font-black tracking-tighter flex items-center drop-shadow-sm`}
         >
-          AI Master Tools
+          <span className="text-[var(--color-text-primary)]">AIMaster</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">Tools</span>
         </div>
         <div 
-          className="text-[9px] font-bold text-[var(--color-text-muted)] tracking-widest uppercase font-mono mt-0.5"
+          className="text-[9px] font-bold text-gray-500 tracking-[0.22em] uppercase mt-0.5 group-hover:text-indigo-400 transition-colors"
         >
-          Discover · Compare · Find
+          Discover &middot; Compare &middot; Master
         </div>
       </div>
-
     </div>
   );
 };

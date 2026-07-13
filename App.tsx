@@ -9,6 +9,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import ScrollToTop from './components/ScrollToTop';
+import { TopBanner } from './components/TopBanner';
+import { Toaster } from 'react-hot-toast';
 import { X, AlertCircle, Loader2 } from 'lucide-react';
 
 import Home from './pages/Home';
@@ -91,6 +93,7 @@ function App() {
               <BookmarkProvider>
                 <Router>
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)]">
+              <TopBanner />
               <Navbar />
               
               <main className="flex-grow flex flex-col pb-[112px] md:pb-0">
@@ -126,6 +129,7 @@ function App() {
               <MobileBottomNav />
               <ScrollToTop />
               <GlobalToast />
+              <Toaster position="bottom-right" toastOptions={{ style: { background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)' } }} />
             </div>
           </Router>
             </BookmarkProvider>

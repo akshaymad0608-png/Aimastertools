@@ -9,6 +9,11 @@ interface ToolLogoProps {
 }
 
 const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className, style }) => {
+  const [src, setSrc] = useState<string | null>(
+    domain ? `https://logo.clearbit.com/${domain}` : null
+  );
+  const [failed, setFailed] = useState(false);
+
   React.useEffect(() => { 
     if (domain) {
       // Clean domain just in case
@@ -19,10 +24,6 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
       setSrc(null);
     }
   }, [domain]);
-  const [src, setSrc] = useState<string | null>(
-    domain ? `https://logo.clearbit.com/${domain}` : null
-  );
-  const [failed, setFailed] = useState(false);
   const initials = name?.slice(0, 2).toUpperCase() || "AI";
 
   const handleError = () => {

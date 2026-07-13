@@ -1,13 +1,9 @@
 const fs = require('fs');
+const filePath = 'components/Navbar.tsx';
+let content = fs.readFileSync(filePath, 'utf8');
 
-const fixFile = (path) => {
-  let code = fs.readFileSync(path, 'utf8');
-  if (code.includes('<NewsletterSection />')) {
-    code = code.replace(/<NewsletterSection \/>/g, '<NewsletterSection showToast={() => {}} />');
-    fs.writeFileSync(path, code, 'utf8');
-    console.log(path + ' updated');
-  }
-};
+content = content.replace("import toast from 'react-hot-toast';", "");
+content = content.replace("toast?.success?.('Link copied to clipboard!') || alert('Link copied to clipboard!');", "");
 
-fixFile('pages/Collections.tsx');
-fixFile('pages/CollectionDetail.tsx');
+fs.writeFileSync(filePath, content);
+console.log('Fixed toast import in Navbar.tsx');

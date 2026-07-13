@@ -42,6 +42,9 @@ export interface Prompt {
   category: string;
   promptText: string;
   platform: 'ChatGPT' | 'Midjourney' | 'Claude' | 'General' | string;
+  dateAdded?: string;
+  exampleResultText?: string;
+  exampleResultImage?: string;
 }
 
 export interface CategoryStat {
