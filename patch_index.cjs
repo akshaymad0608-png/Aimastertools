@@ -1,10 +1,18 @@
 const fs = require('fs');
-const filePath = 'index.html';
-let content = fs.readFileSync(filePath, 'utf8');
+let content = fs.readFileSync('index.html', 'utf8');
 
-const oldKeywords = '<meta name="keywords" content="AI tools directory, compare AI tools, best AI software, AI tool suggestions, AI Master Tools, Akshay Mahajan, Prompt Engineering, AI ML Engineering, best AI tools list 2026, free AI tools, ChatGPT alternatives, generative AI tools, AI productivity tools, machine learning applications, top AI software, AI for business, AI marketing tools, AI writing assistants, AI image generators, artificial intelligence directory" />';
-const newKeywords = '<meta name="keywords" content="AI tools directory, best AI tools, free AI tools, compare AI tools, best AI software, AI tool suggestions, AI Master Tools, Akshay Mahajan, Prompt Engineering, AI ML Engineering, best AI tools list 2026, ChatGPT alternatives, generative AI tools, AI productivity tools, machine learning applications, top AI software, AI for business, AI marketing tools, AI writing tools, AI image generators, artificial intelligence tools, new AI tools, best AI tools for students, top 10 AI tools, free AI tools list" />';
+// The user has both GTM and GA4 installed which can cause conflicts and Tag Assistant issues.
+// Let's remove the extra gtag if we are using GTM.
+const gtagBlock = `    <!-- Google tag (gtag.js) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV4GFEC1ZS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VV4GFEC1ZS');
+    </script>`;
 
-content = content.replace(oldKeywords, newKeywords);
-fs.writeFileSync(filePath, content);
-console.log('Patched index.html keywords');
+content = content.replace(gtagBlock, '');
+fs.writeFileSync('index.html', content);
+console.log('Removed duplicate gtag');

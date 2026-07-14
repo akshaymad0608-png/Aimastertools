@@ -1,6 +1,6 @@
 import { Tool } from '../types';
 
-export const MOCK_TOOLS: Tool[] = [
+const _MOCK_TOOLS: Tool[] = [
 {
     "id": "manychat-automation",
     "name": "ManyChat",
@@ -15156,3 +15156,4 @@ export const MOCK_TOOLS: Tool[] = [
     "brandColor": "var(--color-primary)"
 },
 ];
+export const MOCK_TOOLS = _MOCK_TOOLS.filter(Boolean);

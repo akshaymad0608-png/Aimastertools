@@ -23,6 +23,7 @@ import { ExploreDirectory } from '../components/home/ExploreDirectory';
 import { FAQSection } from '../components/home/FAQSection';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
+import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -195,7 +196,7 @@ const Home: React.FC = () => {
             return a.featured ? -1 : 1; 
           });
         } else {
-          tools = tools.filter(t => t.featured).sort((a, b) => b.rating - a.rating);
+          tools = tools.filter(t => t?.featured).sort((a, b) => b.rating - a.rating);
         }
       } else if (activeTab === 'Trending') {
         tools = tools.sort((a, b) => b.rating - a.rating);
@@ -295,7 +296,7 @@ const Home: React.FC = () => {
         onChipClick={handleChipClick}
       />
 
-      <TrendingToolsSection />
+      <FeaturedCarousel />
       {/* Platform Features Bento Grid */}
       <section className="py-20 md:py-32 bg-[var(--color-background)] relative">
         <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
