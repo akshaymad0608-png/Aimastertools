@@ -58,13 +58,14 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
       scrolled 
-        ? 'bg-[var(--color-background)]/75 backdrop-blur-xl border-b border-[var(--color-border)] shadow-sm' 
-        : 'bg-transparent'
+        ? 'bg-[var(--color-background)]/80 backdrop-blur-xl border-b border-[var(--color-border)]/50 shadow-sm py-3' 
+        : 'bg-transparent py-5'
     }`}>
-      <nav className={`transition-all duration-300 ${scrolled ? 'py-3' : 'py-5'}`}>
-        <div className="container-custom max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <nav className="flex flex-col relative">
+          <div className="flex justify-between items-center w-full">
           
           {/* Logo */}
           <div className="flex items-center">
@@ -79,7 +80,7 @@ const Navbar: React.FC = () => {
                 }
               }}
             >
-              <Logo size="md" />
+              <Logo size="sm" />
             </Link>
           </div>
 
@@ -158,13 +159,13 @@ const Navbar: React.FC = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="md:hidden absolute top-full left-0 w-full bg-[var(--color-background)]/95 border-b border-[var(--color-border)] shadow-xl overflow-hidden backdrop-blur-xl"
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden absolute top-[calc(100%+1.5rem)] left-0 right-0 bg-[var(--color-cardBg)]/95 border border-[var(--color-border)] shadow-2xl rounded-2xl overflow-hidden backdrop-blur-2xl origin-top"
             >
-              <div className="p-4 flex flex-col gap-2.5">
+              <div className="p-3 flex flex-col gap-1.5">
                 {navLinks.map((link, i) => {
                   const isActive = location.pathname === link.to;
                   return (
@@ -188,6 +189,7 @@ const Navbar: React.FC = () => {
           )}
         </AnimatePresence>
       </nav>
+      </div>
     </header>
   );
 };

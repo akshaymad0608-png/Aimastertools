@@ -2,6 +2,70 @@ import { CategoryStat } from '../types';
 import { MOCK_TOOLS } from './tools';
 
 export const CATEGORY_META = [
+{
+    "id": "Social Media Automation",
+    "name": "Social Media Automation",
+    "icon": "ti-share",
+    "bg": "#FCE4EC",
+    "color": "#D81B60",
+    "emoji": "🔥"
+},
+{
+    "id": "Workflow Automation",
+    "name": "Workflow Automation",
+    "icon": "ti-settings",
+    "bg": "#E3F2FD",
+    "color": "#1976D2",
+    "emoji": "⚙️"
+},
+{
+    "id": "Email Automation",
+    "name": "Email Automation",
+    "icon": "ti-email",
+    "bg": "#E8F5E9",
+    "color": "#388E3C",
+    "emoji": "📧"
+},
+{
+    "id": "WhatsApp Automation",
+    "name": "WhatsApp Automation",
+    "icon": "ti-brand-whatsapp",
+    "bg": "#E8F5E9",
+    "color": "#388E3C",
+    "emoji": "💬"
+},
+{
+    "id": "Lead Generation Automation",
+    "name": "Lead Generation Automation",
+    "icon": "ti-target",
+    "bg": "#FFF3E0",
+    "color": "#F57C00",
+    "emoji": "🎯"
+},
+{
+    "id": "CRM Automation",
+    "name": "CRM Automation",
+    "icon": "ti-users",
+    "bg": "#EDE7F6",
+    "color": "#512DA8",
+    "emoji": "👥"
+},
+{
+    "id": "Productivity Automation",
+    "name": "Productivity Automation",
+    "icon": "ti-calendar",
+    "bg": "#F3E5F5",
+    "color": "#7B1FA2",
+    "emoji": "📅"
+},
+  {
+    "id": "Official Google Tools",
+    "name": "Official Google Tools",
+    "icon": "ti-google",
+    "bg": "#E8F0FE",
+    "color": "#1A73E8",
+    "emoji": "🔵"
+  },
   {
     "id": "AI Chatbots & Assistants",
     "name": "AI Chatbots & Assistants",
