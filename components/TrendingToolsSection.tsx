@@ -20,7 +20,7 @@ export const TrendingToolsSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-bold text-xs uppercase tracking-wider mb-4">
               <TrendingUp size={14} /> Trending Now
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-[var(--color-text-primary)]">
               Most Popular Tools
             </h2>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mt-4">
@@ -36,8 +36,8 @@ export const TrendingToolsSection: React.FC = () => {
       {/* Marquee Section */}
       <div className="w-full relative px-0">
         {/* Optional: Add gradient fades on the sides for a seamless look */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block"></div>
         
         <div className="overflow-hidden mask-fade-sides">
           {/* Note: Using pr-6 on children instead of gap-6 to make the 50% translation mathematically perfect for the infinite loop */}

@@ -1,69 +1,117 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { SITE, BRAND_KEYWORDS, absoluteUrl, clampDescription } from '../utils/seo';
 
 interface SEOProps {
   title: string;
   description: string;
+  /** Page-specific keywords. Put the page's own subject name first. */
   keywords?: string[];
   image?: string;
+  /** Path or absolute URL. Falls back to the current location. */
   url?: string;
   type?: 'website' | 'article' | 'profile';
   noindex?: boolean;
+  /** One or more JSON-LD objects to attach to this page. */
+  schema?: Record<string, any> | Record<string, any>[];
+  /** Article-only fields. */
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  author?: string;
   children?: React.ReactNode;
 }
 
-const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
-  keywords = [], 
-  image = 'https://picsum.photos/1200/630?random=seo', // Fallback image
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  keywords = [],
+  image = SITE.ogImage,
   url,
   type = 'website',
   noindex = false,
-  children
+  schema,
+  publishedTime,
+  modifiedTime,
+  section,
+  author = SITE.author,
+  children,
 }) => {
-  const siteTitle = 'AI Master Tools';
-  // Clean URL for canonical if not explicitly provided
-  const canonicalUrl = url || (typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : '');
-  const ogUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
-  const fullTitle = title.includes(siteTitle) || title.includes('AIMasterTools') ? title : `${title} | ${siteTitle}`;
+  const currentPath =
+    typeof window !== 'undefined' ? window.location.pathname + window.location.search : '/';
 
-  const defaultKeywords = [
-    'AI tools directory', 'best AI tools', 'free AI tools', 'compare AI tools', 'best AI software', 'AI tool suggestions',
-    'AI Master Tools', 'Akshay Mahajan', 'Prompt Engineering', 'best AI tools list 2026', 'ChatGPT alternatives',
-    'generative AI tools', 'AI productivity tools', 'top AI software', 'artificial intelligence tools', 'new AI tools',
-    'AI tools for business', 'machine learning tools', 'AI image generators', 'AI writing tools', 'best AI tools for students'
-  ];
+  const canonical = url ? absoluteUrl(url) : absoluteUrl(currentPath.split('?')[0]);
+  const ogUrl = url ? absoluteUrl(url) : absoluteUrl(currentPath);
 
-  const mergedKeywords = Array.from(new Set([...defaultKeywords, ...keywords]));
+  const fullTitle =
+    title.includes(SITE.name) || title.includes(SITE.shortName)
+      ? title
+      : `${title} | ${SITE.name}`;
+
+  const metaDescription = clampDescription(description);
+
+  // Page keywords lead; brand keywords fill in behind them.
+  const mergedKeywords = Array.from(new Set([...keywords, ...BRAND_KEYWORDS])).slice(0, 25);
+
+  const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   return (
-    <Helmet>
-      {/* Standard Meta Tags */}
+    <Helmet prioritizeSeoTags>
+      <html lang={SITE.lang} />
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={metaDescription} />
       <meta name="keywords" content={mergedKeywords.join(', ')} />
-      <link rel="canonical" href={canonicalUrl} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      <link rel="canonical" href={canonical} />
+      <meta name="author" content={author} />
 
-      {/* Open Graph / Facebook */}
+      <meta
+        name="robots"
+        content={
+          noindex
+            ? 'noindex, nofollow'
+            : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+        }
+      />
+
+      <link rel="alternate" hrefLang="en" href={canonical} />
+      <link rel="alternate" hrefLang="x-default" href={canonical} />
+
+      {/* Open Graph */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={ogUrl} />
+      <meta property="og:site_name" content={SITE.name} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={ogUrl} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content={siteTitle} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={fullTitle} />
+      <meta property="og:locale" content={SITE.locale} />
+
+      {type === 'article' && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {type === 'article' && (modifiedTime || publishedTime) && (
+        <meta property="article:modified_time" content={modifiedTime || publishedTime} />
+      )}
+      {type === 'article' && section && <meta property="article:section" content={section} />}
+      {type === 'article' && <meta property="article:author" content={author} />}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={ogUrl} />
+      <meta name="twitter:site" content={SITE.twitter} />
+      <meta name="twitter:creator" content={SITE.twitter} />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={image} />
-      <meta name="twitter:creator" content="@AIMasterTools" />
+      <meta name="twitter:image:alt" content={fullTitle} />
 
-      {/* Custom Tags */}
+      {schemas.map((s, i) => (
+        <script type="application/ld+json" key={i}>
+          {JSON.stringify(s)}
+        </script>
+      ))}
+
       {children}
     </Helmet>
   );

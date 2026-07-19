@@ -1,67 +1,132 @@
 @import "tailwindcss";
+
+/* ============================================================
+   AIMasterTools — Design System v4  "Foundry"
+   An editorial catalogue, not a SaaS landing page.
+
+   Palette : sand paper + ink + deep teal primary + copper accent
+   Type    : Instrument Serif (display) / Inter Tight (body) / IBM Plex Mono (data)
+
+   The serif display face is the whole idea. A directory's authority comes
+   from looking like a reference work, and every competitor in this space
+   reaches for the same geometric sans. The mono face carries anything
+   countable — ranks, counts, prices, labels — so numbers read as data
+   rather than as prose.
+   ============================================================ */
+
 @theme {
   --color-background: var(--bg-color);
   --color-cardBg: var(--card-bg-color);
   --color-surface: var(--surface-color);
+  --color-elevated: var(--elevated-color);
   --color-text-primary: var(--text-primary-color);
   --color-text-secondary: var(--text-secondary-color);
   --color-text-muted: var(--text-muted-color);
   --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong-color);
   --color-primary: var(--primary-color);
   --color-primary-dark: var(--primary-dark-color);
+  --color-primary-soft: var(--primary-soft-color);
   --color-secondary: var(--secondary-color);
   --color-accent: var(--accent-color);
-  
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-accent-soft: var(--accent-soft-color);
 
-  --font-sans: "Inter", "Geist", "Manrope", system-ui, -apple-system, sans-serif;
+  --color-success: #2f7d54;
+  --color-warning: #b8791b;
+  --color-error: #c0452c;
+
+  --font-sans: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
   --shadow-card: var(--shadow-card-val);
+  --shadow-lift: var(--shadow-lift-val);
   --shadow-glow: var(--shadow-glow-val);
 }
 
-:root, .light {
-  --brand-primary: #2563eb;
-  --bg-color: #ffffff;
-  --card-bg-color: #ffffff;
-  --surface-color: #f8fafc;
-  --text-primary-color: #111827;
-  --text-secondary-color: #6b7280;
-  --text-muted-color: #9ca3af;
-  --border-color: #e5e7eb;
-  --primary-color: #2563eb;
-  --primary-dark-color: #1d4ed8;
-  --secondary-color: #111827;
-  --accent-color: #2563eb;
-  --shadow-card-val: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-  --shadow-glow-val: none;
-  --scrollbar-track: #f8fafc;
-  --scrollbar-thumb: #d1d5db;
-  --scrollbar-thumb-hover: #9ca3af;
+/* ---------- Light : "Sand" ---------- */
+:root,
+.light {
+  --bg-color: #f8f6f0;
+  --card-bg-color: #fffdf8;
+  --surface-color: #f0ece1;
+  --elevated-color: #ffffff;
+
+  --text-primary-color: #1a1917;
+  --text-secondary-color: #575550;
+  --text-muted-color: #8b8880;
+
+  --border-color: #e3ded0;
+  --border-strong-color: #cdc6b3;
+
+  --primary-color: #12545c;
+  --primary-dark-color: #0c3d43;
+  --primary-soft-color: #e2eeee;
+  --primary-rgb: 18, 84, 92;
+  --color-primary-rgb: 18, 84, 92;
+
+  --secondary-color: #1a1917;
+  --accent-color: #b26a1e;
+  --accent-soft-color: #f7ecda;
+  --accent-rgb: 178, 106, 30;
+
+  --shadow-card-val: 0 1px 2px rgba(26, 25, 23, .04);
+  --shadow-lift-val: 0 10px 30px -14px rgba(26, 25, 23, .22), 0 2px 5px rgba(26, 25, 23, .04);
+  --shadow-glow-val: 0 0 0 3px rgba(18, 84, 92, .18);
+
+  --grid-line: rgba(26, 25, 23, .045);
+  --scrollbar-track: #f0ece1;
+  --scrollbar-thumb: #cdc6b3;
+  --scrollbar-thumb-hover: #b0a894;
+  color-scheme: light;
 }
 
+/* ---------- Dark : "Pitch" ---------- */
 .dark {
-  --brand-primary: #3b82f6;
-  --bg-color: #0a0a0a;
-  --card-bg-color: #111111;
-  --surface-color: #1a1a1a;
-  --text-primary-color: #ededed;
-  --text-secondary-color: #a1a1aa;
-  --text-muted-color: #71717a;
-  --border-color: #27272a;
-  --primary-color: #3b82f6;
-  --primary-dark-color: #2563eb;
-  --secondary-color: #fafafa;
-  --accent-color: #60a5fa;
-  --shadow-card-val: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-  --shadow-glow-val: none;
-  --scrollbar-track: #0a0a0a;
-  --scrollbar-thumb: #27272a;
-  --scrollbar-thumb-hover: #3f3f46;
+  --bg-color: #0d100f;
+  --card-bg-color: #141918;
+  --surface-color: #1a201f;
+  --elevated-color: #202827;
+
+  --text-primary-color: #edefec;
+  --text-secondary-color: #9ea6a3;
+  --text-muted-color: #6f7875;
+
+  --border-color: #252d2b;
+  --border-strong-color: #38423f;
+
+  --primary-color: #56b3b0;
+  --primary-dark-color: #3f9895;
+  --primary-soft-color: rgba(86, 179, 176, .13);
+  --primary-rgb: 86, 179, 176;
+  --color-primary-rgb: 86, 179, 176;
+
+  --secondary-color: #edefec;
+  --accent-color: #dda05c;
+  --accent-soft-color: rgba(221, 160, 92, .13);
+  --accent-rgb: 221, 160, 92;
+
+  --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .45);
+  --shadow-lift-val: 0 14px 34px -14px rgba(0, 0, 0, .75), 0 2px 8px rgba(0, 0, 0, .35);
+  --shadow-glow-val: 0 0 0 3px rgba(86, 179, 176, .2);
+
+  --grid-line: rgba(237, 239, 236, .04);
+  --scrollbar-track: #0d100f;
+  --scrollbar-thumb: #252d2b;
+  --scrollbar-thumb-hover: #38423f;
+  color-scheme: dark;
 }
 
-html, body {
+/* ============================ Base ============================ */
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -71,166 +136,308 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-color);
   color: var(--text-primary-color);
+  font-feature-settings: "cv02", "cv03", "cv04", "ss01";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * Instrument Serif ships a single weight (400). Faking bold with
+ * font-weight: 600 would smear the stroke contrast that makes the face
+ * worth using, so emphasis comes from size and colour instead. Serifs also
+ * need far less negative tracking than a geometric sans — the old -0.035em
+ * would jam the terminals together.
+ */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.14;
 }
 
-::-webkit-scrollbar { width: 8px; }
+/* Display scale — used by hero + section heads */
+.display-xl { font-family: var(--font-display); font-size: clamp(2.75rem, 6.4vw, 5rem); font-weight: 400; letter-spacing: -0.018em; line-height: 1.02; }
+.display-lg { font-family: var(--font-display); font-size: clamp(2.125rem, 4.4vw, 3.25rem); font-weight: 400; letter-spacing: -0.014em; line-height: 1.08; }
+.display-md { font-family: var(--font-display); font-size: clamp(1.625rem, 2.8vw, 2.25rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; }
+
+/* Card and list titles stay in the sans — a serif at 15px turns to mush. */
+.title-sm {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+/* Utility / data face — the "index card" voice of the site */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 450;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted-color);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 450;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  opacity: .5;
+}
+
+/* ======================= Accessibility ======================= */
+
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  background: var(--primary-color);
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ======================== Scrollbar ========================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
-::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 99px; border: 2px solid var(--scrollbar-track); }
 ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 
+/* ========================= Layout ============================ */
+
 .container-custom {
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.125rem;
 }
 
 @media (min-width: 768px) {
-  .container-custom { padding: 0 1.5rem; }
+  .container-custom { padding: 0 2rem; }
 }
 
-/* Primary Button */
-.btn-primary {
-  background: var(--primary-color);
-  color: white;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+.section-pad { padding-block: clamp(3rem, 7vw, 5.5rem); }
 
-.btn-primary:hover {
-  background: var(--primary-dark-color);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  background: white;
-  color: var(--text-primary-color);
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  border: 1px solid var(--border-color);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-secondary:hover {
-  background: var(--surface-color);
-}
-
-.dark .btn-secondary {
-  background: transparent;
-  border-color: var(--border-color);
-}
-.dark .btn-secondary:hover {
-  background: var(--surface-color);
-}
-
-.text-gradient {
-  background: none;
-  color: var(--text-primary-color);
-  -webkit-text-fill-color: initial;
-}
-
-.text-glow {
-  text-shadow: none;
-}
-
-.electric-text {
-  color: var(--text-primary-color);
-  text-shadow: none;
-}
-
-/* Cards */
-.card-hover-effect {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-hover-effect:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
-}
-
-.dark .card-hover-effect:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-}
-
-.gradient-border {
-  border-radius: 0.75rem;
-  padding: 1px;
+/* Hairline rule used to separate sections — structural, not decorative */
+.rule {
+  height: 1px;
   background: var(--border-color);
+  border: 0;
 }
 
-.gradient-border > * {
-  background: var(--color-cardBg);
-  border-radius: calc(0.75rem - 1px);
+/* Engineering-paper grid, used only behind the hero */
+.grid-paper {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-.tech-badge {
+/* ========================= Buttons =========================== */
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
+  justify-content: center;
+  gap: .5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .625rem 1.125rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .12s ease, box-shadow .18s ease;
+}
+
+.btn-primary { background: var(--primary-color); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark-color); }
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-secondary {
+  background: var(--card-bg-color);
+  color: var(--text-primary-color);
+  border-color: var(--border-strong-color);
+}
+.btn-secondary:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.btn-secondary:active { transform: translateY(1px); }
+
+.btn-ghost { background: transparent; color: var(--text-secondary-color); }
+.btn-ghost:hover { background: var(--surface-color); color: var(--text-primary-color); }
+
+/* ========================== Cards ============================ */
+
+.card {
+  background: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong-color);
+  box-shadow: var(--shadow-lift);
+}
+
+.card-hover-effect { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.card-hover-effect:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+
+/* Signature: the index-card spine on tool records */
+.spine {
+  position: relative;
+  overflow: hidden;
+}
+.spine::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--spine-color, var(--primary-color));
+  opacity: .8;
+  transition: width .2s ease, opacity .2s ease;
+}
+.spine:hover::before { width: 5px; opacity: 1; }
+
+/* ========================== Badges =========================== */
+
+.tech-badge,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  padding: .1875rem .5rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
   font-weight: 500;
-  background: var(--color-surface);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: var(--surface-color);
   border: 1px solid var(--border-color);
   color: var(--text-secondary-color);
 }
 
-.mask-fade-sides {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+.badge-primary { background: var(--primary-soft-color); border-color: rgba(var(--primary-rgb), .28); color: var(--primary-color); }
+.badge-accent  { background: var(--accent-soft-color);  border-color: rgba(var(--accent-rgb), .3);   color: var(--accent-color); }
+
+/* ======================= Text effects ======================== */
+
+.text-gradient,
+.text-gradient-premium {
+  background: linear-gradient(100deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.animate-marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; will-change: transform; }
+/* Underline the accent word rather than gradient-filling every headline */
+.mark-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.mark-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .06em;
+  height: .3em;
+  background: rgba(var(--primary-rgb), .22);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.text-glow, .electric-text { color: var(--text-primary-color); text-shadow: none; }
+
+/* ====================== Glass surfaces ======================= */
+
+.glass-panel,
+.glass-nav {
+  background: color-mix(in srgb, var(--bg-color) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border: 1px solid var(--border-color);
+}
+
+.glass-nav { border-width: 0 0 1px 0; border-radius: 0; }
+
+/* ========================== Motion =========================== */
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-marquee { display: flex; width: max-content; animation: marquee 55s linear infinite; will-change: transform; }
 .animate-marquee:hover { animation-play-state: paused; }
 
-@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-5px); } 100% { transform: translateY(0px); } }
-.animate-float { animation: float 4s ease-in-out infinite; will-change: transform; }
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.animate-fade-in-up { animation: fade-in-up .45s cubic-bezier(.2, .7, .3, 1) forwards; }
 
-@keyframes fade-in-up { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+@keyframes sweep { from { transform: translateX(-100%); } to { transform: translateX(220%); } }
+
+.mask-fade-sides {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
 
 .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+.emerald-pulse { animation: none; }
 
-.emerald-pulse {
-  animation: none;
-}
+/* ====================== Bento (legacy) ======================= */
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(100px, auto);
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .bento-item {
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border-color);
-  background: var(--color-cardBg);
+  background: var(--card-bg-color);
+  box-shadow: var(--shadow-card);
 }
 
 .bento-item-1 { grid-column: span 2; grid-row: span 2; }
@@ -239,79 +446,259 @@ h1, h2, h3, h4, h5, h6 {
 .bento-item-4 { grid-column: span 1; grid-row: span 1; }
 
 @media (max-width: 1024px) {
-  .bento-grid { grid-template-columns: repeat(2,1fr); }
-  .bento-item-1,.bento-item-2,.bento-item-3,.bento-item-4 { grid-column: span 2; grid-row: span 1; }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-item-1, .bento-item-2, .bento-item-3, .bento-item-4 { grid-column: span 2; grid-row: span 1; }
 }
 
 @media (max-width: 640px) {
   .bento-grid { grid-template-columns: 1fr; }
-  .bento-item-1,.bento-item-2,.bento-item-3,.bento-item-4 { grid-column: span 1; }
+  .bento-item-1, .bento-item-2, .bento-item-3, .bento-item-4 { grid-column: span 1; }
 }
 
-.blog-content h2 { font-size: 20px; font-weight: 600; margin: 28px 0 12px; }
-.blog-content h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
-.blog-content p { font-size: 15px; line-height: 1.6; color: var(--text-secondary-color); margin-bottom: 14px; }
-.blog-content ul,.blog-content ol { padding-left: 20px; margin-bottom: 14px; list-style-type: disc; }
-.blog-content li { font-size: 15px; line-height: 1.6; color: var(--text-secondary-color); margin-bottom: 6px; }
-.blog-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
-.blog-content th { background: var(--surface-color); padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid var(--border-color); }
-.blog-content td { padding: 10px 14px; border: 1px solid var(--border-color); color: var(--text-secondary-color); }
+.gradient-border { border-radius: var(--radius-md); padding: 1px; background: var(--border-color); }
+.gradient-border > * { background: var(--card-bg-color); border-radius: calc(var(--radius-md) - 1px); }
+
+/* ===================== Article typography ==================== */
+
+.blog-content { max-width: 72ch; }
+.blog-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin: 2.25rem 0 .75rem; scroll-margin-top: 6rem; }
+.blog-content h3 { font-family: var(--font-display); font-size: 1.175rem; font-weight: 600; margin: 1.75rem 0 .5rem; scroll-margin-top: 6rem; }
+.blog-content p { font-size: 1.0625rem; line-height: 1.75; color: var(--text-secondary-color); margin-bottom: 1.125rem; }
+.blog-content a { color: var(--primary-color); text-decoration: underline; text-underline-offset: 3px; }
+.blog-content ul, .blog-content ol { padding-left: 1.35rem; margin-bottom: 1.125rem; }
+.blog-content ul { list-style: disc; }
+.blog-content ol { list-style: decimal; }
+.blog-content li { font-size: 1.0625rem; line-height: 1.7; color: var(--text-secondary-color); margin-bottom: .4rem; }
+.blog-content blockquote {
+  border-left: 3px solid var(--primary-color);
+  padding: .25rem 0 .25rem 1.125rem;
+  margin: 1.5rem 0;
+  color: var(--text-primary-color);
+  font-style: normal;
+}
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: .9375rem; }
+.blog-content th { background: var(--surface-color); padding: .7rem .9rem; text-align: left; font-weight: 600; border: 1px solid var(--border-color); }
+.blog-content td { padding: .7rem .9rem; border: 1px solid var(--border-color); color: var(--text-secondary-color); }
 .blog-content strong { color: var(--text-primary-color); font-weight: 600; }
-
-/* Glassmorphism & Modern UI */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+.blog-content code {
+  font-family: var(--font-mono);
+  font-size: .875em;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  padding: .1em .35em;
 }
+.blog-content img { border-radius: var(--radius-md); border: 1px solid var(--border-color); }
 
-.dark .glass-panel {
-  background: rgba(15, 15, 15, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-nav {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.dark .glass-nav {
-  background: rgba(10, 10, 10, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Premium Gradients */
-.bg-gradient-premium {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 50%, var(--color-accent) 100%);
-}
-
-.text-gradient-premium {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 50%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hover-glow {
-  transition: all 0.3s ease;
-}
-
-.hover-glow:hover {
-  box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.4);
-}
-
-
-/* Global body padding for mobile nav */
+/* Mobile bottom-nav clearance */
 @media (max-width: 768px) {
-  #root { padding-bottom: 72px; }
+  #root { padding-bottom: 76px; }
 }
 
-:root, .light {
-  --color-primary-rgb: 37, 99, 235;
+/* Legacy helpers kept so older sections keep rendering after the rebrand */
+.bg-gradient-premium {
+  background: linear-gradient(120deg, var(--primary-dark-color) 0%, var(--primary-color) 55%, var(--accent-color) 100%);
 }
-.dark {
-  --color-primary-rgb: 59, 130, 246;
+
+.hover-glow { transition: box-shadow .25s ease; }
+.hover-glow:hover { box-shadow: var(--shadow-glow); }
+
+
+
+/* ============================================================
+   Layout rhythm — every section uses the same vertical scale so
+   the page reads as one document instead of stacked landing pages.
+   ============================================================ */
+
+.section        { padding-block: 4.5rem; }
+.section-tight  { padding-block: 3rem; }
+@media (min-width: 768px) {
+  .section       { padding-block: 6rem; }
+  .section-tight { padding-block: 4rem; }
+}
+
+.section-alt    { background: var(--surface-color); border-block: 1px solid var(--border-color); }
+.section-rule   { border-top: 1px solid var(--border-color); }
+
+/* Standard section header: eyebrow / title / lede / optional action */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.75rem;
+}
+@media (min-width: 768px) {
+  .section-head { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+.section-head__title { max-width: 44rem; }
+.section-head__lede {
+  margin-top: .875rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-secondary-color);
+  max-width: 46ch;
+}
+
+/* ===================== Container queries ===================== */
+/* Cards live in sidebars, 2-up grids and full-width rails. They must
+   respond to their own box, not the viewport, or titles break apart. */
+.cq { container-type: inline-size; }
+
+/* ======================== Accordion ========================== */
+
+.accordion-item { border-bottom: 1px solid var(--border-color); }
+.accordion-trigger {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.375rem 0;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -.015em;
+  color: var(--text-primary-color);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.accordion-trigger:hover { color: var(--primary-color); }
+.accordion-icon { flex-shrink: 0; margin-top: .125rem; color: var(--text-muted-color); transition: transform .25s ease, color .2s ease; }
+.accordion-trigger[aria-expanded="true"] .accordion-icon { transform: rotate(45deg); color: var(--primary-color); }
+.accordion-panel { padding-bottom: 1.375rem; max-width: 68ch; color: var(--text-secondary-color); line-height: 1.7; }
+
+/* ===================== Horizontal rails ====================== */
+
+.rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: .25rem;
+}
+.rail::-webkit-scrollbar { display: none; }
+.rail > * { scroll-snap-align: start; flex: 0 0 auto; }
+
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ======================= Stat figures ======================== */
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--text-primary-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================== Link list (SEO hubs) ================== */
+
+.link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .875rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg-color);
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+.link-chip:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.link-chip__count {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prevent any stray element from creating a horizontal scrollbar */
+html, body { overflow-x: clip; }
+
+
+/* ============================================================
+   Archive — editorial refinements
+   ============================================================ */
+
+/* The serif's italic is genuinely different in shape, not a slant, so it
+   earns its place as the emphasis mechanism a single-weight face lacks. */
+.display-xl em,
+.display-lg em,
+.display-md em {
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+/* Small-caps section rule used above interior page headings */
+.rule-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 450;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted-color);
+}
+.rule-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* Figure numbers set beside serif headings */
+.figure-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 450;
+  letter-spacing: .06em;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Body copy in an editorial layout reads better slightly larger and looser */
+.prose-lede {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary-color);
+  max-width: 62ch;
+}
+
+/* ============================================================
+   Header clearance
+   ------------------------------------------------------------
+   Pages must never hardcode the space above their first line.
+   --banner-h is published by TopBanner, --header-h by Navbar, both
+   measured from the live element. The fallbacks only apply for the
+   single frame before the observers run.
+
+   Use .page-top for interior pages and .page-top-hero for the home
+   hero, which wants extra breathing room above the headline.
+   ============================================================ */
+
+.page-top {
+  padding-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 2rem);
+}
+.page-top-hero {
+  padding-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 3rem);
+}
+@media (min-width: 768px) {
+  .page-top      { padding-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 3rem); }
+  .page-top-hero { padding-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 5rem); }
+}
+
+/* Anchor targets need the same clearance or a jump-link lands under the bar. */
+[id] {
+  scroll-margin-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 1rem);
 }

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bookmark, Check, Star, ExternalLink, Share2 } from 'lucide-react';
+import { Bookmark, Check, Star, ExternalLink, Share2, Columns2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import ToolLogo from './ToolLogo';
-import { motion } from 'framer-motion';
 
 interface ToolCardProps {
   tool: Tool;
@@ -14,119 +13,110 @@ interface ToolCardProps {
   layout?: 'horizontal' | 'vertical';
 }
 
-const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layout = 'horizontal' }) => {
+/** Pricing is the first thing people filter on, so it gets its own colour key. */
+const PRICING_STYLE: Record<string, string> = {
+  Free: 'badge badge-primary',
+  'Open Source': 'badge badge-primary',
+  Freemium: 'badge badge-accent',
+  Paid: 'badge',
+  'Usage Based': 'badge',
+};
+
+const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }) => {
   const { bookmarks, toggleBookmark } = useBookmarks();
-  const [copyFeedback, setCopyFeedback] = useState(false);
-  
+  const [copied, setCopied] = useState(false);
   const isBookmarked = bookmarks.includes(tool.id);
+  const isVertical = layout === 'vertical';
 
   const handleShare = async (e: React.MouseEvent) => {
     e.preventDefault();
     const url = `${window.location.origin}/tool/${tool.id}`;
     if (navigator.share) {
       try {
-        await navigator.share({
-          title: tool.name,
-          text: `Check out ${tool.name} on AI Master Tools!`,
-          url: url,
-        });
+        await navigator.share({ title: tool.name, text: `${tool.name} on AI Master Tools`, url });
+        return;
       } catch (err) {
-        if ((err as Error).name !== 'AbortError') {
-          console.error('Share failed', err);
-        }
+        if ((err as Error).name === 'AbortError') return;
       }
-    } else {
-      navigator.clipboard.writeText(url);
-      setCopyFeedback(true);
-      toast.success("Link copied to clipboard!");
-      setTimeout(() => setCopyFeedback(false), 2000);
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      toast.success('Link copied');
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error("Couldn't copy the link. Copy it from the address bar instead.");
     }
   };
 
-  const pricingColors: Record<string, string> = {
-    'Free': 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-400',
-    'Freemium': 'bg-blue-500/10 text-blue-500 border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-400',
-    'Paid': 'bg-rose-500/10 text-rose-500 border-rose-500/20 dark:bg-rose-500/10 dark:text-rose-400',
-    'Usage Based': 'bg-purple-500/10 text-purple-500 border-purple-500/20 dark:bg-purple-500/10 dark:text-purple-400',
-    'Open Source': 'bg-amber-500/10 text-amber-500 border-amber-500/20 dark:bg-amber-500/10 dark:text-amber-400'
-  };
-
-  const pricingClass = pricingColors[tool.pricing] || pricingColors['Freemium'];
-
   return (
-    <motion.div 
-      whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgba(var(--color-primary-rgb), 0.1), 0 8px 10px -6px rgba(var(--color-primary-rgb), 0.1)" }}
-      transition={{ duration: 0.25, ease: "easeOut" }}
-      className={`group relative flex bg-[var(--color-cardBg)] rounded-[20px] border border-[var(--color-border)] p-5 hover:border-[var(--color-primary)]/40 hover:shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.15)] transition-all duration-300 gap-5 overflow-hidden shadow-sm ${
-        layout === 'vertical' ? 'flex-col h-full' : 'flex-col md:flex-row items-stretch md:items-center'
+    <article
+      className={`cq spine card group relative flex overflow-hidden ${
+        isVertical ? 'h-full flex-col' : 'flex-col @[34rem]:flex-row @[34rem]:items-center'
       }`}
-      style={{ borderLeft: `5px solid ${tool.brandColor || 'var(--color-primary)'}` }}
+      style={{ ['--spine-color' as any]: tool.brandColor || 'var(--color-primary)' }}
     >
-      
-      {/* Tool logo and meta information */}
-      <div className={`flex flex-1 items-start w-full min-w-0 ${layout === 'vertical' ? 'flex-col gap-4' : 'gap-4.5'}`}>
-        
-        {/* Logo container block with subtle glows and checkmark */}
+      <div className={`flex min-w-0 flex-1 gap-4 p-4 pl-5 @[26rem]:p-5 @[26rem]:pl-6 ${isVertical ? 'flex-col' : ''}`}>
+        {/* Mark */}
         <div className="relative shrink-0">
-          <Link 
-            to={`/tool/${tool.id}`} 
-            className="block w-14 h-14 sm:w-16 sm:h-16 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] shadow-sm overflow-hidden flex items-center justify-center p-0.5 z-0 transition-transform group-hover:scale-105"
+          <Link
+            to={`/tool/${tool.id}`}
+            tabIndex={-1}
+            aria-hidden="true"
+            className="grid h-11 w-11 place-items-center overflow-hidden rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-1 @[26rem]:h-13 @[26rem]:w-13"
           >
-            <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="w-full h-full" />
+            <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="h-full w-full" />
           </Link>
-          
           {tool.featured && (
-            <div className="absolute -top-1.5 -right-1.5 bg-blue-600 rounded-full text-white p-[3px] border-2 border-[var(--color-cardBg)] z-10 flex items-center justify-center shadow-lg pointer-events-none animate-pulse">
+            <span
+              title="Editor's pick"
+              className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full border-2 border-[var(--color-cardBg)] bg-[var(--color-primary)] text-white"
+            >
               <Check size={9} strokeWidth={4} />
-            </div>
+            </span>
           )}
         </div>
 
-        {/* Dynamic Title, description, rating and category rows */}
-        <div className="flex flex-col flex-1 min-w-0">
-          
-          {/* Header Row: Title, pricing badge, rating capsule */}
-          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <Link to={`/tool/${tool.id}`} className="block group-hover:text-[var(--color-primary)] transition-colors truncate max-w-full">
-              <h3 className="text-[18px] sm:text-[20px] font-black text-[var(--color-text-primary)] leading-tight tracking-tight truncate flex items-center gap-2">
-                {rank && rank <= 3 && (
-                  <span className="inline-block text-[var(--color-primary)] font-black text-[16px] italic pr-0.5">#{rank}</span>
-                )}
+        {/* Record */}
+        <div className="flex min-w-0 flex-1 flex-col">
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+            {typeof rank === 'number' && (
+              <span className="label-mono tabular-nums">{String(rank).padStart(2, '0')}</span>
+            )}
+            <h3 className="title-sm min-w-0 text-balance text-[16px] font-semibold leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] @[26rem]:text-[17.5px]">
+              <Link
+                to={`/tool/${tool.id}`}
+                className="after:absolute after:inset-0 after:content-[''] hover:text-[var(--color-primary)]"
+              >
                 {tool.name}
-              </h3>
-            </Link>
-            
-            {/* Rating cap */}
-            <div className="flex items-center bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded-full select-none">
-              <Star size={11} className="text-amber-500 fill-amber-500 mr-1" />
-              <span className="text-[11px] font-bold text-amber-500">{tool.rating.toFixed(1)}</span>
-            </div>
-            
-            {/* Pricing Tag */}
-            <div className={`px-2 py-0.5 text-[11px] font-bold border rounded-full uppercase tracking-wider ${pricingClass}`}>
-              {tool.pricing}
-            </div>
+              </Link>
+            </h3>
+
+            <span className="flex items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+              <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
+              <span className="tabular-nums">{tool.rating.toFixed(1)}</span>
+            </span>
+
+            <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
           </div>
 
-          {/* Description Block */}
-          <p className="text-[14px] text-[var(--color-text-secondary)] line-clamp-2 md:line-clamp-1 mb-3.5 leading-relaxed">
+          <p className="mt-2 line-clamp-2 text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
             {tool.description}
           </p>
 
-          {/* Footer Interactive tags */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <Link 
-              to={`/?category=${encodeURIComponent(tool.category)}`} 
-              className="text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)]/40 transition-colors"
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <Link
+              to={`/?category=${encodeURIComponent(tool.category)}`}
+              className="relative z-10 text-[12px] font-medium text-[var(--color-text-secondary)] underline-offset-4 hover:text-[var(--color-primary)] hover:underline"
             >
               {tool.category}
             </Link>
-            
-            {tool.tags?.slice(0, 2).map((tag, i) => (
-              <Link 
-                to={`/?tag=${tag.toLowerCase()}`} 
-                key={i} 
-                className="text-xs text-blue-500 hover:text-[var(--color-primary)] font-semibold lowercase transition-colors"
+            {tool.tags?.slice(0, 2).map((tag) => (
+              <Link
+                key={tag}
+                to={`/?tag=${tag.toLowerCase()}`}
+                className="relative z-10 text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
+                style={{ fontFamily: 'var(--font-mono)' }}
               >
                 #{tag.toLowerCase().replace(/\s+/g, '-')}
               </Link>
@@ -135,60 +125,54 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, priority = false, layou
         </div>
       </div>
 
-      {/* Button cluster on the right/bottom */}
-      <div className={`flex shrink-0 relative pt-3 md:pt-0 ${
-        layout === 'vertical' 
-          ? 'flex-col items-stretch w-full border-t border-[var(--color-border)]/50 gap-3 mt-auto' 
-          : 'flex-col md:flex-row items-center justify-between md:justify-end w-full md:w-auto gap-2.5 md:overflow-visible border-t border-[var(--color-border)]/50 md:border-t-0'
-      }`}>
-        
-        {/* Bookmark and Share action strip */}
-        <div className={`flex gap-2.5 w-full ${layout === 'vertical' ? 'flex-row' : 'md:w-auto'}`}>
-          <button 
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              toggleBookmark(tool.id);
-            }}
-            className={`flex items-center justify-center w-11 h-11 shrink-0 rounded-xl border transition-all cursor-pointer ${
-              isBookmarked 
-                ? 'border-blue-500/20 bg-blue-500/10 text-blue-500' 
-                : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] shadow-sm'
-            }`}
-            title="Bookmark Tool"
-          >
-            <Bookmark size={17} className={`${isBookmarked ? 'fill-blue-500' : ''}`} strokeWidth={isBookmarked ? 2.5 : 2} />
-          </button>
+      {/* Action rail */}
+      <div
+        className={`relative z-10 flex shrink-0 items-center gap-2 border-[var(--color-border)] p-4 @[26rem]:p-5 ${
+          isVertical ? 'mt-auto w-full border-t' : 'border-t @[34rem]:border-l @[34rem]:border-t-0'
+        }`}
+      >
+        <button
+          type="button"
+          onClick={(e) => { e.preventDefault(); toggleBookmark(tool.id); }}
+          aria-pressed={isBookmarked}
+          aria-label={isBookmarked ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
+          className={`grid h-10 w-10 shrink-0 place-items-center rounded-[var(--radius-sm)] border transition-colors ${
+            isBookmarked
+              ? 'border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]'
+              : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+          }`}
+        >
+          <Bookmark size={16} className={isBookmarked ? 'fill-current' : ''} />
+        </button>
 
-          <button 
-            type="button"
-            onClick={handleShare}
-            className={`flex items-center justify-center w-11 h-11 shrink-0 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] shadow-sm transition-all cursor-pointer`}
-            title="Copy Share Link"
-          >
-            {copyFeedback ? <Check size={17} className="text-green-500" /> : <Share2 size={17} />}
-          </button>
+        <button
+          type="button"
+          onClick={handleShare}
+          aria-label={`Copy link to ${tool.name}`}
+          className="hidden h-10 w-10 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] @[22rem]:grid"
+        >
+          {copied ? <Check size={16} className="text-[var(--color-success)]" /> : <Share2 size={16} />}
+        </button>
 
-          <Link 
-            to={`/compare?tool1=${tool.id}`}
-            className={`flex-1 flex items-center justify-center gap-1.5 h-11 px-3 sm:px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-cardBg)] text-[var(--color-text-primary)] shadow-sm cursor-pointer transition-colors font-bold text-xs whitespace-nowrap ${layout !== 'vertical' ? 'md:flex-none' : ''}`}
-            title="Compare Tool"
-          >
-            Compare
-          </Link>
-          
-          <a 
-            href={tool.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={`flex-1 flex items-center justify-center gap-1.5 h-11 px-3 sm:px-4 rounded-xl bg-[var(--color-text-primary)] text-[var(--color-background)] shadow-sm hover:opacity-90 transition-all font-bold text-xs whitespace-nowrap ${layout !== 'vertical' ? 'md:flex-none' : ''}`}
-          >
-            Visit <ExternalLink size={13} />
-          </a>
-        </div>
+        <Link
+          to={`/compare?tool1=${tool.id}`}
+          aria-label={`Compare ${tool.name} with another tool`}
+          className="hidden h-10 w-10 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] @[28rem]:grid"
+        >
+          <Columns2 size={16} />
+        </Link>
+
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer sponsored"
+          className="btn-primary h-10 min-w-0 flex-1 whitespace-nowrap px-4 text-[13px] @[34rem]:flex-none"
+        >
+          Visit site
+          <ExternalLink size={13} />
+        </a>
       </div>
-
-    </motion.div>
+    </article>
   );
 };
 

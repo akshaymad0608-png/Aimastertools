@@ -1,58 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth light">
+<html lang="en" class="scroll-smooth">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Set theme before paint so there is no flash of the wrong colours -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var mode = saved === 'light' || saved === 'dark'
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.classList.add(mode);
+          document.documentElement.style.colorScheme = mode;
+        } catch (e) {
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+    <!-- ===================== Primary SEO ===================== -->
+    <title>AI Master Tools — Find, Compare & Review the Best AI Tools (2026)</title>
+    <meta name="description" content="Search 630+ hand-checked AI tools by name, category and price. Compare features side by side, read honest reviews and find the right tool in under a minute." />
+    <link rel="canonical" href="https://aimastertools.space/" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="author" content="Akshay Mahajan" />
+    <meta name="publisher" content="AI Master Tools" />
+    <meta name="rating" content="general" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="google-site-verification" content="cvZfo2cac8Ep5DmpA3PlCtAbja_c2Bhm0pZ17VyUrrQ" />
+
+    <!-- Keywords are led by the brand + tool names the directory actually ranks for -->
+    <meta name="keywords" content="AI Master Tools, AIMasterTools, AI tools directory, best AI tools 2026, free AI tools, compare AI tools, AI tool finder, ChatGPT, Claude, Gemini, Midjourney, Perplexity, Runway, Canva AI, Notion AI, GitHub Copilot, ChatGPT alternatives, AI writing tools, AI image generators, AI video generators, AI coding tools, AI marketing tools, AI productivity tools, AI tools for students, AI tools for business, AI prompts library, AI workflows" />
+
+    <!-- ===================== Localisation ===================== -->
+    <link rel="alternate" hreflang="en" href="https://aimastertools.space/" />
+    <link rel="alternate" hreflang="x-default" href="https://aimastertools.space/" />
+
+    <!-- ================== Open Graph / Social ================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AI Master Tools" />
+    <meta property="og:title" content="AI Master Tools — Find, Compare & Review the Best AI Tools" />
+    <meta property="og:description" content="Search 630+ hand-checked AI tools by name, category and price. Compare features side by side and find the right tool in under a minute." />
+    <meta property="og:url" content="https://aimastertools.space/" />
+    <meta property="og:image" content="https://aimastertools.space/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="AI Master Tools — the AI tools directory" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AIMasterTools" />
+    <meta name="twitter:creator" content="@AIMasterTools" />
+    <meta name="twitter:title" content="AI Master Tools — Find, Compare & Review the Best AI Tools" />
+    <meta name="twitter:description" content="Search 630+ hand-checked AI tools by name, category and price. Compare features side by side." />
+    <meta name="twitter:image" content="https://aimastertools.space/og-cover.png" />
+
+    <!-- ======================== PWA / Icons ==================== -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#f8f6f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d100f" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-title" content="AI Master Tools" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ==================== Performance hints ================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://logo.clearbit.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;450;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;450;500&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    </noscript>
+
+    <!-- ================= Sitewide structured data =============== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://aimastertools.space/#organization",
+            "name": "AI Master Tools",
+            "url": "https://aimastertools.space/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://aimastertools.space/icon-512.png",
+              "width": 512,
+              "height": 512
+            },
+            "founder": { "@type": "Person", "name": "Akshay Mahajan" },
+            "sameAs": [
+              "https://twitter.com/AIMasterTools",
+              "https://www.linkedin.com/company/aimastertools",
+              "https://github.com/aimastertools"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aimastertools.space/#website",
+            "url": "https://aimastertools.space/",
+            "name": "AI Master Tools",
+            "description": "A searchable directory of hand-checked AI tools with reviews, pricing and side-by-side comparisons.",
+            "publisher": { "@id": "https://aimastertools.space/#organization" },
+            "inLanguage": "en",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://aimastertools.space/?search={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WZV4CNBG');</script>
-    <!-- End Google Tag Manager -->
 
-    <!-- Google tag (gtag.js) -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VV4GFEC1ZS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-VV4GFEC1ZS');
     </script>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Find, compare, and review the best AI tools and software. Get personalized AI tool suggestions to boost your productivity and business. Discover top AI solutions." />
-    <meta name="keywords" content="AI tools directory, best AI tools, free AI tools, compare AI tools, best AI software, AI tool suggestions, AI Master Tools, Akshay Mahajan, Prompt Engineering, AI ML Engineering, best AI tools list 2026, ChatGPT alternatives, generative AI tools, AI productivity tools, machine learning applications, top AI software, AI for business, AI marketing tools, AI writing tools, AI image generators, artificial intelligence tools, new AI tools, best AI tools for students, top 10 AI tools, free AI tools list" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Akshay Mahajan" />
-    <meta property="og:title" content="AI Master Tools | Discover, Compare & Find the Best AI Tools" />
-    <meta property="og:description" content="Find, compare, and review the best AI tools and software. Get personalized AI tool suggestions to boost your productivity and business." />
-    <meta property="og:locale" content="en_US" />
-    <meta name="google-site-verification" content="cvZfo2cac8Ep5DmpA3PlCtAbja_c2Bhm0pZ17VyUrrQ" />
-    <title>AI Master Tools | Discover, Compare & Find the Best AI Tools</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://ui-avatars.com" />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" media="print" onload="this.media='all'" />
-    
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-    </noscript>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZV4CNBG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
+    <noscript>
+      <h1>AI Master Tools</h1>
+      <p>A searchable directory of hand-checked AI tools with reviews, pricing and side-by-side comparisons. Please enable JavaScript to browse the directory.</p>
+    </noscript>
 
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

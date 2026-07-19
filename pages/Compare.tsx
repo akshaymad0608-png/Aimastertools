@@ -54,7 +54,7 @@ const Compare: React.FC = () => {
         keywords={["compare AI tools", "AI software comparison", "best ai tools", "free ai tools list", "AI pricing comparison", "chatgpt vs claude", "top ai tools 2026"]}
       />
       
-      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
+      <div className="page-top pb-16 md:pb-24 container-custom mx-auto px-6 relative min-h-screen overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
@@ -69,10 +69,10 @@ const Compare: React.FC = () => {
         <div className="mb-12">
           <div className="flex flex-wrap gap-4 justify-center items-center">
             {selectedTools.map(tool => (
-              <div key={tool.id} className="glass-panel border border-[var(--color-border)] rounded-xl p-4 flex items-center gap-4 min-w-[250px] relative shadow-md">
+              <div key={tool.id} className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-sm)] p-4 flex items-center gap-4 min-w-[250px] relative shadow-md">
                 <button 
                   onClick={() => handleRemoveTool(tool.id)}
-                  className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors shadow-lg"
+                  className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors shadow-[var(--shadow-card)]"
                   aria-label="Remove tool"
                 >
                   <X size={14} />
@@ -88,16 +88,16 @@ const Compare: React.FC = () => {
             {selectedToolIds.length < 3 && !isSelecting && (
               <button 
                 onClick={() => setIsSelecting(true)}
-                className="glass-panel border border-dashed border-[var(--color-primary)]/50 rounded-xl p-4 flex items-center justify-center gap-2 min-w-[250px] h-[82px] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 transition-colors"
+                className="glass-panel border border-dashed border-[var(--color-primary)]/50 rounded-[var(--radius-sm)] p-4 flex items-center justify-center gap-2 min-w-[250px] h-[82px] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 transition-colors"
               >
                 <Plus size={20} /> Add Tool to Compare
               </button>
             )}
 
             {isSelecting && (
-              <div className="glass-panel border border-[var(--color-border)] rounded-xl p-4 w-full sm:min-w-[300px] relative z-20">
+              <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-sm)] p-4 w-full sm:min-w-[300px] relative z-20">
                 <div className="flex justify-between items-center mb-3">
-                  <h3 className="font-semibold text-sm text-[var(--color-text-primary)]">Search Tools</h3>
+                  <h3 className="title-sm font-semibold text-sm text-[var(--color-text-primary)]">Search Tools</h3>
                   <button onClick={() => setIsSelecting(false)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]" aria-label="Close search">
                     <X size={16} />
                   </button>
@@ -134,7 +134,7 @@ const Compare: React.FC = () => {
 
         {/* Comparison Table */}
         {selectedTools.length > 0 ? (
-          <div className="glass-panel border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-xl overflow-x-auto">
+          <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-md)] overflow-hidden shadow-[var(--shadow-lift)] overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
                 <tr className="bg-[var(--color-surface)]/50 border-b border-[var(--color-border)]">
@@ -143,7 +143,7 @@ const Compare: React.FC = () => {
                     <th key={tool.id} className="p-6 w-1/4 border-l border-[var(--color-border)]/50">
                       <div className="flex flex-col items-center text-center">
                         <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="w-16 h-16 mb-3 shadow-md" />
-                        <h3 className="font-bold text-lg text-[var(--color-text-primary)]">{tool.name}</h3>
+                        <h3 className="title-sm font-bold text-lg text-[var(--color-text-primary)]">{tool.name}</h3>
                       </div>
                     </th>
                   ))}
@@ -175,9 +175,9 @@ const Compare: React.FC = () => {
                   {selectedTools.map(tool => (
                     <td key={tool.id} className="p-6 border-l border-[var(--color-border)]/50 text-center">
                       <span className={`inline-block px-3 py-1 text-sm font-bold rounded-full border ${
-                        tool.pricing === 'Free' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                        tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
                         tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                        'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                        'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
                       }`}>
                         {tool.pricing}
                       </span>
@@ -273,7 +273,7 @@ const Compare: React.FC = () => {
             </table>
           </div>
         ) : (
-          <div className="text-center py-20 glass-panel border border-[var(--color-border)] rounded-2xl">
+          <div className="text-center py-20 glass-panel border border-[var(--color-border)] rounded-[var(--radius-md)]">
             <div className="inline-flex p-4 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] mb-4">
               <Check size={32} className="text-[var(--color-text-muted)]" />
             </div>

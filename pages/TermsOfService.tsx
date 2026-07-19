@@ -12,7 +12,7 @@ const TermsOfService: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container-custom py-12 md:py-20"
+      className="page-top container-custom pb-16 md:pb-24"
     >
       <SEO 
         title="Terms of Service | AI Master Tools" 

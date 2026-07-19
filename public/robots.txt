@@ -1,5 +1,33 @@
+# https://aimastertools.space/robots.txt
+
 User-agent: *
 Allow: /
+
+# Client-side filter states produce the same page under hundreds of URLs.
+# Crawling them wastes budget and splits ranking signals across near-duplicates.
+Disallow: /*?search=
+Disallow: /*?tag=
+Disallow: /*?pricing=
+Disallow: /*?tab=
+Disallow: /*?utm_
+Disallow: /*&utm_
+
+# Nothing here is useful in an index.
 Disallow: /admin
 Disallow: /api/
+Disallow: /bookmarks
+
+# Aggressive SEO crawlers — allowed, but throttled.
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
 Sitemap: https://aimastertools.space/sitemap.xml

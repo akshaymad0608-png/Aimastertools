@@ -50,6 +50,8 @@ export interface Prompt {
 export interface CategoryStat {
   id: Category;
   name: string;
+  /** URL-safe identifier, e.g. "llm-providers-and-apis". */
+  slug: string;
   icon: string | any;
   emoji?: string;
   imageUrl?: string;

@@ -10,13 +10,13 @@ const AdBanner: React.FC = () => {
   }
 
   return (
-    <div className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 my-12 relative overflow-hidden group">
+    <div className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 my-12 relative overflow-hidden group">
       <div className="absolute top-0 right-0 bg-[var(--color-background)] text-[var(--color-text-muted)] text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider border-b border-l border-[var(--color-border)]">
         Sponsored
       </div>
       
       <div className="flex items-center gap-6 z-10 w-full md:w-auto">
-        <div className="w-16 h-16 rounded-xl bg-[var(--color-cardBg)] flex items-center justify-center flex-shrink-0 border border-[var(--color-border)]">
+        <div className="w-16 h-16 rounded-[var(--radius-sm)] bg-[var(--color-cardBg)] flex items-center justify-center flex-shrink-0 border border-[var(--color-border)]">
           <Rocket className="text-[var(--color-primary)]" size={32} />
         </div>
         <div>

@@ -72,13 +72,13 @@ export const AIToolFinder: React.FC = () => {
     return (
       <button
         onClick={() => handleSelect(currentStep as keyof typeof answers, value)}
-        className={`flex flex-col items-center text-center p-6 rounded-2xl border-2 transition-all ${
+        className={`flex flex-col items-center text-center p-6 rounded-[var(--radius-md)] border-2 transition-all ${
           isSelected 
-            ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-lg shadow-[var(--color-primary)]/10' 
+            ? 'border-[var(--color-primary)] bg-[var(--color-primary)]/10 shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/10' 
             : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-cardBg)]'
         }`}
       >
-        <div className={`p-4 rounded-xl mb-4 ${isSelected ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'}`}>
+        <div className={`p-4 rounded-[var(--radius-sm)] mb-4 ${isSelected ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'}`}>
           <Icon size={28} />
         </div>
         <h3 className={`font-bold text-lg mb-2 ${isSelected ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-primary)]'}`}>{title}</h3>
@@ -104,21 +104,21 @@ export const AIToolFinder: React.FC = () => {
       <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="text-center mb-10 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-[var(--color-text-primary)]">
-          AI Tool <span className="text-gradient-premium">Finder Quiz</span>
+        <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight text-[var(--color-text-primary)]">
+          AI Tool <span className="text-[var(--color-text-primary)]">Finder Quiz</span>
         </h2>
         <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto font-medium">
           Answer 3 quick questions and let our matching algorithm find the perfect AI tools for your workflow.
         </p>
       </div>
 
-      <div className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[32px] p-6 md:p-10 shadow-2xl relative overflow-hidden z-10">
+      <div className="bg-gradient-to-b from-[var(--color-surface)] to-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[32px] p-6 md:p-10 shadow-[var(--shadow-lift)] relative overflow-hidden z-10">
         
         {/* Progress Bar */}
         {currentStep !== 'results' && !isProcessing && (
           <div className="w-full h-2 bg-[var(--color-border)] rounded-full mb-10 overflow-hidden">
             <div 
-              className="h-full bg-gradient-premium transition-all duration-500 ease-out"
+              className="h-full bg-[var(--color-cardBg)] border border-[var(--color-border)] transition-all duration-500 ease-out"
               style={{ width: currentStep === 'goal' ? '33%' : currentStep === 'skill' ? '66%' : '100%' }}
             />
           </div>
@@ -172,11 +172,11 @@ export const AIToolFinder: React.FC = () => {
           {currentStep === 'results' && !isProcessing && (
             <motion.div key="results" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-500 font-bold mb-4">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-[var(--color-primary)] font-bold mb-4">
                   <CheckCircle2 size={18} />
                   Match Complete
                 </div>
-                <h3 className="text-3xl font-extrabold mb-2">Your Perfect AI Arsenal</h3>
+                <h3 className="text-3xl font-semibold mb-2">Your Perfect AI Arsenal</h3>
                 <p className="text-[var(--color-text-secondary)]">Based on your goals and budget, we highly recommend these tools.</p>
               </div>
 
@@ -184,16 +184,16 @@ export const AIToolFinder: React.FC = () => {
                 {results.map((tool, idx) => {
                   const matchScore = 99 - (idx * 2);
                   return (
-                    <div key={tool.id} className="glass-panel rounded-2xl p-6 flex flex-col md:flex-row gap-5 relative overflow-hidden group hover:border-[var(--color-primary)] transition-all">
-                      <div className="absolute top-0 right-0 bg-gradient-premium text-white px-3 py-1 rounded-bl-xl font-bold text-xs shadow-lg z-10">
+                    <div key={tool.id} className="glass-panel rounded-[var(--radius-md)] p-6 flex flex-col md:flex-row gap-5 relative overflow-hidden group hover:border-[var(--color-primary)] transition-all">
+                      <div className="absolute top-0 right-0 bg-[var(--color-cardBg)] border border-[var(--color-border)] text-white px-3 py-1 rounded-bl-xl font-bold text-xs shadow-[var(--shadow-card)] z-10">
                         {matchScore}% Match
                       </div>
                       
-                      <div className="w-16 h-16 shrink-0 bg-[var(--color-cardBg)] rounded-xl border border-[var(--color-border)] flex items-center justify-center shadow-sm">
+                      <div className="w-16 h-16 shrink-0 bg-[var(--color-cardBg)] rounded-[var(--radius-sm)] border border-[var(--color-border)] flex items-center justify-center shadow-sm">
                          <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="w-10 h-10" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-extrabold text-xl mb-1 group-hover:text-[var(--color-primary)] transition-colors">{tool.name}</h4>
+                        <h4 className="font-semibold text-xl mb-1 group-hover:text-[var(--color-primary)] transition-colors">{tool.name}</h4>
                         <div className="flex gap-2 mb-3">
                           <span className="text-xs font-bold text-[var(--color-text-secondary)] bg-[var(--color-background)] px-2 py-0.5 rounded-md border border-[var(--color-border)]">{tool.category}</span>
                           <span className="text-xs font-bold text-[var(--color-text-secondary)] bg-[var(--color-background)] px-2 py-0.5 rounded-md border border-[var(--color-border)]">{tool.pricing}</span>
@@ -229,7 +229,7 @@ export const AIToolFinder: React.FC = () => {
             <button
               onClick={handleBack}
               disabled={currentStep === 'goal'}
-              className="px-6 py-3 font-bold rounded-xl flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-all disabled:opacity-30 disabled:hover:bg-transparent"
+              className="px-6 py-3 font-bold rounded-[var(--radius-sm)] flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-all disabled:opacity-30 disabled:hover:bg-transparent"
             >
               <ArrowLeft size={18} /> Back
             </button>
@@ -240,7 +240,7 @@ export const AIToolFinder: React.FC = () => {
                 (currentStep === 'skill' && !answers.skill) || 
                 (currentStep === 'budget' && !answers.budget)
               }
-              className="px-8 py-3 font-bold rounded-xl flex items-center gap-2 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-all disabled:opacity-50 shadow-md hover:shadow-lg disabled:hover:shadow-none"
+              className="px-8 py-3 font-bold rounded-[var(--radius-sm)] flex items-center gap-2 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-all disabled:opacity-50 shadow-md hover:shadow-[var(--shadow-card)] disabled:hover:shadow-none"
             >
               {currentStep === 'budget' ? 'Show Results' : 'Next Step'} <ArrowRight size={18} />
             </button>

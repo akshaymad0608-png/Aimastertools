@@ -1,3 +1,4 @@
+import { BlogCoverImage } from './BlogCoverImage';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
@@ -8,74 +9,34 @@ import {
 
 // Color and design mappings for high fidelity custom tags
 const CATEGORY_COLORS: Record<string, string> = {
-  "EDUCATION": "#d97706",
-  "RESEARCH": "#0d9488",
-  "DESIGN": "#f97316",
-  "CODING": "#2563eb",
-  "AI CHATBOTS": "#8b5cf6"
+"EDUCATION": "#d97706",
+"RESEARCH": "#0d9488",
+"DESIGN": "#f97316",
+"CODING": "#2563eb",
+"AI CHATBOTS": "#8b5cf6"
 };
 
 // Mini avatar styles matching the specific authors
 const AUTHOR_AVATARS: Record<string, { initials: string; bg: string }> = {
-  "Sarah Collins": { initials: "SC", bg: "bg-pink-500" },
-  "Arjun Mehta": { initials: "AM", bg: "bg-purple-500" },
-  "Lina Vance": { initials: "LV", bg: "bg-teal-500" },
-  "Marcus Thorne": { initials: "MT", bg: "bg-orange-500" },
-  "Akshay Mahajan": { initials: "AM", bg: "bg-purple-500" }
+"Sarah Collins": { initials: "SC", bg: "bg-pink-500" },
+"Arjun Mehta": { initials: "AM", bg: "bg-purple-500" },
+"Lina Vance": { initials: "LV", bg: "bg-teal-500" },
+"Marcus Thorne": { initials: "MT", bg: "bg-orange-500" },
+"Akshay Mahajan": { initials: "AM", bg: "bg-purple-500" }
 };
 
-// Custom responsive sidebar thumbnail with error fallback handling
-const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: string }> = ({
-  category,
-  title,
-  imageUrl
-}) => {
-  const [error, setError] = useState(false);
-  const normalizedCat = category?.toUpperCase().trim() || 'AI';
-
-  const getFallbackConfig = (cat: string) => {
-    if (cat.includes('EDUCATION')) {
-      return { bg: 'bg-amber-100', icon: GraduationCap, accent: 'text-amber-700' };
-    }
-    if (cat.includes('RESEARCH')) {
-      return { bg: 'bg-teal-100', icon: Brain, accent: 'text-teal-700' };
-    }
-    if (cat.includes('DESIGN')) {
-      return { bg: 'bg-orange-100', icon: Palette, accent: 'text-orange-700' };
-    }
-    if (cat.includes('CODING')) {
-      return { bg: 'bg-blue-100', icon: Code, accent: 'text-blue-700' };
-    }
-    return { bg: 'bg-purple-100', icon: Bot, accent: 'text-purple-700' };
-  };
-
-  const config = getFallbackConfig(normalizedCat);
-  const IconComponent = config.icon;
-
-  if (error || !imageUrl) {
-    return (
-      <div className={`w-[64px] h-[64px] rounded-lg relative overflow-hidden flex items-center justify-center select-none shrink-0 border border-[var(--color-border)] ${config.bg}`}>
-        <IconComponent size={24} className={`${config.accent} relative z-10 opacity-70`} />
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-[64px] h-[64px] rounded-lg overflow-hidden shrink-0 relative border border-[var(--color-border)] bg-[var(--color-background)]">
-      <img
-        src={imageUrl}
-        alt={title}
-        loading="lazy"
-        referrerPolicy="no-referrer"
-        onError={() => setError(true)}
-        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      />
-    </div>
-  );
-};
+/**
+ * Thumbnails use the same generated cover as /blog. They previously loaded
+ * Unsplash URLs that several posts shared, behind a pastel icon fallback that
+ * belonged to the old palette.
+ */
+const SidebarThumbnail: React.FC<{ category: string; title: string }> = ({ category, title }) => (
+  <div className="w-[64px] h-[64px] shrink-0 overflow-hidden">
+    <BlogCoverImage category={category} title={title} variant="thumbnail" alt={title} />
+  </div>
+);
 
 export const BlogSection: React.FC = () => {
-  const [heroImageError, setHeroImageError] = useState(false);
   // Extract specific blog post categories to align with requested layout
   const chatbotPost = blogPosts.find(p => p.category?.toLowerCase().includes('chatbot')) || blogPosts[0];
   
@@ -129,18 +90,18 @@ export const BlogSection: React.FC = () => {
   return (
     <section id="blog" className="relative bg-slate-50 dark:bg-[#09090b] py-20">
       {/* Premium ambient backdrop glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/10 dark:bg-blue-900/20 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-500/10 dark:bg-purple-900/20 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-soft)] dark:bg-[var(--color-primary-soft)] blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-soft)] dark:bg-[var(--color-primary-soft)] blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-2 text-sm font-black uppercase tracking-widest text-blue-600 dark:text-blue-400">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)] dark:text-[var(--color-primary)]">
               Latest Insights
             </p>
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-5xl leading-tight">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl leading-tight">
               <span className="text-slate-900 dark:text-white">Learn AI tools, workflows & comparisons</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
@@ -149,10 +110,10 @@ export const BlogSection: React.FC = () => {
           </div>
           <Link 
             to="/blog" 
-            className="group font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:text-blue-300 inline-flex items-center gap-1.5 shrink-0 transition"
+            className="group font-bold text-[var(--color-primary)] dark:text-[var(--color-primary)] hover:text-[var(--color-primary)] dark:text-[var(--color-primary)] inline-flex items-center gap-1.5 shrink-0 transition"
           >
             <span>View All Insights</span>
-            <span className="inline-block transition group-hover:translate-x-1 font-extrabold">→</span>
+            <span className="inline-block transition group-hover:translate-x-1 font-semibold">→</span>
           </Link>
         </div>
 
@@ -169,22 +130,17 @@ export const BlogSection: React.FC = () => {
             >
               <Link
                 to={`/blog/${chatbotPost.slug || chatbotPost.id}`}
-                className="group flex flex-col bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-sm hover:border-[var(--color-primary)] transition-all duration-300"
+                className="group flex flex-col bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] overflow-hidden shadow-sm hover:border-[var(--color-primary)] transition-all duration-300"
               >
                 
                 {/* HERO BANNER */}
                 <div className="relative w-full h-[260px] sm:h-[320px] overflow-hidden flex flex-col items-center justify-center px-6 bg-[var(--color-surface)] border-b border-[var(--color-border)]">
-                  {chatbotPost.imageUrl && !heroImageError ? (
-                    <img src={chatbotPost.imageUrl} alt={chatbotPost.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" onError={() => setHeroImageError(true)} />
-                  ) : (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 w-full h-full bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-blue-500/10 overflow-hidden">
-                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--color-text-primary) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-                      <div className="relative z-10 w-24 h-24 rounded-2xl bg-[var(--color-cardBg)]/80 backdrop-blur-md border border-[var(--color-border)] flex flex-col items-center justify-center shadow-xl mb-4 group-hover:scale-110 transition-transform duration-500">
-                        <Bot size={40} className="text-[var(--color-primary)] mb-2" />
-                        <div className="text-[10px] font-bold text-[var(--color-text-secondary)] uppercase tracking-widest">AI INSIGHT</div>
-                      </div>
-                    </div>
-                  )}
+                  <BlogCoverImage
+                    category={chatbotPost.category}
+                    title={chatbotPost.title}
+                    variant="featured"
+                    alt={chatbotPost.title}
+                  />
                   <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 bg-[var(--color-background)]/90 backdrop-blur-sm rounded-md border border-[var(--color-border)] text-xs font-bold text-[var(--color-text-primary)] uppercase tracking-wider leading-none z-10 shadow-sm">
                     <span className="text-[var(--color-primary)] animate-pulse text-[8px]">●</span>
                     <span>FEATURED INSIGHT</span>
@@ -194,7 +150,7 @@ export const BlogSection: React.FC = () => {
                 <div className="p-6 sm:p-8 flex-1 flex flex-col bg-[var(--color-cardBg)]">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span className="inline-flex text-[10px] font-bold px-2.5 py-1 rounded-md bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] uppercase tracking-widest">
-                      AI CHATBOTS
+                      {chatbotPost.category}
                     </span>
                     <span className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider flex items-center gap-1.5">
                       <Clock size={12} />
@@ -202,7 +158,7 @@ export const BlogSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-extrabold leading-snug tracking-tight mb-3">
+                  <h3 className="text-2xl sm:text-3xl font-semibold leading-snug tracking-tight mb-3">
                     <span className="text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                       {chatbotPost.title}
                     </span>
@@ -238,7 +194,7 @@ export const BlogSection: React.FC = () => {
 
           {/* RIGHT SIDE — Trending Insights Sidebar (col-span-4) */}
           <div className="lg:col-span-4 flex flex-col gap-5">
-            <h4 className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] mt-1 mb-1 font-mono">
+            <h4 className="title-sm text-[11px] font-bold uppercase tracking-widest text-[var(--color-text-muted)] mt-1 mb-1 font-mono">
               Trending Insights
             </h4>
             
@@ -256,13 +212,13 @@ export const BlogSection: React.FC = () => {
                 >
                   <Link 
                     to={`/blog/${post.slug || post.id}`}
-                    className="group flex gap-4 bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-4 shadow-sm hover:shadow-lg hover:border-[var(--color-primary)] transition-all duration-300"
+                    className="group flex gap-4 bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-4 shadow-sm hover:shadow-[var(--shadow-card)] hover:border-[var(--color-primary)] transition-all duration-300"
                   >
                     {/* Consistent 64x64px square image thumbnail with smart error fallback */}
                     <SidebarThumbnail 
                       category={post.category} 
                       title={post.title} 
-                      imageUrl={post.imageUrl} 
+                       
                     />
 
                     {/* Meta and Information block */}
@@ -285,7 +241,7 @@ export const BlogSection: React.FC = () => {
                         </div>
 
                         {/* Title text */}
-                        <h5 className="text-[14px] sm:text-[15px] font-bold leading-snug tracking-tight mb-1 line-clamp-2">
+                        <h5 className="title-sm text-[14px] sm:text-[15px] font-bold leading-snug tracking-tight mb-1 line-clamp-2">
                           <span className="text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                             {post.title}
                           </span>

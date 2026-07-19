@@ -20,7 +20,7 @@ const WorkflowDetail: React.FC = () => {
   if (!workflow) return null;
 
   return (
-    <div className="pt-24 pb-20 bg-[var(--color-background)] min-h-screen">
+    <div className="page-top pb-20 bg-[var(--color-background)] min-h-screen">
       <Helmet>
         <title>{workflow.title} - AI Workflow | AIMasterTools</title>
         <meta name="description" content={workflow.description} />
@@ -36,8 +36,8 @@ const WorkflowDetail: React.FC = () => {
         </Link>
 
         {/* Header */}
-        <div className="glass-panel rounded-3xl p-8 md:p-12 mb-12 border border-[var(--color-border)] relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-accent)]/5 pointer-events-none" />
+        <div className="glass-panel rounded-[var(--radius-lg)] p-8 md:p-12 mb-12 border border-[var(--color-border)] relative overflow-hidden">
+          <div className="absolute inset-0 from-[var(--color-primary)]/5 to-[var(--color-accent)]/5 pointer-events-none" />
           
           <div className="relative z-10">
             <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -47,12 +47,12 @@ const WorkflowDetail: React.FC = () => {
               <span className="px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] text-xs font-bold uppercase tracking-wider">
                 {workflow.difficulty}
               </span>
-              <div className="flex items-center gap-1 bg-amber-500/10 px-2 py-1 rounded-full text-amber-500 text-xs font-bold">
-                <Star size={12} className="fill-amber-500" /> {workflow.rating}
+              <div className="flex items-center gap-1 bg-amber-500/10 px-2 py-1 rounded-full text-[var(--color-accent)] text-xs font-bold">
+                <Star size={12} className="fill-[var(--color-accent)]" /> {workflow.rating}
               </div>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 text-[var(--color-text-primary)]">
+            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6 text-[var(--color-text-primary)]">
               {workflow.title}
             </h1>
             
@@ -60,7 +60,7 @@ const WorkflowDetail: React.FC = () => {
               {workflow.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-[var(--color-border)]">
+            <div className="pt-6 flex flex-wrap items-center gap-6 border-t border-[var(--color-border)]">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-bold text-sm shadow-md">
                   {workflow.author.charAt(0)}
@@ -90,12 +90,12 @@ const WorkflowDetail: React.FC = () => {
 
         {/* Tools Used */}
         <div className="mb-12">
-          <h2 className="text-2xl font-extrabold mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <GitMerge className="text-[var(--color-primary)]" /> Tools Required
           </h2>
           <div className="flex flex-wrap gap-4">
             {workflow.tools.map(tool => (
-              <div key={tool} className="flex items-center gap-3 px-5 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
+              <div key={tool} className="flex items-center gap-3 px-5 py-3 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm">
                 <span className="font-bold text-[var(--color-text-primary)]">{tool}</span>
               </div>
             ))}
@@ -104,7 +104,7 @@ const WorkflowDetail: React.FC = () => {
 
         {/* Steps */}
         <div>
-          <h2 className="text-2xl font-extrabold mb-8 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-8 flex items-center gap-2">
             <CheckCircle2 className="text-[var(--color-primary)]" /> Step-by-Step Guide
           </h2>
           
@@ -117,9 +117,9 @@ const WorkflowDetail: React.FC = () => {
                 </div>
                 
                 {/* Card */}
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] glass-panel p-6 rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md hover:border-[var(--color-primary)]/30 transition-all ml-4 md:ml-0">
+                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] glass-panel p-6 rounded-[var(--radius-md)] border border-[var(--color-border)] shadow-sm hover:shadow-md hover:border-[var(--color-primary)]/30 transition-all ml-4 md:ml-0">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-[var(--color-text-primary)]">{step.title}</h3>
+                    <h3 className="title-sm text-lg font-bold text-[var(--color-text-primary)]">{step.title}</h3>
                     <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)]">
                       {step.tool}
                     </span>

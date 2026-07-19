@@ -5,6 +5,8 @@ import { MOCK_TOOLS } from '../data/tools';
 import { PROMPT_LIBRARY } from '../data/prompts';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
+import { pairsForTool } from '../utils/pairs';
+import { slugify } from '../utils/slug';
 import ToolCard from '../components/ToolCard';
 import { ReviewsSection } from '../components/ReviewsSection';
 import { useBookmarks } from '../context/BookmarkContext';
@@ -96,55 +98,50 @@ const ToolDetail: React.FC = () => {
       >
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": tool.name,
-            "description": tool.description,
-            "applicationCategory": tool.category,
-            "operatingSystem": "Web, Windows, macOS",
-            "url": tool.url,
-            "image": tool.imageUrl,
-            "offers": {
-              "@type": "Offer",
-              "price": tool.pricing === "Free" ? "0" : tool.pricing === "Freemium" ? "0" : "10",
-              "priceCurrency": "USD"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": tool.rating,
-              "reviewCount": "150"
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": tool.name,
+"description": tool.description,
+"applicationCategory": tool.category,
+"operatingSystem": "Web, Windows, macOS",
+"url": tool.url,
+"image": tool.imageUrl,
+"offers": {
+"@type": "Offer",
+"price": tool.pricing === "Free" ? "0" : tool.pricing === "Freemium" ? "0" : "10",
+"priceCurrency": "USD"
             }
           })}
         </script>
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement": [
               {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://aimastertools.space/"
+"@type": "ListItem",
+"position": 1,
+"name": "Home",
+"item": "https://aimastertools.space/"
               },
               {
-                "@type": "ListItem",
-                "position": 2,
-                "name": tool.category,
-                "item": "https://aimastertools.space/?search=" + encodeURIComponent(tool.category)
+"@type": "ListItem",
+"position": 2,
+"name": tool.category,
+"item": "https://aimastertools.space/?search=" + encodeURIComponent(tool.category)
               },
               {
-                "@type": "ListItem",
-                "position": 3,
-                "name": tool.name,
-                "item": "https://aimastertools.space/tool/" + tool.id
+"@type": "ListItem",
+"position": 3,
+"name": tool.name,
+"item": "https://aimastertools.space/tool/" + tool.id
               }
             ]
           })}
         </script>
       </SEO>
       
-      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 container-custom mx-auto relative overflow-hidden">
+      <div className="page-top pb-16 md:pb-24 container-custom mx-auto relative overflow-hidden">
         {/* Background Glow */}
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10 pointer-events-none"></div>
 
@@ -156,19 +153,19 @@ const ToolDetail: React.FC = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Header Section */}
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-10 shadow-lg relative overflow-hidden">
+            <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-10 shadow-[var(--shadow-card)] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-5 rounded-full -z-10"></div>
               
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-                <div className="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[#ffffff] shadow-md p-1">
+                <div className="w-20 h-20 md:w-28 md:h-28 rounded-[var(--radius-md)] overflow-hidden flex-shrink-0 border border-[var(--color-border)] bg-[#ffffff] shadow-md p-1">
                    <ToolLogo domain={tool.domain} brandColor={tool.brandColor} name={tool.name} className="w-full h-full" />
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span className={`px-3 py-1 text-xs font-bold rounded-full border ${
-                      tool.pricing === 'Free' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                      tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
                       tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                      'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                      'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
                     }`}>
                       {tool.pricing}
                     </span>
@@ -179,7 +176,7 @@ const ToolDetail: React.FC = () => {
                   <div className="flex items-center gap-3 mb-3 md:mb-4">
                     <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] tracking-tight">{tool.name}</h1>
                     {tool.featured && (
-                      <span className="flex items-center gap-1 text-xs font-bold text-blue-500 bg-blue-500/10 px-2 py-1 rounded-md border border-blue-500/20" title="Verified Tool">
+                      <span className="flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] bg-[var(--color-primary-soft)] px-2 py-1 rounded-md border border-[var(--color-border)]" title="Verified Tool">
                         <Check size={14} /> Verified
                       </span>
                     )}
@@ -192,12 +189,12 @@ const ToolDetail: React.FC = () => {
             </div>
 
             {/* Image/Screenshot Section */}
-            <div className="rounded-3xl overflow-hidden border border-[var(--color-border)] shadow-2xl aspect-video">
+            <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-lift)] aspect-video">
               <img src={tool.imageUrl} alt={`${tool.name} screenshot`} width="800" height="450" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
             </div>
 
             {/* Detailed Description */}
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-10 shadow-lg">
+            <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-10 shadow-[var(--shadow-card)]">
               <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)] flex items-center gap-2">
                 <span className="w-1 h-8 bg-[var(--color-primary)] rounded-full"></span>
                 About {tool.name}
@@ -207,26 +204,52 @@ const ToolDetail: React.FC = () => {
                   {tool.description}
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {tool.name} is filed under {tool.category} and listed as {tool.pricing.toLowerCase()}.
+                  The summary above is the vendor's own description of the product; the pricing and
+                  rating shown on this page are what we recorded when the listing was last checked.
                 </p>
               </div>
               
-              <div className="mt-10 pt-10 border-t border-[var(--color-border)]">
-                <h3 className="text-xl font-bold mb-6 text-[var(--color-text-primary)]">Key Features</h3>
-                <ul className="grid md:grid-cols-2 gap-6">
-                  {[1, 2, 3, 4].map(i => (
-                    <li key={i} className="flex items-start gap-3 text-[var(--color-text-secondary)] bg-[var(--color-surface)]/50 p-4 rounded-xl border border-[var(--color-border)]">
-                      <div className="mt-1 bg-[var(--color-primary)]/20 p-1.5 rounded-full">
-                        <Check size={14} className="text-[var(--color-primary)]" />
-                      </div>
-                      <span>Feature point {i} description goes here. Detailed enough to explain the benefit.</span>
+              <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
+                <h3 className="text-xl font-semibold mb-6 text-[var(--color-text-primary)]">What it covers</h3>
+                <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
+                <h3 className="text-xl font-semibold mb-5 text-[var(--color-text-primary)]">
+                  Compare and consider
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  <li>
+                    <Link to={`/alternatives/${slugify(tool.id)}-alternatives`} className="link-chip">
+                      {tool.name} alternatives
+                    </Link>
+                  </li>
+                  {pairsForTool(tool.id, 5).map((p) => (
+                    <li key={p.slug}>
+                      <Link to={`/compare/${p.slug}`} className="link-chip">
+                        {p.a.name} vs {p.b.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-10 pt-10 border-t border-[var(--color-border)]">
+              {tool.tags && tool.tags.length > 0 ? (
+                  <ul className="flex flex-wrap gap-2">
+                    {tool.tags.map((tag) => (
+                      <li key={tag}>
+                        <span className="link-chip" style={{ fontFamily: 'var(--font-mono)' }}>
+                          #{String(tag).replace(/\s+/g, '-')}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-[var(--color-text-secondary)]">
+                    No tags recorded for this tool yet.
+                  </p>
+                )}
+              </div>
+
+              <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
                 <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)] flex items-center gap-2">
                   <span className="w-1 h-8 bg-yellow-400 rounded-full"></span>
                   Scoring & Rubric
@@ -238,17 +261,17 @@ const ToolDetail: React.FC = () => {
                     { label: "Pricing", score: 9.0 },
                     { label: "Support", score: 8.5 }
                   ].map(rubric => (
-                    <div key={rubric.label} className="bg-[var(--color-background)] border border-[var(--color-border)] p-4 rounded-xl text-center shadow-inner">
-                      <div className="text-3xl font-black text-[var(--color-primary)] mb-1">{rubric.score}<span className="text-lg text-[var(--color-text-muted)]">/10</span></div>
+                    <div key={rubric.label} className="bg-[var(--color-background)] border border-[var(--color-border)] p-4 rounded-[var(--radius-sm)] text-center shadow-inner">
+                      <div className="text-3xl font-semibold text-[var(--color-primary)] mb-1">{rubric.score}<span className="text-lg text-[var(--color-text-muted)]">/10</span></div>
                       <div className="text-sm font-semibold text-[var(--color-text-secondary)]">{rubric.label}</div>
                     </div>
                   ))}
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-green-500/5 border border-green-500/20 rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-lg font-bold text-green-500 mb-4 flex items-center gap-2">
-                       <Check size={20} className="text-green-500" /> Pros
+                  <div className="bg-green-500/5 border border-green-500/20 rounded-[var(--radius-md)] p-6 shadow-sm">
+                    <h3 className="title-sm text-lg font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+                       <Check size={20} className="text-[var(--color-primary)]" /> Pros
                     </h3>
                     <ul className="space-y-3 text-[var(--color-text-secondary)] list-disc list-inside">
                       <li>Intuitive and fast user interface</li>
@@ -256,8 +279,8 @@ const ToolDetail: React.FC = () => {
                       <li>Great community and documentation</li>
                     </ul>
                   </div>
-                  <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-lg font-bold text-red-500 mb-4 flex items-center gap-2">
+                  <div className="bg-red-500/5 border border-red-500/20 rounded-[var(--radius-md)] p-6 shadow-sm">
+                    <h3 className="title-sm text-lg font-bold text-red-500 mb-4 flex items-center gap-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
                       Cons
                     </h3>
@@ -270,11 +293,11 @@ const ToolDetail: React.FC = () => {
               </div>
 
               {tool.tags && tool.tags.length > 0 && (
-                <div className="mt-10 pt-10 border-t border-[var(--color-border)]">
+                <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
                   <h3 className="text-xl font-bold mb-6 text-[var(--color-text-primary)]">Common Use Cases</h3>
                   <div className="flex flex-wrap gap-3">
                     {tool.tags.map((tag, i) => (
-                      <div key={i} className="flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border)] px-4 py-2 rounded-xl text-sm text-[var(--color-text-secondary)]">
+                      <div key={i} className="flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border)] px-4 py-2 rounded-[var(--radius-sm)] text-sm text-[var(--color-text-secondary)]">
                         <Sparkles size={14} className="text-[var(--color-primary)]" />
                         {tag}
                       </div>
@@ -287,7 +310,7 @@ const ToolDetail: React.FC = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="glass-panel border border-[var(--color-border)] rounded-3xl p-6 md:p-8 sticky top-28 shadow-xl">
+            <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-8 sticky top-28 shadow-[var(--shadow-lift)]">
               <div className="flex items-center justify-between mb-8 pb-8 border-b border-[var(--color-border)]">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-0.5">
@@ -339,7 +362,7 @@ const ToolDetail: React.FC = () => {
                     title="Share"
                     aria-label={`Share ${tool.name}`}
                   >
-                    {copyFeedback ? <Check size={20} className="text-green-500" /> : <Share2 size={20} />}
+                    {copyFeedback ? <Check size={20} className="text-[var(--color-primary)]" /> : <Share2 size={20} />}
                   </button>
                 </div>
               </div>
@@ -348,7 +371,7 @@ const ToolDetail: React.FC = () => {
                 href={tool.url && tool.url !== '#' ? tool.url : `https://www.google.com/search?q=${encodeURIComponent(tool.name + ' AI Tool')}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-primary w-full flex justify-center items-center gap-2 mb-6 py-4 text-lg shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 rounded-xl"
+                className="btn-primary w-full flex justify-center items-center gap-2 mb-6 py-4 text-lg shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 rounded-[var(--radius-sm)]"
               >
                 Visit Website <ExternalLink size={18} />
               </a>
@@ -363,9 +386,9 @@ const ToolDetail: React.FC = () => {
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Pricing Model</span>
                   <span className={`font-medium px-3 py-1 rounded-lg border ${
-                    tool.pricing === 'Free' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
+                    tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
                     tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                    'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
                   }`}>{tool.pricing}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
@@ -385,7 +408,7 @@ const ToolDetail: React.FC = () => {
                 </div>
                 
                 {tool.tags && tool.tags.length > 0 && (
-                  <div className="pt-6 border-t border-[var(--color-border)]">
+                  <div className="pt-4 border-t border-[var(--color-border)]">
                     <span className="text-[var(--color-text-secondary)] text-xs font-bold uppercase tracking-wider block mb-4">Tags</span>
                     <div className="flex flex-wrap gap-2">
                       {tool.tags.map((tag, i) => (
@@ -397,7 +420,7 @@ const ToolDetail: React.FC = () => {
                   </div>
                 )}
 
-                <div className="pt-6 border-t border-[var(--color-border)] mt-2">
+                <div className="pt-4 border-t border-[var(--color-border)] mt-2">
                   <span className="text-[var(--color-text-secondary)] text-xs font-bold uppercase tracking-wider block mb-4">Share</span>
                   <div className="flex gap-3 mb-4">
                     <a 
@@ -430,7 +453,7 @@ const ToolDetail: React.FC = () => {
                   </div>
                   <button
                     onClick={() => setIsStoryModalOpen(true)}
-                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 text-white rounded-lg py-3 transition-all hover:opacity-90 hover:scale-[1.02] shadow-md hover:shadow-pink-500/25 font-bold"
+                    className="w-full flex items-center justify-center gap-2 from-yellow-500   text-white rounded-lg py-3 transition-all hover:opacity-90 hover:scale-[1.02] shadow-md hover:shadow-pink-500/25 font-bold"
                   >
                     <Instagram size={18} />
                     <span>Share to IG Story</span>
@@ -445,10 +468,10 @@ const ToolDetail: React.FC = () => {
 
         {/* Related Prompts Section */}
         {relatedPrompts.length > 0 && (
-          <div className="mt-24 border-t border-[var(--color-border)] pt-16">
+          <div className="pt-10 mt-24 border-t border-[var(--color-border)]">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] flex items-center gap-3">
+                <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] flex items-center gap-3">
                   <Tag className="text-[var(--color-primary)]" /> 
                   Useful <span className="text-[var(--color-primary)]">Prompts</span>
                 </h2>
@@ -463,12 +486,12 @@ const ToolDetail: React.FC = () => {
             
             <div className="grid md:grid-cols-3 gap-6">
               {relatedPrompts.map(prompt => (
-                <div key={prompt.id} className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-6 flex flex-col shadow-sm hover:border-[var(--color-primary)]/50 transition-colors">
-                  <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{prompt.title}</h3>
+                <div key={prompt.id} className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6 flex flex-col shadow-sm hover:border-[var(--color-primary)]/50 transition-colors">
+                  <h3 className="title-sm text-lg font-bold text-[var(--color-text-primary)] mb-2">{prompt.title}</h3>
                   <p className="text-sm text-[var(--color-text-secondary)] mb-6 flex-grow">{prompt.description}</p>
                   
                   <div className="relative group">
-                    <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 pr-12 text-xs text-[var(--color-text-primary)] font-mono overflow-auto h-[100px] scrollbar-hide line-clamp-4">
+                    <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] p-4 pr-12 text-xs text-[var(--color-text-primary)] font-mono overflow-auto h-[100px] scrollbar-hide line-clamp-4">
                       {prompt.promptText}
                     </div>
                     <button 
@@ -480,7 +503,7 @@ const ToolDetail: React.FC = () => {
                       className="absolute top-2 right-2 p-2 bg-[var(--color-background)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors"
                       aria-label="Copy prompt"
                     >
-                      {copiedId === prompt.id ? <Check size={14} className="text-green-500" /> : <ExternalLink size={14} />}
+                      {copiedId === prompt.id ? <Check size={14} className="text-[var(--color-primary)]" /> : <ExternalLink size={14} />}
                     </button>
                   </div>
                 </div>
@@ -497,7 +520,7 @@ const ToolDetail: React.FC = () => {
           <div className="mt-24">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
               <div>
-                <h2 className="text-3xl font-extrabold text-[var(--color-text-primary)] flex items-center gap-3">
+                <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] flex items-center gap-3">
                   <Sparkles className="text-[var(--color-accent)]" /> 
                   Related <span className="text-[var(--color-primary)]">Tools</span>
                 </h2>

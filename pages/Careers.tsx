@@ -12,7 +12,7 @@ const Careers: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container-custom py-12 md:py-20"
+      className="page-top container-custom pb-16 md:pb-24"
     >
       <SEO 
         title="Careers | AI Master Tools" 
@@ -28,7 +28,7 @@ const Careers: React.FC = () => {
       </div>
 
       <div className="max-w-4xl mx-auto">
-        <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-8 md:p-12 text-center">
           <div className="w-16 h-16 bg-[var(--color-primary)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
             <span className="text-3xl">🚀</span>
           </div>

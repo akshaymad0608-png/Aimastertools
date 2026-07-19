@@ -11,7 +11,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.605Z",
+    "dateAdded": "2026-05-06T20:33:47.958Z",
     "domain": "manychat.com",
     "brandColor": "#0084FF"
 },
@@ -25,7 +25,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-02T13:39:06.451Z",
     "domain": "metricool.com",
     "brandColor": "#FF5252"
 },
@@ -39,7 +39,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-18T15:39:19.818Z",
     "domain": "buffer.com",
     "brandColor": "#2C4BFF"
 },
@@ -53,7 +53,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-04-05T06:04:52.282Z",
     "domain": "publer.io",
     "brandColor": "#08A05C"
 },
@@ -67,7 +67,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-15T21:34:09.115Z",
     "domain": "socialbee.com",
     "brandColor": "#FFD200"
 },
@@ -81,7 +81,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-13T02:28:59.933Z",
     "domain": "zapier.com",
     "brandColor": "#FF4A00"
 },
@@ -95,7 +95,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-17T04:13:02.221Z",
     "domain": "make.com",
     "brandColor": "#7B1FA2"
 },
@@ -109,7 +109,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-27T23:42:50.927Z",
     "domain": "n8n.io",
     "brandColor": "#FF6D5A"
 },
@@ -123,7 +123,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-30T12:33:59.854Z",
     "domain": "pabbly.com",
     "brandColor": "#1A73E8"
 },
@@ -137,7 +137,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-05T10:43:48.408Z",
     "domain": "ifttt.com",
     "brandColor": "#000000"
 },
@@ -151,7 +151,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-04-27T22:28:10.849Z",
     "domain": "mailchimp.com",
     "brandColor": "#FFE01B"
 },
@@ -165,7 +165,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-04-23T16:30:18.879Z",
     "domain": "brevo.com",
     "brandColor": "#0092FF"
 },
@@ -179,7 +179,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-06-09T19:56:13.666Z",
     "domain": "activecampaign.com",
     "brandColor": "#356AE6"
 },
@@ -193,7 +193,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-28T13:13:49.600Z",
     "domain": "kit.com",
     "brandColor": "#FF5C5C"
 },
@@ -207,7 +207,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-01T14:18:37.251Z",
     "domain": "mailerlite.com",
     "brandColor": "#00A235"
 },
@@ -221,7 +221,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-05T01:07:43.664Z",
     "domain": "wati.io",
     "brandColor": "#00E676"
 },
@@ -235,7 +235,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-04-14T13:32:38.484Z",
     "domain": "aisensy.com",
     "brandColor": "#1A73E8"
 },
@@ -249,7 +249,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-01-23T07:01:55.954Z",
     "domain": "interakt.ai",
     "brandColor": "#FF5252"
 },
@@ -263,7 +263,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-23T04:34:48.755Z",
     "domain": "gallabox.com",
     "brandColor": "#00B0FF"
 },
@@ -277,7 +277,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-26T22:09:28.803Z",
     "domain": "zoko.io",
     "brandColor": "#00C853"
 },
@@ -291,7 +291,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-05T02:03:47.982Z",
     "domain": "apollo.io",
     "brandColor": "#FFD600"
 },
@@ -305,7 +305,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-02T08:19:26.110Z",
     "domain": "clay.com",
     "brandColor": "#333333"
 },
@@ -319,7 +319,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-20T06:03:41.862Z",
     "domain": "phantombuster.com",
     "brandColor": "#4C2BDB"
 },
@@ -333,7 +333,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-27T14:22:18.428Z",
     "domain": "lemlist.com",
     "brandColor": "#F92C5B"
 },
@@ -347,7 +347,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-14T02:46:25.055Z",
     "domain": "dripify.io",
     "brandColor": "#185ABC"
 },
@@ -361,7 +361,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-02-27T05:08:25.042Z",
     "domain": "hubspot.com",
     "brandColor": "#FF7A59"
 },
@@ -375,7 +375,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-06-18T23:53:31.165Z",
     "domain": "zoho.com",
     "brandColor": "#F0483E"
 },
@@ -389,7 +389,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-28T00:49:12.135Z",
     "domain": "pipedrive.com",
     "brandColor": "#00A15D"
 },
@@ -403,7 +403,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-16T16:04:24.161Z",
     "domain": "freshworks.com",
     "brandColor": "#02B875"
 },
@@ -417,7 +417,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-01-15T23:57:17.678Z",
     "domain": "salesforce.com",
     "brandColor": "#00A1E0"
 },
@@ -431,7 +431,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-03-25T16:12:21.301Z",
     "domain": "calendly.com",
     "brandColor": "#006BFF"
 },
@@ -445,7 +445,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-01-25T22:04:00.846Z",
     "domain": "usemotion.com",
     "brandColor": "#000000"
 },
@@ -459,7 +459,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-07-06T11:18:54.181Z",
     "domain": "reclaim.ai",
     "brandColor": "#E24A4A"
 },
@@ -473,7 +473,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-04-21T15:11:29.848Z",
     "domain": "fireflies.ai",
     "brandColor": "#FF3366"
 },
@@ -487,7 +487,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:51:54.606Z",
+    "dateAdded": "2026-05-30T05:16:31.392Z",
     "domain": "otter.ai",
     "brandColor": "#2196F3"
 },
@@ -501,7 +501,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.333Z",
+    "dateAdded": "2026-06-26T02:37:47.424Z",
     "domain": "search.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -519,7 +519,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-07-05T21:26:08.715Z",
     "domain": "trends.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -537,7 +537,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-06-13T04:14:59.656Z",
     "domain": "ads.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -555,7 +555,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-01-22T22:27:14.800Z",
     "domain": "business.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -573,7 +573,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-07-07T05:08:07.251Z",
     "domain": "google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -591,7 +591,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-06-07T08:31:06.480Z",
     "domain": "analytics.google.com",
     "brandColor": "#F4B400",
     "tags": [
@@ -609,7 +609,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-04-19T02:30:16.166Z",
     "domain": "tagmanager.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -627,7 +627,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-02-12T03:59:25.945Z",
     "domain": "lookerstudio.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -645,7 +645,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-05-02T12:41:17.135Z",
     "domain": "ga-dev-tools.google",
     "brandColor": "#4285F4",
     "tags": [
@@ -663,7 +663,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-05-19T13:56:11.856Z",
     "domain": "support.google.com",
     "brandColor": "#F4B400",
     "tags": [
@@ -681,7 +681,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Usage Based",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-03-08T19:20:07.708Z",
     "domain": "ads.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -698,7 +698,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-07-06T19:02:18.617Z",
     "domain": "ads.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -715,7 +715,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-07-05T19:51:16.399Z",
     "domain": "support.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -732,7 +732,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-04-18T22:13:07.273Z",
     "domain": "merchants.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -749,7 +749,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.5,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-04-15T23:10:06.972Z",
     "domain": "adstransparency.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -766,7 +766,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-02-10T11:03:58.146Z",
     "domain": "gemini.google.com",
     "brandColor": "#0F9D58",
     "tags": [
@@ -784,7 +784,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-03-04T04:50:19.222Z",
     "domain": "notebooklm.google.com",
     "brandColor": "#0F9D58",
     "tags": [
@@ -802,7 +802,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-06-20T17:13:11.852Z",
     "domain": "aistudio.google.com",
     "brandColor": "#0F9D58",
     "tags": [
@@ -820,7 +820,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-04-26T20:38:18.450Z",
     "domain": "workspace.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -838,7 +838,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-06-03T22:34:18.408Z",
     "domain": "workspace.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -855,7 +855,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-02-11T14:47:35.005Z",
     "domain": "thinkwithgoogle.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -872,7 +872,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-03-28T13:28:49.463Z",
     "domain": "grow.google",
     "brandColor": "#4285F4",
     "tags": [
@@ -889,7 +889,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": true,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-04-02T08:53:24.831Z",
     "domain": "fonts.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -906,7 +906,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.5,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-06-20T01:26:45.748Z",
     "domain": "sites.google.com",
     "brandColor": "#4285F4",
     "tags": [
@@ -923,7 +923,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Usage Based",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-14T05:31:42.334Z",
+    "dateAdded": "2026-03-25T17:42:10.741Z",
     "domain": "mapsplatform.google.com",
     "brandColor": "#34A853",
     "tags": [
@@ -941,7 +941,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:24.409Z",
+      "dateAdded": "2026-04-22T09:14:44.932Z",
       "domain": "eightfold.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -955,7 +955,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:24.409Z",
+      "dateAdded": "2026-01-18T02:32:51.120Z",
       "domain": "lumalabs.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -969,7 +969,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:24.409Z",
+      "dateAdded": "2026-02-13T05:37:00.443Z",
       "domain": "julius.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -983,7 +983,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:24.409Z",
+      "dateAdded": "2026-06-28T10:41:57.220Z",
       "domain": "harvey.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -997,7 +997,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:24.409Z",
+      "dateAdded": "2026-02-13T21:33:53.589Z",
       "domain": "inworld.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1011,7 +1011,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-03-04T03:10:31.075Z",
       "domain": "realty.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1025,7 +1025,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-07-09T03:39:33.201Z",
       "domain": "shopify.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1039,7 +1039,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-07-11T20:44:44.997Z",
       "domain": "monica.im",
       "brandColor": "var(--color-primary)"
   },
@@ -1053,7 +1053,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-01-20T23:16:27.441Z",
       "domain": "zapier.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1067,7 +1067,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-05-08T23:56:31.050Z",
       "domain": "jasper.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1081,7 +1081,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-04-07T09:07:13.168Z",
       "domain": "surferseo.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1095,7 +1095,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-05-18T03:21:55.598Z",
       "domain": "voiceflow.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1109,7 +1109,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-02-07T15:29:12.363Z",
       "domain": "intercom.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1123,7 +1123,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-03-23T05:11:26.875Z",
       "domain": "elicit.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1137,7 +1137,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-05-25T18:01:47.832Z",
       "domain": "pika.art",
       "brandColor": "var(--color-primary)"
   },
@@ -1151,7 +1151,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-06-18T22:47:15.263Z",
       "domain": "usegalileo.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1165,7 +1165,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-04-13T06:08:59.562Z",
       "domain": "alpha-sense.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1179,7 +1179,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-05-10T05:41:01.213Z",
       "domain": "khanacademy.org",
       "brandColor": "var(--color-primary)"
   },
@@ -1193,7 +1193,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-01-25T11:27:35.906Z",
       "domain": "autogpt.net",
       "brandColor": "var(--color-primary)"
   },
@@ -1207,7 +1207,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Usage Based",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-07-05T15:01:13.130Z",
+      "dateAdded": "2026-03-12T06:03:58.996Z",
       "domain": "platform.openai.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1221,7 +1221,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.830Z",
+      "dateAdded": "2026-02-14T07:03:34.060Z",
       "domain": "claude.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1235,7 +1235,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-07-13T15:50:36.566Z",
       "domain": "perplexity.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1249,7 +1249,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-22T03:52:02.634Z",
       "domain": "midjourney.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1263,7 +1263,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-06T02:24:53.959Z",
       "domain": "github.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1277,7 +1277,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-07-05T20:00:11.750Z",
       "domain": "runwayml.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1291,7 +1291,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-06-07T07:56:37.639Z",
       "domain": "elevenlabs.io",
       "brandColor": "var(--color-primary)"
   },
@@ -1305,7 +1305,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-05-13T10:40:50.852Z",
       "domain": "tome.app",
       "brandColor": "var(--color-primary)"
   },
@@ -1319,7 +1319,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-28T05:38:02.248Z",
       "domain": "otter.ai",
       "brandColor": "var(--color-primary)"
   },
@@ -1333,7 +1333,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-05-20T12:04:39.293Z",
       "domain": "chatpdf.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1347,7 +1347,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-17T09:16:51.591Z",
       "domain": "superhuman.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1361,7 +1361,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-06-19T22:36:36.239Z",
       "domain": "kickresume.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1375,7 +1375,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-19T19:28:55.326Z",
       "domain": "framer.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1389,7 +1389,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.4,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-02-26T13:51:15.815Z",
       "domain": "taplio.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1403,7 +1403,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-04-18T23:34:56.012Z",
       "domain": "darktrace.com",
       "brandColor": "var(--color-primary)"
   },
@@ -1417,7 +1417,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-07-05T15:00:51.831Z",
+      "dateAdded": "2026-01-17T10:34:38.132Z",
       "domain": "glass.health",
       "brandColor": "var(--color-primary)"
   },
@@ -1434,7 +1434,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-06-01T08:16:11.375Z",
+      "dateAdded": "2026-07-08T08:47:22.613Z",
       "tags": [
           "Chatbot",
           "Conversational",
@@ -1460,7 +1460,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-05-30T08:16:11.375Z",
+      "dateAdded": "2026-07-06T05:52:24.311Z",
       "tags": [
           "LLM",
           "Coding",
@@ -1486,7 +1486,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-05-28T08:16:11.375Z",
+      "dateAdded": "2026-03-25T16:40:20.183Z",
       "tags": [
           "Multi-modal",
           "Search",
@@ -1512,7 +1512,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-26T08:16:11.375Z",
+      "dateAdded": "2026-01-21T22:04:46.655Z",
       "tags": [
           "Windows",
           "Office",
@@ -1538,7 +1538,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-05-24T08:16:11.375Z",
+      "dateAdded": "2026-04-11T08:30:09.723Z",
       "tags": [
           "Search",
           "Research",
@@ -1564,7 +1564,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-22T08:16:11.375Z",
+      "dateAdded": "2026-06-09T11:58:01.906Z",
       "tags": [
           "Realtime",
           "X",
@@ -1590,7 +1590,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-05-20T08:16:11.375Z",
+      "dateAdded": "2026-02-23T16:28:01.389Z",
       "tags": [
           "Social",
           "Llama",
@@ -1616,7 +1616,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-18T08:16:11.375Z",
+      "dateAdded": "2026-06-22T08:19:35.337Z",
       "tags": [
           "Aggregator",
           "Chatbots",
@@ -1642,7 +1642,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-05-16T08:16:11.375Z",
+      "dateAdded": "2026-05-23T22:13:30.813Z",
       "tags": [
           "Search",
           "Chatbot",
@@ -1668,7 +1668,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-05-14T08:16:11.375Z",
+      "dateAdded": "2026-02-13T11:30:10.715Z",
       "tags": [
           "Chatbot",
           "Entertainment",
@@ -1694,7 +1694,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-12T08:16:11.375Z",
+      "dateAdded": "2026-01-24T14:11:03.528Z",
       "tags": [
           "Personal Assistant",
           "Therapy",
@@ -1720,7 +1720,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2026-05-10T08:16:11.375Z",
+      "dateAdded": "2026-02-22T05:14:01.149Z",
       "tags": [
           "Mistral",
           "Paris",
@@ -1746,7 +1746,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-08T08:16:11.375Z",
+      "dateAdded": "2026-07-10T06:19:13.983Z",
       "tags": [
           "Open Source",
           "Llama",
@@ -1772,7 +1772,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-05-06T08:16:11.375Z",
+      "dateAdded": "2026-02-06T18:55:24.315Z",
       "tags": [
           "Search",
           "Programming",
@@ -1798,7 +1798,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-05-04T08:16:11.375Z",
+      "dateAdded": "2026-06-04T00:23:59.123Z",
       "tags": [
           "DeepSeek",
           "Coding",
@@ -1824,7 +1824,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-05-02T08:16:11.375Z",
+      "dateAdded": "2026-06-11T12:41:37.302Z",
       "tags": [
           "Moonshot",
           "Long Context",
@@ -1850,7 +1850,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-04-30T08:16:11.375Z",
+      "dateAdded": "2026-02-20T08:40:45.558Z",
       "tags": [
           "Alibaba",
           "Qwen",
@@ -1876,7 +1876,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-04-28T08:16:11.375Z",
+      "dateAdded": "2026-03-13T02:39:06.308Z",
       "tags": [
           "Coding",
           "IDE",
@@ -1902,7 +1902,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-04-26T08:16:11.375Z",
+      "dateAdded": "2026-06-24T23:44:15.847Z",
       "tags": [
           "IDE",
           "Coding",
@@ -1928,7 +1928,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-04-24T08:16:11.375Z",
+      "dateAdded": "2026-04-15T20:38:17.192Z",
       "tags": [
           "IDE",
           "Agentic",
@@ -1954,7 +1954,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-04-22T08:16:11.375Z",
+      "dateAdded": "2026-02-23T13:22:44.732Z",
       "tags": [
           "In-browser",
           "Cloud IDE",
@@ -1980,7 +1980,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-04-20T08:16:11.375Z",
+      "dateAdded": "2026-05-28T07:10:56.612Z",
       "tags": [
           "Stackblitz",
           "Web Containers",
@@ -2006,7 +2006,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-04-18T08:16:11.375Z",
+      "dateAdded": "2026-05-02T08:30:11.706Z",
       "tags": [
           "Frontend",
           "AI Developer",
@@ -2032,7 +2032,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-04-16T08:16:11.375Z",
+      "dateAdded": "2026-03-21T00:31:34.628Z",
       "tags": [
           "UI",
           "Tailwind",
@@ -2058,7 +2058,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Usage Based",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-04-14T08:16:11.375Z",
+      "dateAdded": "2026-03-16T22:42:36.899Z",
       "tags": [
           "CLI",
           "Agent",
@@ -2084,7 +2084,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Usage Based",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-04-12T08:16:11.375Z",
+      "dateAdded": "2026-03-30T08:13:28.318Z",
       "tags": [
           "API",
           "Models",
@@ -2110,7 +2110,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-04-10T08:16:11.375Z",
+      "dateAdded": "2026-05-06T16:36:19.879Z",
       "tags": [
           "Autocomplete",
           "Privacy",
@@ -2136,7 +2136,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-04-08T08:16:11.376Z",
+      "dateAdded": "2026-01-31T12:23:36.731Z",
       "tags": [
           "Free",
           "Autocomplete",
@@ -2162,7 +2162,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-04-06T08:16:11.376Z",
+      "dateAdded": "2026-06-30T17:30:20.546Z",
       "tags": [
           "Code Search",
           "Enterprise",
@@ -2188,7 +2188,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-04-04T08:16:11.376Z",
+      "dateAdded": "2026-03-09T01:12:12.101Z",
       "tags": [
           "Software Engineer",
           "Autonomous",
@@ -2214,7 +2214,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-04-02T08:16:11.376Z",
+      "dateAdded": "2026-07-06T07:24:07.416Z",
       "tags": [
           "AWS",
           "Cloud",
@@ -2240,7 +2240,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-03-31T08:16:11.376Z",
+      "dateAdded": "2026-07-09T19:25:10.684Z",
       "tags": [
           "Documentation",
           "Refactoring",
@@ -2266,7 +2266,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-03-29T08:16:11.376Z",
+      "dateAdded": "2026-04-24T20:42:42.115Z",
       "tags": [
           "Pull Request",
           "Reviewer",
@@ -2292,7 +2292,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-03-27T08:16:11.376Z",
+      "dateAdded": "2026-03-11T08:48:27.358Z",
       "tags": [
           "Frontend",
           "AI Developer",
@@ -2318,7 +2318,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-03-25T08:16:11.376Z",
+      "dateAdded": "2026-06-06T13:07:19.226Z",
       "tags": [
           "Development",
           "App Builder",
@@ -2344,7 +2344,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-03-23T08:16:11.376Z",
+      "dateAdded": "2026-02-05T23:11:31.759Z",
       "tags": [
           "Cloud IDE",
           "Server Hosting",
@@ -2370,7 +2370,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-03-21T08:16:11.376Z",
+      "dateAdded": "2026-06-20T00:59:42.057Z",
       "tags": [
           "No-Code",
           "Database",
@@ -2396,7 +2396,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-03-19T08:16:11.376Z",
+      "dateAdded": "2026-04-25T18:36:22.126Z",
       "tags": [
           "Mobile Apps",
           "Flutter",
@@ -2422,7 +2422,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-03-17T08:16:11.376Z",
+      "dateAdded": "2026-04-30T02:06:43.271Z",
       "tags": [
           "Airtable",
           "No-code Client Portal",
@@ -2448,7 +2448,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-03-15T08:16:11.376Z",
+      "dateAdded": "2026-05-07T20:26:42.365Z",
       "tags": [
           "Headless CMS",
           "Figma to Code",
@@ -2474,7 +2474,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-03-13T08:16:11.376Z",
+      "dateAdded": "2026-04-25T12:55:02.416Z",
       "tags": [
           "Web Design",
           "Interactive",
@@ -2500,7 +2500,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-03-11T08:16:11.376Z",
+      "dateAdded": "2026-06-24T03:14:22.018Z",
       "tags": [
           "Startups",
           "Service Businesses",
@@ -2526,7 +2526,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-03-09T08:16:11.376Z",
+      "dateAdded": "2026-04-29T02:31:27.531Z",
       "tags": [
           "React",
           "No-code Database",
@@ -2552,7 +2552,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-03-07T08:16:11.376Z",
+      "dateAdded": "2026-04-30T17:38:45.838Z",
       "tags": [
           "React UI Designer",
           "Figma",
@@ -2578,7 +2578,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-03-05T08:16:11.376Z",
+      "dateAdded": "2026-02-23T16:37:13.289Z",
       "tags": [
           "SaaS Boilerplate",
           "No-code SaaS",
@@ -2604,7 +2604,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-03-03T08:16:11.376Z",
+      "dateAdded": "2026-04-22T10:52:49.223Z",
       "tags": [
           "Backend",
           "Workflow Database",
@@ -2630,7 +2630,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-03-01T08:16:11.376Z",
+      "dateAdded": "2026-02-11T21:10:42.306Z",
       "tags": [
           "UX/UI wireframe",
           "Figma converter",
@@ -2656,7 +2656,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-02-27T08:16:11.376Z",
+      "dateAdded": "2026-01-26T22:00:03.428Z",
       "tags": [
           "Generative Art",
           "Illustration",
@@ -2682,7 +2682,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-25T08:16:11.376Z",
+      "dateAdded": "2026-05-17T05:06:26.557Z",
       "tags": [
           "OpenAI",
           "Image Creator",
@@ -2708,7 +2708,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-23T08:16:11.376Z",
+      "dateAdded": "2026-06-01T21:58:47.699Z",
       "tags": [
           "Photoshop",
           "Commercial Safe",
@@ -2734,7 +2734,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-21T08:16:11.376Z",
+      "dateAdded": "2026-03-26T10:05:49.582Z",
       "tags": [
           "Gaming assets",
           "Realtime generation",
@@ -2760,7 +2760,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-19T08:16:11.376Z",
+      "dateAdded": "2026-04-07T01:26:19.692Z",
       "tags": [
           "Open Source",
           "Stability",
@@ -2786,7 +2786,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-02-17T08:16:11.376Z",
+      "dateAdded": "2026-06-04T01:58:57.599Z",
       "tags": [
           "Photorealism",
           "Black Forest",
@@ -2812,7 +2812,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-15T08:16:11.376Z",
+      "dateAdded": "2026-05-19T13:29:09.558Z",
       "tags": [
           "Typography",
           "Logo Text",
@@ -2838,7 +2838,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-02-13T08:16:11.376Z",
+      "dateAdded": "2026-02-04T23:11:46.946Z",
       "tags": [
           "Realtime Editor",
           "Image Upscaler",
@@ -2864,7 +2864,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-02-11T08:16:11.376Z",
+      "dateAdded": "2026-02-20T22:02:49.199Z",
       "tags": [
           "Image editor",
           "Canvas",
@@ -2890,7 +2890,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-02-09T08:16:11.376Z",
+      "dateAdded": "2026-02-19T20:24:42.720Z",
       "tags": [
           "Presentations",
           "Business graphics",
@@ -2916,7 +2916,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-02-07T08:16:11.376Z",
+      "dateAdded": "2026-07-12T22:11:09.256Z",
       "tags": [
           "Vector generator",
           "Stock Mockups",
@@ -2942,7 +2942,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-02-05T08:16:11.376Z",
+      "dateAdded": "2026-06-22T04:39:35.422Z",
       "tags": [
           "Copilot Image",
           "DALL-E 3",
@@ -2968,7 +2968,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2026-02-03T08:16:11.376Z",
+      "dateAdded": "2026-04-04T14:56:16.605Z",
       "tags": [
           "Art Community",
           "SDXL",
@@ -2994,7 +2994,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-02-01T08:16:11.376Z",
+      "dateAdded": "2026-02-19T21:32:14.563Z",
       "tags": [
           "Stable Diffusion search",
           "Aesthetic prompts",
@@ -3020,7 +3020,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Usage Based",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-01-30T08:16:11.376Z",
+      "dateAdded": "2026-03-26T21:27:49.987Z",
       "tags": [
           "Stability API",
           "Image editor",
@@ -3046,7 +3046,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-01-28T08:16:11.376Z",
+      "dateAdded": "2026-02-24T13:41:40.701Z",
       "tags": [
           "Video Generation",
           "OpenAI",
@@ -3072,7 +3072,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-26T08:16:11.376Z",
+      "dateAdded": "2026-04-08T03:32:19.982Z",
       "tags": [
           "DeepMind",
           "Cinematic 1080p",
@@ -3098,7 +3098,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-24T08:16:11.376Z",
+      "dateAdded": "2026-04-21T10:48:44.509Z",
       "tags": [
           "Gen-3 Alpha",
           "Virtual camera",
@@ -3124,7 +3124,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-01-22T08:16:11.376Z",
+      "dateAdded": "2026-05-15T04:03:51.384Z",
       "tags": [
           "3D Animation",
           "Cartoon styles",
@@ -3150,7 +3150,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-20T08:16:11.376Z",
+      "dateAdded": "2026-04-04T01:19:29.276Z",
       "tags": [
           "Realistic physics",
           "Long cinematic",
@@ -3176,7 +3176,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-18T08:16:11.376Z",
+      "dateAdded": "2026-01-29T13:14:11.052Z",
       "tags": [
           "Dream Machine",
           "Realtime pan",
@@ -3202,7 +3202,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-01-16T08:16:11.376Z",
+      "dateAdded": "2026-03-01T19:43:46.721Z",
       "tags": [
           "AI Avatar",
           "Translation dubbing",
@@ -3228,7 +3228,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-14T08:16:11.376Z",
+      "dateAdded": "2026-06-20T01:31:47.377Z",
       "tags": [
           "Enterprise training",
           "HR Video",
@@ -3254,7 +3254,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-01-12T08:16:11.376Z",
+      "dateAdded": "2026-04-20T09:37:56.593Z",
       "tags": [
           "Portrait animator",
           "Live agent",
@@ -3280,7 +3280,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-01-10T08:16:11.376Z",
+      "dateAdded": "2026-06-19T23:27:23.393Z",
       "tags": [
           "Video Podcast",
           "Text script editor",
@@ -3306,7 +3306,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-01-08T08:16:11.376Z",
+      "dateAdded": "2026-05-29T00:35:21.461Z",
       "tags": [
           "TikTok Shorts",
           "Virality score",
@@ -3332,7 +3332,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-01-06T08:16:11.376Z",
+      "dateAdded": "2026-03-31T15:23:19.011Z",
       "tags": [
           "TikTok editor",
           "Background remover",
@@ -3358,7 +3358,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-01-04T08:16:11.376Z",
+      "dateAdded": "2026-03-20T20:08:30.313Z",
       "tags": [
           "Subtitles",
           "Noise clean",
@@ -3384,7 +3384,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-01-02T08:16:11.376Z",
+      "dateAdded": "2026-04-30T20:38:00.097Z",
       "tags": [
           "Blog to video",
           "AI vocal",
@@ -3410,7 +3410,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-31T08:16:11.376Z",
+      "dateAdded": "2026-05-08T17:03:16.586Z",
       "tags": [
           "Prompt to full draft",
           "Voiceover outline",
@@ -3436,7 +3436,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-12-29T08:16:11.376Z",
+      "dateAdded": "2026-04-12T04:22:39.368Z",
       "tags": [
           "Voice Clone",
           "Vocal translation",
@@ -3462,7 +3462,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-12-27T08:16:11.376Z",
+      "dateAdded": "2026-01-24T09:58:52.139Z",
       "tags": [
           "Full orchestrations",
           "Lyric generator",
@@ -3488,7 +3488,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-12-25T08:16:11.376Z",
+      "dateAdded": "2026-02-22T07:26:27.479Z",
       "tags": [
           "Lossless vocals",
           "Musical loops",
@@ -3514,7 +3514,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-23T08:16:11.376Z",
+      "dateAdded": "2026-06-16T02:24:05.918Z",
       "tags": [
           "Commercial voiceover",
           "E-learning narration",
@@ -3540,7 +3540,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-21T08:16:11.376Z",
+      "dateAdded": "2026-04-03T02:19:40.045Z",
       "tags": [
           "Podcast host API",
           "Conversational speech",
@@ -3566,7 +3566,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-12-19T08:16:11.376Z",
+      "dateAdded": "2026-03-07T19:39:26.294Z",
       "tags": [
           "Book reader",
           "Voice mimic",
@@ -3592,7 +3592,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-12-17T08:16:11.376Z",
+      "dateAdded": "2026-03-31T21:28:38.673Z",
       "tags": [
           "Deepfake monitor",
           "Game character",
@@ -3618,7 +3618,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-12-15T08:16:11.376Z",
+      "dateAdded": "2026-03-06T16:27:14.466Z",
       "tags": [
           "Acoustic filter",
           "Echo cancellation",
@@ -3644,7 +3644,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-12-13T08:16:11.376Z",
+      "dateAdded": "2026-06-18T02:38:02.573Z",
       "tags": [
           "Vocal enhancer",
           "Microphone checker",
@@ -3670,7 +3670,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-12-11T08:16:11.376Z",
+      "dateAdded": "2026-01-16T10:12:18.217Z",
       "tags": [
           "Vocal transformer",
           "Instrument splitter",
@@ -3696,7 +3696,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-09T08:16:11.376Z",
+      "dateAdded": "2026-06-20T11:22:30.102Z",
       "tags": [
           "Gaming live voice",
           "Vocal soundboard",
@@ -3722,7 +3722,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-12-07T08:16:11.376Z",
+      "dateAdded": "2026-05-25T04:52:57.824Z",
       "tags": [
           "Classical synth",
           "Midi composer",
@@ -3748,7 +3748,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-12-05T08:16:11.376Z",
+      "dateAdded": "2026-04-25T00:00:39.243Z",
       "tags": [
           "Marketing copy",
           "SEO briefs",
@@ -3774,7 +3774,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-03T08:16:11.376Z",
+      "dateAdded": "2026-02-14T16:10:50.538Z",
       "tags": [
           "Ad headlines",
           "Cold emails",
@@ -3800,7 +3800,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-12-01T08:16:11.376Z",
+      "dateAdded": "2026-01-18T06:36:45.609Z",
       "tags": [
           "Blog templates",
           "Article writer",
@@ -3826,7 +3826,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-11-29T08:16:11.376Z",
+      "dateAdded": "2026-05-28T20:31:55.496Z",
       "tags": [
           "Cheap content",
           "Vibe options",
@@ -3852,7 +3852,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-27T08:16:11.376Z",
+      "dateAdded": "2026-03-20T02:36:37.130Z",
       "tags": [
           "Syllabus check",
           "Tone checker",
@@ -3878,7 +3878,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-11-25T08:16:11.376Z",
+      "dateAdded": "2026-05-04T22:05:38.499Z",
       "tags": [
           "Paraphraser",
           "Summarizer",
@@ -3904,7 +3904,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-11-23T08:16:11.376Z",
+      "dateAdded": "2026-03-23T22:31:54.351Z",
       "tags": [
           "Inline editor",
           "Sentence expander",
@@ -3930,7 +3930,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-21T08:16:11.376Z",
+      "dateAdded": "2026-04-17T07:55:09.461Z",
       "tags": [
           "Notion workspace",
           "Document helper",
@@ -3956,7 +3956,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-19T08:16:11.376Z",
+      "dateAdded": "2026-02-08T19:44:24.360Z",
       "tags": [
           "Novel editor",
           "Plot developer",
@@ -3982,7 +3982,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-11-17T08:16:11.376Z",
+      "dateAdded": "2026-02-22T19:02:47.945Z",
       "tags": [
           "Email helper",
           "Autopilot search",
@@ -4008,7 +4008,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-11-15T08:16:11.376Z",
+      "dateAdded": "2026-03-08T03:26:03.480Z",
       "tags": [
           "Performance score",
           "Copywriter",
@@ -4034,7 +4034,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-11-13T08:16:11.376Z",
+      "dateAdded": "2026-01-18T04:47:44.611Z",
       "tags": [
           "Business safe LLM",
           "Factual accuracy",
@@ -4060,7 +4060,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-11T08:16:11.376Z",
+      "dateAdded": "2026-03-09T08:57:12.706Z",
       "tags": [
           "Citation formatting",
           "Thesis outlines",
@@ -4086,7 +4086,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-09T08:16:11.376Z",
+      "dateAdded": "2026-04-05T23:44:43.535Z",
       "tags": [
           "SEO auditor",
           "Keyword mapping",
@@ -4112,7 +4112,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-07T08:16:11.376Z",
+      "dateAdded": "2026-03-07T22:09:46.653Z",
       "tags": [
           "Ad analytics",
           "Competitor charts",
@@ -4138,7 +4138,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-11-05T08:16:11.376Z",
+      "dateAdded": "2026-02-16T20:41:40.737Z",
       "tags": [
           "Alt text maker",
           "Keyword rank tracker",
@@ -4164,7 +4164,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-11-03T08:16:11.376Z",
+      "dateAdded": "2026-03-01T06:36:26.420Z",
       "tags": [
           "SERP analyzer",
           "Outline engine",
@@ -4190,7 +4190,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-11-01T08:16:11.376Z",
+      "dateAdded": "2026-01-24T06:01:08.907Z",
       "tags": [
           "LSI keyword check",
           "Optimized content",
@@ -4216,7 +4216,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-10-30T08:16:11.376Z",
+      "dateAdded": "2026-07-09T23:05:48.640Z",
       "tags": [
           "Gap checker",
           "E-E-A-T score",
@@ -4242,7 +4242,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-10-28T08:16:11.376Z",
+      "dateAdded": "2026-05-24T12:47:27.407Z",
       "tags": [
           "Ad banner maker",
           "Performance check",
@@ -4268,7 +4268,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-26T08:16:11.376Z",
+      "dateAdded": "2026-04-19T22:49:27.304Z",
       "tags": [
           "Competitor briefs",
           "Social designer",
@@ -4294,7 +4294,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-10-24T08:16:11.376Z",
+      "dateAdded": "2026-06-15T20:35:00.029Z",
       "tags": [
           "Copy assistant",
           "Scheduler",
@@ -4320,7 +4320,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-22T08:16:11.376Z",
+      "dateAdded": "2026-03-02T18:07:41.986Z",
       "tags": [
           "Idea helper",
           "Social queue",
@@ -4346,7 +4346,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-20T08:16:11.376Z",
+      "dateAdded": "2026-05-16T21:28:19.289Z",
       "tags": [
           "CRM marketing",
           "Call logger",
@@ -4372,7 +4372,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-10-18T08:16:11.376Z",
+      "dateAdded": "2026-05-08T20:44:50.993Z",
       "tags": [
           "Social queue",
           "Sentiment logger",
@@ -4398,7 +4398,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-10-16T08:16:11.376Z",
+      "dateAdded": "2026-04-12T01:10:35.571Z",
       "tags": [
           "Hashtag auditor",
           "Campaign scheduling",
@@ -4424,7 +4424,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-10-14T08:16:11.376Z",
+      "dateAdded": "2026-02-17T01:26:04.185Z",
       "tags": [
           "Visual diagrams",
           "API logs helper",
@@ -4450,7 +4450,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-12T08:16:11.376Z",
+      "dateAdded": "2026-02-06T10:30:24.154Z",
       "tags": [
           "Visual canvas router",
           "Flowchart editor",
@@ -4476,7 +4476,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-10-10T08:16:11.376Z",
+      "dateAdded": "2026-06-05T02:40:02.932Z",
       "tags": [
           "Open Source workflow",
           "Privacy safe",
@@ -4502,7 +4502,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-08T08:16:11.376Z",
+      "dateAdded": "2026-04-23T11:28:13.548Z",
       "tags": [
           "Chrome scrapper",
           "Calendar connector",
@@ -4528,7 +4528,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-10-06T08:16:11.376Z",
+      "dateAdded": "2026-06-06T19:53:50.639Z",
       "tags": [
           "Autonomous HR bot",
           "Email inbox filter",
@@ -4554,7 +4554,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-10-04T08:16:11.376Z",
+      "dateAdded": "2026-06-09T20:51:41.011Z",
       "tags": [
           "Autonomous agent team",
           "Data scraper",
@@ -4580,7 +4580,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-10-02T08:16:11.376Z",
+      "dateAdded": "2026-05-05T08:51:00.139Z",
       "tags": [
           "Framer dashboard",
           "Multi-user whiteboard",
@@ -4606,7 +4606,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-09-30T08:16:11.376Z",
+      "dateAdded": "2026-03-13T08:06:16.434Z",
       "tags": [
           "Approval loop",
           "Clean logs tracker",
@@ -4632,7 +4632,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-09-28T08:16:11.376Z",
+      "dateAdded": "2026-06-12T06:02:53.150Z",
       "tags": [
           "Web scraper",
           "JSON formatter",
@@ -4658,7 +4658,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-09-26T08:16:11.376Z",
+      "dateAdded": "2026-03-16T19:54:00.420Z",
       "tags": [
           "Agent canvas",
           "YAML custom scripts",
@@ -4684,7 +4684,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-09-24T08:16:11.376Z",
+      "dateAdded": "2026-06-29T06:29:25.477Z",
       "tags": [
           "Multi-Agent",
           "Python framework",
@@ -4710,7 +4710,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-09-22T08:16:11.376Z",
+      "dateAdded": "2026-03-19T21:58:05.728Z",
       "tags": [
           "Agentic system",
           "Docker executor",
@@ -4736,7 +4736,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-09-20T08:16:11.376Z",
+      "dateAdded": "2026-03-10T02:58:35.074Z",
       "tags": [
           "Call recorder",
           "CRM sync",
@@ -4762,7 +4762,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-09-18T08:16:11.376Z",
+      "dateAdded": "2026-07-03T21:52:07.844Z",
       "tags": [
           "Transcriber",
           "Real-time subtitle",
@@ -4788,7 +4788,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-09-16T08:16:11.376Z",
+      "dateAdded": "2026-03-14T18:43:57.261Z",
       "tags": [
           "Zoom companion",
           "Instant recording clips",
@@ -4814,7 +4814,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-09-14T08:16:11.376Z",
+      "dateAdded": "2026-05-11T08:04:52.503Z",
       "tags": [
           "Call translator",
           "G-meet sidebar",
@@ -4840,7 +4840,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2025-09-12T08:16:11.376Z",
+      "dateAdded": "2026-04-04T04:07:16.561Z",
       "tags": [
           "CRM integration",
           "Customer objections logger",
@@ -4866,7 +4866,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-09-10T08:16:11.376Z",
+      "dateAdded": "2026-06-26T06:10:23.263Z",
       "tags": [
           "Task planner",
           "PDF summary doc",
@@ -4892,7 +4892,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-09-08T08:16:11.376Z",
+      "dateAdded": "2026-05-19T22:02:29.379Z",
       "tags": [
           "Noise filter",
           "Transcriber",
@@ -4918,7 +4918,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-09-06T08:16:11.376Z",
+      "dateAdded": "2026-04-12T23:58:55.027Z",
       "tags": [
           "Zoom logger",
           "Auto task sender",
@@ -4944,7 +4944,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-09-04T08:16:11.376Z",
+      "dateAdded": "2026-05-09T22:20:28.476Z",
       "tags": [
           "Template editor",
           "SaaS client dashboard",
@@ -4970,7 +4970,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-09-02T08:16:11.376Z",
+      "dateAdded": "2026-03-13T12:51:49.734Z",
       "tags": [
           "Attention metric",
           "Sentiment tracker",
@@ -4996,7 +4996,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-31T08:16:11.376Z",
+      "dateAdded": "2026-03-27T11:48:00.868Z",
       "tags": [
           "Email logs",
           "Custom CRM mapping",
@@ -5022,7 +5022,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-08-29T08:16:11.376Z",
+      "dateAdded": "2026-02-15T08:00:03.617Z",
       "tags": [
           "Slideshow",
           "Docs to presentation",
@@ -5048,7 +5048,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-27T08:16:11.376Z",
+      "dateAdded": "2026-04-18T05:15:24.485Z",
       "tags": [
           "Visual storyteller",
           "Text-to-slide outlines",
@@ -5074,7 +5074,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-25T08:16:11.376Z",
+      "dateAdded": "2026-05-24T17:44:43.825Z",
       "tags": [
           "Constraint templates",
           "Proportion engine",
@@ -5100,7 +5100,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-23T08:16:11.376Z",
+      "dateAdded": "2026-04-02T05:24:21.313Z",
       "tags": [
           "Magic design templates",
           "Social exports",
@@ -5126,7 +5126,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-21T08:16:11.376Z",
+      "dateAdded": "2026-03-16T03:03:34.019Z",
       "tags": [
           "Questionnaire generator",
           "Instant forms",
@@ -5152,7 +5152,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2025-08-19T08:16:11.376Z",
+      "dateAdded": "2026-05-29T07:16:04.570Z",
       "tags": [
           "Pitch decks creator",
           "Startup tables",
@@ -5178,7 +5178,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-08-17T08:16:11.376Z",
+      "dateAdded": "2026-03-17T03:06:41.006Z",
       "tags": [
           "Google slides plug",
           "Paragraph importer",
@@ -5204,7 +5204,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-15T08:16:11.376Z",
+      "dateAdded": "2026-06-02T18:52:36.406Z",
       "tags": [
           "Google slides companion",
           "Metrics graph",
@@ -5230,7 +5230,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-13T08:16:11.376Z",
+      "dateAdded": "2026-01-17T06:29:21.237Z",
       "tags": [
           "Visual flowcharts",
           "Infographics maker",
@@ -5256,7 +5256,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-08-11T08:16:11.376Z",
+      "dateAdded": "2026-03-22T05:36:06.627Z",
       "tags": [
           "Automated designs",
           "Brand style logs",
@@ -5282,7 +5282,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-09T08:16:11.376Z",
+      "dateAdded": "2026-02-01T16:21:04.329Z",
       "tags": [
           "PDF scanner",
           "Instant translation",
@@ -5308,7 +5308,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-07T08:16:11.376Z",
+      "dateAdded": "2026-06-23T17:15:45.307Z",
       "tags": [
           "E-book tracker",
           "Contract auditor",
@@ -5334,7 +5334,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-05T08:16:11.376Z",
+      "dateAdded": "2026-03-27T02:15:25.507Z",
       "tags": [
           "Patent analysis",
           "Scientific paper",
@@ -5360,7 +5360,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-08-03T08:16:11.376Z",
+      "dateAdded": "2026-04-26T20:11:55.272Z",
       "tags": [
           "Doc scanner",
           "Text translation",
@@ -5386,7 +5386,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-08-01T08:16:11.376Z",
+      "dateAdded": "2026-03-16T20:23:04.612Z",
       "tags": [
           "Acrobat reader",
           "PDF compiler",
@@ -5412,7 +5412,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-07-30T08:16:11.376Z",
+      "dateAdded": "2026-03-23T02:22:47.654Z",
       "tags": [
           "PDF editor",
           "Page arranger",
@@ -5438,7 +5438,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-07-28T08:16:11.376Z",
+      "dateAdded": "2026-02-10T11:21:01.602Z",
       "tags": [
           "Bulk pdf scanner",
           "Database exports",
@@ -5464,7 +5464,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-07-26T08:16:11.376Z",
+      "dateAdded": "2026-06-14T16:22:39.178Z",
       "tags": [
           "Shared doc chat",
           "Student notes helper",
@@ -5490,7 +5490,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-24T08:16:11.376Z",
+      "dateAdded": "2026-03-03T07:31:22.338Z",
       "tags": [
           "Technical terms highlighter",
           "Tutor assistant",
@@ -5516,7 +5516,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-07-22T08:16:11.376Z",
+      "dateAdded": "2026-02-14T12:41:01.553Z",
       "tags": [
           "Patent details checker",
           "Financial data compiler",
@@ -5542,7 +5542,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-07-20T08:16:11.376Z",
+      "dateAdded": "2026-06-16T12:30:56.926Z",
       "tags": [
           "Podcast generation",
           "Document analyzer",
@@ -5568,7 +5568,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-18T08:16:11.376Z",
+      "dateAdded": "2026-05-11T04:54:58.751Z",
       "tags": [
           "Consensus grid",
           "Technical reviews",
@@ -5594,7 +5594,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-16T08:16:11.376Z",
+      "dateAdded": "2026-04-17T11:32:23.650Z",
       "tags": [
           "Evidence engine",
           "Science check",
@@ -5620,7 +5620,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-14T08:16:11.376Z",
+      "dateAdded": "2026-06-29T08:11:53.892Z",
       "tags": [
           "Literature check",
           "Math formula helper",
@@ -5646,7 +5646,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-07-12T08:16:11.376Z",
+      "dateAdded": "2026-02-27T13:40:42.002Z",
       "tags": [
           "Search AI",
           "Citation sources",
@@ -5672,7 +5672,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-10T08:16:11.376Z",
+      "dateAdded": "2026-05-11T22:26:24.917Z",
       "tags": [
           "Graph visualizer",
           "Collection mapper",
@@ -5698,7 +5698,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-07-08T08:16:11.376Z",
+      "dateAdded": "2026-04-11T08:55:55.566Z",
       "tags": [
           "Reference map",
           "Academic collections",
@@ -5724,7 +5724,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-07-06T08:16:11.376Z",
+      "dateAdded": "2026-03-14T23:56:44.011Z",
       "tags": [
           "Paper indexer",
           "Impact tracking",
@@ -5750,7 +5750,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-07-04T08:16:11.376Z",
+      "dateAdded": "2026-03-09T02:48:46.960Z",
       "tags": [
           "Flashcard outlines",
           "Key data summaries",
@@ -5776,7 +5776,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2025-07-02T08:16:11.376Z",
+      "dateAdded": "2026-01-25T16:15:48.140Z",
       "tags": [
           "Term lookup",
           "Paper translator",
@@ -5802,7 +5802,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-06-30T08:16:11.376Z",
+      "dateAdded": "2026-02-27T04:09:21.792Z",
       "tags": [
           "Conversational Search",
           "Research Citations",
@@ -5828,7 +5828,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-06-28T08:16:11.376Z",
+      "dateAdded": "2026-03-15T10:21:15.643Z",
       "tags": [
           "Developer tools",
           "Agent mode",
@@ -5854,7 +5854,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-26T08:16:11.376Z",
+      "dateAdded": "2026-05-26T15:42:46.328Z",
       "tags": [
           "Code search",
           "Developer search",
@@ -5880,7 +5880,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-06-24T08:16:11.376Z",
+      "dateAdded": "2026-05-14T18:43:55.949Z",
       "tags": [
           "Conversational",
           "Ad-free search",
@@ -5906,7 +5906,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-06-22T08:16:11.376Z",
+      "dateAdded": "2026-02-12T03:38:39.733Z",
       "tags": [
           "Speedy search",
           "Discussion forums",
@@ -5932,7 +5932,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-20T08:16:11.376Z",
+      "dateAdded": "2026-05-13T06:21:33.627Z",
       "tags": [
           "Neural search",
           "API keys finder",
@@ -5958,7 +5958,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-18T08:16:11.376Z",
+      "dateAdded": "2026-06-30T23:47:27.976Z",
       "tags": [
           "Science search",
           "Factual answers",
@@ -5984,7 +5984,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-06-16T08:16:11.376Z",
+      "dateAdded": "2026-04-12T08:06:14.298Z",
       "tags": [
           "Mobile browser",
           "Browse for Me",
@@ -6010,7 +6010,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-06-14T08:16:11.376Z",
+      "dateAdded": "2026-03-28T09:46:08.862Z",
       "tags": [
           "Social designs",
           "Auto Reel creator",
@@ -6036,7 +6036,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-06-12T08:16:11.376Z",
+      "dateAdded": "2026-07-03T17:18:27.509Z",
       "tags": [
           "Graphic templates",
           "Caption planner",
@@ -6062,7 +6062,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-06-10T08:16:11.376Z",
+      "dateAdded": "2026-03-16T18:28:10.024Z",
       "tags": [
           "Social queue",
           "Topic mapping",
@@ -6088,7 +6088,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-06-08T08:16:11.376Z",
+      "dateAdded": "2026-03-11T15:07:19.480Z",
       "tags": [
           "Outbound dashboard",
           "Auditor",
@@ -6114,7 +6114,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-06T08:16:11.376Z",
+      "dateAdded": "2026-05-09T11:55:58.989Z",
       "tags": [
           "Virality scoring",
           "Thread builder",
@@ -6140,7 +6140,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-04T08:16:11.376Z",
+      "dateAdded": "2026-03-08T14:18:07.765Z",
       "tags": [
           "LinkedIn growth",
           "Engagement CRM",
@@ -6166,7 +6166,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-06-02T08:16:11.376Z",
+      "dateAdded": "2026-03-10T05:02:13.917Z",
       "tags": [
           "Twitter scheduler",
           "Engagement assistant",
@@ -6192,7 +6192,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-31T08:16:11.376Z",
+      "dateAdded": "2026-03-05T04:00:06.579Z",
       "tags": [
           "Team dashboard",
           "Review tracker",
@@ -6218,7 +6218,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-05-29T08:16:11.376Z",
+      "dateAdded": "2026-07-09T14:20:41.308Z",
       "tags": [
           "Hashtag helper",
           "Pinterest tool",
@@ -6244,7 +6244,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-27T08:16:11.376Z",
+      "dateAdded": "2026-04-08T00:24:25.464Z",
       "tags": [
           "Blog recycling",
           "Influencer search",
@@ -6270,7 +6270,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-05-25T08:16:11.376Z",
+      "dateAdded": "2026-04-12T05:08:41.124Z",
       "tags": [
           "Fast client",
           "Draft expander",
@@ -6296,7 +6296,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-05-23T08:16:11.376Z",
+      "dateAdded": "2026-07-11T17:53:07.635Z",
       "tags": [
           "Inbox summarizer",
           "Task schedules",
@@ -6322,7 +6322,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-21T08:16:11.376Z",
+      "dateAdded": "2026-06-29T05:10:49.036Z",
       "tags": [
           "Bullet compiler",
           "Tone settings",
@@ -6348,7 +6348,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-05-19T08:16:11.376Z",
+      "dateAdded": "2026-06-19T21:54:12.394Z",
       "tags": [
           "Sales scoring",
           "Tone checker",
@@ -6374,7 +6374,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-17T08:16:11.376Z",
+      "dateAdded": "2026-05-20T16:58:11.732Z",
       "tags": [
           "Folder sorter",
           "Newsletter binder",
@@ -6400,7 +6400,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-05-15T08:16:11.376Z",
+      "dateAdded": "2026-05-18T01:04:48.306Z",
       "tags": [
           "SDR tracker",
           "Email signature",
@@ -6426,7 +6426,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-05-13T08:16:11.376Z",
+      "dateAdded": "2026-05-06T01:44:18.168Z",
       "tags": [
           "Shared team client",
           "Live chat support",
@@ -6452,7 +6452,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-05-11T08:16:11.376Z",
+      "dateAdded": "2026-04-18T19:11:56.113Z",
       "tags": [
           "Executive assistant",
           "Action tasking",
@@ -6478,7 +6478,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-05-09T08:16:11.376Z",
+      "dateAdded": "2026-03-29T14:45:13.405Z",
       "tags": [
           "Chat mimic",
           "Paragraph reader",
@@ -6504,7 +6504,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-05-07T08:16:11.376Z",
+      "dateAdded": "2026-01-17T00:49:58.212Z",
       "tags": [
           "Interaction designer",
           "Canvas",
@@ -6530,7 +6530,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-05T08:16:11.376Z",
+      "dateAdded": "2026-01-18T07:17:45.412Z",
       "tags": [
           "Instant page",
           "SaaS client booking",
@@ -6556,7 +6556,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-03T08:16:11.376Z",
+      "dateAdded": "2026-02-28T14:17:20.668Z",
       "tags": [
           "Instant local site",
           "Invoicing",
@@ -6582,7 +6582,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-05-01T08:16:11.376Z",
+      "dateAdded": "2026-06-16T11:22:06.706Z",
       "tags": [
           "WordPress cloning",
           "Elementor builder",
@@ -6608,7 +6608,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-04-29T08:16:11.376Z",
+      "dateAdded": "2026-06-03T12:20:17.962Z",
       "tags": [
           "Web host",
           "Store checkout",
@@ -6634,7 +6634,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-04-27T08:16:11.376Z",
+      "dateAdded": "2026-04-18T12:26:28.472Z",
       "tags": [
           "No-code portfolio",
           "Store blocks",
@@ -6660,7 +6660,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-04-25T08:16:11.376Z",
+      "dateAdded": "2026-03-16T03:30:50.291Z",
       "tags": [
           "Style classes logs",
           "CMS list",
@@ -6686,7 +6686,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-04-23T08:16:11.376Z",
+      "dateAdded": "2026-06-20T01:53:57.604Z",
       "tags": [
           "Wireframe outline",
           "Figma design blocks",
@@ -6712,7 +6712,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2025-04-21T08:16:11.376Z",
+      "dateAdded": "2026-07-07T07:17:28.432Z",
       "tags": [
           "Instant responder",
           "Knowledge syncing",
@@ -6738,7 +6738,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-04-19T08:16:11.376Z",
+      "dateAdded": "2026-06-03T23:36:57.079Z",
       "tags": [
           "Sentiment checker",
           "Dynamic routing",
@@ -6764,7 +6764,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-04-17T08:16:11.376Z",
+      "dateAdded": "2026-03-29T06:27:44.740Z",
       "tags": [
           "Lyro chatbot",
           "Live chat widgets",
@@ -6790,7 +6790,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-04-15T08:16:11.376Z",
+      "dateAdded": "2026-02-24T13:21:37.786Z",
       "tags": [
           "Embedded script",
           "Folder upload",
@@ -6816,7 +6816,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-04-13T08:16:11.376Z",
+      "dateAdded": "2026-04-29T04:43:38.343Z",
       "tags": [
           "Flowchart canvas",
           "Language routing",
@@ -6842,7 +6842,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-04-11T08:16:11.376Z",
+      "dateAdded": "2026-02-17T23:25:21.181Z",
       "tags": [
           "Dialogue tree designer",
           "Cooperative prototype",
@@ -6868,7 +6868,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-04-09T08:16:11.376Z",
+      "dateAdded": "2026-06-15T12:30:03.352Z",
       "tags": [
           "Freddy bot helper",
           "Agent helper",
@@ -6894,7 +6894,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-04-07T08:16:11.376Z",
+      "dateAdded": "2026-02-16T22:47:16.556Z",
       "tags": [
           "Enterprise bot",
           "CRM routing",
@@ -6920,7 +6920,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-04-05T08:16:11.376Z",
+      "dateAdded": "2026-04-29T12:31:59.718Z",
       "tags": [
           "Vibe reply mimic",
           "Article recommender",
@@ -6946,7 +6946,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-04-03T08:16:11.376Z",
+      "dateAdded": "2026-01-27T07:47:30.462Z",
       "tags": [
           "Expense checker",
           "Receipt match logger",
@@ -6972,7 +6972,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-04-01T08:16:11.376Z",
+      "dateAdded": "2026-03-09T17:31:32.998Z",
       "tags": [
           "Travel bills audit",
           "Budget tracker",
@@ -6998,7 +6998,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-03-30T08:16:11.376Z",
+      "dateAdded": "2026-07-14T03:47:24.395Z",
       "tags": [
           "Invoice ledger",
           "Vendor logs check",
@@ -7024,7 +7024,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2025-03-28T08:16:11.376Z",
+      "dateAdded": "2026-03-20T23:07:42.033Z",
       "tags": [
           "Quickbooks sync",
           "Receipt scanner",
@@ -7050,7 +7050,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-26T08:16:11.376Z",
+      "dateAdded": "2026-02-28T11:37:30.940Z",
       "tags": [
           "Excel templates helper",
           "FP&A reports",
@@ -7076,7 +7076,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-03-24T08:16:11.376Z",
+      "dateAdded": "2026-07-12T14:17:38.789Z",
       "tags": [
           "Shareholder slides",
           "Tax sheets",
@@ -7102,7 +7102,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-22T08:16:11.376Z",
+      "dateAdded": "2026-02-23T15:39:38.913Z",
       "tags": [
           "Realtime reports",
           "Ledgers graph",
@@ -7128,7 +7128,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-03-20T08:16:11.376Z",
+      "dateAdded": "2026-02-13T06:47:22.377Z",
       "tags": [
           "Shopify books",
           "Payment gateway log",
@@ -7154,7 +7154,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-18T08:16:11.376Z",
+      "dateAdded": "2026-03-16T07:27:11.423Z",
       "tags": [
           "Workforce planners",
           "Talent indexing",
@@ -7180,7 +7180,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-03-16T08:16:11.376Z",
+      "dateAdded": "2026-05-02T08:22:20.471Z",
       "tags": [
           "Video scanner",
           "Skill challenges",
@@ -7206,7 +7206,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-14T08:16:11.376Z",
+      "dateAdded": "2026-02-01T16:12:31.815Z",
       "tags": [
           "Olivia chat app",
           "SMS scheduler",
@@ -7232,7 +7232,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-03-12T08:16:11.376Z",
+      "dateAdded": "2026-07-05T22:25:51.973Z",
       "tags": [
           "Outreach SDR",
           "Engineer scout",
@@ -7258,7 +7258,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-03-10T08:16:11.376Z",
+      "dateAdded": "2026-03-16T13:21:40.703Z",
       "tags": [
           "Auto outreach folder",
           "Drip message",
@@ -7284,7 +7284,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-08T08:16:11.376Z",
+      "dateAdded": "2026-02-13T09:03:20.210Z",
       "tags": [
           "ATS CRM",
           "Social profile scanner",
@@ -7310,7 +7310,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-03-06T08:16:11.376Z",
+      "dateAdded": "2026-06-04T00:32:05.075Z",
       "tags": [
           "Bias check",
           "Tone suggestions",
@@ -7336,7 +7336,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-03-04T08:16:11.376Z",
+      "dateAdded": "2026-01-19T01:07:29.814Z",
       "tags": [
           "Resume matching",
           "Anonymizer logs",
@@ -7362,7 +7362,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-03-02T08:16:11.376Z",
+      "dateAdded": "2026-03-11T04:43:01.750Z",
       "tags": [
           "AutoML modeler",
           "Feature mapper",
@@ -7388,7 +7388,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Open Source",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-02-28T08:16:11.376Z",
+      "dateAdded": "2026-04-02T11:10:01.062Z",
       "tags": [
           "LLM fine tuning",
           "Forecasting",
@@ -7414,7 +7414,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-02-26T08:16:11.376Z",
+      "dateAdded": "2026-02-24T04:27:25.917Z",
       "tags": [
           "No-code prediction",
           "SaaS client logs",
@@ -7440,7 +7440,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-02-24T08:16:11.376Z",
+      "dateAdded": "2026-03-08T21:03:32.371Z",
       "tags": [
           "Chat spreadsheet data",
           "R scripts editor",
@@ -7466,7 +7466,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-22T08:16:11.376Z",
+      "dateAdded": "2026-06-23T23:37:47.293Z",
       "tags": [
           "Interactive metrics",
           "SDR tracker",
@@ -7492,7 +7492,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-20T08:16:11.376Z",
+      "dateAdded": "2026-02-11T23:57:16.864Z",
       "tags": [
           "Salesforce dashboard",
           "Viz panels",
@@ -7518,7 +7518,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-02-18T08:16:11.376Z",
+      "dateAdded": "2026-06-02T10:33:51.593Z",
       "tags": [
           "DAX helpers",
           "Corporate analytics",
@@ -7544,7 +7544,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-02-16T08:16:11.376Z",
+      "dateAdded": "2026-03-26T17:02:25.325Z",
       "tags": [
           "Graph logs generator",
           "CSV catalog organizer",
@@ -7570,7 +7570,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-14T08:16:11.376Z",
+      "dateAdded": "2026-02-18T17:13:13.536Z",
       "tags": [
           "Clinical reasoning",
           "Schema logs advisor",
@@ -7596,7 +7596,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-02-12T08:16:11.376Z",
+      "dateAdded": "2026-05-29T02:29:50.370Z",
       "tags": [
           "Symptom checker",
           "Doctor finder",
@@ -7622,7 +7622,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-10T08:16:11.376Z",
+      "dateAdded": "2026-04-04T14:46:35.518Z",
       "tags": [
           "Clinician nurse bot",
           "Care tracking",
@@ -7648,7 +7648,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2025-02-08T08:16:11.376Z",
+      "dateAdded": "2026-05-17T00:03:43.080Z",
       "tags": [
           "Medical notes dictation",
           "EMR database",
@@ -7674,7 +7674,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-06T08:16:11.376Z",
+      "dateAdded": "2026-03-15T05:44:24.592Z",
       "tags": [
           "Symptom summaries",
           "EMR dashboard",
@@ -7700,7 +7700,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-04T08:16:11.376Z",
+      "dateAdded": "2026-03-17T20:07:07.326Z",
       "tags": [
           "Acoustic dictation",
           "EMR checklist",
@@ -7726,7 +7726,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-02-02T08:16:11.376Z",
+      "dateAdded": "2026-05-12T13:40:26.748Z",
       "tags": [
           "Clinical evidence search",
           "Medical consensus checker",
@@ -7752,7 +7752,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-01-31T08:16:11.376Z",
+      "dateAdded": "2026-04-13T10:21:03.010Z",
       "tags": [
           "Autonomous security",
           "Anomalies tracker",
@@ -7778,7 +7778,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-01-29T08:16:11.376Z",
+      "dateAdded": "2026-03-31T03:23:56.738Z",
       "tags": [
           "Charlotte agent",
           "Malware blocks",
@@ -7804,7 +7804,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-27T08:16:11.376Z",
+      "dateAdded": "2026-04-03T22:10:38.250Z",
       "tags": [
           "Sentinel rules tracker",
           "Attack vector map",
@@ -7830,7 +7830,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-01-25T08:16:11.376Z",
+      "dateAdded": "2026-07-11T05:09:18.257Z",
       "tags": [
           "Endpoint log scan",
           "Automated patch",
@@ -7856,7 +7856,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-01-23T08:16:11.376Z",
+      "dateAdded": "2026-04-04T05:38:43.058Z",
       "tags": [
           "Cloud logs check",
           "Lateral trace network",
@@ -7882,7 +7882,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2025-01-21T08:16:11.376Z",
+      "dateAdded": "2026-02-23T03:34:26.421Z",
       "tags": [
           "Phishing filter",
           "CEO mimic log blocker",
@@ -7908,7 +7908,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-19T08:16:11.376Z",
+      "dateAdded": "2026-07-04T13:18:10.149Z",
       "tags": [
           "Interactive search",
           "Home value forecast",
@@ -7934,7 +7934,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-17T08:16:11.376Z",
+      "dateAdded": "2026-06-02T14:57:55.395Z",
       "tags": [
           "Listing tagging",
           "Damage scanner",
@@ -7960,7 +7960,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": true,
-      "dateAdded": "2025-01-15T08:16:11.376Z",
+      "dateAdded": "2026-02-02T16:25:26.691Z",
       "tags": [
           "Virtual stager",
           "Color customizer",
@@ -7986,7 +7986,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2025-01-13T08:16:11.376Z",
+      "dateAdded": "2026-05-17T04:25:44.631Z",
       "tags": [
           "Brochure generator",
           "Legal contract helper",
@@ -8012,7 +8012,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-11T08:16:11.376Z",
+      "dateAdded": "2026-01-23T17:20:06.937Z",
       "tags": [
           "Valuation index",
           "Risk scoring metrics",
@@ -8038,7 +8038,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-01-09T08:16:11.376Z",
+      "dateAdded": "2026-01-24T20:03:40.904Z",
       "tags": [
           "Product descriptions creator",
           "Discount scheduler",
@@ -8064,7 +8064,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-07T08:16:11.376Z",
+      "dateAdded": "2026-02-20T02:20:31.042Z",
       "tags": [
           "Cross seller",
           "Search box helper",
@@ -8090,7 +8090,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2025-01-05T08:16:11.376Z",
+      "dateAdded": "2026-01-21T05:46:43.053Z",
       "tags": [
           "Visual search box",
           "Similar clothing",
@@ -8116,7 +8116,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2025-01-03T08:16:11.376Z",
+      "dateAdded": "2026-02-23T16:33:00.724Z",
       "tags": [
           "Model stager clothing",
           "Catalog analyzer",
@@ -8142,7 +8142,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2025-01-01T08:16:11.376Z",
+      "dateAdded": "2026-03-23T22:54:25.292Z",
       "tags": [
           "Emotion buyer mapper",
           "Feminine tags",
@@ -8168,7 +8168,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-12-30T08:16:11.376Z",
+      "dateAdded": "2026-01-31T10:13:41.702Z",
       "tags": [
           "Personalized page",
           "Cart abandoner",
@@ -8194,7 +8194,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-12-28T08:16:11.376Z",
+      "dateAdded": "2026-04-08T03:47:04.036Z",
       "tags": [
           "Youtube summary",
           "X copy assistant",
@@ -8220,7 +8220,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-12-26T08:16:11.376Z",
+      "dateAdded": "2026-06-26T21:29:12.706Z",
       "tags": [
           "Copilot sidebar",
           "Text selector translate",
@@ -8246,7 +8246,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-12-24T08:16:11.376Z",
+      "dateAdded": "2026-05-23T03:08:36.143Z",
       "tags": [
           "Explain coding rules",
           "PDF highlighter reviewer",
@@ -8272,7 +8272,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2024-12-22T08:16:11.376Z",
+      "dateAdded": "2026-05-09T12:27:37.814Z",
       "tags": [
           "Gmail assistant",
           "Search optimizer",
@@ -8298,7 +8298,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-12-20T08:16:11.376Z",
+      "dateAdded": "2026-03-27T15:19:53.091Z",
       "tags": [
           "Automated web scrapers",
           "Price tracker logs",
@@ -8324,7 +8324,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2024-12-18T08:16:11.376Z",
+      "dateAdded": "2026-02-10T01:53:46.392Z",
       "tags": [
           "Autocomplete companion",
           "Email lines writer",
@@ -8350,7 +8350,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-12-16T08:16:11.376Z",
+      "dateAdded": "2026-02-15T08:38:19.416Z",
       "tags": [
           "Socratic tutor",
           "Math equation guide",
@@ -8376,7 +8376,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-12-14T08:16:11.376Z",
+      "dateAdded": "2026-02-22T03:43:49.795Z",
       "tags": [
           "Roleplay dialogue",
           "Explain grammar mistake",
@@ -8402,7 +8402,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-12-12T08:16:11.376Z",
+      "dateAdded": "2026-01-22T23:30:46.314Z",
       "tags": [
           "Flashcard builder",
           "Syllabus memory organizer",
@@ -8428,7 +8428,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Free",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-12-10T08:16:11.376Z",
+      "dateAdded": "2026-04-06T16:57:31.690Z",
       "tags": [
           "Google learning app",
           "Photo scan question",
@@ -8454,7 +8454,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2024-12-08T08:16:11.376Z",
+      "dateAdded": "2026-02-12T17:09:01.422Z",
       "tags": [
           "Teacher templates",
           "Classroom game customizer",
@@ -8480,7 +8480,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2024-12-06T08:16:11.376Z",
+      "dateAdded": "2026-06-26T04:55:11.772Z",
       "tags": [
           "Module designer",
           "Interactive quizzes",
@@ -8506,7 +8506,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2024-12-04T08:16:11.376Z",
+      "dateAdded": "2026-06-24T04:41:30.828Z",
       "tags": [
           "Essay grader",
           "Study guides maker",
@@ -8532,7 +8532,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2024-12-02T08:16:11.376Z",
+      "dateAdded": "2026-04-20T22:10:24.643Z",
       "tags": [
           "Enterprise legal reviewer",
           "Case match logs",
@@ -8558,7 +8558,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-30T08:16:11.376Z",
+      "dateAdded": "2026-06-09T03:00:30.540Z",
       "tags": [
           "Contract editor",
           "Drafting helper",
@@ -8584,7 +8584,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2024-11-28T08:16:11.376Z",
+      "dateAdded": "2026-05-31T11:50:05.795Z",
       "tags": [
           "Trial advisor",
           "Deposition planner",
@@ -8610,7 +8610,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-11-26T08:16:11.376Z",
+      "dateAdded": "2026-05-26T19:30:16.686Z",
       "tags": [
           "NDA reviewer",
           "Contract repository",
@@ -8636,7 +8636,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-11-24T08:16:11.376Z",
+      "dateAdded": "2026-02-13T12:09:04.518Z",
       "tags": [
           "Corporate books checker",
           "VAT compliance",
@@ -8662,7 +8662,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2024-11-22T08:16:11.376Z",
+      "dateAdded": "2026-02-04T09:06:06.636Z",
       "tags": [
           "Auto NDAs check",
           "Standard parameters logs",
@@ -8688,7 +8688,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2024-11-20T08:16:11.376Z",
+      "dateAdded": "2026-01-29T07:31:20.299Z",
       "tags": [
           "3D visual modeler",
           "Interactive objects",
@@ -8714,7 +8714,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-18T08:16:11.376Z",
+      "dateAdded": "2026-03-19T16:09:22.915Z",
       "tags": [
           "Text to 3D mesh",
           "Texture mapper",
@@ -8740,7 +8740,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-16T08:16:11.376Z",
+      "dateAdded": "2026-07-04T13:11:07.499Z",
       "tags": [
           "3D scan smartphone",
           "NeRF camera views",
@@ -8766,7 +8766,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-11-14T08:16:11.376Z",
+      "dateAdded": "2026-05-25T12:55:19.104Z",
       "tags": [
           "2D to OBJ converter",
           "Game files organizer",
@@ -8792,7 +8792,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-12T08:16:11.376Z",
+      "dateAdded": "2026-05-22T15:51:45.227Z",
       "tags": [
           "Assets fine tune",
           "Texture generator",
@@ -8818,7 +8818,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2024-11-10T08:16:11.376Z",
+      "dateAdded": "2026-05-08T02:54:31.095Z",
       "tags": [
           "Virtual stagers",
           "Interactive skeletons",
@@ -8844,7 +8844,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-08T08:16:11.376Z",
+      "dateAdded": "2026-03-11T23:02:52.477Z",
       "tags": [
           "NPC dialogue trees",
           "Unity engine partner",
@@ -8870,7 +8870,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2024-11-06T08:16:11.376Z",
+      "dateAdded": "2026-03-28T23:57:29.800Z",
       "tags": [
           "Game style consistency",
           "Vector cards",
@@ -8896,7 +8896,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2024-11-04T08:16:11.376Z",
+      "dateAdded": "2026-01-15T21:46:34.319Z",
       "tags": [
           "Gamelike models",
           "Fine tune shapes",
@@ -8922,7 +8922,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2024-11-02T08:16:11.376Z",
+      "dateAdded": "2026-02-28T14:36:21.066Z",
       "tags": [
           "Interactive stories",
           "Movie dialogue trees",
@@ -8948,7 +8948,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2024-10-31T08:16:11.376Z",
+      "dateAdded": "2026-05-31T10:11:18.603Z",
       "tags": [
           "Text to Phaser code",
           "Indie games creator",
@@ -8974,7 +8974,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2024-10-29T08:16:11.376Z",
+      "dateAdded": "2026-07-02T04:26:48.282Z",
       "tags": [
           "Game stats analyzer",
           "Theme brainstormer",
@@ -9000,7 +9000,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.851Z",
+      "dateAdded": "2026-05-17T13:51:08.186Z",
       "tags": [
           "AI",
           "AI",
@@ -9026,7 +9026,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.852Z",
+      "dateAdded": "2026-02-18T23:41:00.291Z",
       "tags": [
           "AI",
           "AI",
@@ -9052,7 +9052,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.852Z",
+      "dateAdded": "2026-01-26T14:32:30.566Z",
       "tags": [
           "AI",
           "AI",
@@ -9078,7 +9078,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-05-12T13:03:34.798Z",
       "tags": [
           "AI",
           "AI",
@@ -9104,7 +9104,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-04-11T16:39:46.797Z",
       "tags": [
           "AI",
           "AI",
@@ -9130,7 +9130,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-02-22T23:21:26.673Z",
       "tags": [
           "AI",
           "AI",
@@ -9156,7 +9156,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-06-29T19:19:18.721Z",
       "tags": [
           "AI",
           "AI",
@@ -9182,7 +9182,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-06-06T17:23:06.278Z",
       "tags": [
           "AI",
           "AI",
@@ -9208,7 +9208,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-04-19T03:27:46.205Z",
       "tags": [
           "AI",
           "AI",
@@ -9234,7 +9234,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.853Z",
+      "dateAdded": "2026-04-06T23:56:47.712Z",
       "tags": [
           "AI",
           "AI",
@@ -9260,7 +9260,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.854Z",
+      "dateAdded": "2026-03-12T14:49:30.388Z",
       "tags": [
           "Chatbot",
           "AI",
@@ -9286,7 +9286,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.854Z",
+      "dateAdded": "2026-05-07T17:05:20.218Z",
       "tags": [
           "Chatbot",
           "AI",
@@ -9312,7 +9312,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.855Z",
+      "dateAdded": "2026-06-20T12:20:50.435Z",
       "tags": [
           "Chatbot",
           "AI",
@@ -9338,7 +9338,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.855Z",
+      "dateAdded": "2026-06-11T14:35:51.970Z",
       "tags": [
           "Chatbot",
           "AI",
@@ -9364,7 +9364,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.855Z",
+      "dateAdded": "2026-02-12T18:07:00.974Z",
       "tags": [
           "Chatbot",
           "AI",
@@ -9390,7 +9390,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.855Z",
+      "dateAdded": "2026-03-09T16:45:00.812Z",
       "tags": [
           "Gen",
           "AI",
@@ -9416,7 +9416,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.855Z",
+      "dateAdded": "2026-02-13T12:09:32.282Z",
       "tags": [
           "Gen",
           "AI",
@@ -9442,7 +9442,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.856Z",
+      "dateAdded": "2026-05-21T01:03:56.306Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9468,7 +9468,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.856Z",
+      "dateAdded": "2026-06-24T21:00:29.892Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9494,7 +9494,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.856Z",
+      "dateAdded": "2026-03-10T05:03:38.196Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9520,7 +9520,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.856Z",
+      "dateAdded": "2026-05-18T12:53:10.455Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9546,7 +9546,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.856Z",
+      "dateAdded": "2026-01-24T23:32:13.639Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9572,7 +9572,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.857Z",
+      "dateAdded": "2026-03-29T20:50:48.051Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9598,7 +9598,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.857Z",
+      "dateAdded": "2026-06-03T10:44:46.491Z",
       "tags": [
           "UI/UX",
           "AI",
@@ -9624,7 +9624,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.857Z",
+      "dateAdded": "2026-02-18T07:18:12.241Z",
       "tags": [
           "AI",
           "AI",
@@ -9650,7 +9650,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.857Z",
+      "dateAdded": "2026-01-29T14:29:36.665Z",
       "tags": [
           "AI",
           "AI",
@@ -9676,7 +9676,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.857Z",
+      "dateAdded": "2026-06-20T10:08:00.164Z",
       "tags": [
           "AI",
           "AI",
@@ -9702,7 +9702,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-04-08T11:21:05.362Z",
       "tags": [
           "LLM",
           "AI",
@@ -9728,7 +9728,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-02-24T02:44:12.746Z",
       "tags": [
           "LLM",
           "AI",
@@ -9754,7 +9754,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-02-04T12:39:49.925Z",
       "tags": [
           "LLM",
           "AI",
@@ -9780,7 +9780,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-02-11T03:26:22.180Z",
       "tags": [
           "LLM",
           "AI",
@@ -9806,7 +9806,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-02-18T05:13:41.645Z",
       "tags": [
           "LLM",
           "AI",
@@ -9832,7 +9832,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.858Z",
+      "dateAdded": "2026-02-14T04:19:53.384Z",
       "tags": [
           "LLM",
           "AI",
@@ -9858,7 +9858,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.859Z",
+      "dateAdded": "2026-05-23T02:11:08.792Z",
       "tags": [
           "LLM",
           "AI",
@@ -9884,7 +9884,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.859Z",
+      "dateAdded": "2026-01-18T18:48:32.476Z",
       "tags": [
           "LLM",
           "AI",
@@ -9910,7 +9910,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.859Z",
+      "dateAdded": "2026-03-30T21:55:57.437Z",
       "tags": [
           "LLM",
           "AI",
@@ -9936,7 +9936,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T09:30:08.859Z",
+      "dateAdded": "2026-07-05T23:25:41.484Z",
       "tags": [
           "LLM",
           "AI",
@@ -9962,7 +9962,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.608Z",
+      "dateAdded": "2026-04-05T08:40:12.504Z",
       "tags": [
           "Image",
           "AI",
@@ -9988,7 +9988,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.609Z",
+      "dateAdded": "2026-05-18T17:16:30.005Z",
       "tags": [
           "Image",
           "AI",
@@ -10014,7 +10014,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.609Z",
+      "dateAdded": "2026-06-07T08:41:55.117Z",
       "tags": [
           "Video",
           "AI",
@@ -10040,7 +10040,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.610Z",
+      "dateAdded": "2026-02-19T00:31:23.862Z",
       "tags": [
           "Video",
           "AI",
@@ -10066,7 +10066,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.610Z",
+      "dateAdded": "2026-05-01T03:02:19.016Z",
       "tags": [
           "Code",
           "AI",
@@ -10092,7 +10092,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.610Z",
+      "dateAdded": "2026-02-07T07:03:53.994Z",
       "tags": [
           "AI",
           "AI",
@@ -10118,7 +10118,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.611Z",
+      "dateAdded": "2026-02-11T22:51:37.255Z",
       "tags": [
           "AI",
           "AI",
@@ -10144,7 +10144,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.611Z",
+      "dateAdded": "2026-04-25T18:15:12.608Z",
       "tags": [
           "AI",
           "AI",
@@ -10170,7 +10170,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:30:16.611Z",
+      "dateAdded": "2026-02-12T19:11:19.679Z",
       "tags": [
           "Marketing",
           "AI",
@@ -10196,7 +10196,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.222Z",
+      "dateAdded": "2026-03-10T12:45:00.931Z",
       "tags": [
           "AI",
           "AI",
@@ -10222,7 +10222,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.223Z",
+      "dateAdded": "2026-04-18T21:59:48.891Z",
       "tags": [
           "AI",
           "AI",
@@ -10248,7 +10248,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.223Z",
+      "dateAdded": "2026-04-10T20:01:52.093Z",
       "tags": [
           "Customer",
           "AI",
@@ -10274,7 +10274,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.224Z",
+      "dateAdded": "2026-06-21T12:50:11.108Z",
       "tags": [
           "Customer",
           "AI",
@@ -10300,7 +10300,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.224Z",
+      "dateAdded": "2026-02-01T09:46:11.796Z",
       "tags": [
           "Customer",
           "AI",
@@ -10326,7 +10326,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.224Z",
+      "dateAdded": "2026-04-05T01:44:55.095Z",
       "tags": [
           "Customer",
           "AI",
@@ -10352,7 +10352,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.224Z",
+      "dateAdded": "2026-04-21T02:18:52.810Z",
       "tags": [
           "Data",
           "AI",
@@ -10378,7 +10378,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:31:45.225Z",
+      "dateAdded": "2026-06-06T03:56:34.844Z",
       "tags": [
           "Research",
           "AI",
@@ -10404,7 +10404,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.003Z",
+      "dateAdded": "2026-04-25T22:21:16.057Z",
       "tags": [
           "AI",
           "AI",
@@ -10430,7 +10430,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.004Z",
+      "dateAdded": "2026-05-05T13:20:17.719Z",
       "tags": [
           "AI",
           "AI",
@@ -10456,7 +10456,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.004Z",
+      "dateAdded": "2026-04-10T17:24:44.276Z",
       "tags": [
           "AI",
           "AI",
@@ -10482,7 +10482,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.004Z",
+      "dateAdded": "2026-05-05T18:13:55.031Z",
       "tags": [
           "AI",
           "AI",
@@ -10508,7 +10508,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.004Z",
+      "dateAdded": "2026-04-29T00:39:42.694Z",
       "tags": [
           "AI",
           "AI",
@@ -10534,7 +10534,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.005Z",
+      "dateAdded": "2026-03-03T00:45:09.666Z",
       "tags": [
           "AI",
           "AI",
@@ -10560,7 +10560,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.005Z",
+      "dateAdded": "2026-06-13T02:21:32.446Z",
       "tags": [
           "AI",
           "AI",
@@ -10586,7 +10586,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.005Z",
+      "dateAdded": "2026-06-14T07:25:53.559Z",
       "tags": [
           "Legal",
           "AI",
@@ -10612,7 +10612,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.005Z",
+      "dateAdded": "2026-04-11T15:51:05.247Z",
       "tags": [
           "Legal",
           "AI",
@@ -10638,7 +10638,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.006Z",
+      "dateAdded": "2026-03-02T11:50:04.473Z",
       "tags": [
           "Legal",
           "AI",
@@ -10664,7 +10664,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.006Z",
+      "dateAdded": "2026-01-30T03:12:55.167Z",
       "tags": [
           "Gaming",
           "AI",
@@ -10690,7 +10690,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.007Z",
+      "dateAdded": "2026-03-10T22:32:17.300Z",
       "tags": [
           "AI",
           "AI",
@@ -10716,7 +10716,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.007Z",
+      "dateAdded": "2026-04-17T10:27:35.676Z",
       "tags": [
           "AI",
           "AI",
@@ -10742,7 +10742,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.008Z",
+      "dateAdded": "2026-05-28T19:38:07.565Z",
       "tags": [
           "AI",
           "AI",
@@ -10768,7 +10768,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.008Z",
+      "dateAdded": "2026-01-26T23:34:07.647Z",
       "tags": [
           "AI",
           "AI",
@@ -10794,7 +10794,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.008Z",
+      "dateAdded": "2026-07-06T11:59:52.048Z",
       "tags": [
           "AI",
           "AI",
@@ -10820,7 +10820,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.009Z",
+      "dateAdded": "2026-05-16T18:15:10.409Z",
       "tags": [
           "AI",
           "AI",
@@ -10846,7 +10846,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:35:37.009Z",
+      "dateAdded": "2026-07-09T10:35:27.345Z",
       "tags": [
           "AI",
           "AI",
@@ -10872,7 +10872,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.094Z",
+      "dateAdded": "2026-03-25T00:42:48.015Z",
       "tags": [
           "AI",
           "AI",
@@ -10898,7 +10898,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.094Z",
+      "dateAdded": "2026-05-12T04:37:13.709Z",
       "tags": [
           "AI",
           "AI",
@@ -10924,7 +10924,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.095Z",
+      "dateAdded": "2026-02-12T16:05:16.038Z",
       "tags": [
           "AI",
           "AI",
@@ -10950,7 +10950,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.095Z",
+      "dateAdded": "2026-03-17T22:59:36.388Z",
       "tags": [
           "3D",
           "AI",
@@ -10976,7 +10976,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.095Z",
+      "dateAdded": "2026-03-15T17:07:12.304Z",
       "tags": [
           "3D",
           "AI",
@@ -11002,7 +11002,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.096Z",
+      "dateAdded": "2026-01-23T07:53:03.933Z",
       "tags": [
           "3D",
           "AI",
@@ -11028,7 +11028,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.096Z",
+      "dateAdded": "2026-03-29T16:30:31.228Z",
       "tags": [
           "Learning",
           "AI",
@@ -11054,7 +11054,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.097Z",
+      "dateAdded": "2026-05-02T12:22:38.752Z",
       "tags": [
           "Learning",
           "AI",
@@ -11080,7 +11080,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.097Z",
+      "dateAdded": "2026-02-21T08:20:29.825Z",
       "tags": [
           "AI",
           "AI",
@@ -11106,7 +11106,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.097Z",
+      "dateAdded": "2026-07-07T02:15:59.242Z",
       "tags": [
           "AI",
           "AI",
@@ -11132,7 +11132,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-03T14:37:28.097Z",
+      "dateAdded": "2026-07-10T20:28:41.604Z",
       "tags": [
           "AI",
           "AI",
@@ -11158,7 +11158,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T09:14:40.252Z",
+      "dateAdded": "2026-03-09T19:54:15.385Z",
       "tags": [
           "Recruiting",
           "Screening",
@@ -11183,7 +11183,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T09:14:40.252Z",
+      "dateAdded": "2026-03-03T13:33:14.341Z",
       "tags": [
           "Voice Analysis",
           "Diagnosis",
@@ -11208,7 +11208,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-06-10T09:14:40.252Z",
+      "dateAdded": "2026-04-09T18:56:14.596Z",
       "tags": [
           "Imaging",
           "Ultrasound",
@@ -11233,7 +11233,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T09:14:40.252Z",
+      "dateAdded": "2026-05-10T19:13:20.650Z",
       "tags": [
           "Market Research",
           "Financial Data",
@@ -11258,7 +11258,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T09:14:40.252Z",
+      "dateAdded": "2026-06-18T23:24:45.528Z",
       "tags": [
           "Accounting",
           "Treasury",
@@ -11283,7 +11283,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-06-10T09:15:42.678Z",
+      "dateAdded": "2026-02-09T03:34:33.666Z",
       "tags": [
           "Music",
           "Vocals",
@@ -11308,7 +11308,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-10T09:15:42.679Z",
+      "dateAdded": "2026-06-19T21:25:52.955Z",
       "tags": [
           "Text to Video",
           "Animation",
@@ -11333,7 +11333,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-10T09:15:42.679Z",
+      "dateAdded": "2026-05-06T09:01:44.197Z",
       "tags": [
           "Real-time",
           "Sketch to Image",
@@ -11358,7 +11358,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.558Z",
+      "dateAdded": "2026-05-19T07:40:05.455Z",
       "tags": [
           "Design",
           "Creative",
@@ -11383,7 +11383,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-02-17T16:10:40.814Z",
       "tags": [
           "Editing",
           "Manipulation",
@@ -11408,7 +11408,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-02-10T15:13:00.180Z",
       "tags": [
           "UI/UX",
           "Design",
@@ -11433,7 +11433,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.4,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-14T17:26:15.366Z",
       "tags": [
           "3D",
           "Hologram",
@@ -11458,7 +11458,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-04-01T14:20:01.567Z",
       "tags": [
           "SEO",
           "AEO",
@@ -11483,7 +11483,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.9,
       "featured": true,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-07-10T16:15:27.695Z",
       "tags": [
           "Video Editing",
           "Social Media",
@@ -11508,7 +11508,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-25T12:52:22.857Z",
       "tags": [
           "Upscaler",
           "Enhancer",
@@ -11533,7 +11533,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-06-26T23:21:09.493Z",
       "tags": [
           "Cloud Storage",
           "File Management",
@@ -11558,7 +11558,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-04-21T04:35:38.679Z",
       "tags": [
           "Marketing",
           "Brand Voice",
@@ -11583,7 +11583,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-06-17T22:16:06.225Z",
       "tags": [
           "Course Creation",
           "LMS",
@@ -11608,7 +11608,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-07-02T00:35:17.753Z",
       "tags": [
           "Photo Editing",
           "Text to Image",
@@ -11633,7 +11633,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-05-09T18:00:33.401Z",
       "tags": [
           "CRO",
           "Analytics",
@@ -11658,7 +11658,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-04-17T05:46:52.508Z",
       "tags": [
           "Coding Assistant",
           "Developer Tool",
@@ -11683,7 +11683,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-23T05:57:52.761Z",
       "tags": [
           "Chatbots",
           "Social Media",
@@ -11708,7 +11708,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8,
       "featured": true,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-01-22T20:11:55.762Z",
       "tags": [
           "Clipping",
           "Shorts",
@@ -11733,7 +11733,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-22T20:01:08.576Z",
       "tags": [
           "Avatars",
           "Video Generator",
@@ -11758,7 +11758,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-04-28T11:19:05.756Z",
       "tags": [
           "YouTube",
           "Shorts",
@@ -11783,7 +11783,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-04-14T20:23:41.893Z",
       "tags": [
           "Dictation",
           "Voice to Text",
@@ -11808,7 +11808,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.8,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-20T20:43:07.017Z",
       "tags": [
           "Worldbuilding",
           "Storytelling",
@@ -11833,7 +11833,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Paid",
       "rating": 4.7,
       "featured": true,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-05-01T22:07:04.403Z",
       "tags": [
           "Text to Video",
           "Stock Footage",
@@ -11858,7 +11858,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6,
       "featured": false,
-      "dateAdded": "2026-06-10T10:03:02.559Z",
+      "dateAdded": "2026-03-07T06:56:24.251Z",
       "tags": [
           "Companion",
           "Empathy",
@@ -11883,7 +11883,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.750738668642727,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.561Z",
+      "dateAdded": "2026-07-02T22:03:33.181Z",
       "tags": [
           "Text",
           "AI Tool"
@@ -11907,7 +11907,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.677701832388545,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-31T14:45:55.308Z",
       "tags": [
           "Text",
           "AI Tool"
@@ -11931,7 +11931,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.664965117631522,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-01-22T04:00:47.654Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -11955,7 +11955,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.652804485630481,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-07T15:56:47.605Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -11979,7 +11979,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.697860655055261,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-07T08:32:08.544Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12003,7 +12003,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.604835586866286,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-22T17:11:50.649Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12027,7 +12027,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.880562893866443,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-08T09:29:57.696Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -12051,7 +12051,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6685079427071985,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-06T05:44:30.386Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -12075,7 +12075,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.664941526136752,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-26T23:08:16.768Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12099,7 +12099,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.741646391289804,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-17T20:56:33.839Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12123,7 +12123,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.889481498757604,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-15T04:15:42.536Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12147,7 +12147,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.581965840014636,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-01-30T01:57:04.775Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -12171,7 +12171,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.740443053087094,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-05-21T07:00:02.463Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -12195,7 +12195,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.824758606729862,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-01-19T12:59:07.433Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12219,7 +12219,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.80630682712986,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-14T10:02:26.801Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12243,7 +12243,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.617008805557051,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-18T04:29:58.319Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12267,7 +12267,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.755013045102609,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-02T05:56:58.062Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12291,7 +12291,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.671557594111358,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-08T02:57:06.786Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12315,7 +12315,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.724644530048717,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-09T20:19:39.843Z",
       "tags": [
           "Productivity",
           "AI Tool"
@@ -12339,7 +12339,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.896836146588063,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-27T16:44:56.051Z",
       "tags": [
           "SEO",
           "AI Tool"
@@ -12363,7 +12363,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6731883313038765,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-16T05:35:11.361Z",
       "tags": [
           "SEO",
           "AI Tool"
@@ -12387,7 +12387,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.570185101764789,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-02T09:08:45.743Z",
       "tags": [
           "SEO",
           "AI Tool"
@@ -12411,7 +12411,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.720330389578949,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-05-09T23:10:04.641Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12435,7 +12435,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.620815489975978,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-11T17:08:39.998Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12459,7 +12459,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.802562872763925,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-24T05:47:48.739Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12483,7 +12483,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.60247010968904,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-05-08T10:58:56.075Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12507,7 +12507,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.52319160608907,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-12T09:28:55.468Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12531,7 +12531,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.725089895428145,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-18T10:39:40.226Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -12555,7 +12555,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.5450918016784545,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-05-21T17:11:07.092Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12579,7 +12579,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.583584349234236,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-23T00:59:46.898Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12603,7 +12603,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.699535631035128,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-06T22:29:32.304Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12627,7 +12627,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.548074975912925,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-28T14:09:07.360Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12651,7 +12651,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.855167460856239,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-04-14T20:27:42.721Z",
       "tags": [
           "Learning",
           "AI Tool"
@@ -12675,7 +12675,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.883753482049069,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-02-01T11:59:02.292Z",
       "tags": [
           "Learning",
           "AI Tool"
@@ -12699,7 +12699,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.585083915259813,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-27T07:46:38.646Z",
       "tags": [
           "Learning",
           "AI Tool"
@@ -12723,7 +12723,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.759786672457354,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-06-20T16:12:49.044Z",
       "tags": [
           "Learning",
           "AI Tool"
@@ -12747,7 +12747,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.821225136077993,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-03-11T13:25:12.285Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -12771,7 +12771,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.848881415093312,
       "featured": false,
-      "dateAdded": "2026-06-10T10:17:38.562Z",
+      "dateAdded": "2026-05-17T08:54:13.148Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -12796,7 +12796,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.848396994827546,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-11T04:00:54.447Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12820,7 +12820,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.877804979964254,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-13T05:43:00.077Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12844,7 +12844,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.789128236140911,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-14T18:34:58.063Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12868,7 +12868,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.616749907000662,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-23T19:15:28.120Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -12892,7 +12892,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.682776714728112,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-25T18:39:22.281Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12916,7 +12916,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.570782951090513,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-11T06:35:42.888Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12940,7 +12940,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.529858030877163,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-03T21:38:19.649Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12964,7 +12964,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.837897868099265,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-10T23:42:46.674Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -12988,7 +12988,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.723453152988925,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-10T11:59:02.147Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13012,7 +13012,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.854742655957391,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-12T09:37:03.627Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13036,7 +13036,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6004352175258685,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-01-30T13:34:54.487Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13060,7 +13060,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.878644624558513,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-06T13:13:04.117Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13084,7 +13084,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.618588064977127,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-04T21:43:46.011Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13108,7 +13108,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.6551069190643775,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-25T05:18:22.847Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13132,7 +13132,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.741371092732815,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-04T07:05:45.589Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -13156,7 +13156,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.722614978119812,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-26T22:28:15.468Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -13180,7 +13180,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.844326151975424,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-26T00:45:58.286Z",
       "tags": [
           "AI",
           "AI Tool"
@@ -13204,7 +13204,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.566264699457493,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-22T20:16:32.959Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13228,7 +13228,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.629588443943854,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-20T04:11:23.160Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13252,7 +13252,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.830472548870355,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-30T17:37:29.591Z",
       "tags": [
           "Code",
           "AI Tool"
@@ -13276,7 +13276,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.650526899327296,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-20T02:49:30.861Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13300,7 +13300,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.567847614126147,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-19T08:33:57.229Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13324,7 +13324,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.726002304930009,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-06T15:40:26.525Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13348,7 +13348,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.864989057625291,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-19T22:50:35.892Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13372,7 +13372,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.830460866224487,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-27T07:15:43.476Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13396,7 +13396,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7962260975479065,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-10T03:18:27.177Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13420,7 +13420,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.752005806498018,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-07T05:37:44.018Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13444,7 +13444,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.530796149262928,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-20T05:05:10.730Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13468,7 +13468,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.8490691865984505,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-07-13T10:44:08.092Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13492,7 +13492,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.681525884754637,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-03-01T06:35:33.401Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13516,7 +13516,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.564931273975751,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-21T05:40:21.130Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13540,7 +13540,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.879538997871628,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-07-09T13:49:29.301Z",
       "tags": [
           "UI/UX",
           "AI Tool"
@@ -13564,7 +13564,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.740704310200406,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-01-30T07:34:56.998Z",
       "tags": [
           "UI/UX",
           "AI Tool"
@@ -13588,7 +13588,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.88927047583962,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-01-25T16:45:29.407Z",
       "tags": [
           "UI/UX",
           "AI Tool"
@@ -13612,7 +13612,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.756759680712541,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-29T18:20:47.891Z",
       "tags": [
           "UI/UX",
           "AI Tool"
@@ -13636,7 +13636,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.641652967007986,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-05T13:23:03.859Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13660,7 +13660,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.832139023098156,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-02T14:04:19.612Z",
       "tags": [
           "Image",
           "AI Tool"
@@ -13684,7 +13684,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.757046516748241,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-27T17:03:50.863Z",
       "tags": [
           "Video",
           "AI Tool"
@@ -13708,7 +13708,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.712673614930377,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-03-23T17:59:44.414Z",
       "tags": [
           "Research",
           "AI Tool"
@@ -13732,7 +13732,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.77406447007697,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-29T02:26:18.053Z",
       "tags": [
           "Research",
           "AI Tool"
@@ -13756,7 +13756,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.7556193122425165,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-05-04T15:15:35.037Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -13780,7 +13780,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.887867591671368,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-16T11:11:39.502Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -13804,7 +13804,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.570824597583378,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-04-17T17:03:40.890Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -13828,7 +13828,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.630540920587665,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-02-03T00:17:31.084Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -13852,7 +13852,7 @@ const _MOCK_TOOLS: Tool[] = [
       "pricing": "Freemium",
       "rating": 4.775329056182736,
       "featured": false,
-      "dateAdded": "2026-06-24T03:39:08.872Z",
+      "dateAdded": "2026-06-21T03:53:24.665Z",
       "tags": [
           "LLM",
           "AI Tool"
@@ -13878,7 +13878,7 @@ const _MOCK_TOOLS: Tool[] = [
           "Integration"
       ],
       "featured": true,
-      "dateAdded": "2026-07-02T10:00:00.000Z",
+      "dateAdded": "2026-01-19T15:38:54.429Z",
       "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       "longDescription": "UiPath Autopilot leverages both generative AI and specialized AI to automate end-to-end workflows. It allows users to create automations via natural language, discover automation opportunities, and bridge legacy systems with modern cloud applications without extensive coding.",
       "features": [
@@ -13911,7 +13911,7 @@ const _MOCK_TOOLS: Tool[] = [
           "Workflow"
       ],
       "featured": false,
-      "dateAdded": "2026-07-02T10:00:00.000Z",
+      "dateAdded": "2026-03-24T20:45:38.111Z",
       "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       "longDescription": "Copy.ai Workflows transforms marketing and sales operations by automating the generation of personalized outreach, content briefs, and CRM updates. It seamlessly connects with tools like Salesforce and HubSpot to streamline the entire go-to-market motion.",
       "features": [
@@ -13944,7 +13944,7 @@ const _MOCK_TOOLS: Tool[] = [
           "Sales"
       ],
       "featured": true,
-      "dateAdded": "2026-07-02T10:00:00.000Z",
+      "dateAdded": "2026-05-29T14:11:53.672Z",
       "imageUrl": "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=800&q=80",
       "longDescription": "Bland AI provides developers and businesses with an API to deploy hyper-realistic AI phone calling agents. These agents can handle complex conversations, book appointments, qualify leads, and perform API actions during the call based on user responses.",
       "features": [
@@ -13973,7 +13973,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-05-26T18:55:58.235Z",
     "domain": "leetcode.com",
     "brandColor": "var(--color-primary)"
 },
@@ -13987,7 +13987,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-04-12T19:45:14.711Z",
     "domain": "hackerrank.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14001,7 +14001,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-01T12:33:42.410Z",
     "domain": "codeforces.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14015,7 +14015,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-05-09T03:28:24.055Z",
     "domain": "codechef.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14029,7 +14029,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-07-02T22:07:58.047Z",
     "domain": "atcoder.jp",
     "brandColor": "var(--color-primary)"
 },
@@ -14043,7 +14043,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-02-18T12:36:16.509Z",
     "domain": "exercism.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14057,7 +14057,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-19T10:40:57.734Z",
     "domain": "coderbyte.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14071,7 +14071,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-04-09T21:12:05.644Z",
     "domain": "projecteuler.net",
     "brandColor": "var(--color-primary)"
 },
@@ -14085,7 +14085,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-05-10T09:12:24.960Z",
     "domain": "sqlbolt.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14099,7 +14099,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-21T22:37:53.281Z",
     "domain": "frontendmentor.io",
     "brandColor": "var(--color-primary)"
 },
@@ -14113,7 +14113,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-08T10:09:44.195Z",
     "domain": "roadmap.sh",
     "brandColor": "var(--color-primary)"
 },
@@ -14127,7 +14127,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-01-30T14:31:35.245Z",
     "domain": "freecodecamp.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14141,7 +14141,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-29T17:14:32.120Z",
     "domain": "cs50.harvard.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -14155,7 +14155,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-24T17:15:55.627Z",
     "domain": "theodinproject.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14169,7 +14169,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-04-29T09:46:20.111Z",
     "domain": "w3schools.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14183,7 +14183,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-02-13T06:18:22.310Z",
     "domain": "developer.mozilla.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14197,7 +14197,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-26T06:55:58.118Z",
     "domain": "geeksforgeeks.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14211,7 +14211,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-29T06:50:42.810Z",
     "domain": "codecademy.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14225,7 +14225,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-03T07:33:31.771Z",
     "domain": "programiz.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14239,7 +14239,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-07-01T06:24:32.781Z",
     "domain": "fullstackopen.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14253,7 +14253,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-02-14T17:07:32.325Z",
     "domain": "javatpoint.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14267,7 +14267,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-05-04T09:58:16.440Z",
     "domain": "devdocs.io",
     "brandColor": "var(--color-primary)"
 },
@@ -14281,7 +14281,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-01-15T16:09:02.831Z",
     "domain": "kaggle.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14295,7 +14295,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-01-31T09:03:24.430Z",
     "domain": "ai.google",
     "brandColor": "var(--color-primary)"
 },
@@ -14309,7 +14309,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-11T21:38:49.743Z",
     "domain": "deeplearning.ai",
     "brandColor": "var(--color-primary)"
 },
@@ -14323,7 +14323,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-31T19:15:26.139Z",
     "domain": "fast.ai",
     "brandColor": "var(--color-primary)"
 },
@@ -14337,7 +14337,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-07-02T02:03:45.696Z",
     "domain": "huggingface.co",
     "brandColor": "var(--color-primary)"
 },
@@ -14351,7 +14351,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-05T01:16:04.905Z",
     "domain": "learn.microsoft.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14365,7 +14365,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-06-07T21:30:41.807Z",
     "domain": "cookbook.openai.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14379,7 +14379,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-04-30T16:59:40.992Z",
     "domain": "datacamp.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14393,7 +14393,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-04-11T01:41:33.312Z",
     "domain": "skillsbuild.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14407,7 +14407,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.6,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-03-26T00:23:58.906Z",
     "domain": "sifuyik.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14421,7 +14421,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:18:48.622Z",
+    "dateAdded": "2026-07-06T20:29:02.381Z",
     "domain": "tensorflow.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14436,7 +14436,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.571Z",
+    "dateAdded": "2026-06-08T10:05:59.497Z",
     "domain": "docs.docker.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14450,7 +14450,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-06-20T16:20:14.469Z",
     "domain": "kubernetes.io",
     "brandColor": "var(--color-primary)"
 },
@@ -14464,7 +14464,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-04-01T13:07:55.202Z",
     "domain": "skills.github.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14478,7 +14478,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-03-21T20:53:31.510Z",
     "domain": "gitimmersion.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14492,7 +14492,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-06-06T14:43:11.927Z",
     "domain": "linuxjourney.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14506,7 +14506,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-07-12T04:19:39.048Z",
     "domain": "roadmap.sh",
     "brandColor": "var(--color-primary)"
 },
@@ -14520,7 +14520,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-07-04T23:51:56.490Z",
     "domain": "jenkins.io",
     "brandColor": "var(--color-primary)"
 },
@@ -14534,7 +14534,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-05-03T11:40:32.248Z",
     "domain": "developer.hashicorp.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14548,7 +14548,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-01-15T20:47:52.314Z",
     "domain": "vercel.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14562,7 +14562,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-02-21T23:12:53.379Z",
     "domain": "docs.netlify.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14576,7 +14576,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-03-18T19:19:53.370Z",
     "domain": "learning.postman.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14590,7 +14590,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-03-07T03:14:58.205Z",
     "domain": "figma.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14604,7 +14604,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-04-18T01:40:48.441Z",
     "domain": "canva.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14618,7 +14618,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-05-09T10:18:10.704Z",
     "domain": "adobe.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14632,7 +14632,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-04-08T11:39:09.136Z",
     "domain": "uxplanet.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14646,7 +14646,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Paid",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-04-03T08:59:06.281Z",
     "domain": "learnui.design",
     "brandColor": "var(--color-primary)"
 },
@@ -14660,7 +14660,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-05-21T05:06:42.408Z",
     "domain": "dribbble.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14674,7 +14674,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-05-17T23:04:00.671Z",
     "domain": "behance.net",
     "brandColor": "var(--color-primary)"
 },
@@ -14688,7 +14688,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-05-21T14:15:54.416Z",
     "domain": "fonts.google.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14702,7 +14702,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-07-13T16:35:51.258Z",
     "domain": "colorhunt.co",
     "brandColor": "var(--color-primary)"
 },
@@ -14716,7 +14716,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-04-28T08:01:22.545Z",
     "domain": "material.io",
     "brandColor": "var(--color-primary)"
 },
@@ -14730,7 +14730,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:19:25.572Z",
+    "dateAdded": "2026-02-06T05:10:28.721Z",
     "domain": "iconify.design",
     "brandColor": "var(--color-primary)"
 },
@@ -14745,7 +14745,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.700Z",
+    "dateAdded": "2026-03-30T13:55:28.692Z",
     "domain": "academy.hubspot.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14759,7 +14759,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-27T09:24:45.485Z",
     "domain": "learndigital.withgoogle.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14773,7 +14773,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-29T17:06:15.935Z",
     "domain": "facebook.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14787,7 +14787,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-13T19:02:08.377Z",
     "domain": "semrush.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14801,7 +14801,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-18T09:27:27.174Z",
     "domain": "ahrefs.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14815,7 +14815,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-14T12:32:24.987Z",
     "domain": "coursera.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14829,7 +14829,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-03-21T01:49:57.336Z",
     "domain": "edx.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14843,7 +14843,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-05-29T07:50:07.771Z",
     "domain": "alison.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14857,7 +14857,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-07-09T10:38:13.235Z",
     "domain": "futurelearn.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14871,7 +14871,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-01-31T11:18:12.743Z",
     "domain": "open.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -14885,7 +14885,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-07-09T21:39:22.023Z",
     "domain": "skillshop.exceedlms.com",
     "brandColor": "var(--color-primary)"
 },
@@ -14899,7 +14899,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-06-02T15:00:01.755Z",
     "domain": "khanacademy.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14913,7 +14913,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-22T17:35:45.706Z",
     "domain": "brilliant.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14927,7 +14927,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-03-06T09:30:22.254Z",
     "domain": "tutorial.math.lamar.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -14941,7 +14941,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-01-17T08:09:46.997Z",
     "domain": "ocw.mit.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -14955,7 +14955,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-05-02T21:33:54.723Z",
     "domain": "ck12.org",
     "brandColor": "var(--color-primary)"
 },
@@ -14969,7 +14969,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-10T08:48:57.555Z",
     "domain": "nasa.gov",
     "brandColor": "var(--color-primary)"
 },
@@ -14983,7 +14983,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-03-11T14:06:23.568Z",
     "domain": "phet.colorado.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -14997,7 +14997,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-08T21:27:13.858Z",
     "domain": "demonstrations.wolfram.com",
     "brandColor": "var(--color-primary)"
 },
@@ -15011,7 +15011,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-07-02T21:52:59.723Z",
     "domain": "openstax.org",
     "brandColor": "var(--color-primary)"
 },
@@ -15025,7 +15025,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-05-22T09:52:43.294Z",
     "domain": "nptel.ac.in",
     "brandColor": "var(--color-primary)"
 },
@@ -15039,7 +15039,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.7,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-06T17:30:40.707Z",
     "domain": "byjus.com",
     "brandColor": "var(--color-primary)"
 },
@@ -15053,7 +15053,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-05T16:23:48.639Z",
     "domain": "notion.so",
     "brandColor": "var(--color-primary)"
 },
@@ -15067,7 +15067,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-04-20T23:42:38.637Z",
     "domain": "help.obsidian.md",
     "brandColor": "var(--color-primary)"
 },
@@ -15081,7 +15081,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-06-30T22:41:01.376Z",
     "domain": "overthewire.org",
     "brandColor": "var(--color-primary)"
 },
@@ -15095,7 +15095,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-06-01T10:00:38.648Z",
     "domain": "observatory.mozilla.org",
     "brandColor": "var(--color-primary)"
 },
@@ -15109,7 +15109,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-03-20T00:46:14.064Z",
     "domain": "archive.org",
     "brandColor": "var(--color-primary)"
 },
@@ -15123,7 +15123,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-01-26T16:57:34.807Z",
     "domain": "openlibrary.org",
     "brandColor": "var(--color-primary)"
 },
@@ -15137,7 +15137,7 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Free",
     "rating": 4.8,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-05-04T20:13:16.302Z",
     "domain": "iep.utm.edu",
     "brandColor": "var(--color-primary)"
 },
@@ -15151,9 +15151,2411 @@ const _MOCK_TOOLS: Tool[] = [
     "pricing": "Freemium",
     "rating": 4.9,
     "featured": false,
-    "dateAdded": "2026-07-13T09:20:14.701Z",
+    "dateAdded": "2026-02-27T18:21:09.880Z",
+    "domain": "youtube.com",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "leetcode",
+    "name": "LeetCode",
+    "description": "The world's leading online programming learning platform for interview prep.",
+    "category": "Development",
+    "url": "https://leetcode.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-22T07:18:22.917Z",
+    "domain": "leetcode.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "hackerrank",
+    "name": "HackerRank",
+    "description": "Practice coding, prepare for interviews, and get hired.",
+    "category": "Development",
+    "url": "https://hackerrank.com",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-25T09:41:44.135Z",
+    "domain": "hackerrank.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codeforces",
+    "name": "Codeforces",
+    "description": "Programming competitions and contests platform.",
+    "category": "Development",
+    "url": "https://codeforces.com",
+    "imageUrl": "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-20T03:25:12.309Z",
+    "domain": "codeforces.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codechef",
+    "name": "CodeChef",
+    "description": "A competitive programming community and educational initiative.",
+    "category": "Development",
+    "url": "https://codechef.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-18T04:13:18.086Z",
+    "domain": "codechef.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "atcoder",
+    "name": "AtCoder",
+    "description": "Programming contest site for anyone from beginners to experts.",
+    "category": "Development",
+    "url": "https://atcoder.jp",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-18T15:01:13.153Z",
+    "domain": "atcoder.jp",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "exercism",
+    "name": "Exercism",
+    "description": "Code practice and mentorship for everyone. Develop fluency in coding.",
+    "category": "Development",
+    "url": "https://exercism.org",
+    "imageUrl": "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-15T15:03:08.328Z",
+    "domain": "exercism.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "coderbyte",
+    "name": "Coderbyte",
+    "description": "The #1 platform for technical assessments and interview prep.",
+    "category": "Development",
+    "url": "https://coderbyte.com",
+    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-28T16:17:53.583Z",
+    "domain": "coderbyte.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "project-euler",
+    "name": "Project Euler",
+    "description": "A series of challenging mathematical/computer programming problems.",
+    "category": "Development",
+    "url": "https://projecteuler.net",
+    "imageUrl": "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-19T06:11:20.742Z",
+    "domain": "projecteuler.net",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "sqlbolt",
+    "name": "SQLBolt",
+    "description": "Learn SQL with simple, interactive exercises.",
+    "category": "Development",
+    "url": "https://sqlbolt.com",
+    "imageUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-15T22:42:38.213Z",
+    "domain": "sqlbolt.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "frontend-mentor",
+    "name": "Frontend Mentor",
+    "description": "Improve your front-end coding skills by building real projects.",
+    "category": "Development",
+    "url": "https://frontendmentor.io",
+    "imageUrl": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-27T15:37:31.224Z",
+    "domain": "frontendmentor.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "roadmap-sh",
+    "name": "Roadmap.sh",
+    "description": "Community-driven roadmaps, articles, and resources for developers.",
+    "category": "Development",
+    "url": "https://roadmap.sh",
+    "imageUrl": "https://images.unsplash.com/photo-1473221326025-9183b464c209?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-07-07T21:55:34.175Z",
+    "domain": "roadmap.sh",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "freecodecamp",
+    "name": "freeCodeCamp",
+    "description": "Learn to code — for free. Build projects. Earn certifications.",
+    "category": "Development",
+    "url": "https://freecodecamp.org",
+    "imageUrl": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-04T16:23:15.002Z",
+    "domain": "freecodecamp.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "cs50",
+    "name": "CS50",
+    "description": "Harvard University's introduction to the intellectual enterprises of computer science and the art of programming.",
+    "category": "Development",
+    "url": "https://cs50.harvard.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-19T23:46:29.206Z",
+    "domain": "cs50.harvard.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "the-odin-project",
+    "name": "The Odin Project",
+    "description": "Your Career in Web Development Starts Here. Our full stack curriculum is free and supported by a passionate open source community.",
+    "category": "Development",
+    "url": "https://theodinproject.com",
+    "imageUrl": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-13T09:42:41.581Z",
+    "domain": "theodinproject.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "w3schools",
+    "name": "W3Schools",
+    "description": "The world's largest web developer site, with tutorials and references on web development languages.",
+    "category": "Development",
+    "url": "https://w3schools.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-06-15T05:50:17.768Z",
+    "domain": "w3schools.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mdn",
+    "name": "MDN Web Docs",
+    "description": "The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps.",
+    "category": "Development",
+    "url": "https://developer.mozilla.org",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-11T13:53:08.192Z",
+    "domain": "developer.mozilla.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "geeksforgeeks",
+    "name": "GeeksforGeeks",
+    "description": "A computer science portal for geeks. It contains well written, well thought and well explained computer science and programming articles.",
+    "category": "Development",
+    "url": "https://geeksforgeeks.org",
+    "imageUrl": "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-17T14:48:13.975Z",
+    "domain": "geeksforgeeks.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codecademy",
+    "name": "Codecademy",
+    "description": "Learn the technical skills to get the job you want. Join over 50 million people choosing Codecademy to start a new career.",
+    "category": "Development",
+    "url": "https://codecademy.com",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-13T15:05:44.190Z",
+    "domain": "codecademy.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "programiz",
+    "name": "Programiz",
+    "description": "Learn to code in Python, C/C++, Java, and other popular programming languages with our easy to follow tutorials, examples, online compiler and references.",
+    "category": "Development",
+    "url": "https://programiz.com",
+    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-27T12:09:25.600Z",
+    "domain": "programiz.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "full-stack-open",
+    "name": "Full Stack Open",
+    "description": "Deep Dive Into Modern Web Development. Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go!",
+    "category": "Development",
+    "url": "https://fullstackopen.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-03T03:06:36.124Z",
+    "domain": "fullstackopen.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "javatpoint",
+    "name": "Javatpoint",
+    "description": "Javatpoint provides tutorials and interview questions of all technology like java tutorial, android, java frameworks, javascript, ajax, core java, sql.",
+    "category": "Development",
+    "url": "https://javatpoint.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-03-16T16:51:50.561Z",
+    "domain": "javatpoint.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "devdocs",
+    "name": "DevDocs",
+    "description": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface.",
+    "category": "Development",
+    "url": "https://devdocs.io",
+    "imageUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-23T19:26:10.381Z",
+    "domain": "devdocs.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "kaggle",
+    "name": "Kaggle Learn",
+    "description": "Gain the skills you need to do independent data science projects. We pare down complex topics to their key practical components.",
+    "category": "Development",
+    "url": "https://kaggle.com/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-18T18:27:09.001Z",
+    "domain": "kaggle.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-ai",
+    "name": "Google AI",
+    "description": "Explore Google's open source machine learning and AI technology, research, and tools.",
+    "category": "Development",
+    "url": "https://ai.google",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-21T19:47:27.220Z",
+    "domain": "ai.google",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "deeplearning-ai",
+    "name": "DeepLearning.AI",
+    "description": "Learn from the AI pioneer Andrew Ng and a world-class team of experts. Master AI through courses, specializations, and certificates.",
+    "category": "Development",
+    "url": "https://deeplearning.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-07T17:59:20.453Z",
+    "domain": "deeplearning.ai",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "fast-ai",
+    "name": "Fast.ai",
+    "description": "Making neural nets uncool again. Fast.ai is a non-profit research group focused on deep learning and artificial intelligence.",
+    "category": "Development",
+    "url": "https://fast.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-26T18:32:04.294Z",
+    "domain": "fast.ai",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "hugging-face-course",
+    "name": "Hugging Face Course",
+    "description": "This course will teach you about natural language processing (NLP) using libraries from the Hugging Face ecosystem.",
+    "category": "Development",
+    "url": "https://huggingface.co/course",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-28T03:44:18.421Z",
+    "domain": "huggingface.co",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "microsoft-learn-ai",
+    "name": "Microsoft Learn AI",
+    "description": "Discover how Microsoft AI and machine learning products can help you build intelligent apps and solutions.",
+    "category": "Development",
+    "url": "https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-14T05:26:21.748Z",
+    "domain": "learn.microsoft.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openai-cookbook",
+    "name": "OpenAI Cookbook",
+    "description": "The OpenAI Cookbook shares example code and prompts for accomplishing common tasks with the OpenAI API.",
+    "category": "Development",
+    "url": "https://cookbook.openai.com",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-14T06:40:54.267Z",
+    "domain": "cookbook.openai.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "datacamp",
+    "name": "DataCamp",
+    "description": "Learn the data and AI skills you need online at your own pace—from non-coding essentials to data science and machine learning.",
+    "category": "Development",
+    "url": "https://datacamp.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-23T07:54:08.701Z",
+    "domain": "datacamp.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ibm-skillsbuild",
+    "name": "IBM SkillsBuild",
+    "description": "Free digital learning on tech, workplace skills, and more. Get badges to boost your career.",
+    "category": "Development",
+    "url": "https://skillsbuild.org",
+    "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-18T23:38:23.101Z",
+    "domain": "skillsbuild.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "sifu-yik",
+    "name": "Sifu Yik",
+    "description": "Learn AI and Data Science from experts.",
+    "category": "Development",
+    "url": "https://sifuyik.com",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-07-07T01:40:22.175Z",
+    "domain": "sifuyik.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "tensorflow-tutorials",
+    "name": "TensorFlow Tutorials",
+    "description": "Learn how to use TensorFlow with these comprehensive tutorials for all skill levels.",
+    "category": "Development",
+    "url": "https://tensorflow.org/tutorials",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-25T03:46:36.827Z",
+    "domain": "tensorflow.org",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "docker-docs",
+    "name": "Docker Docs",
+    "description": "Learn how to build, share, and run applications with Docker.",
+    "category": "Development",
+    "url": "https://docs.docker.com",
+    "imageUrl": "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-30T00:14:07.036Z",
+    "domain": "docs.docker.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "kubernetes-docs",
+    "name": "Kubernetes Docs",
+    "description": "Learn how to use Kubernetes, the open-source system for automating deployment, scaling, and management of containerized applications.",
+    "category": "Development",
+    "url": "https://kubernetes.io/docs",
+    "imageUrl": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-29T02:43:15.543Z",
+    "domain": "kubernetes.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "github-skills",
+    "name": "GitHub Skills",
+    "description": "Learn how to use GitHub with interactive courses built right into GitHub repositories.",
+    "category": "Development",
+    "url": "https://skills.github.com",
+    "imageUrl": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-16T08:02:10.331Z",
+    "domain": "skills.github.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "git-immersion",
+    "name": "Git Immersion",
+    "description": "A guided tour that walks through the fundamentals of Git, inspired by the premise that to know a thing is to do it.",
+    "category": "Development",
+    "url": "https://gitimmersion.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-26T16:20:43.897Z",
+    "domain": "gitimmersion.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "linux-journey",
+    "name": "Linux Journey",
+    "description": "Learn the ways of Linux-fu, for free.",
+    "category": "Development",
+    "url": "https://linuxjourney.com",
+    "imageUrl": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-03T23:23:25.367Z",
+    "domain": "linuxjourney.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "roadmap-sh-devops",
+    "name": "Roadmap.sh DevOps",
+    "description": "Step by step guide to becoming a DevOps Engineer in 2024.",
+    "category": "Development",
+    "url": "https://roadmap.sh/devops",
+    "imageUrl": "https://images.unsplash.com/photo-1473221326025-9183b464c209?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-07T06:52:52.396Z",
+    "domain": "roadmap.sh",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "jenkins",
+    "name": "Jenkins Docs",
+    "description": "Learn how to use Jenkins, the leading open source automation server.",
+    "category": "Development",
+    "url": "https://jenkins.io/doc",
+    "imageUrl": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-28T10:00:33.625Z",
+    "domain": "jenkins.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "terraform-docs",
+    "name": "Terraform Docs",
+    "description": "Learn how to use Terraform to provision and manage infrastructure in any cloud.",
+    "category": "Development",
+    "url": "https://developer.hashicorp.com/terraform",
+    "imageUrl": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-05T16:43:27.967Z",
+    "domain": "developer.hashicorp.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "vercel-docs",
+    "name": "Vercel Docs",
+    "description": "Learn how to deploy your applications with Vercel's Frontend Cloud.",
+    "category": "Development",
+    "url": "https://vercel.com/docs",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-07-02T11:17:13.238Z",
+    "domain": "vercel.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "netlify-docs",
+    "name": "Netlify Docs",
+    "description": "Learn how to build and deploy your sites and apps on Netlify.",
+    "category": "Development",
+    "url": "https://docs.netlify.com",
+    "imageUrl": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-14T01:49:26.003Z",
+    "domain": "docs.netlify.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "postman-learning",
+    "name": "Postman Learning Center",
+    "description": "Learn how to use Postman to build, test, and document your APIs.",
+    "category": "Development",
+    "url": "https://learning.postman.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-30T10:19:22.567Z",
+    "domain": "learning.postman.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "figma-learn",
+    "name": "Figma Learn",
+    "description": "Explore tutorials, articles, and videos to learn how to use Figma.",
+    "category": "Design",
+    "url": "https://help.figma.com/hc/en-us",
+    "imageUrl": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-20T20:41:56.236Z",
+    "domain": "figma.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "canva-design-school",
+    "name": "Canva Design School",
+    "description": "Free courses and tutorials to help you learn design, marketing, and more.",
+    "category": "Design",
+    "url": "https://designschool.canva.com",
+    "imageUrl": "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-01T14:49:32.180Z",
+    "domain": "canva.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "adobe-learn",
+    "name": "Adobe Learn",
+    "description": "Discover tutorials, projects, and tips to help you create your best work.",
+    "category": "Design",
+    "url": "https://creativecloud.adobe.com/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1561089489-0268a7353f09?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-03-20T04:15:22.170Z",
+    "domain": "adobe.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ux-planet",
+    "name": "UX Planet",
+    "description": "One-stop resource for everything related to user experience.",
+    "category": "Design",
+    "url": "https://uxplanet.org",
+    "imageUrl": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-09T06:41:11.633Z",
+    "domain": "uxplanet.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "learn-ui-design",
+    "name": "Learn UI Design",
+    "description": "The complete video course for developers, PMs, and UX designers.",
+    "category": "Design",
+    "url": "https://learnui.design",
+    "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-17T19:43:39.825Z",
+    "domain": "learnui.design",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "dribbble",
+    "name": "Dribbble",
+    "description": "Discover the world's top designers & creatives.",
+    "category": "Design",
+    "url": "https://dribbble.com",
+    "imageUrl": "https://images.unsplash.com/photo-1623062369620-333060fc5b2c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-13T07:08:47.058Z",
+    "domain": "dribbble.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "behance",
+    "name": "Behance",
+    "description": "Showcase and discover creative work.",
+    "category": "Design",
+    "url": "https://behance.net",
+    "imageUrl": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-14T17:36:58.695Z",
+    "domain": "behance.net",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-fonts-knowledge",
+    "name": "Google Fonts Knowledge",
+    "description": "Learn about typography from experts around the world.",
+    "category": "Design",
+    "url": "https://fonts.google.com/knowledge",
+    "imageUrl": "https://images.unsplash.com/photo-1550792436-181701c71f63?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-11T00:56:39.483Z",
+    "domain": "fonts.google.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "color-hunt",
+    "name": "Color Hunt",
+    "description": "Color palettes for designers and artists.",
+    "category": "Design",
+    "url": "https://colorhunt.co",
+    "imageUrl": "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-12T11:52:31.500Z",
+    "domain": "colorhunt.co",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "material-design",
+    "name": "Material Design",
+    "description": "Build beautiful, usable products faster. Material Design is an adaptable system of guidelines, components, and tools.",
+    "category": "Design",
+    "url": "https://m3.material.io",
+    "imageUrl": "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-18T02:10:25.942Z",
+    "domain": "material.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "iconify",
+    "name": "Iconify",
+    "description": "Universal icon framework. One syntax for over 200k open source icons.",
+    "category": "Design",
+    "url": "https://iconify.design",
+    "imageUrl": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-20T19:16:54.312Z",
+    "domain": "iconify.design",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "hubspot-academy",
+    "name": "HubSpot Academy",
+    "description": "Free online training for inbound marketing, sales, and customer service professionals.",
+    "category": "Marketing & SEO",
+    "url": "https://academy.hubspot.com",
+    "imageUrl": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-06T20:07:19.009Z",
+    "domain": "academy.hubspot.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-digital-garage",
+    "name": "Google Digital Garage",
+    "description": "Discover a range of free learning content designed to help your business or in your career.",
+    "category": "Marketing & SEO",
+    "url": "https://learndigital.withgoogle.com/digitalgarage",
+    "imageUrl": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-24T08:43:09.223Z",
+    "domain": "learndigital.withgoogle.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "meta-blueprint",
+    "name": "Meta Blueprint",
+    "description": "Free online training for advertising on Facebook, Instagram, Messenger and WhatsApp.",
+    "category": "Marketing & SEO",
+    "url": "https://www.facebook.com/business/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-09T20:26:28.529Z",
+    "domain": "facebook.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "semrush-academy",
+    "name": "Semrush Academy",
+    "description": "Free SEO and digital marketing courses from top industry experts.",
+    "category": "Marketing & SEO",
+    "url": "https://www.semrush.com/academy/",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-17T07:24:04.542Z",
+    "domain": "semrush.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ahrefs-academy",
+    "name": "Ahrefs Academy",
+    "description": "Actionable SEO tutorials and marketing courses from Ahrefs.",
+    "category": "Marketing & SEO",
+    "url": "https://ahrefs.com/academy",
+    "imageUrl": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-20T09:34:48.200Z",
+    "domain": "ahrefs.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "coursera",
+    "name": "Coursera",
+    "description": "Build skills with courses, certificates, and degrees online from world-class universities and companies.",
+    "category": "Education",
+    "url": "https://www.coursera.org",
+    "imageUrl": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-25T03:51:23.619Z",
+    "domain": "coursera.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "edx",
+    "name": "edX",
+    "description": "Access 2500+ Online Courses from 140 Top Institutions.",
+    "category": "Education",
+    "url": "https://www.edx.org",
+    "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-02T23:06:09.224Z",
+    "domain": "edx.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "alison",
+    "name": "Alison",
+    "description": "Free Online Courses With Certificates & Diplomas.",
+    "category": "Education",
+    "url": "https://alison.com",
+    "imageUrl": "https://images.unsplash.com/photo-1546410531-ee4cb47b5315?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-02-07T04:47:13.665Z",
+    "domain": "alison.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "futurelearn",
+    "name": "FutureLearn",
+    "description": "Online Courses and Degrees from Top Universities.",
+    "category": "Education",
+    "url": "https://www.futurelearn.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-09T07:49:20.645Z",
+    "domain": "futurelearn.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openlearn",
+    "name": "OpenLearn",
+    "description": "Free learning from The Open University.",
+    "category": "Education",
+    "url": "https://www.open.edu/openlearn",
+    "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-26T21:03:56.985Z",
+    "domain": "open.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "skillshop",
+    "name": "Skillshop (Google)",
+    "description": "Develop skills you can apply right away, with e-learning courses designed by Google product experts.",
+    "category": "Marketing & SEO",
+    "url": "https://skillshop.exceedlms.com",
+    "imageUrl": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-19T16:19:10.114Z",
+    "domain": "skillshop.exceedlms.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "khan-academy",
+    "name": "Khan Academy",
+    "description": "Free online courses, lessons and practice. You can learn anything.",
+    "category": "Education",
+    "url": "https://www.khanacademy.org",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-09T08:01:41.305Z",
+    "domain": "khanacademy.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "brilliant",
+    "name": "Brilliant",
+    "description": "Build quantitative skills in math, science, and computer science with interactive lessons.",
+    "category": "Education",
+    "url": "https://brilliant.org",
+    "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-27T18:56:20.094Z",
+    "domain": "brilliant.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "pauls-online-math-notes",
+    "name": "Paul's Online Math Notes",
+    "description": "Free math notes and tutorials from Paul Dawkins at Lamar University.",
+    "category": "Education",
+    "url": "https://tutorial.math.lamar.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1632516643771-69e1358c97dd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-22T02:07:07.793Z",
+    "domain": "tutorial.math.lamar.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mit-opencourseware",
+    "name": "MIT OpenCourseWare",
+    "description": "Free lecture notes, exams, and videos from MIT. No registration required.",
+    "category": "Education",
+    "url": "https://ocw.mit.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-08T17:43:20.021Z",
+    "domain": "ocw.mit.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ck-12",
+    "name": "CK-12",
+    "description": "Free, customizable, interactive online textbooks, practice, and more.",
+    "category": "Education",
+    "url": "https://www.ck12.org",
+    "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-24T14:24:34.110Z",
+    "domain": "ck12.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "nasa-stem",
+    "name": "NASA STEM",
+    "description": "NASA's STEM engagement site for students and educators.",
+    "category": "Education",
+    "url": "https://www.nasa.gov/stem",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-29T18:52:07.464Z",
+    "domain": "nasa.gov",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "phet-simulations",
+    "name": "PhET Simulations",
+    "description": "Free interactive math and science simulations from the University of Colorado Boulder.",
+    "category": "Education",
+    "url": "https://phet.colorado.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-25T03:28:11.026Z",
+    "domain": "phet.colorado.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "wolfram-demonstrations",
+    "name": "Wolfram Demonstrations Project",
+    "description": "Open-code interactive simulations of concepts in science, math, technology, and more.",
+    "category": "Education",
+    "url": "https://demonstrations.wolfram.com",
+    "imageUrl": "https://images.unsplash.com/photo-1632516643771-69e1358c97dd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-03T14:17:32.600Z",
+    "domain": "demonstrations.wolfram.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openstax",
+    "name": "OpenStax",
+    "description": "Free, peer-reviewed, openly licensed textbooks.",
+    "category": "Education",
+    "url": "https://openstax.org",
+    "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-19T14:07:15.059Z",
+    "domain": "openstax.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "nptel",
+    "name": "NPTEL",
+    "description": "National Programme on Technology Enhanced Learning (NPTEL) offers online courses and certification.",
+    "category": "Education",
+    "url": "https://nptel.ac.in",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-09T01:53:09.808Z",
+    "domain": "nptel.ac.in",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "byjus-free-resources",
+    "name": "BYJU'S Free Resources",
+    "description": "Free educational resources and video lessons.",
+    "category": "Education",
+    "url": "https://byjus.com",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-10T01:27:46.033Z",
+    "domain": "byjus.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "notion-academy",
+    "name": "Notion Academy",
+    "description": "Learn how to use Notion with courses, tutorials, and guides.",
+    "category": "Productivity",
+    "url": "https://www.notion.so/help/notion-academy",
+    "imageUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-10T01:36:41.386Z",
+    "domain": "notion.so",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "obsidian-help",
+    "name": "Obsidian Help",
+    "description": "Documentation for Obsidian, a powerful knowledge base on top of a local folder of plain text Markdown files.",
+    "category": "Productivity",
+    "url": "https://help.obsidian.md",
+    "imageUrl": "https://images.unsplash.com/photo-1522881113591-5452277d7045?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-22T06:16:30.077Z",
+    "domain": "help.obsidian.md",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "overthewire",
+    "name": "OverTheWire",
+    "description": "Wargames to help you learn and practice security concepts in the form of fun-filled games.",
+    "category": "Development",
+    "url": "https://overthewire.org/wargames/",
+    "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-04T11:11:44.186Z",
+    "domain": "overthewire.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mozilla-observatory",
+    "name": "Mozilla Observatory",
+    "description": "A set of tools to analyze your website and let you know if it is secure.",
+    "category": "Development",
+    "url": "https://observatory.mozilla.org",
+    "imageUrl": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-31T01:29:20.448Z",
+    "domain": "observatory.mozilla.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "internet-archive",
+    "name": "Internet Archive",
+    "description": "Non-profit library of millions of free books, movies, software, music, websites, and more.",
+    "category": "Education",
+    "url": "https://archive.org",
+    "imageUrl": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-13T07:54:46.775Z",
+    "domain": "archive.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "open-library",
+    "name": "Open Library",
+    "description": "An open, editable library catalog, building towards a web page for every book ever published.",
+    "category": "Education",
+    "url": "https://openlibrary.org",
+    "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-16T16:54:14.261Z",
+    "domain": "openlibrary.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "iep",
+    "name": "Internet Encyclopedia of Philosophy",
+    "description": "A peer-reviewed academic resource.",
+    "category": "Education",
+    "url": "https://iep.utm.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-15T17:13:55.030Z",
+    "domain": "iep.utm.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "youtube",
+    "name": "YouTube",
+    "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+    "category": "Social Media",
+    "url": "https://youtube.com",
+    "imageUrl": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-21T16:55:41.580Z",
+    "domain": "youtube.com",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "leetcode",
+    "name": "LeetCode",
+    "description": "The world's leading online programming learning platform for interview prep.",
+    "category": "Development",
+    "url": "https://leetcode.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-09T14:20:52.306Z",
+    "domain": "leetcode.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "hackerrank",
+    "name": "HackerRank",
+    "description": "Practice coding, prepare for interviews, and get hired.",
+    "category": "Development",
+    "url": "https://hackerrank.com",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-26T03:04:58.280Z",
+    "domain": "hackerrank.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codeforces",
+    "name": "Codeforces",
+    "description": "Programming competitions and contests platform.",
+    "category": "Development",
+    "url": "https://codeforces.com",
+    "imageUrl": "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-04-06T19:44:43.466Z",
+    "domain": "codeforces.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codechef",
+    "name": "CodeChef",
+    "description": "A competitive programming community and educational initiative.",
+    "category": "Development",
+    "url": "https://codechef.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-08T14:24:54.996Z",
+    "domain": "codechef.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "atcoder",
+    "name": "AtCoder",
+    "description": "Programming contest site for anyone from beginners to experts.",
+    "category": "Development",
+    "url": "https://atcoder.jp",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-27T02:21:15.794Z",
+    "domain": "atcoder.jp",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "exercism",
+    "name": "Exercism",
+    "description": "Code practice and mentorship for everyone. Develop fluency in coding.",
+    "category": "Development",
+    "url": "https://exercism.org",
+    "imageUrl": "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-21T12:04:40.333Z",
+    "domain": "exercism.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "coderbyte",
+    "name": "Coderbyte",
+    "description": "The #1 platform for technical assessments and interview prep.",
+    "category": "Development",
+    "url": "https://coderbyte.com",
+    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-23T20:40:59.455Z",
+    "domain": "coderbyte.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "project-euler",
+    "name": "Project Euler",
+    "description": "A series of challenging mathematical/computer programming problems.",
+    "category": "Development",
+    "url": "https://projecteuler.net",
+    "imageUrl": "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-07-13T14:10:16.967Z",
+    "domain": "projecteuler.net",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "sqlbolt",
+    "name": "SQLBolt",
+    "description": "Learn SQL with simple, interactive exercises.",
+    "category": "Development",
+    "url": "https://sqlbolt.com",
+    "imageUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-10T00:38:56.164Z",
+    "domain": "sqlbolt.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "frontend-mentor",
+    "name": "Frontend Mentor",
+    "description": "Improve your front-end coding skills by building real projects.",
+    "category": "Development",
+    "url": "https://frontendmentor.io",
+    "imageUrl": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-15T09:23:17.931Z",
+    "domain": "frontendmentor.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "roadmap-sh",
+    "name": "Roadmap.sh",
+    "description": "Community-driven roadmaps, articles, and resources for developers.",
+    "category": "Development",
+    "url": "https://roadmap.sh",
+    "imageUrl": "https://images.unsplash.com/photo-1473221326025-9183b464c209?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-20T02:07:39.813Z",
+    "domain": "roadmap.sh",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "freecodecamp",
+    "name": "freeCodeCamp",
+    "description": "Learn to code — for free. Build projects. Earn certifications.",
+    "category": "Development",
+    "url": "https://freecodecamp.org",
+    "imageUrl": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-10T17:25:04.890Z",
+    "domain": "freecodecamp.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "cs50",
+    "name": "CS50",
+    "description": "Harvard University's introduction to the intellectual enterprises of computer science and the art of programming.",
+    "category": "Development",
+    "url": "https://cs50.harvard.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-29T00:28:05.582Z",
+    "domain": "cs50.harvard.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "the-odin-project",
+    "name": "The Odin Project",
+    "description": "Your Career in Web Development Starts Here. Our full stack curriculum is free and supported by a passionate open source community.",
+    "category": "Development",
+    "url": "https://theodinproject.com",
+    "imageUrl": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-31T06:55:10.206Z",
+    "domain": "theodinproject.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "w3schools",
+    "name": "W3Schools",
+    "description": "The world's largest web developer site, with tutorials and references on web development languages.",
+    "category": "Development",
+    "url": "https://w3schools.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-07-09T10:38:04.960Z",
+    "domain": "w3schools.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mdn",
+    "name": "MDN Web Docs",
+    "description": "The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps.",
+    "category": "Development",
+    "url": "https://developer.mozilla.org",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-15T06:29:57.142Z",
+    "domain": "developer.mozilla.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "geeksforgeeks",
+    "name": "GeeksforGeeks",
+    "description": "A computer science portal for geeks. It contains well written, well thought and well explained computer science and programming articles.",
+    "category": "Development",
+    "url": "https://geeksforgeeks.org",
+    "imageUrl": "https://images.unsplash.com/photo-1526379095098-d400fd0bfce8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-11T03:17:40.733Z",
+    "domain": "geeksforgeeks.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "codecademy",
+    "name": "Codecademy",
+    "description": "Learn the technical skills to get the job you want. Join over 50 million people choosing Codecademy to start a new career.",
+    "category": "Development",
+    "url": "https://codecademy.com",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-13T06:12:03.704Z",
+    "domain": "codecademy.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "programiz",
+    "name": "Programiz",
+    "description": "Learn to code in Python, C/C++, Java, and other popular programming languages with our easy to follow tutorials, examples, online compiler and references.",
+    "category": "Development",
+    "url": "https://programiz.com",
+    "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-03-03T16:51:03.747Z",
+    "domain": "programiz.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "full-stack-open",
+    "name": "Full Stack Open",
+    "description": "Deep Dive Into Modern Web Development. Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go!",
+    "category": "Development",
+    "url": "https://fullstackopen.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-21T19:01:01.058Z",
+    "domain": "fullstackopen.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "javatpoint",
+    "name": "Javatpoint",
+    "description": "Javatpoint provides tutorials and interview questions of all technology like java tutorial, android, java frameworks, javascript, ajax, core java, sql.",
+    "category": "Development",
+    "url": "https://javatpoint.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-05-12T17:15:15.523Z",
+    "domain": "javatpoint.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "devdocs",
+    "name": "DevDocs",
+    "description": "DevDocs combines multiple API documentations in a fast, organized, and searchable interface.",
+    "category": "Development",
+    "url": "https://devdocs.io",
+    "imageUrl": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-07-09T17:13:49.091Z",
+    "domain": "devdocs.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "kaggle",
+    "name": "Kaggle Learn",
+    "description": "Gain the skills you need to do independent data science projects. We pare down complex topics to their key practical components.",
+    "category": "Development",
+    "url": "https://kaggle.com/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-19T05:56:08.759Z",
+    "domain": "kaggle.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-ai",
+    "name": "Google AI",
+    "description": "Explore Google's open source machine learning and AI technology, research, and tools.",
+    "category": "Development",
+    "url": "https://ai.google",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-25T16:26:43.542Z",
+    "domain": "ai.google",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "deeplearning-ai",
+    "name": "DeepLearning.AI",
+    "description": "Learn from the AI pioneer Andrew Ng and a world-class team of experts. Master AI through courses, specializations, and certificates.",
+    "category": "Development",
+    "url": "https://deeplearning.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-29T01:06:14.560Z",
+    "domain": "deeplearning.ai",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "fast-ai",
+    "name": "Fast.ai",
+    "description": "Making neural nets uncool again. Fast.ai is a non-profit research group focused on deep learning and artificial intelligence.",
+    "category": "Development",
+    "url": "https://fast.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-18T19:14:09.935Z",
+    "domain": "fast.ai",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "hugging-face-course",
+    "name": "Hugging Face Course",
+    "description": "This course will teach you about natural language processing (NLP) using libraries from the Hugging Face ecosystem.",
+    "category": "Development",
+    "url": "https://huggingface.co/course",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-20T12:01:43.459Z",
+    "domain": "huggingface.co",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "microsoft-learn-ai",
+    "name": "Microsoft Learn AI",
+    "description": "Discover how Microsoft AI and machine learning products can help you build intelligent apps and solutions.",
+    "category": "Development",
+    "url": "https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-17T23:15:48.674Z",
+    "domain": "learn.microsoft.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openai-cookbook",
+    "name": "OpenAI Cookbook",
+    "description": "The OpenAI Cookbook shares example code and prompts for accomplishing common tasks with the OpenAI API.",
+    "category": "Development",
+    "url": "https://cookbook.openai.com",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-17T10:46:36.874Z",
+    "domain": "cookbook.openai.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "datacamp",
+    "name": "DataCamp",
+    "description": "Learn the data and AI skills you need online at your own pace—from non-coding essentials to data science and machine learning.",
+    "category": "Development",
+    "url": "https://datacamp.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-02T17:57:33.122Z",
+    "domain": "datacamp.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ibm-skillsbuild",
+    "name": "IBM SkillsBuild",
+    "description": "Free digital learning on tech, workplace skills, and more. Get badges to boost your career.",
+    "category": "Development",
+    "url": "https://skillsbuild.org",
+    "imageUrl": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-24T06:44:00.140Z",
+    "domain": "skillsbuild.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "sifu-yik",
+    "name": "Sifu Yik",
+    "description": "Learn AI and Data Science from experts.",
+    "category": "Development",
+    "url": "https://sifuyik.com",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-04-21T11:56:15.716Z",
+    "domain": "sifuyik.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "tensorflow-tutorials",
+    "name": "TensorFlow Tutorials",
+    "description": "Learn how to use TensorFlow with these comprehensive tutorials for all skill levels.",
+    "category": "Development",
+    "url": "https://tensorflow.org/tutorials",
+    "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-01T06:26:08.826Z",
+    "domain": "tensorflow.org",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "docker-docs",
+    "name": "Docker Docs",
+    "description": "Learn how to build, share, and run applications with Docker.",
+    "category": "Development",
+    "url": "https://docs.docker.com",
+    "imageUrl": "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-11T09:11:17.035Z",
+    "domain": "docs.docker.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "kubernetes-docs",
+    "name": "Kubernetes Docs",
+    "description": "Learn how to use Kubernetes, the open-source system for automating deployment, scaling, and management of containerized applications.",
+    "category": "Development",
+    "url": "https://kubernetes.io/docs",
+    "imageUrl": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-07-03T12:46:22.890Z",
+    "domain": "kubernetes.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "github-skills",
+    "name": "GitHub Skills",
+    "description": "Learn how to use GitHub with interactive courses built right into GitHub repositories.",
+    "category": "Development",
+    "url": "https://skills.github.com",
+    "imageUrl": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-30T05:59:11.559Z",
+    "domain": "skills.github.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "git-immersion",
+    "name": "Git Immersion",
+    "description": "A guided tour that walks through the fundamentals of Git, inspired by the premise that to know a thing is to do it.",
+    "category": "Development",
+    "url": "https://gitimmersion.com",
+    "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-07T19:41:08.995Z",
+    "domain": "gitimmersion.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "linux-journey",
+    "name": "Linux Journey",
+    "description": "Learn the ways of Linux-fu, for free.",
+    "category": "Development",
+    "url": "https://linuxjourney.com",
+    "imageUrl": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-23T16:24:38.051Z",
+    "domain": "linuxjourney.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "roadmap-sh-devops",
+    "name": "Roadmap.sh DevOps",
+    "description": "Step by step guide to becoming a DevOps Engineer in 2024.",
+    "category": "Development",
+    "url": "https://roadmap.sh/devops",
+    "imageUrl": "https://images.unsplash.com/photo-1473221326025-9183b464c209?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-15T16:21:08.674Z",
+    "domain": "roadmap.sh",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "jenkins",
+    "name": "Jenkins Docs",
+    "description": "Learn how to use Jenkins, the leading open source automation server.",
+    "category": "Development",
+    "url": "https://jenkins.io/doc",
+    "imageUrl": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-25T16:51:19.577Z",
+    "domain": "jenkins.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "terraform-docs",
+    "name": "Terraform Docs",
+    "description": "Learn how to use Terraform to provision and manage infrastructure in any cloud.",
+    "category": "Development",
+    "url": "https://developer.hashicorp.com/terraform",
+    "imageUrl": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-10T01:54:24.861Z",
+    "domain": "developer.hashicorp.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "vercel-docs",
+    "name": "Vercel Docs",
+    "description": "Learn how to deploy your applications with Vercel's Frontend Cloud.",
+    "category": "Development",
+    "url": "https://vercel.com/docs",
+    "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-25T16:58:22.362Z",
+    "domain": "vercel.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "netlify-docs",
+    "name": "Netlify Docs",
+    "description": "Learn how to build and deploy your sites and apps on Netlify.",
+    "category": "Development",
+    "url": "https://docs.netlify.com",
+    "imageUrl": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-05T09:39:00.117Z",
+    "domain": "docs.netlify.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "postman-learning",
+    "name": "Postman Learning Center",
+    "description": "Learn how to use Postman to build, test, and document your APIs.",
+    "category": "Development",
+    "url": "https://learning.postman.com",
+    "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-03T06:00:44.043Z",
+    "domain": "learning.postman.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "figma-learn",
+    "name": "Figma Learn",
+    "description": "Explore tutorials, articles, and videos to learn how to use Figma.",
+    "category": "Design",
+    "url": "https://help.figma.com/hc/en-us",
+    "imageUrl": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-09T08:52:52.860Z",
+    "domain": "figma.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "canva-design-school",
+    "name": "Canva Design School",
+    "description": "Free courses and tutorials to help you learn design, marketing, and more.",
+    "category": "Design",
+    "url": "https://designschool.canva.com",
+    "imageUrl": "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-30T23:56:58.756Z",
+    "domain": "canva.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "adobe-learn",
+    "name": "Adobe Learn",
+    "description": "Discover tutorials, projects, and tips to help you create your best work.",
+    "category": "Design",
+    "url": "https://creativecloud.adobe.com/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1561089489-0268a7353f09?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-01-22T04:54:49.226Z",
+    "domain": "adobe.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ux-planet",
+    "name": "UX Planet",
+    "description": "One-stop resource for everything related to user experience.",
+    "category": "Design",
+    "url": "https://uxplanet.org",
+    "imageUrl": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-07-01T20:22:03.606Z",
+    "domain": "uxplanet.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "learn-ui-design",
+    "name": "Learn UI Design",
+    "description": "The complete video course for developers, PMs, and UX designers.",
+    "category": "Design",
+    "url": "https://learnui.design",
+    "imageUrl": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Paid",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-03T00:55:43.868Z",
+    "domain": "learnui.design",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "dribbble",
+    "name": "Dribbble",
+    "description": "Discover the world's top designers & creatives.",
+    "category": "Design",
+    "url": "https://dribbble.com",
+    "imageUrl": "https://images.unsplash.com/photo-1623062369620-333060fc5b2c?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-31T14:12:41.304Z",
+    "domain": "dribbble.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "behance",
+    "name": "Behance",
+    "description": "Showcase and discover creative work.",
+    "category": "Design",
+    "url": "https://behance.net",
+    "imageUrl": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-07T14:23:28.260Z",
+    "domain": "behance.net",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-fonts-knowledge",
+    "name": "Google Fonts Knowledge",
+    "description": "Learn about typography from experts around the world.",
+    "category": "Design",
+    "url": "https://fonts.google.com/knowledge",
+    "imageUrl": "https://images.unsplash.com/photo-1550792436-181701c71f63?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-18T21:06:02.074Z",
+    "domain": "fonts.google.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "color-hunt",
+    "name": "Color Hunt",
+    "description": "Color palettes for designers and artists.",
+    "category": "Design",
+    "url": "https://colorhunt.co",
+    "imageUrl": "https://images.unsplash.com/photo-1505909182942-e2f09aee3e89?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-19T06:55:47.996Z",
+    "domain": "colorhunt.co",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "material-design",
+    "name": "Material Design",
+    "description": "Build beautiful, usable products faster. Material Design is an adaptable system of guidelines, components, and tools.",
+    "category": "Design",
+    "url": "https://m3.material.io",
+    "imageUrl": "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-18T22:54:45.381Z",
+    "domain": "material.io",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "iconify",
+    "name": "Iconify",
+    "description": "Universal icon framework. One syntax for over 200k open source icons.",
+    "category": "Design",
+    "url": "https://iconify.design",
+    "imageUrl": "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-13T09:49:25.015Z",
+    "domain": "iconify.design",
+    "brandColor": "var(--color-primary)"
+},
+,
+{
+    "id": "hubspot-academy",
+    "name": "HubSpot Academy",
+    "description": "Free online training for inbound marketing, sales, and customer service professionals.",
+    "category": "Marketing & SEO",
+    "url": "https://academy.hubspot.com",
+    "imageUrl": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-28T21:25:19.532Z",
+    "domain": "academy.hubspot.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "google-digital-garage",
+    "name": "Google Digital Garage",
+    "description": "Discover a range of free learning content designed to help your business or in your career.",
+    "category": "Marketing & SEO",
+    "url": "https://learndigital.withgoogle.com/digitalgarage",
+    "imageUrl": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-06T13:14:08.447Z",
+    "domain": "learndigital.withgoogle.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "meta-blueprint",
+    "name": "Meta Blueprint",
+    "description": "Free online training for advertising on Facebook, Instagram, Messenger and WhatsApp.",
+    "category": "Marketing & SEO",
+    "url": "https://www.facebook.com/business/learn",
+    "imageUrl": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-05-09T01:12:52.373Z",
+    "domain": "facebook.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "semrush-academy",
+    "name": "Semrush Academy",
+    "description": "Free SEO and digital marketing courses from top industry experts.",
+    "category": "Marketing & SEO",
+    "url": "https://www.semrush.com/academy/",
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-26T10:00:18.088Z",
+    "domain": "semrush.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ahrefs-academy",
+    "name": "Ahrefs Academy",
+    "description": "Actionable SEO tutorials and marketing courses from Ahrefs.",
+    "category": "Marketing & SEO",
+    "url": "https://ahrefs.com/academy",
+    "imageUrl": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-24T12:21:05.724Z",
+    "domain": "ahrefs.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "coursera",
+    "name": "Coursera",
+    "description": "Build skills with courses, certificates, and degrees online from world-class universities and companies.",
+    "category": "Education",
+    "url": "https://www.coursera.org",
+    "imageUrl": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-05-29T14:25:19.269Z",
+    "domain": "coursera.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "edx",
+    "name": "edX",
+    "description": "Access 2500+ Online Courses from 140 Top Institutions.",
+    "category": "Education",
+    "url": "https://www.edx.org",
+    "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-01-30T01:51:41.884Z",
+    "domain": "edx.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "alison",
+    "name": "Alison",
+    "description": "Free Online Courses With Certificates & Diplomas.",
+    "category": "Education",
+    "url": "https://alison.com",
+    "imageUrl": "https://images.unsplash.com/photo-1546410531-ee4cb47b5315?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-14T10:10:54.043Z",
+    "domain": "alison.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "futurelearn",
+    "name": "FutureLearn",
+    "description": "Online Courses and Degrees from Top Universities.",
+    "category": "Education",
+    "url": "https://www.futurelearn.com",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-04-17T21:48:54.010Z",
+    "domain": "futurelearn.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openlearn",
+    "name": "OpenLearn",
+    "description": "Free learning from The Open University.",
+    "category": "Education",
+    "url": "https://www.open.edu/openlearn",
+    "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-25T10:58:21.892Z",
+    "domain": "open.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "skillshop",
+    "name": "Skillshop (Google)",
+    "description": "Develop skills you can apply right away, with e-learning courses designed by Google product experts.",
+    "category": "Marketing & SEO",
+    "url": "https://skillshop.exceedlms.com",
+    "imageUrl": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-12T11:37:01.276Z",
+    "domain": "skillshop.exceedlms.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "khan-academy",
+    "name": "Khan Academy",
+    "description": "Free online courses, lessons and practice. You can learn anything.",
+    "category": "Education",
+    "url": "https://www.khanacademy.org",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-22T02:55:51.697Z",
+    "domain": "khanacademy.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "brilliant",
+    "name": "Brilliant",
+    "description": "Build quantitative skills in math, science, and computer science with interactive lessons.",
+    "category": "Education",
+    "url": "https://brilliant.org",
+    "imageUrl": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-19T21:48:18.109Z",
+    "domain": "brilliant.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "pauls-online-math-notes",
+    "name": "Paul's Online Math Notes",
+    "description": "Free math notes and tutorials from Paul Dawkins at Lamar University.",
+    "category": "Education",
+    "url": "https://tutorial.math.lamar.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1632516643771-69e1358c97dd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-02-14T09:01:23.565Z",
+    "domain": "tutorial.math.lamar.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mit-opencourseware",
+    "name": "MIT OpenCourseWare",
+    "description": "Free lecture notes, exams, and videos from MIT. No registration required.",
+    "category": "Education",
+    "url": "https://ocw.mit.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-16T22:13:28.442Z",
+    "domain": "ocw.mit.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "ck-12",
+    "name": "CK-12",
+    "description": "Free, customizable, interactive online textbooks, practice, and more.",
+    "category": "Education",
+    "url": "https://www.ck12.org",
+    "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-10T16:39:43.440Z",
+    "domain": "ck12.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "nasa-stem",
+    "name": "NASA STEM",
+    "description": "NASA's STEM engagement site for students and educators.",
+    "category": "Education",
+    "url": "https://www.nasa.gov/stem",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-26T08:59:29.822Z",
+    "domain": "nasa.gov",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "phet-simulations",
+    "name": "PhET Simulations",
+    "description": "Free interactive math and science simulations from the University of Colorado Boulder.",
+    "category": "Education",
+    "url": "https://phet.colorado.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-16T18:46:46.734Z",
+    "domain": "phet.colorado.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "wolfram-demonstrations",
+    "name": "Wolfram Demonstrations Project",
+    "description": "Open-code interactive simulations of concepts in science, math, technology, and more.",
+    "category": "Education",
+    "url": "https://demonstrations.wolfram.com",
+    "imageUrl": "https://images.unsplash.com/photo-1632516643771-69e1358c97dd?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-08T12:00:43.018Z",
+    "domain": "demonstrations.wolfram.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "openstax",
+    "name": "OpenStax",
+    "description": "Free, peer-reviewed, openly licensed textbooks.",
+    "category": "Education",
+    "url": "https://openstax.org",
+    "imageUrl": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-09T15:05:20.216Z",
+    "domain": "openstax.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "nptel",
+    "name": "NPTEL",
+    "description": "National Programme on Technology Enhanced Learning (NPTEL) offers online courses and certification.",
+    "category": "Education",
+    "url": "https://nptel.ac.in",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-06-17T04:00:56.940Z",
+    "domain": "nptel.ac.in",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "byjus-free-resources",
+    "name": "BYJU'S Free Resources",
+    "description": "Free educational resources and video lessons.",
+    "category": "Education",
+    "url": "https://byjus.com",
+    "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.7,
+    "featured": false,
+    "dateAdded": "2026-06-09T03:09:06.965Z",
+    "domain": "byjus.com",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "notion-academy",
+    "name": "Notion Academy",
+    "description": "Learn how to use Notion with courses, tutorials, and guides.",
+    "category": "Productivity",
+    "url": "https://www.notion.so/help/notion-academy",
+    "imageUrl": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-02-18T17:55:49.345Z",
+    "domain": "notion.so",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "obsidian-help",
+    "name": "Obsidian Help",
+    "description": "Documentation for Obsidian, a powerful knowledge base on top of a local folder of plain text Markdown files.",
+    "category": "Productivity",
+    "url": "https://help.obsidian.md",
+    "imageUrl": "https://images.unsplash.com/photo-1522881113591-5452277d7045?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-01-28T04:37:30.873Z",
+    "domain": "help.obsidian.md",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "overthewire",
+    "name": "OverTheWire",
+    "description": "Wargames to help you learn and practice security concepts in the form of fun-filled games.",
+    "category": "Development",
+    "url": "https://overthewire.org/wargames/",
+    "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-04-20T03:24:05.591Z",
+    "domain": "overthewire.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "mozilla-observatory",
+    "name": "Mozilla Observatory",
+    "description": "A set of tools to analyze your website and let you know if it is secure.",
+    "category": "Development",
+    "url": "https://observatory.mozilla.org",
+    "imageUrl": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-02T12:01:24.899Z",
+    "domain": "observatory.mozilla.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "internet-archive",
+    "name": "Internet Archive",
+    "description": "Non-profit library of millions of free books, movies, software, music, websites, and more.",
+    "category": "Education",
+    "url": "https://archive.org",
+    "imageUrl": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-06-28T05:14:53.998Z",
+    "domain": "archive.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "open-library",
+    "name": "Open Library",
+    "description": "An open, editable library catalog, building towards a web page for every book ever published.",
+    "category": "Education",
+    "url": "https://openlibrary.org",
+    "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-05-16T08:20:43.764Z",
+    "domain": "openlibrary.org",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "iep",
+    "name": "Internet Encyclopedia of Philosophy",
+    "description": "A peer-reviewed academic resource.",
+    "category": "Education",
+    "url": "https://iep.utm.edu",
+    "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.8,
+    "featured": false,
+    "dateAdded": "2026-03-18T13:57:23.188Z",
+    "domain": "iep.utm.edu",
+    "brandColor": "var(--color-primary)"
+},
+{
+    "id": "youtube",
+    "name": "YouTube",
+    "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+    "category": "Social Media",
+    "url": "https://youtube.com",
+    "imageUrl": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.9,
+    "featured": false,
+    "dateAdded": "2026-03-27T22:42:56.999Z",
     "domain": "youtube.com",
     "brandColor": "var(--color-primary)"
 },
 ];
-export const MOCK_TOOLS = _MOCK_TOOLS.filter(Boolean);
+/**
+ * The raw array accumulated 200 duplicate entries across 115 ids as tools were
+ * appended in batches — leetcode, hackerrank and friends each appear three
+ * times. Left alone that means React key collisions, the same card rendered
+ * twice in one list, inflated category counts, and duplicate-content signals
+ * pointing at /tool/:id routes that can only ever resolve to one record.
+ *
+ * De-duplicating on id here fixes all of those at once and keeps every count
+ * in the UI honest, because every count is derived from this export. First
+ * occurrence wins, so the earliest curated entry is the one that survives.
+ */
+const _seen = new Set<string>();
+export const MOCK_TOOLS = _MOCK_TOOLS.filter((tool) => {
+  if (!tool || !tool.id || _seen.has(tool.id)) return false;
+  _seen.add(tool.id);
+  return true;
+});

@@ -1,189 +1,232 @@
-import React, { useState } from 'react';
-import { Copy, Search, Tag, Sparkles, CheckCircle2 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import React, { useMemo, useState } from 'react';
+import { Copy, Search, Check, ChevronDown } from 'lucide-react';
 import SEO from '../components/SEO';
-
-import { Prompt } from '../types';
+import PageHeader from '../components/PageHeader';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { PROMPT_LIBRARY } from '../data/prompts';
-
-const CATEGORIES = Array.from(new Set(PROMPT_LIBRARY.map(p => p.category)));
-const PLATFORMS = Array.from(new Set(PROMPT_LIBRARY.map(p => p.platform)));
+import { breadcrumbSchema } from '../utils/seo';
 
 export default function Prompts() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPlatform, setSelectedPlatform] = useState('All');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
-  const filteredPrompts = PROMPT_LIBRARY.filter(prompt => {
-    const matchesSearch = prompt.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          prompt.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || prompt.category === selectedCategory;
-    const matchesPlatform = selectedPlatform === 'All' || prompt.platform === selectedPlatform;
-    return matchesSearch && matchesCategory && matchesPlatform;
-  }).sort((a, b) => {
-    if (a.dateAdded && b.dateAdded) {
-      return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+  const categories = useMemo(
+    () => ['All', ...new Set(PROMPT_LIBRARY.map((p) => p.category).filter(Boolean))],
+    [],
+  );
+  const platforms = useMemo(
+    () => ['All', ...new Set(PROMPT_LIBRARY.map((p) => p.platform).filter(Boolean))],
+    [],
+  );
+
+  const filtered = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase();
+    return PROMPT_LIBRARY.filter((p) => {
+      const matchesSearch =
+        !q ||
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.promptText.toLowerCase().includes(q);
+      const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+      const matchesPlatform = selectedPlatform === 'All' || p.platform === selectedPlatform;
+      return matchesSearch && matchesCategory && matchesPlatform;
+    });
+  }, [searchTerm, selectedCategory, selectedPlatform]);
+
+  const handleCopy = async (id: string, text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch {
+      /* clipboard blocked — the prompt text is on screen and selectable anyway */
     }
-    return 0;
-  });
-
-  const handleCopy = (id: string, text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
   };
 
   return (
-    <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 min-h-screen">
-      <SEO 
-        title="Prompt Library | AI Master Tools" 
-        description="Discover our curated library of the best AI prompts for ChatGPT, Midjourney, Claude and more. Copy and paste to get better results instantly." 
-        keywords={["AI prompts", "best chatgpt prompts", "midjourney prompts", "claude prompts", "prompt engineering", "free ai prompts", "best ai tools", "chatgpt alternative"]}
+    <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
+      <SEO
+        title={`${PROMPT_LIBRARY.length} AI Prompts — Copy-Paste Templates for ChatGPT & Claude`}
+        description="A working library of prompt templates with the full text shown, not hidden behind a signup. Filter by task and by model."
+        url="/prompts"
+        keywords={[
+          'AI prompts',
+          'ChatGPT prompts',
+          'Claude prompts',
+          'Midjourney prompts',
+          'prompt engineering templates',
+          'free AI prompts 2026',
+        ]}
+        schema={[breadcrumbSchema([{ label: 'Prompts', path: '/prompts' }])]}
       />
 
-      <div className="container-custom mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-bold text-xs uppercase tracking-wider mb-4">
-            <Sparkles size={14} /> Power Up Your AI
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] mb-6 tracking-tight">
-            The Ultimate Prompt Library
-          </h1>
-          <p className="text-lg text-[var(--color-text-secondary)]">
-            Copy and paste these human-tested prompts to get better results from your favorite AI tools instantly.
-          </p>
-        </div>
+      <div className="container-custom">
+        <Breadcrumbs items={[{ label: 'Prompts' }]} />
 
-        {/* Prompt Engineering Insights */}
-        <div className="mb-12 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6 sm:p-8 shadow-sm">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--color-text-primary)]">
-            <Sparkles className="text-[var(--color-primary)]" /> Mastering Prompt Engineering
-          </h2>
-          <p className="text-[var(--color-text-secondary)] mb-6">
-            As a prompt engineer, you know that the quality of your input directly determines the quality of the AI's output. Below are the core frameworks used in our advanced prompt collection.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-[var(--color-cardBg)] p-4 rounded-xl border border-[var(--color-border)]">
-              <h3 className="font-bold mb-2">Zero-Shot vs Few-Shot</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Providing context through examples drastically reduces hallucinatory output and ensures structured responses.</p>
-            </div>
-             <div className="bg-[var(--color-cardBg)] p-4 rounded-xl border border-[var(--color-border)]">
-              <h3 className="font-bold mb-2">Chain-of-Thought (CoT)</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Forcing the AI to explain its reasoning step-by-step before arriving at a final answer prevents logic failures.</p>
-            </div>
-             <div className="bg-[var(--color-cardBg)] p-4 rounded-xl border border-[var(--color-border)]">
-              <h3 className="font-bold mb-2">Persona Injection</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Defining a strict role (e.g., "Senior Python Developer") primes the model's latent space for domain-specific accuracy.</p>
-            </div>
-             <div className="bg-[var(--color-cardBg)] p-4 rounded-xl border border-[var(--color-border)]">
-              <h3 className="font-bold mb-2">The Megaprompt</h3>
-              <p className="text-sm text-[var(--color-text-secondary)]">Combining Context, Goal, Role, Constraints, and Output Format into a single, highly structured modular template.</p>
-            </div>
-          </div>
-        </div>
+        <PageHeader
+          eyebrow="Prompt library"
+          title={
+            <>
+              The tool is half of it. <em>The prompt is the rest.</em>
+            </>
+          }
+          lede="Full prompt text, shown in the open. Copy it, edit the bracketed parts, and keep what works."
+          meta={<span className="label-mono tabular-nums">{PROMPT_LIBRARY.length} prompts</span>}
+        />
 
-        {/* Filters */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-4 sm:p-6 mb-10 shadow-sm flex flex-col md:flex-row gap-4">
-          <div className="relative flex-grow">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" size={20} />
-            <input 
-              type="text" 
-              placeholder="Search prompts..." 
+        {/* Controls */}
+        <div className="mt-8 flex flex-col gap-4 border-b border-[var(--color-border)] pb-6">
+          <div className="relative max-w-md">
+            <Search
+              size={16}
+              aria-hidden="true"
+              className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]"
+            />
+            <label htmlFor="prompt-search" className="sr-only">
+              Search prompts
+            </label>
+            <input
+              id="prompt-search"
+              type="search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] transition-all"
+              placeholder="Search prompts…"
+              className="h-11 w-full rounded-[var(--radius-sm)] border border-[var(--color-border-strong)] bg-[var(--color-cardBg)] pl-10 pr-4 text-[14px] text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)]"
             />
           </div>
-          <div className="flex gap-4">
-            <select 
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] font-medium cursor-pointer"
-            >
-              <option value="All">All Categories</option>
-              {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-            </select>
-            <select 
-              value={selectedPlatform}
-              onChange={(e) => setSelectedPlatform(e.target.value)}
-              className="px-4 py-3 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] font-medium cursor-pointer hidden sm:block"
-            >
-              <option value="All">All Platforms</option>
-              {PLATFORMS.map(plat => <option key={plat} value={plat}>{plat}</option>)}
-            </select>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="label-mono mr-1">Task</span>
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setSelectedCategory(c)}
+                aria-pressed={selectedCategory === c}
+                className={`link-chip ${
+                  selectedCategory === c ? '!border-[var(--color-primary)] !text-[var(--color-primary)]' : ''
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="label-mono mr-1">Model</span>
+            {platforms.map((p) => (
+              <button
+                key={p}
+                onClick={() => setSelectedPlatform(p)}
+                aria-pressed={selectedPlatform === p}
+                className={`link-chip ${
+                  selectedPlatform === p ? '!border-[var(--color-primary)] !text-[var(--color-primary)]' : ''
+                }`}
+              >
+                {p}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPrompts.length > 0 ? (
-            filteredPrompts.map(prompt => (
-              <div key={prompt.id} className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-6 flex flex-col shadow-sm hover:border-[var(--color-primary)]/50 transition-colors">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-md text-xs font-bold text-[var(--color-text-secondary)] flex items-center gap-1">
-                      <Tag size={12} /> {prompt.category}
-                    </span>
-                    <span className={`px-2.5 py-1 rounded-md text-xs font-bold bg-opacity-10 
-                      ${prompt.platform === 'ChatGPT' ? 'bg-green-500 text-green-500' : 
-                        prompt.platform === 'Midjourney' ? 'bg-purple-500 text-purple-500' : 
-                        prompt.platform === 'Claude' ? 'bg-orange-500 text-orange-500' : 
-                        'bg-blue-500 text-blue-500'}`}
-                    >
-                      {prompt.platform}
-                    </span>
-                  </div>
-                  {prompt.dateAdded && (
-                    <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider font-bold">
-                      {new Date(prompt.dateAdded).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-                    </span>
-                  )}
-                </div>
-                
-                <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">{prompt.title}</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] mb-6">{prompt.description}</p>
-                
-                <div className="flex-grow flex flex-col justify-end">
-                  {prompt.exampleResultImage && (
-                    <div className="mb-4 rounded-xl overflow-hidden border border-[var(--color-border)] aspect-video bg-[var(--color-surface)]">
-                      <img src={prompt.exampleResultImage} alt="Prompt result" className="w-full h-full object-cover" />
-                    </div>
-                  )}
-                  {prompt.exampleResultText && (
-                    <div className="mb-4 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm text-[var(--color-text-secondary)] overflow-hidden relative max-h-[120px]">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-surface)] z-10 pointer-events-none mt-10"></div>
-                      <div className="whitespace-pre-wrap">{prompt.exampleResultText}</div>
-                    </div>
-                  )}
+        <p className="label-mono mt-5 tabular-nums">
+          {filtered.length} of {PROMPT_LIBRARY.length} prompts
+        </p>
 
-                  <div className="relative group mt-auto">
-                    <div className="absolute -top-3 left-4 px-2 bg-[var(--color-cardBg)] text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider z-10">
-                      Copy Prompt
+        <ul className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-2">
+          {filtered.map((prompt) => {
+            const isOpen = expanded === prompt.id;
+            const copied = copiedId === prompt.id;
+            return (
+              <li key={prompt.id} className="flex">
+                <article className="card flex w-full flex-col p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <h2 className="title-sm text-[17px] text-[var(--color-text-primary)]">
+                        {prompt.title}
+                      </h2>
+                      <p className="label-mono mt-1.5">
+                        {prompt.category} · {prompt.platform}
+                      </p>
                     </div>
-                    <div className="bg-[var(--color-surface)] border border-[var(--color-primary)]/30 rounded-xl p-4 pt-5 pr-12 text-sm text-[var(--color-text-primary)] font-mono overflow-auto max-h-[150px] scrollbar-hide relative shadow-sm">
-                      {prompt.promptText}
-                    </div>
-                    <button 
+                    <button
+                      type="button"
                       onClick={() => handleCopy(prompt.id, prompt.promptText)}
-                      className="absolute top-4 right-2 p-2 bg-[var(--color-primary)] rounded-lg text-white hover:bg-[var(--color-primary-dark)] transition-colors shadow-md"
-                      aria-label="Copy prompt"
+                      aria-label={copied ? 'Prompt copied' : `Copy the ${prompt.title} prompt`}
+                      className="btn-secondary h-9 shrink-0 px-3.5 text-[12.5px]"
                     >
-                      {copiedId === prompt.id ? <CheckCircle2 size={16} /> : <Copy size={16} />}
+                      {copied ? (
+                        <>
+                          <Check size={13} className="text-[var(--color-success)]" /> Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={13} /> Copy
+                        </>
+                      )}
                     </button>
                   </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-span-full py-12 text-center bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)]">
-              <Search className="w-12 h-12 text-[var(--color-text-muted)] mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">No prompts found</h3>
-              <p className="text-[var(--color-text-secondary)]">Try adjusting your filters or search term.</p>
-            </div>
-          )}
-        </div>
+
+                  <p className="mt-3 text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
+                    {prompt.description}
+                  </p>
+
+                  <pre
+                    className="mt-4 max-h-52 overflow-auto whitespace-pre-wrap rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 text-[12.5px] leading-relaxed text-[var(--color-text-primary)]"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {prompt.promptText}
+                  </pre>
+
+                  {prompt.exampleResultText && (
+                    <div className="pt-3 mt-4 border-t border-[var(--color-border)]">
+                      <button
+                        type="button"
+                        onClick={() => setExpanded(isOpen ? null : prompt.id)}
+                        aria-expanded={isOpen}
+                        className="flex items-center gap-1.5 text-[12.5px] font-semibold text-[var(--color-primary)]"
+                      >
+                        <ChevronDown
+                          size={14}
+                          aria-hidden="true"
+                          className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                        />
+                        {isOpen ? 'Hide' : 'Show'} example output
+                      </button>
+                      {isOpen && (
+                        <pre
+                          className="mt-3 max-h-64 overflow-auto whitespace-pre-wrap rounded-[var(--radius-sm)] border border-dashed border-[var(--color-border-strong)] p-4 text-[12.5px] leading-relaxed text-[var(--color-text-secondary)]"
+                          style={{ fontFamily: 'var(--font-mono)' }}
+                        >
+                          {prompt.exampleResultText}
+                        </pre>
+                      )}
+                    </div>
+                  )}
+                </article>
+              </li>
+            );
+          })}
+        </ul>
+
+        {filtered.length === 0 && (
+          <div className="mt-10 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-strong)] px-6 py-16 text-center">
+            <p className="title-sm text-[17px] text-[var(--color-text-primary)]">No prompts match</p>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('All');
+                setSelectedPlatform('All');
+              }}
+              className="btn-secondary mt-5 h-10 px-5 text-[13px]"
+            >
+              Clear filters
+            </button>
+          </div>
+        )}
       </div>
-    </div>
+    </main>
   );
 }

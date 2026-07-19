@@ -9,6 +9,17 @@ interface ToolLogoProps {
 }
 
 const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className, style }) => {
+  React.useEffect(() => { 
+    if (domain) {
+      // Clean domain just in case
+      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
+      setSrc(`https://logo.clearbit.com/${cleanDomain}`);
+      setFailed(false);
+    } else {
+      setSrc(null);
+    }
+  }, [domain]);
+  React.useEffect(() => { setSrc(domain ? `https://logo.clearbit.com/${domain}` : null); setFailed(false); }, [domain]);
   const [src, setSrc] = useState<string | null>(
     domain ? `https://logo.clearbit.com/${domain}` : null
   );

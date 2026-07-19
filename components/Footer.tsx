@@ -1,128 +1,175 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Github, Linkedin, ArrowRight, Check, Loader2 } from 'lucide-react';
+import { Twitter, Github, Linkedin, ArrowRight, Check, Loader2, ArrowUp } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import Logo from './Logo';
+
+const COLUMNS = [
+  {
+    heading: 'Browse',
+    links: [
+      { label: 'All tools', to: '/' },
+      { label: 'Categories', to: '/categories' },
+      { label: 'Collections', to: '/collections' },
+      { label: 'Workflows', to: '/workflows' },
+      { label: 'Prompts', to: '/prompts' },
+    ],
+  },
+  {
+    heading: 'Decide',
+    links: [
+      { label: 'Compare two tools', to: '/compare' },
+      { label: 'Find a tool', to: '/find' },
+      { label: 'Saved tools', to: '/bookmarks' },
+      { label: 'Blog', to: '/blog' },
+    ],
+  },
+  {
+    heading: 'Site',
+    links: [
+      { label: 'About', to: '/discover#about' },
+      { label: 'Careers', to: '/careers' },
+      { label: 'Privacy policy', to: '/privacy' },
+      { label: 'Terms of service', to: '/terms' },
+    ],
+  },
+];
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    
     setStatus('submitting');
     try {
-      await addDoc(collection(db, 'newsletter_emails'), {
-        email: email,
-        subscribedAt: serverTimestamp()
-      });
+      await addDoc(collection(db, 'newsletter_emails'), { email, subscribedAt: serverTimestamp() });
       setStatus('success');
       setEmail('');
-      setTimeout(() => setStatus('idle'), 3000);
+      setTimeout(() => setStatus('idle'), 4000);
     } catch (error) {
-      console.error("Error subscribing to newsletter:", error);
+      console.error('Newsletter signup failed:', error);
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
   return (
-    <footer className="bg-[var(--color-surface)] border-t border-[var(--color-border)] pt-16 pb-24 md:pb-8 mt-auto">
-      <div className="container-custom max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 group mb-6">
-              <Logo showText={true} />
+    <footer className="mt-auto border-t border-[var(--color-border)] bg-[var(--color-surface)] pb-24 pt-16 md:pb-10">
+      <div className="container-custom">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="max-w-sm">
+            <Link to="/" aria-label="AI Master Tools home" className="inline-block">
+              <Logo size="md" />
             </Link>
-            <p className="text-[var(--color-text-secondary)] text-[15px] mb-8 leading-relaxed pr-4">
-              Empowering creators and businesses with the best AI tools, curated and updated daily.
+            <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+              An independent index of AI tools. Every entry is opened, checked and
+              re-checked so you are not reading a press release.
             </p>
-            <div className="flex gap-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors" aria-label="Twitter"><Twitter size={20} /></a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors" aria-label="GitHub"><Github size={20} /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors" aria-label="LinkedIn"><Linkedin size={20} /></a>
+            <div className="mt-6 flex gap-2">
+              {[
+                { href: 'https://twitter.com/AIMasterTools', label: 'Twitter', Icon: Twitter },
+                { href: 'https://github.com/aimastertools', label: 'GitHub', Icon: Github },
+                { href: 'https://www.linkedin.com/company/aimastertools', label: 'LinkedIn', Icon: Linkedin },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-9 w-9 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
-          
-          <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Resources</h3>
-            <ul className="space-y-4 text-[15px] text-[var(--color-text-secondary)]">
-              <li><Link to="/collections" className="hover:text-[var(--color-primary)] transition-colors">Collections</Link></li>
-              <li><Link to="/prompts" className="hover:text-[var(--color-primary)] transition-colors">Prompts</Link></li>
-              <li><Link to="/compare" className="hover:text-[var(--color-primary)] transition-colors">Compare Tools</Link></li>
-              <li><Link to="/find" className="hover:text-[var(--color-primary)] transition-colors">AI Tool Finder</Link></li>
-              <li><a href="mailto:submit@aimastertools.com" className="hover:text-[var(--color-primary)] transition-colors">Submit Tool</a></li>
-            </ul>
-          </div>
 
-          <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Company</h3>
-            <ul className="space-y-4 text-[15px] text-[var(--color-text-secondary)]">
-              <li><Link to="/discover#about" className="hover:text-[var(--color-primary)] transition-colors">About Us</Link></li>
-              <li><Link to="/bookmarks" className="hover:text-[var(--color-primary)] transition-colors">My Favorites</Link></li>
-              <li><Link to="/privacy" className="hover:text-[var(--color-primary)] transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-[var(--color-primary)] transition-colors">Terms of Service</Link></li>
-            </ul>
-          </div>
+          {COLUMNS.map((column) => (
+            <nav key={column.heading} aria-label={column.heading}>
+              <h2 className="label-mono">{column.heading}</h2>
+              <ul className="mt-5 space-y-3">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      to={link.to}
+                      className="text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
 
-          <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-6 text-sm uppercase tracking-wider">Stay Updated</h3>
-            <p className="text-[15px] text-[var(--color-text-secondary)] mb-4">
-              Get the latest AI trends to your inbox.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative">
+        {/* Newsletter — one job, stated plainly */}
+        <div className="mt-14 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cardBg)] p-6 sm:p-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-md">
+              <h2 className="display-md text-[var(--color-text-primary)]">
+                New tools, once a week
+              </h2>
+              <p className="mt-2 text-[15px] text-[var(--color-text-secondary)]">
+                What was added, what changed price, and what is no longer worth paying for.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubscribe} className="w-full md:max-w-sm">
               {status === 'success' ? (
-                <div className="w-full bg-green-50 border border-green-100 rounded-lg py-3 px-4 text-sm text-green-700 flex items-center gap-2">
-                  <Check size={16} /> Subscribed!
-                </div>
+                <p className="flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary)] bg-[var(--color-primary-soft)] px-4 py-3 text-sm font-medium text-[var(--color-primary)]">
+                  <Check size={16} /> Subscribed. Check your inbox to confirm.
+                </p>
               ) : (
-                <div className="relative">
-                  <input 
-                    type="email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email" 
-                    required
-                    disabled={status === 'submitting'}
-                    className={`w-full bg-[var(--color-background)] border ${status === 'error' ? 'border-red-300' : 'border-[var(--color-border)]'} rounded-xl py-3 px-4 text-[15px] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-all pr-12 disabled:opacity-50`}
-                  />
-                  <button 
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors disabled:opacity-50"
-                    aria-label="Subscribe to newsletter"
-                  >
-                    {status === 'submitting' ? <Loader2 size={16} className="animate-spin" /> : <ArrowRight size={16} />}
-                  </button>
-                </div>
-              )}
-              {status === 'error' && (
-                <p className="text-red-500 text-xs mt-2">Failed to subscribe. Please try again.</p>
+                <>
+                  <div className="flex gap-2">
+                    <label htmlFor="footer-email" className="sr-only">Email address</label>
+                    <input
+                      id="footer-email"
+                      type="email"
+                      inputMode="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@work.com"
+                      required
+                      disabled={status === 'submitting'}
+                      className="h-11 min-w-0 flex-1 rounded-[var(--radius-sm)] border border-[var(--color-border-strong)] bg-[var(--color-background)] px-3.5 text-[15px] text-[var(--color-text-primary)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)] disabled:opacity-60"
+                    />
+                    <button type="submit" disabled={status === 'submitting'} className="btn-primary h-11 px-4 disabled:opacity-60">
+                      {status === 'submitting' ? <Loader2 size={16} className="animate-spin" /> : <>Subscribe <ArrowRight size={15} /></>}
+                    </button>
+                  </div>
+                  {status === 'error' && (
+                    <p role="alert" className="mt-2 text-[13px] text-[var(--color-error)]">
+                      That didn't send. Check your connection and try again.
+                    </p>
+                  )}
+                </>
               )}
             </form>
           </div>
         </div>
-        
-        <div className="border-t border-[var(--color-border)] pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-[var(--color-text-secondary)] flex flex-col gap-2 text-center md:text-left">
-            <p>© 2026 AI Master Tools. All rights reserved.</p>
-            <p className="text-xs max-w-2xl">
-              <strong>Affiliate Disclosure:</strong> Some of the links on this website are affiliate links. This means that if you click on the link and make a purchase, we may receive a commission at no additional cost to you.
+
+        <div className="mt-12 flex flex-col gap-6 border-t border-[var(--color-border)] pt-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-2xl space-y-2 text-[13px] text-[var(--color-text-secondary)]">
+            <p>© {new Date().getFullYear()} AI Master Tools. All rights reserved.</p>
+            <p className="text-[var(--color-text-muted)]">
+              <strong className="font-semibold text-[var(--color-text-secondary)]">Affiliate disclosure:</strong>{' '}
+              some outbound links earn us a commission. It costs you nothing and it does not
+              change how a tool is rated or where it is ranked.
             </p>
           </div>
-          <button 
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-xl bg-[var(--color-background)] flex items-center justify-center text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] border border-[var(--color-border)] transition-colors"
-            aria-label="Scroll to top"
+
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="btn-secondary h-10 shrink-0 px-4 text-[13px]"
           >
-            <ArrowRight size={18} className="-rotate-90" />
+            <ArrowUp size={15} /> Back to top
           </button>
         </div>
       </div>

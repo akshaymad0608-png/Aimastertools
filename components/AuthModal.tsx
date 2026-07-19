@@ -81,7 +81,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <div 
-                className="relative transform overflow-hidden rounded-2xl bg-[var(--color-background)] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md border border-[var(--color-border)] w-full animate-fade-in-up"
+                className="relative transform overflow-hidden rounded-[var(--radius-md)] bg-[var(--color-background)] text-left shadow-[var(--shadow-lift)] transition-all sm:my-8 sm:w-full sm:max-w-md border border-[var(--color-border)] w-full animate-fade-in-up"
               >
                 <button 
                   onClick={onClose}
@@ -102,7 +102,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             {error && (
-              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-start gap-3 text-red-400 text-sm">
+              <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-[var(--radius-sm)] flex items-start gap-3 text-red-400 text-sm">
                 <AlertCircle size={18} className="shrink-0 mt-0.5" />
                 <span>{error}</span>
               </div>
@@ -118,7 +118,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                    className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                   />
                 </div>
               )}
@@ -131,7 +131,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                  className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                 />
               </div>
 
@@ -143,14 +143,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                  className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] pl-12 pr-4 py-3 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                 />
               </div>
 
               <button 
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-xl font-bold text-white bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                className="w-full py-3.5 rounded-[var(--radius-sm)] font-bold text-white bg-[var(--color-primary)] shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
               >
                 {loading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up')}
                 {!loading && <ArrowRight size={18} />}
@@ -170,9 +170,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               <button 
                 onClick={handleGoogleLogin}
                 disabled={loading}
-                className="w-full py-3.5 rounded-xl font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-all flex items-center justify-center gap-3"
+                className="w-full py-3.5 rounded-[var(--radius-sm)] font-bold border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-border)] transition-all flex items-center justify-center gap-3"
               >
-                <Chrome size={20} className="text-blue-500" />
+                <Chrome size={20} className="text-[var(--color-primary)]" />
                 Google Account (Popup)
               </button>
 
@@ -180,7 +180,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 <button 
                   onClick={handleGoogleRedirect}
                   disabled={loading}
-                  className="w-full py-3 rounded-xl font-bold border border-blue-500/30 bg-blue-500/5 text-blue-500 hover:bg-blue-500/10 transition-all flex items-center justify-center gap-3 text-sm"
+                  className="w-full py-3 rounded-[var(--radius-sm)] font-bold border border-[var(--color-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] hover:bg-[var(--color-primary-soft)] transition-all flex items-center justify-center gap-3 text-sm"
                 >
                   <LogIn size={18} />
                   Use Redirect Instead

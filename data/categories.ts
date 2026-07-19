@@ -1,5 +1,6 @@
 import { CategoryStat } from '../types';
 import { MOCK_TOOLS } from './tools';
+import { slugify } from '../utils/slug';
 
 export const CATEGORY_META = [
 {
@@ -399,6 +400,10 @@ export const CATEGORY_META = [
 
 export const CATEGORIES: CategoryStat[] = CATEGORY_META.map(meta => ({
   ...meta,
+  slug: slugify(meta.id),
   count: MOCK_TOOLS.filter(tool => tool.category === meta.id).length
 })).filter(cat => cat.count > 0).sort((a, b) => b.count - a.count);
+
+/** Every category name that appears on a tool, including any missing from CATEGORY_META. */
+export const ALL_CATEGORY_NAMES: string[] = [...new Set(MOCK_TOOLS.map(t => t.category))].filter(Boolean);
 

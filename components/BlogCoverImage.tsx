@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import { 
-  Bot, Palette, Code, Video, Zap, GraduationCap, Brain, PenTool, Layout, Sparkles, Check
-} from 'lucide-react';
+import React from 'react';
 
 interface BlogCoverImageProps {
   category: string;
@@ -11,80 +8,138 @@ interface BlogCoverImageProps {
   alt?: string;
 }
 
+/**
+ * Generated cover art, drawn from the post's own title.
+ *
+ * The posts previously pointed at eight Unsplash stock photos, several of them
+ * shared between posts — so two different articles showed the same picture of
+ * a laptop, and none of the pictures had anything to do with the writing. A
+ * deterministic pattern is more honest: it decorates without pretending to
+ * illustrate, it is unique per title, and it costs no network request.
+ */
+
+// FNV-1a. Small, fast, and stable across builds — the same title always
+// produces the same cover, which matters because covers appear in listings
+// and on the post itself and must not disagree.
+const hash = (s: string): number => {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+};
+
+const PATTERNS = ['rules', 'grid', 'arcs', 'stack'] as const;
+
+/**
+ * CSS custom properties do not work in SVG *presentation attributes* —
+ * `fill="var(--color-primary)"` is parsed as an SVG <paint> value, and var()
+ * substitution only applies to CSS declarations. Browsers drop it and fall
+ * back to black. That is why these covers looked empty: the shapes were
+ * painting near-black at 7–40% opacity on a light surface.
+ *
+ * Passing the same value through `style` puts it in the CSS cascade, where
+ * var() resolves properly and the colour also follows the active theme.
+ */
+const paint = (color: string, opacity: number) => ({ fill: color, opacity });
+const stroke = (color: string, opacity: number, width: number) => ({
+  stroke: color,
+  strokeWidth: width,
+  opacity,
+  fill: 'none',
+});
+
 export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
   category,
   title,
-  imageUrl,
   variant,
-  alt
+  alt,
 }) => {
-  const [imgError, setImgError] = useState(false);
+  const h = hash(`${title}::${category}`);
+  const pattern = PATTERNS[h % PATTERNS.length];
+  const rotate = (h >> 8) % 24;
+  const density = 5 + ((h >> 12) % 4);
+  const useAccent = ((h >> 16) & 1) === 1;
+  const ink = useAccent ? 'var(--color-accent)' : 'var(--color-primary)';
 
-  // Fallback system mapping categories to simple colors
-  const getCategoryConfig = (catName: string) => {
-    const normalized = catName?.toLowerCase().trim() || '';
-    
-    if (normalized.includes('chatbot') || normalized.includes('assistant') || normalized.includes('bot')) {
-      return { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", icon: Bot };
-    }
-    if (normalized.includes('design') || normalized.includes('art') || normalized.includes('image')) {
-      return { bg: "bg-pink-100 dark:bg-pink-900/30", text: "text-pink-700 dark:text-pink-400", icon: Palette };
-    }
-    if (normalized.includes('code') || normalized.includes('coding') || normalized.includes('dev')) {
-      return { bg: "bg-slate-200 dark:bg-slate-800", text: "text-slate-700 dark:text-slate-300", icon: Code };
-    }
-    if (normalized.includes('video') || normalized.includes('generation')) {
-      return { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-700 dark:text-emerald-400", icon: Video };
-    }
-    if (normalized.includes('productivity') || normalized.includes('automate')) {
-      return { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-700 dark:text-orange-400", icon: Zap };
-    }
-    if (normalized.includes('writing') || normalized.includes('copy')) {
-      return { bg: "bg-teal-100 dark:bg-teal-900/30", text: "text-teal-700 dark:text-teal-400", icon: PenTool };
-    }
-    return { bg: "bg-[var(--color-surface)]", text: "text-[var(--color-text-secondary)]", icon: Layout };
+  const heights: Record<BlogCoverImageProps['variant'], string> = {
+    featured: 'aspect-[16/9]',
+    card: 'aspect-[16/10]',
+    thumbnail: 'aspect-square',
   };
 
-  if (imageUrl && !imgError) {
-    return (
-      <div className="w-full h-full relative overflow-hidden bg-[var(--color-background)]">
-        <img 
-          src={imageUrl} 
-          alt={alt || title} 
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          onError={() => setImgError(true)}
-          loading="lazy"
-          referrerPolicy="no-referrer"
-        />
-      </div>
-    );
-  }
-
-  const config = getCategoryConfig(category);
-  const Icon = config.icon;
-
-  if (variant === 'thumbnail' || variant === 'card') {
-    return (
-      <div className={`w-full h-full relative overflow-hidden flex items-center justify-center border border-[var(--color-border)] ${config.bg}`}>
-        <Icon size={variant === 'thumbnail' ? 32 : 48} className={`opacity-50 ${config.text}`} />
-      </div>
-    );
-  }
-
   return (
-    <div className={`w-full h-full relative overflow-hidden flex items-center justify-center border border-[var(--color-border)] rounded-xl ${config.bg}`}>
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(var(--color-text-primary)_1px,transparent_1px)] [background-size:20px_20px]" />
-      <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center max-w-lg">
-        <div className={`w-20 h-20 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center mb-6 shadow-sm ${config.text}`}>
-          <Icon size={40} />
-        </div>
-        <h3 className={`text-2xl md:text-3xl font-extrabold tracking-tight ${config.text}`}>
-          {title}
-        </h3>
-        <div className={`mt-4 px-4 py-1.5 rounded-full bg-[var(--color-surface)] text-sm font-bold uppercase tracking-wider border border-[var(--color-border)] ${config.text}`}>
-          {category}
-        </div>
-      </div>
+    <div
+      role="img"
+      aria-label={alt || `${category}: ${title}`}
+      className={`relative w-full overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] ${heights[variant]}`}
+    >
+      <svg
+        viewBox="0 0 320 180"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 h-full w-full"
+        aria-hidden="true"
+      >
+        <g transform={`rotate(${rotate - 12} 160 90)`} opacity="0.9">
+          {pattern === 'rules' &&
+            Array.from({ length: density * 3 }).map((_, i) => (
+              <rect
+                key={i}
+                x={-40}
+                y={i * 12}
+                width={400}
+                height={2.5}
+                style={paint(ink, 0.14 + (i % 4) * 0.09)}
+              />
+            ))}
+
+          {pattern === 'grid' &&
+            Array.from({ length: density * 2 }).map((_, i) => (
+              <g key={i}>
+                <rect x={i * 26} y={-40} width={1.8} height={280} style={paint(ink, 0.22)} />
+                <rect x={-40} y={i * 22} width={400} height={1.8} style={paint(ink, 0.18)} />
+              </g>
+            ))}
+
+          {pattern === 'arcs' &&
+            Array.from({ length: density }).map((_, i) => (
+              <circle
+                key={i}
+                cx={70}
+                cy={90}
+                r={22 + i * 24}
+                style={stroke(ink, 0.5 - i * 0.05, 1.8)}
+              />
+            ))}
+
+          {pattern === 'stack' &&
+            Array.from({ length: density }).map((_, i) => (
+              <rect
+                key={i}
+                x={30 + i * 9}
+                y={26 + i * 9}
+                width={150}
+                height={128}
+                rx={4}
+                style={stroke(ink, 0.55 - i * 0.07, 1.8)}
+              />
+            ))}
+        </g>
+      </svg>
+
+      {/* The category is the only label — the title sits beside the cover already */}
+      <span
+        className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-3 p-3"
+        style={{
+          backgroundImage:
+            'linear-gradient(to top, var(--color-surface), color-mix(in srgb, var(--color-surface) 0%, transparent))',
+        }}
+      >
+        <span className="label-mono truncate">{category}</span>
+      </span>
     </div>
   );
 };
+
+export default BlogCoverImage;

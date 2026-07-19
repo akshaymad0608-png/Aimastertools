@@ -1,70 +1,152 @@
 import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { LayoutGrid, ArrowRight } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
+import { CATEGORIES } from '../data/categories';
 import ToolCard from '../components/ToolCard';
-import { ChevronRight, LayoutGrid } from 'lucide-react';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import PageHeader from '../components/PageHeader';
+import SEO from '../components/SEO';
+import CategoryIcon from '../components/CategoryIcon';
+import { findBySlug } from '../utils/slug';
+import {
+  breadcrumbSchema,
+  itemListSchema,
+  categoryTitle,
+  categoryDescription,
+  categoryKeywords,
+} from '../utils/seo';
 
 const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  
-  // Format slug to category name, e.g., "video-generators" -> "Video Generators"
-  const categoryName = slug ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') : 'Category';
-  
-  const categoryTools = useMemo(() => {
-    return MOCK_TOOLS.filter(tool => tool.category.toLowerCase() === categoryName.toLowerCase() || (slug && tool.category.toLowerCase().includes(slug.replace('-', ' '))));
-  }, [categoryName, slug]);
+
+  const category = useMemo(() => findBySlug(CATEGORIES, slug), [slug]);
+
+  const tools = useMemo(() => {
+    if (!category) return [];
+    return MOCK_TOOLS.filter((t) => t.category === category.id).sort((a, b) => b.rating - a.rating);
+  }, [category]);
+
+  const related = useMemo(
+    () => CATEGORIES.filter((c) => c.id !== category?.id).slice(0, 8),
+    [category],
+  );
+
+  if (!category) {
+    return (
+      <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
+        <SEO
+          title="Category not found — AI Master Tools"
+          description="That category does not exist. Browse all AI tool categories instead."
+          url={`/category/${slug ?? ''}`}
+          noindex
+        />
+        <div className="container-custom max-w-2xl text-center">
+          <p className="eyebrow justify-center">404</p>
+          <h1 className="display-lg mt-5 text-[var(--color-text-primary)]">
+            No category called <em>“{slug}”</em>
+          </h1>
+          <p className="prose-lede mx-auto mt-5">
+            It may have been renamed, or merged into another drawer of the index.
+          </p>
+          <Link to="/categories" className="btn-primary mt-8 h-11 px-6">
+            Browse all categories <ArrowRight size={16} />
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  const free = tools.filter((t) => t.pricing === 'Free' || t.pricing === 'Open Source').length;
+  const avg = tools.length
+    ? (tools.reduce((s, t) => s + t.rating, 0) / tools.length).toFixed(2)
+    : '—';
 
   return (
-    <div className="pt-24 pb-20 bg-[var(--color-background)] min-h-screen">
-      <Helmet>
-        <title>Best {categoryName} AI Tools in 2024 - AIMasterTools</title>
-        <meta name="description" content={`Discover the best ${categoryName} AI tools. Compare pricing, features, and reviews for top ${categoryName} software.`} />
-        <meta name="keywords" content={`${categoryName} AI tools, best ${categoryName} software, top ${categoryName} applications, free ${categoryName} AI`} />
-      </Helmet>
+    <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
+      <SEO
+        title={categoryTitle(category.name, tools.length)}
+        description={categoryDescription(category.name, tools.length)}
+        url={`/category/${category.slug}`}
+        keywords={categoryKeywords(category.name)}
+        noindex={tools.length === 0}
+        schema={[
+          breadcrumbSchema([
+            { label: 'Categories', path: '/categories' },
+            { label: category.name, path: `/category/${category.slug}` },
+          ]),
+          itemListSchema(tools.slice(0, 25), `Best ${category.name} AI tools`),
+        ]}
+      />
 
-      <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
-        
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-8 animate-fade-in-up">
-          <Link to="/" className="hover:text-[var(--color-text-primary)] transition-colors">Home</Link>
-          <ChevronRight size={14} />
-          <Link to="/categories" className="hover:text-[var(--color-text-primary)] transition-colors">Categories</Link>
-          <ChevronRight size={14} />
-          <span className="text-[var(--color-text-primary)] font-medium">{categoryName}</span>
-        </div>
+      <div className="container-custom">
+        <Breadcrumbs
+          items={[{ label: 'Categories', path: '/categories' }, { label: category.name }]}
+        />
 
-        {/* Header */}
-        <div className="mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold text-sm mb-4">
-            <LayoutGrid size={16} />
-            Category
-          </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-4">
-            Best {categoryName} AI Tools
-          </h1>
-          <p className="text-lg text-[var(--color-text-secondary)] max-w-3xl">
-            Explore {categoryTools.length > 0 ? categoryTools.length : 'the best'} handpicked AI tools in the {categoryName} category. Boost your productivity with the top rated solutions.
-          </p>
-        </div>
+        <PageHeader
+          eyebrow="Category"
+          title={
+            <>
+              Best <em>{category.name}</em> AI tools
+            </>
+          }
+          lede={`${tools.length} tools filed under ${category.name}, ranked by rating. Every entry lists real pricing and what it is actually good at.`}
+          action={
+            <span
+              aria-hidden="true"
+              className="grid h-16 w-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)]"
+            >
+              <CategoryIcon name={category.name} color={category.color} size={28} />
+            </span>
+          }
+          meta={
+            <>
+              <span className="label-mono tabular-nums">{tools.length} tools</span>
+              <span className="label-mono tabular-nums">{free} free or open source</span>
+              <span className="label-mono tabular-nums">avg rating {avg}</span>
+            </>
+          }
+        />
 
-        {/* Tool Grid */}
-        {categoryTools.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            {categoryTools.map((tool, idx) => (
-              <ToolCard key={tool.id} tool={tool} rank={idx + 1} />
+        {tools.length > 0 ? (
+          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {tools.map((tool, i) => (
+              <li key={tool.id}>
+                <ToolCard tool={tool} rank={i + 1} layout="vertical" />
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
-          <div className="text-center py-20 bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">No tools found in {categoryName}</h3>
-            <p className="text-[var(--color-text-secondary)] mb-6">We are constantly adding new tools. Check back soon!</p>
-            <Link to="/" className="btn-primary">Browse All Tools</Link>
+          <div className="mt-10 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-strong)] px-6 py-16 text-center">
+            <LayoutGrid size={26} className="mx-auto mb-4 text-[var(--color-text-muted)]" />
+            <p className="title-sm text-[17px] text-[var(--color-text-primary)]">
+              Nothing filed here yet
+            </p>
+            <p className="mx-auto mt-2 max-w-sm text-[14px] text-[var(--color-text-secondary)]">
+              This category is empty, so it is excluded from search engines until it has entries.
+            </p>
           </div>
         )}
 
+        <section className="mt-20" aria-labelledby="related-cats">
+          <h2 id="related-cats" className="rule-label mb-5">
+            Related categories
+          </h2>
+          <ul className="flex flex-wrap gap-2">
+            {related.map((c) => (
+              <li key={c.id}>
+                <Link to={`/category/${c.slug}`} className="link-chip">
+                  <CategoryIcon name={c.name} color={c.color} size={14} />
+                  {c.name}
+                  <span className="link-chip__count">{c.count}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 

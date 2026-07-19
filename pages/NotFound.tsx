@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 
 const NotFound: React.FC = () => {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-6 py-24">
+    <div className="page-top min-h-[70vh] flex items-center justify-center px-6 pb-24">
       <SEO 
         title="404 - Page Not Found | AI Master Tools" 
         description="The page you are looking for does not exist." 
@@ -13,7 +13,7 @@ const NotFound: React.FC = () => {
       
       <div className="text-center max-w-lg mx-auto">
         <div className="relative mb-8 inline-block">
-          <div className="text-9xl font-extrabold text-[var(--color-text-primary)] opacity-10">404</div>
+          <div className="text-9xl font-semibold text-[var(--color-text-primary)] opacity-10">404</div>
           <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-[var(--color-primary)]">
             Page Not Found
           </div>

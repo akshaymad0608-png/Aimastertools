@@ -85,7 +85,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
       {showModal && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
             <div
-              className="glass-panel w-full max-w-md p-8 rounded-3xl border border-[var(--color-border)] shadow-2xl relative overflow-hidden animate-fade-in-up"
+              className="glass-panel w-full max-w-md p-8 rounded-[var(--radius-lg)] border border-[var(--color-border)] shadow-[var(--shadow-lift)] relative overflow-hidden animate-fade-in-up"
             >
               {/* Close Button */}
               <button 
@@ -99,7 +99,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
               <div className="text-center space-y-6">
                 <div className="flex justify-center items-center gap-4 mb-2">
                   <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Voice Search</h3>
-                  <div className="flex bg-[var(--color-surface)] p-1 rounded-xl border border-[var(--color-border)]">
+                  <div className="flex bg-[var(--color-surface)] p-1 rounded-[var(--radius-sm)] border border-[var(--color-border)]">
                     <button
                       onClick={() => setLanguage('en-IN')}
                       className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'en-IN' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}

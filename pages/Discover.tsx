@@ -1,3 +1,4 @@
+import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../utils/stats';
 import React, { useEffect, useState } from 'react';
 import { Play, Star, Users, Activity, HelpCircle, Info, TrendingUp, Award, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -46,12 +47,12 @@ const Discover: React.FC = () => {
         keywords={["discover ai tools", "latest ai tools", "trending ai tools", "new ai software", "best ai tools", "free ai tools", "ai tools directory"]}
       />
       
-      <div className="pt-32 pb-20 md:pt-40 md:pb-32">
+      <div className="page-top pb-20 md:pb-32">
         <div className="container-custom">
           
           <div className="text-center mb-16">
             <h1 
-              className="text-4xl md:text-6xl font-black text-[var(--color-text-primary)] mb-6 tracking-tighter animate-fade-in-up"
+              className="text-4xl md:text-6xl font-semibold text-[var(--color-text-primary)] mb-6 tracking-tight animate-fade-in-up"
             >
               Discover <span className="text-[var(--color-primary)]">More</span>
             </h1>
@@ -76,7 +77,7 @@ const Discover: React.FC = () => {
               <a
                 key={btn.id}
                 href={`#${btn.id}`}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm hover:shadow-md font-semibold"
+                className="flex items-center gap-2 px-6 py-3 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm hover:shadow-md font-semibold"
               >
                 <btn.icon size={18} />
                 {btn.label}
@@ -89,7 +90,7 @@ const Discover: React.FC = () => {
             {/* Recently Viewed */}
             {recentTools.length > 0 && (
               <section id="recent" className="scroll-mt-32">
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Clock className="text-blue-500" /> Recently Viewed</h2>
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Clock className="text-[var(--color-primary)]" /> Recently Viewed</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {recentTools.slice(0, 4).map(tool => (
                     <ToolCard key={tool.id} tool={tool} />
@@ -100,7 +101,7 @@ const Discover: React.FC = () => {
 
             {/* About Section */}
             <section id="about" className="scroll-mt-32">
-              <div className="glass-panel p-8 md:p-12 rounded-3xl border border-[var(--color-border)] relative overflow-hidden">
+              <div className="glass-panel p-8 md:p-12 rounded-[var(--radius-lg)] border border-[var(--color-border)] relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[radial-gradient(ellipse_at_center,_var(--color-primary)_0%,_transparent_70%)] opacity-10 rounded-full -z-10"></div>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3"><Info className="text-[var(--color-primary)]" /> About AI Master Tools</h2>
                 <div className="prose prose-invert max-w-none text-[var(--color-text-secondary)]">
@@ -119,16 +120,16 @@ const Discover: React.FC = () => {
 
             {/* Live Stats */}
             <section id="stats" className="scroll-mt-32">
-              <h2 className="text-3xl font-extrabold mb-8 flex items-center gap-3"><Activity className="text-[var(--color-primary)]" /> Platform Stats</h2>
+              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3"><Activity className="text-[var(--color-primary)]" /> Platform Stats</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { label: 'Active Tools', value: '500+' },
+                  { label: 'Tools indexed', value: String(TOOL_COUNT) },
                   { label: 'Daily Visitors', value: '12,000+' },
-                  { label: 'Pro Members', value: '1,500+' },
-                  { label: 'Categories', value: '45+' },
+                  { label: 'Free or open source', value: String(FREE_TOOL_COUNT) },
+                  { label: 'Categories', value: String(CATEGORY_COUNT) },
                 ].map((stat, i) => (
-                  <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 text-center hover:border-[var(--color-primary)] transition-colors">
-                    <div className="text-3xl md:text-4xl font-black text-[var(--color-primary)] mb-2">{stat.value}</div>
+                  <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] p-6 text-center hover:border-[var(--color-primary)] transition-colors">
+                    <div className="text-3xl md:text-4xl font-semibold text-[var(--color-primary)] mb-2">{stat.value}</div>
                     <div className="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
@@ -137,19 +138,19 @@ const Discover: React.FC = () => {
 
             {/* Featured Spotlight */}
             <section id="spotlight" className="scroll-mt-32">
-              <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-2xl p-8 md:p-12">
+              <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-8 md:p-12">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   <div className="flex-1">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] text-xs font-bold uppercase tracking-widest mb-4">
                       <Award size={14} /> Tool of the Month
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4">ChatGPT Advanced Data Analysis</h2>
+                    <h2 className="text-3xl md:text-4xl font-semibold mb-4">ChatGPT Advanced Data Analysis</h2>
                     <p className="text-lg text-[var(--color-text-secondary)] mb-6">
                       Transform how you interact with data. Upload spreadsheets, run Python code, and generate beautiful charts instantly using natural language.
                     </p>
                     <Link to="/tool/chatgpt" className="btn-primary inline-flex">View Details</Link>
                   </div>
-                  <div className="w-full md:w-1/2 aspect-video bg-[var(--color-background)] rounded-xl border border-[var(--color-border)] overflow-hidden flex items-center justify-center">
+                  <div className="w-full md:w-1/2 aspect-video bg-[var(--color-background)] rounded-[var(--radius-sm)] border border-[var(--color-border)] overflow-hidden flex items-center justify-center">
                     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fm=webp&fit=crop&q=80&w=800" alt="ChatGPT Spotlight" width="800" height="450" decoding="async" className="w-full h-full object-cover transition-opacity" loading="lazy" />
                   </div>
                 </div>
@@ -171,25 +172,25 @@ const Discover: React.FC = () => {
                     title: 'Agents Are Taking Over',
                     description: 'Autonomous AI agents are shifting from a niche novelty to enterprise-ready solutions. 40% of our top trending workflow tools now implement agentic capabilities.',
                     icon: Activity,
-                    color: 'text-indigo-500'
+                    color: 'text-[var(--color-primary)]'
                   },
                   {
                     title: 'Open Source Resilience',
                     description: 'Local and open-source models like Llama 3 and Mistral are driving a massive surge in developer tools, providing viable offline alternatives to major APIs.',
                     icon: Users,
-                    color: 'text-green-500'
+                    color: 'text-[var(--color-primary)]'
                   },
                   {
                     title: 'The Fall of Simple Wrappers',
                     description: 'Basic GPT wrappers are seeing a sharp decline in retention. Users now demand deep workflow integration, specialized UIs, and proprietary data moats.',
                     icon: TrendingUp,
-                    color: 'text-orange-500'
+                    color: 'text-[var(--color-accent)]'
                   },
                   {
                     title: 'Multi-Modal Interfaces',
                     description: 'Text-only chatbots are evolving. Over 60% of new conversational interfaces now support voice input, image analysis, and document processing simultaneously.',
                     icon: HelpCircle,
-                    color: 'text-blue-500'
+                    color: 'text-[var(--color-primary)]'
                   },
                   {
                     title: 'AI in Enterprise Security',
@@ -198,8 +199,8 @@ const Discover: React.FC = () => {
                     color: 'text-teal-500'
                   }
                 ].map((insight, i) => (
-                  <div key={i} className="glass-panel p-6 rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
-                    <div className="w-12 h-12 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center mb-4">
+                  <div key={i} className="glass-panel p-6 rounded-[var(--radius-md)] border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="w-12 h-12 rounded-[var(--radius-sm)] bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center mb-4">
                       <insight.icon className={insight.color} size={24} />
                     </div>
                     <h3 className="text-xl font-bold mb-3">{insight.title}</h3>
@@ -213,16 +214,16 @@ const Discover: React.FC = () => {
 
             {/* Testimonials */}
             <section id="testimonials" className="scroll-mt-32">
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Star className="text-yellow-500" /> What Users Say</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3"><Star className="text-[var(--color-accent)]" /> What Users Say</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {[
                   { name: 'Sarah Jenkins', role: 'Marketing Director', text: 'AI Master Tools saved me hours of research. I found the perfect copywriting AI in minutes.' },
                   { name: 'David Chen', role: 'Software Engineer', text: 'The categorization is spot on. It is my go-to directory whenever I need a new dev tool.' },
                   { name: 'Elena Rodriguez', role: 'Content Creator', text: 'I love the trending section! It helps me stay ahead of the curve with new video generation tools.' },
                 ].map((t, i) => (
-                  <div key={i} className="glass-panel p-6 rounded-2xl border border-[var(--color-border)]">
+                  <div key={i} className="glass-panel p-6 rounded-[var(--radius-md)] border border-[var(--color-border)]">
                     <div className="flex gap-1 mb-4">
-                      {[1,2,3,4,5].map(s => <Star key={s} size={16} className="fill-yellow-500 text-yellow-500" />)}
+                      {[1,2,3,4,5].map(s => <Star key={s} size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />)}
                     </div>
                     <p className="text-[var(--color-text-secondary)] mb-6 italic">"{t.text}"</p>
                     <div className="flex items-center gap-3">
@@ -248,8 +249,8 @@ const Discover: React.FC = () => {
                   { q: 'Is AI Master Tools free to use?', a: 'Browsing the directory is completely free. We also offer a Pro membership for advanced features like saving favorites and removing ads.' },
                   { q: 'How do you rank the tools?', a: 'Tools are ranked based on user reviews, features, pricing value, and our internal testing metrics.' },
                 ].map((faq, i) => (
-                  <div key={i} className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border)]">
-                    <h3 className="text-lg font-bold mb-2">{faq.q}</h3>
+                  <div key={i} className="bg-[var(--color-surface)] p-6 rounded-[var(--radius-md)] border border-[var(--color-border)]">
+                    <h3 className="title-sm text-lg font-bold mb-2">{faq.q}</h3>
                     <p className="text-[var(--color-text-secondary)]">{faq.a}</p>
                   </div>
                 ))}

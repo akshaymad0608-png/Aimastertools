@@ -104,7 +104,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
     : 0;
 
   return (
-    <div className="mt-12 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6 md:p-8">
+    <div className="mt-12 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6 md:p-8">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
           <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">User Reviews</h2>
@@ -112,16 +112,16 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
         </div>
         
         {reviews.length > 0 && (
-          <div className="flex items-center gap-3 px-4 py-2 bg-[var(--color-background)] rounded-xl border border-[var(--color-border)]">
-            <div className="text-2xl font-black text-[var(--color-primary)]">{averageRating}</div>
+          <div className="flex items-center gap-3 px-4 py-2 bg-[var(--color-background)] rounded-[var(--radius-sm)] border border-[var(--color-border)]">
+            <div className="text-2xl font-semibold text-[var(--color-primary)]">{averageRating}</div>
             <div className="flex flex-col">
-              <div className="flex text-amber-400">
+              <div className="flex text-[var(--color-accent)]">
                 {[1, 2, 3, 4, 5].map(i => (
                   <Star 
                     key={i} 
                     size={14} 
                     fill={i <= Number(averageRating) ? "currentColor" : "transparent"} 
-                    className={i <= Number(averageRating) ? "text-amber-400" : "text-[var(--color-border)]"}
+                    className={i <= Number(averageRating) ? "text-[var(--color-accent)]" : "text-[var(--color-border)]"}
                   />
                 ))}
               </div>
@@ -132,7 +132,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
       </div>
 
       {/* Review Form */}
-      <form onSubmit={handleSubmit} className="mb-10 bg-[var(--color-background)] p-5 md:p-6 rounded-xl border border-[var(--color-border)]">
+      <form onSubmit={handleSubmit} className="mb-10 bg-[var(--color-background)] p-5 md:p-6 rounded-[var(--radius-sm)] border border-[var(--color-border)]">
         <h3 className="font-bold text-[var(--color-text-primary)] mb-4">
           {currentUser ? 'Write a review' : 'Log in to write a review'}
         </h3>
@@ -151,7 +151,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
                 <Star 
                   size={24} 
                   fill={(hoverRating || rating) >= star ? "currentColor" : "transparent"} 
-                  className={(hoverRating || rating) >= star ? "text-amber-400" : "text-[var(--color-border)] hover:text-amber-300"}
+                  className={(hoverRating || rating) >= star ? "text-[var(--color-accent)]" : "text-[var(--color-border)] hover:text-[var(--color-accent)]"}
                 />
               </button>
             ))}
@@ -165,7 +165,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
             placeholder={currentUser ? "Share your experience with this tool..." : "Please log in to share your experience..."}
             disabled={!currentUser || submitting}
             required
-            className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors min-h-[100px] resize-y"
+            className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] p-4 text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-primary)] transition-colors min-h-[100px] resize-y"
           />
         </div>
 
@@ -174,7 +174,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
             <button 
               type="button" 
               onClick={() => setIsAuthModalOpen(true)}
-              className="px-6 py-2.5 rounded-xl font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
+              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
             >
               Log in to Review
             </button>
@@ -182,7 +182,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
             <button 
               type="submit" 
               disabled={submitting || !text.trim()}
-              className="px-6 py-2.5 rounded-xl font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {submitting ? 'Submitting...' : 'Post Review'}
             </button>
@@ -196,13 +196,13 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
           <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[var(--color-primary)]"></div>
         </div>
       ) : reviews.length === 0 ? (
-        <div className="text-center py-10 bg-[var(--color-background)] rounded-xl border border-[var(--color-border)] border-dashed">
+        <div className="text-center py-10 bg-[var(--color-background)] rounded-[var(--radius-sm)] border border-[var(--color-border)] border-dashed">
           <p className="text-[var(--color-text-secondary)]">No reviews yet. Be the first to share your experience!</p>
         </div>
       ) : (
         <div className="space-y-4">
           {reviews.map(review => (
-            <div key={review.id} className="p-5 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
+            <div key={review.id} className="p-5 rounded-[var(--radius-sm)] bg-[var(--color-background)] border border-[var(--color-border)]">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-primary)]">
@@ -217,7 +217,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
                             key={i} 
                             size={12} 
                             fill={i <= review.rating ? "currentColor" : "transparent"} 
-                            className={i <= review.rating ? "text-amber-400" : "text-[var(--color-border)]"}
+                            className={i <= review.rating ? "text-[var(--color-accent)]" : "text-[var(--color-border)]"}
                           />
                         ))}
                       </div>

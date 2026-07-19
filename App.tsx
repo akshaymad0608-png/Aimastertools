@@ -20,6 +20,7 @@ const ToolDetail = lazy(() => import('./pages/ToolDetail'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 const Compare = lazy(() => import('./pages/Compare'));
+const ComparePair = lazy(() => import('./pages/ComparePair'));
 const Categories = lazy(() => import('./pages/Categories'));
 // Pricing page removed
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -96,7 +97,7 @@ function App() {
               <TopBanner />
               <Navbar />
               
-              <main className="flex-grow flex flex-col pb-[112px] md:pb-0">
+              <main id="main" className="flex-grow flex flex-col pb-[112px] md:pb-0">
                 <Suspense fallback={<PageLoader />}>
                   <Routes>
                     <Route path="/" element={<Home />} />
@@ -105,6 +106,7 @@ function App() {
                     <Route path="/blog" element={<BlogIndex />} />
                     <Route path="/blogs" element={<Navigate to="/blog" replace />} />
                     <Route path="/compare" element={<Compare />} />
+                    <Route path="/compare/:pair" element={<ComparePair />} />
                     <Route path="/categories" element={<Categories />} />
                     <Route path="/bookmarks" element={<Bookmarks />} />
                     <Route path="/privacy" element={<PrivacyPolicy />} />
@@ -129,7 +131,7 @@ function App() {
               <MobileBottomNav />
               <ScrollToTop />
               <GlobalToast />
-              <Toaster position="bottom-right" toastOptions={{ style: { background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)' } }} />
+              <Toaster position="bottom-center" toastOptions={{ style: { background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)' } }} />
             </div>
           </Router>
             </BookmarkProvider>

@@ -63,12 +63,12 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-lg bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+          className="relative w-full max-w-lg bg-gray-900 border border-gray-800 rounded-[var(--radius-md)] shadow-[var(--shadow-lift)] overflow-hidden flex flex-col max-h-[90vh]"
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-800">
             <div className="flex items-center space-x-2 text-white">
-              <Instagram className="w-5 h-5 text-pink-500" />
+              <Instagram className="w-5 h-5 text-[var(--color-primary)]" />
               <h3 className="font-medium">Share to Instagram Story</h3>
             </div>
             <button
@@ -85,7 +85,7 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
             </p>
 
             {/* Preview Container - Scaled down */}
-            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 w-[270px] h-[480px]">
+            <div className="relative rounded-[var(--radius-sm)] overflow-hidden shadow-[var(--shadow-lift)] border border-gray-800 w-[270px] h-[480px]">
               {/* Actual Card - Original 1080x1920 size, scaled with CSS transform for preview */}
               <div
                 ref={cardRef}
@@ -97,22 +97,22 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
               >
                 {/* Background effects */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                  <div className="absolute -top-[20%] -left-[20%] w-[140%] h-[140%] bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent blur-[100px] rounded-full" />
+                  <div className="absolute -top-[20%] -left-[20%] w-[140%] h-[140%] to-transparent blur-[100px] rounded-full" />
                 </div>
 
                 {/* Top: Branding */}
                 <div className="w-full flex justify-center items-center space-x-4 mt-12">
-                  <Sparkles className="w-16 h-16 text-indigo-400" />
+                  <Sparkles className="w-16 h-16 text-[var(--color-primary)]" />
                   <span className="text-white text-5xl font-bold tracking-tight">AIMasterTools</span>
                 </div>
 
                 {/* Center: Tool Card */}
-                <div className="w-full bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-[3rem] p-16 shadow-2xl flex flex-col items-center text-center">
-                  <div className="w-64 h-64 rounded-3xl overflow-hidden mb-12 border-4 border-gray-800 shadow-xl">
+                <div className="w-full bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-[3rem] p-16 shadow-[var(--shadow-lift)] flex flex-col items-center text-center">
+                  <div className="w-64 h-64 rounded-[var(--radius-lg)] overflow-hidden mb-12 border-4 border-gray-800 shadow-[var(--shadow-lift)]">
                     <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover" crossOrigin="anonymous" />
                   </div>
                   
-                  <span className="px-8 py-3 bg-indigo-500/10 text-indigo-400 rounded-full text-3xl font-medium mb-8 border border-indigo-500/20">
+                  <span className="px-8 py-3 bg-[var(--color-primary-soft)] text-[var(--color-primary)] rounded-full text-3xl font-medium mb-8 border border-[var(--color-border)]">
                     {tool.category}
                   </span>
                   
@@ -126,7 +126,7 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
                   
                   {tool.rating && (
                     <div className="mt-12 flex items-center space-x-4 bg-gray-800/50 px-8 py-4 rounded-full border border-gray-700/50">
-                      <div className="flex text-yellow-400 text-4xl">
+                      <div className="flex text-[var(--color-accent)] text-4xl">
                         {'★'.repeat(Math.floor(tool.rating))}
                         {'☆'.repeat(5 - Math.floor(tool.rating))}
                       </div>
@@ -137,10 +137,10 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
 
                 {/* Bottom: Call to Action */}
                 <div className="w-full flex flex-col items-center mb-12">
-                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-[4px] rounded-3xl w-[80%]">
+                  <div className="p-[4px] rounded-[var(--radius-lg)] w-[80%]">
                     <div className="bg-gray-900 rounded-[1.3rem] py-8 px-12 flex items-center justify-between">
                        <span className="text-gray-300 text-4xl font-medium">Discover more at</span>
-                       <span className="text-white text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                       <span className="text-white text-4xl font-bold">
                           aimastertools.com
                        </span>
                     </div>
@@ -154,10 +154,10 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
             <button
               onClick={handleDownload}
               disabled={isGenerating}
-              className={`w-full flex items-center justify-center px-4 py-3 rounded-xl font-medium transition-all ${
+              className={`w-full flex items-center justify-center px-4 py-3 rounded-[var(--radius-sm)] font-medium transition-all ${
                 isDownloaded
-                  ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                  : 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:opacity-90 shadow-lg hover:shadow-indigo-500/25'
+                  ? 'bg-emerald-500/10 text-[var(--color-primary)] border border-emerald-500/20'
+                  : '   text-white hover:opacity-90 shadow-[var(--shadow-card)] hover:shadow-indigo-500/25'
               } disabled:opacity-50`}
             >
               {isGenerating ? (

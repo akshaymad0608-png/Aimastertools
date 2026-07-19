@@ -5,6 +5,8 @@ import {
 } from 'lucide-react';
 import ToolCard from '../components/ToolCard';
 import SEO from '../components/SEO';
+import { websiteSchema, organizationSchema, itemListSchema, faqSchema } from '../utils/seo';
+import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../utils/stats';
 import { CATEGORIES } from '../data/categories';
 import { MOCK_TOOLS } from '../data/tools';
 import { CategoryCard } from '../components/CategoryCard';
@@ -20,10 +22,11 @@ import HeroSection from '../components/HeroSection';
 import { CategorySection } from '../components/home/CategorySection';
 import { FeaturedDashboard } from '../components/home/FeaturedDashboard';
 import { ExploreDirectory } from '../components/home/ExploreDirectory';
-import { FAQSection } from '../components/home/FAQSection';
+import { FAQSection, HOME_FAQS } from '../components/home/FAQSection';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
 import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
+import { BrowseHub } from '../components/home/BrowseHub';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -33,7 +36,6 @@ const Home: React.FC = () => {
   const [selectedPricing, setSelectedPricing] = useState<string>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(8);
-  const [showChatTooltip, setShowChatTooltip] = useState(true);
 
   const navigate = useNavigate();
 
@@ -61,11 +63,6 @@ const Home: React.FC = () => {
       }
     }, 500);
   };
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowChatTooltip(false), 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -218,13 +215,13 @@ const Home: React.FC = () => {
     setToastMessage({ type, text });
     setTimeout(() => setToastMessage(null), 4000);
   };
-  const seoTitle = selectedCategory === 'All' 
-    ? "AI Master Tools — #1 Directory to Discover & Compare 500+ AI Tools (2026)" 
-    : `Best ${selectedCategory} AI Tools (2026) | AI Master Tools`;
+  const seoTitle = selectedCategory === 'All'
+    ? `AI Tools Directory — Compare ${TOOL_COUNT} AI Tools by Price & Rating (2026)`
+    : `Best ${selectedCategory} AI Tools (2026) — Compared & Ranked`;
 
   const seoDesc = selectedCategory === 'All'
-    ? "Browse 500+ AI tools across 50+ categories. Find the perfect free and premium AI software for writing, coding, productivity, design, and more."
-    : `Discover and compare the best ${selectedCategory} AI tools. Read reviews, check pricing, and find the perfect AI software for your workflow.`;
+    ? `Search ${TOOL_COUNT} AI tools across ${CATEGORY_COUNT} categories, including ${FREE_TOOL_COUNT} free and open-source options. Real pricing, ratings and alternatives for every entry.`
+    : `Compare the best ${selectedCategory} AI tools side by side. Real pricing, ratings, alternatives and what each one is actually good at.`;
 
   // True if user is actively searching or has a category filter active
   const isCurationActive = !searchTerm && selectedCategory === 'All';
@@ -244,50 +241,41 @@ const Home: React.FC = () => {
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className={`fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[110] px-6 py-3 rounded-full shadow-2xl font-bold text-sm animate-fade-in-up flex items-center border ${
-          toastMessage.type === 'success' ? 'bg-emerald-50 text-emerald-600 border-emerald-200 dark:bg-emerald-950/90 dark:text-emerald-300 dark:border-emerald-800' : 'bg-red-50 text-red-600 border-red-200 dark:bg-red-950/90 dark:text-red-300 dark:border-red-800'
+        <div className={`fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[110] px-6 py-3 rounded-full shadow-[var(--shadow-lift)] font-bold text-sm animate-fade-in-up flex items-center border ${
+          toastMessage.type === 'success' ? 'bg-emerald-50 text-[var(--color-primary)] border-emerald-200 dark:bg-emerald-950/90 dark:text-[var(--color-primary)] dark:border-emerald-800' : 'bg-red-50 text-red-600 border-red-200 dark:bg-red-950/90 dark:text-red-300 dark:border-red-800'
         }`}>
           {toastMessage.type === 'success' && <Check size={16} className="mr-2" strokeWidth={3} />}
           {toastMessage.text}
         </div>
       )}
 
-      <SEO 
-        title={seoTitle} 
-        description={seoDesc} 
-        keywords={['ai tools', 'free ai tools', 'best ai tools', 'ai tools directory', 'free ai tools list', 'chatgpt alternatives', 'ai image generators', 'ai writing tools', 'best ai tools for students', 'best ai tool for coding', 'free ai tools for video creation', 'best ai tool for ppt', 'ai detection tool free', 'free ai paraphrasing tool', 'top ai software', 'ai tools for business', 'machine learning tools', 'generative ai tools', 'artificial intelligence tools', 'new ai tools', 'ai productivity tools', 'AI Master Tools', 'Akshay Mahajan']}
-      >
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "AI Master Tools",
-            "url": "https://aimastertools.space",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://aimastertools.space/?search={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": "Top AI Tools Directory for Prompt Engineering",
-            "description": "A curated list of the best AI tools and prompt engineering resources by Akshay Mahajan.",
-            "url": "https://aimastertools.space",
-            "hasPart": MOCK_TOOLS.slice(0, 10).map(tool => ({
-              "@type": "SoftwareApplication",
-              "name": tool.name,
-              "description": tool.description,
-              "applicationCategory": tool.category,
-              "operatingSystem": "All",
-              "url": `https://aimastertools.space/tool/${tool.id}`
-            }))
-          })}
-        </script>
-      </SEO>
+      <SEO
+        title={seoTitle}
+        description={seoDesc}
+        url="/"
+        keywords={[
+          'AI tools directory',
+          'best AI tools 2026',
+          `${TOOL_COUNT} AI tools`,
+          'free AI tools',
+          'compare AI tools',
+          'AI tool finder',
+          'ChatGPT alternatives',
+          'AI writing tools',
+          'AI image generators',
+          'AI video generators',
+          'AI coding tools',
+          'AI tools for students',
+          'AI tools for business',
+          ...MOCK_TOOLS.slice(0, 8).map((t) => t.name),
+        ]}
+        schema={[
+          websiteSchema(),
+          organizationSchema(),
+          itemListSchema(MOCK_TOOLS.slice(0, 20), 'Top AI tools on AI Master Tools'),
+          faqSchema(HOME_FAQS.map((f) => ({ question: f.question, answer: f.answer }))),
+        ]}
+      />
 
       <HeroSection 
         searchTerm={searchTerm} 
@@ -297,88 +285,11 @@ const Home: React.FC = () => {
       />
 
       <FeaturedCarousel />
-      {/* Platform Features Bento Grid */}
-      <section className="py-20 md:py-32 bg-[var(--color-background)] relative">
-        <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-[var(--color-text-primary)]">Everything you need to <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">master AI</span></h2>
-            <p className="text-lg text-[var(--color-text-secondary)] font-medium">We've built the most comprehensive ecosystem for finding, evaluating, and mastering artificial intelligence tools.</p>
-          </div>
-          
-          <div className="bento-grid">
-            {/* Main Feature */}
-            <div className="bento-item bento-item-1 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full flex flex-col">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 mb-6">
-                  <Compass size={24} />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-[var(--color-text-primary)]">Curated Directory</h3>
-                <p className="text-[var(--color-text-secondary)] mb-8 flex-1 leading-relaxed">Access our hand-picked database of over 500+ premium AI tools. Every tool is manually vetted, tested, and categorized to ensure you only see the best software available on the market.</p>
-                <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-4 shadow-sm group-hover:-translate-y-2 transition-transform duration-500 text-left">
-                   <div className="flex items-center gap-3 mb-2">
-                     <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white"><Sparkles size={14}/></div>
-                     <div className="font-bold text-sm text-[var(--color-text-primary)]">ChatGPT Plus</div>
-                   </div>
-                   <div className="text-xs text-[var(--color-text-secondary)] mb-3 leading-relaxed">The most advanced AI model for conversation, coding, and creative tasks.</div>
-                   <div className="flex gap-2">
-                     <span className="text-[10px] font-bold bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full border border-emerald-500/20">Paid</span>
-                     <span className="text-[10px] font-bold bg-[var(--color-background)] border border-[var(--color-border)] text-[var(--color-text-secondary)] px-2 py-0.5 rounded-full">LLM</span>
-                   </div>
-                </div>
-              </div>
-            </div>
+      <BrowseHub />
 
-            {/* Feature 2 */}
-            <div className="bento-item bento-item-3 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full flex flex-col">
-                <div className="w-10 h-10 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-500 mb-4">
-                  <Star size={20} />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-[var(--color-text-primary)]">Real User Reviews</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">Don't trust marketing copy. Read authentic reviews from verified professionals who actually use the tools daily.</p>
-              </div>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="bento-item bento-item-4 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full flex flex-col">
-                <div className="w-10 h-10 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-4">
-                  <GitCompare size={20} />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-[var(--color-text-primary)]">Side-by-Side Compare</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">Evaluate pricing, features, and limitations of multiple tools simultaneously with our advanced comparison engine.</p>
-              </div>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="bento-item bento-item-2 group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative h-full flex flex-col justify-between">
-                <div>
-                  <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-4">
-                    <Code size={20} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-[var(--color-text-primary)]">Prompt Library</h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] max-w-sm leading-relaxed">Copy and paste battle-tested prompts to get the absolute best results from ChatGPT, Claude, and Midjourney.</p>
-                </div>
-                <div className="mt-8 flex gap-2 translate-y-4 group-hover:translate-y-0 opacity-50 group-hover:opacity-100 transition-all duration-500">
-                  <span className="px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-xs font-mono">system_prompt</span>
-                  <span className="px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-xs font-mono">few_shot</span>
-                  <span className="px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-xs font-mono">cot</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
       {/* Category Selection Sidebar Slider & Content */}
-      <section id="search-results" className="py-12 md:py-16 relative bg-[var(--color-surface)] border-t border-[var(--color-border)]">
-        <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
+      <section id="search-results" className="section section-alt">
+        <div className="container-custom">
           
           {/* Horizontal Category Cards */}
           <CategorySection 
@@ -414,54 +325,51 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Floating Chat Tool Shortcut Widget */}
-      <div className="hidden md:flex fixed bottom-6 right-6 z-50 items-center justify-end gap-3" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
-        {showChatTooltip && (
-          <div className="bg-[var(--color-background)] rounded-2xl p-4 shadow-xl border border-[var(--color-border)] relative min-w-[200px] max-w-[240px]">
-            <p className="text-[14px] text-[var(--color-text-primary)] font-medium leading-snug pr-2">
-              Hi! What do you want to optimize with AI today?
-            </p>
-            <div className="absolute top-1/2 -translate-y-1/2 -right-2 w-4 h-4 bg-[var(--color-background)] border-t border-r border-[var(--color-border)] transform rotate-45"></div>
-          </div>
-        )}
-        <button 
+      {/* Persistent shortcut to the guided finder */}
+      <div className="fixed bottom-6 right-6 z-40 hidden md:block">
+        <button
           onClick={() => navigate('/find')}
-          className="w-14 h-14 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all duration-300 rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(83,74,183,0.4)] text-white group cursor-pointer"
-          title="Find AI Tools"
+          aria-label="Find a tool by answering three questions"
+          className="btn-primary h-12 rounded-full px-5 shadow-[var(--shadow-lift)]"
         >
-          <Sparkles size={24} className="group-hover:scale-110 transition-transform" />
+          <Sparkles size={17} /> Find a tool
         </button>
       </div>
 
-      {/* Prompt Engineering Teaser */}
-      <section className="py-12 bg-[var(--color-surface)] border-t border-[var(--color-border)]">
-        <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-background)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-bold text-xs uppercase tracking-wider mb-4">
-                <Sparkles size={14} /> For Prompt Engineers
-              </div>
-              <h2 className="text-3xl font-extrabold mb-4 text-[var(--color-text-primary)]">Master the Art of Prompting</h2>
-              <p className="text-[var(--color-text-secondary)] text-lg mb-6 leading-relaxed">
-                Unlock the true potential of LLMs. Explore our dedicated library of advanced prompt frameworks, including Chain-of-Thought, Zero-Shot, and persona injection templates.
+      {/* Prompt library teaser */}
+      <section className="section section-rule" aria-labelledby="prompts-heading">
+        <div className="container-custom">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="eyebrow">Prompt library</p>
+              <h2 id="prompts-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+                The tool is half of it. The prompt is the other half.
+              </h2>
+              <p className="section-head__lede">
+                Reusable frameworks — persona setup, chain-of-thought, few-shot scaffolds —
+                written out in full so you can paste and edit rather than start from a blank box.
               </p>
-              <Link to="/prompts" className="btn-primary inline-flex items-center gap-2">
-                Explore Prompt Library <ArrowRight size={18} />
+              <Link to="/prompts" className="btn-primary mt-7 h-11 px-5">
+                Open the prompt library <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="w-full md:w-1/3 relative">
-               <div className="bg-[var(--color-cardBg)] border border-[var(--color-border)] p-6 rounded-2xl relative z-10 shadow-sm font-mono text-sm">
-                 <div className="flex items-center gap-2 mb-4 border-b border-[var(--color-border)] pb-2">
-                   <div className="w-3 h-3 rounded-full bg-[var(--color-text-muted)] opacity-50"></div>
-                   <div className="w-3 h-3 rounded-full bg-[var(--color-text-muted)] opacity-50"></div>
-                   <div className="w-3 h-3 rounded-full bg-[var(--color-text-muted)] opacity-50"></div>
-                   <span className="ml-2 text-[var(--color-text-muted)] font-bold text-xs">megaprompt.txt</span>
-                 </div>
-                 <p className="text-[var(--color-primary)] mb-2">{'// Persona Definition'}</p>
-                 <p className="text-[var(--color-text-primary)] mb-4">Act as an expert Systems Architect...</p>
-                 <p className="text-[var(--color-text-secondary)] mb-2">{'// Constraints'}</p>
-                 <p className="text-[var(--color-text-primary)]">1. Use TypeScript<br/>2. Zero-shot reasoning</p>
-               </div>
+
+            <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-[var(--shadow-card)]">
+              <div className="flex items-center gap-2 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-border-strong)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-border-strong)]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[var(--color-border-strong)]" />
+                <span className="label-mono ml-2">system-prompt.txt</span>
+              </div>
+              <pre className="overflow-x-auto p-5 text-[13px] leading-relaxed" style={{ fontFamily: 'var(--font-mono)' }}>
+<span className="text-[var(--color-text-muted)]"># Role</span>{'\n'}
+<span className="text-[var(--color-text-primary)]">You are a systems architect reviewing a</span>{'\n'}
+<span className="text-[var(--color-text-primary)]">migration plan for correctness, not style.</span>{'\n\n'}
+<span className="text-[var(--color-text-muted)]"># Constraints</span>{'\n'}
+<span className="text-[var(--color-text-primary)]">1. Name every assumption you make.</span>{'\n'}
+<span className="text-[var(--color-text-primary)]">2. Flag anything you cannot verify.</span>{'\n'}
+<span className="text-[var(--color-text-primary)]">3. Reason step by step before concluding.</span>
+              </pre>
             </div>
           </div>
         </div>

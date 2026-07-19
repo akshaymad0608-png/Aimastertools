@@ -1,0 +1,179 @@
+#!/usr/bin/env node
+/**
+ * Builds public/sitemap.xml from the data files.
+ *
+ * The data modules are TypeScript and pull in React types, so importing them
+ * here would mean standing up a whole compiler for what is fundamentally a
+ * string-extraction job. Instead the ids and slugs are plucked with regexes.
+ * That is brittle if the data format changes, which is why the script fails
+ * loudly on an empty result rather than quietly writing a sitemap with four
+ * URLs in it — a silently-truncated sitemap is worse than none at all.
+ */
+
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
+
+const SITE = 'https://aimastertools.space';
+const TODAY = new Date().toISOString().slice(0, 10);
+
+const read = (rel) => {
+  const p = resolve(ROOT, rel);
+  return existsSync(p) ? readFileSync(p, 'utf8') : '';
+};
+
+/** Collect every value of `key` in a data file, de-duplicated, order preserved. */
+const pluck = (source, key) => {
+  const out = new Set();
+  const re = new RegExp(`["']?${key}["']?\\s*:\\s*["']([^"']+)["']`, 'g');
+  let m;
+  while ((m = re.exec(source))) out.add(m[1]);
+  return [...out];
+};
+
+const toolIds = pluck(read('data/tools.ts'), 'id');
+const categoryIds = pluck(read('data/categories.ts'), 'id');
+
+/** Mirrors utils/slug.ts — category URLs are slugs, not encoded names. */
+const slugify = (v) =>
+  v
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/\+/g, ' plus ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+const collectionSlugs = pluck(read('data/collections.ts'), 'slug');
+const blogSlugs = pluck(read('data/blog.ts') || read('data/blogs.ts'), 'slug');
+const workflowIds = pluck(read('data/workflows.ts'), 'id');
+
+/**
+ * Comparison and alternatives pages. Both were previously unreachable:
+ * comparisons only existed behind a query string that robots.txt blocks, and
+ * the /alternatives/:slug route was linked from nowhere at all — the pages
+ * rendered fine but no crawler could ever discover them. These are the two
+ * highest-intent page types a directory can own, so they go in the sitemap.
+ *
+ * Mirrors utils/pairs.ts: top four tools per category, paired.
+ */
+const toolRecords = [...read('data/tools.ts').matchAll(
+  /"id":\s*"([^"]+)"[\s\S]{0,600}?"category":\s*"([^"]+)"[\s\S]{0,400}?"rating":\s*([0-9.]+)/g,
+)].map((m) => ({ id: m[1], category: m[2], rating: parseFloat(m[3]) }));
+
+const seenTool = new Set();
+const tools = toolRecords.filter((t) => (seenTool.has(t.id) ? false : seenTool.add(t.id)));
+
+const byCategory = new Map();
+for (const t of tools) {
+  if (!byCategory.has(t.category)) byCategory.set(t.category, []);
+  byCategory.get(t.category).push(t);
+}
+
+const comparisonSlugs = [];
+const seenPair = new Set();
+for (const list of byCategory.values()) {
+  const top = [...list].sort((p, q) => q.rating - p.rating).slice(0, 4);
+  for (let i = 0; i < top.length; i++) {
+    for (let j = i + 1; j < top.length; j++) {
+      const [x, y] = top[i].id.localeCompare(top[j].id) <= 0 ? [top[i], top[j]] : [top[j], top[i]];
+      const slug = `${slugify(x.id)}-vs-${slugify(y.id)}`;
+      if (seenPair.has(slug)) continue;
+      seenPair.add(slug);
+      comparisonSlugs.push(slug);
+    }
+  }
+}
+
+if (toolIds.length === 0) {
+  console.error('\n  Sitemap aborted: no tool ids found in data/tools.ts.');
+  console.error('  The data format has probably changed — fix the regex above');
+  console.error('  rather than shipping a sitemap that omits every tool page.\n');
+  process.exit(1);
+}
+
+/** priority/changefreq are hints only, but a flat 1.0 across 1300 URLs is noise. */
+const urls = [
+  { loc: '/', changefreq: 'daily', priority: '1.0' },
+  { loc: '/categories', changefreq: 'weekly', priority: '0.9' },
+  { loc: '/collections', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/compare', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/find', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/prompts', changefreq: 'weekly', priority: '0.7' },
+  { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
+  { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
+  { loc: '/careers', changefreq: 'monthly', priority: '0.3' },
+  { loc: '/privacy', changefreq: 'yearly', priority: '0.2' },
+  { loc: '/terms', changefreq: 'yearly', priority: '0.2' },
+
+  ...toolIds.map((id) => ({
+    loc: `/tool/${encodeURIComponent(id)}`,
+    changefreq: 'weekly',
+    priority: '0.7',
+  })),
+  ...categoryIds.map((id) => ({
+    loc: `/category/${slugify(id)}`,
+    changefreq: 'weekly',
+    priority: '0.8',
+  })),
+  ...collectionSlugs.map((slug) => ({
+    loc: `/collections/${slug}`,
+    changefreq: 'monthly',
+    priority: '0.7',
+  })),
+  ...blogSlugs.map((slug) => ({
+    loc: `/blog/${slug}`,
+    changefreq: 'monthly',
+    priority: '0.6',
+  })),
+  ...workflowIds.map((id) => ({
+    loc: `/workflows/${encodeURIComponent(id)}`,
+    changefreq: 'monthly',
+    priority: '0.6',
+  })),
+  ...comparisonSlugs.map((slug) => ({
+    loc: `/compare/${slug}`,
+    changefreq: 'monthly',
+    priority: '0.75',
+  })),
+  ...toolIds.map((id) => ({
+    loc: `/alternatives/${slugify(id)}-alternatives`,
+    changefreq: 'monthly',
+    priority: '0.65',
+  })),
+];
+
+const seen = new Set();
+const unique = urls.filter((u) => (seen.has(u.loc) ? false : seen.add(u.loc)));
+
+const esc = (s) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${unique
+  .map(
+    (u) => `  <url>
+    <loc>${esc(SITE + u.loc)}</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`,
+  )
+  .join('\n')}
+</urlset>
+`;
+
+writeFileSync(resolve(ROOT, 'public/sitemap.xml'), xml, 'utf8');
+
+console.log(`sitemap.xml written — ${unique.length} URLs`);
+console.log(
+  `  tools ${toolIds.length} · categories ${categoryIds.length} · ` +
+    `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
+);
+console.log(
+  `  comparisons ${comparisonSlugs.length} · alternatives ${toolIds.length}`,
+);

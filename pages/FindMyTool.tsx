@@ -10,7 +10,7 @@ export default function FindMyTool() {
         description="Answer a few simple questions and let our AI match you with the perfect free AI tools, best AI tools, and software for your specific needs."
         keywords={["find AI tool", "AI tool recommender", "AI tool finder", "best ai tools", "free ai tools", "ai software directory", "top ai software", "chatgpt alternatives"]}
       />
-      <div className="pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 min-h-screen bg-[var(--color-background)]">
+      <div className="page-top pb-16 md:pb-24 min-h-screen bg-[var(--color-background)]">
         <div className="container-custom mx-auto">
           <AIToolFinder />
         </div>

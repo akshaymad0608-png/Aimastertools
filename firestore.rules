@@ -45,10 +45,6 @@ service cloud.firestore {
       return request.resource.data.keys().hasAll(fields);
     }
 
-    function hasOnlyAllowedFields(fields) {
-      return request.resource.data.keys().hasOnly(fields);
-    }
-
     function isValidEmail(email) {
       return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
     }
@@ -57,7 +53,10 @@ service cloud.firestore {
     // Domain Validators
     // ===============================================================
     function isValidSubscriber(data) {
-      return hasOnlyAllowedFields(['uid', 'email', 'displayName', 'subscribedAt']) &&
+      return (
+               (data.keys().hasAll(['uid', 'email', 'subscribedAt']) && data.keys().size() == 3) ||
+               (data.keys().hasAll(['uid', 'email', 'displayName', 'subscribedAt']) && data.keys().size() == 4)
+             ) &&
              data.uid is string && data.uid.size() > 0 && data.uid.size() < 100 &&
              data.email is string && isValidEmail(data.email) && data.email.size() < 200 &&
              (!('displayName' in data) || (data.displayName is string && data.displayName.size() < 100)) &&
@@ -65,7 +64,7 @@ service cloud.firestore {
     }
 
     function isValidNewsletterEmail(data) {
-      return hasOnlyAllowedFields(['email', 'subscribedAt']) &&
+      return data.keys().hasAll(['email', 'subscribedAt']) && data.keys().size() == 2 &&
              data.email is string && isValidEmail(data.email) && data.email.size() < 200 &&
              data.subscribedAt is timestamp;
     }
@@ -103,10 +102,16 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow create: if request.auth != null && request.auth.uid == userId && 
-                              hasOnlyAllowedFields(['isPro', 'updatedAt']) &&
+                              (
+                                (request.resource.data.keys().hasAll(['isPro']) && request.resource.data.keys().size() == 1) ||
+                                (request.resource.data.keys().hasAll(['isPro', 'updatedAt']) && request.resource.data.keys().size() == 2)
+                              ) &&
                               request.resource.data.isPro == false; // Initial creation must be false
       allow update: if request.auth != null && request.auth.uid == userId && 
-                              hasOnlyAllowedFields(['isPro', 'updatedAt']) &&
+                              (
+                                (request.resource.data.keys().hasAll(['isPro']) && request.resource.data.keys().size() == 1) ||
+                                (request.resource.data.keys().hasAll(['isPro', 'updatedAt']) && request.resource.data.keys().size() == 2)
+                              ) &&
                               request.resource.data.isPro == resource.data.isPro; // Cannot change isPro status in frontend
     }
 

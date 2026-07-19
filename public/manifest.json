@@ -1,26 +1,58 @@
 {
-  "name": "AIMasterTools",
-  "short_name": "AIMasterTools",
-  "description": "Discover the Future of AI – All Tools in One Place.",
-  "start_url": "/",
+  "name": "AI Master Tools \u2014 AI Tools Directory",
+  "short_name": "aimastertools",
+  "description": "Search 830+ hand-checked AI tools by name, category and price. Compare features side by side and find the right tool in under a minute.",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f6f0",
+  "theme_color": "#12545c",
+  "categories": [
+    "productivity",
+    "business",
+    "utilities"
+  ],
   "icons": [
     {
-      "src": "https://lucide.dev/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "https://picsum.photos/192/192",
+      "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "https://picsum.photos/512/512",
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Find a tool",
+      "short_name": "Find",
+      "url": "/find"
+    },
+    {
+      "name": "Compare tools",
+      "short_name": "Compare",
+      "url": "/compare"
+    },
+    {
+      "name": "Categories",
+      "short_name": "Categories",
+      "url": "/categories"
+    },
+    {
+      "name": "Saved tools",
+      "short_name": "Saved",
+      "url": "/bookmarks"
     }
   ]
 }

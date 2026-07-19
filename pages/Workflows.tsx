@@ -1,125 +1,154 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { GitMerge, ArrowRight, Play, Copy, Clock, Layers, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Clock, Layers, Star } from 'lucide-react';
 import { WORKFLOWS } from '../data/workflows';
+import SEO from '../components/SEO';
+import PageHeader from '../components/PageHeader';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { breadcrumbSchema } from '../utils/seo';
 
-
+const DIFFICULTY_STYLE: Record<string, string> = {
+  Beginner: 'badge badge-primary',
+  Intermediate: 'badge badge-accent',
+  Advanced: 'badge',
+};
 
 const Workflows: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', 'Content Creation', 'Sales', 'Productivity', 'Marketing', 'Development', 'Customer Support', 'Video Production', 'HR & Recruiting', 'Design & UI/UX', 'Finance & Accounting'];
 
-  const filteredWorkflows = activeCategory === 'All' 
-    ? WORKFLOWS 
-    : WORKFLOWS.filter(w => w.category === activeCategory);
+  /**
+   * The filter row used to be a hardcoded list of eleven categories while the
+   * data held five workflows across three. Eight of those buttons led to an
+   * empty page. Categories now come from the workflows themselves.
+   */
+  const categories = useMemo(
+    () => ['All', ...new Set(WORKFLOWS.map((w) => w.category).filter(Boolean))],
+    [],
+  );
+
+  const filtered = useMemo(
+    () => (activeCategory === 'All' ? WORKFLOWS : WORKFLOWS.filter((w) => w.category === activeCategory)),
+    [activeCategory],
+  );
 
   return (
-    <div className="pt-24 pb-20 bg-[var(--color-background)] min-h-screen">
-      <Helmet>
-        <title>AI Workflows Library - Automate Your Tasks | AIMasterTools</title>
-        <meta name="description" content="Discover powerful AI workflows and automations. Learn how to connect different AI tools to save hours of manual work." />
-        <meta name="keywords" content="AI workflows, AI automation, connect AI tools, Make.com workflows, Zapier AI, business automation" />
-      </Helmet>
+    <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
+      <SEO
+        title={`${WORKFLOWS.length} AI Workflows — Connect Tools into Automations (2026)`}
+        description="Step-by-step guides for chaining AI tools into working automations. Each workflow lists the tools involved, the difficulty, and roughly how long setup takes."
+        url="/workflows"
+        keywords={[
+          'AI workflows',
+          'AI automation guides',
+          'connect AI tools',
+          'Zapier AI workflow',
+          'Make.com AI automation',
+        ]}
+        schema={[breadcrumbSchema([{ label: 'Workflows', path: '/workflows' }])]}
+      />
 
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top,var(--color-primary)_0%,transparent_50%)] opacity-10 blur-3xl"></div>
-        <div className="container-custom relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold text-sm mb-6">
-            <GitMerge size={16} />
-            Automation Library
+      <div className="container-custom">
+        <Breadcrumbs items={[{ label: 'Workflows' }]} />
+
+        <PageHeader
+          eyebrow="Automation library"
+          title={
+            <>
+              Tools are the parts. <em>Workflows are the machine.</em>
+            </>
+          }
+          lede="Each guide chains several tools into one pipeline, with the steps written out in order so you can follow them rather than reverse-engineer a screenshot."
+          meta={<span className="label-mono tabular-nums">{WORKFLOWS.length} workflows</span>}
+        />
+
+        {categories.length > 2 && (
+          <div className="mt-8 flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                aria-pressed={activeCategory === cat}
+                className={`link-chip ${
+                  activeCategory === cat ? '!border-[var(--color-primary)] !text-[var(--color-primary)]' : ''
+                }`}
+              >
+                {cat}
+                {cat !== 'All' && (
+                  <span className="link-chip__count">
+                    {WORKFLOWS.filter((w) => w.category === cat).length}
+                  </span>
+                )}
+              </button>
+            ))}
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-[var(--color-text-primary)]">
-            Automate Everything with <span className="text-gradient-premium">AI Workflows</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-10 font-medium text-[var(--color-text-secondary)]">
-            Stop doing manual work. Discover step-by-step guides on how to connect multiple AI tools together and build powerful automated pipelines.
+        )}
+
+        <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((wf) => (
+            <li key={wf.id} className="flex">
+              <Link
+                to={`/workflows/${wf.id}`}
+                className="card group flex w-full flex-col p-6 transition-transform hover:-translate-y-0.5"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className={DIFFICULTY_STYLE[wf.difficulty] || 'badge'}>{wf.difficulty}</span>
+                  <span className="flex items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+                    <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
+                    <span className="tabular-nums">{wf.rating.toFixed(1)}</span>
+                  </span>
+                </div>
+
+                <h2 className="title-sm mt-4 text-[17px] text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)]">
+                  {wf.title}
+                </h2>
+
+                <p className="mt-2.5 line-clamp-3 flex-1 text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
+                  {wf.description}
+                </p>
+
+                {/* The tool chain is the useful bit — show it, don't hide it */}
+                <div className="mt-5 flex flex-wrap items-center gap-1.5">
+                  {wf.tools.slice(0, 4).map((tool, i) => (
+                    <React.Fragment key={tool}>
+                      {i > 0 && (
+                        <span aria-hidden="true" className="text-[var(--color-text-muted)]">
+                          →
+                        </span>
+                      )}
+                      <span className="rounded-[var(--radius-xs)] border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-1 text-[11.5px] text-[var(--color-text-secondary)]">
+                        {tool}
+                      </span>
+                    </React.Fragment>
+                  ))}
+                </div>
+
+                <div className="pt-4 mt-5 flex items-center justify-between border-t border-[var(--color-border)]">
+                  <span className="label-mono flex items-center gap-3">
+                    <span className="flex items-center gap-1.5">
+                      <Clock size={11} aria-hidden="true" /> {wf.timeToImplement}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Layers size={11} aria-hidden="true" /> {wf.steps.length} steps
+                    </span>
+                  </span>
+                  <ArrowRight
+                    size={15}
+                    aria-hidden="true"
+                    className="text-[var(--color-text-muted)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--color-primary)]"
+                  />
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {filtered.length === 0 && (
+          <p className="mt-12 text-[15px] text-[var(--color-text-secondary)]">
+            No workflows filed under {activeCategory} yet.
           </p>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="container-custom max-w-6xl mx-auto px-4">
-        {/* Categories */}
-        <div className="flex flex-wrap gap-2 mb-12 justify-center">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full font-bold text-sm transition-all ${
-                activeCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md'
-                  : 'bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)]/50 hover:text-[var(--color-text-primary)]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Workflows Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {filteredWorkflows.map((workflow, idx) => (
-            <motion.div 
-              key={workflow.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="glass-panel rounded-2xl p-6 lg:p-8 flex flex-col group hover:border-[var(--color-primary)]/50 transition-all cursor-pointer relative overflow-hidden"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
-                  {workflow.category}
-                </span>
-                <div className="flex items-center gap-1 bg-amber-500/10 px-2 py-1 rounded-full text-amber-500 text-xs font-bold">
-                  <Star size={12} className="fill-amber-500" /> {workflow.rating}
-                </div>
-              </div>
-              
-              <h3 className="text-2xl font-extrabold text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
-                {workflow.title}
-              </h3>
-              
-              <p className="text-[var(--color-text-secondary)] mb-6 flex-grow">
-                {workflow.description}
-              </p>
-              
-              {/* Connected Tools Visualizer */}
-              <div className="flex items-center gap-2 mb-6 p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-border)]">
-                {workflow.tools.map((tool, i) => (
-                  <React.Fragment key={tool}>
-                    <div className="text-xs font-bold bg-[var(--color-surface)] border border-[var(--color-border)] px-3 py-1.5 rounded-lg whitespace-nowrap shadow-sm">
-                      {tool}
-                    </div>
-                    {i < workflow.tools.length - 1 && (
-                      <ArrowRight size={14} className="text-[var(--color-text-muted)] shrink-0" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-              
-              {/* Footer Meta */}
-              <div className="flex flex-wrap items-center justify-between pt-5 border-t border-[var(--color-border)] gap-4">
-                <div className="flex gap-4">
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)]">
-                    <Clock size={16} /> {workflow.timeToImplement}
-                  </div>
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)]">
-                    <Layers size={16} /> {workflow.steps.length} Steps
-                  </div>
-                </div>
-                
-                <Link to={`/workflows/${workflow.id}`} className="flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2 rounded-xl font-bold hover:bg-[var(--color-primary-dark)] transition-colors shadow-md text-sm">
-                  <Play size={16} className="fill-white" /> View Workflow
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-    </div>
+        )}
+      </div>
+    </main>
   );
 };
 

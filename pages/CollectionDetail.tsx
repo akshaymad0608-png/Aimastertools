@@ -33,7 +33,7 @@ const CollectionDetail: React.FC = () => {
 
   if (!collection) {
     return (
-      <div className="min-h-screen bg-[var(--color-background)] pt-32 flex flex-col items-center">
+      <div className="page-top min-h-screen bg-[var(--color-background)] flex flex-col items-center">
         <h1 className="text-3xl font-bold mb-4">Collection not found</h1>
         <Link to="/collections" className="text-[var(--color-primary)] hover:underline">
           Browse all collections
@@ -44,33 +44,33 @@ const CollectionDetail: React.FC = () => {
 
   // JSON-LD Schema
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "mainEntity": {
-      "@type": "ItemList",
-      "itemListElement": tools.map((tool, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "url": `https://aimastertools.com/tool/${tool.id}`
+"@context": "https://schema.org",
+"@type": "CollectionPage",
+"mainEntity": {
+"@type": "ItemList",
+"itemListElement": tools.map((tool, index) => ({
+"@type": "ListItem",
+"position": index + 1,
+"url": `https://aimastertools.com/tool/${tool.id}`
       }))
     }
   };
 
   const faqSchema = collection.faqs && collection.faqs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": collection.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": collection.faqs.map(faq => ({
+"@type": "Question",
+"name": faq.question,
+"acceptedAnswer": {
+"@type": "Answer",
+"text": faq.answer
       }
     }))
   } : null;
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)] pt-24 pb-16">
+    <div className="page-top min-h-screen bg-[var(--color-background)] pb-16">
       <SEO 
         title={collection.metaTitle}
         description={collection.metaDescription}
@@ -100,7 +100,7 @@ const CollectionDetail: React.FC = () => {
             Curated Collection
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[var(--color-text-primary)] tracking-tight mb-6 leading-tight">
             {collection.title}
           </h1>
           
@@ -130,12 +130,12 @@ const CollectionDetail: React.FC = () => {
                 </h2>
                 <div className="space-y-4">
                   {collection.faqs.map((faq, index) => (
-                    <details key={index} className="group bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                    <details key={index} className="group bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] overflow-hidden [&_summary::-webkit-details-marker]:hidden">
                       <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-[var(--color-text-primary)]">
                         {faq.question}
                         <ChevronDown className="transform group-open:rotate-180 transition-transform duration-300 text-[var(--color-text-muted)]" size={20} />
                       </summary>
-                      <div className="p-6 pt-0 text-[var(--color-text-secondary)] leading-relaxed">
+                      <div className="p-6 text-[var(--color-text-secondary)] leading-relaxed">
                         {faq.answer}
                       </div>
                     </details>
@@ -145,11 +145,11 @@ const CollectionDetail: React.FC = () => {
             )}
             
             {collection.ctaText && collection.ctaUrl && (
-              <div className="bg-gradient-to-br from-[var(--color-primary)]/20 to-purple-500/20 p-8 rounded-3xl border border-[var(--color-primary)]/30 text-center mb-12">
+              <div className="from-[var(--color-primary)]/20 p-8 rounded-[var(--radius-lg)] border border-[var(--color-primary)]/30 text-center mb-12">
                 <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                   Ready to discover more?
                 </h3>
-                <Link to={collection.ctaUrl} className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-dark)] hover:shadow-lg hover:shadow-[var(--color-primary)]/30 transition-all duration-300">
+                <Link to={collection.ctaUrl} className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-card)] hover:shadow-[var(--color-primary)]/30 transition-all duration-300">
                   {collection.ctaText}
                   <ArrowRight size={20} className="ml-2" />
                 </Link>
@@ -160,8 +160,8 @@ const CollectionDetail: React.FC = () => {
           {/* Sidebar */}
           <div className="lg:col-span-4 space-y-8">
             <div className="sticky top-24">
-              <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-6 shadow-xl shadow-black/5">
-                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-6 border-b border-[var(--color-border)] pb-4">
+              <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6 shadow-[var(--shadow-lift)] shadow-black/5">
+                <h3 className="title-sm text-lg font-bold text-[var(--color-text-primary)] mb-6 border-b border-[var(--color-border)] pb-4">
                   Related Collections
                 </h3>
                 <div className="space-y-4">
@@ -175,7 +175,7 @@ const CollectionDetail: React.FC = () => {
                         <div className="w-8 h-8 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)] mr-3 group-hover:scale-110 transition-transform">
                           <Layers size={14} />
                         </div>
-                        <h4 className="text-sm font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
+                        <h4 className="title-sm text-sm font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
                           {related.title}
                         </h4>
                       </div>
@@ -183,7 +183,7 @@ const CollectionDetail: React.FC = () => {
                   ))}
                 </div>
                 
-                <Link to="/collections" className="mt-6 block text-center w-full py-3 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl text-sm font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)] transition-all">
+                <Link to="/collections" className="mt-6 block text-center w-full py-3 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-sm font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)] transition-all">
                   View All Collections
                 </Link>
               </div>

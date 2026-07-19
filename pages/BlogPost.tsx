@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Share2, ArrowLeft, Clock, Calendar, Bookmark, Heart } from 'lucide-react';
 import SEO from '../components/SEO';
+import { blogKeywords, articleSchema, breadcrumbSchema } from '../utils/seo';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
 import ReactMarkdown from 'react-markdown';
 import { BlogCoverImage } from '../components/BlogCoverImage';
 
 // Helper to render responsive category badges
 const CategoryBadge = ({ label }: { label: string }) => (
-  <span className="inline-flex text-[11px] font-extrabold px-3 py-1.5 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary)] border border-[var(--color-primary)]/20 uppercase tracking-widest shadow-sm">
+  <span className="inline-flex text-[11px] font-semibold px-3 py-1.5 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary)] border border-[var(--color-primary)]/20 uppercase tracking-widest shadow-sm">
     {label}
   </span>
 );
@@ -33,11 +34,11 @@ const BlogPost: React.FC = () => {
   const getAuthorByPostId = (idStr: string) => {
     const id = parseInt(idStr) || 1;
     const list = [
-      { name: "Akshay Mahajan", initials: "AM", role: "Founder & Lead", bg: "bg-blue-500/10 text-blue-500 ring-blue-500/20" },
+      { name: "Akshay Mahajan", initials: "AM", role: "Founder & Lead", bg: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] ring-blue-500/20" },
       { name: "Sarah Collins", initials: "SC", role: "AI Strategist", bg: "bg-rose-500/10 text-rose-500 ring-rose-500/20" },
-      { name: "Arjun Mehta", initials: "AM", role: "NLP Engineer", bg: "bg-emerald-500/10 text-emerald-500 ring-emerald-500/20" },
-      { name: "Lina Vance", initials: "LV", role: "UX Designer", bg: "bg-violet-500/10 text-violet-500 ring-violet-500/20" },
-      { name: "Marcus Thorne", initials: "MT", role: "Cloud Architect", bg: "bg-amber-500/10 text-amber-500 ring-amber-500/20" },
+      { name: "Arjun Mehta", initials: "AM", role: "NLP Engineer", bg: "bg-emerald-500/10 text-[var(--color-primary)] ring-emerald-500/20" },
+      { name: "Lina Vance", initials: "LV", role: "UX Designer", bg: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] ring-violet-500/20" },
+      { name: "Marcus Thorne", initials: "MT", role: "Cloud Architect", bg: "bg-amber-500/10 text-[var(--color-accent)] ring-amber-500/20" },
     ];
     return list[id % list.length];
   };
@@ -66,63 +67,22 @@ const BlogPost: React.FC = () => {
 
   return (
     <>
-      <SEO 
-        title={`${post.title} - AIMasterTools Blog`}
+      <SEO
+        title={post.title}
         description={post.excerpt}
-        keywords={['AI', 'Blog', 'Technology', 'Trends', post.category]}
+        url={`/blog/${post.slug || post.id}`}
+        image={post.imageUrl}
         type="article"
-      >
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.excerpt,
-            "datePublished": new Date(post.date).toISOString(),
-            "author": {
-              "@type": "Person",
-              "name": author.name,
-              "url": "https://aimastertools.space"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "AI Master Tools",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://aimastertools.space/favicon.svg"
-              }
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://aimastertools.space/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://aimastertools.space/blog"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": post.title,
-                "item": "https://aimastertools.space/blog/" + (post.slug || post.id)
-              }
-            ]
-          })}
-        </script>
-      </SEO>
+        publishedTime={new Date(post.date).toISOString()}
+        section={post.category}
+        keywords={blogKeywords(post)}
+        schema={[
+          articleSchema(post),
+          breadcrumbSchema([{ label: 'Blog', path: '/blog' }, { label: post.title }]),
+        ]}
+      />
       
-      <div className="pt-32 pb-20 md:pt-40 lg:pt-44 md:pb-28 min-h-screen bg-[var(--color-background)]">
+      <div className="page-top pb-20 md:pb-28 min-h-screen bg-[var(--color-background)]">
         <div className="max-w-[760px] mx-auto px-4 sm:px-6">
           
           {/* Back link */}
@@ -142,18 +102,18 @@ const BlogPost: React.FC = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] leading-tight tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[var(--color-text-primary)] leading-tight tracking-tight mb-6">
             {post.title}
           </h1>
 
           {/* Author Meta Details Card */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] mb-10">
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-[var(--radius-md)] bg-[var(--color-surface)] border border-[var(--color-border)] mb-10">
             <div className="flex items-center gap-3">
               <div className={`w-11 h-11 rounded-full ring-2 ring-current/10 ${author.bg} flex items-center justify-center font-bold text-sm`}>
                 {author.initials}
               </div>
               <div>
-                <div className="text-sm font-black text-[var(--color-text-primary)]">{author.name}</div>
+                <div className="text-sm font-semibold text-[var(--color-text-primary)]">{author.name}</div>
                 <div className="text-[11px] font-bold text-[var(--color-text-muted)] uppercase tracking-wider">{author.role}</div>
               </div>
             </div>
@@ -172,7 +132,7 @@ const BlogPost: React.FC = () => {
           </div>
 
           {/* Hero cover illustration - replacing plain emoji */}
-          <div className="w-full h-[220px] sm:h-[300px] lg:h-[360px] rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-white/10 mb-12 relative group">
+          <div className="w-full h-[220px] sm:h-[300px] lg:h-[360px] rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-lift)] border border-slate-200 dark:border-white/10 mb-12 relative group">
             <BlogCoverImage 
               category={post.category} 
               title={post.title} 
@@ -188,7 +148,7 @@ const BlogPost: React.FC = () => {
           </article>
 
           {/* Action Footer share clusters */}
-          <div className="mt-14 pt-8 border-t border-[var(--color-border)]/60 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
+          <div className="pt-8 mt-14 border-t border-[var(--color-border)]/60 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
             <div className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider font-mono">
               ⚡ Verified engineering resources by Akshay Mahajan
             </div>
@@ -196,7 +156,7 @@ const BlogPost: React.FC = () => {
             <div className="flex gap-2.5">
               <button 
                 onClick={handleShare}
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 font-bold text-xs text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-sm)] font-bold text-xs text-white shadow-md hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer"
               >
                 <Share2 size={15} /> 
                 <span>Share Insight</span>
