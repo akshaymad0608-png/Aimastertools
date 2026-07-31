@@ -9,41 +9,22 @@ interface ToolLogoProps {
 }
 
 const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className, style }) => {
-  React.useEffect(() => { 
-    if (domain) {
-      // Clean domain just in case
-      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
-      setSrc(`https://logo.clearbit.com/${cleanDomain}`);
-      setFailed(false);
-    } else {
-      setSrc(null);
-    }
-  }, [domain]);
-  React.useEffect(() => { setSrc(domain ? `https://logo.clearbit.com/${domain}` : null); setFailed(false); }, [domain]);
-  const [src, setSrc] = useState<string | null>(
-    domain ? `https://logo.clearbit.com/${domain}` : null
-  );
+  // Clearbit's free logo API was sunset, so fetch icons from DuckDuckGo (good,
+  // reliable), falling back to Google's favicon service, then to styled initials.
+  const cleanDomain = domain ? domain.replace(/^https?:\/\//, '').split('/')[0] : '';
+  const ddg = cleanDomain ? `https://icons.duckduckgo.com/ip3/${cleanDomain}.ico` : null;
+
+  const [src, setSrc] = useState<string | null>(ddg);
   const [failed, setFailed] = useState(false);
 
-  React.useEffect(() => { 
-    if (domain) {
-      // Clean domain just in case
-      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
-      setSrc(`https://logo.clearbit.com/${cleanDomain}`);
-      setFailed(false);
-    } else {
-      setSrc(null);
-    }
-  }, [domain]);
+  React.useEffect(() => { setSrc(ddg); setFailed(false); }, [ddg]);
+
   const initials = name?.slice(0, 2).toUpperCase() || "AI";
 
   const handleError = () => {
-    if (src?.includes("logo.clearbit.com") && domain) {
-      const cleanDomain = domain.replace(/^https?:\/\//, '').split('/')[0];
-      // Fallback to Google favicon
+    if (src?.includes("duckduckgo") && cleanDomain) {
       setSrc(`https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`);
     } else {
-      // Give up and use fallback styled initials
       setFailed(true);
     }
   };

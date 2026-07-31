@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT, LAST_UPDATED_LABEL } from '../utils/stats';
@@ -11,10 +11,63 @@ interface HeroSectionProps {
   onChipClick?: (val: string) => void;
 }
 
+/* A big, site-related hero visual: a wall of real AI-tool logos — the actual
+ * products in the directory — rather than a borrowed stock photo. */
+const HERO_LOGOS: Array<{ name: string; domain: string }> = [
+  { name: 'ChatGPT', domain: 'openai.com' },
+  { name: 'Claude', domain: 'anthropic.com' },
+  { name: 'Midjourney', domain: 'midjourney.com' },
+  { name: 'Perplexity', domain: 'perplexity.ai' },
+  { name: 'GitHub Copilot', domain: 'github.com' },
+  { name: 'Canva', domain: 'canva.com' },
+  { name: 'Notion', domain: 'notion.so' },
+  { name: 'Figma', domain: 'figma.com' },
+  { name: 'Runway', domain: 'runwayml.com' },
+  { name: 'ElevenLabs', domain: 'elevenlabs.io' },
+  { name: 'Cursor', domain: 'cursor.com' },
+  { name: 'Leonardo', domain: 'leonardo.ai' },
+  { name: 'Hugging Face', domain: 'huggingface.co' },
+  { name: 'Adobe', domain: 'adobe.com' },
+  { name: 'Suno', domain: 'suno.com' },
+];
+
+const LogoTile: React.FC<{ name: string; domain: string; delay: number; reduce: boolean }> = ({
+  name,
+  domain,
+  delay,
+  reduce,
+}) => {
+  const [src, setSrc] = useState(`https://icons.duckduckgo.com/ip3/${domain}.ico`);
+  const [failed, setFailed] = useState(false);
+  const onError = () => {
+    if (src.includes('duckduckgo')) setSrc(`https://www.google.com/s2/favicons?domain=${domain}&sz=128`);
+    else setFailed(true);
+  };
+  if (failed) return null;
+  return (
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, scale: 0.9 }}
+      whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.35, delay }}
+      className="grid aspect-square place-items-center rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+      title={name}
+    >
+      <img
+        src={src}
+        alt={name}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={onError}
+        className="h-[54%] w-[54%] object-contain"
+      />
+    </motion.div>
+  );
+};
+
 /**
- * The hero is the search desk. The job of this page is "find me the right
- * tool", so the field is the largest thing on screen and everything else
- * is catalogue furniture around it.
+ * The hero pairs the search desk with a live wall of the tools people actually
+ * come here for — a visual that is unmistakably about this site.
  */
 const HeroSection: React.FC<HeroSectionProps> = ({
   searchTerm,
@@ -36,29 +89,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section id="home" className="relative overflow-hidden border-b border-[var(--color-border)]">
-      {/* Engineering-paper grid, faded out at the edges */}
+      {/* Colourful multi-blob aurora background */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-[8%] top-[-16rem] h-[34rem] w-[34rem] rounded-full opacity-[0.22] blur-[130px]" style={{ background: '#6d8bff' }} />
+        <div className="absolute right-[6%] top-[-10rem] h-[30rem] w-[30rem] rounded-full opacity-[0.20] blur-[130px]" style={{ background: '#a879ff' }} />
+        <div className="absolute bottom-[-20rem] left-1/2 h-[34rem] w-[46rem] -translate-x-1/2 rounded-full opacity-[0.14] blur-[140px]" style={{ background: '#22d3ee' }} />
+      </div>
       <div
         aria-hidden="true"
         className="grid-paper pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_35%,transparent_100%)]"
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[-18rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-[var(--color-primary)] opacity-[0.07] blur-[130px]"
-      />
 
-      <div className="page-top-hero container-custom relative z-10 pb-14 md:pb-20">
+      <div className="page-top-hero container-custom relative z-10 pb-16 md:pb-24">
         <div className="mx-auto max-w-3xl text-center">
-          <motion.p {...rise(0)} className="eyebrow justify-center">
-            {`Last updated ${LAST_UPDATED_LABEL} · ${TOOL_COUNT} entries`}
-          </motion.p>
+          <motion.div {...rise(0)} className="flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-cardBg)] px-3.5 py-1.5 text-[12.5px] font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-card)]">
+              <Star size={13} className="text-[var(--color-primary)]" fill="currentColor" />
+              {`${TOOL_COUNT}+ AI tools · updated ${LAST_UPDATED_LABEL}`}
+            </span>
+          </motion.div>
 
-          <motion.h1
-            {...rise(0.06)}
-            className="display-xl mt-5 text-[var(--color-text-primary)]"
-          >
-            Every AI tool worth
-            <br className="hidden sm:block" />{' '}
-            knowing, in <em>one index</em>.
+          <motion.h1 {...rise(0.06)} className="display-xl mt-6 text-[var(--color-text-primary)]">
+            Every <span className="text-gradient">AI tool</span> worth
+            <br className="hidden sm:block" /> knowing, in one place.
           </motion.h1>
 
           <motion.p
@@ -75,15 +128,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               role="search"
               onSubmit={(e) => {
                 e.preventDefault();
-                document
-                  .getElementById('search-results')
-                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
-              className="group relative flex items-center rounded-[var(--radius-lg)] border border-[var(--color-border-strong)] bg-[var(--color-cardBg)] shadow-[var(--shadow-card)] transition-all focus-within:border-[var(--color-primary)] focus-within:shadow-[var(--shadow-glow)]"
+              className="group relative flex items-center rounded-[var(--radius-lg)] border border-[var(--color-border-strong)] bg-[var(--color-cardBg)] shadow-[var(--shadow-lift)] transition-all focus-within:border-[var(--color-primary)] focus-within:shadow-[var(--shadow-glow)]"
             >
-              <label htmlFor="hero-search" className="sr-only">
-                Search AI tools
-              </label>
+              <label htmlFor="hero-search" className="sr-only">Search AI tools</label>
               <Search
                 size={20}
                 strokeWidth={2.2}
@@ -106,11 +155,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </form>
           </motion.div>
 
-          {/* Quick filters, labelled honestly as filters rather than "trending" */}
-          <motion.div
-            {...rise(0.24)}
-            className="relative z-20 mt-5 flex flex-wrap items-center justify-center gap-2"
-          >
+          {/* Quick filters */}
+          <motion.div {...rise(0.24)} className="relative z-20 mt-5 flex flex-wrap items-center justify-center gap-2">
             <span className="label-mono mr-1">Jump to</span>
             {trending.map((query) => (
               <button
@@ -125,10 +171,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
         </div>
 
-        {/* Catalogue facts — replaces borrowed logos with things that are true */}
+        {/* BIG hero visual — a wall of the real tools in the directory */}
+        <motion.div {...rise(0.3)} className="relative mx-auto mt-14 max-w-4xl">
+          <div className="pointer-events-none absolute inset-0 -z-10 rounded-[28px] opacity-70 blur-2xl" style={{ backgroundImage: 'var(--gradient-primary)' }} />
+          <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-cardBg)] p-5 shadow-[var(--shadow-lift)] sm:p-7">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="label-mono text-[var(--color-text-secondary)]">Popular tools inside</span>
+              <span className="hidden text-[12.5px] font-semibold text-[var(--color-primary)] sm:inline">+{TOOL_COUNT - HERO_LOGOS.length} more</span>
+            </div>
+            <div className="grid grid-cols-5 gap-3 sm:grid-cols-8 sm:gap-4">
+              {HERO_LOGOS.map((l, i) => (
+                <LogoTile key={l.domain} name={l.name} domain={l.domain} delay={0.02 * i} reduce={!!reduce} />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Catalogue facts */}
         <motion.dl
-          {...rise(0.3)}
-          className="mx-auto mt-14 grid max-w-3xl grid-cols-2 divide-x divide-[var(--color-border)] border-y border-[var(--color-border)] sm:grid-cols-4 sm:divide-y-0"
+          {...rise(0.36)}
+          className="mx-auto mt-12 grid max-w-3xl grid-cols-2 divide-x divide-[var(--color-border)] border-y border-[var(--color-border)] sm:grid-cols-4 sm:divide-y-0"
         >
           {[
             [String(TOOL_COUNT), 'Tools indexed'],
@@ -146,7 +208,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
         </motion.dl>
 
-        <motion.p {...rise(0.34)} className="mt-6 text-center text-sm text-[var(--color-text-secondary)]">
+        <motion.p {...rise(0.4)} className="mt-6 text-center text-sm text-[var(--color-text-secondary)]">
           Not sure what you need?{' '}
           <Link to="/find" className="font-semibold text-[var(--color-primary)] underline underline-offset-4">
             Answer three questions
