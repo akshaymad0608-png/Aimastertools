@@ -300,6 +300,7 @@ const Home: React.FC = () => {
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             {[
+              { href: '/best-google-ai-tools.html', label: 'Google AI Tools', emoji: '🔵' },
               { href: '/best-ai-chatbots.html', label: 'AI Chatbots', emoji: '💬' },
               { href: '/best-ai-image-generators.html', label: 'AI Image Generators', emoji: '🖼️' },
               { href: '/best-ai-writing-tools.html', label: 'AI Writing Tools', emoji: '✍️' },
