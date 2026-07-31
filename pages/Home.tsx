@@ -287,6 +287,46 @@ const Home: React.FC = () => {
       <FeaturedCarousel />
       <BrowseHub />
 
+      {/* Best-of guides — curated category landing pages (also standalone SEO pages) */}
+      <section className="section section-alt" aria-labelledby="guides-heading">
+        <div className="container-custom">
+          <p className="eyebrow">Curated guides</p>
+          <h2 id="guides-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+            The <span className="text-gradient">best AI tools</span>, hand-picked by category
+          </h2>
+          <p className="section-head__lede">
+            Short, comparison-first shortlists — the top picks in each category with pricing,
+            pros and cons, so you can choose in a minute instead of an afternoon.
+          </p>
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+            {[
+              { href: '/best-ai-chatbots.html', label: 'AI Chatbots', emoji: '💬' },
+              { href: '/best-ai-image-generators.html', label: 'AI Image Generators', emoji: '🖼️' },
+              { href: '/best-ai-writing-tools.html', label: 'AI Writing Tools', emoji: '✍️' },
+              { href: '/best-ai-coding-tools.html', label: 'AI Coding Tools', emoji: '👨‍💻' },
+              { href: '/best-ai-video-generators.html', label: 'AI Video Generators', emoji: '🎬' },
+              { href: '/best-ai-voice-generators.html', label: 'AI Voice Generators', emoji: '🔊' },
+              { href: '/best-ai-logo-makers.html', label: 'AI Logo Makers', emoji: '🎨' },
+              { href: '/best-free-ai-tools.html', label: 'Best Free AI Tools', emoji: '🆓' },
+            ].map((g) => (
+              <a
+                key={g.href}
+                href={g.href}
+                className="ring-gradient group flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cardBg)] p-4 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-0.5 sm:p-5"
+              >
+                <span className="text-2xl" aria-hidden="true">{g.emoji}</span>
+                <span className="title-sm text-[15px] text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)]">
+                  {g.label}
+                </span>
+                <span className="label-mono mt-auto flex items-center gap-1 text-[var(--color-primary)]">
+                  View picks <ArrowRight size={12} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Category Selection Sidebar Slider & Content */}
       <section id="search-results" className="section section-alt">
         <div className="container-custom">

@@ -36,90 +36,96 @@
   --color-error: #c0452c;
 
   --font-sans: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-display: "Inter Tight", "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
 
-  --radius-xs: 3px;
-  --radius-sm: 5px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-xs: 4px;
+  --radius-sm: 7px;
+  --radius-md: 11px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
 
   --shadow-card: var(--shadow-card-val);
   --shadow-lift: var(--shadow-lift-val);
   --shadow-glow: var(--shadow-glow-val);
 }
 
-/* ---------- Light : "Sand" ---------- */
+/* ---------- Light : "Aurora" (Vibrant Modern) ---------- */
 :root,
 .light {
-  --bg-color: #f8f6f0;
-  --card-bg-color: #fffdf8;
-  --surface-color: #f0ece1;
+  --bg-color: #ffffff;
+  --card-bg-color: #ffffff;
+  --surface-color: #f5f7fc;
   --elevated-color: #ffffff;
 
-  --text-primary-color: #1a1917;
-  --text-secondary-color: #575550;
-  --text-muted-color: #8b8880;
+  --text-primary-color: #0f1729;
+  --text-secondary-color: #4a5568;
+  --text-muted-color: #94a0b8;
 
-  --border-color: #e3ded0;
-  --border-strong-color: #cdc6b3;
+  --border-color: #e9ecf5;
+  --border-strong-color: #d3d9ea;
 
-  --primary-color: #12545c;
-  --primary-dark-color: #0c3d43;
-  --primary-soft-color: #e2eeee;
-  --primary-rgb: 18, 84, 92;
-  --color-primary-rgb: 18, 84, 92;
+  --primary-color: #5b6ef5;
+  --primary-dark-color: #4a4fe0;
+  --primary-soft-color: #eef0ff;
+  --primary-rgb: 91, 110, 245;
+  --color-primary-rgb: 91, 110, 245;
 
-  --secondary-color: #1a1917;
-  --accent-color: #b26a1e;
-  --accent-soft-color: #f7ecda;
-  --accent-rgb: 178, 106, 30;
+  --secondary-color: #0f1729;
+  --accent-color: #10b981;
+  --accent-soft-color: #e7f9f1;
+  --accent-rgb: 16, 185, 129;
 
-  --shadow-card-val: 0 1px 2px rgba(26, 25, 23, .04);
-  --shadow-lift-val: 0 10px 30px -14px rgba(26, 25, 23, .22), 0 2px 5px rgba(26, 25, 23, .04);
-  --shadow-glow-val: 0 0 0 3px rgba(18, 84, 92, .18);
+  --gradient-primary: linear-gradient(90deg, #6d8bff 0%, #a879ff 100%);
+  --gradient-primary-soft: linear-gradient(135deg, #eef1ff 0%, #f6edff 100%);
 
-  --grid-line: rgba(26, 25, 23, .045);
-  --scrollbar-track: #f0ece1;
-  --scrollbar-thumb: #cdc6b3;
-  --scrollbar-thumb-hover: #b0a894;
+  --shadow-card-val: 0 1px 2px rgba(15, 23, 41, .05), 0 1px 3px rgba(15, 23, 41, .04);
+  --shadow-lift-val: 0 18px 40px -18px rgba(79, 70, 229, .28), 0 4px 12px rgba(15, 23, 41, .06);
+  --shadow-glow-val: 0 0 0 3px rgba(91, 110, 245, .18);
+
+  --grid-line: rgba(15, 23, 41, .04);
+  --scrollbar-track: #f5f7fc;
+  --scrollbar-thumb: #d3d9ea;
+  --scrollbar-thumb-hover: #b9c1da;
   color-scheme: light;
 }
 
-/* ---------- Dark : "Pitch" ---------- */
+/* ---------- Dark : "Nebula" (Vibrant Modern) ---------- */
 .dark {
-  --bg-color: #0d100f;
-  --card-bg-color: #141918;
-  --surface-color: #1a201f;
-  --elevated-color: #202827;
+  --bg-color: #0b1020;
+  --card-bg-color: #141a2e;
+  --surface-color: #1a2138;
+  --elevated-color: #1f2740;
 
-  --text-primary-color: #edefec;
-  --text-secondary-color: #9ea6a3;
-  --text-muted-color: #6f7875;
+  --text-primary-color: #e7ebf5;
+  --text-secondary-color: #9aa6c2;
+  --text-muted-color: #6b7591;
 
-  --border-color: #252d2b;
-  --border-strong-color: #38423f;
+  --border-color: #262f4a;
+  --border-strong-color: #38456b;
 
-  --primary-color: #56b3b0;
-  --primary-dark-color: #3f9895;
-  --primary-soft-color: rgba(86, 179, 176, .13);
-  --primary-rgb: 86, 179, 176;
-  --color-primary-rgb: 86, 179, 176;
+  --primary-color: #8ba0ff;
+  --primary-dark-color: #6d8bff;
+  --primary-soft-color: rgba(109, 139, 255, .16);
+  --primary-rgb: 139, 160, 255;
+  --color-primary-rgb: 139, 160, 255;
 
-  --secondary-color: #edefec;
-  --accent-color: #dda05c;
-  --accent-soft-color: rgba(221, 160, 92, .13);
-  --accent-rgb: 221, 160, 92;
+  --secondary-color: #e7ebf5;
+  --accent-color: #37d39b;
+  --accent-soft-color: rgba(55, 211, 155, .15);
+  --accent-rgb: 55, 211, 155;
 
-  --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .45);
-  --shadow-lift-val: 0 14px 34px -14px rgba(0, 0, 0, .75), 0 2px 8px rgba(0, 0, 0, .35);
-  --shadow-glow-val: 0 0 0 3px rgba(86, 179, 176, .2);
+  --gradient-primary: linear-gradient(90deg, #6d8bff 0%, #a879ff 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(109, 139, 255, .16) 0%, rgba(168, 121, 255, .16) 100%);
 
-  --grid-line: rgba(237, 239, 236, .04);
-  --scrollbar-track: #0d100f;
-  --scrollbar-thumb: #252d2b;
-  --scrollbar-thumb-hover: #38423f;
+  --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-lift-val: 0 18px 40px -16px rgba(0, 0, 0, .7), 0 3px 10px rgba(0, 0, 0, .4);
+  --shadow-glow-val: 0 0 0 3px rgba(109, 139, 255, .25);
+
+  --grid-line: rgba(231, 235, 245, .04);
+  --scrollbar-track: #0b1020;
+  --scrollbar-thumb: #262f4a;
+  --scrollbar-thumb-hover: #38456b;
   color-scheme: dark;
 }
 
@@ -142,23 +148,55 @@ body {
 }
 
 /*
- * Instrument Serif ships a single weight (400). Faking bold with
- * font-weight: 600 would smear the stroke contrast that makes the face
- * worth using, so emphasis comes from size and colour instead. Serifs also
- * need far less negative tracking than a geometric sans — the old -0.035em
- * would jam the terminals together.
+ * Vibrant Modern: headings are a bold geometric sans (Inter Tight 800) with
+ * tight tracking — the confident, high-contrast look modern AI/SaaS products
+ * use. Weight and negative letter-spacing carry the authority the old serif
+ * carried through stroke contrast.
  */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.012em;
-  line-height: 1.14;
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  line-height: 1.12;
 }
 
 /* Display scale — used by hero + section heads */
-.display-xl { font-family: var(--font-display); font-size: clamp(2.75rem, 6.4vw, 5rem); font-weight: 400; letter-spacing: -0.018em; line-height: 1.02; }
-.display-lg { font-family: var(--font-display); font-size: clamp(2.125rem, 4.4vw, 3.25rem); font-weight: 400; letter-spacing: -0.014em; line-height: 1.08; }
-.display-md { font-family: var(--font-display); font-size: clamp(1.625rem, 2.8vw, 2.25rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; }
+.display-xl { font-family: var(--font-display); font-size: clamp(2.75rem, 6.4vw, 5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; }
+.display-lg { font-family: var(--font-display); font-size: clamp(2.125rem, 4.4vw, 3.25rem); font-weight: 800; letter-spacing: -0.026em; line-height: 1.06; }
+.display-md { font-family: var(--font-display); font-size: clamp(1.625rem, 2.8vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.14; }
+
+/* Vibrant Modern — gradient helpers (indigo → violet) */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-gradient-primary { background-image: var(--gradient-primary); }
+.btn-gradient {
+  background-image: var(--gradient-primary);
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 18px -6px rgba(109, 139, 255, .5);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.btn-gradient:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -8px rgba(109, 139, 255, .6); opacity: .97; }
+.ring-gradient { position: relative; }
+.ring-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+.ring-gradient:hover::before { opacity: 1; }
 
 /* Card and list titles stay in the sans — a serif at 15px turns to mush. */
 .title-sm {
