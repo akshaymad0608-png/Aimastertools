@@ -6,67 +6,59 @@ interface LogoProps {
 }
 
 /**
- * "Foundry" mark — a shelf of five spines, one of them pulled forward.
+ * Vibrant Modern mark — a gradient tile carrying a clean spark.
  *
- * Bars of uneven height read as a collection and as a ranking at the same
- * time, which is exactly what the site is. The copper spine is the pick: the
- * one you were looking for, standing proud of the row. It survives at 16px
- * because it is five solid shapes and no fine detail, which is where the
- * previous ruled-card mark went soft in a browser tab.
+ * The indigo→violet gradient is the brand's whole identity now, so the mark
+ * leads with it. The spark reads instantly as "AI" and stays crisp at 16px
+ * because it is two solid shapes and no fine detail. The wordmark sets
+ * "AI Master" in ink and "Tools" in the same gradient, so the logotype and the
+ * icon share one colour story.
  */
 export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) => {
   const isSmall = size === 'sm';
-  const box = isSmall ? 28 : 38;
-
-  // x, y, height — the fourth bar is the pulled one
-  const SPINES: Array<[number, number, number]> = [
-    [9, 16, 15],
-    [14, 12, 19],
-    [19, 19, 12],
-    [24, 8, 23],
-    [29, 15, 16],
-  ];
+  const box = isSmall ? 30 : 38;
 
   return (
     <span className="flex items-center gap-2.5">
       <span
         aria-hidden="true"
-        className="grid shrink-0 place-items-center"
-        style={{ width: box, height: box }}
+        className="grid shrink-0 place-items-center rounded-[11px]"
+        style={{
+          width: box,
+          height: box,
+          backgroundImage: 'var(--gradient-primary)',
+          boxShadow: '0 6px 16px -6px rgba(109, 139, 255, .55)',
+        }}
       >
-        <svg viewBox="0 0 40 40" width={box} height={box} fill="none">
-          <rect x="1" y="1" width="38" height="38" rx="5" fill="var(--color-text-primary)" />
-          {SPINES.map(([x, y, h], i) => (
-            <rect
-              key={x}
-              x={x}
-              y={y}
-              width="3.2"
-              height={h}
-              rx="1.2"
-              fill={i === 3 ? 'var(--color-accent)' : 'var(--color-background)'}
-              opacity={i === 3 ? 1 : 0.35 + i * 0.14}
-            />
-          ))}
-          <rect x="8" y="32" width="24" height="1.6" rx="0.8" fill="var(--color-background)" opacity="0.5" />
+        <svg viewBox="0 0 24 24" width={box * 0.62} height={box * 0.62} fill="none">
+          {/* main 4-point spark */}
+          <path
+            d="M12 2.2c.5 3.9 1.9 5.3 5.8 5.8-3.9.5-5.3 1.9-5.8 5.8-.5-3.9-1.9-5.3-5.8-5.8C10.1 7.5 11.5 6.1 12 2.2Z"
+            fill="#ffffff"
+          />
+          {/* small secondary spark */}
+          <path
+            d="M17.6 13.4c.28 2.1 1 2.9 3.1 3.2-2.1.3-2.82 1.05-3.1 3.15-.28-2.1-1-2.85-3.1-3.15 2.1-.3 2.82-1.1 3.1-3.2Z"
+            fill="#ffffff"
+            opacity="0.9"
+          />
         </svg>
       </span>
 
       {showWordmark && (
         <span className="flex min-w-0 flex-col justify-center leading-none">
           <span
-            className="whitespace-nowrap text-[var(--color-text-primary)]"
+            className="whitespace-nowrap font-bold text-[var(--color-text-primary)]"
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: isSmall ? 18 : 25,
-              letterSpacing: '-0.01em',
+              fontSize: isSmall ? 17 : 21,
+              letterSpacing: '-0.02em',
             }}
           >
-            AI Master
-            <span style={{ fontStyle: 'italic', color: 'var(--color-primary)' }}> Tools</span>
+            AI Master<span className="text-gradient"> Tools</span>
           </span>
-          <span className="label-mono mt-1 hidden whitespace-nowrap text-[9px] tracking-[0.18em] xl:block">
-            An index of what works
+          <span className="label-mono mt-1 hidden whitespace-nowrap text-[9px] tracking-[0.16em] text-[var(--color-text-muted)] xl:block">
+            The AI tools directory
           </span>
         </span>
       )}
