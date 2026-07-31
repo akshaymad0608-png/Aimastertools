@@ -60,8 +60,8 @@ export const CATEGORY_META = [
     "emoji": "📅"
 },
   {
-    "id": "Official Google Tools",
-    "name": "Official Google Tools",
+    "id": "Google",
+    "name": "Google",
     "icon": "ti-google",
     "bg": "#E8F0FE",
     "color": "#1A73E8",
