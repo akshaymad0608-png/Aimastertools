@@ -30,9 +30,9 @@ const AUTHOR_AVATARS: Record<string, { initials: string; bg: string }> = {
  * Unsplash URLs that several posts shared, behind a pastel icon fallback that
  * belonged to the old palette.
  */
-const SidebarThumbnail: React.FC<{ category: string; title: string }> = ({ category, title }) => (
+const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: string }> = ({ category, title, imageUrl }) => (
   <div className="w-[64px] h-[64px] shrink-0 overflow-hidden">
-    <BlogCoverImage category={category} title={title} variant="thumbnail" alt={title} />
+    <BlogCoverImage category={category} title={title} imageUrl={imageUrl} variant="thumbnail" alt={title} />
   </div>
 );
 
@@ -138,6 +138,7 @@ export const BlogSection: React.FC = () => {
                   <BlogCoverImage
                     category={chatbotPost.category}
                     title={chatbotPost.title}
+                    imageUrl={chatbotPost.imageUrl}
                     variant="featured"
                     alt={chatbotPost.title}
                   />
@@ -215,10 +216,10 @@ export const BlogSection: React.FC = () => {
                     className="group flex gap-4 bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-4 shadow-sm hover:shadow-[var(--shadow-card)] hover:border-[var(--color-primary)] transition-all duration-300"
                   >
                     {/* Consistent 64x64px square image thumbnail with smart error fallback */}
-                    <SidebarThumbnail 
-                      category={post.category} 
-                      title={post.title} 
-                       
+                    <SidebarThumbnail
+                      category={post.category}
+                      title={post.title}
+                      imageUrl={post.imageUrl}
                     />
 
                     {/* Meta and Information block */}

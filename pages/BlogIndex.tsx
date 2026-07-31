@@ -92,6 +92,7 @@ const BlogIndex: React.FC = () => {
                 <BlogCoverImage
                   category={lead.category}
                   title={lead.title}
+                  imageUrl={lead.imageUrl}
                   variant="featured"
                   alt={lead.title}
                 />
@@ -139,6 +140,7 @@ const BlogIndex: React.FC = () => {
                     <BlogCoverImage
                       category={post.category}
                       title={post.title}
+                      imageUrl={post.imageUrl}
                       variant="card"
                       alt={post.title}
                     />

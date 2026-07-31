@@ -43,7 +43,7 @@ const _RAW_BLOG_POSTS: BlogPost[] = [
     excerpt: 'How autonomous AI agents are moving beyond chatbots to actually execute complex tasks across multiple applications.',
     date: 'Nov 2, 2025',
     readTime: '6 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1531297172864-822d10363259?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
     url: '/blog/4'
   },
   {
@@ -153,7 +153,7 @@ const _RAW_BLOG_POSTS: BlogPost[] = [
     excerpt: 'How autonomous AI agents are moving beyond chatbots to actually execute complex tasks across multiple applications.',
     date: 'Nov 2, 2025',
     readTime: '6 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1531297172864-822d10363259?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
     url: '/blog/4'
   },
   {

@@ -17541,6 +17541,118 @@ const _MOCK_TOOLS: Tool[] = [
     "domain": "youtube.com",
     "brandColor": "var(--color-primary)"
 },
+{
+    "id": "recraft",
+    "name": "Recraft",
+    "description": "AI design tool that generates editable vector (SVG) graphics, icons and brand sets with a consistent style. Built for real design work, not just raster images.",
+    "category": "Image & Art Generation",
+    "url": "https://www.recraft.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "recraft.ai",
+    "brandColor": "#6E56CF"
+},
+{
+    "id": "flux",
+    "name": "Flux",
+    "description": "High-quality image generation from Black Forest Labs, known for photorealism, lifelike detail and strong text rendering. Available across many platforms.",
+    "category": "Image & Art Generation",
+    "url": "https://blackforestlabs.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1547954575-855750c57bd3?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.6,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "blackforestlabs.ai",
+    "brandColor": "#111827"
+},
+{
+    "id": "higgsfield",
+    "name": "Higgsfield",
+    "description": "AI video generator focused on cinematic camera motion and controls, popular with social creators for dynamic, film-style clips.",
+    "category": "Video & Audio Generation",
+    "url": "https://higgsfield.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.4,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "higgsfield.ai",
+    "brandColor": "#7C3AED"
+},
+{
+    "id": "hailuo-ai",
+    "name": "Hailuo AI",
+    "description": "MiniMax's text-to-video and image-to-video generator, praised for smooth motion and realistic results with a generous free tier.",
+    "category": "Video & Audio Generation",
+    "url": "https://hailuoai.video",
+    "imageUrl": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.4,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "hailuoai.video",
+    "brandColor": "#FF6A00"
+},
+{
+    "id": "manus",
+    "name": "Manus",
+    "description": "A general AI agent that autonomously plans and completes multi-step tasks — research, data work and building things — with minimal supervision.",
+    "category": "AI Agents & Automation",
+    "url": "https://manus.im",
+    "imageUrl": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.4,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "manus.im",
+    "brandColor": "#6366F1"
+},
+{
+    "id": "genspark",
+    "name": "Genspark",
+    "description": "An AI agent and answer engine that runs deep research, builds pages and automates tasks across the web, combining search with autonomous execution.",
+    "category": "AI Agents & Automation",
+    "url": "https://www.genspark.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.3,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "genspark.ai",
+    "brandColor": "#FF5A5F"
+},
+{
+    "id": "qwen",
+    "name": "Qwen",
+    "description": "Alibaba's powerful Qwen chat assistant and open models, strong at reasoning, coding and multilingual tasks, free to use online.",
+    "category": "AI Chatbots & Assistants",
+    "url": "https://chat.qwen.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Free",
+    "rating": 4.5,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "qwen.ai",
+    "brandColor": "#615CED"
+},
+{
+    "id": "fal-ai",
+    "name": "Fal",
+    "description": "A fast inference platform for developers to run and deploy generative image, video and audio models via simple APIs, with generous free credits.",
+    "category": "LLM Providers & APIs",
+    "url": "https://fal.ai",
+    "imageUrl": "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&q=80&w=800",
+    "pricing": "Freemium",
+    "rating": 4.4,
+    "featured": false,
+    "dateAdded": "2026-07-31T00:00:00.000Z",
+    "domain": "fal.ai",
+    "brandColor": "#0EA5E9"
+},
 ];
 /**
  * The raw array accumulated 200 duplicate entries across 115 ids as tools were
@@ -17554,8 +17666,33 @@ const _MOCK_TOOLS: Tool[] = [
  * occurrence wins, so the earliest curated entry is the one that survives.
  */
 const _seen = new Set<string>();
-export const MOCK_TOOLS = _MOCK_TOOLS.filter((tool) => {
+const _byId = _MOCK_TOOLS.filter((tool) => {
   if (!tool || !tool.id || _seen.has(tool.id)) return false;
   _seen.add(tool.id);
   return true;
 });
+
+/**
+ * Id-dedup alone still left 42 products showing twice, because the same tool
+ * was curated under two different ids — e.g. "midjourney-v7" and "midjourney",
+ * "lovable-code" and "lovable". Two cards, two /tool routes, one real product.
+ *
+ * Second pass: collapse entries that share a normalized name. We keep the one
+ * with the shortest (most canonical) id — which is also the URL most likely to
+ * already be indexed by Google, so we don't orphan a ranking page — and prefer
+ * a record carrying a longDescription when ids tie. Order is preserved.
+ */
+const _canonical = new Map<string, Tool>();
+for (const tool of _byId) {
+  const key = (tool.name || '').trim().toLowerCase();
+  const prev = _canonical.get(key);
+  if (!prev) { _canonical.set(key, tool); continue; }
+  const preferNew =
+    tool.id.length < prev.id.length ||
+    (tool.id.length === prev.id.length &&
+      !!(tool as any).longDescription && !(prev as any).longDescription);
+  if (preferNew) _canonical.set(key, tool);
+}
+export const MOCK_TOOLS = _byId.filter(
+  (tool) => _canonical.get((tool.name || '').trim().toLowerCase()) === tool,
+);

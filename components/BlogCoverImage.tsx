@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface BlogCoverImageProps {
   category: string;
@@ -9,13 +9,14 @@ interface BlogCoverImageProps {
 }
 
 /**
- * Generated cover art, drawn from the post's own title.
+ * Blog cover: a real topic photo when the post has one, with generated cover
+ * art as the layer beneath it.
  *
- * The posts previously pointed at eight Unsplash stock photos, several of them
- * shared between posts — so two different articles showed the same picture of
- * a laptop, and none of the pictures had anything to do with the writing. A
- * deterministic pattern is more honest: it decorates without pretending to
- * illustrate, it is unique per title, and it costs no network request.
+ * The photo (post.imageUrl) is what readers want to see. The deterministic SVG
+ * pattern is kept as a base layer so the card is never blank while the image
+ * loads, and as a graceful fallback if the URL ever 404s — instead of a broken
+ * image icon, the reader sees a clean, unique-per-title cover. Best of both:
+ * real imagery normally, never a broken tile.
  */
 
 // FNV-1a. Small, fast, and stable across builds — the same title always
@@ -53,9 +54,14 @@ const stroke = (color: string, opacity: number, width: number) => ({
 export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
   category,
   title,
+  imageUrl,
   variant,
   alt,
 }) => {
+  // If the photo fails to load, fall back to the generated cover underneath.
+  const [imgFailed, setImgFailed] = useState(false);
+  const showPhoto = !!imageUrl && !imgFailed;
+
   const h = hash(`${title}::${category}`);
   const pattern = PATTERNS[h % PATTERNS.length];
   const rotate = (h >> 8) % 24;
@@ -128,9 +134,22 @@ export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
         </g>
       </svg>
 
+      {/* Real topic photo, layered over the generated cover. On error we hide it
+          and the SVG below becomes the graceful fallback. */}
+      {showPhoto && (
+        <img
+          src={imageUrl}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          onError={() => setImgFailed(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+
       {/* The category is the only label — the title sits beside the cover already */}
       <span
-        className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-3 p-3"
+        className="absolute bottom-0 left-0 right-0 z-10 flex items-end justify-between gap-3 p-3"
         style={{
           backgroundImage:
             'linear-gradient(to top, var(--color-surface), color-mix(in srgb, var(--color-surface) 0%, transparent))',
