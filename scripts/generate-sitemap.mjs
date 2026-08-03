@@ -108,6 +108,19 @@ const urls = [
   { loc: '/privacy', changefreq: 'yearly', priority: '0.2' },
   { loc: '/terms', changefreq: 'yearly', priority: '0.2' },
 
+  // Static "Best AI ___" landing pages (served from public/, so not in the data).
+  ...[
+    'best-google-ai-tools',
+    'best-ai-image-generators',
+    'best-ai-writing-tools',
+    'best-ai-chatbots',
+    'best-ai-coding-tools',
+    'best-ai-video-generators',
+    'best-free-ai-tools',
+    'best-ai-logo-makers',
+    'best-ai-voice-generators',
+  ].map((slug) => ({ loc: `/${slug}.html`, changefreq: 'weekly', priority: '0.85' })),
+
   ...toolIds.map((id) => ({
     loc: `/tool/${encodeURIComponent(id)}`,
     changefreq: 'weekly',
