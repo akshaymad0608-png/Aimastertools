@@ -27,6 +27,8 @@ import { NewsletterSection } from '../components/home/NewsletterSection';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
 import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
 import { BrowseHub } from '../components/home/BrowseHub';
+import { ToolOfTheDay } from '../components/home/ToolOfTheDay';
+import { RecentlyViewed } from '../components/home/RecentlyViewed';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -287,6 +289,8 @@ const Home: React.FC = () => {
       <FeaturedCarousel />
       <BrowseHub />
 
+      <ToolOfTheDay />
+
       {/* Best-of guides — curated category landing pages (also standalone SEO pages) */}
       <section className="section section-alt" aria-labelledby="guides-heading">
         <div className="container-custom">
@@ -415,6 +419,8 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <RecentlyViewed />
 
       {/* Curated Blog Posts */}
       <CollectionsSection />
