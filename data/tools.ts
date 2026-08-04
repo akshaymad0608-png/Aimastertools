@@ -12782,7 +12782,6 @@ const _MOCK_TOOLS: Tool[] = [
         ],
         "launchYear": 2023
     },
-    null,
     {
         "id": "sora",
         "name": "Sora",
@@ -14424,7 +14423,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "tensorflow.org",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "docker-docs",
         "name": "Docker Docs",
@@ -14733,7 +14731,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "iconify.design",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "hubspot-academy",
         "name": "HubSpot Academy",
@@ -15154,7 +15151,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "youtube.com",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "leetcode",
         "name": "LeetCode",
@@ -15617,7 +15613,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "tensorflow.org",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "docker-docs",
         "name": "Docker Docs",
@@ -15926,7 +15921,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "iconify.design",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "hubspot-academy",
         "name": "HubSpot Academy",
@@ -16347,7 +16341,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "youtube.com",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "leetcode",
         "name": "LeetCode",
@@ -16810,7 +16803,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "tensorflow.org",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "docker-docs",
         "name": "Docker Docs",
@@ -17119,7 +17111,6 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "iconify.design",
         "brandColor": "var(--color-primary)"
     },
-    null,
     {
         "id": "hubspot-academy",
         "name": "HubSpot Academy",
@@ -18043,6 +18034,104 @@ const _MOCK_TOOLS: Tool[] = [
         "dateAdded": "2026-07-31T00:00:00.000Z",
         "domain": "learning.google.com",
         "brandColor": "#4285F4"
+    },
+    {
+        "id": "teachy-ai",
+        "name": "Teachy AI",
+        "description": "AI assistant for teachers — plan lessons, create activities and slides, and grade faster.",
+        "category": "Learning & Education",
+        "url": "https://teachy.ai",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "teachy.ai",
+        "brandColor": "#7C3AED"
+    },
+    {
+        "id": "chalkie-ai",
+        "name": "Chalkie",
+        "description": "AI teaching assistant that helps educators plan lessons, build resources and save prep time.",
+        "category": "Learning & Education",
+        "url": "https://chalkie.ai/en",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "chalkie.ai",
+        "brandColor": "#10B981"
+    },
+    {
+        "id": "curipod",
+        "name": "Curipod",
+        "description": "Turn any topic into an interactive classroom lesson with AI — slides, polls and activities in minutes.",
+        "category": "Learning & Education",
+        "url": "https://curipod.com",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "curipod.com",
+        "brandColor": "#F59E0B"
+    },
+    {
+        "id": "diffit",
+        "name": "Diffit",
+        "description": "AI tool that adapts any text or topic to the right reading level, with questions and vocabulary for students.",
+        "category": "Learning & Education",
+        "url": "https://diffit.me",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "diffit.me",
+        "brandColor": "#EF4444"
+    },
+    {
+        "id": "schoolai",
+        "name": "SchoolAI",
+        "description": "A safe AI platform for K-12 — student chat Spaces, teacher tools and classroom insights.",
+        "category": "Learning & Education",
+        "url": "https://schoolai.com",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "schoolai.com",
+        "brandColor": "#2563EB"
+    },
+    {
+        "id": "questionwell",
+        "name": "QuestionWell",
+        "description": "AI question generator — turn any reading or topic into aligned quiz questions and learning objectives.",
+        "category": "Learning & Education",
+        "url": "https://questionwell.org",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "questionwell.org",
+        "brandColor": "#0EA5E9"
+    },
+    {
+        "id": "brisk-teaching",
+        "name": "Brisk Teaching",
+        "description": "A Chrome extension that gives teachers AI superpowers — feedback, quizzes, leveling and lesson plans on any page.",
+        "category": "Learning & Education",
+        "url": "https://briskteaching.com",
+        "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+        "pricing": "Freemium",
+        "rating": 4.6,
+        "featured": false,
+        "dateAdded": "2026-08-04T00:00:00.000Z",
+        "domain": "briskteaching.com",
+        "brandColor": "#8B5CF6"
     }
 ];
 /**
