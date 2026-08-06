@@ -88,10 +88,10 @@ export const BlogSection: React.FC = () => {
   });
 
   return (
-    <section id="blog" className="relative bg-slate-50 dark:bg-[#09090b] py-20">
-      {/* Premium ambient backdrop glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-soft)] dark:bg-[var(--color-primary-soft)] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[var(--color-primary-soft)] dark:bg-[var(--color-primary-soft)] blur-3xl pointer-events-none" />
+    <section id="blog" className="relative overflow-hidden bg-[var(--color-background)] py-20">
+      {/* Colourful aurora backdrop glow (matches the vibrant theme) */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none opacity-25" style={{ background: '#a855f7' }} />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none opacity-20" style={{ background: '#ec4899' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
