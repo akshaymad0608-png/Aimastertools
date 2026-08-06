@@ -118,9 +118,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {...rise(0.12)}
             className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-[var(--color-text-secondary)]"
           >
-            Search by name or by the job you need done. Every entry lists real pricing,
-            what it is good at, and what to use instead.
+            The independent directory of {TOOL_COUNT}+ AI tools — hand-checked, with real
+            pricing, honest pros and cons, and what to use instead. Search by name or by the
+            job you need done.
           </motion.p>
+
+          {/* Trust strip — factual authority + freshness signals (GEO: authority, social proof, urgency) */}
+          <motion.ul
+            {...rise(0.15)}
+            className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 text-[12.5px] font-semibold text-[var(--color-text-secondary)]"
+          >
+            {[`Hand-checked`, `Updated weekly`, `No pay-to-rank`, `${FREE_TOOL_COUNT} free tools`].map((chip) => (
+              <li
+                key={chip}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-cardBg)] px-3 py-1"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />
+                {chip}
+              </li>
+            ))}
+          </motion.ul>
 
           {/* The search desk */}
           <motion.div {...rise(0.18)} className="relative z-20 mt-9">
