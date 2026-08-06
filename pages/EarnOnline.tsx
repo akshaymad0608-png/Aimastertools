@@ -8,7 +8,7 @@ import { EARN_CATEGORIES, EARN_SITE_COUNT, EARN_CATEGORY_COUNT } from '../data/e
 import { SITE, absoluteUrl } from '../utils/seo';
 
 const TITLE = `Earn Online — ${EARN_SITE_COUNT}+ Websites to Make Money by Category (2026)`;
-const DESCRIPTION = `A curated directory of ${EARN_SITE_COUNT}+ real websites to earn online, grouped into ${EARN_CATEGORY_COUNT} categories — remote jobs, freelance, work from home, microtasks, surveys, testing, gig work, e-commerce, teaching and affiliate — each with a link and a short intro.`;
+const DESCRIPTION = `A curated directory of ${EARN_SITE_COUNT}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more.`;
 
 const EarnOnline: React.FC = () => {
   return (
