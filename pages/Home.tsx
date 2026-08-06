@@ -218,11 +218,11 @@ const Home: React.FC = () => {
     setTimeout(() => setToastMessage(null), 4000);
   };
   const seoTitle = selectedCategory === 'All'
-    ? `AI Tools Directory — Compare ${TOOL_COUNT} AI Tools by Price & Rating (2026)`
+    ? `AI Master Tools — Compare ${TOOL_COUNT}+ AI Tools by Price & Rating (2026)`
     : `Best ${selectedCategory} AI Tools (2026) — Compared & Ranked`;
 
   const seoDesc = selectedCategory === 'All'
-    ? `Search ${TOOL_COUNT} AI tools across ${CATEGORY_COUNT} categories, including ${FREE_TOOL_COUNT} free and open-source options. Real pricing, ratings and alternatives for every entry.`
+    ? `AI Master Tools is the master list of ${TOOL_COUNT}+ AI tools across ${CATEGORY_COUNT} categories, including ${FREE_TOOL_COUNT} free options. Search, compare and find the best one in under a minute.`
     : `Compare the best ${selectedCategory} AI tools side by side. Real pricing, ratings, alternatives and what each one is actually good at.`;
 
   // True if user is actively searching or has a category filter active
