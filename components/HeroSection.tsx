@@ -89,11 +89,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section id="home" className="relative overflow-hidden border-b border-[var(--color-border)]">
-      {/* Subtle single-hue cobalt glow background (Clean Minimal) */}
+      {/* Colourful multi-hue aurora glow background (Vibrant) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[8%] top-[-16rem] h-[34rem] w-[34rem] rounded-full opacity-[0.16] blur-[130px]" style={{ background: '#2e5cff' }} />
-        <div className="absolute right-[6%] top-[-10rem] h-[30rem] w-[30rem] rounded-full opacity-[0.12] blur-[130px]" style={{ background: '#5b7cff' }} />
-        <div className="absolute bottom-[-20rem] left-1/2 h-[34rem] w-[46rem] -translate-x-1/2 rounded-full opacity-[0.10] blur-[140px]" style={{ background: '#7c93ff' }} />
+        <div className="absolute left-[6%] top-[-16rem] h-[34rem] w-[34rem] rounded-full opacity-[0.28] blur-[120px]" style={{ background: '#6366f1' }} />
+        <div className="absolute right-[4%] top-[-12rem] h-[32rem] w-[32rem] rounded-full opacity-[0.24] blur-[120px]" style={{ background: '#a855f7' }} />
+        <div className="absolute bottom-[-20rem] left-1/2 h-[34rem] w-[46rem] -translate-x-1/2 rounded-full opacity-[0.18] blur-[130px]" style={{ background: '#ec4899' }} />
       </div>
       <div
         aria-hidden="true"
