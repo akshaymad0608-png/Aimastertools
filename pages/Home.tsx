@@ -279,17 +279,123 @@ const Home: React.FC = () => {
         ]}
       />
 
-      <HeroSection 
-        searchTerm={searchTerm} 
-        handleSearchChange={handleSearchChange} 
-        searchInputRef={searchInputRef} 
-        onChipClick={handleChipClick}
-      />
+      {/* ===== Compact hero band ===== */}
+      <section className="page-top border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+        <div className="container-custom py-8 md:py-11">
+          <p className="eyebrow">{TOOL_COUNT}+ AI tools · updated weekly</p>
+          <h1 className="display-md mt-3 max-w-3xl text-[var(--color-text-primary)]">
+            Every <span className="text-gradient">AI tool</span> worth knowing, in one place.
+          </h1>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+            The independent directory of {TOOL_COUNT}+ AI tools — hand-checked, with real pricing, honest
+            pros and cons, and what to use instead.
+          </p>
+          <ul className="mt-4 flex flex-wrap items-center gap-2 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+            {['Hand-checked', 'Updated weekly', 'No pay-to-rank', `${FREE_TOOL_COUNT} free tools`].map((c) => (
+              <li key={c} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-cardBg)] px-3 py-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />{c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      <FeaturedCarousel />
-      <BrowseHub />
+      {/* ===== Dashboard: category sidebar + tool grid ===== */}
+      <section id="search-results" className="container-custom py-8 md:py-10">
+        <div className="grid gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
+          {/* Sidebar */}
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <p className="label-mono mb-2.5">Categories</p>
+            <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
+              <button
+                onClick={() => { setSelectedCategory('All'); setVisibleCount(8); }}
+                className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${selectedCategory === 'All' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+              >
+                All tools
+                <span className={`text-[11px] tabular-nums ${selectedCategory === 'All' ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{TOOL_COUNT}</span>
+              </button>
+              {CATEGORIES.map((cat) => {
+                const active = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryClick(cat.id as Category)}
+                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+                  >
+                    <span className="truncate">{cat.name}</span>
+                    <span className={`text-[11px] tabular-nums ${active ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{cat.count}</span>
+                  </button>
+                );
+              })}
+            </nav>
+          </aside>
 
-      <ToolOfTheDay />
+          {/* Main column */}
+          <div>
+            <div className="relative">
+              <Search size={17} aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
+              <input
+                ref={searchInputRef}
+                type="search"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                placeholder="Search AI tools by name or job…"
+                className="h-12 w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-cardBg)] pl-11 pr-4 text-[15px] text-[var(--color-text-primary)] shadow-[var(--shadow-card)] outline-none transition-colors placeholder:text-[var(--color-text-muted)] focus:border-[var(--color-primary)]"
+              />
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              {['All', 'Free', 'Freemium', 'Paid', 'Usage Based', 'Open Source'].map((p) => (
+                <button
+                  key={p}
+                  onClick={() => { setSelectedPricing(p); setVisibleCount(8); }}
+                  className={`rounded-full border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${selectedPricing === p ? 'border-transparent bg-[var(--color-primary)] text-white' : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'}`}
+                >
+                  {p}
+                </button>
+              ))}
+              <span className="mx-1 hidden h-5 w-px bg-[var(--color-border)] sm:block" aria-hidden="true" />
+              {(['Featured', 'Trending', 'Newest'] as const).map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setActiveTab(t)}
+                  className={`rounded-full px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${activeTab === t ? 'text-[var(--color-primary)]' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
+                >
+                  {t}
+                </button>
+              ))}
+              <span className="label-mono ml-auto tabular-nums">{processedTools.length} tools</span>
+            </div>
+
+            {displayedTools.length > 0 ? (
+              <>
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                  {displayedTools.map((tool) => (
+                    <ToolCard key={tool.id} tool={tool} layout="vertical" />
+                  ))}
+                </div>
+                {processedTools.length > visibleCount && (
+                  <div className="mt-8 text-center">
+                    <button onClick={() => setVisibleCount((prev) => prev + 12)} className="btn-primary h-11 px-6">
+                      Load more tools
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="mt-10 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] p-12 text-center">
+                <p className="text-[var(--color-text-secondary)]">No tools match your filters.</p>
+                <button
+                  onClick={() => { setSearchTerm(''); setSelectedCategory('All'); setSelectedPricing('All'); }}
+                  className="mt-4 inline-flex h-10 items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+                >
+                  Clear filters
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* Best-of guides — curated category landing pages (also standalone SEO pages) */}
       <section className="section section-alt" aria-labelledby="guides-heading">
@@ -329,44 +435,6 @@ const Home: React.FC = () => {
               </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Category Selection Sidebar Slider & Content */}
-      <section id="search-results" className="section section-alt">
-        <div className="container-custom">
-          
-          {/* Horizontal Category Cards */}
-          <CategorySection 
-            selectedCategory={selectedCategory} 
-            setSelectedCategory={setSelectedCategory} 
-            setSearchTerm={setSearchTerm} 
-            onCategoryClick={handleCategoryClick} 
-          />
-
-          {/* CURATED DEFAULT DASHBOARD (Shows when NOT searching/filtering) */}
-          {isCurationActive && (
-            <FeaturedDashboard 
-              trendingToolsCurated={trendingToolsCurated}
-              recentlyAddedToolsCurated={recentlyAddedToolsCurated}
-              topFreeToolsCurated={topFreeToolsCurated}
-            />
-          )}
-
-                    <ExploreDirectory 
-            isCurationActive={isCurationActive}
-            processedToolsLength={processedTools.length}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            selectedPricing={selectedPricing}
-            setSelectedPricing={setSelectedPricing}
-            displayedTools={displayedTools}
-            hasMore={processedTools.length > visibleCount}
-            onLoadMore={() => setVisibleCount(prev => prev + 10)}
-            onReset={() => {setSearchTerm(''); setSelectedCategory('All'); setSelectedPricing('All');}}
-          />
-
-
         </div>
       </section>
 
