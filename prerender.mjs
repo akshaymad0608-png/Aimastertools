@@ -62,6 +62,7 @@ const routes = [
   // Tool pages
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,
+    heading: `${t.name} Review`,
     title: `${t.name} Review, Pricing, & Alternatives (${YEAR}) | AI Master Tools`,
     description: clamp(`Our review of ${t.name}. Discover its features, pricing, pros, cons, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`),
   })),
@@ -70,6 +71,7 @@ const routes = [
     const n = catCount(c.name);
     return {
       path: `/category/${slugify(c.name)}`,
+      heading: `Best ${c.name} AI Tools`,
       title: `${n} Best ${c.name} AI Tools (${YEAR}) — Compared & Ranked`,
       description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`),
     };
@@ -93,6 +95,14 @@ for (const route of routes) {
   html = html.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${url}" />`);
   html = html.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${t}" />`);
   html = html.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${d}" />`);
+
+  // Give each route its own crawlable body (h1 + intro) inside the empty #root.
+  // React's createRoot replaces it on mount, so it never double-renders.
+  const heading = esc(route.heading || route.title.split(/ [|—] /)[0]);
+  html = html.replace('<h1>AI Master Tools</h1>', `<h1>${heading}</h1>`);
+  const nav = '<nav aria-label="Browse"><a href="/">All AI tools</a> · <a href="/categories">Categories</a> · <a href="/compare">Compare</a> · <a href="/blog">Blog</a></nav>';
+  const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p>${nav}</div></div>`;
+  html = html.replace('<div id="root"></div>', seoBlock);
 
   const outPath = join(DIST, route.path.slice(1), 'index.html');
   mkdirSync(dirname(outPath), { recursive: true });
