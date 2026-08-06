@@ -84,67 +84,81 @@ const CategoryPage: React.FC = () => {
           items={[{ label: 'Categories', path: '/categories' }, { label: category.name }]}
         />
 
-        <PageHeader
-          eyebrow="Category"
-          title={
-            <>
-              Best <em>{category.name}</em> AI tools
-            </>
-          }
-          lede={`${tools.length} tools filed under ${category.name}, ranked by rating. Every entry lists real pricing and what it is actually good at.`}
-          action={
-            <span
-              aria-hidden="true"
-              className="grid h-16 w-16 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)]"
-            >
-              <CategoryIcon name={category.name} color={category.color} size={28} />
-            </span>
-          }
-          meta={
-            <>
+        <div className="mt-4 grid gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
+          {/* Category sidebar */}
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <p className="label-mono mb-2.5">Categories</p>
+            <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
+              <Link
+                to="/"
+                className="flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]"
+              >
+                All tools <ArrowRight size={13} aria-hidden="true" />
+              </Link>
+              {CATEGORIES.map((c) => {
+                const active = c.id === category.id;
+                return (
+                  <Link
+                    key={c.id}
+                    to={`/category/${c.slug}`}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+                  >
+                    <span className="truncate">{c.name}</span>
+                    <span className={`text-[11px] tabular-nums ${active ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{c.count}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </aside>
+
+          {/* Main column */}
+          <div>
+            <div className="flex items-start gap-4">
+              <span
+                aria-hidden="true"
+                className="grid h-14 w-14 shrink-0 place-items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)]"
+              >
+                <CategoryIcon name={category.name} color={category.color} size={26} />
+              </span>
+              <div>
+                <p className="eyebrow">Category</p>
+                <h1 className="display-md mt-1.5 text-[var(--color-text-primary)]">
+                  Best <em>{category.name}</em> AI tools
+                </h1>
+              </div>
+            </div>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+              {tools.length} tools filed under {category.name}, ranked by rating. Every entry lists real
+              pricing and what it is actually good at.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
               <span className="label-mono tabular-nums">{tools.length} tools</span>
               <span className="label-mono tabular-nums">{free} free or open source</span>
               <span className="label-mono tabular-nums">avg rating {avg}</span>
-            </>
-          }
-        />
+            </div>
 
-        {tools.length > 0 ? (
-          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {tools.map((tool, i) => (
-              <li key={tool.id}>
-                <ToolCard tool={tool} rank={i + 1} layout="vertical" />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="mt-10 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-strong)] px-6 py-16 text-center">
-            <LayoutGrid size={26} className="mx-auto mb-4 text-[var(--color-text-muted)]" />
-            <p className="title-sm text-[17px] text-[var(--color-text-primary)]">
-              Nothing filed here yet
-            </p>
-            <p className="mx-auto mt-2 max-w-sm text-[14px] text-[var(--color-text-secondary)]">
-              This category is empty, so it is excluded from search engines until it has entries.
-            </p>
+            {tools.length > 0 ? (
+              <ul className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {tools.map((tool, i) => (
+                  <li key={tool.id}>
+                    <ToolCard tool={tool} rank={i + 1} layout="vertical" />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="mt-8 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-strong)] px-6 py-16 text-center">
+                <LayoutGrid size={26} className="mx-auto mb-4 text-[var(--color-text-muted)]" />
+                <p className="title-sm text-[17px] text-[var(--color-text-primary)]">
+                  Nothing filed here yet
+                </p>
+                <p className="mx-auto mt-2 max-w-sm text-[14px] text-[var(--color-text-secondary)]">
+                  This category is empty, so it is excluded from search engines until it has entries.
+                </p>
+              </div>
+            )}
           </div>
-        )}
-
-        <section className="mt-20" aria-labelledby="related-cats">
-          <h2 id="related-cats" className="rule-label mb-5">
-            Related categories
-          </h2>
-          <ul className="flex flex-wrap gap-2">
-            {related.map((c) => (
-              <li key={c.id}>
-                <Link to={`/category/${c.slug}`} className="link-chip">
-                  <CategoryIcon name={c.name} color={c.color} size={14} />
-                  {c.name}
-                  <span className="link-chip__count">{c.count}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+        </div>
       </div>
     </main>
   );

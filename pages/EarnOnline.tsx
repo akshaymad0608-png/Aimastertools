@@ -73,21 +73,27 @@ const EarnOnline: React.FC = () => {
           </p>
         </div>
 
-        {/* Jump navigation */}
-        <nav aria-label="Categories" className="mt-8 flex flex-wrap gap-2">
-          {EARN_CATEGORIES.map((c) => (
-            <a
-              key={c.id}
-              href={`#${c.id}`}
-              className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
-            >
-              {c.name}
-            </a>
-          ))}
-        </nav>
+        {/* Dashboard: category sidebar + sections */}
+        <div className="mt-8 grid gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
+          {/* Sticky category sidebar */}
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <p className="label-mono mb-2.5">Categories</p>
+            <nav aria-label="Categories" className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
+              {EARN_CATEGORIES.map((c) => (
+                <a
+                  key={c.id}
+                  href={`#${c.id}`}
+                  className="flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)]"
+                >
+                  <span className="truncate">{c.name}</span>
+                  <span className="text-[11px] tabular-nums text-[var(--color-text-muted)]">{c.sites.length}</span>
+                </a>
+              ))}
+            </nav>
+          </aside>
 
-        {/* Category sections */}
-        <div className="mt-14 space-y-16">
+          {/* Category sections */}
+          <div className="space-y-14">
           {EARN_CATEGORIES.map((category) => (
             <section key={category.id} id={category.id} className="scroll-mt-24">
               <div className="max-w-2xl">
@@ -131,6 +137,7 @@ const EarnOnline: React.FC = () => {
               </div>
             </section>
           ))}
+          </div>
         </div>
       </div>
 

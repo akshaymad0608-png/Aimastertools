@@ -322,12 +322,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background-image: var(--gradient-primary);
+  background: var(--primary-color);
   color: #fff;
-  box-shadow: 0 6px 16px -8px rgba(var(--color-primary-rgb), .5);
-  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+  box-shadow: 0 6px 16px -8px rgba(var(--color-primary-rgb), .45);
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
 }
-.btn-primary:hover { transform: translateY(-1px); opacity: .96; box-shadow: 0 10px 24px -8px rgba(var(--color-primary-rgb), .62); }
+.btn-primary:hover { transform: translateY(-1px); background: var(--primary-dark-color); box-shadow: 0 10px 24px -8px rgba(var(--color-primary-rgb), .55); }
 .btn-primary:active { transform: translateY(1px); }
 
 .btn-secondary {
