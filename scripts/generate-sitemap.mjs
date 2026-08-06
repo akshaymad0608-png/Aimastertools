@@ -37,6 +37,37 @@ const pluck = (source, key) => {
 const toolIds = pluck(read('data/tools.ts'), 'id');
 const categoryIds = pluck(read('data/categories.ts'), 'id');
 
+/**
+ * Drop name-duplicate tools so the sitemap advertises only ONE canonical URL
+ * per product — the exact 640 ids prerender.mjs bakes static pages for. Some
+ * tools ship under two ids (e.g. `manychat` + `manychat-automation`,
+ * `gemini` + `google-gemini`); listing both hands Google duplicate content and
+ * wastes crawl budget on pages that only get the SPA fallback (homepage meta).
+ * Falls back to the full id list on any parse error rather than break the build.
+ */
+const canonicalToolIds = (() => {
+  try {
+    const src = read('data/tools.ts');
+    const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
+    const arr = eval(src.slice(start, src.indexOf('\n];', start) + 2)).filter(Boolean);
+    const seenId = new Set();
+    const byId = arr.filter((t) => t.id && !seenId.has(t.id) && seenId.add(t.id));
+    const canon = new Map();
+    for (const t of byId) {
+      const k = (t.name || '').trim().toLowerCase();
+      const prev = canon.get(k);
+      if (!prev || t.id.length < prev.id.length) canon.set(k, t);
+    }
+    const keep = new Set(
+      byId.filter((t) => canon.get((t.name || '').trim().toLowerCase()) === t).map((t) => t.id),
+    );
+    const ids = toolIds.filter((id) => keep.has(id));
+    return ids.length ? ids : toolIds;
+  } catch {
+    return toolIds;
+  }
+})();
+
 /** Mirrors utils/slug.ts — category URLs are slugs, not encoded names. */
 const slugify = (v) =>
   v
@@ -121,7 +152,7 @@ const urls = [
     'best-ai-voice-generators',
   ].map((slug) => ({ loc: `/${slug}.html`, changefreq: 'weekly', priority: '0.85' })),
 
-  ...toolIds.map((id) => ({
+  ...canonicalToolIds.map((id) => ({
     loc: `/tool/${encodeURIComponent(id)}`,
     changefreq: 'weekly',
     priority: '0.7',
@@ -151,7 +182,7 @@ const urls = [
     changefreq: 'monthly',
     priority: '0.75',
   })),
-  ...toolIds.map((id) => ({
+  ...canonicalToolIds.map((id) => ({
     loc: `/alternatives/${slugify(id)}-alternatives`,
     changefreq: 'monthly',
     priority: '0.65',
@@ -184,9 +215,9 @@ writeFileSync(resolve(ROOT, 'public/sitemap.xml'), xml, 'utf8');
 
 console.log(`sitemap.xml written — ${unique.length} URLs`);
 console.log(
-  `  tools ${toolIds.length} · categories ${categoryIds.length} · ` +
+  `  tools ${canonicalToolIds.length} (of ${toolIds.length} raw) · categories ${categoryIds.length} · ` +
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
-  `  comparisons ${comparisonSlugs.length} · alternatives ${toolIds.length}`,
+  `  comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
 );
