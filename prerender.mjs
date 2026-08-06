@@ -49,6 +49,20 @@ const cStart = catSrc.indexOf('CATEGORY_META = [') + 'CATEGORY_META = ['.length 
 const CATEGORIES = eval(catSrc.slice(cStart, catSrc.indexOf('\n];', cStart) + 2)).filter(Boolean);
 const catCount = (name) => TOOLS.filter((t) => t.category === name).length;
 
+// ---- Load the Earn Online directory (for its counts + crawlable summary) ----
+let EARN_SITES = 0;
+let EARN_CATS = [];
+try {
+  const earnSrc = readFileSync('data/earn.ts', 'utf8');
+  const eStart = earnSrc.indexOf('EarnCategory[] = [') + 'EarnCategory[] = ['.length - 1;
+  EARN_CATS = eval(earnSrc.slice(eStart, earnSrc.indexOf('\n];', eStart) + 2)).filter(Boolean);
+  EARN_SITES = EARN_CATS.reduce((n, c) => n + (c.sites ? c.sites.length : 0), 0);
+} catch {
+  EARN_CATS = [];
+}
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 // ---- Build the route list --------------------------------------------------
 const routes = [
   { path: '/categories', title: `All AI Tool Categories (${YEAR}) | AI Master Tools`, description: 'Browse every AI tool category — chatbots, image generation, coding, video, writing, marketing and more. Find and compare the best tools in each.' },
@@ -59,6 +73,17 @@ const routes = [
   { path: '/workflows', title: `AI Workflows & Automation Recipes (${YEAR}) | AI Master Tools`, description: 'Step-by-step AI workflows and automation recipes that chain the best tools together to get real work done.' },
   { path: '/discover', title: `Discover New AI Tools (${YEAR}) | AI Master Tools`, description: 'Discover new and trending AI tools across every category, updated regularly.' },
   { path: '/find', title: `AI Tool Finder — Answer 3 Questions | AI Master Tools`, description: 'Not sure which AI tool you need? Answer three quick questions and we will shortlist the best tools for you — free.' },
+  {
+    path: '/earn',
+    heading: 'Websites to Earn Online',
+    title: `Earn Online — ${EARN_SITES || 80}+ Websites to Make Money by Category (${YEAR})`,
+    description: `A curated directory of ${EARN_SITES || 80}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more, each with a link and short intro.`,
+    extraHtml: EARN_CATS.length
+      ? `<p style="font-size:15px;line-height:1.6;color:#64748b">Categories covered:</p><ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${EARN_CATS.map(
+          (c) => `<li>${esc(c.name)}</li>`,
+        ).join('')}</ul>`
+      : '',
+  },
   // Tool pages
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,
@@ -78,7 +103,6 @@ const routes = [
   }),
 ];
 
-const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const template = readFileSync(join(DIST, 'index.html'), 'utf8');
 
 let n = 0;
@@ -104,7 +128,7 @@ for (const route of routes) {
   html = html.replace('<h1>AI Master Tools</h1>', `<p style="font-size:20px;font-weight:700">${heading}</p>`);
   const nav = '<nav aria-label="Browse"><a href="/">All AI tools</a> · <a href="/categories">Categories</a> · <a href="/compare">Compare</a> · <a href="/blog">Blog</a></nav>';
   const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check ratings and real pricing, and compare any two tools side by side to choose the right one in minutes.`;
-  const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${nav}</div></div>`;
+  const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${nav}</div></div>`;
   html = html.replace('<div id="root"></div>', seoBlock);
 
   const outPath = join(DIST, route.path.slice(1), 'index.html');

@@ -133,6 +133,7 @@ const urls = [
   { loc: '/find', changefreq: 'monthly', priority: '0.8' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
   { loc: '/prompts', changefreq: 'weekly', priority: '0.7' },
+  { loc: '/earn', changefreq: 'weekly', priority: '0.8' },
   { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
   { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3' },

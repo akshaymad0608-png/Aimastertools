@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, X, Sun, Moon, Compass, Grid, Code, GitMerge, Sparkles, FileText, Layers,
-  Search, Bookmark,
+  Search, Bookmark, Wallet,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -17,6 +17,7 @@ const NAV_LINKS = [
   { name: 'Prompts', to: '/prompts', icon: Code },
   { name: 'Workflows', to: '/workflows', icon: GitMerge },
   { name: 'Collections', to: '/collections', icon: Layers },
+  { name: 'Earn Online', to: '/earn', icon: Wallet },
   { name: 'Blog', to: '/blog', icon: FileText },
 ];
 
