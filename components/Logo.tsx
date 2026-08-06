@@ -6,9 +6,10 @@ interface LogoProps {
 }
 
 /**
- * AIMasterTools brand mark — a blue hexagon cradling a glossy green orb,
+ * AIMasterTools brand mark — a cobalt hexagon cradling a glossy pearl orb,
  * recreated as crisp SVG so it stays sharp at every size and in both themes.
- * Wordmark: "AI" and "Tools" in brand green, "Master" in brand blue.
+ * Wordmark: "AI" and "Tools" in cobalt, "Master" in the theme text colour so
+ * the whole mark stays on-brand in light and dark (Clean Minimal / Cobalt).
  */
 export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) => {
   const isSmall = size === 'sm';
@@ -26,13 +27,13 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
       >
         <defs>
           <linearGradient id="amt-hex" x1="6" y1="6" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#4aa3ff" />
-            <stop offset="1" stopColor="#1f6fe6" />
+            <stop stopColor="#5b7cff" />
+            <stop offset="1" stopColor="#2e5cff" />
           </linearGradient>
           <radialGradient id="amt-orb" cx="0.36" cy="0.30" r="0.85">
-            <stop stopColor="#a7f3b6" />
-            <stop offset="0.45" stopColor="#3ccf5c" />
-            <stop offset="1" stopColor="#12a63f" />
+            <stop stopColor="#ffffff" />
+            <stop offset="0.55" stopColor="#eaf0ff" />
+            <stop offset="1" stopColor="#c3d1ff" />
           </radialGradient>
         </defs>
 
@@ -60,9 +61,9 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
               letterSpacing: '-0.02em',
             }}
           >
-            <span style={{ color: '#2fbf4e' }}>AI</span>
-            <span style={{ color: '#1f6fe6' }}>Master</span>
-            <span style={{ color: '#2fbf4e' }}>Tools</span>
+            <span style={{ color: 'var(--color-primary)' }}>AI</span>
+            <span style={{ color: 'var(--color-text-primary)' }}>Master</span>
+            <span style={{ color: 'var(--color-primary)' }}>Tools</span>
           </span>
           <span
             className="mt-1 hidden whitespace-nowrap sm:block"
@@ -70,7 +71,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
               fontFamily: 'var(--font-sans)',
               fontSize: isSmall ? 8.5 : 10,
               letterSpacing: '0.14em',
-              color: '#5aa9e6',
+              color: 'var(--color-text-muted)',
             }}
           >
             The AI tools directory

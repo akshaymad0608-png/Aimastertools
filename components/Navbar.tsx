@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
                     <Link
                       to={link.to}
                       aria-current={active ? 'page' : undefined}
-                      className={`relative block px-3 py-2 text-[14px] transition-colors ${
+                      className={`relative block px-2.5 py-2 text-[13.5px] transition-colors ${
                         active
                           ? 'text-[var(--color-text-primary)]'
                           : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -170,8 +170,9 @@ const Navbar: React.FC = () => {
               <Bookmark size={16} />
             </Link>
 
-            {/* Search lives in the header from every page, not just the hero */}
-            <form onSubmit={submitSearch} role="search" className="hidden lg:block">
+            {/* Search lives in the header from every page, not just the hero.
+                Shown from xl up — at lg the 7-item nav needs the width. */}
+            <form onSubmit={submitSearch} role="search" className="hidden xl:block">
               <label htmlFor="header-search" className="sr-only">Search AI tools</label>
               <div className="relative">
                 <Search
@@ -185,7 +186,7 @@ const Navbar: React.FC = () => {
                   value={headerQuery}
                   onChange={(e) => setHeaderQuery(e.target.value)}
                   placeholder="Search tools…"
-                  className="h-9 w-40 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] pl-8 pr-3 text-[13px] text-[var(--color-text-primary)] outline-none transition-[width,border-color] duration-200 placeholder:text-[var(--color-text-muted)] focus:w-56 focus:border-[var(--color-primary)]"
+                  className="h-9 w-36 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] pl-8 pr-3 text-[13px] text-[var(--color-text-primary)] outline-none transition-[width,border-color] duration-200 placeholder:text-[var(--color-text-muted)] focus:w-52 focus:border-[var(--color-primary)]"
                 />
               </div>
             </form>
