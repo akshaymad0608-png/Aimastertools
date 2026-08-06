@@ -14,10 +14,10 @@ import { useTheme } from '../context/ThemeContext';
 const NAV_LINKS = [
   { name: 'Directory', to: '/', icon: Compass },
   { name: 'Categories', to: '/categories', icon: Grid },
-  { name: 'Prompts', to: '/prompts', icon: Code },
-  { name: 'Workflows', to: '/workflows', icon: GitMerge },
   { name: 'Collections', to: '/collections', icon: Layers },
   { name: 'Earn Online', to: '/earn', icon: Wallet },
+  { name: 'Prompts', to: '/prompts', icon: Code },
+  { name: 'Workflows', to: '/workflows', icon: GitMerge },
   { name: 'Blog', to: '/blog', icon: FileText },
 ];
 
