@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 /* ============================================================
-   AIMasterTools — Design System v6  "Aurora Vivid" (Vibrant & Colourful)
-   Bold, colourful, energetic — indigo → violet → pink gradient system.
+   AIMasterTools — Design System v7  "Refined" (Premium & Clean)
+   Restrained, professional, premium — neutral zinc + one refined indigo accent.
 
-   Palette : white / violet-tinted surfaces + indigo-violet-pink gradient accents
-   Type    : Sora (display) / Inter (body) / IBM Plex Mono (data)
+   Palette : white / neutral-zinc surfaces + a single refined indigo accent
+   Type    : Hanken Grotesk (display) / Inter (body) / IBM Plex Mono (data)
 
    A single confident accent (cobalt) does all the work; everything else is
    neutral so the content leads. The mono face carries anything countable —
@@ -34,7 +34,7 @@
   --color-error: #c0452c;
 
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Sora", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Hanken Grotesk", "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
 
   --radius-xs: 4px;
@@ -48,82 +48,82 @@
   --shadow-glow: var(--shadow-glow-val);
 }
 
-/* ---------- Light : "Aurora Vivid" (Vibrant & Colourful) ---------- */
+/* ---------- Light : "Refined" (Premium & Clean) ---------- */
 :root,
 .light {
   --bg-color: #ffffff;
   --card-bg-color: #ffffff;
-  --surface-color: #f6f4ff;
+  --surface-color: #f7f7f8;
   --elevated-color: #ffffff;
 
-  --text-primary-color: #1a1436;
-  --text-secondary-color: #575273;
-  --text-muted-color: #948fae;
+  --text-primary-color: #18181b;
+  --text-secondary-color: #52525b;
+  --text-muted-color: #a1a1aa;
 
-  --border-color: #ebe9f7;
-  --border-strong-color: #d8d4ee;
+  --border-color: #e6e6e9;
+  --border-strong-color: #d4d4d8;
 
-  --primary-color: #6d5efc;
-  --primary-dark-color: #5a3ff0;
-  --primary-soft-color: #efebff;
-  --primary-rgb: 109, 94, 252;
-  --color-primary-rgb: 109, 94, 252;
+  --primary-color: #4f46e5;
+  --primary-dark-color: #4338ca;
+  --primary-soft-color: #eef2ff;
+  --primary-rgb: 79, 70, 229;
+  --color-primary-rgb: 79, 70, 229;
 
-  --secondary-color: #1a1436;
-  --accent-color: #ec4899;
-  --accent-soft-color: #fdeaf4;
-  --accent-rgb: 236, 72, 153;
+  --secondary-color: #18181b;
+  --accent-color: #4f46e5;
+  --accent-soft-color: #eef2ff;
+  --accent-rgb: 79, 70, 229;
 
-  --gradient-primary: linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-  --gradient-primary-soft: linear-gradient(135deg, #eef1ff 0%, #f6edff 50%, #fdeef7 100%);
+  --gradient-primary: linear-gradient(92deg, #4f46e5 0%, #6366f1 100%);
+  --gradient-primary-soft: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
 
-  --shadow-card-val: 0 1px 2px rgba(26, 20, 54, .05), 0 1px 3px rgba(26, 20, 54, .04);
-  --shadow-lift-val: 0 18px 44px -18px rgba(109, 94, 252, .34), 0 4px 12px rgba(26, 20, 54, .07);
-  --shadow-glow-val: 0 0 0 3px rgba(109, 94, 252, .18);
+  --shadow-card-val: 0 1px 2px rgba(24, 24, 27, .04), 0 1px 3px rgba(24, 24, 27, .03);
+  --shadow-lift-val: 0 12px 32px -12px rgba(24, 24, 27, .14), 0 4px 10px rgba(24, 24, 27, .05);
+  --shadow-glow-val: 0 0 0 3px rgba(79, 70, 229, .15);
 
-  --grid-line: rgba(26, 20, 54, .04);
-  --scrollbar-track: #f6f4ff;
-  --scrollbar-thumb: #d8d4ee;
-  --scrollbar-thumb-hover: #bcb6e0;
+  --grid-line: rgba(24, 24, 27, .035);
+  --scrollbar-track: #f7f7f8;
+  --scrollbar-thumb: #d4d4d8;
+  --scrollbar-thumb-hover: #b8b8bf;
   color-scheme: light;
 }
 
-/* ---------- Dark : "Aurora Vivid" (Vibrant & Colourful) ---------- */
+/* ---------- Dark : "Refined" (Premium & Clean) ---------- */
 .dark {
-  --bg-color: #0d0a1f;
-  --card-bg-color: #171130;
-  --surface-color: #1c1640;
-  --elevated-color: #221a4a;
+  --bg-color: #0a0a0b;
+  --card-bg-color: #131316;
+  --surface-color: #17171a;
+  --elevated-color: #1c1c20;
 
-  --text-primary-color: #f0edff;
-  --text-secondary-color: #b0a9cf;
-  --text-muted-color: #7b7499;
+  --text-primary-color: #fafafa;
+  --text-secondary-color: #a1a1aa;
+  --text-muted-color: #71717a;
 
-  --border-color: #2a2350;
-  --border-strong-color: #3d3470;
+  --border-color: #26262a;
+  --border-strong-color: #3a3a40;
 
-  --primary-color: #8b7cff;
-  --primary-dark-color: #6d5efc;
-  --primary-soft-color: rgba(139, 124, 255, .18);
-  --primary-rgb: 139, 124, 255;
-  --color-primary-rgb: 139, 124, 255;
+  --primary-color: #7c74ff;
+  --primary-dark-color: #635bf7;
+  --primary-soft-color: rgba(124, 116, 255, .16);
+  --primary-rgb: 124, 116, 255;
+  --color-primary-rgb: 124, 116, 255;
 
-  --secondary-color: #f0edff;
-  --accent-color: #f472b6;
-  --accent-soft-color: rgba(244, 114, 182, .16);
-  --accent-rgb: 244, 114, 182;
+  --secondary-color: #fafafa;
+  --accent-color: #7c74ff;
+  --accent-soft-color: rgba(124, 116, 255, .15);
+  --accent-rgb: 124, 116, 255;
 
-  --gradient-primary: linear-gradient(90deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
-  --gradient-primary-soft: linear-gradient(135deg, rgba(129, 140, 248, .18) 0%, rgba(192, 132, 252, .18) 50%, rgba(244, 114, 182, .18) 100%);
+  --gradient-primary: linear-gradient(92deg, #7c74ff 0%, #9a93ff 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(124, 116, 255, .14) 0%, rgba(154, 147, 255, .14) 100%);
 
-  --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .4);
-  --shadow-lift-val: 0 18px 44px -16px rgba(0, 0, 0, .72), 0 3px 10px rgba(0, 0, 0, .4);
-  --shadow-glow-val: 0 0 0 3px rgba(139, 124, 255, .28);
+  --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .5);
+  --shadow-lift-val: 0 16px 40px -16px rgba(0, 0, 0, .75), 0 3px 10px rgba(0, 0, 0, .4);
+  --shadow-glow-val: 0 0 0 3px rgba(124, 116, 255, .28);
 
-  --grid-line: rgba(240, 237, 255, .05);
-  --scrollbar-track: #0d0a1f;
-  --scrollbar-thumb: #2a2350;
-  --scrollbar-thumb-hover: #3d3470;
+  --grid-line: rgba(250, 250, 250, .04);
+  --scrollbar-track: #0a0a0b;
+  --scrollbar-thumb: #26262a;
+  --scrollbar-thumb-hover: #3a3a40;
   color-scheme: dark;
 }
 
@@ -146,9 +146,8 @@ body {
 }
 
 /*
- * Aurora Vivid: headings are Sora — a bold, modern geometric sans — with
- * tight tracking and strong weight. The colourful indigo→violet→pink gradient
- * accent brings the energy; type stays confident and punchy to match.
+ * Refined: headings are Hanken Grotesk with tight tracking — confident but calm.
+ * Colour is used sparingly; whitespace and typography carry the premium feel.
  */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);

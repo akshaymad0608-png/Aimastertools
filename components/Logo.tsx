@@ -28,13 +28,12 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
         <defs>
           <linearGradient id="amt-hex" x1="6" y1="6" x2="42" y2="44" gradientUnits="userSpaceOnUse">
             <stop stopColor="#6366f1" />
-            <stop offset="0.55" stopColor="#a855f7" />
-            <stop offset="1" stopColor="#ec4899" />
+            <stop offset="1" stopColor="#4338ca" />
           </linearGradient>
           <radialGradient id="amt-orb" cx="0.36" cy="0.30" r="0.85">
             <stop stopColor="#ffffff" />
-            <stop offset="0.55" stopColor="#f6edff" />
-            <stop offset="1" stopColor="#e6d6ff" />
+            <stop offset="0.6" stopColor="#eef2ff" />
+            <stop offset="1" stopColor="#d9dcfb" />
           </radialGradient>
         </defs>
 
@@ -54,12 +53,12 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
       {showWordmark && (
         <span className="flex min-w-0 flex-col justify-center leading-none">
           <span
-            className="whitespace-nowrap italic"
+            className="whitespace-nowrap"
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 700,
-              fontSize: isSmall ? 18 : 22,
-              letterSpacing: '-0.02em',
+              fontSize: isSmall ? 18 : 21,
+              letterSpacing: '-0.03em',
             }}
           >
             <span style={{ color: 'var(--color-primary)' }}>AI</span>
