@@ -97,7 +97,7 @@ const routes = [
     return {
       path: `/category/${slugify(c.name)}`,
       heading: `Best ${c.name} AI Tools`,
-      title: `${n} Best ${c.name} AI Tools (${YEAR}) — Compared & Ranked`,
+      title: `${n} Best ${c.name} AI Tools (${YEAR})`,
       description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`),
     };
   }),

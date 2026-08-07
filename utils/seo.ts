@@ -119,7 +119,7 @@ export const toolDescription = (tool: Pick<Tool, 'name' | 'description' | 'prici
   );
 
 export const categoryTitle = (name: string, count: number): string =>
-  `${count} Best ${name} AI Tools (${CURRENT_YEAR}) — Compared & Ranked`;
+  `${count} Best ${name} AI Tools (${CURRENT_YEAR})`;
 
 export const categoryDescription = (name: string, count: number): string =>
   clampDescription(
