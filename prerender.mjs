@@ -88,7 +88,7 @@ const routes = [
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,
     heading: `${t.name} Review`,
-    title: `${t.name} Review, Pricing, & Alternatives (${YEAR}) | AI Master Tools`,
+    title: `${t.name} Review & Alternatives (${YEAR}) | AI Master Tools`,
     description: clamp(`Our review of ${t.name}. Discover its features, pricing, pros, cons, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`),
   })),
   // Category pages

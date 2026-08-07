@@ -91,7 +91,7 @@ const ToolDetail: React.FC = () => {
   return (
     <>
       <SEO 
-        title={`${tool.name} Review, Pricing, & Alternatives (2026) | AI Master Tools`} 
+        title={`${tool.name} Review & Alternatives (2026) | AI Master Tools`}
         description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, pros, cons, and best AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
