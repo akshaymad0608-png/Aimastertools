@@ -14,3 +14,11 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+// Register the service worker so the site is installable as a PWA
+// ("Add to Home Screen"). Network-first, so it never serves stale content.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}

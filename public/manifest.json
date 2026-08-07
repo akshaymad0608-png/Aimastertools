@@ -1,13 +1,13 @@
 {
   "name": "AI Master Tools \u2014 AI Tools Directory",
   "short_name": "aimastertools",
-  "description": "Search 830+ hand-checked AI tools by name, category and price. Compare features side by side and find the right tool in under a minute.",
+  "description": "Search 640+ hand-checked AI tools by name, category and price. Compare features side by side and find the right tool in under a minute.",
   "start_url": "/?utm_source=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#f8f6f0",
-  "theme_color": "#12545c",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
   "categories": [
     "productivity",
     "business",

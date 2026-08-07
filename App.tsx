@@ -8,6 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
+import InstallPrompt from './components/InstallPrompt';
 import ScrollToTop from './components/ScrollToTop';
 import { TopBanner } from './components/TopBanner';
 import { Toaster } from 'react-hot-toast';
@@ -133,6 +134,7 @@ function App() {
 
               <Footer />
               <MobileBottomNav />
+              <InstallPrompt />
               <ScrollToTop />
               <GlobalToast />
               <Toaster position="bottom-center" toastOptions={{ style: { background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)' } }} />

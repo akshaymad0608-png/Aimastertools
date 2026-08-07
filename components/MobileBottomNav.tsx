@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, LayoutGrid, Sparkles, Bookmark } from 'lucide-react';
+import { Home, LayoutGrid, Search, Sparkles, Bookmark } from 'lucide-react';
 
 const NAV_ITEMS = [
   { name: 'Directory', path: '/', icon: Home },
   { name: 'Categories', path: '/categories', icon: LayoutGrid },
+  { name: 'Search', path: '/?search=true', icon: Search },
   { name: 'Find', path: '/find', icon: Sparkles },
   { name: 'Saved', path: '/bookmarks', icon: Bookmark },
 ];
