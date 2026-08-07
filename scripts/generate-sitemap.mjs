@@ -36,6 +36,7 @@ const pluck = (source, key) => {
 
 const toolIds = pluck(read('data/tools.ts'), 'id');
 const categoryIds = pluck(read('data/categories.ts'), 'id');
+const earnCategoryIds = pluck(read('data/earn.ts'), 'id');
 
 /**
  * Drop name-duplicate tools so the sitemap advertises only ONE canonical URL
@@ -162,6 +163,11 @@ const urls = [
     loc: `/category/${slugify(id)}`,
     changefreq: 'weekly',
     priority: '0.8',
+  })),
+  ...earnCategoryIds.map((id) => ({
+    loc: `/earn/${id}`,
+    changefreq: 'weekly',
+    priority: '0.75',
   })),
   ...collectionSlugs.map((slug) => ({
     loc: `/collections/${slug}`,

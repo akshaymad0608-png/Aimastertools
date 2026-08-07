@@ -84,6 +84,19 @@ const routes = [
         ).join('')}</ul>`
       : '',
   },
+  // Earn Online per-category pages
+  ...EARN_CATS.map((c) => {
+    const cn = c.name.replace(/\s*\([^)]*\)/, '').trim();
+    return {
+      path: `/earn/${c.id}`,
+      heading: `Best ${cn} websites`,
+      title: `Best ${cn} Websites (${YEAR}) — ${c.sites.length} Legit Sites`,
+      description: clamp(`${c.blurb} ${c.sites.length} hand-checked sites, each with an official link and an honest intro.`),
+      extraHtml: `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${c.sites
+        .map((s) => `<li><strong>${esc(s.name)}</strong> — ${esc(s.intro)}</li>`)
+        .join('')}</ul>`,
+    };
+  }),
   // Tool pages
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,

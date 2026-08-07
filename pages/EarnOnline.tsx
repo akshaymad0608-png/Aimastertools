@@ -1,11 +1,14 @@
 import React from 'react';
-import { ExternalLink, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ExternalLink, Info, ArrowRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import SEO from '../components/SEO';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { EARN_CATEGORIES, EARN_SITE_COUNT, EARN_CATEGORY_COUNT } from '../data/earn';
 import { SITE, absoluteUrl } from '../utils/seo';
+
+const clean = (name: string) => name.replace(/\s*\([^)]*\)/, '').trim();
 
 const TITLE = `Earn Online — ${EARN_SITE_COUNT}+ Websites to Make Money by Category (2026)`;
 const DESCRIPTION = `A curated directory of ${EARN_SITE_COUNT}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more.`;
@@ -98,9 +101,17 @@ const EarnOnline: React.FC = () => {
             <section key={category.id} id={category.id} className="scroll-mt-24">
               <div className="max-w-2xl">
                 <h2 className="text-2xl font-extrabold tracking-tight text-[var(--color-text-primary)] md:text-3xl">
-                  {category.name}
+                  <Link to={`/earn/${category.id}`} className="hover:text-[var(--color-primary)]">
+                    {category.name}
+                  </Link>
                 </h2>
                 <p className="mt-2 text-[var(--color-text-secondary)]">{category.blurb}</p>
+                <Link
+                  to={`/earn/${category.id}`}
+                  className="mt-2 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-primary)] hover:underline"
+                >
+                  View all {category.sites.length} {clean(category.name).toLowerCase()} sites <ArrowRight size={13} aria-hidden="true" />
+                </Link>
               </div>
 
               <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -40,6 +40,7 @@ const FindMyTool = lazy(() => import('./pages/FindMyTool'));
 
 const Prompts = lazy(() => import('./pages/Prompts'));
 const EarnOnline = lazy(() => import('./pages/EarnOnline'));
+const EarnCategory = lazy(() => import('./pages/EarnCategory'));
 
 const PageLoader = () => (
   <div className="flex-grow flex items-center justify-center min-h-[60vh]">
@@ -119,6 +120,7 @@ function App() {
                     <Route path="/find" element={<FindMyTool />} />
                     <Route path="/prompts" element={<Prompts />} />
                     <Route path="/earn" element={<EarnOnline />} />
+                    <Route path="/earn/:slug" element={<EarnCategory />} />
                     
                     <Route path="/category/:slug" element={<CategoryPage />} />
                     <Route path="/alternatives/:slug" element={<AlternativesPage />} />
