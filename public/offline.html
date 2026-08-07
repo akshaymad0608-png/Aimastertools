@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Offline — AI Master Tools</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      font-family: "Hanken Grotesk", Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #ffffff; color: #18181b; padding: 24px; text-align: center;
+    }
+    @media (prefers-color-scheme: dark) { body { background: #0a0a0b; color: #fafafa; } }
+    .wrap { max-width: 26rem; }
+    .mark { width: 44px; height: 44px; border-radius: 12px; margin: 0 auto 20px;
+      background: linear-gradient(135deg, #6366f1, #4338ca); }
+    h1 { font-size: 22px; letter-spacing: -0.02em; margin: 0 0 8px; }
+    p { font-size: 15px; line-height: 1.6; color: #71717a; margin: 0 0 24px; }
+    button {
+      font: inherit; font-weight: 600; font-size: 14px; cursor: pointer;
+      background: #4f46e5; color: #fff; border: none; border-radius: 10px; padding: 11px 22px;
+    }
+    button:active { transform: translateY(1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>You're offline</h1>
+    <p>Pages you've already visited work offline. Reconnect to browse the full directory of 640+ AI tools.</p>
+    <button onclick="location.reload()">Try again</button>
+  </div>
+</body>
+</html>

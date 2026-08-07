@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
-  Search, Check, Loader2, Sparkles, Star, ArrowRight, TrendingUp, Clock, Award, GitCompare, Mail, Compass, Code
+  Search, Check, Loader2, Sparkles, Star, ArrowRight, TrendingUp, Clock, Award, GitCompare, Mail, Compass, Code, SlidersHorizontal
 } from 'lucide-react';
 import ToolCard from '../components/ToolCard';
+import FilterSheet from '../components/FilterSheet';
 import SEO from '../components/SEO';
 import { websiteSchema, organizationSchema, itemListSchema, faqSchema } from '../utils/seo';
 import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../utils/stats';
@@ -38,6 +39,7 @@ const Home: React.FC = () => {
   const [selectedPricing, setSelectedPricing] = useState<string>('All');
   const [activeTab, setActiveTab] = useState<'Featured' | 'Newest' | 'Trending'>('Featured');
   const [visibleCount, setVisibleCount] = useState(8);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -344,7 +346,25 @@ const Home: React.FC = () => {
               />
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-2">
+            {/* Mobile: filters open in a bottom sheet */}
+            <div className="mt-4 flex items-center gap-2 sm:hidden">
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(true)}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-cardBg)] px-4 py-2 text-[13px] font-semibold text-[var(--color-text-primary)]"
+              >
+                <SlidersHorizontal size={15} /> Filters
+                {(selectedPricing !== 'All' || activeTab !== 'Featured') && (
+                  <span className="grid h-4 min-w-[16px] place-items-center rounded-full bg-[var(--color-primary)] px-1 text-[10px] font-bold text-white">
+                    {(selectedPricing !== 'All' ? 1 : 0) + (activeTab !== 'Featured' ? 1 : 0)}
+                  </span>
+                )}
+              </button>
+              <span className="label-mono ml-auto tabular-nums">{processedTools.length} tools</span>
+            </div>
+
+            {/* Desktop / tablet: inline chips */}
+            <div className="mt-4 hidden flex-wrap items-center gap-2 sm:flex">
               {['All', 'Free', 'Freemium', 'Paid', 'Usage Based', 'Open Source'].map((p) => (
                 <button
                   key={p}
@@ -366,6 +386,16 @@ const Home: React.FC = () => {
               ))}
               <span className="label-mono ml-auto tabular-nums">{processedTools.length} tools</span>
             </div>
+
+            <FilterSheet
+              open={filtersOpen}
+              onClose={() => setFiltersOpen(false)}
+              selectedPricing={selectedPricing}
+              setSelectedPricing={(p) => { setSelectedPricing(p); setVisibleCount(8); }}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+              resultCount={processedTools.length}
+            />
 
             {displayedTools.length > 0 ? (
               <>

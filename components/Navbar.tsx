@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, X, Sun, Moon, Compass, Grid, Code, GitMerge, Sparkles, FileText, Layers,
-  Search, Bookmark, Wallet,
+  Search, Bookmark, Wallet, Share2,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -49,6 +49,20 @@ const Navbar: React.FC = () => {
     return location.pathname.startsWith(path);
   };
   const { theme, toggleTheme } = useTheme();
+
+  const handleShare = async () => {
+    const data = { title: document.title, url: window.location.href };
+    try {
+      if (typeof navigator !== 'undefined' && navigator.share) {
+        await navigator.share(data);
+      } else {
+        await navigator.clipboard.writeText(data.url);
+        toast.success('Link copied to clipboard');
+      }
+    } catch {
+      /* user cancelled the share sheet — nothing to do */
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -190,6 +204,15 @@ const Navbar: React.FC = () => {
                 />
               </div>
             </form>
+
+            <button
+              type="button"
+              onClick={handleShare}
+              aria-label="Share this page"
+              className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:hidden"
+            >
+              <Share2 size={16} />
+            </button>
 
             <button
               type="button"
