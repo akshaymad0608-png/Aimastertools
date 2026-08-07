@@ -77,7 +77,7 @@ const EarnOnline: React.FC = () => {
         </div>
 
         {/* Dashboard: category sidebar + sections */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
           {/* Sticky category sidebar */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <p className="label-mono mb-2.5">Categories</p>

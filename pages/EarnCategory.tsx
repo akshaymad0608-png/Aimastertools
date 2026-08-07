@@ -58,7 +58,7 @@ const EarnCategory: React.FC = () => {
       <div className="container-custom">
         <Breadcrumbs items={[{ label: 'Earn Online', path: '/earn' }, { label: name }]} />
 
-        <div className="mt-4 grid gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
+        <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
           {/* Sibling-category sidebar */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <p className="label-mono mb-2.5">Categories</p>
