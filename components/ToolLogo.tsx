@@ -68,7 +68,6 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
         src={src}
         alt={name}
         onError={handleError}
-        loading="lazy"
         referrerPolicy="no-referrer"
         decoding="async"
         style={{
