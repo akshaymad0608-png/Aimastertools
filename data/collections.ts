@@ -4,7 +4,7 @@ export const COLLECTIONS: SEOCollection[] = [
   {
     id: 'best-free-ai-tools',
     slug: 'best-free-ai-tools',
-    title: 'Best Free AI Tools for Everyone (2024)',
+    title: 'Best Free AI Tools for Everyone (2026)',
     metaTitle: '10+ Best Free AI Tools You Can Use Today Without Paying',
     metaDescription: 'Discover the top free AI tools for writing, coding, image generation, and productivity. Boost your workflow today without spending a dime.',
     intro: 'Artificial intelligence is no longer just for big tech companies. There is an incredible ecosystem of free AI tools that can help you write faster, generate stunning images, and solve complex problems. We have curated the absolute best free AI applications you can start using today, no credit card required.',
@@ -87,7 +87,7 @@ export const COLLECTIONS: SEOCollection[] = [
     id: 'chatgpt-alternatives',
     slug: 'chatgpt-alternatives',
     title: 'Top 10 ChatGPT Alternatives You Should Try',
-    metaTitle: 'Best ChatGPT Alternatives in 2024 (Free & Paid)',
+    metaTitle: 'Best ChatGPT Alternatives in 2026 (Free & Paid)',
     metaDescription: 'Looking for a ChatGPT alternative? Compare the best AI chatbots including Claude, Gemini, Perplexity, and open-source models.',
     intro: 'While ChatGPT kicked off the generative AI revolution, it is no longer the only game in town. Depending on your needs—whether it is coding, creative writing, or web research—there are now several powerful alternatives that might suit you better.',
     toolIds: ['claude', 'gemini', 'perplexity-ai', 'mistral', 'meta-llama', 'pi'],
@@ -106,7 +106,7 @@ export const COLLECTIONS: SEOCollection[] = [
   {
     id: 'best-ai-image-generators',
     slug: 'best-ai-image-generators',
-    title: 'Best AI Image Generators in 2024',
+    title: 'Best AI Image Generators in 2026',
     metaTitle: 'Top AI Image Generators: Create Stunning Art & Photos',
     metaDescription: 'Compare the best AI image generators. Find the perfect tool for creating digital art, photorealistic images, and graphic design assets.',
     intro: 'Text-to-image AI models have reached breathtaking levels of realism and creativity. Whether you are a graphic designer, marketer, or just want to generate fun images, here are the top AI image generators that will turn your words into stunning visuals.',
