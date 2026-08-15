@@ -39,7 +39,7 @@ const Careers: React.FC = () => {
           </p>
           <a 
             href="mailto:careers@aimastertools.com"
-            className="inline-flex items-center justify-center px-6 py-3 bg-[var(--color-primary)] text-white font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[var(--color-primary-fill)] text-white font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
           >
             Send Resume
           </a>

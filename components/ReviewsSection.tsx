@@ -174,7 +174,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
             <button 
               type="button" 
               onClick={() => setIsAuthModalOpen(true)}
-              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
+              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-colors"
             >
               Log in to Review
             </button>
@@ -182,7 +182,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
             <button 
               type="submit" 
               disabled={submitting || !text.trim()}
-              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-6 py-2.5 rounded-[var(--radius-sm)] font-bold bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {submitting ? 'Submitting...' : 'Post Review'}
             </button>

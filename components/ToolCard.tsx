@@ -70,7 +70,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
           {tool.featured && (
             <span
               title="Editor's pick"
-              className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full border-2 border-[var(--color-cardBg)] bg-[var(--color-primary)] text-white"
+              className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full border-2 border-[var(--color-cardBg)] bg-[var(--color-primary-fill)] text-white"
             >
               <Check size={9} strokeWidth={4} />
             </span>

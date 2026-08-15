@@ -427,3 +427,30 @@ for (const route of routes) {
 }
 
 console.log(`prerendered ${n} routes — ${TOOLS.length} tools · ${CATEGORIES.length} categories · ${routes.length - TOOLS.length - CATEGORIES.length} pages`);
+
+/* ------------------------------------------------------- service worker -- */
+
+/**
+ * Stamp the service worker with a build id.
+ *
+ * Its cache name was a literal that never changed, so the worker file stayed
+ * byte-identical across deploys. A browser only installs a worker whose bytes
+ * differ — so install and activate never ran again, the old cache was never
+ * dropped, and anyone who had visited before kept getting an old bundle. The
+ * id is derived from the built asset filenames, which are content-hashed, so it
+ * changes exactly when the output does.
+ */
+const swPath = join(DIST, 'sw.js');
+try {
+  const shell = readFileSync(join(DIST, 'index.html'), 'utf8');
+  const assets = [...shell.matchAll(/\/assets\/[A-Za-z0-9._-]+/g)].map((m) => m[0]).sort().join('|');
+  let hash = 0;
+  for (let i = 0; i < assets.length; i++) hash = ((hash << 5) - hash + assets.charCodeAt(i)) | 0;
+  const buildId = Math.abs(hash).toString(36);
+  const sw = readFileSync(swPath, 'utf8').replace('__BUILD_ID__', buildId);
+  writeFileSync(swPath, sw);
+  console.log(`service worker cache: amt-${buildId}`);
+} catch (err) {
+  console.error('service worker not stamped:', err.message);
+  process.exitCode = 1;
+}

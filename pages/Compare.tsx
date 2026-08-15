@@ -258,7 +258,7 @@ const Compare: React.FC = () => {
                           href={tool.url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="w-full py-2 rounded-lg text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all flex items-center justify-center gap-2"
+                          className="w-full py-2 rounded-lg text-sm font-semibold text-white bg-[var(--color-primary-fill)] hover:bg-[var(--color-primary-dark)] transition-all flex items-center justify-center gap-2"
                         >
                           Visit Site <ExternalLink size={14} />
                         </a>

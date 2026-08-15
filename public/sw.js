@@ -9,7 +9,15 @@
  *  - The tool catalogue ships inside the JS bundle, so once assets are cached the
  *    whole directory browses, searches and filters offline.
  */
-const CACHE = 'amt-v2';
+/*
+ * The build stamps this. A hand-written constant is the trap: it stops changing
+ * while the site keeps shipping, so the browser sees a byte-identical worker,
+ * never installs a new one, never runs activate, and returning visitors keep
+ * being served whatever this cache captured months ago. prerender.mjs rewrites
+ * the placeholder with a hash of the built asset filenames, so every deploy
+ * gets a new worker and the old cache is dropped on activate.
+ */
+const CACHE = 'amt-__BUILD_ID__';
 const PRECACHE = ['/', '/offline.html'];
 
 self.addEventListener('install', (event) => {

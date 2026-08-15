@@ -78,7 +78,7 @@ export const AIToolFinder: React.FC = () => {
             : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-cardBg)]'
         }`}
       >
-        <div className={`p-4 rounded-[var(--radius-sm)] mb-4 ${isSelected ? 'bg-[var(--color-primary)] text-white' : 'bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'}`}>
+        <div className={`p-4 rounded-[var(--radius-sm)] mb-4 ${isSelected ? 'bg-[var(--color-primary-fill)] text-white' : 'bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'}`}>
           <Icon size={28} />
         </div>
         <h3 className={`font-bold text-lg mb-2 ${isSelected ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-primary)]'}`}>{title}</h3>
@@ -204,7 +204,7 @@ export const AIToolFinder: React.FC = () => {
                           <Link to={`/tool/${tool.id}`} className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-background)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors">
                             Details
                           </Link>
-                          <a href={tool.url} target="_blank" rel="noopener noreferrer" className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-colors">
+                          <a href={tool.url} target="_blank" rel="noopener noreferrer" className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-colors">
                             Visit Site
                           </a>
                         </div>
@@ -240,7 +240,7 @@ export const AIToolFinder: React.FC = () => {
                 (currentStep === 'skill' && !answers.skill) || 
                 (currentStep === 'budget' && !answers.budget)
               }
-              className="px-8 py-3 font-bold rounded-[var(--radius-sm)] flex items-center gap-2 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] transition-all disabled:opacity-50 shadow-md hover:shadow-[var(--shadow-card)] disabled:hover:shadow-none"
+              className="px-8 py-3 font-bold rounded-[var(--radius-sm)] flex items-center gap-2 bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-all disabled:opacity-50 shadow-md hover:shadow-[var(--shadow-card)] disabled:hover:shadow-none"
             >
               {currentStep === 'budget' ? 'Show Results' : 'Next Step'} <ArrowRight size={18} />
             </button>

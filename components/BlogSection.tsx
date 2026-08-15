@@ -171,7 +171,7 @@ export const BlogSection: React.FC = () => {
                   {/* Sarah Collins Author Footer */}
                   <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-5 mt-auto">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-sm shadow-sm">
+                      <div className="w-10 h-10 rounded-full bg-[var(--color-primary-fill)] text-white flex items-center justify-center font-bold text-sm shadow-sm">
                         SC
                       </div>
                       <div>

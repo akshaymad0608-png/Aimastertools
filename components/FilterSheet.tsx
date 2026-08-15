@@ -17,7 +17,7 @@ interface FilterSheetProps {
 const chip = (active: boolean) =>
   `rounded-full border px-3.5 py-2 text-sm font-semibold transition-colors ${
     active
-      ? 'border-transparent bg-[var(--color-primary)] text-white'
+      ? 'border-transparent bg-[var(--color-primary-fill)] text-white'
       : 'border-[var(--color-border)] text-[var(--color-text-secondary)]'
   }`;
 

@@ -102,14 +102,14 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                   <div className="flex bg-[var(--color-surface)] p-1 rounded-[var(--radius-sm)] border border-[var(--color-border)]">
                     <button
                       onClick={() => setLanguage('en-IN')}
-                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'en-IN' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
+                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'en-IN' ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
                       aria-label="Switch to English (India)"
                     >
                       EN (IN)
                     </button>
                     <button
                       onClick={() => setLanguage('hi-IN')}
-                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'hi-IN' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
+                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${language === 'hi-IN' ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]'}`}
                       aria-label="Switch to Hindi (India)"
                     >
                       हिन्दी
@@ -127,7 +127,7 @@ const VoiceSearch: React.FC<VoiceSearchProps> = ({ onTranscript }) => {
                   <button
                     onClick={isListening ? () => {} : startListening}
                     disabled={isListening}
-                    className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${isListening ? 'bg-[var(--color-primary)] text-white scale-110 shadow-[0_0_40px_rgba(59,130,246,0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'}`}
+                    className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${isListening ? 'bg-[var(--color-primary-fill)] text-white scale-110 shadow-[0_0_40px_rgba(59,130,246,0.4)]' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'}`}
                     aria-label={isListening ? "Listening" : "Start Listening"}
                   >
                     {isListening ? <Loader2 size={40} className="animate-spin" /> : <Mic size={40} />}

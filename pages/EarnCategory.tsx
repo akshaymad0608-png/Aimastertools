@@ -76,10 +76,10 @@ const EarnCategory: React.FC = () => {
                     key={c.id}
                     to={`/earn/${c.id}`}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
                   >
                     <span className="truncate">{c.name}</span>
-                    <span className={`text-[11px] tabular-nums ${active ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{c.sites.length}</span>
+                    <span className={`text-[11px] tabular-nums ${active ? 'text-white' : 'text-[var(--color-text-muted)]'}`}>{c.sites.length}</span>
                   </Link>
                 );
               })}

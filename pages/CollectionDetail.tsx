@@ -149,7 +149,7 @@ const CollectionDetail: React.FC = () => {
                 <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                   Ready to discover more?
                 </h3>
-                <Link to={collection.ctaUrl} className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[var(--color-primary)] rounded-full hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-card)] hover:shadow-[var(--color-primary)]/30 transition-all duration-300">
+                <Link to={collection.ctaUrl} className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[var(--color-primary-fill)] rounded-full hover:bg-[var(--color-primary-dark)] hover:shadow-[var(--shadow-card)] hover:shadow-[var(--color-primary)]/30 transition-all duration-300">
                   {collection.ctaText}
                   <ArrowRight size={20} className="ml-2" />
                 </Link>
@@ -183,7 +183,7 @@ const CollectionDetail: React.FC = () => {
                   ))}
                 </div>
                 
-                <Link to="/collections" className="mt-6 block text-center w-full py-3 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-sm font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)] transition-all">
+                <Link to="/collections" className="mt-6 block text-center w-full py-3 px-4 bg-[var(--color-background)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-sm font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-primary-fill)] hover:text-white hover:border-[var(--color-primary)] transition-all">
                   View All Collections
                 </Link>
               </div>

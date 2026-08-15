@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/**
+ * Bind the `dark:` variant to the .dark class the theme toggle actually sets.
+ *
+ * Tailwind v4 defaults this variant to prefers-color-scheme, so on a machine
+ * set to light every `dark:` utility in the codebase was dead — most visibly a
+ * section heading left at text-slate-900 on the near-black page, which measured
+ * 2.44:1 and read as invisible. The toggle writes .dark on <html>; this is what
+ * makes the utilities follow it.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ============================================================
    AIMasterTools — Design System v7  "Refined" (Premium & Clean)
    Restrained, professional, premium — neutral zinc + one refined indigo accent.
@@ -23,6 +34,7 @@
   --color-border: var(--border-color);
   --color-border-strong: var(--border-strong-color);
   --color-primary: var(--primary-color);
+  --color-primary-fill: var(--primary-fill-color);
   --color-primary-dark: var(--primary-dark-color);
   --color-primary-soft: var(--primary-soft-color);
   --color-secondary: var(--secondary-color);
@@ -64,6 +76,7 @@
   --border-strong-color: #d4d4d8;
 
   --primary-color: #4f46e5;
+  --primary-fill-color: #4f46e5;
   --primary-dark-color: #4338ca;
   --primary-soft-color: #eef2ff;
   --primary-rgb: 79, 70, 229;
@@ -97,12 +110,13 @@
 
   --text-primary-color: #fafafa;
   --text-secondary-color: #a1a1aa;
-  --text-muted-color: #71717a;
+  --text-muted-color: #82828b;
 
   --border-color: #26262a;
   --border-strong-color: #3a3a40;
 
   --primary-color: #7c74ff;
+  --primary-fill-color: #635af0;
   --primary-dark-color: #635bf7;
   --primary-soft-color: rgba(124, 116, 255, .16);
   --primary-rgb: 124, 116, 255;
@@ -111,9 +125,14 @@
   --secondary-color: #fafafa;
   --accent-color: #7c74ff;
   --accent-soft-color: rgba(124, 116, 255, .15);
+  /* Badge labels are 10.5px on a 15% tint; the accent itself only just clears
+     4.5:1 there, so the badge text runs a step brighter than the accent. */
+  --badge-text-color: #8a83ff;
   --accent-rgb: 124, 116, 255;
 
-  --gradient-primary: linear-gradient(92deg, #7c74ff 0%, #9a93ff 100%);
+  /* Both stops carry white text, so both have to clear 4.5:1 — the old light
+     end (#9a93ff) sat at 2.63 and the label washed out across half the button. */
+  --gradient-primary: linear-gradient(92deg, #5b52e8 0%, #635af0 100%);
   --gradient-primary-soft: linear-gradient(135deg, rgba(124, 116, 255, .14) 0%, rgba(154, 147, 255, .14) 100%);
 
   --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .5);
@@ -321,7 +340,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: var(--primary-color);
+  /* The accent is tuned to sit on a dark page, not to carry white text: white
+     on it measures 3.62:1, under the 4.5 small text needs. The fill is a step
+     deeper and clears it, while the accent itself stays as-is everywhere it is
+     used as text or a border. */
+  background: var(--primary-fill-color, var(--primary-color));
   color: #fff;
   box-shadow: 0 6px 16px -8px rgba(var(--color-primary-rgb), .45);
   transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
@@ -393,8 +416,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-secondary-color);
 }
 
-.badge-primary { background: var(--primary-soft-color); border-color: rgba(var(--primary-rgb), .28); color: var(--primary-color); }
-.badge-accent  { background: var(--accent-soft-color);  border-color: rgba(var(--accent-rgb), .3);   color: var(--accent-color); }
+.badge-primary { background: var(--primary-soft-color); border-color: rgba(var(--primary-rgb), .28); color: var(--badge-text-color, var(--primary-color)); }
+.badge-accent  { background: var(--accent-soft-color);  border-color: rgba(var(--accent-rgb), .3);   color: var(--badge-text-color, var(--accent-color)); }
 
 /* ======================= Text effects ======================== */
 

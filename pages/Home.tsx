@@ -311,10 +311,10 @@ const Home: React.FC = () => {
             <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
               <button
                 onClick={() => { setSelectedCategory('All'); setVisibleCount(8); }}
-                className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${selectedCategory === 'All' ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+                className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${selectedCategory === 'All' ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
               >
                 All tools
-                <span className={`text-[11px] tabular-nums ${selectedCategory === 'All' ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{TOOL_COUNT}</span>
+                <span className={`text-[11px] tabular-nums ${selectedCategory === 'All' ? 'text-white' : 'text-[var(--color-text-muted)]'}`}>{TOOL_COUNT}</span>
               </button>
               {CATEGORIES.map((cat) => {
                 const active = selectedCategory === cat.id;
@@ -322,10 +322,10 @@ const Home: React.FC = () => {
                   <button
                     key={cat.id}
                     onClick={() => handleCategoryClick(cat.id as Category)}
-                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
+                    className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${active ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
                   >
                     <span className="truncate">{cat.name}</span>
-                    <span className={`text-[11px] tabular-nums ${active ? 'text-white/80' : 'text-[var(--color-text-muted)]'}`}>{cat.count}</span>
+                    <span className={`text-[11px] tabular-nums ${active ? 'text-white' : 'text-[var(--color-text-muted)]'}`}>{cat.count}</span>
                   </button>
                 );
               })}
@@ -355,7 +355,7 @@ const Home: React.FC = () => {
               >
                 <SlidersHorizontal size={15} /> Filters
                 {(selectedPricing !== 'All' || activeTab !== 'Featured') && (
-                  <span className="grid h-4 min-w-[16px] place-items-center rounded-full bg-[var(--color-primary)] px-1 text-[10px] font-bold text-white">
+                  <span className="grid h-4 min-w-[16px] place-items-center rounded-full bg-[var(--color-primary-fill)] px-1 text-[10px] font-bold text-white">
                     {(selectedPricing !== 'All' ? 1 : 0) + (activeTab !== 'Featured' ? 1 : 0)}
                   </span>
                 )}
@@ -369,7 +369,7 @@ const Home: React.FC = () => {
                 <button
                   key={p}
                   onClick={() => { setSelectedPricing(p); setVisibleCount(8); }}
-                  className={`rounded-full border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${selectedPricing === p ? 'border-transparent bg-[var(--color-primary)] text-white' : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'}`}
+                  className={`rounded-full border px-3 py-1.5 text-[12.5px] font-semibold transition-colors ${selectedPricing === p ? 'border-transparent bg-[var(--color-primary-fill)] text-white' : 'border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'}`}
                 >
                   {p}
                 </button>

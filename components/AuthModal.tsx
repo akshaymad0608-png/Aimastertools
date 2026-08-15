@@ -150,7 +150,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               <button 
                 type="submit"
                 disabled={loading}
-                className="w-full py-3.5 rounded-[var(--radius-sm)] font-bold text-white bg-[var(--color-primary)] shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                className="w-full py-3.5 rounded-[var(--radius-sm)] font-bold text-white bg-[var(--color-primary-fill)] shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
               >
                 {loading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up')}
                 {!loading && <ArrowRight size={18} />}

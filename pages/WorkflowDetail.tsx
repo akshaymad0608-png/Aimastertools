@@ -62,7 +62,7 @@ const WorkflowDetail: React.FC = () => {
 
             <div className="pt-6 flex flex-wrap items-center gap-6 border-t border-[var(--color-border)]">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-white font-bold text-sm shadow-md">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-primary-fill)] flex items-center justify-center text-white font-bold text-sm shadow-md">
                   {workflow.author.charAt(0)}
                 </div>
                 <div>
@@ -112,7 +112,7 @@ const WorkflowDetail: React.FC = () => {
             {workflow.steps.map((step, index) => (
               <div key={step.id} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 {/* Icon */}
-                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[var(--color-background)] bg-[var(--color-primary)] text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-[var(--color-background)] bg-[var(--color-primary-fill)] text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md z-10">
                   {index + 1}
                 </div>
                 
