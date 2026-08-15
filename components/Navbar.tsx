@@ -146,16 +146,21 @@ const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop navigation — a single rail, no floating pill */}
-          <nav aria-label="Primary" className="hidden min-w-0 lg:block">
+          <nav aria-label="Primary" className="hidden min-w-0 overflow-hidden xl:block">
+            {/* The rail sits inside a container capped at 1240px, so it never
+                gets more room however wide the window is — with eight items it
+                overran and the last one slid under the action buttons. The logo
+                already links to the directory, so the rail does not repeat it.
+                The drawer still lists every link. */}
             <ul className="flex items-center gap-0.5 whitespace-nowrap">
-              {NAV_LINKS.map((link) => {
+              {NAV_LINKS.filter((link) => link.to !== '/').map((link) => {
                 const active = isActive(link.to);
                 return (
                   <li key={link.to}>
                     <Link
                       to={link.to}
                       aria-current={active ? 'page' : undefined}
-                      className={`relative block px-2.5 py-2 text-[13.5px] transition-colors ${
+                      className={`relative block px-2 py-2 text-[13.5px] transition-colors ${
                         active
                           ? 'text-[var(--color-text-primary)]'
                           : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -176,7 +181,7 @@ const Navbar: React.FC = () => {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex shrink-0 items-center gap-1.5">
             <Link
               to="/bookmarks"
               aria-label="Saved tools"
@@ -210,7 +215,7 @@ const Navbar: React.FC = () => {
               type="button"
               onClick={handleShare}
               aria-label="Share this page"
-              className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] xl:hidden"
             >
               <Share2 size={16} />
             </button>
@@ -230,7 +235,7 @@ const Navbar: React.FC = () => {
 
             <button
               type="button"
-              className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-primary)] lg:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] text-[var(--color-text-primary)] xl:hidden"
               onClick={() => setIsMobileMenuOpen((v) => !v)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
@@ -252,7 +257,7 @@ const Navbar: React.FC = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] lg:hidden"
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] xl:hidden"
             />
             <motion.nav
               id="mobile-menu"
@@ -261,7 +266,7 @@ const Navbar: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -14, opacity: 0 }}
               transition={{ duration: 0.22, ease: [0.2, 0.7, 0.3, 1] }}
-              className="fixed inset-x-3 top-[calc(var(--banner-h,0px)+var(--header-h,64px)+8px)] z-50 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-[var(--shadow-lift)] lg:hidden"
+              className="fixed inset-x-3 top-[calc(var(--banner-h,0px)+var(--header-h,64px)+8px)] z-50 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-[var(--shadow-lift)] xl:hidden"
             >
               <ul className="p-2">
                 {NAV_LINKS.map((link, i) => {

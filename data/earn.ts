@@ -78,7 +78,6 @@ export const EARN_CATEGORIES: EarnCategory[] = [
       { name: 'Appen', url: 'appen.com', intro: 'AI-training data tasks: transcription, search evaluation and data collection.' },
       { name: 'Remotasks', url: 'remotasks.com', intro: 'Image annotation and data-labeling tasks that train AI models.' },
       { name: 'Microworkers', url: 'microworkers.com', intro: 'Small paid online tasks you can pick up anytime.' },
-      { name: 'Toloka', url: 'toloka.ai', intro: 'Crowdsourced data tasks for machine-learning projects.' },
     ],
   },
   {
@@ -126,6 +125,7 @@ export const EARN_CATEGORIES: EarnCategory[] = [
     blurb: 'Share opinions or test products for points, cash or gift cards. Realistic pay — treat this as pocket money, not a salary.',
     sites: [
       { name: 'Prolific', url: 'prolific.com', intro: 'Paid academic and market research studies with fair, transparent pay.', tag: 'Fair pay' },
+      { name: 'Freecash', url: 'freecash.com', intro: 'Surveys, offers and small tasks paid out to PayPal or crypto.', tag: 'India OK' },
       { name: 'Swagbucks', url: 'swagbucks.com', intro: 'Surveys, cashback and offers redeemable for gift cards or PayPal.' },
       { name: 'Survey Junkie', url: 'surveyjunkie.com', intro: 'Take surveys for points you convert to cash or e-gift cards.' },
       { name: 'YouGov', url: 'yougov.com', intro: 'Opinion surveys on news and brands; points build toward rewards.' },
@@ -139,6 +139,8 @@ export const EARN_CATEGORIES: EarnCategory[] = [
     blurb: 'Get paid to try websites and apps and say what confuses you — usually via short screen-and-voice recordings.',
     sites: [
       { name: 'UserTesting', url: 'usertesting.com', intro: 'Speak your thoughts aloud while testing sites and apps; one of the best-known panels.' },
+      { name: 'User Interviews', url: 'userinterviews.com', intro: 'Paid interviews, focus groups and product research; India is a supported country.', tag: 'India OK' },
+      { name: 'Home Tester Club', url: 'hometesterclub.com/in/en', intro: 'Apply to test products at home and review them; runs an India-specific platform.', tag: 'India' },
       { name: 'TestingTime', url: 'testingtime.com', intro: 'Paid remote user tests and interviews scheduled to your availability.' },
       { name: 'Trymata', url: 'trymata.com', intro: 'Usability tests (formerly TryMyUI) that pay per completed test.' },
       { name: 'Userlytics', url: 'userlytics.com', intro: 'Moderated and unmoderated user tests across web and mobile.' },
@@ -246,6 +248,7 @@ export const EARN_CATEGORIES: EarnCategory[] = [
       { name: 'Adobe Stock', url: 'contributor.stock.adobe.com', intro: "Sell your images and video to Adobe's creative customers." },
       { name: 'iStock by Getty', url: 'istock.com', intro: "Contribute photos and video to Getty's stock marketplace." },
       { name: 'Alamy', url: 'alamy.com', intro: 'Stock photo library with contributor-friendly commission terms.' },
+      { name: 'Foap', url: 'foap.com', intro: 'Sell phone photos and video, or shoot brand missions for a fee.', tag: 'Phone OK' },
       { name: 'Pond5', url: 'pond5.com', intro: 'Marketplace focused on stock video, music and sound effects.' },
     ],
   },
