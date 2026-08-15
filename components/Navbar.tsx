@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, X, Sun, Moon, Compass, Grid, Code, GitMerge, Sparkles, FileText, Layers,
-  Search, Bookmark, Wallet, Share2,
+  Search, Bookmark, Wallet, Share2, Gift,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { name: 'Directory', to: '/', icon: Compass },
   { name: 'Categories', to: '/categories', icon: Grid },
   { name: 'Collections', to: '/collections', icon: Layers },
+  { name: 'Free Tools', to: '/free', icon: Gift },
   { name: 'Earn Online', to: '/earn', icon: Wallet },
   { name: 'Prompts', to: '/prompts', icon: Code },
   { name: 'Workflows', to: '/workflows', icon: GitMerge },

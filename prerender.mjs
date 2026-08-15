@@ -226,6 +226,108 @@ const LEGAL_ROUTES = [
   },
 ];
 
+/* ------------------------------------------------------- free tools hub -- */
+
+/**
+ * "Free" is the modifier most often attached to a tool search, and the
+ * catalogue already records each tool's pricing — but nothing was built on it,
+ * so the site answered "AI image tools" and never "free AI image tools".
+ *
+ * These pages keep free and freemium apart, which is the part most directories
+ * blur and the reason the page earns a place next to /category/:slug.
+ */
+/**
+ * What to append after a category name.
+ *
+ * The names vary: some already end in "Tools" ("AI Ecommerce Tools"), some
+ * already carry "AI" ("AI Chatbots & Assistants"), some carry neither
+ * ("3D & Animation"). Appending a fixed "AI Tools" to all three produces
+ * "Ecommerce Tools Tools" and "AI Chatbots AI Tools".
+ */
+const suffixFor = (name, lower = false) => {
+  const t = lower ? 'tools' : 'Tools';
+  if (/tools?$/i.test(name)) return '';
+  return /\bAI\b/.test(name) ? t : `AI ${t}`;
+};
+
+const isFree = (t) => /^(free|open source)$/i.test(t.pricing || '');
+const isFreemium = (t) => /^freemium$/i.test(t.pricing || '');
+const FREE_MIN = 4;
+
+const knownCategoryIds = new Set(CATEGORIES.map((c) => c.id));
+const freeByCategory = new Map();
+for (const t of TOOLS) {
+  if (!isFree(t) && !isFreemium(t)) continue;
+  if (!knownCategoryIds.has(t.category)) continue;
+  if (!freeByCategory.has(t.category)) freeByCategory.set(t.category, []);
+  freeByCategory.get(t.category).push(t);
+}
+
+const FREE_CATS = [...freeByCategory.entries()]
+  .filter(([, list]) => list.length >= FREE_MIN)
+  .map(([id, list]) => {
+    const sorted = [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    const meta = CATEGORIES.find((c) => c.id === id);
+    return {
+      id,
+      name: (meta && meta.name) || id,
+      slug: slugify(id),
+      tools: sorted,
+      fullyFree: sorted.filter(isFree),
+      freemium: sorted.filter(isFreemium),
+    };
+  })
+  .sort((a, b) => b.tools.length - a.tools.length);
+
+const FREE_TOTAL = [...freeByCategory.values()].reduce((n, l) => n + l.length, 0);
+const FREE_FULLY = [...freeByCategory.values()].reduce((n, l) => n + l.filter(isFree).length, 0);
+
+const FREE_ROUTES = [
+  {
+    path: '/free',
+    heading: `${FREE_TOTAL} free AI tools, honestly labelled`,
+    title: `${FREE_TOTAL} Free AI Tools (${YEAR}) — Free & Freemium, Sorted | AI Master Tools`,
+    description: clamp(
+      `${FREE_TOTAL} AI tools you can use without paying — ${FREE_FULLY} completely free, the rest with a real free tier. Sorted by category, with free and freemium kept apart.`,
+    ),
+    extraHtml:
+      `<p style="font-size:15px;color:#475569">${FREE_FULLY} of these cost nothing at all. The rest are freemium — a real free tier with paid plans above it. Most directories blur the two; every page here keeps them apart.</p>` +
+      `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${FREE_CATS.map(
+        (c) =>
+          `<li><a href="/free/${c.slug}">Free ${esc(c.name)} AI tools</a> — ${c.tools.length} tools, ${
+            c.fullyFree.length
+          } fully free</li>`,
+      ).join('')}</ul>`,
+  },
+  ...FREE_CATS.map((c) => ({
+    path: `/free/${c.slug}`,
+    // Category names already carry "AI" ("AI Chatbots & Assistants"), so
+    // appending "AI tools" to them reads as a stutter.
+    heading: `${c.tools.length} free ${c.name} ${suffixFor(c.name, true)}`.trim(),
+    title: `${c.tools.length} Best Free ${c.name} ${suffixFor(c.name)} (${YEAR}) | AI Master Tools`.replace(/ {2,}/g, ' '),
+    description: clamp(
+      `${c.tools.length} free ${c.name.toLowerCase()} AI tools — ${c.fullyFree.length} completely free and ${
+        c.freemium.length
+      } with a real free tier, rated and kept apart so you know which is which.`,
+    ),
+    extraHtml:
+      (c.fullyFree.length
+        ? `<h2 style="font-size:20px;margin:28px 0 10px">Free to use (${c.fullyFree.length})</h2>` +
+          `<p style="font-size:15px;color:#475569">No paid plan behind them — free or open source, usable as they are.</p>` +
+          `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${c.fullyFree
+            .map(toolLine)
+            .join('')}</ul>`
+        : '') +
+      (c.freemium.length
+        ? `<h2 style="font-size:20px;margin:28px 0 10px">Free tier available (${c.freemium.length})</h2>` +
+          `<p style="font-size:15px;color:#475569">Freemium: a real free tier with limits, and paid plans once you outgrow it.</p>` +
+          `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${c.freemium
+            .map(toolLine)
+            .join('')}</ul>`
+        : ''),
+  })),
+];
+
 const routes = [
   { path: '/categories', title: `All AI Tool Categories (${YEAR}) | AI Master Tools`, description: 'Browse every AI tool category — chatbots, image generation, coding, video, writing, marketing and more. Find and compare the best tools in each.' },
   { path: '/compare', title: `Compare AI Tools Side by Side (${YEAR}) | AI Master Tools`, description: 'Compare any two AI tools side by side — features, pricing, ratings and pros & cons — to choose the right one fast.' },
@@ -289,6 +391,7 @@ const routes = [
   ...COLLECTION_ROUTES,
   ...WORKFLOW_ROUTES,
   ...LEGAL_ROUTES,
+  ...FREE_ROUTES,
 ];
 
 const template = readFileSync(join(DIST, 'index.html'), 'utf8');

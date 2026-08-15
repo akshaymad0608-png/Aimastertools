@@ -109,7 +109,7 @@ const toolRecords = (() => {
   const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
   return eval(src.slice(start, src.indexOf('\n];', start) + 2))
     .filter(Boolean)
-    .map((t) => ({ id: t.id, category: t.category, rating: t.rating }));
+    .map((t) => ({ id: t.id, category: t.category, rating: t.rating, pricing: t.pricing }));
 })();
 
 const seenTool = new Set();
@@ -144,6 +144,28 @@ if (toolIds.length === 0) {
 }
 
 /** priority/changefreq are hints only, but a flat 1.0 across 1300 URLs is noise. */
+
+/**
+ * Free-tools pages. Mirrors utils/freeTools.ts and prerender.mjs: a category
+ * earns a page once it has four free or freemium tools, below which it has
+ * nothing to say that the category page does not already say.
+ */
+const freeCategorySlugs = (() => {
+  const known = new Set(pluck(read('data/categories.ts'), 'id'));
+  // Count only canonical tools. Some products appear under two ids, and
+  // counting both pushes a category over the four-tool threshold here while the
+  // prerender — which dedupes by name — leaves it below and writes no page.
+  const canonical = new Set(canonicalToolIds);
+  const counts = new Map();
+  for (const t of tools) {
+    if (!canonical.has(t.id)) continue;
+    if (!/^(free|freemium|open source)$/i.test(t.pricing || '')) continue;
+    if (!known.has(t.category)) continue;
+    counts.set(t.category, (counts.get(t.category) || 0) + 1);
+  }
+  return [...counts.entries()].filter(([, n]) => n >= 4).map(([id]) => slugify(id));
+})();
+
 const urls = [
   { loc: '/', changefreq: 'daily', priority: '1.0' },
   { loc: '/categories', changefreq: 'weekly', priority: '0.9' },
@@ -153,6 +175,7 @@ const urls = [
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
   { loc: '/prompts', changefreq: 'weekly', priority: '0.7' },
   { loc: '/earn', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/free', changefreq: 'weekly', priority: '0.85' },
   { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
   { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3' },
@@ -211,6 +234,11 @@ const urls = [
     loc: `/alternatives/${slugify(id)}-alternatives`,
     changefreq: 'monthly',
     priority: '0.65',
+  })),
+  ...freeCategorySlugs.map((slug) => ({
+    loc: `/free/${slug}`,
+    changefreq: 'weekly',
+    priority: '0.8',
   })),
 ];
 
