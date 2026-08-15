@@ -79,7 +79,13 @@ const slugify = (v) =>
     .replace(/^-+|-+$/g, '');
 const collectionSlugs = pluck(read('data/collections.ts'), 'slug');
 const blogSlugs = pluck(read('data/blog.ts') || read('data/blogs.ts'), 'slug');
-const workflowIds = pluck(read('data/workflows.ts'), 'id');
+/**
+ * pluck() matches every "id" in the file, and each workflow's steps carry their
+ * own — so s1..s4 were being published as workflow URLs that have never
+ * existed. Only ids at the top level of a workflow object are real routes, and
+ * those all start with "wf-".
+ */
+const workflowIds = pluck(read('data/workflows.ts'), 'id').filter((id) => /^wf-/.test(id));
 
 /**
  * Comparison and alternatives pages. Both were previously unreachable:
@@ -90,9 +96,21 @@ const workflowIds = pluck(read('data/workflows.ts'), 'id');
  *
  * Mirrors utils/pairs.ts: top four tools per category, paired.
  */
-const toolRecords = [...read('data/tools.ts').matchAll(
-  /"id":\s*"([^"]+)"[\s\S]{0,600}?"category":\s*"([^"]+)"[\s\S]{0,400}?"rating":\s*([0-9.]+)/g,
-)].map((m) => ({ id: m[1], category: m[2], rating: parseFloat(m[3]) }));
+/**
+ * Parsed the same way prerender.mjs parses it.
+ *
+ * This used to scan the file with a regex over fixed-size windows, which reads
+ * a slightly different set of tools than the prerender does — different set,
+ * different top four per category, and three comparison URLs published here
+ * that no page was ever written for. One parser, one answer.
+ */
+const toolRecords = (() => {
+  const src = read('data/tools.ts');
+  const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
+  return eval(src.slice(start, src.indexOf('\n];', start) + 2))
+    .filter(Boolean)
+    .map((t) => ({ id: t.id, category: t.category, rating: t.rating }));
+})();
 
 const seenTool = new Set();
 const tools = toolRecords.filter((t) => (seenTool.has(t.id) ? false : seenTool.add(t.id)));
