@@ -81,3 +81,21 @@ export const freeCategories = (): FreeCategory[] => {
 
 export const findFreeCategory = (slug?: string): FreeCategory | undefined =>
   slug ? freeCategories().find((c) => c.slug === slug) : undefined;
+
+/**
+ * Totals for the hub, counted across the categories it actually links to.
+ *
+ * Counting every free tool in the catalogue instead would overstate the page:
+ * tools in categories too small to earn a page, or filed under a category name
+ * that no longer exists, are not reachable from here. It also has to match what
+ * the prerender bakes into the title, or the static page and the rendered one
+ * quote different numbers for the same thing.
+ */
+export const freeTotals = () => {
+  const cats = freeCategories();
+  return {
+    categories: cats.length,
+    total: cats.reduce((n, c) => n + c.tools.length, 0),
+    fullyFree: cats.reduce((n, c) => n + c.fullyFree.length, 0),
+  };
+};

@@ -5,7 +5,7 @@ import { PageHeader } from '../components/PageHeader';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import SEO from '../components/SEO';
 import { CategoryIcon } from '../components/CategoryIcon';
-import { freeCategories, freeTools } from '../utils/freeTools';
+import { freeCategories, freeTotals } from '../utils/freeTools';
 
 /**
  * The hub for everything free in the catalogue.
@@ -16,8 +16,7 @@ import { freeCategories, freeTools } from '../utils/freeTools';
  */
 const FreeTools: React.FC = () => {
   const cats = useMemo(() => freeCategories(), []);
-  const all = useMemo(() => freeTools(), []);
-  const fullyFree = all.filter((t) => /^(free|open source)$/i.test(t.pricing || '')).length;
+  const { categories } = useMemo(() => freeTotals(), []);
 
   const schema = [
     {
@@ -29,7 +28,7 @@ const FreeTools: React.FC = () => {
           name: 'Are these AI tools completely free?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `${fullyFree} of them are free to use outright. The rest are freemium — a free tier that is genuinely usable, with paid plans above it. Each page separates the two so you know which is which before you sign up.`,
+            text: 'Some are free to use outright; the rest are freemium — a free tier that is genuinely usable, with paid plans above it. Every category page separates the two and gives the count for each, so you know which is which before you sign up.',
           },
         },
         {
@@ -55,8 +54,8 @@ const FreeTools: React.FC = () => {
   return (
     <div className="mx-auto max-w-shell px-4 py-8 sm:px-6">
       <SEO
-        title={`${all.length} Free AI Tools (${new Date().getFullYear()}) — Free & Freemium, Sorted`}
-        description={`${all.length} AI tools you can use without paying — ${fullyFree} completely free, the rest with a real free tier. Sorted by category, with free and freemium kept apart.`}
+        title={`Free AI Tools (${new Date().getFullYear()}) — ${categories} Categories, Free & Freemium Split`}
+        description={`AI tools you can use without paying, across ${categories} categories — the genuinely free ones listed apart from the ones with a free tier, so you know which is which before signing up.`}
         keywords={['free AI tools', 'best free AI tools', 'freemium AI tools', 'AI tools no cost']}
         url="/free"
         schema={schema}
@@ -66,10 +65,10 @@ const FreeTools: React.FC = () => {
 
       <PageHeader
         eyebrow="Free"
-        title={`${all.length} free AI tools, honestly labelled`}
+        title="Free AI tools, honestly labelled"
         lede={
           <>
-            <strong>{fullyFree}</strong> of these cost nothing at all. The rest are freemium — a real
+            Some cost nothing at all. The rest are freemium — a real
             free tier with paid plans above it. Most directories blur the two; every page here keeps
             them apart, so you know what you are signing up for.
           </>

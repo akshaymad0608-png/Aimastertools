@@ -279,19 +279,17 @@ const FREE_CATS = [...freeByCategory.entries()]
   })
   .sort((a, b) => b.tools.length - a.tools.length);
 
-const FREE_TOTAL = [...freeByCategory.values()].reduce((n, l) => n + l.length, 0);
-const FREE_FULLY = [...freeByCategory.values()].reduce((n, l) => n + l.filter(isFree).length, 0);
 
 const FREE_ROUTES = [
   {
     path: '/free',
-    heading: `${FREE_TOTAL} free AI tools, honestly labelled`,
-    title: `${FREE_TOTAL} Free AI Tools (${YEAR}) — Free & Freemium, Sorted | AI Master Tools`,
+    heading: 'Free AI tools, honestly labelled',
+    title: `Free AI Tools (${YEAR}) — ${FREE_CATS.length} Categories, Free & Freemium Split | AI Master Tools`,
     description: clamp(
-      `${FREE_TOTAL} AI tools you can use without paying — ${FREE_FULLY} completely free, the rest with a real free tier. Sorted by category, with free and freemium kept apart.`,
+      `AI tools you can use without paying, across ${FREE_CATS.length} categories — the genuinely free ones listed apart from the ones with a free tier, so you know which is which before signing up.`,
     ),
     extraHtml:
-      `<p style="font-size:15px;color:#475569">${FREE_FULLY} of these cost nothing at all. The rest are freemium — a real free tier with paid plans above it. Most directories blur the two; every page here keeps them apart.</p>` +
+      `<p style="font-size:15px;color:#475569">Some of these cost nothing at all. The rest are freemium — a real free tier with paid plans above it. Most directories blur the two; every page here keeps them apart, with the count for each.</p>` +
       `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${FREE_CATS.map(
         (c) =>
           `<li><a href="/free/${c.slug}">Free ${esc(c.name)} AI tools</a> — ${c.tools.length} tools, ${
