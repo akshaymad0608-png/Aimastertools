@@ -4,7 +4,12 @@ import { Twitter, Github, Linkedin, ArrowRight, Check, Loader2, ArrowUp } from '
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import Logo from './Logo';
+import { CATEGORIES } from '../data/categories';
 
+/**
+ * Free tools and Earn online reach the header but never reached here, so two
+ * live sections had no footer route on any page.
+ */
 const COLUMNS = [
   {
     heading: 'Browse',
@@ -21,6 +26,8 @@ const COLUMNS = [
     links: [
       { label: 'Compare two tools', to: '/compare' },
       { label: 'Find a tool', to: '/find' },
+      { label: 'Free tools', to: '/free' },
+      { label: 'Earn online', to: '/earn' },
       { label: 'Saved tools', to: '/bookmarks' },
       { label: 'Blog', to: '/blog' },
     ],
@@ -87,9 +94,13 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          {/* These labels are not headings. Rendered as h2 they put four extra
+              entries into the outline of every page on the site, competing with
+              the page's own content headings; the <nav> label already names each
+              landmark for anyone navigating by them. */}
           {COLUMNS.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>
-              <h2 className="label-mono">{column.heading}</h2>
+              <p className="label-mono">{column.heading}</p>
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
@@ -105,6 +116,38 @@ const Footer: React.FC = () => {
             </nav>
           ))}
         </div>
+
+        {/*
+          The busiest categories, linked from every page on the site.
+
+          The footer is the one block that renders on all 1,700 of them, which
+          makes it the cheapest place to put a link where crawlers and readers
+          will actually find it. Ahrefs counted 700 orphans here, and the
+          category pages were most of the chain: nothing linked them, so nothing
+          reached the ~624 tool pages behind them either.
+
+          Taken from CATEGORIES, which is already sorted by tool count, so this
+          follows the data instead of freezing a list that will go stale.
+        */}
+        <nav aria-label="Popular categories" className="mt-14 border-t border-[var(--color-border)] pt-8">
+          <p className="label-mono">Popular categories</p>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {CATEGORIES.slice(0, 12).map((cat) => (
+              <li key={cat.id}>
+                <Link to={`/category/${cat.slug}`} className="link-chip">
+                  {cat.name}
+                  <span className="link-chip__count">{cat.count}</span>
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link to="/categories" className="link-chip">
+                All {CATEGORIES.length} categories
+                <ArrowRight size={13} aria-hidden="true" />
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
         {/* Newsletter — one job, stated plainly */}
         <div className="mt-14 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cardBg)] p-6 sm:p-8">
