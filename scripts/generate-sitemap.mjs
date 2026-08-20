@@ -112,8 +112,17 @@ const toolRecords = (() => {
     .map((t) => ({ id: t.id, category: t.category, rating: t.rating, pricing: t.pricing }));
 })();
 
+// Pair from canonical tools only — the same list the tool URLs below use.
+//
+// Deduping by id alone let name-duplicates back in, and a pair naming one of
+// them is a URL the app cannot render: ComparePair resolves slugs through
+// MOCK_TOOLS, which drops exactly those tools. 57 such pairs were listed here
+// and prerendered as shells that hydrated into the not-found state.
+const canonicalSet = new Set(canonicalToolIds);
 const seenTool = new Set();
-const tools = toolRecords.filter((t) => (seenTool.has(t.id) ? false : seenTool.add(t.id)));
+const tools = toolRecords.filter(
+  (t) => canonicalSet.has(t.id) && !seenTool.has(t.id) && seenTool.add(t.id),
+);
 
 const byCategory = new Map();
 for (const t of tools) {

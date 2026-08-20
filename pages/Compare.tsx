@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Check, X, ExternalLink, Star, Plus, Lock } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
+import { COMPARISON_PAIRS, ComparisonPair } from '../utils/pairs';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import { usePro } from '../context/ProContext';
@@ -20,6 +21,16 @@ const Compare: React.FC = () => {
   });
   const [searchQuery, setSearchQuery] = useState('');
   const [isSelecting, setIsSelecting] = useState(false);
+
+  /** Ready-made pairs, grouped by category and ordered by how many exist. */
+  const pairsByCategory = useMemo(() => {
+    const groups = new Map<string, ComparisonPair[]>();
+    for (const pair of COMPARISON_PAIRS) {
+      if (!groups.has(pair.category)) groups.set(pair.category, []);
+      groups.get(pair.category)!.push(pair);
+    }
+    return [...groups.entries()].sort((x, y) => y[1].length - x[1].length);
+  }, []);
 
   const selectedTools = useMemo(() => {
     return selectedToolIds.map(id => MOCK_TOOLS.find(t => t.id === id)).filter(Boolean) as Tool[];
@@ -283,6 +294,50 @@ const Compare: React.FC = () => {
             </p>
           </div>
         )}
+
+        {/*
+          Every ready-made comparison, linked.
+
+          The picker above builds its comparison in state and puts the result at
+          /compare?tools=a,b — a URL this site's robots.txt blocks. So the 296
+          head-to-head pages under /compare/ had no inbound link from anywhere:
+          not from here, not from the homepage, not from any tool page. Nothing
+          reachable pointed at them, which is what put them in Ahrefs' orphan
+          list. Pair pages already cross-link within a category; this is the
+          entrance to that cluster.
+
+          Rendered eagerly and grouped by category so the list reads as a
+          directory rather than 296 loose chips.
+        */}
+        <section className="mt-16" aria-labelledby="ready-made">
+          <h2
+            id="ready-made"
+            className="text-xl font-bold text-[var(--color-text-primary)]"
+          >
+            Ready-made comparisons
+          </h2>
+          <p className="mt-2 max-w-2xl text-[14px] text-[var(--color-text-secondary)]">
+            {COMPARISON_PAIRS.length} head-to-head pages, already written — pricing,
+            ratings and what each tool does best.
+          </p>
+
+          <div className="mt-8 space-y-8">
+            {pairsByCategory.map(([category, pairs]) => (
+              <div key={category}>
+                <h3 className="rule-label mb-3">{category}</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {pairs.map((p) => (
+                    <li key={p.slug}>
+                      <Link to={`/compare/${p.slug}`} className="link-chip">
+                        {p.a.name} vs {p.b.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );

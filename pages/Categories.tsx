@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { CATEGORIES } from '../data/categories';
 import { CategoryCard } from '../components/CategoryCard';
@@ -10,8 +10,7 @@ import { breadcrumbSchema, itemListSchema } from '../utils/seo';
 import { MOCK_TOOLS } from '../data/tools';
 import { TOOL_COUNT, CATEGORY_COUNT } from '../utils/stats';
 
-const Categories: React.FC = () => {
-  const navigate = useNavigate();
+const Categories: React.FC = () => {
   const [query, setQuery] = useState('');
 
   const sorted = useMemo(() => [...CATEGORIES].sort((a, b) => b.count - a.count), []);
@@ -82,7 +81,7 @@ const Categories: React.FC = () => {
                   count={TOOL_COUNT}
                   color="var(--color-primary)"
                   description="The complete index, unfiltered and sorted by rating."
-                  onClick={() => navigate('/')}
+                  to="/"
                 />
               )}
               {visible.map((cat) => (
@@ -92,7 +91,7 @@ const Categories: React.FC = () => {
                   color={cat.color}
                   count={cat.count}
                   description={`Compare ${cat.count} ${cat.name.toLowerCase()} tools on price and rating.`}
-                  onClick={() => navigate(`/category/${cat.slug}`)}
+                  to={`/category/${cat.slug}`}
                 />
               ))}
             </div>

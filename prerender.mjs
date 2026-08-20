@@ -170,12 +170,18 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
   };
 });
 
-// The sitemap pairs tools from the id-deduped list, not the name-deduped one,
-// so the top four per category differ between the two. Mirror it exactly —
-// grouping from `byId` and sorting the same way — or 60 of the URLs it
-// advertises point at pages this script never wrote.
+// Pairs come from the name-deduped list — the same one utils/pairs.ts uses.
+//
+// This script and the sitemap used to pair from `byId` instead, which put 57
+// pairs on the site that the app cannot render: ComparePair resolves a slug
+// through MOCK_TOOLS, and every one of those 57 named a tool the name-dedup
+// had dropped. They shipped as prerendered shells that hydrated straight into
+// the not-found state, and the sitemap advertised all of them. Meanwhile 49
+// pairs the app does list were never prerendered at all.
+//
+// One list, three consumers: prerender, sitemap and utils/pairs.ts.
 const byCategory = new Map();
-for (const t of byId) {
+for (const t of TOOLS) {
   if (!byCategory.has(t.category)) byCategory.set(t.category, []);
   byCategory.get(t.category).push(t);
 }

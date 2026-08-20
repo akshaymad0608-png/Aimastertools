@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CategoryIcon from './CategoryIcon';
 
 interface CategoryCardProps {
@@ -7,6 +8,20 @@ interface CategoryCardProps {
   bg?: string;
   color?: string;
   count?: number;
+  /**
+   * Where this card goes. Pass it whenever the card navigates.
+   *
+   * Cards that navigate used to be buttons with onClick={() => navigate(...)},
+   * which is not a link: a crawler cannot follow it, middle-click and
+   * open-in-new-tab do nothing, and a screen reader announces a button rather
+   * than a destination. /categories rendered 48 of them and therefore had zero
+   * links to any category page — which orphaned the categories, the ~624 tool
+   * pages they lead to, and the alternatives pages those lead to in turn.
+   *
+   * Cards used as filter toggles keep onClick and stay buttons; that is a real
+   * button, not a link pretending to be one.
+   */
+  to?: string;
   onClick?: () => void;
   isSelected?: boolean;
   isTrending?: boolean;
@@ -23,22 +38,32 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
   name,
   color,
   count,
+  to,
   onClick,
   isSelected,
   isTrending,
   description,
 }) => {
+  const shell = `group flex h-full w-[230px] snap-start flex-col rounded-[var(--radius-md)] border p-5 text-left transition-all duration-200 md:w-auto ${
+    isSelected
+      ? 'border-[var(--color-primary)] bg-[var(--color-primary-soft)]'
+      : 'border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-[var(--shadow-card)] hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-lift)]'
+  }`;
+
+  // A card that navigates is a link; a card that toggles a filter is a button.
+  const Shell: React.FC<{ children: React.ReactNode }> = ({ children }) =>
+    to ? (
+      <Link to={to} className={shell}>
+        {children}
+      </Link>
+    ) : (
+      <button type="button" onClick={onClick} aria-pressed={isSelected} className={shell}>
+        {children}
+      </button>
+    );
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={isSelected}
-      className={`group flex h-full w-[230px] snap-start flex-col rounded-[var(--radius-md)] border p-5 text-left transition-all duration-200 md:w-auto ${
-        isSelected
-          ? 'border-[var(--color-primary)] bg-[var(--color-primary-soft)]'
-          : 'border-[var(--color-border)] bg-[var(--color-cardBg)] shadow-[var(--shadow-card)] hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[var(--shadow-lift)]'
-      }`}
-    >
+    <Shell>
       <div className="flex items-start justify-between gap-2">
         <span
           aria-hidden="true"
@@ -78,7 +103,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({
           &rarr;
         </span>
       </div>
-    </button>
+    </Shell>
   );
 };
 
