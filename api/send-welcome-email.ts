@@ -33,7 +33,7 @@ export default async function handler(req: any, res: any) {
       subject: 'Welcome to AI Master Tools!',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #4f46e5;">Welcome to AI Master Tools!</h2>
+          <h2 style="color: #0176be;">Welcome to AI Master Tools!</h2>
           <p>Hi ${name || 'there'},</p>
           <p>Thank you for joining AI Master Tools. We're excited to have you on board!</p>
           <p>With your account, you can now access our suite of AI-powered tools designed to boost your productivity.</p>

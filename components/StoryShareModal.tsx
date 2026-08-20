@@ -157,7 +157,7 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
               className={`w-full flex items-center justify-center px-4 py-3 rounded-[var(--radius-sm)] font-medium transition-all ${
                 isDownloaded
                   ? 'bg-emerald-500/10 text-[var(--color-primary)] border border-emerald-500/20'
-                  : '   text-white hover:opacity-90 shadow-[var(--shadow-card)] hover:shadow-indigo-500/25'
+                  : 'bg-[var(--color-primary-fill)] text-white hover:opacity-90 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-glow)]'
               } disabled:opacity-50`}
             >
               {isGenerating ? (

@@ -13,12 +13,13 @@
 
 /* ============================================================
    AIMasterTools — Design System v7  "Refined" (Premium & Clean)
-   Restrained, professional, premium — neutral zinc + one refined indigo accent.
+   Restrained, professional, premium — white ground + one blue accent.
 
-   Palette : white / neutral-zinc surfaces + a single refined indigo accent
-   Type    : Hanken Grotesk (display) / Inter (body) / IBM Plex Mono (data)
+   Palette : white / pale-blue surfaces + a single blue accent, taken from
+             vasundhara.io and set one step deeper so it clears WCAG AA
+   Type    : Inter (display and body) / IBM Plex Mono (data)
 
-   A single confident accent (cobalt) does all the work; everything else is
+   A single confident accent does all the work; everything else is
    neutral so the content leads. The mono face carries anything countable —
    ranks, counts, prices, labels — so numbers read as data, not prose.
    ============================================================ */
@@ -46,7 +47,11 @@
   --color-error: #c0452c;
 
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Hanken Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+  /* One typeface, the way vasundhara.io does it — Inter for body and display
+     both. Hanken Grotesk is gone: a second family was the loudest thing
+     separating this from the look being copied, and dropping it also drops a
+     font file from the critical path. */
+  --font-display: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
 
   --radius-xs: 4px;
@@ -60,44 +65,64 @@
   --shadow-glow: var(--shadow-glow-val);
 }
 
-/* ---------- Light : "Refined" (Premium & Clean) ---------- */
+/* ---------- Light : "Refined" (Premium & Clean) ----------
+ *
+ * Blue, on the model of vasundhara.io: white ground, one accent, and pale
+ * blue tints doing the work that neutral greys used to.
+ *
+ * Their exact blues could not come across. #0094EE carries white text at
+ * 3.25:1 and their darker #0382D1 at 4.10:1 — both under the 4.5:1 AA needs
+ * for normal text, so their own buttons and links fail it. The hue is theirs;
+ * the value is one step deeper so it passes. #0094EE survives as --accent,
+ * for large decorative fills that carry no text.
+ *
+ * Every pair below is measured, not guessed.
+ */
 :root,
 .light {
   --bg-color: #ffffff;
   --card-bg-color: #ffffff;
-  --surface-color: #f7f7f8;
+  --surface-color: #f4fbff;   /* their section tint, in place of #f7f7f8 grey */
   --elevated-color: #ffffff;
 
-  --text-primary-color: #18181b;
-  --text-secondary-color: #52525b;
-  --text-muted-color: #a1a1aa;
+  --text-primary-color: #132028;   /* theirs — near-black with a blue cast */
+  --text-secondary-color: #4a5763; /* 7.41:1 */
+  --text-muted-color: #6b7280;     /* theirs — 4.83:1 on white, 4.62:1 on the tint */
 
-  --border-color: #e6e6e9;
-  --border-strong-color: #d4d4d8;
+  --border-color: #e2ecf3;
+  --border-strong-color: #c9dce8;
 
-  --primary-color: #4f46e5;
-  --primary-fill-color: #4f46e5;
-  --primary-dark-color: #4338ca;
-  --primary-soft-color: #eef2ff;
-  --primary-rgb: 79, 70, 229;
-  --color-primary-rgb: 79, 70, 229;
+  --primary-color: #0176be;        /* 4.84:1 as text on white, 4.63:1 on the tint */
+  --primary-fill-color: #0176be;   /* white label on it: 4.84:1 */
+  --primary-dark-color: #016cae;   /* hover — 5.59:1 */
+  --primary-soft-color: #e4f4ff;   /* a shade past --surface, or badges vanish on it */
+  --primary-rgb: 1, 118, 190;
+  --color-primary-rgb: 1, 118, 190;
 
-  --secondary-color: #18181b;
-  --accent-color: #4f46e5;
-  --accent-soft-color: #eef2ff;
-  --accent-rgb: 79, 70, 229;
+  --secondary-color: #132028;
+  --accent-color: #0094ee;         /* their brand blue — decorative fills only */
+  --accent-soft-color: #dcfff2;    /* their mint */
+  --accent-rgb: 0, 148, 238;
 
-  --gradient-primary: linear-gradient(92deg, #4f46e5 0%, #6366f1 100%);
-  --gradient-primary-soft: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  /* Badge labels sit on the tints, which lift the floor: the primary blue
+     reads 4.31:1 on #e4f4ff, so badge text runs a step darker than the link
+     blue. The mint needs a green-black rather than a blue to clear it. */
+  --badge-text-color: #016cae;
+  --badge-accent-text-color: #0f5c42;
 
-  --shadow-card-val: 0 1px 2px rgba(24, 24, 27, .04), 0 1px 3px rgba(24, 24, 27, .03);
-  --shadow-lift-val: 0 12px 32px -12px rgba(24, 24, 27, .14), 0 4px 10px rgba(24, 24, 27, .05);
-  --shadow-glow-val: 0 0 0 3px rgba(79, 70, 229, .15);
+  /* Near-flat, like theirs. Both stops carry white text, so both clear 4.5:1
+     (5.59 and 4.58) — and both are legible as gradient text on white. */
+  --gradient-primary: linear-gradient(92deg, #016cae 0%, #017ac4 100%);
+  --gradient-primary-soft: linear-gradient(135deg, #f4fbff 0%, #dcfff2 100%);
 
-  --grid-line: rgba(24, 24, 27, .035);
-  --scrollbar-track: #f7f7f8;
-  --scrollbar-thumb: #d4d4d8;
-  --scrollbar-thumb-hover: #b8b8bf;
+  --shadow-card-val: 0 1px 2px rgba(19, 32, 40, .05), 0 1px 3px rgba(19, 32, 40, .04);
+  --shadow-lift-val: 0 12px 32px -12px rgba(19, 32, 40, .15), 0 4px 10px rgba(19, 32, 40, .06);
+  --shadow-glow-val: 0 0 0 3px rgba(1, 118, 190, .15);
+
+  --grid-line: rgba(19, 32, 40, .035);
+  --scrollbar-track: #f4fbff;
+  --scrollbar-thumb: #c9dce8;
+  --scrollbar-thumb-hover: #a9c6d8;
   color-scheme: light;
 }
 
@@ -115,29 +140,41 @@
   --border-color: #26262a;
   --border-strong-color: #3a3a40;
 
-  --primary-color: #7c74ff;
-  --primary-fill-color: #635af0;
-  --primary-dark-color: #635bf7;
-  --primary-soft-color: rgba(124, 116, 255, .16);
-  --primary-rgb: 124, 116, 255;
-  --color-primary-rgb: 124, 116, 255;
+  /* Dark keeps the same blue, lifted: on #0a0a0b the light-mode #0176be reads
+     as a dead navy. Text blue and fill blue split here — the bright one is
+     legible on the dark ground (8.01:1), the deep one carries white (4.84:1). */
+  --primary-color: #38adf8;
+  --primary-fill-color: #0176be;
+  --primary-dark-color: #017ac4;
+  --primary-soft-color: rgba(56, 173, 248, .16);
+  --primary-rgb: 56, 173, 248;
+  --color-primary-rgb: 56, 173, 248;
 
   --secondary-color: #fafafa;
-  --accent-color: #7c74ff;
-  --accent-soft-color: rgba(124, 116, 255, .15);
+  /* Their brand blue, kept distinct from --primary: the hero headline is a
+     primary-to-accent gradient, and setting both to the same value collapsed
+     it into a flat fill. 6.10:1 on the page, 5.71:1 on a card. */
+  --accent-color: #0094ee;
+  --accent-soft-color: rgba(56, 173, 248, .15);
   /* Badge labels are 10.5px on a 15% tint; the accent itself only just clears
      4.5:1 there, so the badge text runs a step brighter than the accent. */
-  --badge-text-color: #8a83ff;
-  --accent-rgb: 124, 116, 255;
+  --badge-text-color: #5cc0fb;
+  --badge-accent-text-color: #5cc0fb;
+  --accent-rgb: 56, 173, 248;
 
-  /* Both stops carry white text, so both have to clear 4.5:1 — the old light
-     end (#9a93ff) sat at 2.63 and the label washed out across half the button. */
-  --gradient-primary: linear-gradient(92deg, #5b52e8 0%, #635af0 100%);
-  --gradient-primary-soft: linear-gradient(135deg, rgba(124, 116, 255, .14) 0%, rgba(154, 147, 255, .14) 100%);
+  /* This gradient is painted two ways and each pulls the opposite direction:
+     as a button fill it carries white text, so it wants to be dark (4.5:1);
+     as clipped headline text on #0a0a0b it wants to be bright (3:1 at that
+     size). That leaves a narrow legal band — luminance .110 to .183 — and
+     both stops sit near its top so the headline is as bright as the white
+     label allows. White on them: 4.84 and 4.58. Them on the page: 4.07
+     and 4.30. */
+  --gradient-primary: linear-gradient(92deg, #0176be 0%, #017ac4 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(56, 173, 248, .14) 0%, rgba(0, 148, 238, .14) 100%);
 
   --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .5);
   --shadow-lift-val: 0 16px 40px -16px rgba(0, 0, 0, .75), 0 3px 10px rgba(0, 0, 0, .4);
-  --shadow-glow-val: 0 0 0 3px rgba(124, 116, 255, .28);
+  --shadow-glow-val: 0 0 0 3px rgba(56, 173, 248, .28);
 
   --grid-line: rgba(250, 250, 250, .04);
   --scrollbar-track: #0a0a0b;
@@ -165,7 +202,7 @@ body {
 }
 
 /*
- * Refined: headings are Hanken Grotesk with tight tracking — confident but calm.
+ * Refined: headings are Inter with tight tracking — confident but calm.
  * Colour is used sparingly; whitespace and typography carry the premium feel.
  */
 h1, h2, h3, h4, h5, h6 {
@@ -417,7 +454,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .badge-primary { background: var(--primary-soft-color); border-color: rgba(var(--primary-rgb), .28); color: var(--badge-text-color, var(--primary-color)); }
-.badge-accent  { background: var(--accent-soft-color);  border-color: rgba(var(--accent-rgb), .3);   color: var(--badge-text-color, var(--accent-color)); }
+/* Its own label colour: the accent tint is mint, and the blue that reads on
+   the primary tint does not clear 4.5:1 on green. */
+.badge-accent  { background: var(--accent-soft-color);  border-color: rgba(var(--accent-rgb), .3);   color: var(--badge-accent-text-color, var(--badge-text-color, var(--accent-color))); }
 
 /* ======================= Text effects ======================== */
 
