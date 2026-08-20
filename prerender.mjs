@@ -625,3 +625,34 @@ if (descWarnings.length) {
   console.warn(`prerender: ${descWarnings.length} descriptions outside ${DESC_MIN}-${DESC_MAX}`);
   for (const w of descWarnings.slice(0, 8)) console.warn(`  ${w}`);
 }
+
+/**
+ * A real 404 document.
+ *
+ * Vercel serves this with a 404 status for any path that matches no file —
+ * but only now that the catch-all rewrite is gone. Until this, every typo and
+ * stale link answered 200 with the homepage and `index, follow`, which offers
+ * Google an unbounded supply of duplicate pages at addresses nobody chose.
+ *
+ * noindex as well as the status, because the two are read by different things
+ * and either one alone leaves a gap.
+ */
+const notFoundHtml = template
+  .replace(/<title>[\s\S]*?<\/title>/, '<title>Page not found — AI Master Tools</title>')
+  .replace(
+    /<meta name="description"[^>]*>/,
+    '<meta name="description" content="That page does not exist. The tool directory, comparisons, alternatives and category guides are all still here." />',
+  )
+  .replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
+  .replace(
+    /<div id="root"[^>]*><\/div>/,
+    `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif">` +
+      `<h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">Page not found</h1>` +
+      `<p style="font-size:17px;line-height:1.6;color:#475569">That page does not exist — the link may be out of date, or the address mistyped.</p>` +
+      `<nav aria-label="Browse"><a href="/">All AI tools</a> &middot; <a href="/categories">Categories</a> &middot; ` +
+      `<a href="/compare">Compare</a> &middot; <a href="/free">Free tools</a> &middot; <a href="/blog">Blog</a></nav>` +
+      `</div></div>`,
+  );
+
+writeFileSync(join(DIST, '404.html'), notFoundHtml);
+console.log('prerender: 404.html (noindex)');

@@ -1,7 +1,10 @@
 {
+  "redirects": [
+    { "source": "/blogs", "destination": "/blog", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/bookmarks", "destination": "/index.html" }
   ],
   "headers": [
     {
