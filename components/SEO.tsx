@@ -43,10 +43,33 @@ const SEO: React.FC<SEOProps> = ({
   const canonical = url ? absoluteUrl(url) : absoluteUrl(currentPath.split('?')[0]);
   const ogUrl = url ? absoluteUrl(url) : absoluteUrl(currentPath);
 
-  const fullTitle =
+  /**
+   * On a prerendered route the baked title wins over the one this component
+   * would compute.
+   *
+   * prerender.mjs sizes every title to the 50-60 characters a result listing
+   * shows, choosing from a ladder of phrasings per page. The templates here
+   * were written separately and do not agree with it — the Poe alternatives
+   * page shipped "8 Best Poe Alternatives and Competitors to Try" in the HTML
+   * and then Helmet appended "12 Best Poe Alternatives (2026) — Free & Paid |
+   * AI Master Tools" at 63 characters. Two titles in one document, and the
+   * longer wrong one is what a renderer like Google reads.
+   *
+   * Reading the served title back makes the prerenderer the single source and
+   * keeps this component authoritative for client-side navigation, where no
+   * prerendered tag exists for the new route.
+   */
+  const prerenderedTitle =
+    typeof document !== 'undefined'
+      ? document.querySelector('title[data-prerendered="true"]')?.textContent?.trim()
+      : undefined;
+
+  const computedTitle =
     title.includes(SITE.name) || title.includes(SITE.shortName)
       ? title
       : `${title} | ${SITE.name}`;
+
+  const fullTitle = prerenderedTitle || computedTitle;
 
   const metaDescription = clampDescription(description);
 

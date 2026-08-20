@@ -558,7 +558,10 @@ for (const route of routes) {
   const t = esc(route.title);
   const d = esc(route.description);
   let html = template;
-  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${t}</title>`);
+  // data-prerendered marks this as the sized title. components/SEO.tsx reads it
+  // back and uses it instead of computing its own, so the document ends up with
+  // one title rather than two that disagree.
+  html = html.replace(/<title>[\s\S]*?<\/title>/, `<title data-prerendered="true">${t}</title>`);
   html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${d}" />`);
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url}" />`);
   html = html.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${t}" />`);
