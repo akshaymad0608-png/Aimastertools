@@ -6,41 +6,41 @@
     <atom:link href="https://aimastertools.space/rss.xml" rel="self" type="application/rss+xml" />
     <description>AI tool guides, comparisons and prompt-engineering tutorials from AI Master Tools.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Aug 2026 10:59:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 11:13:31 GMT</lastBuildDate>
     <item>
-      <title>Top 10 AI Tools for Students in 2026</title>
+      <title>Top 10 AI Tools for Students in 2026: Research &amp; Writing</title>
       <link>https://aimastertools.space/blog/top-10-ai-tools-for-students-in-2026</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/top-10-ai-tools-for-students-in-2026</guid>
       <pubDate>Thu, 23 Oct 2025 18:30:00 GMT</pubDate>
       <category>EDUCATION</category>
-      <description>Boost your academic performance with these cutting-edge AI assistants designed for research and writing.</description>
+      <description>Boost your academic performance with these cutting-edge AI assistants designed for research and writing, from first outline to final draft.</description>
     </item>
     <item>
-      <title>AI vs Human Creativity: The Balance</title>
+      <title>AI vs Human Creativity: Finding the Balance in Design</title>
       <link>https://aimastertools.space/blog/ai-vs-human-creativity-the-balance</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/ai-vs-human-creativity-the-balance</guid>
       <pubDate>Sun, 19 Oct 2025 18:30:00 GMT</pubDate>
       <category>DESIGN</category>
-      <description>Exploring the ethical boundaries and collaborative potential of generative AI in creative industries.</description>
+      <description>Exploring the ethical boundaries and collaborative potential of generative AI in creative industries, and where the line between tool and author sits.</description>
     </item>
     <item>
-      <title>Latest AI Trends to Watch</title>
+      <title>Latest AI Trends to Watch: Agents and Multimodal Models</title>
       <link>https://aimastertools.space/blog/latest-ai-trends-to-watch</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/latest-ai-trends-to-watch</guid>
       <pubDate>Tue, 14 Oct 2025 18:30:00 GMT</pubDate>
       <category>RESEARCH</category>
-      <description>From autonomous agents to multimodal models, here is what is shaping the future of technology.</description>
+      <description>From autonomous agents to multimodal models, here is what is shaping the future of technology, and which shifts are worth your attention right now.</description>
     </item>
     <item>
-      <title>The Rise of AI Agents in Daily Workflows</title>
+      <title>The Rise of AI Agents: Beyond Chatbots to Real Workflows</title>
       <link>https://aimastertools.space/blog/the-rise-of-ai-agents-in-daily-workflows</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/the-rise-of-ai-agents-in-daily-workflows</guid>
       <pubDate>Sat, 01 Nov 2025 18:30:00 GMT</pubDate>
       <category>PRODUCTIVITY</category>
-      <description>How autonomous AI agents are moving beyond chatbots to actually execute complex tasks across multiple applications.</description>
+      <description>How autonomous AI agents are moving beyond chatbots to actually execute multi-step work, and what that changes about the tools you already use daily.</description>
     </item>
     <item>
-      <title>Mastering Midjourney V7: Prompt Guide</title>
+      <title>Mastering Midjourney V7: Complete Prompt and Feature Guide</title>
       <link>https://aimastertools.space/blog/mastering-midjourney-v7-prompt-guide</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/mastering-midjourney-v7-prompt-guide</guid>
       <pubDate>Fri, 07 Nov 2025 18:30:00 GMT</pubDate>
@@ -48,28 +48,28 @@
       <description>A comprehensive guide to the latest features in Midjourney, including style references, character consistency, and advanced prompting techniques.</description>
     </item>
     <item>
-      <title>Code Generation Models Compared: Claude vs GPT-4</title>
+      <title>Code Generation Compared: Claude vs GPT-4 on Real Tasks</title>
       <link>https://aimastertools.space/blog/code-generation-models-compared-claude-vs-gpt-4</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/code-generation-models-compared-claude-vs-gpt-4</guid>
       <pubDate>Tue, 11 Nov 2025 18:30:00 GMT</pubDate>
       <category>CODING</category>
-      <description>We benchmarked the top LLMs on complex coding tasks to see which one truly writes the best, most bug-free code.</description>
+      <description>We benchmarked the top LLMs on complex coding tasks to see which one actually ships working code, and where each model reliably falls short.</description>
     </item>
     <item>
-      <title>How to Build RAG Applications with LangChain</title>
+      <title>How to Build RAG Applications with LangChain: Step by Step</title>
       <link>https://aimastertools.space/blog/how-to-build-rag-applications-with-langchain</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/how-to-build-rag-applications-with-langchain</guid>
       <pubDate>Fri, 14 Nov 2025 18:30:00 GMT</pubDate>
       <category>CODING</category>
-      <description>Step-by-step tutorial on building Retrieval-Augmented Generation apps to let your LLM chat with your own documents.</description>
+      <description>Step-by-step tutorial on building Retrieval-Augmented Generation apps with LangChain, from loading your documents to returning grounded answers.</description>
     </item>
     <item>
-      <title>AI in Education: Personalized Learning at Scale</title>
+      <title>AI in Education: Personalized Learning at Scale for Schools</title>
       <link>https://aimastertools.space/blog/ai-in-education-personalized-learning-at-scale</link>
       <guid isPermaLink="true">https://aimastertools.space/blog/ai-in-education-personalized-learning-at-scale</guid>
       <pubDate>Wed, 19 Nov 2025 18:30:00 GMT</pubDate>
       <category>EDUCATION</category>
-      <description>How schools and universities are integrating AI tutors to provide personalized, 1-on-1 education to every student.</description>
+      <description>How schools and universities are integrating AI tutors to provide one-to-one support at a scale no staffing budget could ever reach on its own.</description>
     </item>
   </channel>
 </rss>
