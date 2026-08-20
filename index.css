@@ -309,12 +309,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 .skip-link:focus { left: 0; }
 
+/* Scroll reveal — see components/Reveal.tsx for why the visible state is the
+   one that wins by default. */
+.reveal {
+  opacity: 0;
+  transition: opacity .5s ease, transform .5s cubic-bezier(.2, .7, .3, 1);
+}
+.reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* The blanket rule above only shortens the transition — it does not undo the
+     opacity:0 the element starts at, so without this a reduced-motion reader
+     would get the hidden state permanently. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

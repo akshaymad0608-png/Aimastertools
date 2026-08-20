@@ -1,8 +1,8 @@
 import { BlogCoverImage } from './BlogCoverImage';
+import Reveal from './Reveal';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
-import { motion } from 'framer-motion';
 import { 
   Clock, ArrowRight, Bot, GraduationCap, Brain, Palette, Code, Layout, Calendar 
 } from 'lucide-react';
@@ -121,12 +121,7 @@ export const BlogSection: React.FC = () => {
           
           {/* LEFT SIDE — Featured Article Card (col-span-8) */}
           <div className="lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <Reveal>
               <Link
                 to={`/blog/${chatbotPost.slug || chatbotPost.id}`}
                 className="group flex flex-col bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] overflow-hidden shadow-sm hover:border-[var(--color-primary)] transition-all duration-300"
@@ -189,7 +184,7 @@ export const BlogSection: React.FC = () => {
                 </div>
 
               </Link>
-            </motion.div>
+            </Reveal>
           </div>
 
           {/* RIGHT SIDE — Trending Insights Sidebar (col-span-4) */}
@@ -203,13 +198,7 @@ export const BlogSection: React.FC = () => {
               const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-slate-500" };
 
               return (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
+                <Reveal key={post.id} delay={index * 80}>
                   <Link 
                     to={`/blog/${post.slug || post.id}`}
                     className="group flex gap-4 bg-[var(--color-cardBg)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-4 shadow-sm hover:shadow-[var(--shadow-card)] hover:border-[var(--color-primary)] transition-all duration-300"
@@ -263,7 +252,7 @@ export const BlogSection: React.FC = () => {
 
                     </div>
                   </Link>
-                </motion.div>
+                </Reveal>
               );
             })}
           </div>

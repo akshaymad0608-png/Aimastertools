@@ -11,6 +11,7 @@ import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../utils/stats';
 import { CATEGORIES } from '../data/categories';
 import { MOCK_TOOLS } from '../data/tools';
 import { CategoryCard } from '../components/CategoryCard';
+import Reveal from '../components/Reveal';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import { doc, setDoc, serverTimestamp, addDoc, collection } from 'firebase/firestore';
@@ -520,12 +521,16 @@ const Home: React.FC = () => {
 
       <RecentlyViewed />
 
-      {/* Curated Blog Posts */}
-      <CollectionsSection />
-      <BlogSection />
-
-      <FAQSection />
-      <NewsletterSection showToast={showToast} />
+      {/*
+        Each section fades up as it arrives. Reveal keeps the visible state as
+        the default and falls back to it on reduced motion, on a browser with
+        no IntersectionObserver, and on a 1.2s failsafe — so a section can be
+        late but never invisible.
+      */}
+      <Reveal><CollectionsSection /></Reveal>
+      <Reveal><BlogSection /></Reveal>
+      <Reveal><FAQSection /></Reveal>
+      <Reveal><NewsletterSection showToast={showToast} /></Reveal>
     </>
   );
 };

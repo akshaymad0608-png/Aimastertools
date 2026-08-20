@@ -180,7 +180,21 @@ export const toolSchema = (tool: Tool, reviewCount = 0): Json => ({
   description: tool.longDescription || tool.description,
   url: absoluteUrl(`/tool/${tool.id}`),
   sameAs: tool.url,
-  image: tool.imageUrl,
+  /**
+   * No `image`.
+   *
+   * It used to be tool.imageUrl, which is an Unsplash stock photo — every one
+   * of the 882 records carries one and not a single one depicts the product.
+   * Schema.org `image` is a claim about what the item looks like, so 640 tool
+   * pages were each telling Google "here is a picture of this software" and
+   * handing it a photograph of something else entirely.
+   *
+   * The honest alternatives are both worse than omitting it: the site's own OG
+   * image depicts AI Master Tools rather than the tool, and the only per-tool
+   * artwork available is a favicon from the tool's domain, which is far below
+   * the size Google will use. `image` is not required for SoftwareApplication,
+   * so the field is simply gone.
+   */
   applicationCategory: 'BusinessApplication',
   applicationSubCategory: tool.category,
   operatingSystem: 'Web',
