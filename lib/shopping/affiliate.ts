@@ -27,7 +27,27 @@ export interface AffiliateLink {
   rel: string;
 }
 
-const AMAZON_HOST = /(^|\.)amazon\.[a-z.]+$/i;
+/** amazon.in, amazon.com, www.amazon.co.uk … the full storefront domains. */
+const AMAZON_STORE = /(^|\.)amazon\.[a-z.]+$/i;
+
+/**
+ * Amazon's shortened link domains, plus the .amazon gTLD Amazon owns.
+ *
+ * These were being read as "not Amazon" — including amzn.to, which is what
+ * SiteStripe hands you when you pick the short form. The button then said
+ * "Check latest price" instead of naming the retailer, and the link fell
+ * outside every Amazon-specific rule in this file.
+ */
+const AMAZON_SHORT = /^(amzn\.to|amzn\.eu|amzn\.asia|a\.co|.*\.amazon)$/i;
+
+const isAmazonHost = (host: string) => AMAZON_STORE.test(host) || AMAZON_SHORT.test(host);
+
+/**
+ * A shortened link already carries its tag inside the redirect. Appending
+ * `?tag=` to it does nothing useful and risks mangling a link Amazon
+ * generated, so short links are passed through exactly as stored.
+ */
+const isShortLink = (host: string) => AMAZON_SHORT.test(host);
 
 /**
  * Resolve where a product's button should point.
@@ -53,10 +73,14 @@ export const resolveAffiliateLink = (
 
   if (url.protocol !== 'https:' && url.protocol !== 'http:') return null;
 
-  const isAmazon = AMAZON_HOST.test(url.hostname);
+  const isAmazon = isAmazonHost(url.hostname);
   const rel = 'noopener noreferrer sponsored nofollow';
 
   if (!isAmazon) return { href: url.toString(), isAmazon: false, rel };
+
+  // A short link carries its tag inside the redirect. Nothing to add, and
+  // nothing that should be rewritten.
+  if (isShortLink(url.hostname)) return { href: url.toString(), isAmazon: true, rel };
 
   // If the Special Link already carries a tag, it is left exactly as generated.
   const existing = url.searchParams.get('tag');
