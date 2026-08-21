@@ -187,6 +187,7 @@ const urls = [
   { loc: '/free', changefreq: 'weekly', priority: '0.85' },
   { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
   { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
+  { loc: '/about', changefreq: 'monthly', priority: '0.5' },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3' },
   { loc: '/privacy', changefreq: 'yearly', priority: '0.2' },
   { loc: '/terms', changefreq: 'yearly', priority: '0.2' },

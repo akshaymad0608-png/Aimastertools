@@ -326,6 +326,12 @@ const WORKFLOW_ROUTES = WORKFLOWS.filter((w) => w.id).map((w) => ({
 
 const LEGAL_ROUTES = [
   {
+    path: '/about',
+    heading: 'About AI Master Tools',
+    title: 'About AI Master Tools — Who Compiles This Index, and How',
+    description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, what the ratings mean, and how the site makes money.',
+  },
+  {
     path: '/privacy',
     heading: 'Privacy Policy',
     title: 'Privacy Policy — What AI Master Tools Collects and Why',
