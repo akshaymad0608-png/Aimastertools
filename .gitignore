@@ -13,6 +13,10 @@ dist-ssr
 *.local
 .env
 .env.*
+# …except the template, which is the one env file that must be committed: it
+# carries no values, only the names, and the warning about which of them are
+# compiled into the client bundle.
+!.env.example
 
 # Editor directories and files
 .vscode/*
