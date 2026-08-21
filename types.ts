@@ -11,7 +11,8 @@ export interface Tool {
   url: string;
   domain?: string;
   brandColor?: string;
-  imageUrl: string;
+  /** Optional. Older records carry an unrelated stock photo; newer ones do not. */
+  imageUrl?: string;
   pricing: 'Free' | 'Freemium' | 'Paid' | 'Open Source' | 'Usage Based';
   rating: number;
   featured: boolean;

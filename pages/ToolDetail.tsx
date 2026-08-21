@@ -105,11 +105,26 @@ const ToolDetail: React.FC = () => {
 "applicationCategory": tool.category,
 "operatingSystem": "Web, Windows, macOS",
 "url": tool.url,
-"image": tool.imageUrl,
+/*
+  No `image` and no invented `price`.
+
+  This block is a second copy of the tool schema, separate from toolSchema in
+  utils/seo.ts, and it kept two claims that were removed there. `image` was
+  tool.imageUrl — an Unsplash stock photo that depicts no product, offered to
+  Google as a picture of the software. And `price` fell through to "10" for
+  everything not free, so every paid tool in the index was telling Google it
+  costs ten dollars. Nobody checked; the number was a fallback in a ternary.
+
+  A pricing *category* is true and is what the site actually knows, so that is
+  all the offer carries now.
+*/
 "offers": {
 "@type": "Offer",
-"price": tool.pricing === "Free" ? "0" : tool.pricing === "Freemium" ? "0" : "10",
-"priceCurrency": "USD"
+"category": tool.pricing,
+"priceCurrency": "USD",
+...(tool.pricing === "Free" || tool.pricing === "Open Source" ? { price: "0" } : {}),
+"availability": "https://schema.org/OnlineOnly",
+"url": tool.url
             }
           })}
         </script>
@@ -188,10 +203,19 @@ const ToolDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Image/Screenshot Section */}
-            <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-lift)] aspect-video">
-              <img src={tool.imageUrl} alt={`${tool.name} screenshot`} width="800" height="450" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
-            </div>
+            {/*
+              Only shown when there is actually an image, and no longer called a
+              screenshot. Every one of these is an Unsplash stock photo of
+              something unrelated, so `alt="{name} screenshot"` was describing a
+              picture of the product to a screen reader that was looking at a
+              desk, a skyline or a circuit board. Newer entries carry no image
+              at all rather than a decorative one pretending to be evidence.
+            */}
+            {tool.imageUrl && (
+              <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-lift)] aspect-video">
+                <img src={tool.imageUrl} alt="" aria-hidden="true" width="800" height="450" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
+              </div>
+            )}
 
             {/* Detailed Description */}
             <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-10 shadow-[var(--shadow-card)]">

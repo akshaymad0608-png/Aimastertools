@@ -76,15 +76,9 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        // The hero field is the way in; the directory one refines once you are
-        // there. Focusing both, as this did, meant the second call won and the
-        // shortcut landed wherever the DOM order happened to put it.
-        const target =
-          heroSearchRef.current ?? searchInputRef.current ?? mobileSearchInputRef.current;
-        target?.focus();
-      }
+      // Cmd/Ctrl+K belongs to the command palette now, which works on every
+      // page rather than only this one. Two handlers on one chord means the
+      // palette opens and the field steals its focus in the same frame.
       if (e.key === 'Escape') {
         (document.activeElement as HTMLElement | null)?.blur();
       }

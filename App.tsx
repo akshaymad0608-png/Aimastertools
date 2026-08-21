@@ -6,6 +6,7 @@ import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
 import { ProProvider } from './context/ProContext';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
+import CommandPalette from './components/CommandPalette';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 import InstallPrompt from './components/InstallPrompt';
@@ -102,6 +103,7 @@ function App() {
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)]">
               <TopBanner />
               <Navbar />
+              <CommandPalette />
               
               <main id="main" className="flex-grow flex flex-col pb-[112px] md:pb-0">
                 <Suspense fallback={<PageLoader />}>

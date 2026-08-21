@@ -1,9 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <defs>
-    <linearGradient id="h" x1="6" y1="6" x2="42" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#4aa3ff"/><stop offset="1" stop-color="#1f6fe6"/></linearGradient>
-    <radialGradient id="o" cx="0.36" cy="0.30" r="0.85"><stop stop-color="#a7f3b6"/><stop offset="0.45" stop-color="#3ccf5c"/><stop offset="1" stop-color="#12a63f"/></radialGradient>
-  </defs>
-  <polygon points="42,24 33,8.4 15,8.4 6,24 15,39.6 33,39.6" fill="url(#h)" stroke="url(#h)" stroke-width="5" stroke-linejoin="round"/>
-  <circle cx="24" cy="24" r="9.4" fill="url(#o)"/>
-  <ellipse cx="21" cy="20.4" rx="3.4" ry="2.2" fill="#ffffff" opacity="0.55"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="AI Master Tools">
+  <!--
+    The same index-card mark as components/Logo.tsx, redrawn for 16px.
+
+    The in-page mark is a light card with a coloured spine and three ruled
+    lines. At favicon size that reads as grey mush, so the values invert: the
+    card becomes the solid shape and the rules become the negative space. Same
+    idea, one that survives being 16 pixels wide.
+
+    Fixed colours, not tokens — this renders in browser chrome, where the page's
+    custom properties do not exist.
+  -->
+  <rect width="48" height="48" rx="10" fill="#ab260e"/>
+  <rect x="9" y="10" width="5" height="28" rx="2.5" fill="#f7f6f4"/>
+  <rect x="18" y="14" width="21" height="4.5" rx="2.25" fill="#f7f6f4"/>
+  <rect x="18" y="21.75" width="21" height="4.5" rx="2.25" fill="#f7f6f4" opacity="0.62"/>
+  <rect x="18" y="29.5" width="12" height="4.5" rx="2.25" fill="#f7f6f4"/>
 </svg>

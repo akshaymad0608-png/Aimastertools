@@ -3,14 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, Share2, Sparkles, Check, Instagram } from 'lucide-react';
 import html2canvas from 'html2canvas';
 
-interface Tool {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  imageUrl: string;
-  rating?: number;
-}
+/**
+ * A second local `Tool`, narrower than the real one in types.ts and shadowing
+ * its name. It drifted the moment imageUrl became optional there and kept this
+ * copy requiring it — the compiler could only say "Tool is not assignable to
+ * Tool", which is the whole problem with declaring a type twice.
+ *
+ * Narrowed to what this component reads, and derived from the real type so it
+ * cannot drift again.
+ */
+type Tool = Pick<import('../types').Tool, 'id' | 'name' | 'description' | 'category' | 'imageUrl' | 'rating'>;
 
 interface StoryShareModalProps {
   isOpen: boolean;
@@ -109,7 +111,7 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
                 {/* Center: Tool Card */}
                 <div className="w-full bg-gray-900/80 backdrop-blur-xl border border-gray-800 rounded-[3rem] p-16 shadow-[var(--shadow-lift)] flex flex-col items-center text-center">
                   <div className="w-64 h-64 rounded-[var(--radius-lg)] overflow-hidden mb-12 border-4 border-gray-800 shadow-[var(--shadow-lift)]">
-                    <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover" crossOrigin="anonymous" />
+                    {tool.imageUrl && <img src={tool.imageUrl} alt="" aria-hidden="true" className="w-full h-full object-cover" crossOrigin="anonymous" />}
                   </div>
                   
                   <span className="px-8 py-3 bg-[var(--color-primary-soft)] text-[var(--color-primary)] rounded-full text-3xl font-medium mb-8 border border-[var(--color-border)]">
