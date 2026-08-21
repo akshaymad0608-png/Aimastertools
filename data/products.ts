@@ -101,6 +101,70 @@ export const PRODUCTS: Product[] = [
     isActive: true,
     isFeatured: true,
   },
+
+  {
+    id: 'apple-macbook-neo-13-a18-pro',
+    name: 'Apple 2026 MacBook Neo 13" Laptop with A18 Pro chip, 8GB Unified Memory, 256GB SSD — Indigo',
+    brand: 'Apple',
+    category: 'laptops',
+
+    // Read off the Amazon.in listing on 21 Aug 2026.
+    price: 73990,
+    mrp: 79900,
+    currency: 'INR',
+    rating: 4.8,
+    reviewCount: 190,
+    availability: 'In stock',
+    lastUpdated: '2026-08-21',
+
+    keyFeatures: [
+      'A18 Pro chip, described on the listing as built for Apple Intelligence',
+      '13-inch Liquid Retina display',
+      '8GB unified memory with 256GB SSD',
+    ],
+    specifications: [
+      { label: 'CPU', value: 'Apple A18 Pro' },
+      { label: 'RAM', value: '8GB unified memory' },
+      { label: 'Storage', value: '256GB SSD' },
+      { label: 'Display', value: '13-inch Liquid Retina' },
+      { label: 'Operating system', value: 'macOS' },
+    ],
+
+    /*
+      Specifications are transcribed from the listing title, not asserted.
+      "A18 Pro" is unusual for a Mac — Apple's laptops have used M-series
+      silicon — so the entry names the chip the listing names and claims nothing
+      about it beyond that. If the listing is wrong, this is wrong in the same
+      way and for the same reason, which is the honest failure mode.
+
+      Left out, all of it on the page:
+
+        "500+ bought in past month"   a sales claim
+        "Amazon's Choice"             Amazon's badge, not an editorial judgement
+                                      of ours, and repeating it as if it were is
+                                      how a directory launders someone else's
+                                      ranking as its own
+        "-7%"                         computed from mrp and price by the card
+                                      (79,900 -> 73,990 is 7.4%, shown as 7%)
+        Bank offer, No Cost EMI,      card- and time-specific; an offer that
+        cashback                      expired is worse than no offer shown
+        Delivery 31 Aug - 2 Sept      depends on the reader's pin code
+
+      The Special Link is stored whole, as generated. This one came from a
+      search results page rather than the product page, so it carries the search
+      context too — crid, the dib blob, keywords, sr=1-1-spons. None of it is
+      trimmed, for the same reason as the Sony: an Amazon-generated link is not
+      ours to tidy.
+    */
+    affiliateUrl:
+      'https://www.amazon.in/Apple-2026-MacBook-Laptop-chip/dp/B0GR64G4H6?crid=109PCZS310TRJ&dib=eyJ2IjoiMSJ9.2GeNO-SKFY35P884NewOfdAN3acqBV2cn6tyrT9l6KvjXcYFLuvDkjGjyt9KcmuqQIyGwrrDpILCygSyII5y1OQytSIjnuCpFdy3rt3zjov3AA7n2IJKVvQ9ejm4g75qGrmy9Lt9BIn5JPG3pizesW-j_uIUfFsql02JkqftAe9VVD0US8vSscHGaOBpD1ayKVtAfiGUYC4-XS2EIX-jJst70VQwLSo-VNqm1cOc5lz5cQo7-pavFO1w0qAzWwF9KuGUgWjTZ0WAqQGJbMbpwsDOT2naYPAMm0N_SI2Rlrs.pKRF7OccaFsgxrW8GVxgRcXz4HhTvzJLcWTrexJ9V1s&dib_tag=se&keywords=MACBOOK&qid=1787316171&s=electronics&sprefix=macbook%2Celectronics%2C319&sr=1-1-spons&aref=ROc9vzcamf&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=aimastertools-21&linkId=bdd19f28208afb9030cd046091d0fa66&ref_=as_li_ss_tl',
+    asin: 'B0GR64G4H6',
+    associateId: 'aimastertools-21',
+    trackingId: 'aimastertools-21',
+
+    source: 'manual',
+    isActive: true,
+  },
 ];
 
 /** Demo rows are only ever shown when explicitly switched on. */
