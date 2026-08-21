@@ -33,6 +33,7 @@ const Careers = lazy(() => import('./pages/Careers'));
 const About = lazy(() => import('./pages/About'));
 const AiShopping = lazy(() => import('./pages/shopping/AiShopping'));
 const ShoppingCategory = lazy(() => import('./pages/shopping/ShoppingCategory'));
+const ProductFinder = lazy(() => import('./pages/shopping/ProductFinder'));
 const AffiliateDisclosurePage = lazy(() => import('./pages/shopping/AffiliateDisclosurePage'));
 const Workflows = lazy(() => import('./pages/Workflows'));
 const WorkflowDetail = lazy(() => import('./pages/WorkflowDetail'));
@@ -128,6 +129,7 @@ function App() {
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/ai-shopping" element={<AiShopping />} />
+                    <Route path="/ai-shopping/finder" element={<ProductFinder />} />
                     <Route path="/ai-shopping/:category" element={<ShoppingCategory />} />
                     <Route path="/affiliate-disclosure" element={<AffiliateDisclosurePage />} />
                     <Route path="/careers" element={<Careers />} />

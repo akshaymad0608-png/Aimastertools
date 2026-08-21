@@ -200,6 +200,7 @@ const urls = [
   { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
   { loc: '/about', changefreq: 'monthly', priority: '0.5' },
   { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/ai-shopping/finder', changefreq: 'monthly', priority: '0.7' },
   ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7' })),
   { loc: '/affiliate-disclosure', changefreq: 'yearly', priority: '0.2' },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3' },

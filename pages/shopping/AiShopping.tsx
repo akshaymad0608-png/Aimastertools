@@ -52,19 +52,18 @@ const AiShopping: React.FC = () => {
           title="Find the right product without the research overload"
           lede="Tell us the budget, what it is for, and what you actually care about. We narrow it to the ones that fit and show you why — then you check the price yourself before you buy."
           /*
-            These point at what exists.
+            Both of these point at routes that exist.
 
-            The first draft linked /ai-shopping/finder, /trending-products and
-            /compare-products — three routes that have not been built. A landing
-            page whose primary button 404s is worse than one with a plainer
-            button, so the guided finder and the picks page get their CTAs when
-            they get their routes.
+            An earlier draft linked /trending-products and /compare-products
+            too, neither of which had been built — a landing page whose primary
+            button 404s is worse than one with a plainer button. Those get their
+            CTAs when they get their routes.
           */
           action={
             <div className="flex flex-wrap gap-3">
-              <a href="#categories-heading" className="btn-primary h-11 px-5 text-[13px]">
-                <Sparkles size={15} aria-hidden="true" /> Browse categories
-              </a>
+              <Link to="/ai-shopping/finder" className="btn-primary h-11 px-5 text-[13px]">
+                <Sparkles size={15} aria-hidden="true" /> Find my product
+              </Link>
               <Link to="/about" className="btn-secondary h-11 px-5 text-[13px]">
                 How this works
               </Link>

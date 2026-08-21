@@ -353,6 +353,12 @@ const SHOPPING_ROUTES = [
     description: 'Tell us the budget and what it is for, and get products that fit — compared on the specifications that actually decide it, with prices you check yourself.',
   },
   {
+    path: '/ai-shopping/finder',
+    heading: 'AI Product Finder',
+    title: 'AI Product Finder — Say Your Budget, Get a Shortlist',
+    description: 'Describe what you need and what you can spend. The category and budget are read from the sentence, matched against the catalogue, and each pick is explained from the record.',
+  },
+  {
     path: '/affiliate-disclosure',
     heading: 'Affiliate Disclosure',
     title: 'Affiliate Disclosure — How AI Master Tools Makes Money',
