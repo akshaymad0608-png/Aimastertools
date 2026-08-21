@@ -31,6 +31,9 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
 const About = lazy(() => import('./pages/About'));
+const AiShopping = lazy(() => import('./pages/shopping/AiShopping'));
+const ShoppingCategory = lazy(() => import('./pages/shopping/ShoppingCategory'));
+const AffiliateDisclosurePage = lazy(() => import('./pages/shopping/AffiliateDisclosurePage'));
 const Workflows = lazy(() => import('./pages/Workflows'));
 const WorkflowDetail = lazy(() => import('./pages/WorkflowDetail'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -124,6 +127,9 @@ function App() {
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/ai-shopping" element={<AiShopping />} />
+                    <Route path="/ai-shopping/:category" element={<ShoppingCategory />} />
+                    <Route path="/affiliate-disclosure" element={<AffiliateDisclosurePage />} />
                     <Route path="/careers" element={<Careers />} />
                     <Route path="/collections" element={<Collections />} />
                     <Route path="/collections/:slug" element={<CollectionDetail />} />

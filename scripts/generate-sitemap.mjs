@@ -175,6 +175,17 @@ const freeCategorySlugs = (() => {
   return [...counts.entries()].filter(([, n]) => n >= 4).map(([id]) => slugify(id));
 })();
 
+
+/**
+ * Shopping category slugs, parsed rather than repeated. A second hand-kept
+ * copy of this list is how the prerenderer and this file drift apart, which
+ * is what put 57 comparison URLs in a sitemap with no page behind them.
+ */
+const shoppingSlugs = (() => {
+  const src = read('data/shoppingCategories.ts');
+  if (!src) return [];
+  return pluck(src, 'slug');
+})();
 const urls = [
   { loc: '/', changefreq: 'daily', priority: '1.0' },
   { loc: '/categories', changefreq: 'weekly', priority: '0.9' },
@@ -188,6 +199,9 @@ const urls = [
   { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
   { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
   { loc: '/about', changefreq: 'monthly', priority: '0.5' },
+  { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8' },
+  ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7' })),
+  { loc: '/affiliate-disclosure', changefreq: 'yearly', priority: '0.2' },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3' },
   { loc: '/privacy', changefreq: 'yearly', priority: '0.2' },
   { loc: '/terms', changefreq: 'yearly', priority: '0.2' },
