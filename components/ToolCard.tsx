@@ -4,6 +4,7 @@ import { Bookmark, Check, Star, ExternalLink, Share2, Columns2 } from 'lucide-re
 import toast from 'react-hot-toast';
 import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
+import { useCompare } from '../context/CompareContext';
 import ToolLogo from './ToolLogo';
 
 interface ToolCardProps {
@@ -24,6 +25,8 @@ const PRICING_STYLE: Record<string, string> = {
 
 const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }) => {
   const { bookmarks, toggleBookmark } = useBookmarks();
+  const { isComparing, toggleCompare, isFull } = useCompare();
+  const picked = isComparing(tool.id);
   const [copied, setCopied] = useState(false);
   const isBookmarked = bookmarks.includes(tool.id);
   const isVertical = layout === 'vertical';
@@ -183,13 +186,34 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
           {copied ? <Check size={16} className="text-[var(--color-success)]" /> : <Share2 size={16} />}
         </button>
 
-        <Link
-          to={`/compare?tool1=${tool.id}`}
-          aria-label={`Compare ${tool.name} with another tool`}
-          className="hidden h-10 w-10 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] @[28rem]:grid"
+        {/*
+          This was a link to `?tool1={id}`. /compare has only ever read `tools`,
+          so the compare control on every card in the index opened an empty
+          picker with the tool you were looking at nowhere in it.
+
+          It picks the tool now, and the tray at the bottom of the screen hands
+          the set to /compare in the parameter it actually parses.
+        */}
+        <button
+          type="button"
+          onClick={(e) => { e.preventDefault(); toggleCompare(tool.id); }}
+          aria-pressed={picked}
+          disabled={!picked && isFull}
+          aria-label={
+            picked
+              ? `Remove ${tool.name} from the comparison`
+              : isFull
+                ? `Comparison is full — remove one to add ${tool.name}`
+                : `Add ${tool.name} to the comparison`
+          }
+          className={`hidden h-10 w-10 shrink-0 place-items-center rounded-[var(--radius-sm)] border transition-colors @[28rem]:grid ${
+            picked
+              ? 'border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]'
+              : 'border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-[var(--color-border)] disabled:hover:text-[var(--color-text-secondary)]'
+          }`}
         >
           <Columns2 size={16} />
-        </Link>
+        </button>
 
         {/*
           Secondary, not primary.

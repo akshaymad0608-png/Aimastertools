@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Navigate } from 'r
 import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookmarkProvider, useBookmarks } from './context/BookmarkContext';
+import { CompareProvider } from './context/CompareContext';
+import CompareTray from './components/CompareTray';
 import { ProProvider } from './context/ProContext';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
@@ -99,11 +101,13 @@ function App() {
           <AuthProvider>
             <ProProvider>
               <BookmarkProvider>
+              <CompareProvider>
                 <Router>
             <div className="min-h-screen font-sans text-[var(--color-text-primary)] selection:bg-[var(--color-primary)] selection:text-white flex flex-col bg-[var(--color-background)]">
               <TopBanner />
               <Navbar />
               <CommandPalette />
+              <CompareTray />
               
               <main id="main" className="flex-grow flex flex-col pb-[112px] md:pb-0">
                 <Suspense fallback={<PageLoader />}>
@@ -148,6 +152,7 @@ function App() {
               <Toaster position="bottom-center" toastOptions={{ style: { background: 'var(--color-surface)', color: 'var(--color-text-primary)', border: '1px solid var(--color-border)' } }} />
             </div>
           </Router>
+              </CompareProvider>
             </BookmarkProvider>
           </ProProvider>
           </AuthProvider>
