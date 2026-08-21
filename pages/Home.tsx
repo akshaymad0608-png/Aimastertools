@@ -26,6 +26,7 @@ import { FeaturedDashboard } from '../components/home/FeaturedDashboard';
 import { ExploreDirectory } from '../components/home/ExploreDirectory';
 import { FAQSection, HOME_FAQS } from '../components/home/FAQSection';
 import { NewsletterSection } from '../components/home/NewsletterSection';
+import { EarnSection } from '../components/home/EarnSection';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
 import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
 import { BrowseHub } from '../components/home/BrowseHub';
@@ -532,12 +533,29 @@ const Home: React.FC = () => {
       <RecentlyViewed />
 
       {/*
-        Each section fades up as it arrives. Reveal keeps the visible state as
-        the default and falls back to it on reduced motion, on a browser with
-        no IntersectionObserver, and on a 1.2s failsafe — so a section can be
-        late but never invisible.
+        Sections that were built, imported and never rendered.
+
+        ToolOfTheDay, TrendingToolsSection, FeaturedCarousel and BrowseHub were
+        all sitting in this file's import list with nothing calling them — the
+        bundler tree-shook every one of them out, so they cost nothing and did
+        nothing. That is most of why the page read as thin: the directory grid,
+        then a long run of prose bands.
+
+        EarnSection is new. /earn and /earn/:slug have existed all along with a
+        real dataset behind them, and this page did not contain a single link
+        to either.
+
+        Each fades up as it arrives. Reveal keeps the visible state as the
+        default and falls back to it on reduced motion, on a browser with no
+        IntersectionObserver, and on a 1.2s failsafe — so a section can be late
+        but never invisible.
       */}
+      <Reveal><ToolOfTheDay /></Reveal>
+      <Reveal><TrendingToolsSection /></Reveal>
+      <Reveal><FeaturedCarousel /></Reveal>
+      <Reveal><EarnSection /></Reveal>
       <Reveal><CollectionsSection /></Reveal>
+      <Reveal><BrowseHub /></Reveal>
       <Reveal><BlogSection /></Reveal>
       <Reveal><FAQSection /></Reveal>
       <Reveal><NewsletterSection showToast={showToast} /></Reveal>

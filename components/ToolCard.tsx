@@ -79,11 +79,20 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
 
         {/* Record */}
         <div className="flex min-w-0 flex-1 flex-col">
-          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+          {/*
+            Name and rating on their own line, price down with the category.
+
+            All four used to share one flex-wrap row, so the length of the tool
+            name decided the layout: "Munch Studio" pushed its FREEMIUM badge
+            onto a second line while "CapCut" kept its inline, and the cards in
+            a row stopped agreeing about where anything sat. The name can now
+            take whatever width it needs without moving anything else.
+          */}
+          <div className="flex items-start gap-2.5">
             {typeof rank === 'number' && (
-              <span className="label-mono tabular-nums">{String(rank).padStart(2, '0')}</span>
+              <span className="label-mono mt-1 shrink-0 tabular-nums">{String(rank).padStart(2, '0')}</span>
             )}
-            <h3 className="title-sm min-w-0 text-balance text-[16px] font-semibold leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] @[26rem]:text-[17.5px]">
+            <h3 className="title-sm min-w-0 flex-1 text-balance text-[16px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] @[26rem]:text-[17.5px]">
               <Link
                 to={`/tool/${tool.id}`}
                 className="after:absolute after:inset-0 after:content-[''] hover:text-[var(--color-primary)]"
@@ -92,19 +101,27 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
               </Link>
             </h3>
 
-            <span className="flex items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+            <span className="mt-0.5 flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
               <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
               <span className="tabular-nums">{tool.rating.toFixed(1)}</span>
             </span>
-
-            <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
           </div>
 
-          <p className="mt-2 line-clamp-2 text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
+          {/*
+            Reserve both lines whether or not the copy fills them.
+
+            line-clamp-2 caps the maximum but not the minimum, so a one-line
+            description pulled everything under it up and the price and category
+            row landed at a different height on every card — measured at 140,
+            163 and 177px from the card top across one screen. Holding two
+            lines' worth of space lines the row up across the grid.
+          */}
+          <p className="mt-2 line-clamp-2 min-h-[2.85rem] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
             {tool.description}
           </p>
 
-          <div className="mt-3 flex flex-wrap items-center gap-2">
+          <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-2">
+            <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
             <Link
               to={`/?category=${encodeURIComponent(tool.category)}`}
               className="relative z-10 text-[12px] font-medium text-[var(--color-text-secondary)] underline-offset-4 hover:text-[var(--color-primary)] hover:underline"
@@ -162,11 +179,21 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
           <Columns2 size={16} />
         </Link>
 
+        {/*
+          Secondary, not primary.
+
+          This is the one control on the card that sends the reader off the
+          site, and it was the loudest thing on it — a filled accent bar taking
+          every spare pixel, three to a row. The card's own default action is
+          already the review: the title is a stretched link covering the whole
+          surface. Leaving the exit filled and the destination invisible had the
+          hierarchy backwards, and it painted the grid in accent blocks.
+        */}
         <a
           href={tool.url}
           target="_blank"
           rel="noopener noreferrer sponsored"
-          className="btn-primary h-10 min-w-0 flex-1 whitespace-nowrap px-4 text-[13px] @[34rem]:flex-none"
+          className="btn-secondary h-10 min-w-0 flex-1 whitespace-nowrap px-4 text-[13px] @[34rem]:flex-none"
         >
           Visit site
           <ExternalLink size={13} />
