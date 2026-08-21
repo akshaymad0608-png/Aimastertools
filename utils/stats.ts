@@ -48,3 +48,9 @@ export const LAST_UPDATED_LABEL = LAST_UPDATED
       year: 'numeric',
     })
   : '';
+
+/** Mean rating across the index, to one decimal. Quoted on /about, where
+ *  the point being made is that the scale is bunched — so it has to be real. */
+export const AVERAGE_RATING = (
+  MOCK_TOOLS.reduce((sum, t) => sum + (t.rating || 0), 0) / (MOCK_TOOLS.length || 1)
+).toFixed(2);

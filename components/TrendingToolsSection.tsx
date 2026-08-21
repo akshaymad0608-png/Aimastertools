@@ -5,9 +5,35 @@ import { MOCK_TOOLS } from '../data/tools';
 import ToolCard from './ToolCard';
 
 export const TrendingToolsSection: React.FC = () => {
+  /**
+   * Sorting by rating alone picks an arbitrary eight.
+   *
+   * 202 records share the top score of 4.9, so `sort` was returning whichever
+   * eight happened to sit earliest in the array — a list that changes meaning
+   * every time a record is inserted above them, and that reads as a ranking
+   * while being nothing of the sort.
+   *
+   * Rating leads, then `featured` — the editor's-pick flag, which is the only
+   * other deliberate signal in the record — and then name, so the order is
+   * fully determined and the same eight appear on every render.
+   *
+   * Breaking the tie on name alone was stable but useless: it returned the
+   * eight alphabetically-first of the 202, which is to say the A's and B's.
+   * 25 records are both featured and top-rated, so that flag does the work and
+   * the fallback almost never runs.
+   *
+   * The heading says "eight of the highest rated" rather than "the eight
+   * highest rated", because with a scale this bunched the second claim is not
+   * true.
+   */
   const trendingTools = [...MOCK_TOOLS]
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 8); // Take top 8 trending
+    .sort(
+      (a, b) =>
+        b.rating - a.rating ||
+        Number(Boolean(b.featured)) - Number(Boolean(a.featured)) ||
+        a.name.localeCompare(b.name),
+    )
+    .slice(0, 8);
 
   // Duplicate the array to create a seamless infinite marquee effect
   const marqueeTools = [...trendingTools, ...trendingTools];
@@ -25,11 +51,12 @@ export const TrendingToolsSection: React.FC = () => {
                 community" and "massive user growth" were describing numbers
                 that do not exist. The copy now says what the sort actually is. */}
             <h2 className="display-md text-[var(--color-text-primary)]">
-              The highest rated in the index
+              Eight of the highest rated
             </h2>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mt-4">
-              The eight tools carrying the best ratings right now, across every category.
-              Ratings are editorial, not an average of user reviews.
+              Ratings here are editorial rather than an average of user reviews, and a lot of
+              tools share the top score — so this is a sample of the best rated, not a
+              leaderboard. The full list is worth a scroll.
             </p>
           </div>
           <Link to="/?tab=Trending" className="inline-flex items-center gap-2 font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors whitespace-nowrap">

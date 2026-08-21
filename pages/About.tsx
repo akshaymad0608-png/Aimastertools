@@ -10,6 +10,7 @@ import {
   CATEGORY_COUNT,
   FREE_TOOL_COUNT,
   LAST_UPDATED_LABEL,
+  AVERAGE_RATING,
 } from '../utils/stats';
 import { EARN_SITE_COUNT } from '../data/earn';
 import { COMPARISON_PAIRS } from '../utils/pairs';
@@ -37,7 +38,7 @@ const METHOD = [
   {
     step: 'Opened',
     body:
-      'Every tool is opened and used before it is written up — enough to know what it does well, where it stops, and whether the free tier is genuinely usable or a demo with a paywall.',
+      'Most entries come from actually opening the thing — enough to know what it does well, where it stops, and whether the free tier is usable or a demo with a paywall. Where an entry is written from documentation and reputation instead, the rating reflects that and is revised the moment it gets a proper session.',
   },
   {
     step: 'Filed',
@@ -101,7 +102,7 @@ const About: React.FC = () => {
         <PageHeader
           eyebrow="About"
           title="An index someone actually keeps"
-          lede={`${TOOL_COUNT} AI tools, opened and filed by hand rather than scraped. This page explains who compiles it, how a tool gets in, and how the site pays for itself.`}
+          lede={`${TOOL_COUNT} AI tools, checked and filed by hand rather than scraped. This page explains who compiles it, how a tool gets in, what the ratings mean, and how the site pays for itself.`}
         />
 
         <section className="mt-14 max-w-2xl" aria-labelledby="what-heading">
@@ -116,8 +117,9 @@ const About: React.FC = () => {
               couple of free trials.
             </p>
             <p>
-              So every entry is opened and used before it is written up. You are reading notes
-              from someone who tried the thing, not a rewritten press release.
+              So entries are written from using the tool wherever that is possible, and from its
+              documentation and track record where it is not. Either way you are reading notes
+              from a person, not a rewritten press release.
             </p>
           </div>
         </section>
@@ -175,9 +177,15 @@ const About: React.FC = () => {
               ever paid to be listed, ranked higher, or described differently.
             </p>
             <p>
-              Where a tool is strong at one thing and weak at another, the entry says so. A
-              directory where everything scores well is a directory that is not telling you
-              anything.
+              They are also, right now, bunched together: the scale runs from 4.3 to 4.9 and
+              averages {AVERAGE_RATING}. That is worth saying out loud, because a directory
+              where everything scores well is a directory that is not telling you very much. A
+              tool nothing is wrong with and a tool with one real flaw currently sit a tenth of
+              a point apart, and pulling that scale open is the next job.
+            </p>
+            <p>
+              Where a tool is strong at one thing and weak at another, the entry itself says so.
+              Read the description before the number.
             </p>
           </div>
         </section>

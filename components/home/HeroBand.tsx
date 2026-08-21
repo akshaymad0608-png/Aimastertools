@@ -49,7 +49,7 @@ export const HeroBand: React.FC<HeroBandProps> = ({
             </h1>
 
             <p className="mt-6 max-w-xl text-[16.5px] leading-relaxed text-[var(--color-text-secondary)]">
-              {TOOL_COUNT} tools, opened and filed by hand — with real pricing, honest
+              {TOOL_COUNT} tools, checked and filed by hand — with real pricing, honest
               limits, and what to use instead when one does not fit.
             </p>
 

@@ -18140,7 +18140,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://v0.dev",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "v0.dev"
@@ -18152,7 +18152,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI App Builders",
       "url": "https://replit.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "replit.com"
@@ -18164,7 +18164,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://cline.bot",
       "pricing": "Open Source",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "cline.bot"
@@ -18176,7 +18176,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://aider.chat",
       "pricing": "Open Source",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "aider.chat"
@@ -18200,7 +18200,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://zed.dev",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "zed.dev"
@@ -18212,7 +18212,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://warp.dev",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "warp.dev"
@@ -18224,7 +18224,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://greptile.com",
       "pricing": "Paid",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "greptile.com"
@@ -18248,7 +18248,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Code & Development",
       "url": "https://graphite.dev",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "graphite.dev"
@@ -18260,7 +18260,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Productivity",
       "url": "https://raycast.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.9,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "raycast.com"
@@ -18272,7 +18272,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Productivity & Collaboration",
       "url": "https://linear.app",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.9,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "linear.app"
@@ -18284,7 +18284,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI Email Assistants",
       "url": "https://superhuman.com",
       "pricing": "Paid",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "superhuman.com"
@@ -18296,7 +18296,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Productivity",
       "url": "https://obsidian.md",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.8,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "obsidian.md"
@@ -18308,7 +18308,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Productivity & Collaboration",
       "url": "https://coda.io",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "coda.io"
@@ -18320,7 +18320,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Productivity & Collaboration",
       "url": "https://airtable.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "airtable.com"
@@ -18332,7 +18332,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI App Builders",
       "url": "https://retool.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "retool.com"
@@ -18344,7 +18344,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI Meeting Assistants",
       "url": "https://fireflies.ai",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "fireflies.ai"
@@ -18356,7 +18356,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Voice & Audio AI",
       "url": "https://wisprflow.ai",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "wisprflow.ai"
@@ -18368,7 +18368,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "UI/UX & Design Tools",
       "url": "https://excalidraw.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.8,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "excalidraw.com"
@@ -18380,7 +18380,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "UI/UX & Design Tools",
       "url": "https://tldraw.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "tldraw.com"
@@ -18392,7 +18392,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI Website Builders",
       "url": "https://framer.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "framer.com"
@@ -18404,7 +18404,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI Website Builders",
       "url": "https://webflow.com",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "webflow.com"
@@ -18428,7 +18428,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Image & Art Generation",
       "url": "https://krea.ai",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "krea.ai"
@@ -18452,7 +18452,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "Video & Audio Tools",
       "url": "https://opus.pro",
       "pricing": "Freemium",
-      "rating": 4.5,
+      "rating": 4.6,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "opus.pro"
@@ -18464,7 +18464,7 @@ const _MOCK_TOOLS: Tool[] = [
       "category": "AI Search Engines",
       "url": "https://glean.com",
       "pricing": "Paid",
-      "rating": 4.5,
+      "rating": 4.7,
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "glean.com"
