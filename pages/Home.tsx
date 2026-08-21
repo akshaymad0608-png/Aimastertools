@@ -286,7 +286,7 @@ const Home: React.FC = () => {
       <section className="page-top border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="container-custom py-8 md:py-11">
           <p className="eyebrow">{TOOL_COUNT}+ AI tools · updated weekly</p>
-          <h1 className="display-md mt-3 max-w-3xl text-[var(--color-text-primary)]">
+          <h1 className="display-lg mt-3 max-w-3xl text-[var(--color-text-primary)]">
             Every <span className="text-gradient">AI tool</span> worth knowing, in one place.
           </h1>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
@@ -304,7 +304,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* ===== Dashboard: category sidebar + tool grid ===== */}
-      <section id="search-results" className="container-custom py-8 md:py-10">
+      <section id="search-results" aria-labelledby="directory-heading" className="container-custom py-8 md:py-10">
+        {/*
+          The directory is the largest block on the page and had no heading of
+          its own, so the outline ran h1 straight to the h3 on each tool card —
+          a skipped level, and a section a screen reader could only reach as an
+          unnamed region. It is visually hidden because the search field and the
+          category rail already say what this is on screen.
+        */}
+        <h2 id="directory-heading" className="sr-only">
+          Browse the directory
+        </h2>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[236px_minmax(0,1fr)]">
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
@@ -432,7 +442,7 @@ const Home: React.FC = () => {
       <section className="section section-alt" aria-labelledby="guides-heading">
         <div className="container-custom">
           <p className="eyebrow">Curated guides</p>
-          <h2 id="guides-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+          <h2 id="guides-heading" className="display-md mt-4 text-[var(--color-text-primary)]">
             The <span className="text-gradient">best AI tools</span>, hand-picked by category
           </h2>
           <p className="section-head__lede">
@@ -486,7 +496,7 @@ const Home: React.FC = () => {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <p className="eyebrow">Prompt library</p>
-              <h2 id="prompts-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+              <h2 id="prompts-heading" className="display-md mt-4 text-[var(--color-text-primary)]">
                 The tool is half of it. The prompt is the other half.
               </h2>
               <p className="section-head__lede">

@@ -2,27 +2,44 @@ import { BlogCoverImage } from './BlogCoverImage';
 import Reveal from './Reveal';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
 import { 
   Clock, ArrowRight, Bot, GraduationCap, Brain, Palette, Code, Layout, Calendar 
 } from 'lucide-react';
 
 // Color and design mappings for high fidelity custom tags
-const CATEGORY_COLORS: Record<string, string> = {
-"EDUCATION": "#d97706",
-"RESEARCH": "#0d9488",
-"DESIGN": "#f97316",
-"CODING": "#2563eb",
-"AI CHATBOTS": "#8b5cf6"
+/**
+ * One colour per label could not work, because each label paints itself on a
+ * 15%-alpha tint of its own colour and that tint follows the theme.
+ *
+ * On white the tint barely darkens, so the text has to come down to clear it:
+ * amber measured 2.92:1, orange 2.57:1, teal 3.39:1, all at 9px. On the dark
+ * card the same tint lands dark, and those corrected values then failed the
+ * other way — darkening for light broke dark, at 3.38-3.44:1.
+ *
+ * So each label carries both. Every pair below clears 4.5:1 against the tint
+ * it actually sits on, in the theme it actually sits in.
+ */
+const CATEGORY_COLORS: Record<string, { light: string; dark: string }> = {
+"EDUCATION":   { light: "#a55a05", dark: "#d97706" },
+"RESEARCH":    { light: "#0b7c72", dark: "#0d9488" },
+"DESIGN":      { light: "#b35310", dark: "#f97316" },
+"CODING":      { light: "#2563eb", dark: "#4c7fef" },
+"AI CHATBOTS": { light: "#7d53dd", dark: "#9469f7" }
 };
 
 // Mini avatar styles matching the specific authors
+/**
+ * 8px white initials on a Tailwind -500 fill: teal measured 2.42:1, orange
+ * 2.89:1, purple 4.12:1. Same hues, darkened until white clears 4.5:1 on them.
+ */
 const AUTHOR_AVATARS: Record<string, { initials: string; bg: string }> = {
-"Sarah Collins": { initials: "SC", bg: "bg-pink-500" },
-"Arjun Mehta": { initials: "AM", bg: "bg-purple-500" },
-"Lina Vance": { initials: "LV", bg: "bg-teal-500" },
-"Marcus Thorne": { initials: "MT", bg: "bg-orange-500" },
-"Akshay Mahajan": { initials: "AM", bg: "bg-purple-500" }
+"Sarah Collins": { initials: "SC", bg: "bg-[#cb3e84]" },
+"Arjun Mehta": { initials: "AM", bg: "bg-[#9b4ee3]" },
+"Lina Vance": { initials: "LV", bg: "bg-[#0e8478]" },
+"Marcus Thorne": { initials: "MT", bg: "bg-[#bd5711]" },
+"Akshay Mahajan": { initials: "AM", bg: "bg-[#9b4ee3]" }
 };
 
 /**
@@ -37,6 +54,10 @@ const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: s
 );
 
 export const BlogSection: React.FC = () => {
+  // Category labels resolve their colour per theme — see CATEGORY_COLORS.
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   // Extract specific blog post categories to align with requested layout
   const chatbotPost = blogPosts.find(p => p.category?.toLowerCase().includes('chatbot')) || blogPosts[0];
   
@@ -88,7 +109,7 @@ export const BlogSection: React.FC = () => {
   });
 
   return (
-    <section id="blog" className="relative overflow-hidden bg-[var(--color-background)] py-20">
+    <section id="blog" className="section relative overflow-hidden bg-[var(--color-background)]">
       {/* Subtle single-tone backdrop (premium — restraint over glow) */}
       <div className="absolute top-0 left-1/3 w-[520px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-[0.07]" style={{ background: '#0094ee' }} />
 
@@ -100,7 +121,7 @@ export const BlogSection: React.FC = () => {
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[var(--color-primary)] dark:text-[var(--color-primary)]">
               Latest Insights
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl leading-tight">
+            <h2 className="display-md text-[var(--color-text-primary)]">
               <span className="text-slate-900 dark:text-white">Learn AI tools, workflows & comparisons</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
@@ -194,7 +215,8 @@ export const BlogSection: React.FC = () => {
             </h4>
             
             {trendingCards.map((post, index) => {
-              const categoryColor = CATEGORY_COLORS[post.category] || "#8b5cf6";
+              const pair = CATEGORY_COLORS[post.category] || { light: "#7d53dd", dark: "#9469f7" };
+              const categoryColor = isDark ? pair.dark : pair.light;
               const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-slate-500" };
 
               return (

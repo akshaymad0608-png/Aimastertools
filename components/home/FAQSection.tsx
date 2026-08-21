@@ -63,7 +63,7 @@ export const FAQSection: React.FC = () => {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16">
           <div>
             <p className="eyebrow">Questions</p>
-            <h2 id="faq-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+            <h2 id="faq-heading" className="display-md mt-4 text-[var(--color-text-primary)]">
               The things people ask <em>first</em>.
             </h2>
             <p className="section-head__lede">

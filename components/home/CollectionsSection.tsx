@@ -14,7 +14,7 @@ export const CollectionsSection: React.FC = () => {
         <div className="section-head">
           <div className="section-head__title">
             <p className="eyebrow">Curated lists</p>
-            <h2 id="collections-heading" className="display-lg mt-4 text-[var(--color-text-primary)]">
+            <h2 id="collections-heading" className="display-md mt-4 text-[var(--color-text-primary)]">
               Shortlists, <em>already made</em>.
             </h2>
             <p className="section-head__lede">

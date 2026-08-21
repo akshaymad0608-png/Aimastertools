@@ -63,7 +63,7 @@ export const FeaturedCarousel: React.FC = () => {
         <div className="section-head">
           <div className="section-head__title">
             <p className="eyebrow">Editors' picks</p>
-            <h2 id="editors-picks" className="display-lg mt-4 text-[var(--color-text-primary)]">
+            <h2 id="editors-picks" className="display-md mt-4 text-[var(--color-text-primary)]">
               Where to start, if you only have <em>ten minutes</em>.
             </h2>
             <p className="section-head__lede">

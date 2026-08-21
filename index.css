@@ -296,12 +296,17 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
 }
 
+/* --primary-fill-color, not --primary-color. Dark mode splits the two: the
+   first is the blue that carries white text (4.84:1), the second is the
+   brighter blue meant to BE text on the dark page. This rule was painting the
+   text blue as a background and putting white on it, which measured 2.47:1 —
+   an accessibility affordance that itself failed contrast. */
 .skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
   z-index: 999;
-  background: var(--primary-color);
+  background: var(--primary-fill-color);
   color: #fff;
   padding: .75rem 1.25rem;
   border-radius: 0 0 var(--radius-sm) 0;
@@ -349,14 +354,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========================= Layout ============================ */
 
+/**
+ * padding-inline, not the `padding` shorthand.
+ *
+ * `padding: 0 1.125rem` also declares padding-block: 0. Tailwind's py-* lands
+ * at the same specificity, so source order decided the winner and this class
+ * won — silently. Three elements were asking for vertical padding and getting
+ * none: the announcement banner's py-2, the hero band's py-8 md:py-11, and the
+ * directory section's py-8 md:py-10, which is why the largest block on the
+ * homepage sat flush against the band above it.
+ *
+ * Setting only the inline axis leaves the block axis alone, where the default
+ * is already 0, so nothing that did not ask for padding gains any.
+ */
 .container-custom {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 1.125rem;
+  padding-inline: 1.125rem;
 }
 
 @media (min-width: 768px) {
-  .container-custom { padding: 0 2rem; }
+  .container-custom { padding-inline: 2rem; }
 }
 
 .section-pad { padding-block: clamp(3rem, 7vw, 5.5rem); }
