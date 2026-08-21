@@ -91,7 +91,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <section id="home" className="relative overflow-hidden border-b border-[var(--color-border)]">
       {/* Colourful multi-hue aurora glow background (Vibrant) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[6%] top-[-16rem] h-[34rem] w-[34rem] rounded-full opacity-[0.28] blur-[120px]" style={{ background: '#c2703a' }} />
+        <div className="absolute left-[6%] top-[-16rem] h-[34rem] w-[34rem] rounded-full opacity-[0.28] blur-[120px]" style={{ background: '#3f8f6c' }} />
         <div className="absolute right-[4%] top-[-12rem] h-[32rem] w-[32rem] rounded-full opacity-[0.24] blur-[120px]" style={{ background: '#a855f7' }} />
         <div className="absolute bottom-[-20rem] left-1/2 h-[34rem] w-[46rem] -translate-x-1/2 rounded-full opacity-[0.18] blur-[130px]" style={{ background: '#ec4899' }} />
       </div>

@@ -100,7 +100,7 @@ export const BlogSection: React.FC = () => {
   return (
     <section id="blog" className="section relative overflow-hidden bg-[var(--color-background)]">
       {/* Subtle single-tone backdrop (premium — restraint over glow) */}
-      <div className="absolute top-0 left-1/3 w-[520px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-[0.07]" style={{ background: '#c2703a' }} />
+      <div className="absolute top-0 left-1/3 w-[520px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-[0.07]" style={{ background: '#3f8f6c' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -205,7 +205,7 @@ export const BlogSection: React.FC = () => {
             
             {trendingCards.map((post, index) => {
 
-              const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-[#6e6a62]" };
+              const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-[#5b6560]" };
 
               return (
                 <Reveal key={post.id} delay={index * 80}>
