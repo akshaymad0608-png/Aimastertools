@@ -13,10 +13,10 @@
 
 /* ============================================================
    AIMasterTools — Design System v7  "Refined" (Premium & Clean)
-   Restrained, professional, premium — near-neutral ground + one deep green.
+   Restrained, professional, premium — warm grey ground + one deep red.
 
-   Palette : off-white ground / green-biased neutral surfaces + one pine accent
-             (blue was swapped out; every pair is measured against WCAG AA)
+   Palette : warm grey ground / neutral surfaces + one deep red accent, after
+             a Mayeen logistics concept (every pair measured against WCAG AA)
    Type    : Instrument Serif (display) / Instrument Sans (body) / IBM Plex Mono (data)
 
    A single confident accent does all the work; everything else is
@@ -42,9 +42,15 @@
   --color-accent: var(--accent-color);
   --color-accent-soft: var(--accent-soft-color);
 
-  --color-success: #2f7d54;
-  --color-warning: #b8791b;
-  --color-error: #c0452c;
+  /* The accent is red now, so the error colour can no longer be told apart
+     from it by hue — the outgoing #c0452c sat one degree from #ab260e, which
+     means a validation error and a primary button were the same colour. Error
+     moves to a crimson 26 degrees away and much darker; warning comes off
+     orange for the same reason. Both still clear 4.5:1 on the surfaces they
+     land on, in both themes. */
+  --color-success: #2f6d4a;
+  --color-warning: #8a5a12;
+  --color-error: #7d1230;
 
   --font-sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   /**
@@ -72,124 +78,134 @@
   --shadow-glow: var(--shadow-glow-val);
 }
 
-/* ---------- Light : pine ----------
+/* ---------- Light : warm grey and deep red ----------
  *
- * Chosen from six candidates that were each solved to this same contract and
- * drawn on a real tool card before any of them was picked.
+ * Taken from Mayeen’s "Logistics & Shipping" concept: their warm grey ground,
+ * their near-black, their red.
  *
- * Deep forest green. It reads as considered next to the serif, and unlike the
- * red candidate it does not borrow the colour every interface uses for danger
- * and put it on a button whose only job is to open a website.
+ * Not their brightest red. #EE1D04 is the one that carries that design, but
+ * white on it measures 4.36 and it reads 3.59 as text on their own ground —
+ * both under the 4.5 a button label or a link needs. It works in the shot
+ * because it is only ever used at hero scale, where the bar is 3. Here it
+ * survives on the logo mark alone and #AB260E does the accent work at
+ * 5.74 / 6.96.
  *
- * The neutrals carry a slight green bias rather than being pure grey, so the
- * ground belongs to the accent instead of merely sitting under it. They stay
- * quiet enough that the tool logos, which arrive in every colour imaginable,
- * are not fighting a coloured ground.
+ * A red accent has one real cost, and it is not contrast: red is the colour
+ * every interface uses for danger, so a filled red button is a signal a
+ * "Visit site" control should not be sending. It is also why the semantic
+ * colours above had to move.
  *
  * Every pair below is measured, not guessed.
  */
 :root,
 .light {
-  --bg-color: #fafaf7;        /* paper, not white — white made the cards vanish */
-  --card-bg-color: #ffffff;
-  --surface-color: #f0f2ee;
-  --elevated-color: #ffffff;
+  --bg-color: #eae9e6;        /* their ground; cards lift off it rather than sit in it */
+  --card-bg-color: #f7f6f4;
+  --surface-color: #e0dedb;
+  --elevated-color: #fbfaf9;
 
-  --text-primary-color: #171a18;   /* ink — 16.68:1 on paper */
-  --text-secondary-color: #4e544f; /* 7.56:1 */
-  --text-muted-color: #686e69;     /* 5.16:1 on paper, 4.78:1 on surface */
+  --text-primary-color: #090909;   /* theirs — 16.40:1 on the ground */
+  --text-secondary-color: #4a4644; /* 7.69:1 */
+  --text-muted-color: #635e5b;     /* 5.27:1 on ground, 4.76:1 on surface */
 
-  --border-color: #e2e6e1;
-  --border-strong-color: #ccd3cd;
+  --border-color: #d5d2ce;
+  --border-strong-color: #c0bbb6;
 
-  --primary-color: #1c6b4b;        /* 5.67:1 as text on paper, 5.92:1 on a card */
-  --primary-fill-color: #1c6b4b;   /* white label on it: 5.92:1 */
-  --primary-dark-color: #155239;   /* hover — 7.41:1 */
-  --primary-soft-color: #e4ece6;
-  --primary-rgb: 28, 107, 75;
-  --color-primary-rgb: 28, 107, 75;
+  --primary-color: #ab260e;        /* 5.74:1 as text on ground, 6.45:1 on a card */
+  --primary-fill-color: #ab260e;   /* white label on it: 6.96:1 */
+  --primary-dark-color: #8a1e0b;   /* hover — 9.25:1 */
+  --primary-soft-color: #f1e2de;
+  --primary-rgb: 171, 38, 14;
+  --color-primary-rgb: 171, 38, 14;
 
-  --secondary-color: #171a18;
-  --accent-color: #1c6b4b;
-  --accent-soft-color: #e4ece6;
-  --accent-rgb: 28, 107, 75;
+  --secondary-color: #090909;
+  --accent-color: #ab260e;
+  --accent-soft-color: #f1e2de;
+  --accent-rgb: 171, 38, 14;
 
   /* Badge labels sit on the tint, which lifts the floor under them, so they
-     run a step darker than the link colour: 7.59:1 on #e4ece6. */
-  --badge-text-color: #155239;
-  --badge-accent-text-color: #155239;
+     run a step darker than the link colour: 7.34:1 on #f1e2de. */
+  --badge-text-color: #8a1e0b;
+  --badge-accent-text-color: #8a1e0b;
 
   /* Both stops carry white text and both are read as clipped gradient text,
-     so each has to clear 4.5:1 white-on-it and 3:1 on paper. 7.41/5.92 and
-     7.10/5.67. */
-  --gradient-primary: linear-gradient(92deg, #155239 0%, #1c6b4b 100%);
-  --gradient-primary-soft: linear-gradient(135deg, #e4ece6 0%, #f0f2ee 100%);
+     so each has to clear 4.5:1 white-on-it and 3:1 on the ground. 9.25/6.96
+     and 7.62/5.74. */
+  --gradient-primary: linear-gradient(92deg, #8a1e0b 0%, #ab260e 100%);
+  --gradient-primary-soft: linear-gradient(135deg, #f1e2de 0%, #e0dedb 100%);
 
-  --shadow-card-val: 0 1px 2px rgba(23, 26, 24, .05), 0 1px 3px rgba(23, 26, 24, .04);
-  --shadow-lift-val: 0 12px 32px -12px rgba(23, 26, 24, .16), 0 4px 10px rgba(23, 26, 24, .06);
-  --shadow-glow-val: 0 0 0 3px rgba(28, 107, 75, .16);
+  --shadow-card-val: 0 1px 2px rgba(9, 9, 9, .06), 0 1px 3px rgba(9, 9, 9, .05);
+  --shadow-lift-val: 0 12px 32px -12px rgba(9, 9, 9, .18), 0 4px 10px rgba(9, 9, 9, .07);
+  --shadow-glow-val: 0 0 0 3px rgba(171, 38, 14, .16);
 
-  --grid-line: rgba(23, 26, 24, .04);
-  --scrollbar-track: #f0f2ee;
-  --scrollbar-thumb: #ccd3cd;
-  --scrollbar-thumb-hover: #adb8b0;
+  --grid-line: rgba(9, 9, 9, .05);
+  --scrollbar-track: #e0dedb;
+  --scrollbar-thumb: #c0bbb6;
+  --scrollbar-thumb-hover: #a9a29c;
   color-scheme: light;
 }
 
-/* ---------- Dark : pine on charcoal ---------- */
+/* ---------- Dark : red on near-black ---------- */
 .dark {
-  --bg-color: #101310;        /* warm, so it reads as the same site at night */
-  --card-bg-color: #161a16;
-  --surface-color: #1c211d;
-  --elevated-color: #20261f;
+  --bg-color: #0f0d0c;        /* their near-black, warmed a shade */
+  --card-bg-color: #171413;
+  --surface-color: #1d1918;
+  --elevated-color: #221d1c;
 
-  --text-primary-color: #f2f5f2;   /* 17.07:1 on bg */
-  --text-secondary-color: #a9b1aa; /* 8.33:1 */
-  --text-muted-color: #8b938c;     /* 5.65:1 on bg, 5.28:1 on a card */
+  --text-primary-color: #f4f2f0;   /* 17.36:1 on bg */
+  --text-secondary-color: #b0a9a5; /* 8.37:1 */
+  --text-muted-color: #918a86;     /* 5.71:1 on bg, 5.40:1 on a card */
 
-  --border-color: #262c27;
-  --border-strong-color: #38403a;
+  --border-color: #2a2523;
+  --border-strong-color: #3c3532;
 
-  /* Text colour and fill colour split here. The lifted green is legible on the
-     dark ground (5.24:1) but far too light to carry white; the deep one carries
-     white at 6.45:1 but disappears as text. Using either for both is the
+  /* Text colour and fill colour split here. The lifted red is legible on the
+     dark ground (7.28:1) but far too light to carry white; the deep one carries
+     white at 6.96:1 but disappears as text. Using either for both is the
      mistake — it is what left the skip link at 2.47:1 once already.
 
-     --primary is solved against the SURFACE rather than the ground. The
-     surface is the lightest of the three places this colour lands, so it sets
-     the floor; solved against the ground instead it measured 4.32:1 there. */
-  --primary-color: #59937b;
-  --primary-fill-color: #1c6b4b;
-  --primary-dark-color: #2f7f5d;
-  --primary-soft-color: rgba(89, 147, 123, .16);
-  --primary-rgb: 89, 147, 123;
-  --color-primary-rgb: 89, 147, 123;
+     --primary is solved against the SURFACE rather than the ground, because
+     the surface is the lightest of the three places this colour lands and so
+     it is the one that sets the floor: 6.55 there, 6.88 on a card. */
+  --primary-color: #e8836a;
+  --primary-fill-color: #ab260e;
+  --primary-dark-color: #c4381c;
+  --primary-soft-color: rgba(232, 131, 106, .16);
+  --primary-rgb: 232, 131, 106;
+  --color-primary-rgb: 232, 131, 106;
 
-  --secondary-color: #f2f5f2;
-  --accent-color: #59937b;
-  --accent-soft-color: rgba(89, 147, 123, .15);
+  --secondary-color: #f4f2f0;
+  --accent-color: #e8836a;
+  --accent-soft-color: rgba(232, 131, 106, .15);
   /* Badge labels are 10.5px on a 16% tint, which lifts the floor, so they run
-     a step brighter than the accent: 6.47:1. */
-  --badge-text-color: #6fa88e;
-  --badge-accent-text-color: #6fa88e;
-  --accent-rgb: 89, 147, 123;
+     a step brighter than the accent: 6.89:1. */
+  --badge-text-color: #f0a08b;
+  --badge-accent-text-color: #f0a08b;
+  --accent-rgb: 232, 131, 106;
 
   /* This gradient is painted two ways and each pulls the opposite direction:
      as a button fill it carries white text, so it wants to be dark (4.5:1);
      as clipped headline text on the page it wants to be bright (3:1 at that
      size). The legal band here is luminance .119 to .183. White on these
-     stops: 5.98 and 4.87. The same stops as headline text: 3.13 and 3.84. */
-  --gradient-primary: linear-gradient(92deg, #26704f 0%, #2f7f5d 100%);
-  --gradient-primary-soft: linear-gradient(135deg, rgba(89, 147, 123, .14) 0%, rgba(89, 147, 123, .06) 100%);
+     stops: 6.00 and 4.76. The same stops as headline text: 3.23 and 4.07. */
+  --gradient-primary: linear-gradient(92deg, #b93017 0%, #cf4022 100%);
+  --gradient-primary-soft: linear-gradient(135deg, rgba(232, 131, 106, .14) 0%, rgba(232, 131, 106, .06) 100%);
 
   --shadow-card-val: 0 1px 2px rgba(0, 0, 0, .5);
   --shadow-lift-val: 0 16px 40px -16px rgba(0, 0, 0, .75), 0 3px 10px rgba(0, 0, 0, .4);
-  --shadow-glow-val: 0 0 0 3px rgba(89, 147, 123, .28);
+  --shadow-glow-val: 0 0 0 3px rgba(232, 131, 106, .28);
 
-  --grid-line: rgba(242, 245, 242, .04);
-  --scrollbar-track: #101310;
-  --scrollbar-thumb: #262c27;
-  --scrollbar-thumb-hover: #38403a;
+  --grid-line: rgba(244, 242, 240, .04);
+  /* Semantic colours are set once in @theme for the light ground; on
+     near-black they need lifting, and error has to stay clear of the accent
+     by hue here too — #ee7ba4 sits 33 degrees off #e8836a. */
+  --color-error: #ee7ba4;
+  --color-success: #6fb894;
+  --color-warning: #d3a24a;
+
+  --scrollbar-track: #0f0d0c;
+  --scrollbar-thumb: #2a2523;
+  --scrollbar-thumb-hover: #3c3532;
   color-scheme: dark;
 }
 

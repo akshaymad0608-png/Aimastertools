@@ -91,7 +91,7 @@ export default async function handler(req: any, res: any) {
       subject: `Payment Receipt: ${planName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #1c6b4b;">Thank you for your purchase!</h2>
+          <h2 style="color: #ab260e;">Thank you for your purchase!</h2>
           <p>Hi ${name || 'there'},</p>
           <p>We've successfully processed your payment for the <strong>${planName}</strong> plan.</p>
           <p>Your account has been upgraded, and you now have access to all premium features.</p>
