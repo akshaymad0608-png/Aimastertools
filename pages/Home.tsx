@@ -27,6 +27,9 @@ import { ExploreDirectory } from '../components/home/ExploreDirectory';
 import { FAQSection, HOME_FAQS } from '../components/home/FAQSection';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { EarnSection } from '../components/home/EarnSection';
+import { HeroBand } from '../components/home/HeroBand';
+import { TrustNumbers } from '../components/home/TrustNumbers';
+import { WhyIndex } from '../components/home/WhyIndex';
 import { TrendingToolsSection } from '../components/TrendingToolsSection';
 import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
 import { BrowseHub } from '../components/home/BrowseHub';
@@ -46,6 +49,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const heroSearchRef = useRef<HTMLInputElement>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement>(null);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,11 +78,15 @@ const Home: React.FC = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        searchInputRef.current?.focus();
-        mobileSearchInputRef.current?.focus();
+        // The hero field is the way in; the directory one refines once you are
+        // there. Focusing both, as this did, meant the second call won and the
+        // shortcut landed wherever the DOM order happened to put it.
+        const target =
+          heroSearchRef.current ?? searchInputRef.current ?? mobileSearchInputRef.current;
+        target?.focus();
       }
       if (e.key === 'Escape') {
-        searchInputRef.current?.blur();
+        (document.activeElement as HTMLElement | null)?.blur();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -283,26 +291,25 @@ const Home: React.FC = () => {
         ]}
       />
 
-      {/* ===== Compact hero band ===== */}
-      <section className="page-top border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-        <div className="container-custom py-8 md:py-11">
-          <p className="eyebrow">{TOOL_COUNT}+ AI tools · updated weekly</p>
-          <h1 className="display-lg mt-3 max-w-3xl text-[var(--color-text-primary)]">
-            Every <span className="text-gradient">AI tool</span> worth knowing, in one place.
-          </h1>
-          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
-            The independent directory of {TOOL_COUNT}+ AI tools — hand-checked, with real pricing, honest
-            pros and cons, and what to use instead.
-          </p>
-          <ul className="mt-4 flex flex-wrap items-center gap-2 text-[12px] font-semibold text-[var(--color-text-secondary)]">
-            {['Hand-checked', 'Updated weekly', 'No pay-to-rank', `${FREE_TOOL_COUNT} free tools`].map((c) => (
-              <li key={c} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-cardBg)] px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />{c}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/*
+        Hero, trust, then the reason to keep reading — the opening the Mayeen
+        layout uses, which a directory can take almost as-is.
+
+        The band this replaces was py-8 with no search in it. On the site whose
+        job is finding a tool, the first screen offered no way to look for one:
+        search lived in the header from xl up and again inside the directory
+        further down, so a phone opened on a description of a search engine.
+      */}
+      <HeroBand
+        searchTerm={searchTerm}
+        onSearchChange={handleSearchChange}
+        onSubmit={() =>
+          document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+        inputRef={heroSearchRef}
+      />
+
+      <TrustNumbers />
 
       {/* ===== Dashboard: category sidebar + tool grid ===== */}
       <section id="search-results" aria-labelledby="directory-heading" className="container-custom py-8 md:py-10">
@@ -348,7 +355,13 @@ const Home: React.FC = () => {
           <div>
             <div className="relative">
               <Search size={17} aria-hidden="true" className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
+              {/* This field had no id, no label and no aria-label — nothing
+                  naming it for anyone who cannot see the placeholder. */}
+              <label htmlFor="directory-search" className="sr-only">
+                Filter the directory
+              </label>
               <input
+                id="directory-search"
                 ref={searchInputRef}
                 type="search"
                 value={searchTerm}
@@ -550,6 +563,7 @@ const Home: React.FC = () => {
         IntersectionObserver, and on a 1.2s failsafe — so a section can be late
         but never invisible.
       */}
+      <Reveal><WhyIndex /></Reveal>
       <Reveal><ToolOfTheDay /></Reveal>
       <Reveal><TrendingToolsSection /></Reveal>
       <Reveal><FeaturedCarousel /></Reveal>
