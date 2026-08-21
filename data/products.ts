@@ -118,24 +118,41 @@ export const PRODUCTS: Product[] = [
     lastUpdated: '2026-08-21',
 
     keyFeatures: [
-      'A18 Pro chip, described on the listing as built for Apple Intelligence',
-      '13-inch Liquid Retina display',
+      'A18 Pro chip, described on the listing as built for AI and Apple Intelligence',
+      '13-inch Liquid Retina display, 2408x1506, up to 500 nits',
+      'Up to 16 hours of battery life',
       '8GB unified memory with 256GB SSD',
     ],
     specifications: [
       { label: 'CPU', value: 'Apple A18 Pro' },
-      { label: 'RAM', value: '8GB unified memory' },
+      { label: 'RAM', value: '8 GB unified memory' },
       { label: 'Storage', value: '256GB SSD' },
-      { label: 'Display', value: '13-inch Liquid Retina' },
-      { label: 'Operating system', value: 'macOS' },
+      { label: 'Display', value: '13 inches (33.02 cm) Liquid Retina' },
+      { label: 'Resolution', value: '2408 x 1506' },
+      { label: 'Brightness', value: 'Up to 500 nits' },
+      { label: 'Battery life', value: 'Up to 16 hours' },
+      { label: 'Camera', value: '1080p FaceTime HD' },
+      { label: 'Build', value: 'Aluminium' },
+      { label: 'Colour', value: 'Indigo' },
     ],
 
     /*
-      Specifications are transcribed from the listing title, not asserted.
-      "A18 Pro" is unusual for a Mac — Apple's laptops have used M-series
-      silicon — so the entry names the chip the listing names and claims nothing
-      about it beyond that. If the listing is wrong, this is wrong in the same
-      way and for the same reason, which is the honest failure mode.
+      Specifications are transcribed from the listing, not asserted.
+
+      "A18 Pro" in a Mac is worth a note, because A-series silicon has been
+      iPhone and iPad hardware and Apple's laptops have used M-series. It is not
+      a typo in the title: the listing's own attribute table gives Model Name
+      "MacBook Neo" and CPU Model "Apple A18 Pro", and five of the About-this-
+      item bullets name the chip. So this records what the listing states, in
+      the listing's own words, and asserts nothing beyond it. If the listing is
+      wrong then this is wrong in the same way and for the same reason, which is
+      the honest failure mode for a catalogue built by reading listings.
+
+      Also on the page but not stored: 512GB is offered as a second size, and
+      Silver, Blush and Citrus as other colours. This record is one specific
+      configuration — the one the ASIN and the price belong to. A card that
+      quotes ₹73,990 beside a spec sheet covering four colours and two storage
+      tiers is quoting a price for something the reader cannot buy.
 
       Left out, all of it on the page:
 
