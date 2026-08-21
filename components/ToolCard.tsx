@@ -80,19 +80,29 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
         {/* Record */}
         <div className="flex min-w-0 flex-1 flex-col">
           {/*
-            Name and rating on their own line, price down with the category.
+            One thing per row, and every row a fixed number of lines.
 
-            All four used to share one flex-wrap row, so the length of the tool
-            name decided the layout: "Munch Studio" pushed its FREEMIUM badge
-            onto a second line while "CapCut" kept its inline, and the cards in
-            a row stopped agreeing about where anything sat. The name can now
-            take whatever width it needs without moving anything else.
+            These four — name, rating, price, category — used to share a single
+            flex-wrap row, so the length of a tool name decided the layout:
+            "Munch Studio" pushed its FREEMIUM badge onto a second line while
+            "CapCut" kept its inline.
+
+            Splitting them was not enough. In a 257px column the name itself
+            wraps — "Google Analytics 4 (GA4)" takes two lines where "Clay"
+            takes one — and everything below it shifted by 21px. Measured on
+            the live grid: names 21px and 42px tall, meta rows 23px and 49px,
+            so the action rail landed at 203, 229 and 249px on cards sitting
+            side by side.
+
+            So the name reserves both lines whether it needs them or not, and
+            rating and price get their own row where they always fit. Nothing
+            below depends on how long a name happens to be.
           */}
           <div className="flex items-start gap-2.5">
             {typeof rank === 'number' && (
               <span className="label-mono mt-1 shrink-0 tabular-nums">{String(rank).padStart(2, '0')}</span>
             )}
-            <h3 className="title-sm min-w-0 flex-1 text-balance text-[16px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] @[26rem]:text-[17.5px]">
+            <h3 className="title-sm line-clamp-2 min-h-[2.75rem] min-w-0 flex-1 text-balance text-[16px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] @[26rem]:text-[17.5px]">
               <Link
                 to={`/tool/${tool.id}`}
                 className="after:absolute after:inset-0 after:content-[''] hover:text-[var(--color-primary)]"
@@ -100,11 +110,14 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
                 {tool.name}
               </Link>
             </h3>
+          </div>
 
-            <span className="mt-0.5 flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
+          <div className="mt-1 flex items-center gap-2.5">
+            <span className="flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
               <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
               <span className="tabular-nums">{tool.rating.toFixed(1)}</span>
             </span>
+            <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
           </div>
 
           {/*
@@ -120,24 +133,23 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
             {tool.description}
           </p>
 
-          <div className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-2">
-            <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
+          {/*
+            Category only, and no tags.
+
+            The tags were the other thing wrapping this row — a badge plus a
+            category plus two "#slug" chips does not fit 257px, so the row was
+            23px on some cards and 49px on others. They were also the clutter
+            in the grid, and they linked to /?tag=… which this site's robots.txt
+            blocks outright, so nothing was following them anyway. The category
+            alone fits on one line at every column width the grid uses.
+          */}
+          <div className="mt-3 truncate">
             <Link
               to={`/?category=${encodeURIComponent(tool.category)}`}
               className="relative z-10 text-[12px] font-medium text-[var(--color-text-secondary)] underline-offset-4 hover:text-[var(--color-primary)] hover:underline"
             >
               {tool.category}
             </Link>
-            {tool.tags?.slice(0, 2).map((tag) => (
-              <Link
-                key={tag}
-                to={`/?tag=${tag.toLowerCase()}`}
-                className="relative z-10 text-[12px] text-[var(--color-text-muted)] hover:text-[var(--color-primary)]"
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                #{tag.toLowerCase().replace(/\s+/g, '-')}
-              </Link>
-            ))}
           </div>
         </div>
       </div>
