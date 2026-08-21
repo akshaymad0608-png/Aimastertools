@@ -327,7 +327,21 @@ const Home: React.FC = () => {
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <p className="label-mono mb-2.5">Categories</p>
-            <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:flex-col lg:gap-0.5 lg:overflow-visible lg:pb-0">
+            {/*
+              The rail scrolls itself from lg up.
+
+              49 categories made this column ~1,900px tall, and since it is one
+              half of a two-column grid it set the height of the whole section.
+              The tool grid never fills that: measured 726px of empty column at
+              the default 8 cards, and 1,145px once a smaller category was
+              selected — a screen and a half of nothing beside a list of links.
+
+              It also made the sticky positioning meaningless, because an
+              element as tall as its container has nowhere to stick. Capping it
+              to the viewport gives the sticky rail something to do and keeps
+              all 49 filters rather than truncating the list.
+            */}
+            <nav className="flex gap-1.5 overflow-x-auto pb-2 lg:max-h-[calc(100dvh-9rem)] lg:flex-col lg:gap-0.5 lg:overflow-y-auto lg:overscroll-contain lg:pb-0 lg:pr-1">
               <button
                 onClick={() => { setSelectedCategory('All'); setVisibleCount(8); }}
                 className={`flex shrink-0 items-center justify-between gap-2 whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[13.5px] font-medium transition-colors ${selectedCategory === 'All' ? 'bg-[var(--color-primary-fill)] text-white' : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]'}`}
