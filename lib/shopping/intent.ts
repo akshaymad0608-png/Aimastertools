@@ -79,35 +79,62 @@ export interface ParsedIntent extends ProductQuery {
 }
 
 /**
- * The earliest hint in the sentence wins, and a longer hint breaks a tie.
+ * Find the thing being bought.
  *
- * Longest-first alone was wrong. "phone under ₹25,000 with a good camera"
- * returned cameras, because "camera" is six letters and "phone" is five — but
- * the camera there is a feature of the phone, not the thing being bought. The
- * head noun comes first and the qualifiers follow it, in English and in the way
- * people actually type these queries.
+ * Two rules, and they pull in opposite directions, which is the whole
+ * difficulty:
  *
- * Position alone would be wrong too: in "smart tv" both "smart tv" and "tv"
- * match, so where two hints start at the same place the longer one is the more
- * specific and takes it.
+ *   1. Qualifiers that follow the noun belong to it. "phone under ₹25,000 with
+ *      a good camera" is a phone — the camera is a feature of it. Longest-match
+ *      alone got this wrong and returned cameras, because "camera" is six
+ *      letters and "phone" is five. So the earliest hint wins.
+ *
+ *   2. Qualifiers that precede the noun also belong to it. "camera phone" is a
+ *      phone; "camera" modifies it. Earliest-match alone got THIS wrong and
+ *      returned cameras again — the same wrong answer from the opposite
+ *      mistake. English compounds put the modifier first and the head noun
+ *      last, so in a run of adjacent nouns the LAST one is what is being
+ *      bought.
+ *
+ * So: earliest wins, then walk forward through directly adjacent hints and take
+ * the last of them. "Adjacent" means separated by at most two characters — a
+ * space or a hyphen — which is tight enough that "phone ... with a good camera"
+ * never chains, and loose enough that "camera phone" and "camera-phone" both do.
+ *
+ * Overlapping matches are not a compound: in "smart tv" both "smart tv" and
+ * "tv" match, and the second starts inside the first. There the longer, more
+ * specific phrase takes it.
+ *
+ * The reversed form, "phone camera", resolves to cameras by the same rule. That
+ * is what the compound literally says, and it is the rarer query by a wide
+ * margin; getting "best camera phone" right is worth it.
  */
 const findFirst = (text: string, table: Record<string, string[]>): string | undefined => {
-  let best: { key: string; at: number; len: number } | undefined;
+  const hits: { key: string; at: number; end: number; len: number }[] = [];
 
   for (const [key, words] of Object.entries(table)) {
     for (const word of words) {
       const re = new RegExp(`(^|[^a-z])${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z]|$)`, 'i');
       const m = re.exec(text);
       if (!m) continue;
-      // +1 skips the boundary character the group captured.
+      // Skip whatever the leading boundary group captured.
       const at = m.index + (m[1] ? m[1].length : 0);
-      if (!best || at < best.at || (at === best.at && word.length > best.len)) {
-        best = { key, at, len: word.length };
-      }
+      hits.push({ key, at, end: at + word.length, len: word.length });
     }
   }
 
-  return best?.key;
+  if (!hits.length) return undefined;
+
+  // Earliest first; where two start together the longer phrase is the more
+  // specific one.
+  hits.sort((a, b) => a.at - b.at || b.len - a.len);
+
+  let head = hits[0];
+  for (;;) {
+    const next = hits.find((h) => h.at >= head.end && h.at - head.end <= 2);
+    if (!next) return head.key;
+    head = next;
+  }
 };
 
 export const parseIntent = (raw: string): ParsedIntent => {

@@ -10,7 +10,8 @@
     "start": "node dist/server.cjs",
     "lint": "tsc --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "audit:links": "node scripts/audit-affiliate-links.mjs"
+    "audit:links": "node scripts/audit-affiliate-links.mjs",
+    "test:intent": "node scripts/test-intent.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.43.0",

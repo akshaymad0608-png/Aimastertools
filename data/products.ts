@@ -182,6 +182,76 @@ export const PRODUCTS: Product[] = [
     source: 'manual',
     isActive: true,
   },
+
+  {
+    id: 'apple-iphone-17-pro-max-1tb-silver',
+    asin: 'B0FQF9B6K3',
+    name: 'Apple iPhone 17 Pro Max 1 TB: 17.42 cm (6.9") Display with ProMotion, A19 Pro Chip, Best Battery Life in Any iPhone Ever, Pro Fusion Camera System, Center Stage Front Camera; Silver',
+    brand: 'Apple',
+    category: 'smartphones',
+
+    // Read off the Amazon.in listing on 21 Aug 2026.
+    price: 187900,
+    currency: 'INR',
+    rating: 4.6,
+    reviewCount: 545,
+    availability: 'In stock',
+    lastUpdated: '2026-08-21',
+
+    keyFeatures: [
+      '6.9-inch (17.42 cm) display with ProMotion',
+      'A19 Pro chip',
+      'Pro Fusion camera system, with a Center Stage front camera',
+      '1 TB storage',
+    ],
+    specifications: [
+      { label: 'Storage', value: '1 TB' },
+      { label: 'Display', value: '6.9 inches (17.42 cm), ProMotion' },
+      { label: 'CPU', value: 'Apple A19 Pro' },
+      { label: 'Rear camera', value: 'Pro Fusion camera system' },
+      { label: 'Front camera', value: 'Center Stage' },
+      { label: 'Colour', value: 'Silver' },
+    ],
+
+    /*
+      No M.R.P. was shown on this listing — just ₹1,87,900, with no struck-out
+      price and no discount badge. So no mrp is stored, and the card shows the
+      price alone with no "% OFF". Inventing a higher number to make a saving
+      appear is the exact thing the discount is computed rather than stored to
+      prevent.
+
+      The name is the listing title verbatim, which means it carries Apple's
+      "Best Battery Life in Any iPhone Ever" through into our page. That is a
+      superlative we have not measured and cannot check. It stays in the name
+      because the name is quoted, not written — trimming a product title to the
+      parts we like is its own kind of editing — but it is deliberately NOT
+      repeated in keyFeatures, where the site speaks in its own voice. The
+      feature list carries the display, the chip, the cameras and the storage:
+      things stated as fact on the listing rather than as a claim about every
+      iPhone ever made.
+
+      Left out, all of it on the page:
+
+        "Amazon's Choice"             Amazon's badge, not our judgement
+        "₹31,317/month (6 months)"    an EMI figure, card- and tenure-specific
+        "FREE delivery Sunday,        pin-code specific, and a countdown that is
+        23 August. Order within        wrong within the hour
+        3 hrs 18 mins"
+        "+₹199 service fee"           tied to that delivery option
+
+      The Special Link is stored exactly as generated. Short and clean this
+      time — /dp/ASIN with linkCode, tag, linkId and ref_ — because it was made
+      from the product page rather than a search result.
+    */
+    affiliateUrl:
+      'https://www.amazon.in/dp/B0FQF9B6K3?th=1&linkCode=ll2&tag=aimastertools-21&linkId=c29717d2bedbd3f96a4992e2a96d0a75&ref_=as_li_ss_tl',
+    associateId: 'aimastertools-21',
+    trackingId: 'aimastertools-21',
+
+    source: 'manual',
+    isActive: true,
+    isFeatured: true,
+  },
 ];
 
 /** Demo rows are only ever shown when explicitly switched on. */
