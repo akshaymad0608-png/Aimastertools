@@ -84,15 +84,18 @@ export const PRODUCTS: Product[] = [
       untidy" is not a reason to start editing one. resolveAffiliateLink was
       checked against this exact URL and returns it byte-for-byte unchanged.
 
-      It reports to techakki0a-21, not aimastertools-21. That is the tracking
-      number that was selected in SiteStripe when it was generated, and it is
-      recorded here rather than corrected, because rewriting the tag inside a
-      Special Link is precisely the thing not to do. Regenerate it with the
-      right tracking number selected and replace both fields together.
+      Regenerated once. The first version reported to techakki0a-21 — a tracking
+      id belonging to a different Associates account — because that was what
+      SiteStripe had selected. Nothing about the link looked wrong: it resolved,
+      it opened the right product, the button read correctly. It simply would
+      have paid someone else. It was replaced by generating a new link with the
+      right tracking id, never by editing the tag, and `npm run audit:links`
+      exists to catch the next one.
     */
     affiliateUrl:
-      'https://www.amazon.in/Sony-inches-BRAVIA-Google-K-55S25BM2/dp/B0F7X5FC43?mcid=0f648b2e35803d5493a0772412f8b8d0&hvadid=709962856271&hvpos=&hvnetw=g&hvrand=6249849741392998397&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9302130&hvtargid=pla-2429324014937&hvocijid=6249849741392998397-B0F7X5FC43-&hvexpln=0&gad_source=1&th=1&linkCode=ll2&tag=techakki0a-21&linkId=940da7c157f727db3a379f08cb778289&ref_=as_li_ss_tl',
-    trackingId: 'techakki0a-21',
+      'https://www.amazon.in/Sony-inches-BRAVIA-Google-K-55S25BM2/dp/B0F7X5FC43?mcid=0f648b2e35803d5493a0772412f8b8d0&hvadid=709962856271&hvpos=&hvnetw=g&hvrand=17360826101936055839&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9302130&hvtargid=pla-2429324014937&hvocijid=17360826101936055839-B0F7X5FC43-&hvexpln=0&gad_source=1&th=1&linkCode=ll2&tag=aimastertools-21&linkId=f99287fb0c36441d34aaf9326c1cf829&ref_=as_li_ss_tl',
+    associateId: 'aimastertools-21',
+    trackingId: 'aimastertools-21',
 
     source: 'manual',
     isActive: true,
