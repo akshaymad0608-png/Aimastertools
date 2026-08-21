@@ -27,13 +27,13 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
       >
         <defs>
           <linearGradient id="amt-hex" x1="6" y1="6" x2="42" y2="44" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#0094ee" />
-            <stop offset="1" stopColor="#0176be" />
+            <stop stopColor="#c2703a" />
+            <stop offset="1" stopColor="#8c3f13" />
           </linearGradient>
           <radialGradient id="amt-orb" cx="0.36" cy="0.30" r="0.85">
             <stop stopColor="#ffffff" />
-            <stop offset="0.6" stopColor="#e4f4ff" />
-            <stop offset="1" stopColor="#c9dce8" />
+            <stop offset="0.6" stopColor="#f6ece4" />
+            <stop offset="1" stopColor="#d2cbbf" />
           </radialGradient>
         </defs>
 

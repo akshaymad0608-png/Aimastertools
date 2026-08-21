@@ -2,7 +2,6 @@ import { BlogCoverImage } from './BlogCoverImage';
 import Reveal from './Reveal';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
 import { 
   Clock, ArrowRight, Bot, GraduationCap, Brain, Palette, Code, Layout, Calendar 
@@ -10,24 +9,18 @@ import {
 
 // Color and design mappings for high fidelity custom tags
 /**
- * One colour per label could not work, because each label paints itself on a
- * 15%-alpha tint of its own colour and that tint follows the theme.
+ * Category labels take the single accent rather than a hue each.
  *
- * On white the tint barely darkens, so the text has to come down to clear it:
- * amber measured 2.92:1, orange 2.57:1, teal 3.39:1, all at 9px. On the dark
- * card the same tint lands dark, and those corrected values then failed the
- * other way — darkening for light broke dark, at 3.38-3.44:1.
+ * Five hard-coded colours for five categories is the colour-coded template
+ * look, and it fought the warm palette the moment blue and teal landed on
+ * paper. It was also a standing contrast problem: each label paints on a tint
+ * of its own colour, that tint follows the theme, and one value per label
+ * cannot clear 4.5:1 in both — correcting amber, orange and teal for the light
+ * tint (2.92, 2.57, 3.39) broke all three against the dark card.
  *
- * So each label carries both. Every pair below clears 4.5:1 against the tint
- * it actually sits on, in the theme it actually sits in.
+ * The tokens already solve both. The label says which category it is; it does
+ * not need a colour to say it twice.
  */
-const CATEGORY_COLORS: Record<string, { light: string; dark: string }> = {
-"EDUCATION":   { light: "#a55a05", dark: "#d97706" },
-"RESEARCH":    { light: "#0b7c72", dark: "#0d9488" },
-"DESIGN":      { light: "#b35310", dark: "#f97316" },
-"CODING":      { light: "#2563eb", dark: "#4c7fef" },
-"AI CHATBOTS": { light: "#7d53dd", dark: "#9469f7" }
-};
 
 // Mini avatar styles matching the specific authors
 /**
@@ -54,10 +47,6 @@ const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: s
 );
 
 export const BlogSection: React.FC = () => {
-  // Category labels resolve their colour per theme — see CATEGORY_COLORS.
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
   // Extract specific blog post categories to align with requested layout
   const chatbotPost = blogPosts.find(p => p.category?.toLowerCase().includes('chatbot')) || blogPosts[0];
   
@@ -111,7 +100,7 @@ export const BlogSection: React.FC = () => {
   return (
     <section id="blog" className="section relative overflow-hidden bg-[var(--color-background)]">
       {/* Subtle single-tone backdrop (premium — restraint over glow) */}
-      <div className="absolute top-0 left-1/3 w-[520px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-[0.07]" style={{ background: '#0094ee' }} />
+      <div className="absolute top-0 left-1/3 w-[520px] h-[420px] rounded-full blur-3xl pointer-events-none opacity-[0.07]" style={{ background: '#c2703a' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -122,9 +111,9 @@ export const BlogSection: React.FC = () => {
               Latest Insights
             </p>
             <h2 className="display-md text-[var(--color-text-primary)]">
-              <span className="text-slate-900 dark:text-white">Learn AI tools, workflows & comparisons</span>
+              Learn AI tools, workflows &amp; comparisons
             </h2>
-            <p className="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
+            <p className="mt-4 max-w-2xl text-base text-[var(--color-text-secondary)]">
               Stay updated with expert reviews, tool comparisons, and prompt engineering tutorials.
             </p>
           </div>
@@ -215,9 +204,8 @@ export const BlogSection: React.FC = () => {
             </h4>
             
             {trendingCards.map((post, index) => {
-              const pair = CATEGORY_COLORS[post.category] || { light: "#7d53dd", dark: "#9469f7" };
-              const categoryColor = isDark ? pair.dark : pair.light;
-              const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-slate-500" };
+
+              const authorConfig = AUTHOR_AVATARS[post.author] || { initials: "AI", bg: "bg-[#6e6a62]" };
 
               return (
                 <Reveal key={post.id} delay={index * 80}>
@@ -239,9 +227,9 @@ export const BlogSection: React.FC = () => {
                         <div className="flex items-center justify-between gap-2 mb-1.5">
                           <span 
                             className="text-[9px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded"
-                            style={{ 
-                              color: categoryColor, 
-                              backgroundColor: `${categoryColor}15`
+                            style={{
+                              color: 'var(--badge-text-color)',
+                              backgroundColor: 'var(--color-primary-soft)'
                             }}
                           >
                             {post.category}
