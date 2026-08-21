@@ -1,4 +1,10 @@
-import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../utils/stats';
+import {
+  TOOL_COUNT,
+  CATEGORY_COUNT,
+  FREE_TOOL_COUNT,
+  FREEMIUM_TOOL_COUNT,
+  LAST_UPDATED_LABEL,
+} from '../utils/stats';
 import React, { useEffect, useState } from 'react';
 import { Play, Star, Users, Activity, HelpCircle, Info, TrendingUp, Award, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -122,10 +128,21 @@ const Discover: React.FC = () => {
             <section id="stats" className="scroll-mt-32">
               <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3"><Activity className="text-[var(--color-primary)]" /> Platform Stats</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {/*
+                  Every figure here is counted from the catalogue at build time.
+
+                  This grid used to carry "Daily Visitors 12,000+", which was
+                  not measured anywhere — no analytics number was ever read to
+                  produce it. Sitting between three counts that are real, it
+                  borrowed their credibility, and it was the one number on the
+                  page a reader could not have checked. It is replaced by a
+                  count of the freemium tier, which is derived the same way as
+                  its neighbours.
+                */}
                 {[
                   { label: 'Tools indexed', value: String(TOOL_COUNT) },
-                  { label: 'Daily Visitors', value: '12,000+' },
                   { label: 'Free or open source', value: String(FREE_TOOL_COUNT) },
+                  { label: 'Freemium', value: String(FREEMIUM_TOOL_COUNT) },
                   { label: 'Categories', value: String(CATEGORY_COUNT) },
                 ].map((stat, i) => (
                   <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] p-6 text-center hover:border-[var(--color-primary)] transition-colors">
@@ -134,6 +151,12 @@ const Discover: React.FC = () => {
                   </div>
                 ))}
               </div>
+              {LAST_UPDATED_LABEL && (
+                <p className="mt-4 text-sm text-[var(--color-text-muted)]">
+                  Counted from the catalogue itself at build time. Most recent
+                  addition: {LAST_UPDATED_LABEL}.
+                </p>
+              )}
             </section>
 
             {/* Featured Spotlight */}

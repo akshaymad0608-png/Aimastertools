@@ -59,7 +59,14 @@ const PrivacyPolicy: React.FC = () => {
 
         <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">5. Contact Us</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">
-          If you have any questions about this privacy policy or our privacy practices, please contact us at privacy@aimastertools.com.
+          If you have any questions about this privacy policy or our privacy practices, please contact us at{' '}
+          <a
+            href="mailto:privacy@aimastertools.space"
+            className="text-[var(--color-primary)] underline underline-offset-2"
+          >
+            privacy@aimastertools.space
+          </a>
+          .
         </p>
       </div>
     </motion.div>

@@ -51,7 +51,7 @@ const CollectionDetail: React.FC = () => {
 "itemListElement": tools.map((tool, index) => ({
 "@type": "ListItem",
 "position": index + 1,
-"url": `https://aimastertools.com/tool/${tool.id}`
+"url": `https://aimastertools.space/tool/${tool.id}`
       }))
     }
   };

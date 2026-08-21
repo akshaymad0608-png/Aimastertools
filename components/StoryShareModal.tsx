@@ -143,7 +143,7 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
                     <div className="bg-gray-900 rounded-[1.3rem] py-8 px-12 flex items-center justify-between">
                        <span className="text-gray-300 text-4xl font-medium">Discover more at</span>
                        <span className="text-white text-4xl font-bold">
-                          aimastertools.com
+                          aimastertools.space
                        </span>
                     </div>
                   </div>

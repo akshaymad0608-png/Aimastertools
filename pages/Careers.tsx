@@ -38,7 +38,7 @@ const Careers: React.FC = () => {
             Send us your resume and we'll keep you in mind for future opportunities.
           </p>
           <a 
-            href="mailto:careers@aimastertools.com"
+            href="mailto:careers@aimastertools.space"
             className="inline-flex items-center justify-center px-6 py-3 bg-[var(--color-primary-fill)] text-white font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
           >
             Send Resume
