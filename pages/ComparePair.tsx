@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { resolveToolLink } from '../lib/affiliate/outbound';
 import { useParams, Link } from 'react-router-dom';
 import { ExternalLink, Star, ArrowRight, Check, Minus } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -197,9 +198,9 @@ const ComparePair: React.FC = () => {
                       {t.description}
                     </p>
                     <a
-                      href={t.url}
+                      href={resolveToolLink(t).href}
                       target="_blank"
-                      rel="noopener noreferrer sponsored"
+                      rel={resolveToolLink(t).rel}
                       className="btn-secondary mt-4 h-9 px-4 text-[12.5px]"
                     >
                       Visit {t.name} <ExternalLink size={12} />

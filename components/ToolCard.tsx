@@ -6,6 +6,7 @@ import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
 import { useCompare } from '../context/CompareContext';
 import ToolLogo from './ToolLogo';
+import { resolveToolLink } from '../lib/affiliate/outbound';
 
 interface ToolCardProps {
   tool: Tool;
@@ -30,6 +31,7 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
   const [copied, setCopied] = useState(false);
   const isBookmarked = bookmarks.includes(tool.id);
   const isVertical = layout === 'vertical';
+  const link = resolveToolLink(tool);
 
   const handleShare = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -224,14 +226,20 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
           already the review: the title is a stretched link covering the whole
           surface. Leaving the exit filled and the destination invisible had the
           hierarchy backwards, and it painted the grid in accent blocks.
+
+          The rel used to be hard-coded to "noopener noreferrer sponsored" here,
+          which told Google every one of these 699 links was paid when none of
+          them were. resolveToolLink decides it from whether money is actually
+          involved, and marks the card when it is.
         */}
         <a
-          href={tool.url}
+          href={link.href}
           target="_blank"
-          rel="noopener noreferrer sponsored"
+          rel={link.rel}
           className="btn-secondary h-10 min-w-0 flex-1 whitespace-nowrap px-4 text-[13px] @[34rem]:flex-none"
         >
           Visit site
+          {link.isAffiliate && <span className="sr-only"> (affiliate link)</span>}
           <ExternalLink size={13} />
         </a>
       </div>

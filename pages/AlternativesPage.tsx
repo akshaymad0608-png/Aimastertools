@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { resolveToolLink } from '../lib/affiliate/outbound';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
@@ -215,9 +216,9 @@ const AlternativesPage: React.FC = () => {
 
         <section className="mt-14 flex flex-wrap gap-3">
           <a
-            href={tool.url}
+            href={resolveToolLink(tool).href}
             target="_blank"
-            rel="noopener noreferrer sponsored"
+            rel={resolveToolLink(tool).rel}
             className="btn-secondary h-10 px-4 text-[13px]"
           >
             Visit {tool.name} <ExternalLink size={12} />

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { resolveToolLink } from '../lib/affiliate/outbound';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Check, X, ExternalLink, Star, Plus, Lock } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
@@ -266,9 +267,9 @@ const Compare: React.FC = () => {
                           Read Review
                         </Link>
                         <a 
-                          href={tool.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
+                          href={resolveToolLink(tool).href}
+                          target="_blank"
+                          rel={resolveToolLink(tool).rel}
                           className="w-full py-2 rounded-lg text-sm font-semibold text-white bg-[var(--color-primary-fill)] hover:bg-[var(--color-primary-dark)] transition-all flex items-center justify-center gap-2"
                         >
                           Visit Site <ExternalLink size={14} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { resolveToolLink } from '../lib/affiliate/outbound';
 import { Sparkles, ArrowRight, ArrowLeft, CheckCircle2, Loader2, RefreshCw, Briefcase, Code, PenTool, Image as ImageIcon, LayoutDashboard, Brain, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MOCK_TOOLS } from '../data/tools';
@@ -204,7 +205,7 @@ export const AIToolFinder: React.FC = () => {
                           <Link to={`/tool/${tool.id}`} className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-background)] border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors">
                             Details
                           </Link>
-                          <a href={tool.url} target="_blank" rel="noopener noreferrer" className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-colors">
+                          <a href={resolveToolLink(tool).href} target="_blank" rel={resolveToolLink(tool).rel} className="flex-1 py-2 text-center rounded-lg text-sm font-bold bg-[var(--color-primary-fill)] text-white hover:bg-[var(--color-primary-dark)] transition-colors">
                             Visit Site
                           </a>
                         </div>

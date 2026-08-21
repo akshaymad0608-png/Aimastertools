@@ -14,6 +14,8 @@ import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
 import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
 import { StoryShareModal } from '../components/StoryShareModal';
+import { resolveToolLink } from '../lib/affiliate/outbound';
+import AffiliateDisclosure from '../components/shopping/AffiliateDisclosure';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -88,9 +90,21 @@ const ToolDetail: React.FC = () => {
     );
   }
 
+  /*
+    Two links, deliberately different.
+
+    `link` is the call to action, and becomes the partner link the moment the
+    tool has one. `siteLink` is the "Website" row, which always points at the
+    tool's own domain — that row exists to tell the reader who they are dealing
+    with, and sending it through a redirect would answer a different question.
+  */
+  const link = resolveToolLink(tool);
+  const siteLink = resolveToolLink({ name: tool.name, url: tool.url });
+  const siteLabel = siteLink.isFallbackSearch ? 'Search on Google' : new URL(siteLink.href).hostname;
+
   return (
     <>
-      <SEO 
+      <SEO
         title={`${tool.name} Review & Alternatives (2026) | AI Master Tools`}
         description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, pros, cons, and best AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
@@ -391,14 +405,32 @@ const ToolDetail: React.FC = () => {
                 </div>
               </div>
 
-              <a 
-                href={tool.url && tool.url !== '#' ? tool.url : `https://www.google.com/search?q=${encodeURIComponent(tool.name + ' AI Tool')}`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn-primary w-full flex justify-center items-center gap-2 mb-6 py-4 text-lg shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 rounded-[var(--radius-sm)]"
+              {/*
+                This rel was "noopener noreferrer" — no nofollow — so all 699
+                tool pages passed their ranking straight out to the vendors.
+                resolveToolLink sets it from whether the link is commercial, and
+                also handles the malformed-URL case that used to reach
+                `new URL(...)` below and throw.
+              */}
+              <a
+                href={link.href}
+                target="_blank"
+                rel={link.rel}
+                className="btn-primary w-full flex justify-center items-center gap-2 mb-3 py-4 text-lg shadow-[var(--shadow-card)] shadow-[var(--color-primary)]/20 hover:shadow-[var(--color-primary)]/40 rounded-[var(--radius-sm)]"
               >
                 Visit Website <ExternalLink size={18} />
               </a>
+
+              {/*
+                Disclosure sits directly under the button that earns the money,
+                not in the footer. A reader deciding whether to click should be
+                able to see it without going looking.
+              */}
+              {link.isAffiliate ? (
+                <AffiliateDisclosure kind="partner" className="mb-6" />
+              ) : (
+                <div className="mb-6" />
+              )}
 
               <div className="space-y-5">
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
@@ -417,13 +449,24 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Website</span>
-                  <a 
-                    href={tool.url && tool.url !== '#' ? tool.url : `https://www.google.com/search?q=${encodeURIComponent(tool.name + ' AI Tool')}`} 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  {/*
+                    The label called new URL(tool.url) with no guard. A record
+                    with a typo'd url — anything that is neither empty nor '#' —
+                    threw here and took the whole page down with it. siteLabel
+                    is resolved safely alongside the href.
+
+                    This one always points at the tool's own site, never the
+                    affiliate link: it is showing the reader which domain they
+                    are dealing with, and a redirect host would answer a
+                    different question than the one being asked.
+                  */}
+                  <a
+                    href={siteLink.href}
+                    target="_blank"
+                    rel={siteLink.rel}
                     className="text-[var(--color-primary)] hover:underline flex items-center gap-1"
                   >
-                    <Globe size={14} /> {tool.url && tool.url !== '#' ? new URL(tool.url).hostname : 'Search on Google'}
+                    <Globe size={14} /> {siteLabel}
                   </a>
                 </div>
                 <div className="flex justify-between items-center text-sm py-3">
