@@ -96,6 +96,41 @@ for (const t of byId) {
 }
 const TOOLS = byId.filter((t) => canon.get((t.name || '').trim().toLowerCase()) === t);
 
+/**
+ * Real SoftwareApplication + Offer schema for a tool page, ported from
+ * utils/seo.ts's toolSchema() so the prerendered HTML carries the same honest
+ * claims the client-side <SEO> component already makes — an agent or crawler
+ * that never runs React currently sees none of it.
+ *
+ * Same restraint as the source: no `image` (every tool's imageUrl is an
+ * Unsplash stock photo of something else, not the product), no invented
+ * `price` (a paid tool gets a pricing *category*, never a number nobody
+ * checked), and no `aggregateRating` — there is no real per-tool review count
+ * in this dataset, so the field simply doesn't fire rather than being backed
+ * by a fabricated count.
+ */
+const toolJsonLd = (t) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${SITE}/tool/${t.id}#software`,
+  name: t.name,
+  description: t.longDescription || t.description,
+  url: `${SITE}/tool/${t.id}`,
+  sameAs: t.url,
+  applicationCategory: 'BusinessApplication',
+  applicationSubCategory: t.category,
+  operatingSystem: 'Web',
+  ...(t.launchYear ? { datePublished: `${t.launchYear}-01-01` } : {}),
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    category: t.pricing,
+    ...(t.pricing === 'Free' || t.pricing === 'Open Source' ? { price: '0' } : {}),
+    availability: 'https://schema.org/OnlineOnly',
+    url: t.url,
+  },
+});
+
 // ---- Load categories + count tools each ------------------------------------
 const catSrc = readFileSync('data/categories.ts', 'utf8');
 const cStart = catSrc.indexOf('CATEGORY_META = [') + 'CATEGORY_META = ['.length - 1;
@@ -580,6 +615,7 @@ const routes = [
       `${t.name} Review (${YEAR})`,
     ], `/tool/${t.id}`),
     description: fitDescription(`Our review of ${t.name}. Discover its features, pricing, pros, cons, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`, DESC_TAILS, `/tool/${t.id}`),
+    jsonLd: toolJsonLd(t),
   })),
   // Category pages
   ...CATEGORIES.map((c) => {
@@ -617,7 +653,25 @@ const routes = [
   ...SHOPPING_ROUTES,
 ];
 
-const template = readFileSync(join(DIST, 'index.html'), 'utf8');
+/**
+ * dist/index.html is the shared base for every prerendered page — the loop
+ * below copies it per route and only overwrites title/description/OG/canonical.
+ * It never touches the <noscript> paragraph text, so the literal "640+" baked
+ * into that paragraph was shipping on every single prerendered page (tool,
+ * category, alternatives — all of them), not just the homepage. The homepage
+ * itself compounds it: nothing in the loop processes "/" at all (there is no
+ * route for it), so its title/meta/OG carried the same stale figure too, while
+ * every route's own injected intro paragraph already computed TOOLS.length
+ * correctly — meaning a single tool page could show "640+" and "699+" in two
+ * different sentences on the same document.
+ *
+ * Fixing it on `template`, before the loop reads from it, corrects both: the
+ * homepage (which gets no further processing) and the noscript text on every
+ * other route. It also can't go stale again — this moves with the catalog on
+ * every future build instead of needing a manual find-and-replace.
+ */
+const template = readFileSync(join(DIST, 'index.html'), 'utf8').replaceAll('640+', `${TOOLS.length}+`);
+writeFileSync(join(DIST, 'index.html'), template);
 
 let n = 0;
 for (const route of routes) {
@@ -647,6 +701,14 @@ for (const route of routes) {
   const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check ratings and real pricing, and compare any two tools side by side to choose the right one in minutes.`;
   const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${nav}</div></div>`;
   html = html.replace('<div id="root"></div>', seoBlock);
+
+  // Real structured data for the routes that carry it (currently tool pages),
+  // baked into the static file rather than left to appear only after React
+  // hydrates. See toolJsonLd() above for what it does and does not claim.
+  if (route.jsonLd) {
+    const script = `<script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script>`;
+    html = html.replace('</head>', `${script}\n  </head>`);
+  }
 
   const outPath = join(DIST, route.path.slice(1), 'index.html');
   mkdirSync(dirname(outPath), { recursive: true });

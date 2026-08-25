@@ -110,38 +110,18 @@ const ToolDetail: React.FC = () => {
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
       >
-        <script type="application/ld+json">
-          {JSON.stringify({
-"@context": "https://schema.org",
-"@type": "SoftwareApplication",
-"name": tool.name,
-"description": tool.description,
-"applicationCategory": tool.category,
-"operatingSystem": "Web, Windows, macOS",
-"url": tool.url,
-/*
-  No `image` and no invented `price`.
+        {/*
+          No SoftwareApplication+Offer script here anymore.
 
-  This block is a second copy of the tool schema, separate from toolSchema in
-  utils/seo.ts, and it kept two claims that were removed there. `image` was
-  tool.imageUrl — an Unsplash stock photo that depicts no product, offered to
-  Google as a picture of the software. And `price` fell through to "10" for
-  everything not free, so every paid tool in the index was telling Google it
-  costs ten dollars. Nobody checked; the number was a fallback in a ternary.
-
-  A pricing *category* is true and is what the site actually knows, so that is
-  all the offer carries now.
-*/
-"offers": {
-"@type": "Offer",
-"category": tool.pricing,
-"priceCurrency": "USD",
-...(tool.pricing === "Free" || tool.pricing === "Open Source" ? { price: "0" } : {}),
-"availability": "https://schema.org/OnlineOnly",
-"url": tool.url
-            }
-          })}
-        </script>
+          prerender.mjs now bakes an equivalent — and better-formed — block
+          (toolJsonLd(), using the canonical shape from utils/seo.ts: real @id,
+          longDescription, applicationSubCategory) directly into every /tool/
+          page's static HTML. That script tag isn't part of #root, so React
+          never removes it on mount. Keeping this one too meant a JS-rendering
+          crawler saw two <script type="application/ld+json"> SoftwareApplication
+          blocks for the same @id after hydration — same honest no-image/
+          no-invented-price rule in both, just duplicated.
+        */}
         <script type="application/ld+json">
           {JSON.stringify({
 "@context": "https://schema.org",

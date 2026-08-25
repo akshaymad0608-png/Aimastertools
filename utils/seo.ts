@@ -21,7 +21,7 @@ export const SITE = {
   author: 'Akshay Mahajan',
   tagline: 'Find, compare and review the best AI tools',
   description:
-    'AI Master Tools — the master list of 640+ hand-checked AI tools. Search by name, category and price, compare side by side and find the best one in under a minute.',
+    'AI Master Tools — the master list of 699+ hand-checked AI tools. Search by name, category and price, compare side by side and find the best one in under a minute.',
   ogImage: 'https://aimastertools.space/og-cover.png',
   logo: 'https://aimastertools.space/icon-512.png',
 } as const;
