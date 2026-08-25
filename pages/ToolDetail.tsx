@@ -106,7 +106,7 @@ const ToolDetail: React.FC = () => {
     <>
       <SEO
         title={`${tool.name} Review & Alternatives (2026) | AI Master Tools`}
-        description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, pros, cons, and best AI alternatives for ${tool.category.toLowerCase()}.`}
+        description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, rating, and best AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
       >
@@ -267,48 +267,19 @@ const ToolDetail: React.FC = () => {
                 )}
               </div>
 
-              <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
-                <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)] flex items-center gap-2">
-                  <span className="w-1 h-8 bg-yellow-400 rounded-full"></span>
-                  Scoring & Rubric
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                  {[
-                    { label: "Ease of Use", score: 9.5 },
-                    { label: "Features", score: 8.8 },
-                    { label: "Pricing", score: 9.0 },
-                    { label: "Support", score: 8.5 }
-                  ].map(rubric => (
-                    <div key={rubric.label} className="bg-[var(--color-background)] border border-[var(--color-border)] p-4 rounded-[var(--radius-sm)] text-center shadow-inner">
-                      <div className="text-3xl font-semibold text-[var(--color-primary)] mb-1">{rubric.score}<span className="text-lg text-[var(--color-text-muted)]">/10</span></div>
-                      <div className="text-sm font-semibold text-[var(--color-text-secondary)]">{rubric.label}</div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="bg-green-500/5 border border-green-500/20 rounded-[var(--radius-md)] p-6 shadow-sm">
-                    <h3 className="title-sm text-lg font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
-                       <Check size={20} className="text-[var(--color-primary)]" /> Pros
-                    </h3>
-                    <ul className="space-y-3 text-[var(--color-text-secondary)] list-disc list-inside">
-                      <li>Intuitive and fast user interface</li>
-                      <li>Industry-leading AI generation quality</li>
-                      <li>Great community and documentation</li>
-                    </ul>
-                  </div>
-                  <div className="bg-red-500/5 border border-red-500/20 rounded-[var(--radius-md)] p-6 shadow-sm">
-                    <h3 className="title-sm text-lg font-bold text-red-500 mb-4 flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
-                      Cons
-                    </h3>
-                    <ul className="space-y-3 text-[var(--color-text-secondary)] list-disc list-inside">
-                      <li>Steep learning curve for advanced features</li>
-                      <li>Can be expensive for power users</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              {/*
+                A "Scoring & Rubric" section used to live here: four sub-scores
+                (Ease of Use 9.5, Features 8.8, Pricing 9.0, Support 8.5) and a
+                Pros/Cons list. All of it was a literal array in this file, not
+                data from `tool` — every one of the 699 pages rendered the exact
+                same four numbers and the exact same five bullets, regardless of
+                what the tool actually was. A photo editor and an accounting
+                tool both claimed "Industry-leading AI generation quality" as a
+                pro. Removed rather than replaced: there's no real per-tool
+                scoring or pros/cons data to show instead, and inventing new
+                specific-sounding numbers for 699 real products would be the
+                same problem by a different author.
+              */}
 
               {tool.tags && tool.tags.length > 0 && (
                 <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
@@ -343,7 +314,7 @@ const ToolDetail: React.FC = () => {
                   <span className="text-2xl font-bold text-[var(--color-text-primary)] ml-2">{tool.rating}</span>
                 </div>
                 <div className="flex gap-2">
-                  <button 
+                  <button
                     onClick={(e) => {
                       const btn = e.currentTarget;
                       btn.classList.toggle('text-[var(--color-primary)]');
@@ -354,8 +325,15 @@ const ToolDetail: React.FC = () => {
                     title="Upvote"
                     aria-label={`Upvote ${tool.name}`}
                   >
+                    {/*
+                      This number used to be Math.floor(tool.rating * 123) — a
+                      formula, not a vote count, dressed up next to an upvote
+                      arrow to look like "602 people upvoted this". Removed
+                      rather than replaced with a real counter this button
+                      doesn't have (the click above only toggles the button's
+                      own color; nothing is persisted anywhere to count).
+                    */}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-                    <span className="font-bold">{Math.floor(tool.rating * 123)}</span>
                   </button>
                   <button 
                     onClick={async () => {

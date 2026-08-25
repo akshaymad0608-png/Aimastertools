@@ -119,7 +119,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-[var(--color-text-secondary)]"
           >
             The independent directory of {TOOL_COUNT}+ AI tools — hand-checked, with real
-            pricing, honest pros and cons, and what to use instead. Search by name or by the
+            pricing, our own rating, and what to use instead. Search by name or by the
             job you need done.
           </motion.p>
 
