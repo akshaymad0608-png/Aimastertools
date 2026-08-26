@@ -757,24 +757,6 @@ const _MOCK_TOOLS: Tool[] = [
         ]
     },
     {
-        "id": "google-gemini",
-        "name": "Google Gemini",
-        "description": "Google's most capable AI model yet. Built to be multimodal from the ground up.",
-        "category": "Google",
-        "url": "https://gemini.google.com",
-        "imageUrl": "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.9,
-        "featured": true,
-        "dateAdded": "2026-02-10T11:03:58.146Z",
-        "domain": "gemini.google.com",
-        "brandColor": "#0F9D58",
-        "tags": [
-            "AI",
-            "Productivity"
-        ]
-    },
-    {
         "id": "notebooklm",
         "name": "NotebookLM",
         "description": "An AI-first notebook, grounded in your own documents, to help you gain insights and synthesize information.",
@@ -1044,34 +1026,6 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "var(--color-primary)"
     },
     {
-        "id": "zapier-ai",
-        "name": "Zapier AI",
-        "description": "Automate your workflows by connecting apps with AI-powered natural language.",
-        "category": "AI Workflow Automation",
-        "url": "https://zapier.com/ai",
-        "imageUrl": "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": true,
-        "dateAdded": "2026-01-20T23:16:27.441Z",
-        "domain": "zapier.com",
-        "brandColor": "var(--color-primary)"
-    },
-    {
-        "id": "jasper-ai",
-        "name": "Jasper",
-        "description": "AI writing assistant for marketing copy, blog posts, and more.",
-        "category": "AI Writing & Content",
-        "url": "https://jasper.ai",
-        "imageUrl": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Paid",
-        "rating": 4.7,
-        "featured": true,
-        "dateAdded": "2026-05-08T23:56:31.050Z",
-        "domain": "jasper.ai",
-        "brandColor": "var(--color-primary)"
-    },
-    {
         "id": "surfer-seo",
         "name": "Surfer SEO",
         "description": "AI SEO tool that analyzes SERPs to help you write optimized content.",
@@ -1125,20 +1079,6 @@ const _MOCK_TOOLS: Tool[] = [
         "featured": true,
         "dateAdded": "2026-03-23T05:11:26.875Z",
         "domain": "elicit.com",
-        "brandColor": "var(--color-primary)"
-    },
-    {
-        "id": "pika-labs",
-        "name": "Pika",
-        "description": "An idea-to-video platform that brings your creativity to motion.",
-        "category": "Gen AI Creator Tools",
-        "url": "https://pika.art",
-        "imageUrl": "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7,
-        "featured": false,
-        "dateAdded": "2026-05-25T18:01:47.832Z",
-        "domain": "pika.art",
         "brandColor": "var(--color-primary)"
     },
     {
@@ -1921,8 +1861,8 @@ const _MOCK_TOOLS: Tool[] = [
         "description": "The first agentic IDE, orchestrating file editing, terminal execution, and context mapping in absolute unison.",
         "longDescription": "Windsurf launched in 2024 and is filed under Code & Development on AI Master Tools — freemium, with a 4.8/5 directory rating.",
         "category": "Code & Development",
-        "url": "https://codeium.com",
-        "domain": "codeium.com",
+        "url": "https://windsurf.com",
+        "domain": "windsurf.com",
         "brandColor": "#FF4500",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
@@ -2826,32 +2766,6 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "krea-ai",
-        "name": "Krea AI",
-        "description": "Interactive painting utility that regenerates visual outcomes instantly while adjusting layout blocks.",
-        "longDescription": "Krea AI launched in 2023 and is filed under Gen AI Creator Tools on AI Master Tools — freemium, with a 4.8/5 directory rating.",
-        "category": "Gen AI Creator Tools",
-        "url": "https://krea.ai",
-        "domain": "krea.ai",
-        "brandColor": "#050505",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.8,
-        "featured": false,
-        "dateAdded": "2026-02-04T23:11:46.946Z",
-        "tags": [
-            "Realtime Editor",
-            "Image Upscaler",
-            "Interactive Painting"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard Image & Art Generation business operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "playground-ai",
         "name": "Playground AI",
         "description": "An expansive virtual graphic workspace that integrates multiple diffusion variants into single canvas blocks.",
@@ -3039,8 +2953,8 @@ const _MOCK_TOOLS: Tool[] = [
         "description": "OpenAI's groundbreaking video simulator, rendering rich cinematic scenes directly from simple descriptions.",
         "longDescription": "Sora launched in 2024 and is filed under Video & Audio Tools on AI Master Tools — paid, with a 4.9/5 directory rating.",
         "category": "Video & Audio Tools",
-        "url": "https://openai.com",
-        "domain": "openai.com",
+        "url": "https://sora.com",
+        "domain": "sora.com",
         "brandColor": "#10A37F",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Paid",
@@ -3143,8 +3057,8 @@ const _MOCK_TOOLS: Tool[] = [
         "description": "Impressive video model that features highly accurate native physics, realistic chewing, and smooth movements.",
         "longDescription": "Kling AI, launched in 2024, is catalogued under Video & Audio Tools on AI Master Tools — freemium, rated 4.8/5 in this directory.",
         "category": "Video & Audio Tools",
-        "url": "https://klingai.com",
-        "domain": "klingai.com",
+        "url": "https://kling.ai",
+        "domain": "kling.ai",
         "brandColor": "#FA4A0A",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
@@ -10059,8 +9973,8 @@ const _MOCK_TOOLS: Tool[] = [
         "description": "Generate UI with AI.",
         "longDescription": "Vercel v0 launched in 2023 and is filed under Code & Development on AI Master Tools — freemium, with a 4.5/5 directory rating.",
         "category": "Code & Development",
-        "url": "https://v0.dev",
-        "domain": "v0.dev",
+        "url": "https://v0.app",
+        "domain": "v0.app",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
@@ -11871,41 +11785,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "jasper-ai",
-        "name": "Jasper AI",
-        "description": "The leading Jasper AI platform using advanced AI.",
-        "longDescription": "Comprehensive review of Jasper AI. It provides powerful AI capabilities for Text & Writing.",
-        "category": "Text & Writing",
-        "url": "https://jasperai.com",
-        "domain": "jasperai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.750738668642727,
-        "featured": false,
-        "dateAdded": "2026-07-02T22:03:33.181Z",
-        "tags": [
-            "Text",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "designrr",
         "name": "Designrr",
-        "description": "The leading Designrr platform using advanced AI.",
+        "description": "Designrr appears in the Text & Writing section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "longDescription": "Comprehensive review of Designrr. It provides powerful AI capabilities for Text & Writing.",
         "category": "Text & Writing",
-        "url": "https://designrr.com",
-        "domain": "designrr.com",
+        "url": "https://designrr.io",
+        "domain": "designrr.io",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.677701832388545,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-03-31T14:45:55.308Z",
         "tags": [
@@ -11919,89 +11809,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "runway-gen-4",
-        "name": "Runway Gen-4",
-        "description": "The leading Runway Gen-4 platform using advanced AI.",
-        "longDescription": "Comprehensive review of Runway Gen-4. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://runwaygen4.com",
-        "domain": "runwaygen4.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.664965117631522,
-        "featured": false,
-        "dateAdded": "2026-01-22T04:00:47.654Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "pika-labs",
-        "name": "Pika Labs",
-        "description": "The leading Pika Labs platform using advanced AI.",
-        "longDescription": "Comprehensive review of Pika Labs. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://pikalabs.com",
-        "domain": "pikalabs.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.652804485630481,
-        "featured": false,
-        "dateAdded": "2026-04-07T15:56:47.605Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "luma-ai-dream-machine",
-        "name": "Luma AI (Dream Machine)",
-        "description": "The leading Luma AI (Dream Machine) platform using advanced AI.",
-        "longDescription": "Comprehensive review of Luma AI (Dream Machine). It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://lumaaidreammachine.com",
-        "domain": "lumaaidreammachine.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.697860655055261,
-        "featured": false,
-        "dateAdded": "2026-02-07T08:32:08.544Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "videogen",
         "name": "VideoGen",
-        "description": "The leading VideoGen platform using advanced AI.",
+        "description": "VideoGen appears in the Video & Audio Generation section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "longDescription": "Comprehensive review of VideoGen. It provides powerful AI capabilities for Video & Audio Generation.",
         "category": "Video & Audio Generation",
-        "url": "https://videogen.com",
-        "domain": "videogen.com",
+        "url": "https://videogen.io",
+        "domain": "videogen.io",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.604835586866286,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-06-22T17:11:50.649Z",
         "tags": [
@@ -12017,15 +11835,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "reve-image",
         "name": "Reve Image",
-        "description": "The leading Reve Image platform using advanced AI.",
+        "description": "Reve Image appears in the Image & Art Generation section of AI Master Tools' directory, listed as freemium with a 4.9/5 rating.",
         "longDescription": "Comprehensive review of Reve Image. It provides powerful AI capabilities for Image & Art Generation.",
         "category": "Image & Art Generation",
-        "url": "https://reveimage.com",
-        "domain": "reveimage.com",
+        "url": "https://reve.art",
+        "domain": "reve.art",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.880562893866443,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-03-08T09:29:57.696Z",
         "tags": [
@@ -12041,7 +11859,7 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "artbreeder",
         "name": "Artbreeder",
-        "description": "The leading Artbreeder platform using advanced AI.",
+        "description": "AI Master Tools catalogues Artbreeder in the Image & Art Generation category — freemium, rated 4.7/5 in this directory.",
         "longDescription": "Comprehensive review of Artbreeder. It provides powerful AI capabilities for Image & Art Generation.",
         "category": "Image & Art Generation",
         "url": "https://artbreeder.com",
@@ -12049,7 +11867,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.6685079427071985,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-02-06T05:44:30.386Z",
         "tags": [
@@ -12063,65 +11881,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "whisper-openai",
-        "name": "Whisper (OpenAI)",
-        "description": "The leading Whisper (OpenAI) platform using advanced AI.",
-        "longDescription": "Comprehensive review of Whisper (OpenAI). It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://whisperopenai.com",
-        "domain": "whisperopenai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.664941526136752,
-        "featured": false,
-        "dateAdded": "2026-06-26T23:08:16.768Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "descript-audio",
-        "name": "Descript Audio",
-        "description": "The leading Descript Audio platform using advanced AI.",
-        "longDescription": "Comprehensive review of Descript Audio. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://descriptaudio.com",
-        "domain": "descriptaudio.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.741646391289804,
-        "featured": false,
-        "dateAdded": "2026-04-17T20:56:33.839Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "soundraw",
         "name": "Soundraw",
-        "description": "The leading Soundraw platform using advanced AI.",
+        "description": "Soundraw is listed under Video & Audio Generation on AI Master Tools, freemium, with a directory rating of 4.9/5.",
         "longDescription": "Comprehensive review of Soundraw. It provides powerful AI capabilities for Video & Audio Generation.",
         "category": "Video & Audio Generation",
-        "url": "https://soundraw.com",
-        "domain": "soundraw.com",
+        "url": "https://soundraw.io",
+        "domain": "soundraw.io",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.889481498757604,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-02-15T04:15:42.536Z",
         "tags": [
@@ -12135,33 +11905,9 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "claude-anthropic",
-        "name": "Claude (Anthropic)",
-        "description": "The leading Claude (Anthropic) platform using advanced AI.",
-        "longDescription": "Comprehensive review of Claude (Anthropic). It provides powerful AI capabilities for Code & Development.",
-        "category": "Code & Development",
-        "url": "https://claudeanthropic.com",
-        "domain": "claudeanthropic.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.581965840014636,
-        "featured": false,
-        "dateAdded": "2026-01-30T01:57:04.775Z",
-        "tags": [
-            "Code",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "kuberns",
         "name": "Kuberns",
-        "description": "The leading Kuberns platform using advanced AI.",
+        "description": "Kuberns appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "longDescription": "Comprehensive review of Kuberns. It provides powerful AI capabilities for Code & Development.",
         "category": "Code & Development",
         "url": "https://kuberns.com",
@@ -12169,7 +11915,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.740443053087094,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-05-21T07:00:02.463Z",
         "tags": [
@@ -12185,7 +11931,7 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "taskade",
         "name": "Taskade",
-        "description": "The leading Taskade platform using advanced AI.",
+        "description": "Taskade is listed under Productivity & Collaboration on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "longDescription": "Comprehensive review of Taskade. It provides powerful AI capabilities for Productivity & Collaboration.",
         "category": "Productivity & Collaboration",
         "url": "https://taskade.com",
@@ -12193,7 +11939,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.824758606729862,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-01-19T12:59:07.433Z",
         "tags": [
@@ -12209,15 +11955,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "granola",
         "name": "Granola",
-        "description": "The leading Granola platform using advanced AI.",
+        "description": "AI Master Tools catalogues Granola in the Productivity & Collaboration category — freemium, rated 4.8/5 in this directory.",
         "longDescription": "Comprehensive review of Granola. It provides powerful AI capabilities for Productivity & Collaboration.",
         "category": "Productivity & Collaboration",
-        "url": "https://granola.com",
-        "domain": "granola.com",
+        "url": "https://granola.ai",
+        "domain": "granola.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.80630682712986,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-03-14T10:02:26.801Z",
         "tags": [
@@ -12231,65 +11977,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "motion",
-        "name": "Motion",
-        "description": "The leading Motion platform using advanced AI.",
-        "longDescription": "Comprehensive review of Motion. It provides powerful AI capabilities for Productivity & Collaboration.",
-        "category": "Productivity & Collaboration",
-        "url": "https://motion.com",
-        "domain": "motion.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.617008805557051,
-        "featured": false,
-        "dateAdded": "2026-02-18T04:29:58.319Z",
-        "tags": [
-            "Productivity",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "reclaim-ai",
-        "name": "Reclaim AI",
-        "description": "The leading Reclaim AI platform using advanced AI.",
-        "longDescription": "Comprehensive review of Reclaim AI. It provides powerful AI capabilities for Productivity & Collaboration.",
-        "category": "Productivity & Collaboration",
-        "url": "https://reclaimai.com",
-        "domain": "reclaimai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.755013045102609,
-        "featured": false,
-        "dateAdded": "2026-02-02T05:56:58.062Z",
-        "tags": [
-            "Productivity",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "mem-ai",
         "name": "Mem AI",
-        "description": "The leading Mem AI platform using advanced AI.",
+        "description": "Mem AI appears in the Productivity & Collaboration section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "longDescription": "Comprehensive review of Mem AI. It provides powerful AI capabilities for Productivity & Collaboration.",
         "category": "Productivity & Collaboration",
-        "url": "https://memai.com",
-        "domain": "memai.com",
+        "url": "https://mem.ai",
+        "domain": "mem.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.671557594111358,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-02-08T02:57:06.786Z",
         "tags": [
@@ -12305,15 +12003,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "magical",
         "name": "Magical",
-        "description": "The leading Magical platform using advanced AI.",
+        "description": "Magical appears in the Productivity & Collaboration section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "longDescription": "Comprehensive review of Magical. It provides powerful AI capabilities for Productivity & Collaboration.",
         "category": "Productivity & Collaboration",
-        "url": "https://magical.com",
-        "domain": "magical.com",
+        "url": "https://getmagical.com",
+        "domain": "getmagical.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.724644530048717,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-04-09T20:19:39.843Z",
         "tags": [
@@ -12329,15 +12027,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "jasper-marketing",
         "name": "Jasper (Marketing)",
-        "description": "The leading Jasper (Marketing) platform using advanced AI.",
+        "description": "Jasper (Marketing) appears in the SEO & Marketing Tools section of AI Master Tools' directory, listed as freemium with a 4.9/5 rating.",
         "longDescription": "Comprehensive review of Jasper (Marketing). It provides powerful AI capabilities for SEO & Marketing Tools.",
         "category": "SEO & Marketing Tools",
-        "url": "https://jaspermarketing.com",
-        "domain": "jaspermarketing.com",
+        "url": "https://jasper.ai",
+        "domain": "jasper.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.896836146588063,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-06-27T16:44:56.051Z",
         "tags": [
@@ -12353,15 +12051,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "superscale-ai",
         "name": "Superscale AI",
-        "description": "The leading Superscale AI platform using advanced AI.",
+        "description": "AI Master Tools catalogues Superscale AI in the SEO & Marketing Tools category — freemium, rated 4.7/5 in this directory.",
         "longDescription": "Comprehensive review of Superscale AI. It provides powerful AI capabilities for SEO & Marketing Tools.",
         "category": "SEO & Marketing Tools",
-        "url": "https://superscaleai.com",
-        "domain": "superscaleai.com",
+        "url": "https://superscale.ai",
+        "domain": "superscale.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.6731883313038765,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-06-16T05:35:11.361Z",
         "tags": [
@@ -12377,15 +12075,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "blaze-ai",
         "name": "Blaze AI",
-        "description": "The leading Blaze AI platform using advanced AI.",
+        "description": "AI Master Tools catalogues Blaze AI in the SEO & Marketing Tools category — freemium, rated 4.6/5 in this directory.",
         "longDescription": "Comprehensive review of Blaze AI. It provides powerful AI capabilities for SEO & Marketing Tools.",
         "category": "SEO & Marketing Tools",
-        "url": "https://blazeai.com",
-        "domain": "blazeai.com",
+        "url": "https://blaze.ai",
+        "domain": "blaze.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.570185101764789,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-06-02T09:08:45.743Z",
         "tags": [
@@ -12399,41 +12097,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "perplexity-ai",
-        "name": "Perplexity AI",
-        "description": "The leading Perplexity AI platform using advanced AI.",
-        "longDescription": "Comprehensive review of Perplexity AI. It provides powerful AI capabilities for AI Search Engines.",
-        "category": "AI Search Engines",
-        "url": "https://perplexityai.com",
-        "domain": "perplexityai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.720330389578949,
-        "featured": false,
-        "dateAdded": "2026-05-09T23:10:04.641Z",
-        "tags": [
-            "AI",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "scite",
         "name": "Scite",
-        "description": "The leading Scite platform using advanced AI.",
+        "description": "Scite appears in the AI Search Engines section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "longDescription": "Comprehensive review of Scite. It provides powerful AI capabilities for AI Search Engines.",
         "category": "AI Search Engines",
-        "url": "https://scite.com",
-        "domain": "scite.com",
+        "url": "https://scite.ai",
+        "domain": "scite.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.620815489975978,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-06-11T17:08:39.998Z",
         "tags": [
@@ -12449,7 +12123,7 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "notegpt",
         "name": "NoteGPT",
-        "description": "The leading NoteGPT platform using advanced AI.",
+        "description": "NoteGPT appears in the AI Search Engines section of AI Master Tools' directory, listed as freemium with a 4.8/5 rating.",
         "longDescription": "Comprehensive review of NoteGPT. It provides powerful AI capabilities for AI Search Engines.",
         "category": "AI Search Engines",
         "url": "https://notegpt.com",
@@ -12457,7 +12131,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.802562872763925,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-03-24T05:47:48.739Z",
         "tags": [
@@ -12471,129 +12145,9 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "zapier-ai",
-        "name": "Zapier AI",
-        "description": "The leading Zapier AI platform using advanced AI.",
-        "longDescription": "Comprehensive review of Zapier AI. It provides powerful AI capabilities for AI Workflow Automation.",
-        "category": "AI Workflow Automation",
-        "url": "https://zapierai.com",
-        "domain": "zapierai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.60247010968904,
-        "featured": false,
-        "dateAdded": "2026-05-08T10:58:56.075Z",
-        "tags": [
-            "AI",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "make-integromat",
-        "name": "Make (Integromat)",
-        "description": "The leading Make (Integromat) platform using advanced AI.",
-        "longDescription": "Comprehensive review of Make (Integromat). It provides powerful AI capabilities for AI Workflow Automation.",
-        "category": "AI Workflow Automation",
-        "url": "https://makeintegromat.com",
-        "domain": "makeintegromat.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.52319160608907,
-        "featured": false,
-        "dateAdded": "2026-02-12T09:28:55.468Z",
-        "tags": [
-            "AI",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "salesforce-einstein",
-        "name": "Salesforce Einstein",
-        "description": "The leading Salesforce Einstein platform using advanced AI.",
-        "longDescription": "Comprehensive review of Salesforce Einstein. It provides powerful AI capabilities for AI Workflow Automation.",
-        "category": "AI Workflow Automation",
-        "url": "https://salesforceeinstein.com",
-        "domain": "salesforceeinstein.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.725089895428145,
-        "featured": false,
-        "dateAdded": "2026-04-18T10:39:40.226Z",
-        "tags": [
-            "AI",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "google-gemini",
-        "name": "Google Gemini",
-        "description": "The leading Google Gemini platform using advanced AI.",
-        "longDescription": "Comprehensive review of Google Gemini. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "Google",
-        "url": "https://googlegemini.com",
-        "domain": "googlegemini.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.5450918016784545,
-        "featured": false,
-        "dateAdded": "2026-05-21T17:11:07.092Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "microsoft-copilot",
-        "name": "Microsoft Copilot",
-        "description": "The leading Microsoft Copilot platform using advanced AI.",
-        "longDescription": "Comprehensive review of Microsoft Copilot. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://microsoftcopilot.com",
-        "domain": "microsoftcopilot.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.583584349234236,
-        "featured": false,
-        "dateAdded": "2026-04-23T00:59:46.898Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "deepseek",
         "name": "DeepSeek",
-        "description": "The leading DeepSeek platform using advanced AI.",
+        "description": "DeepSeek appears in the LLM Providers & APIs section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "longDescription": "Comprehensive review of DeepSeek. It provides powerful AI capabilities for LLM Providers & APIs.",
         "category": "LLM Providers & APIs",
         "url": "https://deepseek.com",
@@ -12601,7 +12155,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.699535631035128,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-04-06T22:29:32.304Z",
         "tags": [
@@ -12615,65 +12169,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "poe-by-quora",
-        "name": "Poe by Quora",
-        "description": "The leading Poe by Quora platform using advanced AI.",
-        "longDescription": "Comprehensive review of Poe by Quora. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://poebyquora.com",
-        "domain": "poebyquora.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.548074975912925,
-        "featured": false,
-        "dateAdded": "2026-04-28T14:09:07.360Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "khan-academy-khanmigo",
-        "name": "Khan Academy Khanmigo",
-        "description": "The leading Khan Academy Khanmigo platform using advanced AI.",
-        "longDescription": "Comprehensive review of Khan Academy Khanmigo. It provides powerful AI capabilities for Learning & Education.",
-        "category": "Learning & Education",
-        "url": "https://khanacademykhanmigo.com",
-        "domain": "khanacademykhanmigo.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.855167460856239,
-        "featured": false,
-        "dateAdded": "2026-04-14T20:27:42.721Z",
-        "tags": [
-            "Learning",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "quizlet-q-chat",
         "name": "Quizlet Q-Chat",
-        "description": "The leading Quizlet Q-Chat platform using advanced AI.",
+        "description": "AI Master Tools catalogues Quizlet Q-Chat in the Learning & Education category — freemium, rated 4.9/5 in this directory.",
         "longDescription": "Comprehensive review of Quizlet Q-Chat. It provides powerful AI capabilities for Learning & Education.",
         "category": "Learning & Education",
-        "url": "https://quizletqchat.com",
-        "domain": "quizletqchat.com",
+        "url": "https://quizlet.com",
+        "domain": "quizlet.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.883753482049069,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-02-01T11:59:02.292Z",
         "tags": [
@@ -12689,7 +12195,7 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "wolfram-alpha",
         "name": "Wolfram Alpha",
-        "description": "The leading Wolfram Alpha platform using advanced AI.",
+        "description": "Wolfram Alpha is listed under Learning & Education on AI Master Tools, freemium, with a directory rating of 4.6/5.",
         "longDescription": "Comprehensive review of Wolfram Alpha. It provides powerful AI capabilities for Learning & Education.",
         "category": "Learning & Education",
         "url": "https://wolframalpha.com",
@@ -12697,7 +12203,7 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.585083915259813,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-03-27T07:46:38.646Z",
         "tags": [
@@ -12711,41 +12217,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "socratic-by-google",
-        "name": "Socratic by Google",
-        "description": "The leading Socratic by Google platform using advanced AI.",
-        "longDescription": "Comprehensive review of Socratic by Google. It provides powerful AI capabilities for Learning & Education.",
-        "category": "Google",
-        "url": "https://socraticbygoogle.com",
-        "domain": "socraticbygoogle.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.759786672457354,
-        "featured": false,
-        "dateAdded": "2026-06-20T16:12:49.044Z",
-        "tags": [
-            "Learning",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "wix-adi",
         "name": "Wix ADI",
-        "description": "The leading Wix ADI platform using advanced AI.",
+        "description": "Wix ADI is listed under Code & Development on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "longDescription": "Comprehensive review of Wix ADI. It provides powerful AI capabilities for Code & Development.",
         "category": "Code & Development",
-        "url": "https://wixadi.com",
-        "domain": "wixadi.com",
+        "url": "https://wix.com",
+        "domain": "wix.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.821225136077993,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-03-11T13:25:12.285Z",
         "tags": [
@@ -12761,15 +12243,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "softr",
         "name": "Softr",
-        "description": "The leading Softr platform using advanced AI.",
+        "description": "Softr is listed under Code & Development on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "longDescription": "Comprehensive review of Softr. It provides powerful AI capabilities for Code & Development.",
         "category": "Code & Development",
-        "url": "https://softr.com",
-        "domain": "softr.com",
+        "url": "https://www.softr.io",
+        "domain": "softr.io",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.848881415093312,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-05-17T08:54:13.148Z",
         "tags": [
@@ -12785,15 +12267,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "sora",
         "name": "Sora",
-        "description": "The leading Sora platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Sora. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "Sora appears in the Video & Audio Generation section of AI Master Tools' directory, listed as freemium with a 4.8/5 rating.",
+        "longDescription": "Sora is listed under Video & Audio Generation on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "category": "Video & Audio Generation",
         "url": "https://sora.com",
         "domain": "sora.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.848396994827546,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-02-11T04:00:54.447Z",
         "tags": [
@@ -12809,15 +12291,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "groq",
         "name": "Groq",
-        "description": "The leading Groq platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Groq. It provides powerful AI capabilities for LLM Providers & APIs.",
+        "description": "Groq is listed under LLM Providers & APIs on AI Master Tools, freemium, with a directory rating of 4.9/5.",
+        "longDescription": "AI Master Tools catalogues Groq in the LLM Providers & APIs category — freemium, rated 4.9/5 in this directory.",
         "category": "LLM Providers & APIs",
         "url": "https://groq.com",
         "domain": "groq.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.877804979964254,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-02-13T05:43:00.077Z",
         "tags": [
@@ -12831,113 +12313,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "claude-3-5-sonnet",
-        "name": "Claude 3.5 Sonnet",
-        "description": "The leading Claude 3.5 Sonnet platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Claude 3.5 Sonnet. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://claude35sonnet.com",
-        "domain": "claude35sonnet.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.789128236140911,
-        "featured": false,
-        "dateAdded": "2026-06-14T18:34:58.063Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "gemini-1-5-pro",
-        "name": "Gemini 1.5 Pro",
-        "description": "The leading Gemini 1.5 Pro platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Gemini 1.5 Pro. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://gemini15pro.com",
-        "domain": "gemini15pro.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.616749907000662,
-        "featured": false,
-        "dateAdded": "2026-05-23T19:15:28.120Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "runway-gen-3-alpha",
-        "name": "Runway Gen-3 Alpha",
-        "description": "The leading Runway Gen-3 Alpha platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Runway Gen-3 Alpha. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://runwaygen3alpha.com",
-        "domain": "runwaygen3alpha.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.682776714728112,
-        "featured": false,
-        "dateAdded": "2026-06-25T18:39:22.281Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "suno-v3",
-        "name": "Suno v3",
-        "description": "The leading Suno v3 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Suno v3. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://sunov3.com",
-        "domain": "sunov3.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.570782951090513,
-        "featured": false,
-        "dateAdded": "2026-04-11T06:35:42.888Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "udio",
         "name": "Udio",
-        "description": "The leading Udio platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Udio. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "AI Master Tools catalogues Udio in the Video & Audio Generation category — freemium, rated 4.5/5 in this directory.",
+        "longDescription": "Udio appears in the Video & Audio Generation section of AI Master Tools' directory, listed as freemium with a 4.5/5 rating.",
         "category": "Video & Audio Generation",
         "url": "https://udio.com",
         "domain": "udio.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.529858030877163,
+        "rating": 4.5,
         "featured": false,
         "dateAdded": "2026-02-03T21:38:19.649Z",
         "tags": [
@@ -12953,15 +12339,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "luma-dream-machine",
         "name": "Luma Dream Machine",
-        "description": "The leading Luma Dream Machine platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Luma Dream Machine. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "Luma Dream Machine appears in the Video & Audio Generation section of AI Master Tools' directory, listed as freemium with a 4.8/5 rating.",
+        "longDescription": "Luma Dream Machine is listed under Video & Audio Generation on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "category": "Video & Audio Generation",
         "url": "https://lumadreammachine.com",
         "domain": "lumadreammachine.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.837897868099265,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-04-10T23:42:46.674Z",
         "tags": [
@@ -12977,15 +12363,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "kling-ai",
         "name": "Kling AI",
-        "description": "The leading Kling AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Kling AI. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "Kling AI is listed under Video & Audio Generation on AI Master Tools, freemium, with a directory rating of 4.7/5.",
+        "longDescription": "AI Master Tools catalogues Kling AI in the Video & Audio Generation category — freemium, rated 4.7/5 in this directory.",
         "category": "Video & Audio Generation",
-        "url": "https://klingai.com",
-        "domain": "klingai.com",
+        "url": "https://kling.ai",
+        "domain": "kling.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.723453152988925,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-02-10T11:59:02.147Z",
         "tags": [
@@ -13001,15 +12387,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "hailuo-minimax",
         "name": "Hailuo MiniMax",
-        "description": "The leading Hailuo MiniMax platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Hailuo MiniMax. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "AI Master Tools catalogues Hailuo MiniMax in the Video & Audio Generation category — freemium, rated 4.9/5 in this directory.",
+        "longDescription": "Hailuo MiniMax appears in the Video & Audio Generation section of AI Master Tools' directory, listed as freemium with a 4.9/5 rating.",
         "category": "Video & Audio Generation",
-        "url": "https://hailuominimax.com",
-        "domain": "hailuominimax.com",
+        "url": "https://minimax.io",
+        "domain": "minimax.io",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.854742655957391,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-06-12T09:37:03.627Z",
         "tags": [
@@ -13025,15 +12411,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "vercel-v0",
         "name": "Vercel v0",
-        "description": "The leading Vercel v0 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Vercel v0. It provides powerful AI capabilities for Code & Development.",
+        "description": "Vercel v0 appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
+        "longDescription": "Vercel v0 is listed under Code & Development on AI Master Tools, freemium, with a directory rating of 4.6/5.",
         "category": "Code & Development",
-        "url": "https://vercelv0.com",
-        "domain": "vercelv0.com",
+        "url": "https://v0.app",
+        "domain": "v0.app",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.6004352175258685,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-01-30T13:34:54.487Z",
         "tags": [
@@ -13047,41 +12433,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "bolt-new-2",
-        "name": "Bolt.new",
-        "description": "The leading Bolt.new platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Bolt.new. It provides powerful AI capabilities for Code & Development.",
-        "category": "Code & Development",
-        "url": "https://boltnew.com",
-        "domain": "boltnew.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.878644624558513,
-        "featured": false,
-        "dateAdded": "2026-05-06T13:13:04.117Z",
-        "tags": [
-            "Code",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "lovable-dev",
         "name": "Lovable.dev",
-        "description": "The leading Lovable.dev platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Lovable.dev. It provides powerful AI capabilities for Code & Development.",
+        "description": "AI Master Tools catalogues Lovable.dev in the Code & Development category — freemium, rated 4.6/5 in this directory.",
+        "longDescription": "Lovable.dev appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "category": "Code & Development",
-        "url": "https://lovabledev.com",
-        "domain": "lovabledev.com",
+        "url": "https://lovable.dev",
+        "domain": "lovable.dev",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.618588064977127,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-06-04T21:43:46.011Z",
         "tags": [
@@ -13097,15 +12459,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "windsurf",
         "name": "Windsurf",
-        "description": "The leading Windsurf platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Windsurf. It provides powerful AI capabilities for Code & Development.",
+        "description": "Windsurf appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
+        "longDescription": "Windsurf is listed under Code & Development on AI Master Tools, freemium, with a directory rating of 4.7/5.",
         "category": "Code & Development",
         "url": "https://windsurf.com",
         "domain": "windsurf.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.6551069190643775,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-06-25T05:18:22.847Z",
         "tags": [
@@ -13119,41 +12481,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "perplexity-pro",
-        "name": "Perplexity Pro",
-        "description": "The leading Perplexity Pro platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Perplexity Pro. It provides powerful AI capabilities for AI Search Engines.",
-        "category": "AI Search Engines",
-        "url": "https://perplexitypro.com",
-        "domain": "perplexitypro.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.741371092732815,
-        "featured": false,
-        "dateAdded": "2026-06-04T07:05:45.589Z",
-        "tags": [
-            "AI",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "chatbox",
         "name": "Chatbox",
-        "description": "The leading Chatbox platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Chatbox. It provides powerful AI capabilities for AI Chatbots & Assistants.",
+        "description": "AI Master Tools catalogues Chatbox in the AI Chatbots & Assistants category — freemium, rated 4.7/5 in this directory.",
+        "longDescription": "Chatbox appears in the AI Chatbots & Assistants section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "category": "AI Chatbots & Assistants",
-        "url": "https://chatbox.com",
-        "domain": "chatbox.com",
+        "url": "https://chatboxai.app",
+        "domain": "chatboxai.app",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.722614978119812,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-02-26T22:28:15.468Z",
         "tags": [
@@ -13169,15 +12507,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "anythingllm",
         "name": "AnythingLLM",
-        "description": "The leading AnythingLLM platform using advanced AI.",
-        "longDescription": "Comprehensive overview of AnythingLLM. It provides powerful AI capabilities for AI Chatbots & Assistants.",
+        "description": "AnythingLLM is listed under AI Chatbots & Assistants on AI Master Tools, freemium, with a directory rating of 4.8/5.",
+        "longDescription": "AI Master Tools catalogues AnythingLLM in the AI Chatbots & Assistants category — freemium, rated 4.8/5 in this directory.",
         "category": "AI Chatbots & Assistants",
         "url": "https://anythingllm.com",
         "domain": "anythingllm.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.844326151975424,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-05-26T00:45:58.286Z",
         "tags": [
@@ -13193,15 +12531,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "ollama",
         "name": "Ollama",
-        "description": "The leading Ollama platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Ollama. It provides powerful AI capabilities for Code & Development.",
+        "description": "AI Master Tools catalogues Ollama in the Code & Development category — freemium, rated 4.6/5 in this directory.",
+        "longDescription": "Ollama appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "category": "Code & Development",
         "url": "https://ollama.com",
         "domain": "ollama.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.566264699457493,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-06-22T20:16:32.959Z",
         "tags": [
@@ -13217,15 +12555,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "lm-studio",
         "name": "LM Studio",
-        "description": "The leading LM Studio platform using advanced AI.",
-        "longDescription": "Comprehensive overview of LM Studio. It provides powerful AI capabilities for Code & Development.",
+        "description": "AI Master Tools catalogues LM Studio in the Code & Development category — freemium, rated 4.6/5 in this directory.",
+        "longDescription": "LM Studio appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "category": "Code & Development",
-        "url": "https://lmstudio.com",
-        "domain": "lmstudio.com",
+        "url": "https://lmstudio.ai",
+        "domain": "lmstudio.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.629588443943854,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-05-20T04:11:23.160Z",
         "tags": [
@@ -13241,15 +12579,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "gpt4all",
         "name": "GPT4All",
-        "description": "The leading GPT4All platform using advanced AI.",
-        "longDescription": "Comprehensive overview of GPT4All. It provides powerful AI capabilities for Code & Development.",
+        "description": "GPT4All appears in the Code & Development section of AI Master Tools' directory, listed as freemium with a 4.8/5 rating.",
+        "longDescription": "GPT4All is listed under Code & Development on AI Master Tools, freemium, with a directory rating of 4.8/5.",
         "category": "Code & Development",
-        "url": "https://gpt4all.com",
-        "domain": "gpt4all.com",
+        "url": "https://nomic.ai/gpt4all",
+        "domain": "nomic.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.830472548870355,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-04-30T17:37:29.591Z",
         "tags": [
@@ -13265,15 +12603,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "webui-forge",
         "name": "WebUI Forge",
-        "description": "The leading WebUI Forge platform using advanced AI.",
-        "longDescription": "Comprehensive overview of WebUI Forge. It provides powerful AI capabilities for Image & Art Generation.",
+        "description": "AI Master Tools catalogues WebUI Forge in the Image & Art Generation category — freemium, rated 4.7/5 in this directory.",
+        "longDescription": "WebUI Forge appears in the Image & Art Generation section of AI Master Tools' directory, listed as freemium with a 4.7/5 rating.",
         "category": "Image & Art Generation",
-        "url": "https://webuiforge.com",
-        "domain": "webuiforge.com",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge",
+        "domain": "github.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.650526899327296,
+        "rating": 4.7,
         "featured": false,
         "dateAdded": "2026-06-20T02:49:30.861Z",
         "tags": [
@@ -13289,15 +12627,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "comfyui",
         "name": "ComfyUI",
-        "description": "The leading ComfyUI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of ComfyUI. It provides powerful AI capabilities for Image & Art Generation.",
+        "description": "ComfyUI appears in the Image & Art Generation section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
+        "longDescription": "ComfyUI is listed under Image & Art Generation on AI Master Tools, freemium, with a directory rating of 4.6/5.",
         "category": "Image & Art Generation",
         "url": "https://comfyui.com",
         "domain": "comfyui.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.567847614126147,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-04-19T08:33:57.229Z",
         "tags": [
@@ -13311,137 +12649,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "midjourney-v6",
-        "name": "Midjourney v6",
-        "description": "The leading Midjourney v6 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Midjourney v6. It provides powerful AI capabilities for Image & Art Generation.",
-        "category": "Image & Art Generation",
-        "url": "https://midjourneyv6.com",
-        "domain": "midjourneyv6.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.726002304930009,
-        "featured": false,
-        "dateAdded": "2026-06-06T15:40:26.525Z",
-        "tags": [
-            "Image",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "flux-1",
-        "name": "Flux.1",
-        "description": "The leading Flux.1 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Flux.1. It provides powerful AI capabilities for Image & Art Generation.",
-        "category": "Image & Art Generation",
-        "url": "https://flux1.com",
-        "domain": "flux1.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.864989057625291,
-        "featured": false,
-        "dateAdded": "2026-02-19T22:50:35.892Z",
-        "tags": [
-            "Image",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "ideogram-2-0",
-        "name": "Ideogram 2.0",
-        "description": "The leading Ideogram 2.0 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Ideogram 2.0. It provides powerful AI capabilities for Image & Art Generation.",
-        "category": "Image & Art Generation",
-        "url": "https://ideogram20.com",
-        "domain": "ideogram20.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.830460866224487,
-        "featured": false,
-        "dateAdded": "2026-02-27T07:15:43.476Z",
-        "tags": [
-            "Image",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "elevenlabs-reader",
-        "name": "ElevenLabs Reader",
-        "description": "The leading ElevenLabs Reader platform using advanced AI.",
-        "longDescription": "Comprehensive overview of ElevenLabs Reader. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://elevenlabsreader.com",
-        "domain": "elevenlabsreader.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7962260975479065,
-        "featured": false,
-        "dateAdded": "2026-06-10T03:18:27.177Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "recraft-v3",
-        "name": "Recraft v3",
-        "description": "The leading Recraft v3 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Recraft v3. It provides powerful AI capabilities for Image & Art Generation.",
-        "category": "Image & Art Generation",
-        "url": "https://recraftv3.com",
-        "domain": "recraftv3.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.752005806498018,
-        "featured": false,
-        "dateAdded": "2026-06-07T05:37:44.018Z",
-        "tags": [
-            "Image",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "leonardo-phoenix",
         "name": "Leonardo Phoenix",
-        "description": "The leading Leonardo Phoenix platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Leonardo Phoenix. It provides powerful AI capabilities for Image & Art Generation.",
+        "description": "Leonardo Phoenix appears in the Image & Art Generation section of AI Master Tools' directory, listed as freemium with a 4.5/5 rating.",
+        "longDescription": "Leonardo Phoenix is listed under Image & Art Generation on AI Master Tools, freemium, with a directory rating of 4.5/5.",
         "category": "Image & Art Generation",
-        "url": "https://leonardophoenix.com",
-        "domain": "leonardophoenix.com",
+        "url": "https://leonardo.ai",
+        "domain": "leonardo.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.530796149262928,
+        "rating": 4.5,
         "featured": false,
         "dateAdded": "2026-02-20T05:05:10.730Z",
         "tags": [
@@ -13455,89 +12673,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "pika-1-5",
-        "name": "Pika 1.5",
-        "description": "The leading Pika 1.5 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Pika 1.5. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://pika15.com",
-        "domain": "pika15.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.8490691865984505,
-        "featured": false,
-        "dateAdded": "2026-07-13T10:44:08.092Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "heygen-2-0",
-        "name": "HeyGen 2.0",
-        "description": "The leading HeyGen 2.0 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of HeyGen 2.0. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://heygen20.com",
-        "domain": "heygen20.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.681525884754637,
-        "featured": false,
-        "dateAdded": "2026-03-01T06:35:33.401Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "elevenlabs-voice-design",
-        "name": "ElevenLabs Voice Design",
-        "description": "The leading ElevenLabs Voice Design platform using advanced AI.",
-        "longDescription": "Comprehensive overview of ElevenLabs Voice Design. It provides powerful AI capabilities for Video & Audio Generation.",
-        "category": "Video & Audio Generation",
-        "url": "https://elevenlabsvoicedesign.com",
-        "domain": "elevenlabsvoicedesign.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.564931273975751,
-        "featured": false,
-        "dateAdded": "2026-04-21T05:40:21.130Z",
-        "tags": [
-            "Video",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "napkin-ai",
         "name": "Napkin AI",
-        "description": "The leading Napkin AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Napkin AI. It provides powerful AI capabilities for UI/UX & Design Tools.",
+        "description": "AI Master Tools catalogues Napkin AI in the UI/UX & Design Tools category — freemium, rated 4.9/5 in this directory.",
+        "longDescription": "Napkin AI appears in the UI/UX & Design Tools section of AI Master Tools' directory, listed as freemium with a 4.9/5 rating.",
         "category": "UI/UX & Design Tools",
-        "url": "https://napkinai.com",
-        "domain": "napkinai.com",
+        "url": "https://napkin.ai",
+        "domain": "napkin.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.879538997871628,
+        "rating": 4.9,
         "featured": false,
         "dateAdded": "2026-07-09T13:49:29.301Z",
         "tags": [
@@ -13551,113 +12697,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "relume-library",
-        "name": "Relume Library",
-        "description": "The leading Relume Library platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Relume Library. It provides powerful AI capabilities for UI/UX & Design Tools.",
-        "category": "UI/UX & Design Tools",
-        "url": "https://relumelibrary.com",
-        "domain": "relumelibrary.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.740704310200406,
-        "featured": false,
-        "dateAdded": "2026-01-30T07:34:56.998Z",
-        "tags": [
-            "UI/UX",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "galileo-ai-2",
-        "name": "Galileo AI",
-        "description": "The leading Galileo AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Galileo AI. It provides powerful AI capabilities for UI/UX & Design Tools.",
-        "category": "UI/UX & Design Tools",
-        "url": "https://galileoai.com",
-        "domain": "galileoai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.88927047583962,
-        "featured": false,
-        "dateAdded": "2026-01-25T16:45:29.407Z",
-        "tags": [
-            "UI/UX",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "uizard-autodesigner",
-        "name": "Uizard Autodesigner",
-        "description": "The leading Uizard Autodesigner platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Uizard Autodesigner. It provides powerful AI capabilities for UI/UX & Design Tools.",
-        "category": "UI/UX & Design Tools",
-        "url": "https://uizardautodesigner.com",
-        "domain": "uizardautodesigner.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.756759680712541,
-        "featured": false,
-        "dateAdded": "2026-06-29T18:20:47.891Z",
-        "tags": [
-            "UI/UX",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "krea-ai",
-        "name": "Krea AI",
-        "description": "The leading Krea AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Krea AI. It provides powerful AI capabilities for Image & Art Generation.",
-        "category": "Image & Art Generation",
-        "url": "https://kreaai.com",
-        "domain": "kreaai.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.641652967007986,
-        "featured": false,
-        "dateAdded": "2026-06-05T13:23:03.859Z",
-        "tags": [
-            "Image",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "magnific-ai",
         "name": "Magnific AI",
-        "description": "The leading Magnific AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Magnific AI. It provides powerful AI capabilities for Image & Art Generation.",
+        "description": "AI Master Tools catalogues Magnific AI in the Image & Art Generation category — freemium, rated 4.8/5 in this directory.",
+        "longDescription": "Magnific AI appears in the Image & Art Generation section of AI Master Tools' directory, listed as freemium with a 4.8/5 rating.",
         "category": "Image & Art Generation",
-        "url": "https://magnificai.com",
-        "domain": "magnificai.com",
+        "url": "https://magnific.ai",
+        "domain": "magnific.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.832139023098156,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-05-02T14:04:19.612Z",
         "tags": [
@@ -13673,15 +12723,15 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "topaz-video-ai",
         "name": "Topaz Video AI",
-        "description": "The leading Topaz Video AI platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Topaz Video AI. It provides powerful AI capabilities for Video & Audio Generation.",
+        "description": "Topaz Video AI is listed under Video & Audio Generation on AI Master Tools, freemium, with a directory rating of 4.8/5.",
+        "longDescription": "AI Master Tools catalogues Topaz Video AI in the Video & Audio Generation category — freemium, rated 4.8/5 in this directory.",
         "category": "Video & Audio Generation",
-        "url": "https://topazvideoai.com",
-        "domain": "topazvideoai.com",
+        "url": "https://topazlabs.com",
+        "domain": "topazlabs.com",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.757046516748241,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-04-27T17:03:50.863Z",
         "tags": [
@@ -13695,41 +12745,17 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "mendel",
-        "name": "Mendel",
-        "description": "The leading Mendel platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Mendel. It provides powerful AI capabilities for Research & Analysis.",
-        "category": "Research & Analysis",
-        "url": "https://mendel.com",
-        "domain": "mendel.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.712673614930377,
-        "featured": false,
-        "dateAdded": "2026-03-23T17:59:44.414Z",
-        "tags": [
-            "Research",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "alphafold-3",
         "name": "AlphaFold 3",
-        "description": "The leading AlphaFold 3 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of AlphaFold 3. It provides powerful AI capabilities for Research & Analysis.",
+        "description": "AlphaFold 3 is listed under Research & Analysis on AI Master Tools, freemium, with a directory rating of 4.8/5.",
+        "longDescription": "AI Master Tools catalogues AlphaFold 3 in the Research & Analysis category — freemium, rated 4.8/5 in this directory.",
         "category": "Research & Analysis",
-        "url": "https://alphafold3.com",
-        "domain": "alphafold3.com",
+        "url": "https://deepmind.google/science/alphafold",
+        "domain": "deepmind.google",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.77406447007697,
+        "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-06-29T02:26:18.053Z",
         "tags": [
@@ -13743,115 +12769,19 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "grok-2",
-        "name": "Grok 2",
-        "description": "The leading Grok 2 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Grok 2. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://grok2.com",
-        "domain": "grok2.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7556193122425165,
-        "featured": false,
-        "dateAdded": "2026-05-04T15:15:35.037Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "meta-llama-3-1",
-        "name": "Meta Llama 3.1",
-        "description": "The leading Meta Llama 3.1 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Meta Llama 3.1. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://metallama31.com",
-        "domain": "metallama31.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.887867591671368,
-        "featured": false,
-        "dateAdded": "2026-04-16T11:11:39.502Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "mistral-large",
         "name": "Mistral Large",
-        "description": "The leading Mistral Large platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Mistral Large. It provides powerful AI capabilities for LLM Providers & APIs.",
+        "description": "AI Master Tools catalogues Mistral Large in the LLM Providers & APIs category — freemium, rated 4.6/5 in this directory.",
+        "longDescription": "Mistral Large appears in the LLM Providers & APIs section of AI Master Tools' directory, listed as freemium with a 4.6/5 rating.",
         "category": "LLM Providers & APIs",
-        "url": "https://mistrallarge.com",
-        "domain": "mistrallarge.com",
+        "url": "https://mistral.ai",
+        "domain": "mistral.ai",
         "brandColor": "#000000",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
-        "rating": 4.570824597583378,
+        "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-04-17T17:03:40.890Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "cohere-command-r",
-        "name": "Cohere Command R+",
-        "description": "The leading Cohere Command R+ platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Cohere Command R+. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://coherecommandr.com",
-        "domain": "coherecommandr.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.630540920587665,
-        "featured": false,
-        "dateAdded": "2026-02-03T00:17:31.084Z",
-        "tags": [
-            "LLM",
-            "AI Tool"
-        ],
-        "useCases": [
-            "Automation",
-            "Efficiency"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "qwen-2-5",
-        "name": "Qwen 2.5",
-        "description": "The leading Qwen 2.5 platform using advanced AI.",
-        "longDescription": "Comprehensive overview of Qwen 2.5. It provides powerful AI capabilities for LLM Providers & APIs.",
-        "category": "LLM Providers & APIs",
-        "url": "https://qwen25.com",
-        "domain": "qwen25.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.775329056182736,
-        "featured": false,
-        "dateAdded": "2026-06-21T03:53:24.665Z",
         "tags": [
             "LLM",
             "AI Tool"
@@ -18133,7 +17063,7 @@ const _MOCK_TOOLS: Tool[] = [
         "domain": "briskteaching.com",
         "brandColor": "#8B5CF6"
     },
-  {
+    {
       "id": "v0",
       "name": "v0",
       "description": "Vercel’s generative UI tool — describe an interface and get React and Tailwind you can paste into a project.",
@@ -18145,7 +17075,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "v0.dev"
   },
-  {
+    {
       "id": "replit-agent",
       "name": "Replit Agent",
       "description": "Builds and runs a working app from a prompt entirely in the browser, with hosting attached.",
@@ -18157,7 +17087,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "replit.com"
   },
-  {
+    {
       "id": "cline",
       "name": "Cline",
       "description": "Open-source coding agent that lives in VS Code and edits files, runs commands and reads the terminal.",
@@ -18169,7 +17099,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "cline.bot"
   },
-  {
+    {
       "id": "aider",
       "name": "Aider",
       "description": "Pair programming in the terminal — it edits your local files and commits to git as it goes.",
@@ -18181,7 +17111,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "aider.chat"
   },
-  {
+    {
       "id": "continue-dev",
       "name": "Continue",
       "description": "Open-source assistant for VS Code and JetBrains that you point at whichever model you want to use.",
@@ -18193,7 +17123,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "continue.dev"
   },
-  {
+    {
       "id": "zed",
       "name": "Zed",
       "description": "A fast code editor built in Rust, with collaboration and model-assisted editing built in rather than bolted on.",
@@ -18205,7 +17135,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "zed.dev"
   },
-  {
+    {
       "id": "warp",
       "name": "Warp",
       "description": "A terminal that takes plain English, explains what a command will do, and keeps your session searchable.",
@@ -18217,7 +17147,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "warp.dev"
   },
-  {
+    {
       "id": "greptile",
       "name": "Greptile",
       "description": "Reviews pull requests with the whole codebase in context, so comments account for how the repo actually works.",
@@ -18229,7 +17159,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "greptile.com"
   },
-  {
+    {
       "id": "qodo",
       "name": "Qodo",
       "description": "Generates tests and reviews changes, aimed at keeping behaviour intact rather than just producing code.",
@@ -18241,7 +17171,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "qodo.ai"
   },
-  {
+    {
       "id": "graphite-dev",
       "name": "Graphite",
       "description": "Stacked pull requests for teams that ship in small pieces, with automated review on top.",
@@ -18253,7 +17183,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "graphite.dev"
   },
-  {
+    {
       "id": "raycast",
       "name": "Raycast",
       "description": "A macOS launcher that runs commands, scripts and model prompts from one keystroke.",
@@ -18265,7 +17195,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "raycast.com"
   },
-  {
+    {
       "id": "linear",
       "name": "Linear",
       "description": "Issue tracking built for speed, with automatic triage and summaries over your project history.",
@@ -18277,7 +17207,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "linear.app"
   },
-  {
+    {
       "id": "superhuman",
       "name": "Superhuman",
       "description": "A keyboard-first email client that drafts replies and summarises long threads.",
@@ -18289,7 +17219,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "superhuman.com"
   },
-  {
+    {
       "id": "obsidian",
       "name": "Obsidian",
       "description": "Local-first notes in plain markdown files you own, with a large plugin ecosystem including model integrations.",
@@ -18301,7 +17231,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "obsidian.md"
   },
-  {
+    {
       "id": "coda",
       "name": "Coda",
       "description": "Documents that behave like apps — tables, buttons and automations, with assistants you can place inline.",
@@ -18313,7 +17243,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "coda.io"
   },
-  {
+    {
       "id": "airtable",
       "name": "Airtable",
       "description": "A database that looks like a spreadsheet, with model-driven fields that summarise, classify or extract per row.",
@@ -18325,7 +17255,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "airtable.com"
   },
-  {
+    {
       "id": "retool",
       "name": "Retool",
       "description": "Builds internal tools over your existing databases and APIs, generating the interface from a description.",
@@ -18337,7 +17267,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "retool.com"
   },
-  {
+    {
       "id": "fireflies",
       "name": "Fireflies.ai",
       "description": "Joins calls, records and transcribes them, then pushes the summary into your CRM.",
@@ -18349,7 +17279,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "fireflies.ai"
   },
-  {
+    {
       "id": "wispr-flow",
       "name": "Wispr Flow",
       "description": "Dictation that types into any application, punctuating and tidying as you speak.",
@@ -18361,7 +17291,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "wisprflow.ai"
   },
-  {
+    {
       "id": "excalidraw",
       "name": "Excalidraw",
       "description": "A hand-drawn style whiteboard for diagrams and architecture sketches, free and open source.",
@@ -18373,7 +17303,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "excalidraw.com"
   },
-  {
+    {
       "id": "tldraw",
       "name": "tldraw",
       "description": "An infinite canvas you can drop into your own product, with a generous free web app to draw in.",
@@ -18385,7 +17315,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "tldraw.com"
   },
-  {
+    {
       "id": "framer",
       "name": "Framer",
       "description": "Designs and publishes real websites from a canvas, generating sections and copy from a brief.",
@@ -18397,7 +17327,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "framer.com"
   },
-  {
+    {
       "id": "webflow",
       "name": "Webflow",
       "description": "Visual web development with clean output and a CMS, aimed at designers who do not want to hand-write markup.",
@@ -18409,7 +17339,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "webflow.com"
   },
-  {
+    {
       "id": "relume",
       "name": "Relume",
       "description": "Turns a description of a business into a sitemap and wireframes, ready to build out in Webflow or Figma.",
@@ -18421,7 +17351,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "relume.io"
   },
-  {
+    {
       "id": "krea",
       "name": "Krea",
       "description": "Real-time image generation where the picture updates as you draw or type, rather than after a wait.",
@@ -18433,7 +17363,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "krea.ai"
   },
-  {
+    {
       "id": "captions-ai",
       "name": "Captions",
       "description": "Edits talking-head video for social — captions, cuts and eye contact correction in one pass.",
@@ -18445,7 +17375,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "captions.ai"
   },
-  {
+    {
       "id": "opus-clip",
       "name": "Opus Clip",
       "description": "Cuts long video into short vertical clips and picks the moments most likely to hold attention.",
@@ -18457,7 +17387,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "opus.pro"
   },
-  {
+    {
       "id": "glean",
       "name": "Glean",
       "description": "Search across every system a company uses, answering from documents the person asking is allowed to see.",
@@ -18469,7 +17399,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "glean.com"
   },
-  {
+    {
       "id": "dust-tt",
       "name": "Dust",
       "description": "Build assistants on top of your company’s own documents and tools, then share them with the team.",
@@ -18481,7 +17411,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "dust.tt"
   },
-  {
+    {
       "id": "lindy",
       "name": "Lindy",
       "description": "Assembles agents that handle recurring work — inbox triage, scheduling, follow-ups — from a description.",
@@ -18493,7 +17423,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "lindy.ai"
   },
-  {
+    {
       "id": "hebbia",
       "name": "Hebbia",
       "description": "Reads large document sets and answers with citations, built for finance and diligence work.",
@@ -18505,7 +17435,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "hebbia.ai"
   },
-  {
+    {
       "id": "legora",
       "name": "Legora",
       "description": "Legal work in context — reviewing, drafting and researching against a firm’s own precedent.",
@@ -18517,7 +17447,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "legora.com"
   },
-  {
+    {
       "id": "poolside",
       "name": "Poolside",
       "description": "Models trained for software engineering, run inside a company’s own environment rather than a public endpoint.",
@@ -18529,7 +17459,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "poolside.ai"
   },
-  {
+    {
       "id": "augment-code",
       "name": "Augment Code",
       "description": "Keeps a whole large codebase in context, so suggestions follow the conventions the repo already uses.",
@@ -18541,7 +17471,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "augmentcode.com"
   },
-  {
+    {
       "id": "sourcegraph",
       "name": "Sourcegraph",
       "description": "Search and navigate code across every repository an organisation has, with assisted answers on top.",
@@ -18553,7 +17483,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "sourcegraph.com"
   },
-  {
+    {
       "id": "supermaven",
       "name": "Supermaven",
       "description": "Completion tuned for latency — the suggestion is there before you stop typing.",
@@ -18565,7 +17495,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "supermaven.com"
   },
-  {
+    {
       "id": "blackbox-ai",
       "name": "Blackbox AI",
       "description": "Code completion and chat across editors and the browser, with a broad free tier.",
@@ -18577,7 +17507,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "blackbox.ai"
   },
-  {
+    {
       "id": "kiro",
       "name": "Kiro",
       "description": "An agentic IDE from AWS that works from specs and plans rather than one prompt at a time.",
@@ -18589,7 +17519,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "kiro.dev"
   },
-  {
+    {
       "id": "roo-code",
       "name": "Roo Code",
       "description": "An open-source agent in VS Code that reads, edits and runs, with modes for different kinds of task.",
@@ -18601,7 +17531,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "roocode.com"
   },
-  {
+    {
       "id": "deepnote",
       "name": "Deepnote",
       "description": "A collaborative Python notebook with assistants that write and explain the cells.",
@@ -18613,7 +17543,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "deepnote.com"
   },
-  {
+    {
       "id": "hex-tech",
       "name": "Hex",
       "description": "Notebooks that publish as apps, aimed at analysts who have to hand the result to someone else.",
@@ -18625,7 +17555,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "hex.tech"
   },
-  {
+    {
       "id": "marimo",
       "name": "marimo",
       "description": "A reactive Python notebook stored as a plain script, so it runs as a file and diffs like one.",
@@ -18637,7 +17567,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "marimo.io"
   },
-  {
+    {
       "id": "observable",
       "name": "Observable",
       "description": "Data notebooks and dashboards for the web, strong on visualisation.",
@@ -18649,7 +17579,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "observablehq.com"
   },
-  {
+    {
       "id": "rows",
       "name": "Rows",
       "description": "A spreadsheet with live data connectors and model-driven columns for summarising or classifying.",
@@ -18661,7 +17591,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "rows.com"
   },
-  {
+    {
       "id": "attio",
       "name": "Attio",
       "description": "A CRM you shape around your own process, with enrichment and summaries built in.",
@@ -18673,7 +17603,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "attio.com"
   },
-  {
+    {
       "id": "folk",
       "name": "folk",
       "description": "A lightweight CRM for people who sell through relationships rather than a pipeline.",
@@ -18685,7 +17615,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "folk.app"
   },
-  {
+    {
       "id": "twenty-crm",
       "name": "Twenty",
       "description": "An open-source CRM you can self-host, for teams that want their pipeline in their own database.",
@@ -18697,7 +17627,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "twenty.com"
   },
-  {
+    {
       "id": "cal-com",
       "name": "Cal.com",
       "description": "Open-source scheduling — hosted or on your own server, with routing and availability rules.",
@@ -18709,7 +17639,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "cal.com"
   },
-  {
+    {
       "id": "pipedream",
       "name": "Pipedream",
       "description": "Automation for people comfortable writing a few lines of code between the steps.",
@@ -18721,7 +17651,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "pipedream.com"
   },
-  {
+    {
       "id": "trigger-dev",
       "name": "Trigger.dev",
       "description": "Long-running background jobs and agent workflows written in TypeScript, with retries you can see.",
@@ -18733,7 +17663,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "trigger.dev"
   },
-  {
+    {
       "id": "inngest",
       "name": "Inngest",
       "description": "Durable functions that survive failures and restarts, for workflows that cannot quietly drop a step.",
@@ -18745,7 +17675,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "inngest.com"
   },
-  {
+    {
       "id": "windmill",
       "name": "Windmill",
       "description": "Open-source scripts, flows and internal apps on your own infrastructure.",
@@ -18757,7 +17687,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "windmill.dev"
   },
-  {
+    {
       "id": "activepieces",
       "name": "Activepieces",
       "description": "Open-source automation with a visual builder, self-hostable when a hosted tool is not an option.",
@@ -18769,7 +17699,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "activepieces.com"
   },
-  {
+    {
       "id": "typebot",
       "name": "Typebot",
       "description": "Conversational forms and chat flows, open source and embeddable anywhere.",
@@ -18781,7 +17711,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "typebot.io"
   },
-  {
+    {
       "id": "sierra-ai",
       "name": "Sierra",
       "description": "Customer service agents that resolve rather than deflect, built with the company’s own policies.",
@@ -18793,7 +17723,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "sierra.ai"
   },
-  {
+    {
       "id": "decagon",
       "name": "Decagon",
       "description": "Support agents for high-volume teams, with the reasoning behind each reply available for review.",
@@ -18805,7 +17735,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "decagon.ai"
   },
-  {
+    {
       "id": "spline",
       "name": "Spline",
       "description": "3D scenes designed in the browser and dropped straight into a website.",
@@ -18817,7 +17747,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "spline.design"
   },
-  {
+    {
       "id": "rive",
       "name": "Rive",
       "description": "Interactive animations with real state machines, so the same file runs in an app rather than being re-built.",
@@ -18829,7 +17759,7 @@ const _MOCK_TOOLS: Tool[] = [
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "rive.app"
   },
-  {
+    {
       "id": "superwhisper",
       "name": "superwhisper",
       "description": "On-device dictation for macOS with modes that reformat as you speak.",
