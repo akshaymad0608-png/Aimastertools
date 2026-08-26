@@ -1166,20 +1166,6 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "var(--color-primary)"
     },
     {
-        "id": "perplexity-ai-search",
-        "name": "Perplexity AI",
-        "description": "AI-powered answer engine that searches the web to provide real-time, cited answers.",
-        "category": "AI Search Engines",
-        "url": "https://perplexity.ai",
-        "imageUrl": "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.8,
-        "featured": true,
-        "dateAdded": "2026-07-13T15:50:36.566Z",
-        "domain": "perplexity.ai",
-        "brandColor": "var(--color-primary)"
-    },
-    {
         "id": "midjourney-v7",
         "name": "Midjourney",
         "description": "Advanced AI image generation tool running via Discord for high-quality art.",
@@ -9916,32 +9902,6 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "runwayml",
-        "name": "RunwayML",
-        "description": "AI magic tools for creators, including text-to-video capabilities.",
-        "longDescription": "RunwayML launched in 2023 and is filed under Video & Audio Tools on AI Master Tools — freemium, with a 4.7/5 directory rating.",
-        "category": "Video & Audio Tools",
-        "url": "https://runwayml.com",
-        "domain": "runwayml.com",
-        "brandColor": "#000000",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7,
-        "featured": false,
-        "dateAdded": "2026-06-07T08:41:55.117Z",
-        "tags": [
-            "Video",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "mubert",
         "name": "Mubert",
         "description": "AI generative music for all your needs.",
@@ -10020,58 +9980,6 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "andi",
-        "name": "Andi",
-        "description": "Search for the next generation.",
-        "longDescription": "AI Master Tools lists Andi (2023) under AI Search Engines, freemium, at a 4.7/5 directory rating.",
-        "category": "AI Search Engines",
-        "url": "https://andisearch.com",
-        "domain": "andisearch.com",
-        "brandColor": "#EC4899",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7,
-        "featured": false,
-        "dateAdded": "2026-02-11T22:51:37.255Z",
-        "tags": [
-            "AI",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "komo",
-        "name": "Komo",
-        "description": "AI Search Engine for fast answers.",
-        "longDescription": "Komo, launched in 2023, is catalogued under AI Search Engines on AI Master Tools — freemium, rated 4.6/5 in this directory.",
-        "category": "AI Search Engines",
-        "url": "https://komo.ai",
-        "domain": "komo.ai",
-        "brandColor": "#F59E0B",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-04-25T18:15:12.608Z",
-        "tags": [
-            "AI",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "mutiny",
         "name": "Mutiny",
         "description": "No-code AI platform that converts your website visitors.",
@@ -10111,32 +10019,6 @@ const _MOCK_TOOLS: Tool[] = [
         "rating": 4.6,
         "featured": false,
         "dateAdded": "2026-03-10T12:45:00.931Z",
-        "tags": [
-            "AI",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "pitch",
-        "name": "Pitch",
-        "description": "Fast, collaborative presentation software.",
-        "longDescription": "Pitch launched in 2023 and is filed under AI Presentation Tools on AI Master Tools — freemium, with a 4.5/5 directory rating.",
-        "category": "AI Presentation Tools",
-        "url": "https://pitch.com",
-        "domain": "pitch.com",
-        "brandColor": "#10B981",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.5,
-        "featured": false,
-        "dateAdded": "2026-04-18T21:59:48.891Z",
         "tags": [
             "AI",
             "AI",
@@ -10410,32 +10292,6 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "make",
-        "name": "Make",
-        "description": "Automate anything across apps.",
-        "longDescription": "Make, launched in 2023, is catalogued under AI Workflow Automation on AI Master Tools — freemium, rated 4.7/5 in this directory.",
-        "category": "AI Workflow Automation",
-        "url": "https://make.com",
-        "domain": "make.com",
-        "brandColor": "#8B5CF6",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.7,
-        "featured": false,
-        "dateAdded": "2026-04-29T00:39:42.694Z",
-        "tags": [
-            "AI",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "tray-io",
         "name": "Tray.io",
         "description": "AI-powered automation platform.",
@@ -10555,32 +10411,6 @@ const _MOCK_TOOLS: Tool[] = [
         "dateAdded": "2026-03-02T11:50:04.473Z",
         "tags": [
             "Legal",
-            "AI",
-            "Utility"
-        ],
-        "useCases": [
-            "Accelerating workflows in standard operations",
-            "Empowering startups containing remote collaborative units",
-            "Automating complex daily checkups and documentation lists"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "scenario",
-        "name": "Scenario",
-        "description": "AI-generated game assets.",
-        "longDescription": "Scenario launched in 2023 and is filed under Gaming & Entertainment on AI Master Tools — freemium, with a 4.6/5 directory rating.",
-        "category": "Gaming & Entertainment",
-        "url": "https://scenario.com",
-        "domain": "scenario.com",
-        "brandColor": "#10B981",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-01-30T03:12:55.167Z",
-        "tags": [
-            "Gaming",
             "AI",
             "Utility"
         ],
@@ -16476,20 +16306,6 @@ const _MOCK_TOOLS: Tool[] = [
         "brandColor": "#6E56CF"
     },
     {
-        "id": "flux",
-        "name": "Flux",
-        "description": "High-quality image generation from Black Forest Labs, known for photorealism, lifelike detail and strong text rendering. Available across many platforms.",
-        "category": "Image & Art Generation",
-        "url": "https://blackforestlabs.ai",
-        "imageUrl": "https://images.unsplash.com/photo-1547954575-855750c57bd3?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-07-31T00:00:00.000Z",
-        "domain": "blackforestlabs.ai",
-        "brandColor": "#111827"
-    },
-    {
         "id": "higgsfield",
         "name": "Higgsfield",
         "description": "AI video generator focused on cinematic camera motion and controls, popular with social creators for dynamic, film-style clips.",
@@ -17208,18 +17024,6 @@ const _MOCK_TOOLS: Tool[] = [
       "domain": "linear.app"
   },
     {
-      "id": "superhuman",
-      "name": "Superhuman",
-      "description": "A keyboard-first email client that drafts replies and summarises long threads.",
-      "category": "AI Email Assistants",
-      "url": "https://superhuman.com",
-      "pricing": "Paid",
-      "rating": 4.6,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "superhuman.com"
-  },
-    {
       "id": "obsidian",
       "name": "Obsidian",
       "description": "Local-first notes in plain markdown files you own, with a large plugin ecosystem including model integrations.",
@@ -17268,18 +17072,6 @@ const _MOCK_TOOLS: Tool[] = [
       "domain": "retool.com"
   },
     {
-      "id": "fireflies",
-      "name": "Fireflies.ai",
-      "description": "Joins calls, records and transcribes them, then pushes the summary into your CRM.",
-      "category": "AI Meeting Assistants",
-      "url": "https://fireflies.ai",
-      "pricing": "Freemium",
-      "rating": 4.6,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "fireflies.ai"
-  },
-    {
       "id": "wispr-flow",
       "name": "Wispr Flow",
       "description": "Dictation that types into any application, punctuating and tidying as you speak.",
@@ -17316,42 +17108,6 @@ const _MOCK_TOOLS: Tool[] = [
       "domain": "tldraw.com"
   },
     {
-      "id": "framer",
-      "name": "Framer",
-      "description": "Designs and publishes real websites from a canvas, generating sections and copy from a brief.",
-      "category": "AI Website Builders",
-      "url": "https://framer.com",
-      "pricing": "Freemium",
-      "rating": 4.7,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "framer.com"
-  },
-    {
-      "id": "webflow",
-      "name": "Webflow",
-      "description": "Visual web development with clean output and a CMS, aimed at designers who do not want to hand-write markup.",
-      "category": "AI Website Builders",
-      "url": "https://webflow.com",
-      "pricing": "Freemium",
-      "rating": 4.7,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "webflow.com"
-  },
-    {
-      "id": "relume",
-      "name": "Relume",
-      "description": "Turns a description of a business into a sitemap and wireframes, ready to build out in Webflow or Figma.",
-      "category": "UI/UX & Design Tools",
-      "url": "https://relume.io",
-      "pricing": "Paid",
-      "rating": 4.5,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "relume.io"
-  },
-    {
       "id": "krea",
       "name": "Krea",
       "description": "Real-time image generation where the picture updates as you draw or type, rather than after a wait.",
@@ -17376,18 +17132,6 @@ const _MOCK_TOOLS: Tool[] = [
       "domain": "captions.ai"
   },
     {
-      "id": "opus-clip",
-      "name": "Opus Clip",
-      "description": "Cuts long video into short vertical clips and picks the moments most likely to hold attention.",
-      "category": "Video & Audio Tools",
-      "url": "https://opus.pro",
-      "pricing": "Freemium",
-      "rating": 4.6,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "opus.pro"
-  },
-    {
       "id": "glean",
       "name": "Glean",
       "description": "Search across every system a company uses, answering from documents the person asking is allowed to see.",
@@ -17410,18 +17154,6 @@ const _MOCK_TOOLS: Tool[] = [
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "dust.tt"
-  },
-    {
-      "id": "lindy",
-      "name": "Lindy",
-      "description": "Assembles agents that handle recurring work — inbox triage, scheduling, follow-ups — from a description.",
-      "category": "AI Agents & Automation",
-      "url": "https://lindy.ai",
-      "pricing": "Freemium",
-      "rating": 4.5,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "lindy.ai"
   },
     {
       "id": "hebbia",
@@ -17734,18 +17466,6 @@ const _MOCK_TOOLS: Tool[] = [
       "featured": false,
       "dateAdded": "2026-08-21T00:00:00.000Z",
       "domain": "decagon.ai"
-  },
-    {
-      "id": "spline",
-      "name": "Spline",
-      "description": "3D scenes designed in the browser and dropped straight into a website.",
-      "category": "3D & Animation",
-      "url": "https://spline.design",
-      "pricing": "Freemium",
-      "rating": 4.7,
-      "featured": false,
-      "dateAdded": "2026-08-21T00:00:00.000Z",
-      "domain": "spline.design"
   },
     {
       "id": "rive",

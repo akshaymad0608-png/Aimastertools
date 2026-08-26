@@ -457,10 +457,19 @@ const LEGAL_ROUTES = [
  * already carry "AI" ("AI Chatbots & Assistants"), some carry neither
  * ("3D & Animation"). Appending a fixed "AI Tools" to all three produces
  * "Ecommerce Tools Tools" and "AI Chatbots AI Tools".
+ *
+ * "Tools" is not the only word that already names the products, though.
+ * A category ending in "Assistants", "Engines", "Builders", "Extensions" or
+ * "APIs" is a complete noun phrase too, and appending anything to it gives
+ * "AI Search Engines tools" or "AI Chrome Extensions tools". Only categories
+ * naming an activity or a subject — "Social Media Automation", "Image & Art
+ * Generation", "Marketing & SEO" — actually need a product noun after them.
  */
+const PRODUCT_NOUN = /\b(tools?|assistants?|engines?|builders?|extensions?|generators?|editors?|platforms?|apps?|bots?|apis?)$/i;
+
 const suffixFor = (name, lower = false) => {
   const t = lower ? 'tools' : 'Tools';
-  if (/tools?$/i.test(name)) return '';
+  if (PRODUCT_NOUN.test(name)) return '';
   return /\bAI\b/.test(name) ? t : `AI ${t}`;
 };
 
@@ -513,9 +522,11 @@ const FREE_ROUTES = [
           // "AI tools" sits outside the link: category names here already run
           // to four words ("Image & Art Generation"), so repeating it inside
           // every anchor pushed the whole list past five words for no gain.
-          `<li><a href="/free/${c.slug}">Free ${esc(c.name)}</a> AI tools — ${c.tools.length} tools, ${
-            c.fullyFree.length
-          } fully free</li>`,
+          // suffixFor drops it entirely where the name already ends in "Tools",
+          // which otherwise read "Free UI/UX & Design Tools AI tools".
+          `<li><a href="/free/${c.slug}">Free ${esc(c.name)}</a>${
+            suffixFor(c.name, true) ? ' ' + suffixFor(c.name, true) : ''
+          } — ${c.tools.length} tools, ${c.fullyFree.length} fully free</li>`,
       ).join('')}</ul>`,
   },
   ...FREE_CATS.map((c) => ({
@@ -529,10 +540,28 @@ const FREE_ROUTES = [
       `${c.tools.length} Best Free ${c.name} ${suffixFor(c.name)} (${YEAR})`,
       `Best Free ${c.name} ${suffixFor(c.name)} (${YEAR})`,
     ].map((x) => x.replace(/ {2,}/g, ' ')), `/free/${slugify(c.name)}`),
+    /*
+      Two problems this description used to have, both across many pages.
+
+      It appended a hardcoded "AI tools" to a category name that usually
+      already ends in "Tools", so 11 of these read "...ui/ux & design tools AI
+      tools". suffixFor() exists for exactly that and the heading above already
+      uses it — the description just wasn't.
+
+      And 18 of them opened "0 completely free and N with a real free tier",
+      leading a search listing with a zero. Where nothing in the category is
+      fully free there is no split to explain, so the sentence says what is
+      actually on offer instead. Naming the top few tools gives a searcher
+      something to recognise, which a bare count never does.
+    */
     description: clamp(
-      `${c.tools.length} free ${c.name.toLowerCase()} AI tools — ${c.fullyFree.length} completely free and ${
-        c.freemium.length
-      } with a real free tier, rated and kept apart so you know which is which.`,
+      (() => {
+        const label = `${c.name.toLowerCase()} ${suffixFor(c.name, true)}`.replace(/ {2,}/g, ' ').trim();
+        const names = c.tools.slice(0, 3).map((t) => t.name).join(', ');
+        return c.fullyFree.length
+          ? `${c.tools.length} free ${label} — ${c.fullyFree.length} completely free, ${c.freemium.length} with a real free tier. ${names} and more, rated and compared.`
+          : `${c.tools.length} ${label} with a genuinely free tier — ${names} and more, rated and compared so you know the limits before you sign up.`;
+      })(),
     ),
     extraHtml:
       (c.fullyFree.length
