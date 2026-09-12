@@ -135,7 +135,24 @@ const toolJsonLd = (t) => ({
 const catSrc = readFileSync('data/categories.ts', 'utf8');
 const cStart = catSrc.indexOf('CATEGORY_META = [') + 'CATEGORY_META = ['.length - 1;
 const CATEGORIES = eval(catSrc.slice(cStart, catSrc.indexOf('\n];', cStart) + 2)).filter(Boolean);
-const catCount = (name) => TOOLS.filter((t) => t.category === name).length;
+
+/**
+ * 47 tools in data/tools.ts carry a `category` string with no matching entry
+ * in CATEGORY_META at all — 'Development', 'Design' and 'Education', where
+ * the real categories are 'Code & Development', 'UI/UX & Design Tools' and
+ * 'Learning & Education'. Every one of those 47 tools fell out of both its
+ * category page's tool list and this count. Aliasing them here is the
+ * narrow fix for that; the underlying category strings in data/tools.ts are
+ * still wrong and worth correcting at the source separately.
+ */
+const CATEGORY_ALIASES = {
+  Development: 'Code & Development',
+  Design: 'UI/UX & Design Tools',
+  Education: 'Learning & Education',
+};
+const toolsForCategory = (name) =>
+  TOOLS.filter((t) => t.category === name || CATEGORY_ALIASES[t.category] === name);
+const catCount = (name) => toolsForCategory(name).length;
 
 // ---- Load the Earn Online directory (for its counts + crawlable summary) ----
 let EARN_SITES = 0;
@@ -645,10 +662,36 @@ const routes = [
     ], `/tool/${t.id}`),
     description: fitDescription(`Our review of ${t.name}. Discover its features, pricing, rating, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`, DESC_TAILS, `/tool/${t.id}`),
     jsonLd: toolJsonLd(t),
+    // Same orphan-page problem as category pages, from the tool's side: a
+    // tool page linked to the generic nav and nothing else crawlable, so it
+    // had no outgoing links into the rest of the catalog either. A few real
+    // alternatives in the same category give it both a path out and, for
+    // those alternatives, one more incoming link than the category page
+    // alone provides.
+    extraHtml: (() => {
+      const canonicalCat = CATEGORY_ALIASES[t.category] || t.category;
+      const alts = toolsForCategory(canonicalCat).filter((o) => o.id !== t.id).slice(0, 8);
+      if (!alts.length) return '';
+      const catLink = `<p style="font-size:15px;line-height:1.6"><a href="/category/${slugify(canonicalCat || '')}">See all ${(canonicalCat || 'AI').toLowerCase()} tools</a></p>`;
+      const list = `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
+        .map((o) => `<li><a href="/tool/${esc(o.id)}">${esc(o.name)}</a></li>`)
+        .join('')}</ul>`;
+      return `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} alternatives</h2>${catLink}${list}`;
+    })(),
   })),
   // Category pages
   ...CATEGORIES.map((c) => {
     const n = catCount(c.name);
+    // Without this, the category page's only crawlable content was its own
+    // h1 and description — none of the tools "in" the category were actually
+    // linked from anywhere but the sitemap. React renders the real tool grid
+    // client-side, but that never reaches a crawler that doesn't run it, so
+    // every one of the 654 tool pages sat with zero incoming internal links
+    // (Ahrefs: "Orphan page", 1,724 of 1,794 URLs — nearly the whole site).
+    // Same fix already used for /earn/<category>: list the real tools here,
+    // with real <a href="/tool/...">, so category pages actually distribute
+    // link equity to them instead of just describing a count.
+    const toolsInCat = toolsForCategory(c.name);
     return {
       path: `/category/${slugify(c.name)}`,
       heading: `Best ${c.name} AI Tools`,
@@ -663,6 +706,11 @@ const routes = [
         `${n} Best ${c.name} AI Tools (${YEAR})`,
       ], `/category/${slugify(c.name)}`),
       description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`),
+      extraHtml: toolsInCat.length
+        ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${toolsInCat
+            .map((t) => `<li><a href="/tool/${esc(t.id)}"><strong>${esc(t.name)}</strong></a> — ${esc(clamp(t.description || t.longDescription || '', 100))}</li>`)
+            .join('')}</ul>`
+        : '',
     };
   }),
   // Alternatives and comparison pages.
