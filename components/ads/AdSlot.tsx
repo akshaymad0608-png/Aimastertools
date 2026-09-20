@@ -8,6 +8,10 @@ declare global {
 
 const CLIENT_ID = 'ca-pub-4380996737976478';
 
+export const AD_SLOTS = {
+  RESPONSIVE_DISPLAY: '8207112242',
+} as const;
+
 export interface AdSlotProps {
   /** The ad unit id from the AdSense dashboard (data-ad-slot). */
   slot: string;
