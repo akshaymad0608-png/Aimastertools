@@ -136,6 +136,25 @@
       }
     </script>
 
+    <!-- ======================== Google AdSense ======================== -->
+    <!--
+      Loaded here, in the static shell, rather than from a React component.
+
+      Vite injects this file into every one of the ~1,790 prerendered routes, so
+      one tag here covers the whole site and the browser fetches it once. Putting
+      it in a component instead would mean it mounts and unmounts as React Router
+      swaps routes, which is how sites end up pushing the same ad slot twice.
+
+      `async` keeps it off the critical path. The publisher ID is not a secret —
+      it is visible in every ad request on the page, and AdSense verification
+      depends on it being readable, so it is intentionally inline rather than in
+      an env var.
+
+      Auto ads are OFF by default and are a dashboard setting, not a code one.
+      Individual units render through components/ads/AdSlot.tsx.
+    -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4380996737976478" crossorigin="anonymous"></script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -189,6 +208,5 @@
 
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-    <script async defer src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </body>
 </html>

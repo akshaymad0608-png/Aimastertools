@@ -6,11 +6,9 @@ import { MOCK_TOOLS } from '../data/tools';
 import { COMPARISON_PAIRS, ComparisonPair } from '../utils/pairs';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
-import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
 
 const Compare: React.FC = () => {
-  const { isPro } = usePro();
   const navigate = useNavigate();
   const [selectedToolIds, setSelectedToolIds] = useState<string[]>(() => {
     const params = new URLSearchParams(window.location.search);

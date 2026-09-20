@@ -14,10 +14,7 @@ import { CategoryCard } from '../components/CategoryCard';
 import Reveal from '../components/Reveal';
 import { Category } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
-import { doc, setDoc, serverTimestamp, addDoc, collection } from 'firebase/firestore';
-import { db } from '../firebase';
 
-const VoiceSearch = React.lazy(() => import('../components/VoiceSearch'));
 import { CollectionsSection } from '../components/home/CollectionsSection';
 import { BlogSection } from '../components/BlogSection';
 import HeroSection from '../components/HeroSection';

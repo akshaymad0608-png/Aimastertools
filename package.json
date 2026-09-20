@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+  },
   "scripts": {
     "dev": "tsx server.ts",
     "build": "node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && vite build && node prerender.mjs && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
@@ -10,9 +13,9 @@
     "start": "node dist/server.cjs",
     "lint": "tsc --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "audit:links": "node scripts/audit-affiliate-links.mjs",
-    "test:intent": "node scripts/test-intent.mjs",
-    "test:outbound": "node scripts/test-outbound.mjs",
+    "audit:links": "node scripts/tests/audit-affiliate-links.mjs",
+    "test:intent": "node scripts/tests/test-intent.mjs",
+    "test:outbound": "node scripts/tests/test-outbound.mjs",
     "check": "npm run lint && npm run test:intent && npm run test:outbound && npm run audit:links"
   },
   "dependencies": {
@@ -25,9 +28,7 @@
     "framer-motion": "^12.34.3",
     "html2canvas": "^1.4.1",
     "lucide-react": "^0.575.0",
-    "nodemailer": "^8.0.2",
-    "pdfkit": "^0.18.0",
-    "razorpay": "^2.9.6",
+    "nodemailer": "^10.0.10",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-helmet-async": "^3.0.0",
@@ -41,8 +42,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^22.14.0",
-    "@types/nodemailer": "^7.0.11",
-    "@types/pdfkit": "^0.17.5",
+    "@types/nodemailer": "^8.0.2",
     "@vitejs/plugin-react": "^5.0.0",
     "esbuild": "^0.28.0",
     "tailwindcss": "^4.2.0",

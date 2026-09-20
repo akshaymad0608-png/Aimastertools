@@ -16,18 +16,6 @@ import { EARN_SITE_COUNT } from '../data/earn';
 import { COMPARISON_PAIRS } from '../utils/pairs';
 import { BLOG_POSTS } from '../data/blogs';
 
-/**
- * About, as its own page.
- *
- * It existed only as `#about` on /discover — a section inside a longer page,
- * with no route of its own and no way for a search result or a citation to
- * point at it. For a directory that asks people to trust its rankings, the
- * page explaining who compiled them and how is not a footnote.
- *
- * Every number here reads from the data. Nothing is written as a literal,
- * because a hand-typed count is wrong the first time a tool is added, and a
- * page about trustworthiness cannot afford a stale figure.
- */
 
 const METHOD = [
   {
@@ -73,12 +61,6 @@ const About: React.FC = () => {
           'how AI tools are reviewed',
           'independent AI tool index',
         ]}
-        /*
-          No breadcrumbSchema here. <Breadcrumbs> emits its own BreadcrumbList
-          from the items it is given, so a page that passes one to SEO as well
-          ships the same type twice. The path goes to the component instead, so
-          the single block it emits carries the URL.
-        */
         schema={[
           {
             '@context': 'https://schema.org',

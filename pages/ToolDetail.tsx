@@ -10,7 +10,6 @@ import { slugify } from '../utils/slug';
 import ToolCard from '../components/ToolCard';
 import { ReviewsSection } from '../components/ReviewsSection';
 import { useBookmarks } from '../context/BookmarkContext';
-import { usePro } from '../context/ProContext';
 import ToolLogo from '../components/ToolLogo';
 import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
 import { StoryShareModal } from '../components/StoryShareModal';
@@ -21,7 +20,6 @@ const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [tool, setTool] = useState<Tool | null>(null);
   const { bookmarks, toggleBookmark } = useBookmarks();
-  const { isPro } = usePro();
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copyFeedback, setCopyFeedback] = useState(false);
   const [isStoryModalOpen, setIsStoryModalOpen] = useState(false);

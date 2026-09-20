@@ -28,3 +28,42 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Build output
+.vite
+*.tsbuildinfo
+
+# Generated at build time by scripts/generate-*.mjs, which run as the first two
+# steps of `npm run build` — so Vercel rebuilds them on every deploy and the
+# live site never depends on the committed copy.
+#
+# They were tracked until now, and that was the bug: the committed sitemap had
+# drifted to advertise ~83 URLs that no longer existed, because regenerating it
+# was a manual step nobody remembered after editing data/. Untracked, it cannot
+# go stale. Run `npm run build` (or `npm run sitemap`) to produce them locally.
+#
+# public/sw.js is NOT here on purpose — it is a source template carrying the
+# __BUILD_ID__ placeholder, and prerender.mjs only rewrites the dist/ copy.
+public/sitemap.xml
+public/rss.xml
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Test / tooling output
+coverage
+.nyc_output
+*.lcov
+
+# Package manager noise
+.npm
+.eslintcache
+.pnpm-debug.log*
+.yarn-integrity
+
+# Local scratch — anything you want kept out of a commit
+*.tmp
+.scratch/
