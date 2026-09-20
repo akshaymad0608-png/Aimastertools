@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` installs exactly what the lockfile pins and fails if
+      # package.json and package-lock.json disagree, which `npm install` would
+      # quietly paper over.
+      - run: npm ci
+
+      # tsc --noEmit, the intent and outbound resolver suites, and the affiliate
+      # link audit. The audit exits non-zero when a stored link would pay an
+      # account other than aimastertools-21 — the failure that is invisible on
+      # the page and therefore worth gating a merge on.
+      - run: npm run check
+
+      # The build is the only thing that exercises the sitemap and RSS
+      # generators, the prerender pass and the server bundle. It is also what
+      # catches a data-format change that breaks the regex-based generators:
+      # generate-sitemap.mjs fails loudly on an empty result rather than writing
+      # a truncated sitemap, and that failure only surfaces here.
+      - run: npm run build
+
+      # The generated sitemap is not committed, so nothing else would notice it
+      # collapsing. Assert it still carries a plausible number of URLs.
+      - name: Sanity-check the generated sitemap
+        run: |
+          count=$(grep -c '<loc>' public/sitemap.xml)
+          echo "sitemap URLs: $count"
+          if [ "$count" -lt 1000 ]; then
+            echo "::error::sitemap collapsed to $count URLs (expected >1000)"
+            exit 1
+          fi
