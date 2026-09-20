@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, Share2, Sparkles, Check, Instagram } from 'lucide-react';
-import html2canvas from 'html2canvas';
 
 /**
  * A second local `Tool`, narrower than the real one in types.ts and shadowing
@@ -29,6 +28,17 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
     if (!cardRef.current) return;
     setIsGenerating(true);
     try {
+      /*
+        html2canvas is ~400 KB and is only ever needed once someone presses
+        Download inside this modal. Imported statically it landed in the shared
+        vendor chunk, so every page in the app paid for it — including the 1,790
+        prerendered pages whose visitors never open a share sheet.
+
+        Loaded here instead: the cost moves to the click that actually uses it.
+        The handler was already async with a try/catch, so a failed fetch takes
+        the same path as a failed render.
+      */
+      const { default: html2canvas } = await import('html2canvas');
       const canvas = await html2canvas(cardRef.current, {
         scale: 2, // High quality
         useCORS: true, // For external images

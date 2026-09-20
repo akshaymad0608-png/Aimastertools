@@ -71,17 +71,52 @@ export default defineConfig(({ mode }) => {
                 return 'data-catalogue';
               }
               if (id.includes('node_modules')) {
-                if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+                /*
+                  Match on the package directory, not on a bare substring.
+
+                  The previous rule tested id.includes('react'), which is true
+                  for every path under lucide-react, react-markdown,
+                  react-hot-toast, react-helmet-async, react-fast-compare and
+                  react-refresh. They all landed in vendor-react, the
+                  lucide-react rule below could never fire, and rollup reported
+                  a circular chunk because vendor and vendor-react each ended up
+                  holding part of the same dependency graph.
+
+                  pkg() pulls out the real package name so each rule matches
+                  exactly what it names. Scoped packages keep their @scope/ so
+                  e.g. @firebase/app is still recognised as firebase.
+                */
+                const pkg = (() => {
+                  const m = id.split('node_modules/').pop() || '';
+                  const parts = m.split('/');
+                  return parts[0].startsWith('@') ? parts.slice(0, 2).join('/') : parts[0];
+                })();
+
+                if (pkg === 'react' || pkg === 'react-dom' || pkg === 'scheduler') {
                   return 'vendor-react';
                 }
-                if (id.includes('framer-motion')) {
+                if (pkg === 'react-router' || pkg === 'react-router-dom') {
+                  return 'vendor-router';
+                }
+                if (pkg === 'framer-motion' || pkg === 'motion-dom' || pkg === 'motion-utils') {
                   return 'vendor-motion';
                 }
-                if (id.includes('lucide-react')) {
+                if (pkg === 'lucide-react') {
                   return 'vendor-icons';
                 }
-                if (id.includes('firebase')) {
+                if (pkg === 'firebase' || pkg.startsWith('@firebase')) {
                   return 'vendor-firebase';
+                }
+                /*
+                  html2canvas (~400 KB) and react-markdown are each reached from
+                  exactly one place — the share modal's Download button and the
+                  blog post renderer. Returning undefined leaves them to rollup,
+                  which keeps them with the dynamic import or route chunk that
+                  actually pulls them in instead of hoisting them into the
+                  shared vendor chunk that every page loads.
+                */
+                if (pkg === 'html2canvas' || pkg === 'react-markdown') {
+                  return undefined;
                 }
                 return 'vendor';
               }
