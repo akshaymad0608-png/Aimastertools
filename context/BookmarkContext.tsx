@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { usePro } from './ProContext';
 
 interface BookmarkContextType {
   bookmarks: string[];
@@ -12,7 +11,6 @@ interface BookmarkContextType {
 const BookmarkContext = createContext<BookmarkContextType | undefined>(undefined);
 
 export const BookmarkProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isPro } = usePro();
   const [bookmarkError, setBookmarkError] = useState<string | null>(null);
   const [bookmarks, setBookmarks] = useState<string[]>(() => {
     const saved = localStorage.getItem('bookmarks');
