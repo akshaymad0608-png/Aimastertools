@@ -10,9 +10,9 @@
     "start": "node dist/server.cjs",
     "lint": "tsc --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
-    "audit:links": "node scripts/audit-affiliate-links.mjs",
-    "test:intent": "node scripts/test-intent.mjs",
-    "test:outbound": "node scripts/test-outbound.mjs",
+    "audit:links": "node scripts/tests/audit-affiliate-links.mjs",
+    "test:intent": "node scripts/tests/test-intent.mjs",
+    "test:outbound": "node scripts/tests/test-outbound.mjs",
     "check": "npm run lint && npm run test:intent && npm run test:outbound && npm run audit:links"
   },
   "dependencies": {

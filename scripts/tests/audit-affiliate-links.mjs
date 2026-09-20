@@ -23,7 +23,7 @@ import { pathToFileURL } from 'node:url';
 import { resolve, dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 
-const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..');
+const ROOT = resolve(dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1')), '..', '..');
 const OUT = join(tmpdir(), `aff-audit-${process.pid}.mjs`);
 
 let auditAffiliateUrl;
