@@ -2,8 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Search } from 'lucide-react';
 import SEO from '../components/SEO';
+import { setAdSuppressed } from '../components/ads/FooterAd';
 
 const NotFound: React.FC = () => {
+  /*
+    AdSense does not consider an error page eligible for ads — there is no
+    content for one to sit beside. 404 is the catch-all route here, so it has no
+    path for FooterAd to exclude; it switches the ad off while mounted instead.
+  */
+  React.useEffect(() => {
+    setAdSuppressed(true);
+    return () => setAdSuppressed(false);
+  }, []);
+
   return (
     <div className="page-top min-h-[70vh] flex items-center justify-center px-6 pb-24">
       <SEO

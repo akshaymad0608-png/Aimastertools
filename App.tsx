@@ -10,6 +10,7 @@ import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import CommandPalette from './components/CommandPalette';
 import Footer from './components/Footer';
+import FooterAd from './components/ads/FooterAd';
 import MobileBottomNav from './components/MobileBottomNav';
 import InstallPrompt from './components/InstallPrompt';
 import ScrollToTop from './components/ScrollToTop';
@@ -151,6 +152,8 @@ function App() {
                   </Routes>
                 </Suspense>
               </main>
+
+              <FooterAd />
 
               <Footer />
               <MobileBottomNav />
