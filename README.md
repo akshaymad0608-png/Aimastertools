@@ -69,7 +69,7 @@ React then hydrates on load. Vercel serves the specific file when one exists and
 falls back to the SPA rewrite for unknown paths.
 
 This matters because without it, crawlers and social scrapers saw the homepage's
-metadata on all 654 tool pages. The current sitemap is ~1,870 URLs, so the
+metadata on all 654 tool pages. The current sitemap is ~1,790 URLs, so the
 metadata being per-page is most of the site's search surface.
 
 `prerender.mjs` also enforces title/description length budgets: each page type
@@ -122,6 +122,22 @@ plucks ids and slugs without standing up a compiler. It fails loudly on an empty
 result rather than writing a truncated sitemap, but if you change the data
 *format* (not just the contents), check the sitemap still builds.
 
+### Generated files
+
+`public/sitemap.xml` and `public/rss.xml` are **not in git**. They are written by
+`scripts/generate-sitemap.mjs` and `scripts/generate-rss.mjs`, which are the
+first two steps of `npm run build` — so Vercel rebuilds them on every deploy.
+
+A fresh clone will not have them until you run `npm run build` (or just
+`npm run sitemap`). That is deliberate: while they were tracked, regenerating
+after a data change was a manual step, and the committed sitemap drifted into
+advertising ~83 URLs that no longer existed. A file that cannot be committed
+stale cannot go stale.
+
+`public/sw.js` is the opposite case and stays in git — it is a source template
+holding a `__BUILD_ID__` placeholder, and `prerender.mjs` only rewrites the copy
+in `dist/`, never the source.
+
 ### Outbound links
 
 Every link leaving the site for a tool's own website goes through
@@ -148,7 +164,8 @@ data/             The catalogue — tools, categories, prompts, workflows, blogs
 lib/affiliate/    Outbound link + rel resolution
 lib/shopping/     Amazon PA-API, manual products, intent parsing
 pages/            Route components
-public/           Static assets, sitemap.xml, rss.xml, robots.txt, llms.txt, sw.js
+public/           Static assets, robots.txt, llms.txt, sw.js (sitemap.xml
+                  and rss.xml are generated — not in git, see below)
 scripts/          generate-sitemap.mjs, generate-rss.mjs
 scripts/tests/    Test + audit suites (npm run check)
 utils/            Slugs, SEO helpers, logo resolution, stats
