@@ -46,8 +46,29 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           output: {
             manualChunks(id) {
-              if (id.includes('constants.tsx') || id.includes('constants.ts')) {
-                return 'data-constants';
+              /*
+                The catalogue, split out of the entry chunk.
+
+                This rule used to match 'constants.tsx' / 'constants.ts' — a
+                file that no longer exists; the data moved to data/*.ts and the
+                rule silently stopped matching anything. The result was that all
+                of data/tools.ts (736 KB of source, 654 tools) was inlined into
+                the entry chunk, so every visitor downloaded the whole catalogue
+                in the same file as the app shell.
+
+                The data is imported by Home and by several eagerly-rendered
+                components, so it is genuinely part of the first load and
+                splitting it does not remove a byte from a cold visit. What it
+                does buy is caching: the catalogue changes when tools are added,
+                the app shell changes when code is edited, and as one chunk any
+                edit to either invalidated both. Separated, a data-only change
+                leaves the shell cached and vice versa.
+
+                Matched on a path separator so it cannot pick up node_modules
+                packages that merely have "data" in the name.
+              */
+              if (id.includes('/data/') || id.includes('\\data\\')) {
+                return 'data-catalogue';
               }
               if (id.includes('node_modules')) {
                 if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
