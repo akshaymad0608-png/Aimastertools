@@ -12,8 +12,8 @@ shopping section. Everything is hand-curated and lives in `data/` as TypeScript
 ## Quick start
 
 **Prerequisites:** Node.js 18, 20, or 22+ (Vite's supported range — note it
-excludes 21). `package.json` declares no `engines` field, so nothing enforces
-this at install time.
+excludes 21). `package.json` declares this in `engines`, so npm warns on an
+unsupported version.
 
 ```bash
 npm install
@@ -29,18 +29,12 @@ rather than crashing:
 - **No Amazon PA-API credentials** — the shopping section serves hand-entered
   products from `data/products.ts`. `AmazonPAAPIProvider.isConfigured` stays
   false and every method returns an explicit not-configured result.
-- **No `RAZORPAY_*`** — dev returns a mock order; production returns a 500.
-- **No `SMTP_*`** — emails are logged to the console rather than sent.
+- **No `SMTP_*`** — the welcome email is logged to the console rather than sent.
 
 **Read [`.env.example`](.env.example) before adding a key.** It documents which
 variables are safe to expose and which are secret. The short version: only
 `VITE_`-prefixed values reach the browser; everything else must be read from
 `process.env` server-side.
-
-Note that `.env.example` is currently **incomplete** — `server.ts` also reads
-`RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, and `SMTP_HOST` / `SMTP_PORT` /
-`SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS`, none of which are listed there. All
-are secret; none take a `VITE_` prefix.
 
 ## Commands
 
@@ -89,7 +83,7 @@ before assuming an endpoint you tested locally exists in production:
 
 | Endpoint | `server.ts` | `api/` |
 |---|:--:|:--:|
-| `health`, `create-order`, `verify-payment`, `verify-payment-id`, `send-welcome-email`, `send-purchase-email` | yes | yes |
+| `health`, `send-welcome-email` | yes | yes |
 | `find-tools` | yes | **no** |
 | `product-finder` | **no** | yes |
 | `amazon-products` | **no** | **no** |
