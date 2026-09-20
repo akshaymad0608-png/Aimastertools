@@ -70,6 +70,17 @@ const ToolLogo: React.FC<ToolLogoProps> = ({ domain, name, brandColor, className
         onError={handleError}
         referrerPolicy="no-referrer"
         decoding="async"
+        /*
+          Category pages render every tool in the category with no pagination,
+          so a large one mounts dozens of these at once and each was fetched
+          immediately, competing with the bytes needed for first paint. The
+          logos below the fold are the clearest thing on the page that can wait.
+
+          Safe alongside the existing onError fallback: a lazy image that never
+          enters the viewport simply never loads, and one that does follows the
+          same success/error path as before.
+        */
+        loading="lazy"
         style={{
           width: "74%", height: "74%",
           objectFit: "contain"
