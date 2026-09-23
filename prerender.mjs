@@ -144,19 +144,19 @@ const CATEGORIES = eval(catSrc.slice(cStart, catSrc.indexOf('\n];', cStart) + 2)
  * category page's tool list and this count. Aliasing them here is the
  * narrow fix for that; the underlying category strings in data/tools.ts are
  * still wrong and worth correcting at the source separately.
+ *
+ * A fourth, 'Productivity', was aliased here too and has since been corrected
+ * at the source, so it no longer needs an entry. Correcting the data also
+ * caught something the alias could not express: eight of those nine records
+ * are notes, docs and launcher tools that belong in 'Productivity &
+ * Collaboration', but Cal.com is the open-source Calendly, and Calendly sits
+ * in 'Productivity Automation'. A single alias had to send all nine to one
+ * category; the records can say what each one actually is.
  */
 const CATEGORY_ALIASES = {
   Development: 'Code & Development',
   Design: 'UI/UX & Design Tools',
   Education: 'Learning & Education',
-  // Nine tools (Notion Academy, Obsidian, Obsidian Help, Raycast, Cal.com
-  // and duplicates) carry 'Productivity', which is not a category either —
-  // the real one is 'Productivity & Collaboration', and 'Productivity
-  // Automation' is a separate, narrower category these tools do not belong
-  // to. Unaliased, their pages linked to /category/productivity, which does
-  // not exist: the "Page has links to broken page: 5 URLs" in Ahrefs'
-  // 19 September crawl.
-  Productivity: 'Productivity & Collaboration',
 };
 const toolsForCategory = (name) =>
   TOOLS.filter((t) => t.category === name || CATEGORY_ALIASES[t.category] === name);
