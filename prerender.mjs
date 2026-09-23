@@ -83,6 +83,14 @@ const DESC_TAILS = [
 ];
 
 // ---- Load tools (dedup by id, then by normalized name — matches MOCK_TOOLS) --
+//
+// data/tools.ts no longer contains duplicates, so both passes are no-ops today.
+// They stay because tools are appended here in batches and a batch can
+// reintroduce one, and because this script must pick the same record as
+// MOCK_TOOLS for every tool — a page built from one record and hydrated from
+// another would disagree with itself. The longDescription tiebreak below is
+// part of that: it is what MOCK_TOOLS does, and omitting it let the two
+// diverge whenever two ids for one name were the same length.
 const toolsSrc = readFileSync('data/tools.ts', 'utf8');
 const tStart = toolsSrc.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
 const rawTools = eval(toolsSrc.slice(tStart, toolsSrc.indexOf('\n];', tStart) + 2)).filter(Boolean);
@@ -92,7 +100,14 @@ const canon = new Map();
 for (const t of byId) {
   const k = (t.name || '').trim().toLowerCase();
   const p = canon.get(k);
-  if (!p || t.id.length < p.id.length) canon.set(k, t);
+  if (!p) {
+    canon.set(k, t);
+    continue;
+  }
+  const preferNew =
+    t.id.length < p.id.length ||
+    (t.id.length === p.id.length && !!t.longDescription && !p.longDescription);
+  if (preferNew) canon.set(k, t);
 }
 const TOOLS = byId.filter((t) => canon.get((t.name || '').trim().toLowerCase()) === t);
 
