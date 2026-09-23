@@ -35,9 +35,18 @@
     <!-- Keywords are led by the brand + tool names the directory actually ranks for -->
     <meta name="keywords" content="AI Master Tools, AIMasterTools, AI tools directory, best AI tools 2026, free AI tools, compare AI tools, AI tool finder, ChatGPT, Claude, Gemini, Midjourney, Perplexity, Runway, Canva AI, Notion AI, GitHub Copilot, ChatGPT alternatives, AI writing tools, AI image generators, AI video generators, AI coding tools, AI marketing tools, AI productivity tools, AI tools for students, AI tools for business, AI prompts library, AI workflows" />
 
-    <!-- ===================== Localisation ===================== -->
-    <link rel="alternate" hreflang="en" href="https://aimastertools.space/" />
-    <link rel="alternate" hreflang="x-default" href="https://aimastertools.space/" />
+    <!-- No hreflang. The site is English-only, so there is no alternate for
+         these tags to name, and Google infers the language from the content
+         and the lang attribute either way.
+
+         They used to be here, hardcoded to the homepage. prerender.mjs
+         rewrites <link rel="canonical"> per route but never touched these, so
+         every one of the 1,760 built pages told a crawler its English version
+         was the homepage while its own canonical said otherwise — the
+         "hreflang conflicts within page source code" a Semrush audit reported
+         on 21 of the 26 pages it reached. Adding a language means adding real
+         per-route alternates here and in prerender.mjs together, not
+         reinstating a fixed pair. -->
 
     <!-- ================== Open Graph / Social ================== -->
     <meta property="og:type" content="website" />
