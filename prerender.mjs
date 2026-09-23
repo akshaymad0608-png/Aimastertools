@@ -137,29 +137,25 @@ const cStart = catSrc.indexOf('CATEGORY_META = [') + 'CATEGORY_META = ['.length 
 const CATEGORIES = eval(catSrc.slice(cStart, catSrc.indexOf('\n];', cStart) + 2)).filter(Boolean);
 
 /**
- * 47 tools in data/tools.ts carry a `category` string with no matching entry
- * in CATEGORY_META at all — 'Development', 'Design' and 'Education', where
- * the real categories are 'Code & Development', 'UI/UX & Design Tools' and
- * 'Learning & Education'. Every one of those 47 tools fell out of both its
- * category page's tool list and this count. Aliasing them here is the
- * narrow fix for that; the underlying category strings in data/tools.ts are
- * still wrong and worth correcting at the source separately.
+ * Every tool's `category` now names a real entry in CATEGORY_META, so this is
+ * a plain match.
  *
- * A fourth, 'Productivity', was aliased here too and has since been corrected
- * at the source, so it no longer needs an entry. Correcting the data also
- * caught something the alias could not express: eight of those nine records
- * are notes, docs and launcher tools that belong in 'Productivity &
- * Collaboration', but Cal.com is the open-source Calendly, and Calendly sits
- * in 'Productivity Automation'. A single alias had to send all nine to one
- * category; the records can say what each one actually is.
+ * It used to alias four strings that named no category at all — 'Development',
+ * 'Design', 'Education' and 'Productivity' — because tools carrying them fell
+ * out of their category page's tool list and out of this count, and their
+ * pages linked to category URLs that were never generated. All four have been
+ * corrected in data/tools.ts, so the alias map is gone and the data is the
+ * only place a category is decided.
+ *
+ * If a tool ever falls out of every category page again, look for a category
+ * string that CATEGORY_META does not define rather than adding an alias back:
+ * one alias has to send every tool carrying that string to a single category,
+ * and the records can be right individually. Correcting 'Productivity' showed
+ * why that matters — eight of its nine records were notes and launcher tools
+ * belonging in 'Productivity & Collaboration', but Cal.com is the open-source
+ * Calendly, which sits in 'Productivity Automation'.
  */
-const CATEGORY_ALIASES = {
-  Development: 'Code & Development',
-  Design: 'UI/UX & Design Tools',
-  Education: 'Learning & Education',
-};
-const toolsForCategory = (name) =>
-  TOOLS.filter((t) => t.category === name || CATEGORY_ALIASES[t.category] === name);
+const toolsForCategory = (name) => TOOLS.filter((t) => t.category === name);
 const catCount = (name) => toolsForCategory(name).length;
 
 // ---- Load the Earn Online directory (for its counts + crawlable summary) ----
@@ -776,7 +772,7 @@ const routes = [
     // those alternatives, one more incoming link than the category page
     // alone provides.
     extraHtml: (() => {
-      const canonicalCat = CATEGORY_ALIASES[t.category] || t.category;
+      const canonicalCat = t.category;
       const alts = toolsForCategory(canonicalCat).filter((o) => o.id !== t.id).slice(0, 8);
       const catLink = `<p style="font-size:15px;line-height:1.6"><a href="/category/${slugify(canonicalCat || '')}">See all ${(canonicalCat || 'AI').toLowerCase()} tools</a></p>`;
       const list = alts.length
