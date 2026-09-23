@@ -149,6 +149,14 @@ const CATEGORY_ALIASES = {
   Development: 'Code & Development',
   Design: 'UI/UX & Design Tools',
   Education: 'Learning & Education',
+  // Nine tools (Notion Academy, Obsidian, Obsidian Help, Raycast, Cal.com
+  // and duplicates) carry 'Productivity', which is not a category either —
+  // the real one is 'Productivity & Collaboration', and 'Productivity
+  // Automation' is a separate, narrower category these tools do not belong
+  // to. Unaliased, their pages linked to /category/productivity, which does
+  // not exist: the "Page has links to broken page: 5 URLs" in Ahrefs'
+  // 19 September crawl.
+  Productivity: 'Productivity & Collaboration',
 };
 const toolsForCategory = (name) =>
   TOOLS.filter((t) => t.category === name || CATEGORY_ALIASES[t.category] === name);
@@ -182,9 +190,9 @@ const sameCategory = (tool) =>
   );
 
 const toolLine = (t) =>
-  `<li><strong>${esc(t.name)}</strong> — ${esc(t.description || '')} (${esc(
-    t.pricing || 'Pricing varies',
-  )}, rated ${t.rating || '—'}/5)</li>`;
+  `<li><a href="/tool/${esc(t.id)}"><strong>${esc(t.name)}</strong></a> — ${esc(
+    t.description || '',
+  )} (${esc(t.pricing || 'Pricing varies')}, rated ${t.rating || '—'}/5)</li>`;
 
 const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
   const alts = sameCategory(t).slice(0, 8);
@@ -217,6 +225,22 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
         }. These are the closest ${alts.length} alternatives in the same category, ranked by rating.</p>` +
         `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
           .map(toolLine)
+          .join('')}</ul>` +
+        // Back to the tool this page is about, and across to each
+        // alternative's own round-up. Without the second list every
+        // /alternatives/* page had exactly one incoming link — the tool page
+        // that names it — and nothing tied the 654 of them together.
+        `<p style="font-size:15px;line-height:1.6"><a href="/tool/${esc(
+          t.id,
+        )}">Read the full ${esc(t.name)} review</a></p>` +
+        `<h2 style="font-size:20px;margin:24px 0 8px">Alternatives to each of these</h2>` +
+        `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
+          .map(
+            (o) =>
+              `<li><a href="/alternatives/${slugify(o.id)}-alternatives">${esc(
+                o.name,
+              )} alternatives</a></li>`,
+          )
           .join('')}</ul>`
       : '',
   };
@@ -251,6 +275,9 @@ for (const list of byCategory.values()) {
       const cat = (x.category || 'AI').toLowerCase();
       COMPARE_ROUTES.push({
         path: `/compare/${slug}`,
+        // Read by comparesByTool below; stripped before the route is rendered.
+        pairIds: [x.id, y.id],
+        pairNames: [x.name, y.name],
         heading: `${x.name} vs ${y.name}`,
         title: pickTitle([
           `${x.name} vs ${y.name} — Pricing, Features and Ratings (${YEAR})`,
@@ -280,6 +307,25 @@ for (const list of byCategory.values()) {
           )} and ${esc(y.pricing || 'unlisted')} respectively.</p>`,
       });
     }
+  }
+}
+
+/**
+ * Which compare pages each tool appears on.
+ *
+ * The 309 /compare/* pages and the 654 /alternatives/* pages are generated
+ * from the catalogue and listed in sitemap.xml, but nothing on the site links
+ * to either set — Ahrefs reported every one of them as an orphan. They are
+ * also the two pages a reader of a tool page most plausibly wants next, so
+ * the link belongs on the tool page on its own merits, not just for the
+ * crawler. This index lets the tool route below name its own pairs without
+ * walking COMPARE_ROUTES once per tool.
+ */
+const comparesByTool = new Map();
+for (const r of COMPARE_ROUTES) {
+  for (const id of r.pairIds || []) {
+    if (!comparesByTool.has(id)) comparesByTool.set(id, []);
+    comparesByTool.get(id).push(r);
   }
 }
 
@@ -403,6 +449,10 @@ const SHOPPING_ROUTES = [
     heading: 'AI Shopping',
     title: 'AI Shopping — Find the Right Product Without the Research',
     description: 'Tell us the budget and what it is for, and get products that fit — compared on the specifications that actually decide it, with prices you check yourself.',
+    // The per-category pages below were reachable from the sitemap only.
+    extraHtml: `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px"><li><a href="/ai-shopping/finder">AI Product Finder</a></li>${SHOPPING_CATEGORIES.map(
+      (c) => `<li><a href="/ai-shopping/${esc(c.slug)}">Best ${esc(c.name)}</a></li>`,
+    ).join('')}</ul>`,
   },
   {
     path: '/ai-shopping/finder',
@@ -599,12 +649,69 @@ const FREE_ROUTES = [
 ];
 
 const routes = [
-  { path: '/categories', title: `All AI Tool Categories (${YEAR}) — Browse Them All Free`, description: 'Browse every AI tool category — chatbots, image generation, coding, video, writing, marketing and more. Find and compare the best tools in each.' },
-  { path: '/compare', title: `Compare AI Tools Side by Side (${YEAR}) | AI Master Tools`, description: 'Compare any two AI tools side by side — category, pricing, ratings and free-to-start — so you can choose the right one without a free trial.' },
-  { path: '/collections', title: `Curated AI Tool Collections (${YEAR}) | AI Master Tools`, description: 'Hand-picked collections of the best AI tools for specific jobs and workflows — writing, video, design, coding and research, ready to explore.' },
-  { path: '/blog', title: `AI Tools Blog — Guides, Comparisons and Prompt Tips`, description: 'AI tool guides, honest comparisons and prompt-engineering tutorials to help you pick the right AI tools and actually get results out of them.' },
+  {
+    // The nav names this, and 654 /alternatives/* pages existed with no index
+    // of their own — each reachable from a single tool page and nothing else.
+    path: '/alternatives',
+    heading: 'AI tool alternatives',
+    title: `AI Tool Alternatives (${YEAR}) — Compare Every Tool's Rivals`,
+    description:
+      'Find the closest alternatives to any AI tool in the directory — same category, compared on pricing, ratings and what each one is actually good at.',
+    extraHtml: ALTERNATIVES_ROUTES.length
+      ? `<ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${ALTERNATIVES_ROUTES.map(
+          (r) => `<li><a href="${r.path}">${esc(r.heading)}</a></li>`,
+        ).join('')}</ul>`
+      : '',
+  },
+  {
+    path: '/categories',
+    title: `All AI Tool Categories (${YEAR}) — Browse Them All Free`,
+    description: 'Browse every AI tool category — chatbots, image generation, coding, video, writing, marketing and more. Find and compare the best tools in each.',
+    extraHtml: `<ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${CATEGORIES.map(
+      (c) => `<li><a href="/category/${slugify(c.name)}">${esc(c.name)}</a></li>`,
+    ).join('')}</ul>`,
+  },
+  {
+    path: '/compare',
+    title: `Compare AI Tools Side by Side (${YEAR}) | AI Master Tools`,
+    description: 'Compare any two AI tools side by side — category, pricing, ratings and free-to-start — so you can choose the right one without a free trial.',
+    extraHtml: COMPARE_ROUTES.length
+      ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${COMPARE_ROUTES.map(
+          (r) => `<li><a href="${r.path}">${esc(r.pairNames[0])} vs ${esc(r.pairNames[1])}</a></li>`,
+        ).join('')}</ul>`
+      : '',
+  },
+  {
+    path: '/collections',
+    title: `Curated AI Tool Collections (${YEAR}) | AI Master Tools`,
+    description: 'Hand-picked collections of the best AI tools for specific jobs and workflows — writing, video, design, coding and research, ready to explore.',
+    extraHtml: COLLECTIONS.length
+      ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${COLLECTIONS.map(
+          (c) => `<li><a href="/collections/${esc(c.slug)}">${esc(c.title)}</a></li>`,
+        ).join('')}</ul>`
+      : '',
+  },
+  {
+    path: '/blog',
+    title: `AI Tools Blog — Guides, Comparisons and Prompt Tips`,
+    description: 'AI tool guides, honest comparisons and prompt-engineering tutorials to help you pick the right AI tools and actually get results out of them.',
+    extraHtml: BLOGS.length
+      ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${BLOGS.map(
+          (b) => `<li><a href="/blog/${esc(b.slug)}">${esc(b.title)}</a></li>`,
+        ).join('')}</ul>`
+      : '',
+  },
   { path: '/prompts', title: `AI Prompt Library — Reusable Prompt Frameworks (${YEAR})`, description: 'A free library of reusable AI prompt frameworks — persona setup, chain-of-thought and few-shot scaffolds you can paste and edit.' },
-  { path: '/workflows', title: `AI Workflows & Automation Recipes (${YEAR}) | AI Master Tools`, description: 'Step-by-step AI workflows and automation recipes that chain the best tools together to get real work done, with the exact order to run them in.' },
+  {
+    path: '/workflows',
+    title: `AI Workflows & Automation Recipes (${YEAR}) | AI Master Tools`,
+    description: 'Step-by-step AI workflows and automation recipes that chain the best tools together to get real work done, with the exact order to run them in.',
+    extraHtml: WORKFLOWS.length
+      ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${WORKFLOWS.map(
+          (w) => `<li><a href="/workflows/${esc(w.id)}">${esc(w.title || w.name || w.id)}</a></li>`,
+        ).join('')}</ul>`
+      : '',
+  },
   { path: '/discover', title: `Discover New and Trending AI Tools, Updated Weekly`, description: 'Discover new and trending AI tools across every category — chatbots, image, video, writing, coding and automation — with pricing, ratings and honest reviews.' },
   { path: '/find', title: `AI Tool Finder — Answer 3 Questions | AI Master Tools`, description: 'Not sure which AI tool you need? Answer three quick questions about your job, budget and skill level, and we will shortlist the best tools for you — free.' },
   {
@@ -614,7 +721,7 @@ const routes = [
     description: `A curated directory of ${EARN_SITES || 80}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more.`,
     extraHtml: EARN_CATS.length
       ? `<p style="font-size:15px;line-height:1.6;color:#64748b">Categories covered:</p><ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${EARN_CATS.map(
-          (c) => `<li>${esc(c.name)}</li>`,
+          (c) => `<li><a href="/earn/${esc(c.id)}">${esc(c.name)}</a></li>`,
         ).join('')}</ul>`
       : '',
   },
@@ -671,12 +778,33 @@ const routes = [
     extraHtml: (() => {
       const canonicalCat = CATEGORY_ALIASES[t.category] || t.category;
       const alts = toolsForCategory(canonicalCat).filter((o) => o.id !== t.id).slice(0, 8);
-      if (!alts.length) return '';
       const catLink = `<p style="font-size:15px;line-height:1.6"><a href="/category/${slugify(canonicalCat || '')}">See all ${(canonicalCat || 'AI').toLowerCase()} tools</a></p>`;
-      const list = `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
-        .map((o) => `<li><a href="/tool/${esc(o.id)}">${esc(o.name)}</a></li>`)
-        .join('')}</ul>`;
-      return `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} alternatives</h2>${catLink}${list}`;
+      const list = alts.length
+        ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
+            .map((o) => `<li><a href="/tool/${esc(o.id)}">${esc(o.name)}</a></li>`)
+            .join('')}</ul>`
+        : '';
+      // The tool's own alternatives round-up and head-to-head pages. Both are
+      // generated and in the sitemap, and until now nothing linked to either.
+      const altPage = `<p style="font-size:15px;line-height:1.6"><a href="/alternatives/${slugify(
+        t.id,
+      )}-alternatives">All ${esc(t.name)} alternatives, compared</a></p>`;
+      const pairs = comparesByTool.get(t.id) || [];
+      const compare = pairs.length
+        ? `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} head to head</h2>` +
+          `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${pairs
+            .map(
+              (r) =>
+                `<li><a href="${r.path}">${esc(r.pairNames[0])} vs ${esc(
+                  r.pairNames[1],
+                )}</a></li>`,
+            )
+            .join('')}</ul>`
+        : '';
+      const title = alts.length
+        ? `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} alternatives</h2>`
+        : '';
+      return `${title}${catLink}${list}${altPage}${compare}`;
     })(),
   })),
   // Category pages
@@ -751,6 +879,53 @@ const template = readFileSync(join(DIST, 'index.html'), 'utf8').replaceAll('640+
 writeFileSync(join(DIST, 'index.html'), template);
 
 let n = 0;
+/**
+ * Sibling links, so no page depends on a single parent for its only link.
+ *
+ * Listing a section's children on its hub gives each child exactly one
+ * incoming internal link. That clears the orphan error but leaves the whole
+ * section one edit away from being unreachable again, and Ahrefs reports it
+ * as "only one dofollow incoming internal link" either way.
+ *
+ * Each page therefore also links to a window of its siblings. The window
+ * slides by position rather than always starting at the first sibling, so the
+ * incoming links spread evenly across the section instead of piling onto
+ * whichever children happen to sort first.
+ *
+ * Sections the catalogue already interlinks densely — tools, alternatives,
+ * compares, categories — are skipped: they get their links from the
+ * contextual blocks above, and a sibling window there would add hundreds of
+ * undifferentiated links per page for no gain.
+ */
+const SIBLING_WINDOW = 10;
+const DENSE_SECTIONS = new Set(['tool', 'alternatives', 'compare', 'category']);
+const sections = new Map();
+for (const r of routes) {
+  const seg = r.path.split('/')[1] || '';
+  if (!seg || DENSE_SECTIONS.has(seg)) continue;
+  if (r.path === `/${seg}`) continue; // the hub itself already lists them
+  if (!sections.has(seg)) sections.set(seg, []);
+  sections.get(seg).push(r);
+}
+
+const siblingNav = (route) => {
+  const seg = route.path.split('/')[1] || '';
+  const list = sections.get(seg);
+  if (!list || list.length < 2) return '';
+  const at = list.indexOf(route);
+  if (at < 0) return '';
+  const picks = [];
+  for (let k = 1; k <= Math.min(SIBLING_WINDOW, list.length - 1); k++) {
+    picks.push(list[(at + k) % list.length]);
+  }
+  return (
+    `<h2 style="font-size:20px;margin:24px 0 8px">More in this section</h2>` +
+    `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${picks
+      .map((r) => `<li><a href="${r.path}">${esc(r.heading || r.title)}</a></li>`)
+      .join('')}</ul>`
+  );
+};
+
 for (const route of routes) {
   const url = `${SITE}${route.path}`;
   const t = esc(route.title);
@@ -774,9 +949,37 @@ for (const route of routes) {
   // Convert the generic <noscript> h1 to a paragraph so the injected #root h1
   // below is the single, per-route h1.
   html = html.replace(/<h1>AI Master Tools[^<]*<\/h1>/, `<p style="font-size:20px;font-weight:700">${heading}</p>`);
-  const nav = '<nav aria-label="Browse"><a href="/">All AI tools</a> · <a href="/categories">Categories</a> · <a href="/compare">Compare</a> · <a href="/blog">Blog</a></nav>';
+  // Every top-level page, not just four of them. The nav is the only link
+  // most of these hubs get: /discover, /find, /prompts, /workflows, /free,
+  // /earn, /collections, /ai-shopping and the legal pages each sat at zero
+  // incoming internal links because nothing but sitemap.xml named them.
+  const nav =
+    '<nav aria-label="Browse">' +
+    [
+      ['/', 'All AI tools'],
+      ['/categories', 'Categories'],
+      ['/compare', 'Compare'],
+      ['/alternatives', 'Alternatives'],
+      ['/collections', 'Collections'],
+      ['/discover', 'Discover'],
+      ['/find', 'Tool finder'],
+      ['/free', 'Free AI tools'],
+      ['/prompts', 'Prompts'],
+      ['/workflows', 'Workflows'],
+      ['/earn', 'Earn online'],
+      ['/ai-shopping', 'AI shopping'],
+      ['/blog', 'Blog'],
+      ['/about', 'About'],
+      ['/careers', 'Careers'],
+      ['/affiliate-disclosure', 'Affiliate disclosure'],
+      ['/privacy', 'Privacy'],
+      ['/terms', 'Terms'],
+    ]
+      .map(([href, label]) => `<a href="${href}">${label}</a>`)
+      .join(' · ') +
+    '</nav>';
   const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check ratings and real pricing, and compare any two tools side by side to choose the right one in minutes.`;
-  const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${nav}</div></div>`;
+  const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${siblingNav(route)}${nav}</div></div>`;
   html = html.replace('<div id="root"></div>', seoBlock);
 
   // Real structured data for the routes that carry it (currently tool pages),
