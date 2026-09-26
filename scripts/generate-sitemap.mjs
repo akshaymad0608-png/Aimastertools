@@ -11,6 +11,7 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -18,12 +19,58 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
 const SITE = 'https://aimastertools.space';
-const TODAY = new Date().toISOString().slice(0, 10);
 
 const read = (rel) => {
   const p = resolve(ROOT, rel);
   return existsSync(p) ? readFileSync(p, 'utf8') : '';
 };
+
+/* ------------------------------------------------------------ git dates -- */
+
+const git = (args) => {
+  try {
+    return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {
+    return '';
+  }
+};
+
+/**
+ * A shallow clone stamps HEAD on every path. Detect it up front so the
+ * fallback (previous sitemap dates) stays honest.
+ */
+const HISTORY_OK = (() => {
+  if (!git(['rev-parse', '--git-dir'])) return false;
+  if (existsSync(resolve(ROOT, '.git/shallow'))) return false;
+  return Number(git(['rev-list', '--count', 'HEAD']) || 0) > 1;
+})();
+
+const dateCache = new Map();
+const lastChanged = (relPaths) => {
+  if (!HISTORY_OK) return '';
+  const key = relPaths.join('|');
+  if (dateCache.has(key)) return dateCache.get(key);
+  const dates = relPaths
+    .filter((p) => existsSync(resolve(ROOT, p)))
+    .map((p) => git(['log', '-1', '--format=%cs', '--', p]))
+    .filter(Boolean);
+  const newest = dates.sort().pop() || '';
+  dateCache.set(key, newest);
+  return newest;
+};
+
+/* ------------------------------------------------- what the previous run -- */
+
+const previous = new Map();
+{
+  const xml = read('public/sitemap.xml');
+  const re = /<url>\s*<loc>([^<]+)<\/loc>\s*(?:<lastmod>([^<]*)<\/lastmod>)?/g;
+  let m;
+  while ((m = re.exec(xml))) {
+    const loc = m[1].replace(SITE, '');
+    previous.set(loc, m[2] || '');
+  }
+}
 
 /** Collect every value of `key` in a data file, de-duplicated, order preserved. */
 const pluck = (source, key) => {
@@ -186,26 +233,37 @@ const shoppingSlugs = (() => {
   if (!src) return [];
   return pluck(src, 'slug');
 })();
+// Source-file sets used to derive lastmod for each URL group.
+const SRC_APP   = ['index.html', 'App.tsx', 'prerender.mjs'];
+const SRC_TOOLS = ['data/tools.ts', 'prerender.mjs'];
+const SRC_CATS  = ['data/categories.ts', 'data/tools.ts'];
+const SRC_EARN  = ['data/earn.ts'];
+const SRC_COLL  = ['data/collections.ts'];
+const SRC_BLOG  = ['data/blog.ts', 'data/blogs.ts'];
+const SRC_WF    = ['data/workflows.ts'];
+const SRC_SHOP  = ['data/shoppingCategories.ts'];
+const SRC_FREE  = ['data/categories.ts', 'data/tools.ts'];
+
 const urls = [
-  { loc: '/', changefreq: 'daily', priority: '1.0' },
-  { loc: '/categories', changefreq: 'weekly', priority: '0.9' },
-  { loc: '/collections', changefreq: 'weekly', priority: '0.8' },
-  { loc: '/compare', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/find', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
-  { loc: '/prompts', changefreq: 'weekly', priority: '0.7' },
-  { loc: '/earn', changefreq: 'weekly', priority: '0.8' },
-  { loc: '/free', changefreq: 'weekly', priority: '0.85' },
-  { loc: '/workflows', changefreq: 'weekly', priority: '0.7' },
-  { loc: '/discover', changefreq: 'weekly', priority: '0.6' },
-  { loc: '/about', changefreq: 'monthly', priority: '0.5' },
-  { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8' },
-  { loc: '/ai-shopping/finder', changefreq: 'monthly', priority: '0.7' },
-  ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7' })),
-  { loc: '/affiliate-disclosure', changefreq: 'yearly', priority: '0.2' },
-  { loc: '/careers', changefreq: 'monthly', priority: '0.3' },
-  { loc: '/privacy', changefreq: 'yearly', priority: '0.2' },
-  { loc: '/terms', changefreq: 'yearly', priority: '0.2' },
+  { loc: '/', changefreq: 'daily', priority: '1.0', from: SRC_APP },
+  { loc: '/categories', changefreq: 'weekly', priority: '0.9', from: SRC_CATS },
+  { loc: '/collections', changefreq: 'weekly', priority: '0.8', from: SRC_COLL },
+  { loc: '/compare', changefreq: 'monthly', priority: '0.8', from: SRC_TOOLS },
+  { loc: '/find', changefreq: 'monthly', priority: '0.8', from: SRC_TOOLS },
+  { loc: '/blog', changefreq: 'weekly', priority: '0.8', from: SRC_BLOG },
+  { loc: '/prompts', changefreq: 'weekly', priority: '0.7', from: SRC_APP },
+  { loc: '/earn', changefreq: 'weekly', priority: '0.8', from: SRC_EARN },
+  { loc: '/free', changefreq: 'weekly', priority: '0.85', from: SRC_FREE },
+  { loc: '/workflows', changefreq: 'weekly', priority: '0.7', from: SRC_WF },
+  { loc: '/discover', changefreq: 'weekly', priority: '0.6', from: SRC_TOOLS },
+  { loc: '/about', changefreq: 'monthly', priority: '0.5', from: ['pages/About.tsx'] },
+  { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8', from: SRC_SHOP },
+  { loc: '/ai-shopping/finder', changefreq: 'monthly', priority: '0.7', from: SRC_SHOP },
+  ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7', from: SRC_SHOP })),
+  { loc: '/affiliate-disclosure', changefreq: 'yearly', priority: '0.2', from: SRC_APP },
+  { loc: '/careers', changefreq: 'monthly', priority: '0.3', from: SRC_APP },
+  { loc: '/privacy', changefreq: 'yearly', priority: '0.2', from: SRC_APP },
+  { loc: '/terms', changefreq: 'yearly', priority: '0.2', from: SRC_APP },
 
   // Static "Best AI ___" landing pages (served from public/, so not in the data).
   ...[
@@ -218,52 +276,61 @@ const urls = [
     'best-free-ai-tools',
     'best-ai-logo-makers',
     'best-ai-voice-generators',
-  ].map((slug) => ({ loc: `/${slug}.html`, changefreq: 'weekly', priority: '0.85' })),
+  ].map((slug) => ({ loc: `/${slug}.html`, changefreq: 'weekly', priority: '0.85', from: [`public/${slug}.html`] })),
 
   ...canonicalToolIds.map((id) => ({
     loc: `/tool/${encodeURIComponent(id)}`,
     changefreq: 'weekly',
     priority: '0.7',
+    from: SRC_TOOLS,
   })),
   ...categoryIds.map((id) => ({
     loc: `/category/${slugify(id)}`,
     changefreq: 'weekly',
     priority: '0.8',
+    from: SRC_CATS,
   })),
   ...earnCategoryIds.map((id) => ({
     loc: `/earn/${id}`,
     changefreq: 'weekly',
     priority: '0.75',
+    from: SRC_EARN,
   })),
   ...collectionSlugs.map((slug) => ({
     loc: `/collections/${slug}`,
     changefreq: 'monthly',
     priority: '0.7',
+    from: SRC_COLL,
   })),
   ...blogSlugs.map((slug) => ({
     loc: `/blog/${slug}`,
     changefreq: 'monthly',
     priority: '0.6',
+    from: SRC_BLOG,
   })),
   ...workflowIds.map((id) => ({
     loc: `/workflows/${encodeURIComponent(id)}`,
     changefreq: 'monthly',
     priority: '0.6',
+    from: SRC_WF,
   })),
   ...comparisonSlugs.map((slug) => ({
     loc: `/compare/${slug}`,
     changefreq: 'monthly',
     priority: '0.75',
+    from: SRC_TOOLS,
   })),
   ...canonicalToolIds.map((id) => ({
     loc: `/alternatives/${slugify(id)}-alternatives`,
     changefreq: 'monthly',
     priority: '0.65',
+    from: SRC_TOOLS,
   })),
   ...freeCategorySlugs.map((slug) => ({
     loc: `/free/${slug}`,
     changefreq: 'weekly',
     priority: '0.8',
+    from: SRC_FREE,
   })),
 ];
 
@@ -273,14 +340,18 @@ const unique = urls.filter((u) => (seen.has(u.loc) ? false : seen.add(u.loc)));
 const esc = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const entries = unique.map((u) => {
+  const lastmod = lastChanged(u.from || []) || previous.get(u.loc) || '';
+  return { ...u, lastmod };
+});
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${unique
+${entries
   .map(
     (u) => `  <url>
-    <loc>${esc(SITE + u.loc)}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <loc>${esc(SITE + u.loc)}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`,
@@ -291,11 +362,15 @@ ${unique
 
 writeFileSync(resolve(ROOT, 'public/sitemap.xml'), xml, 'utf8');
 
-console.log(`sitemap.xml written — ${unique.length} URLs`);
+const dated = entries.filter((e) => e.lastmod).length;
+console.log(`sitemap.xml written — ${entries.length} URLs`);
 console.log(
   `  tools ${canonicalToolIds.length} (of ${toolIds.length} raw) · categories ${categoryIds.length} · ` +
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
   `  comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
+);
+console.log(
+  `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,
 );

@@ -19,10 +19,10 @@ Disallow: /bookmarks
 
 # Aggressive SEO crawlers — allowed, but throttled.
 User-agent: AhrefsBot
-Crawl-delay: 10
+Crawl-delay: 2
 
 User-agent: SemrushBot
-Crawl-delay: 10
+Crawl-delay: 2
 
 User-agent: MJ12bot
 Crawl-delay: 10
