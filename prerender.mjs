@@ -665,6 +665,7 @@ const routes = [
     // of their own — each reachable from a single tool page and nothing else.
     path: '/alternatives',
     heading: 'AI tool alternatives',
+    keywords: 'AI tool alternatives, alternatives to AI tools, best AI tool alternatives, AI tool comparison, replace AI tools',
     title: `AI Tool Alternatives (${YEAR}) — Compare Every Tool's Rivals`,
     description:
       'Find the closest alternatives to any AI tool in the directory — same category, compared on pricing, ratings and what each one is actually good at.',
@@ -676,6 +677,7 @@ const routes = [
   },
   {
     path: '/categories',
+    keywords: 'AI tool categories, AI categories, AI tools by category, best AI tools categories, AI tools list by type',
     title: `All AI Tool Categories (${YEAR}) — Browse Them All Free`,
     description: 'Browse every AI tool category — chatbots, image generation, coding, video, writing, marketing and more. Find and compare the best tools in each.',
     extraHtml: `<ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${CATEGORIES.map(
@@ -684,6 +686,7 @@ const routes = [
   },
   {
     path: '/compare',
+    keywords: 'compare AI tools, AI tool comparison, AI tools side by side, best AI tools comparison, which AI tool is better',
     title: `Compare AI Tools Side by Side (${YEAR}) | AI Master Tools`,
     description: 'Compare any two AI tools side by side — category, pricing, ratings and free-to-start — so you can choose the right one without a free trial.',
     extraHtml: COMPARE_ROUTES.length
@@ -694,6 +697,7 @@ const routes = [
   },
   {
     path: '/collections',
+    keywords: 'AI tool collections, curated AI tools, best AI tools for writing, best AI tools for coding, AI tools for business, AI tool bundles',
     title: `Curated AI Tool Collections (${YEAR}) | AI Master Tools`,
     description: 'Hand-picked collections of the best AI tools for specific jobs and workflows — writing, video, design, coding and research, ready to explore.',
     extraHtml: COLLECTIONS.length
@@ -704,6 +708,7 @@ const routes = [
   },
   {
     path: '/blog',
+    keywords: 'AI tools blog, AI tool guides, AI tool comparisons, prompt engineering tips, best AI tools 2026, AI automation guides',
     title: `AI Tools Blog — Guides, Comparisons and Prompt Tips`,
     description: 'AI tool guides, honest comparisons and prompt-engineering tutorials to help you pick the right AI tools and actually get results out of them.',
     extraHtml: BLOGS.length
@@ -712,9 +717,10 @@ const routes = [
         ).join('')}</ul>`
       : '',
   },
-  { path: '/prompts', title: `AI Prompt Library — Reusable Prompt Frameworks (${YEAR})`, description: 'A free library of reusable AI prompt frameworks — persona setup, chain-of-thought and few-shot scaffolds you can paste and edit.' },
+  { path: '/prompts', keywords: 'AI prompt library, AI prompts, ChatGPT prompts, prompt frameworks, AI prompt templates, reusable AI prompts, prompt engineering', title: `AI Prompt Library — Reusable Prompt Frameworks (${YEAR})`, description: 'A free library of reusable AI prompt frameworks — persona setup, chain-of-thought and few-shot scaffolds you can paste and edit.' },
   {
     path: '/workflows',
+    keywords: 'AI workflows, AI automation recipes, AI automation tools, step by step AI workflows, AI tool chains, no code AI automation',
     title: `AI Workflows & Automation Recipes (${YEAR}) | AI Master Tools`,
     description: 'Step-by-step AI workflows and automation recipes that chain the best tools together to get real work done, with the exact order to run them in.',
     extraHtml: WORKFLOWS.length
@@ -723,11 +729,12 @@ const routes = [
         ).join('')}</ul>`
       : '',
   },
-  { path: '/discover', title: `Discover New and Trending AI Tools, Updated Weekly`, description: 'Discover new and trending AI tools across every category — chatbots, image, video, writing, coding and automation — with pricing, ratings and honest reviews.' },
-  { path: '/find', title: `AI Tool Finder — Answer 3 Questions | AI Master Tools`, description: 'Not sure which AI tool you need? Answer three quick questions about your job, budget and skill level, and we will shortlist the best tools for you — free.' },
+  { path: '/discover', keywords: 'discover AI tools, trending AI tools, new AI tools 2026, best new AI tools, AI tools to try', title: `Discover New and Trending AI Tools, Updated Weekly`, description: 'Discover new and trending AI tools across every category — chatbots, image, video, writing, coding and automation — with pricing, ratings and honest reviews.' },
+  { path: '/find', keywords: 'AI tool finder, find the right AI tool, AI tool recommendation, best AI tool for me, which AI tool should I use', title: `AI Tool Finder — Answer 3 Questions | AI Master Tools`, description: 'Not sure which AI tool you need? Answer three quick questions about your job, budget and skill level, and we will shortlist the best tools for you — free.' },
   {
     path: '/earn',
     heading: 'Websites to Earn Online',
+    keywords: 'websites to earn online, make money online, earn from home, remote work websites, freelance websites, work from home jobs, online income',
     title: `Earn Online — ${EARN_SITES || 80}+ Websites to Make Money by Category (${YEAR})`,
     description: `A curated directory of ${EARN_SITES || 80}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more.`,
     extraHtml: EARN_CATS.length
@@ -778,6 +785,7 @@ const routes = [
       `${t.name} Review & Alternatives (${YEAR})`,
       `${t.name} Review (${YEAR})`,
     ], `/tool/${t.id}`),
+    keywords: `${t.name}, ${t.name} review, ${t.name} pricing, ${t.name} alternatives, ${(t.category || 'AI').toLowerCase()} AI tool, ${(t.category || 'AI').toLowerCase()} tools`,
     description: fitDescription(`Our review of ${t.name}. Discover its features, pricing, rating, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`, DESC_TAILS, `/tool/${t.id}`),
     jsonLd: toolJsonLd(t),
     // Same orphan-page problem as category pages, from the tool's side: a
@@ -844,6 +852,7 @@ const routes = [
         `${n} Best ${c.name} AI Tools Compared (${YEAR})`,
         `${n} Best ${c.name} AI Tools (${YEAR})`,
       ], `/category/${slugify(c.name)}`),
+      keywords: `best ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} tools, ${c.name} AI, free ${c.name.toLowerCase()} AI tools`,
       description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`),
       extraHtml: toolsInCat.length
         ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${toolsInCat
@@ -947,6 +956,7 @@ for (const route of routes) {
   // one title rather than two that disagree.
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title data-prerendered="true">${t}</title>`);
   html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${d}" />`);
+  if (route.keywords) html = html.replace(/<meta name="keywords"[^>]*>/, `<meta name="keywords" content="${esc(route.keywords)}" />`);
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url}" />`);
   html = html.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${t}" />`);
   html = html.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${d}" />`);
