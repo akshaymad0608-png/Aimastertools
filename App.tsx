@@ -32,6 +32,7 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const Careers = lazy(() => import('./pages/Careers'));
 const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
 const AiShopping = lazy(() => import('./pages/shopping/AiShopping'));
 const ShoppingCategory = lazy(() => import('./pages/shopping/ShoppingCategory'));
 const ProductFinder = lazy(() => import('./pages/shopping/ProductFinder'));
@@ -129,6 +130,7 @@ function App() {
                     <Route path="/privacy" element={<PrivacyPolicy />} />
                     <Route path="/terms" element={<TermsOfService />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/ai-shopping" element={<AiShopping />} />
                     <Route path="/ai-shopping/finder" element={<ProductFinder />} />
                     <Route path="/ai-shopping/:category" element={<ShoppingCategory />} />

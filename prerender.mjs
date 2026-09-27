@@ -499,6 +499,12 @@ const LEGAL_ROUTES = [
     description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, what the ratings mean, and how the site makes money.',
   },
   {
+    path: '/contact',
+    heading: 'Contact AI Master Tools',
+    title: 'Contact AI Master Tools — Suggestions, Corrections and Enquiries',
+    description: 'Suggest a tool, report an outdated entry or broken link, or ask about advertising. We read every message and reply to corrections and tool suggestions.',
+  },
+  {
     path: '/privacy',
     heading: 'Privacy Policy',
     title: 'Privacy Policy — What AI Master Tools Collects and Why',
