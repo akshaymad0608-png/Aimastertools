@@ -22,7 +22,7 @@ const TermsOfService: React.FC = () => {
       <div className="max-w-3xl mx-auto prose prose-invert">
         <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8">Terms of Service</h1>
         
-        <p className="text-[var(--color-text-secondary)] mb-6">Last updated: {new Date().toLocaleDateString()}</p>
+        <p className="text-[var(--color-text-secondary)] mb-6">Last updated: 29 September 2026</p>
 
         <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1. Agreement to Terms</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">

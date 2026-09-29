@@ -22,7 +22,7 @@ const PrivacyPolicy: React.FC = () => {
       <div className="max-w-3xl mx-auto prose prose-invert">
         <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8">Privacy Policy</h1>
         
-        <p className="text-[var(--color-text-secondary)] mb-6">Last updated: {new Date().toLocaleDateString()}</p>
+        <p className="text-[var(--color-text-secondary)] mb-6">Last updated: 29 September 2026</p>
 
         <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1. Introduction</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">
@@ -52,12 +52,60 @@ const PrivacyPolicy: React.FC = () => {
           <li>Where we need to comply with a legal obligation.</li>
         </ul>
 
-        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">4. Data Security</h2>
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">4. Cookies and Local Storage</h2>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          We store a few small items in your browser so the site works the way you left it: your theme
+          choice, tools you have bookmarked and tools you viewed recently. These stay on your device and
+          you can remove them at any time by clearing your browser's site data. Analytics and advertising
+          services described below set their own cookies.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">5. Analytics</h2>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          We use Google Analytics and Google Tag Manager to understand which pages are useful. They record
+          page views, approximate location, device and browser type, and the site that referred you. You can
+          block them with a content blocker or opt out with the{' '}
+          <a href="https://tools.google.com/dlpage/gaoptout" className="text-[var(--color-primary)] underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Analytics opt-out add-on</a>.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">6. Advertising</h2>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          We show ads through Google AdSense. Google and its partners, as third-party vendors, use cookies
+          (including the DoubleClick cookie) to serve ads based on your visits to this and other websites.
+          Google's use of advertising cookies enables it and its partners to serve ads to you based on your
+          visit to our site and/or other sites on the Internet.
+        </p>
+        <ul className="list-disc pl-6 text-[var(--color-text-secondary)] mb-6 space-y-2">
+          <li>
+            You can opt out of personalised advertising in{' '}
+            <a href="https://adssettings.google.com" className="text-[var(--color-primary)] underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Ads Settings</a> or at{' '}
+            <a href="https://www.aboutads.info" className="text-[var(--color-primary)] underline underline-offset-2" target="_blank" rel="noopener noreferrer">aboutads.info</a>.
+          </li>
+          <li>
+            To learn how Google uses data from sites that use its services, see{' '}
+            <a href="https://policies.google.com/technologies/partner-sites" className="text-[var(--color-primary)] underline underline-offset-2" target="_blank" rel="noopener noreferrer">policies.google.com/technologies/partner-sites</a>.
+          </li>
+        </ul>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          Ads are kept separate from our tool listings and reviews, there is no paid placement in the
+          directory, and we do not sell your personal data.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">7. Third-Party Links and Services</h2>
+        <p className="text-[var(--color-text-secondary)] mb-6">
+          AI Master Tools lists and links to third-party tools. Those sites have their own privacy practices
+          and this policy does not cover them. If you subscribe to updates or contact us, we use your email
+          address only to reply or send what you asked for. Some outbound links are affiliate links and are
+          marked rel="sponsored"; if you buy through one, the seller may pay us a commission, and it does not
+          change what you pay or how tools are ranked.
+        </p>
+
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">8. Data Security</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">
           We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
         </p>
 
-        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">5. Contact Us</h2>
+        <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">9. Contact Us</h2>
         <p className="text-[var(--color-text-secondary)] mb-6">
           If you have any questions about this privacy policy or our privacy practices, please contact us at{' '}
           <a
