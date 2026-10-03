@@ -177,7 +177,9 @@ export const toolSchema = (tool: Tool, reviewCount = 0): Json => ({
   '@type': 'SoftwareApplication',
   '@id': `${absoluteUrl(`/tool/${tool.id}`)}#software`,
   name: tool.name,
-  description: tool.longDescription || tool.description,
+  // longDescription is a generated sentence restating category, pricing and
+  // the directory rating, so the hand-written one-liner goes first.
+  description: tool.description || tool.longDescription,
   url: absoluteUrl(`/tool/${tool.id}`),
   sameAs: tool.url,
   /**

@@ -122,6 +122,8 @@ const ComparePair: React.FC = () => {
         title={`${a.name} vs ${b.name} (2026) — Pricing, Ratings & Which to Pick`}
         description={`${a.name} vs ${b.name} compared side by side: pricing, ratings, what each is good at, and which one suits your job. Both are ${category} tools.`}
         url={`/compare/${pair.slug}`}
+        // Templated from the tool records; see scripts/generate-sitemap.mjs.
+        noindex
         keywords={[
           `${a.name} vs ${b.name}`,
           `${b.name} vs ${a.name}`,

@@ -314,18 +314,11 @@ const urls = [
     priority: '0.6',
     from: SRC_WF,
   })),
-  ...comparisonSlugs.map((slug) => ({
-    loc: `/compare/${slug}`,
-    changefreq: 'monthly',
-    priority: '0.75',
-    from: SRC_TOOLS,
-  })),
-  ...canonicalToolIds.map((id) => ({
-    loc: `/alternatives/${slugify(id)}-alternatives`,
-    changefreq: 'monthly',
-    priority: '0.65',
-    from: SRC_TOOLS,
-  })),
+  // /compare/<a>-vs-<b> and /alternatives/<tool>-alternatives are left out on
+  // purpose. All ~940 of them are assembled from the same one-line tool records,
+  // and AdSense rejected the site for "low-value content". They stay reachable
+  // for visitors but are noindex (prerender.mjs, components/SEO.tsx), so they
+  // must not be advertised here either.
   ...freeCategorySlugs.map((slug) => ({
     loc: `/free/${slug}`,
     changefreq: 'weekly',
@@ -369,7 +362,7 @@ console.log(
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
-  `  comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
+  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
 );
 console.log(
   `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,
