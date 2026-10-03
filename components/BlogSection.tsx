@@ -44,55 +44,14 @@ const SidebarThumbnail: React.FC<{ category: string; title: string; imageUrl?: s
 );
 
 export const BlogSection: React.FC = () => {
-  // Extract specific blog post categories to align with requested layout
-  const chatbotPost = blogPosts.find(p => p.category?.toLowerCase().includes('chatbot')) || blogPosts[0];
-  
-  // Custom sidebar posts with their corresponding beautiful topic-related Unsplash images
-  const sidebarData = [
-    {
-      postId: 2,
-      category: "EDUCATION",
-      readTime: "5 min read",
-      author: "Akshay Mahajan",
-      date: "Apr 28, 2026",
-      imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=128&h=128&fit=crop"
-    },
-    {
-      postId: 3,
-      category: "RESEARCH",
-      readTime: "8 min read",
-      author: "Akshay Mahajan",
-      date: "Apr 21, 2026",
-      imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=128&h=128&fit=crop"
-    },
-    {
-      postId: 4,
-      category: "DESIGN",
-      readTime: "4 min read",
-      author: "Akshay Mahajan",
-      date: "May 1, 2026",
-      imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=128&h=128&fit=crop"
-    },
-    {
-      postId: 5,
-      category: "CODING",
-      readTime: "4 min read",
-      author: "Akshay Mahajan",
-      date: "Apr 15, 2026",
-      imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=128&h=128&fit=crop"
-    }
-  ];
-
-  // Map the static sidebar config back to our real post objects in blogs.ts
-  const trendingCards = sidebarData.map(item => {
-    const postFromDb = blogPosts.find(p => p.id === String(item.postId));
-    return {
-      ...item,
-      id: item.postId,
-      title: postFromDb?.title || "AI Insight Post",
-      slug: postFromDb?.slug || `${item.postId}`
-    };
-  });
+  // Featured card and sidebar both come straight from data/blogs.ts. This used
+  // to be a hard-coded list of post ids with invented categories, read times
+  // and dates that did not match the posts they linked to.
+  const chatbotPost = blogPosts[0];
+  const trendingCards = blogPosts
+    .filter((p) => p.id !== chatbotPost?.id)
+    .slice(0, 4)
+    .map((p) => ({ ...p, author: 'Akshay Mahajan' }));
 
   return (
     <section id="blog" className="section relative overflow-hidden bg-[var(--color-background)]">
@@ -156,7 +115,7 @@ export const BlogSection: React.FC = () => {
                     </span>
                     <span className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider flex items-center gap-1.5">
                       <Clock size={12} />
-                      <span>7 MIN READ · MAY 5, 2026</span>
+                      <span>{chatbotPost.readTime} · {chatbotPost.date}</span>
                     </span>
                   </div>
 

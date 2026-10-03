@@ -367,6 +367,31 @@ const BLOGS = loadArray('data/blogs.ts', 'BlogPost[] = [');
 const COLLECTIONS = loadArray('data/collections.ts', 'Collection[] = [');
 const WORKFLOWS = loadArray('data/workflows.ts', 'Workflow[] = [');
 
+/**
+ * Just enough Markdown for the blog bodies in data/blogs.ts: ## / ### headings,
+ * paragraphs, - and 1. lists, **bold** and [links](/path). React renders the
+ * same source with react-markdown on mount; this is the copy crawlers read.
+ */
+const mdInline = (t) =>
+  esc(t)
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+const mdToHtml = (md = '') =>
+  md
+    .trim()
+    .split(/\n{2,}/)
+    .map((block) => {
+      const lines = block.split('\n');
+      if (/^###\s/.test(block)) return `<h3>${mdInline(block.replace(/^###\s+/, ''))}</h3>`;
+      if (/^##\s/.test(block)) return `<h2>${mdInline(block.replace(/^##\s+/, ''))}</h2>`;
+      if (lines.every((l) => /^-\s/.test(l)))
+        return `<ul>${lines.map((l) => `<li>${mdInline(l.replace(/^-\s+/, ''))}</li>`).join('')}</ul>`;
+      if (lines.every((l) => /^\d+\.\s/.test(l)))
+        return `<ol>${lines.map((l) => `<li>${mdInline(l.replace(/^\d+\.\s+/, ''))}</li>`).join('')}</ol>`;
+      return `<p>${mdInline(lines.join(' '))}</p>`;
+    })
+    .join('');
+
 const BLOG_ROUTES = BLOGS.filter((b) => b.slug).map((b) => ({
   path: `/blog/${b.slug}`,
   heading: b.title,
@@ -378,7 +403,8 @@ const BLOG_ROUTES = BLOGS.filter((b) => b.slug).map((b) => ({
     b.title,
   ], `/blog/${b.slug || ''}`),
   description: fitDescription(b.excerpt || `${b.title} — a guide from AI Master Tools.`, DESC_TAILS, `/blog/${b.slug || ''}`),
-  extraHtml: `<p style="font-size:15px;color:#475569">${esc(b.excerpt || '')}</p>`,
+  extraHtml: `<p style="font-size:15px;color:#475569">${esc(b.excerpt || '')}</p>` +
+    (b.content ? `<article style="font-size:16px;line-height:1.7">${mdToHtml(b.content)}</article>` : ''),
 }));
 
 const COLLECTION_ROUTES = COLLECTIONS.filter((c) => c.slug).map((c) => {
