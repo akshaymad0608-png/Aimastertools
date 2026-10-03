@@ -76,9 +76,9 @@ const fitDescription = (text, tails, path = '') => {
 };
 
 const DESC_TAILS = [
-  ` Ratings, pricing tiers and the closest alternatives, all checked and updated for ${YEAR}.`,
-  ` Pricing, ratings and the closest alternatives, updated for ${YEAR}.`,
-  ` Pricing, ratings and alternatives, updated for ${YEAR}.`,
+  ` Pricing tiers and the closest alternatives, all checked and updated for ${YEAR}.`,
+  ` Pricing, features and the closest alternatives, updated for ${YEAR}.`,
+  ` Pricing, features and alternatives, updated for ${YEAR}.`,
   ` Updated for ${YEAR}.`,
 ];
 
@@ -205,7 +205,7 @@ const sameCategory = (tool) =>
 const toolLine = (t) =>
   `<li><a href="/tool/${esc(t.id)}"><strong>${esc(t.name)}</strong></a> — ${esc(
     t.description || '',
-  )} (${esc(t.pricing || 'Pricing varies')}, rated ${t.rating || '—'}/5)</li>`;
+  )} (${esc(t.pricing || 'Pricing varies')})</li>`;
 
 const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
   const alts = sameCategory(t).slice(0, 8);
@@ -233,12 +233,12 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
       `Best ${t.name} Alternatives (${YEAR})`,
     ], `/alternatives/${slugify(t.id)}-alternatives`),
     description: clamp(
-      `Looking for an alternative to ${t.name}? Compare ${alts.length} other ${cat} tools on pricing, ratings and what each one is actually good at.`,
+      `Looking for an alternative to ${t.name}? Compare ${alts.length} other ${cat} tools on pricing and what each one is actually good at.`,
     ),
     extraHtml: alts.length
       ? `<p style="font-size:15px;color:#475569">${esc(t.name)} is a ${esc(cat)} tool${
           t.pricing ? ` (${esc(t.pricing)})` : ''
-        }. These are the closest ${alts.length} alternatives in the same category, ranked by rating.</p>` +
+        }. These are the closest ${alts.length} alternatives in the same category, editor's picks first.</p>` +
         `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
           .map(toolLine)
           .join('')}</ul>` +
@@ -297,7 +297,7 @@ for (const list of byCategory.values()) {
         pairNames: [x.name, y.name],
         heading: `${x.name} vs ${y.name}`,
         title: pickTitle([
-          `${x.name} vs ${y.name} — Pricing, Features and Ratings (${YEAR})`,
+          `${x.name} vs ${y.name} — Pricing and Features Compared (${YEAR})`,
           `${x.name} vs ${y.name}: Which Is Better in ${YEAR}? | Compared`,
           `${x.name} vs ${y.name} — Which One Should You Pick in ${YEAR}?`,
           `${x.name} vs ${y.name}: Which Is Better? (${YEAR}) | Compared`,
@@ -309,7 +309,7 @@ for (const list of byCategory.values()) {
           `${x.name} vs ${y.name}`,
         ], `/compare/${slug}`),
         description: fitDescription(
-          `${x.name} vs ${y.name} compared on pricing, ratings and what each does best, so you can pick the right ${cat} tool.`,
+          `${x.name} vs ${y.name} compared on pricing and what each does best, so you can pick the right ${cat} tool.`,
           DESC_TAILS,
           `/compare/${slug}`,
         ),
@@ -317,9 +317,7 @@ for (const list of byCategory.values()) {
           `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${toolLine(x)}${toolLine(
             y,
           )}</ul>` +
-          `<p style="font-size:15px;color:#475569">Both are ${esc(cat)} tools. ${esc(x.name)} rates ${
-            x.rating || '—'
-          }/5 and ${esc(y.name)} rates ${y.rating || '—'}/5; pricing is ${esc(
+          `<p style="font-size:15px;color:#475569">Both are ${esc(cat)} tools; pricing is ${esc(
             x.pricing || 'unlisted',
           )} and ${esc(y.pricing || 'unlisted')} respectively.</p>`,
       });
@@ -394,7 +392,7 @@ const COLLECTION_ROUTES = COLLECTIONS.filter((c) => c.slug).map((c) => {
     title: pickTitle([
       ...(c.metaTitle ? [c.metaTitle] : []),
       `${c.title} (${YEAR}) | AI Master Tools`,
-      `${c.title} — Compared and Rated (${YEAR})`,
+      `${c.title} — Compared (${YEAR})`,
       `${c.title} — Compared (${YEAR})`,
       `${c.title} (${YEAR}) — Compared`,
       `${c.title} — AI Master Tools (${YEAR})`,
@@ -502,7 +500,7 @@ const LEGAL_ROUTES = [
     path: '/about',
     heading: 'About AI Master Tools',
     title: 'About AI Master Tools — Who Compiles This Index, and How',
-    description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, what the ratings mean, and how the site makes money.',
+    description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, how the order is set, and how the site makes money.',
   },
   {
     path: '/contact',
@@ -520,7 +518,7 @@ const LEGAL_ROUTES = [
     path: '/terms',
     heading: 'Terms of Service',
     title: 'Terms of Service — Using the AI Master Tools Directory',
-    description: 'The terms that apply when you use AI Master Tools — what the directory is, what the ratings and reviews mean, and the limits of what we can promise.',
+    description: 'The terms that apply when you use AI Master Tools — what the directory is, what the reviews mean, and the limits of what we can promise.',
   },
   {
     path: '/careers',
@@ -649,8 +647,8 @@ const FREE_ROUTES = [
         const label = `${c.name.toLowerCase()} ${suffixFor(c.name, true)}`.replace(/ {2,}/g, ' ').trim();
         const names = c.tools.slice(0, 3).map((t) => t.name).join(', ');
         return c.fullyFree.length
-          ? `${c.tools.length} free ${label} — ${c.fullyFree.length} completely free, ${c.freemium.length} with a real free tier. ${names} and more, rated and compared.`
-          : `${c.tools.length} ${label} with a genuinely free tier — ${names} and more, rated and compared so you know the limits before you sign up.`;
+          ? `${c.tools.length} free ${label} — ${c.fullyFree.length} completely free, ${c.freemium.length} with a real free tier. ${names} and more, compared.`
+          : `${c.tools.length} ${label} with a genuinely free tier — ${names} and more, compared so you know the limits before you sign up.`;
       })(),
     ),
     extraHtml:
@@ -680,7 +678,7 @@ const routes = [
     keywords: 'AI tool alternatives, alternatives to AI tools, best AI tool alternatives, AI tool comparison, replace AI tools',
     title: `AI Tool Alternatives (${YEAR}) — Compare Every Tool's Rivals`,
     description:
-      'Find the closest alternatives to any AI tool in the directory — same category, compared on pricing, ratings and what each one is actually good at.',
+      'Find the closest alternatives to any AI tool in the directory — same category, compared on pricing and what each one is actually good at.',
     extraHtml: ALTERNATIVES_ROUTES.length
       ? `<ul style="columns:2;font-size:15px;line-height:1.8;color:#475569;padding-left:18px">${ALTERNATIVES_ROUTES.map(
           (r) => `<li><a href="${r.path}">${esc(r.heading)}</a></li>`,
@@ -700,7 +698,7 @@ const routes = [
     path: '/compare',
     keywords: 'compare AI tools, AI tool comparison, AI tools side by side, best AI tools comparison, which AI tool is better',
     title: `Compare AI Tools Side by Side (${YEAR}) | AI Master Tools`,
-    description: 'Compare any two AI tools side by side — category, pricing, ratings and free-to-start — so you can choose the right one without a free trial.',
+    description: 'Compare any two AI tools side by side — category, pricing and free-to-start — so you can choose the right one without a free trial.',
     extraHtml: COMPARE_ROUTES.length
       ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${COMPARE_ROUTES.map(
           (r) => `<li><a href="${r.path}">${esc(r.pairNames[0])} vs ${esc(r.pairNames[1])}</a></li>`,
@@ -780,25 +778,26 @@ const routes = [
     path: `/tool/${t.id}`,
     heading: `${t.name} Review`,
     title: pickTitle([
-      `${t.name} Review (${YEAR}) — Features, Pricing and Alternatives`,
-      `${t.name} Review (${YEAR}) — Features, Pricing & Alternatives`,
-      `${t.name} Review (${YEAR}) — Features, Pricing and Verdict`,
-      `${t.name} Review (${YEAR}) — Pricing, Rating and Verdict`,
-      `${t.name} Review (${YEAR}) — Pricing & Alternatives`,
-      `${t.name} Review (${YEAR}) — Rating & Pricing`,
-      `${t.name} Review (${YEAR}) — Features & Pricing`,
-      `${t.name} Review (${YEAR}) — Verdict`,
-      `${t.name} Review (${YEAR}) — Features, Pricing & Alternatives`,
-      `${t.name} Review (${YEAR}) — Features, Pricing and Verdict`,
-      `${t.name} Review (${YEAR}) — Pricing, Rating and Verdict`,
-      `${t.name} Review (${YEAR}) — Pricing, Rating & Alternatives`,
-      `${t.name} Review & Alternatives (${YEAR}) | AI Master Tools`,
-      `${t.name} Review (${YEAR}) — Pricing and Alternatives`,
-      `${t.name} Review & Alternatives (${YEAR})`,
-      `${t.name} Review (${YEAR})`,
+      `${t.name} (${YEAR}) — Features, Pricing and the Best Alternatives`,
+      `${t.name} (${YEAR}) — Features, Pricing and Alternatives`,
+      `${t.name} (${YEAR}) — Features, Pricing & Alternatives`,
+      `${t.name} (${YEAR}) — What It Does, Pricing & Alternatives`,
+      `${t.name} (${YEAR}) — Pricing, Features and Alternatives`,
+      `${t.name} (${YEAR}) — Pricing & Alternatives`,
+      `${t.name} (${YEAR}) — Features & Pricing Guide`,
+      `${t.name} (${YEAR}) — Features & Pricing`,
+      `${t.name} (${YEAR}) — At a Glance`,
+      `${t.name} (${YEAR}) — Features, Pricing & Alternatives`,
+      `${t.name} (${YEAR}) — What It Does, Pricing & Alternatives`,
+      `${t.name} (${YEAR}) — Pricing, Features and Alternatives`,
+      `${t.name} (${YEAR}) — Pricing, Features & Alternatives`,
+      `${t.name} & Alternatives (${YEAR}) | AI Master Tools`,
+      `${t.name} (${YEAR}) — Pricing and Alternatives`,
+      `${t.name} & Alternatives (${YEAR})`,
+      `${t.name} (${YEAR}) | AI Master Tools`,
     ], `/tool/${t.id}`),
     keywords: `${t.name}, ${t.name} review, ${t.name} pricing, ${t.name} alternatives, ${(t.category || 'AI').toLowerCase()} AI tool, ${(t.category || 'AI').toLowerCase()} tools`,
-    description: fitDescription(`Our review of ${t.name}. Discover its features, pricing, rating, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`, DESC_TAILS, `/tool/${t.id}`),
+    description: fitDescription(`${t.name} at a glance: what it does, its pricing, and the best AI alternatives for ${(t.category || 'AI').toLowerCase()}.`, DESC_TAILS, `/tool/${t.id}`),
     jsonLd: toolJsonLd(t),
     // Same orphan-page problem as category pages, from the tool's side: a
     // tool page linked to the generic nav and nothing else crawlable, so it
@@ -855,17 +854,17 @@ const routes = [
       path: `/category/${slugify(c.name)}`,
       heading: `Best ${c.name} AI Tools`,
       title: pickTitle([
-        `${n} Best ${c.name} AI Tools to Try in ${YEAR}, Compared & Rated`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared, Rated & Priced`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared and Rated`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared & Rated`,
+        `${n} Best ${c.name} AI Tools to Try in ${YEAR}, Compared`,
+        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared & Priced`,
+        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared Side by Side`,
+        `${n} Best ${c.name} AI Tools (${YEAR}) — Free and Paid, Compared`,
         `${n} Best ${c.name} AI Tools (${YEAR}) | AI Master Tools`,
         `${n} Best ${c.name} AI Tools (${YEAR}) — Free and Paid`,
         `${n} Best ${c.name} AI Tools Compared (${YEAR})`,
         `${n} Best ${c.name} AI Tools (${YEAR})`,
       ], `/category/${slugify(c.name)}`),
       keywords: `best ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} tools, ${c.name} AI, free ${c.name.toLowerCase()} AI tools`,
-      description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`),
+      description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing and what each one is for. Filter by free, freemium or paid and compare any two side by side.`),
       extraHtml: toolsInCat.length
         ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${toolsInCat
             .map((t) => `<li><a href="/tool/${esc(t.id)}"><strong>${esc(t.name)}</strong></a> — ${esc(clamp(t.description || t.longDescription || '', 100))}</li>`)

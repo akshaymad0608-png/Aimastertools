@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { GitMerge, ArrowLeft, Clock, Layers, Star, ExternalLink, Play, CheckCircle2 } from 'lucide-react';
+import { GitMerge, ArrowLeft, Clock, Layers, ExternalLink, Play, CheckCircle2 } from 'lucide-react';
 import { WORKFLOWS } from '../data/workflows';
 
 const WorkflowDetail: React.FC = () => {
@@ -47,9 +47,6 @@ const WorkflowDetail: React.FC = () => {
               <span className="px-3 py-1 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] text-xs font-bold uppercase tracking-wider">
                 {workflow.difficulty}
               </span>
-              <div className="flex items-center gap-1 bg-amber-500/10 px-2 py-1 rounded-full text-[var(--color-accent)] text-xs font-bold">
-                <Star size={12} className="fill-[var(--color-accent)]" /> {workflow.rating}
-              </div>
             </div>
 
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6 text-[var(--color-text-primary)]">

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Star } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
 import ToolLogo from './ToolLogo';
 
@@ -38,10 +38,6 @@ const TrendingSidebarWidget: React.FC = () => {
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider font-semibold truncate max-w-[80px]">
                   {tool.category}
-                </span>
-                <span className="text-[10px] text-[var(--color-accent)] font-bold flex items-center gap-0.5">
-                  <Star size={10} className="fill-[var(--color-accent)]" />
-                  {tool.rating}
                 </span>
               </div>
             </div>

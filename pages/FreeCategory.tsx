@@ -62,7 +62,7 @@ const FreeCategory: React.FC = () => {
           acceptedAnswer: {
             '@type': 'Answer',
             text: tools.length
-              ? `${tools[0].name} is the highest rated of the ${tools.length} free and freemium options here, at ${tools[0].rating}/5. The right one depends on the job — the list is ordered by rating so you can work down it.`
+              ? `There are ${tools.length} free and freemium options here, starting with ${tools[0].name}. The right one depends on the job — check what each free tier includes before you commit.`
               : '',
           },
         },
@@ -125,7 +125,7 @@ const FreeCategory: React.FC = () => {
             ) : (
               <>Every option here is freemium — a usable free tier with paid plans above it.</>
             )}{' '}
-            Ordered by rating, and split so a free tool is never passed off as a free trial.
+            Editor's picks first, and split so a free tool is never passed off as a free trial.
           </>
         }
       />

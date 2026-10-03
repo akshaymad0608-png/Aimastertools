@@ -27,11 +27,8 @@ import {
  * 8px white initials on a Tailwind -500 fill: teal measured 2.42:1, orange
  * 2.89:1, purple 4.12:1. Same hues, darkened until white clears 4.5:1 on them.
  */
+// Only the site's owner writes here; four invented bylines used to sit beside him.
 const AUTHOR_AVATARS: Record<string, { initials: string; bg: string }> = {
-"Sarah Collins": { initials: "SC", bg: "bg-[#cb3e84]" },
-"Arjun Mehta": { initials: "AM", bg: "bg-[#9b4ee3]" },
-"Lina Vance": { initials: "LV", bg: "bg-[#0e8478]" },
-"Marcus Thorne": { initials: "MT", bg: "bg-[#bd5711]" },
 "Akshay Mahajan": { initials: "AM", bg: "bg-[#9b4ee3]" }
 };
 
@@ -56,7 +53,7 @@ export const BlogSection: React.FC = () => {
       postId: 2,
       category: "EDUCATION",
       readTime: "5 min read",
-      author: "Arjun Mehta",
+      author: "Akshay Mahajan",
       date: "Apr 28, 2026",
       imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=128&h=128&fit=crop"
     },
@@ -64,7 +61,7 @@ export const BlogSection: React.FC = () => {
       postId: 3,
       category: "RESEARCH",
       readTime: "8 min read",
-      author: "Lina Vance",
+      author: "Akshay Mahajan",
       date: "Apr 21, 2026",
       imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=128&h=128&fit=crop"
     },
@@ -72,7 +69,7 @@ export const BlogSection: React.FC = () => {
       postId: 4,
       category: "DESIGN",
       readTime: "4 min read",
-      author: "Marcus Thorne",
+      author: "Akshay Mahajan",
       date: "May 1, 2026",
       imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=128&h=128&fit=crop"
     },
@@ -173,15 +170,15 @@ export const BlogSection: React.FC = () => {
                     {chatbotPost.excerpt}
                   </p>
 
-                  {/* Sarah Collins Author Footer */}
+                  {/* Author footer */}
                   <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-5 mt-auto">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-[var(--color-primary-fill)] text-white flex items-center justify-center font-bold text-sm shadow-sm">
-                        SC
+                        AM
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-[var(--color-text-primary)]">Sarah Collins</div>
-                        <div className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-wider">AI STRATEGIST</div>
+                        <div className="text-sm font-bold text-[var(--color-text-primary)]">Akshay Mahajan</div>
+                        <div className="text-[10px] font-bold text-[var(--color-text-muted)] uppercase tracking-wider">FOUNDER</div>
                       </div>
                     </div>
                     

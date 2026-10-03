@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bookmark, Check, Star, ExternalLink, Share2, Columns2 } from 'lucide-react';
+import { Bookmark, Check, ExternalLink, Share2, Columns2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Tool } from '../types';
 import { useBookmarks } from '../context/BookmarkContext';
@@ -118,10 +118,6 @@ const ToolCard: React.FC<ToolCardProps> = ({ tool, rank, layout = 'horizontal' }
           </div>
 
           <div className="mt-1 flex items-center gap-2.5">
-            <span className="flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
-              <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-              <span className="tabular-nums">{tool.rating.toFixed(1)}</span>
-            </span>
             <span className={PRICING_STYLE[tool.pricing] || 'badge'}>{tool.pricing}</span>
           </div>
 

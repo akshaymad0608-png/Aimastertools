@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { resolveToolLink } from '../lib/affiliate/outbound';
 import { useParams, Link } from 'react-router-dom';
-import { ExternalLink, Star, ArrowRight, Check, Minus } from 'lucide-react';
+import { ExternalLink, ArrowRight, Check, Minus } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { Breadcrumbs } from '../components/Breadcrumbs';
@@ -15,16 +15,6 @@ import { Tool } from '../types';
 const ROWS: { label: string; get: (t: Tool) => React.ReactNode; raw: (t: Tool) => string }[] = [
   { label: 'Category', get: (t) => t.category, raw: (t) => t.category },
   { label: 'Pricing', get: (t) => <span className="badge">{t.pricing}</span>, raw: (t) => t.pricing },
-  {
-    label: 'Rating',
-    get: (t) => (
-      <span className="flex items-center gap-1.5 font-semibold">
-        <Star size={12} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-        <span className="tabular-nums">{t.rating.toFixed(1)}</span>
-      </span>
-    ),
-    raw: (t) => `${t.rating.toFixed(1)} out of 5`,
-  },
   {
     label: 'Free to start',
     get: (t) =>
@@ -71,7 +61,6 @@ const ComparePair: React.FC = () => {
   }
 
   const { a, b, category } = pair;
-  const better = a.rating === b.rating ? null : a.rating > b.rating ? a : b;
 
   /**
    * The FAQ is what earns the rich result on a "X vs Y" query. Answers are
@@ -81,9 +70,7 @@ const ComparePair: React.FC = () => {
   const faqs = [
     {
       question: `Is ${a.name} better than ${b.name}?`,
-      answer: better
-        ? `On our recorded ratings, ${better.name} scores higher — ${better.rating.toFixed(1)} against ${(better.id === a.id ? b : a).rating.toFixed(1)}. Ratings summarise general reception, not fit for your specific job, so read both entries before deciding.`
-        : `Both are rated ${a.rating.toFixed(1)}, so neither leads on score. The decision comes down to pricing: ${a.name} is ${a.pricing.toLowerCase()}, ${b.name} is ${b.pricing.toLowerCase()}.`,
+      answer: `Neither is better for every job. ${a.name} is ${a.pricing.toLowerCase()} and ${b.name} is ${b.pricing.toLowerCase()}, so start with the one your budget allows and check that it covers the task you need.`,
     },
     {
       question: `What is the difference between ${a.name} and ${b.name}?`,
@@ -221,21 +208,9 @@ const ComparePair: React.FC = () => {
           </h2>
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
             <p className="prose-lede">
-              {better ? (
-                <>
-                  <strong className="text-[var(--color-text-primary)]">{better.name}</strong> carries
-                  the higher rating of the two ({better.rating.toFixed(1)} against{' '}
-                  {(better.id === a.id ? b : a).rating.toFixed(1)}). That reflects general reception
-                  rather than fit for your particular job — if{' '}
-                  {(better.id === a.id ? b : a).name} is the cheaper of the two and covers what you
-                  need, the rating gap is not a reason to overrule it.
-                </>
-              ) : (
-                <>
-                  Both are rated {a.rating.toFixed(1)}, so score does not separate them. Decide on
-                  price: {a.name} is {a.pricing.toLowerCase()}, {b.name} is {b.pricing.toLowerCase()}.
-                </>
-              )}
+              Neither wins for every job. Decide on price and fit: {a.name} is{' '}
+              {a.pricing.toLowerCase()}, {b.name} is {b.pricing.toLowerCase()}. If the cheaper one
+              covers the task you need, it is the sensible place to start.
             </p>
           </div>
         </section>
