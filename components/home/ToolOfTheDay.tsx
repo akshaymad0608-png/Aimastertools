@@ -41,7 +41,7 @@ export const ToolOfTheDay: React.FC = () => {
               <p className="mt-3 text-[15.5px] leading-relaxed text-[var(--color-text-secondary)]">
                 {tool.description}
               </p>
-              <p className="label-mono mt-4">A fresh, top-rated tool every day — check back tomorrow.</p>
+              <p className="label-mono mt-4">A different pick from the index every day — check back tomorrow.</p>
             </div>
             <ToolCard tool={tool} layout="vertical" />
           </div>

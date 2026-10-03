@@ -255,7 +255,7 @@ export const articleSchema = (post: BlogPost): Json => ({
   '@id': `${absoluteUrl(`/blog/${post.slug || post.id}`)}#article`,
   headline: post.title,
   description: post.excerpt,
-  image: post.imageUrl,
+  ...(post.imageUrl ? { image: post.imageUrl } : {}),
   datePublished: post.date,
   dateModified: post.date,
   articleSection: post.category,

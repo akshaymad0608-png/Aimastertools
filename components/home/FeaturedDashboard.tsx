@@ -49,13 +49,13 @@ export const FeaturedDashboard: React.FC<FeaturedDashboardProps> = ({
 
   return (
     <div className="mb-16 flex flex-col gap-16">
-      {/* Highest rated, as a full-bleed rank list */}
+      {/* Editor's picks, as a full-bleed list */}
       <section aria-labelledby="top-rated">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-[var(--color-border)] pb-5">
           <div>
             <p className="eyebrow">Top of the index</p>
             <h2 id="top-rated" className="display-md mt-3 text-[var(--color-text-primary)]">
-              Highest rated right now
+              Editor's picks by category
             </h2>
           </div>
           <Link to="/?tab=Trending" className="btn-secondary h-10 whitespace-nowrap px-4 text-[13px]">

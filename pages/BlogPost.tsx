@@ -66,7 +66,7 @@ const BlogPost: React.FC = () => {
         title={post.title}
         description={post.excerpt}
         url={`/blog/${post.slug || post.id}`}
-        image={post.imageUrl}
+        image={post.imageUrl || undefined}
         type="article"
         publishedTime={new Date(post.date).toISOString()}
         section={post.category}

@@ -1,6 +1,14 @@
 {
   "redirects": [
-    { "source": "/blogs", "destination": "/blog", "permanent": true }
+    { "source": "/blogs", "destination": "/blog", "permanent": true },
+    { "source": "/blog/top-10-ai-tools-for-students-in-2026", "destination": "/blog", "permanent": true },
+    { "source": "/blog/ai-vs-human-creativity-the-balance", "destination": "/blog", "permanent": true },
+    { "source": "/blog/latest-ai-trends-to-watch", "destination": "/blog", "permanent": true },
+    { "source": "/blog/the-rise-of-ai-agents-in-daily-workflows", "destination": "/blog", "permanent": true },
+    { "source": "/blog/mastering-midjourney-v7-prompt-guide", "destination": "/blog", "permanent": true },
+    { "source": "/blog/code-generation-models-compared-claude-vs-gpt-4", "destination": "/blog", "permanent": true },
+    { "source": "/blog/how-to-build-rag-applications-with-langchain", "destination": "/blog", "permanent": true },
+    { "source": "/blog/ai-in-education-personalized-learning-at-scale", "destination": "/blog", "permanent": true }
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
