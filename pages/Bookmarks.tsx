@@ -132,7 +132,7 @@ const Bookmarks: React.FC = () => {
                   onChange={(e) => setSort(e.target.value as SortKey)}
                   className="h-9 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-cardBg)] px-3 text-[13px] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]"
                 >
-                  <option value="rating">Highest rated</option>
+                  <option value="rating">Editor's picks</option>
                   <option value="name">Name A–Z</option>
                   <option value="pricing">Pricing</option>
                 </select>

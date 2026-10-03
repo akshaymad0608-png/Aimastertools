@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { resolveToolLink } from '../lib/affiliate/outbound';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Check, X, ExternalLink, Star, Plus, Lock } from 'lucide-react';
+import { ArrowLeft, Check, X, ExternalLink, Plus, Lock } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
 import { COMPARISON_PAIRS, ComparisonPair } from '../utils/pairs';
 import { Tool } from '../types';
@@ -60,7 +60,7 @@ const Compare: React.FC = () => {
     <>
       <SEO 
         title="Compare AI Tools | AI Master Tools" 
-        description="Compare the best AI tools side-by-side. Analyze features, pricing, and ratings to find the perfect artificial intelligence software for your needs."
+        description="Compare the best AI tools side-by-side. Analyze features and pricing to find the perfect artificial intelligence software for your needs."
         keywords={["compare AI tools", "AI software comparison", "best ai tools", "free ai tools list", "AI pricing comparison", "chatgpt vs claude", "top ai tools 2026"]}
       />
       
@@ -71,7 +71,7 @@ const Compare: React.FC = () => {
         <div className="mb-10 md:mb-12 text-center max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 md:mb-6 tracking-tight">Compare AI Tools</h1>
           <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed px-4 md:px-0">
-            Select up to 3 AI tools to compare their features, pricing, and ratings side-by-side. Find the perfect solution for your workflow.
+            Select up to 3 AI tools to compare their features and pricing side-by-side. Find the perfect solution for your workflow.
           </p>
         </div>
 
@@ -198,23 +198,6 @@ const Compare: React.FC = () => {
                   ))}
                 </tr>
 
-                {/* Rating Row */}
-                <tr className="hover:bg-[var(--color-surface)]/20 transition-colors">
-                  <td className="p-6 font-medium text-[var(--color-text-primary)]">Rating</td>
-                  {selectedTools.map(tool => (
-                    <td key={tool.id} className="p-6 border-l border-[var(--color-border)]/50 text-center">
-                      <div className="flex items-center justify-center gap-1">
-                        <Star size={16} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-                        <span className="font-bold text-[var(--color-text-primary)]">{tool.rating}</span>
-                        <span className="text-xs text-[var(--color-text-muted)]">/ 5.0</span>
-                      </div>
-                    </td>
-                  ))}
-                  {Array.from({ length: 3 - selectedTools.length }).map((_, i) => (
-                    <td key={`empty-rating-${i}`} className="p-6 border-l border-[var(--color-border)]/50"></td>
-                  ))}
-                </tr>
-
                 {/* Description Row */}
                 <tr className="hover:bg-[var(--color-surface)]/20 transition-colors">
                   <td className="p-6 font-medium text-[var(--color-text-primary)] align-top">Description</td>
@@ -316,8 +299,8 @@ const Compare: React.FC = () => {
             Ready-made comparisons
           </h2>
           <p className="mt-2 max-w-2xl text-[14px] text-[var(--color-text-secondary)]">
-            {COMPARISON_PAIRS.length} head-to-head pages, already written — pricing,
-            ratings and what each tool does best.
+            {COMPARISON_PAIRS.length} head-to-head pages, already written — pricing
+            and what each tool does best.
           </p>
 
           <div className="mt-8 space-y-8">

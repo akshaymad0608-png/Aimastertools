@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { MOCK_TOOLS } from '../../data/tools';
 import { Tool } from '../../types';
 import ToolLogo from '../ToolLogo';
@@ -36,10 +36,6 @@ const ShelfCard: React.FC<{ tool: Tool; rank: number }> = ({ tool, rank }) => (
     <div className="mt-5 flex items-center justify-between border-t border-[var(--color-border)] pt-4">
       <span className="flex items-center gap-3">
         <span className="badge">{tool.pricing}</span>
-        <span className="flex items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
-          <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-          <span className="tabular-nums">{tool.rating.toFixed(1)}</span>
-        </span>
       </span>
       <ArrowRight
         size={16}

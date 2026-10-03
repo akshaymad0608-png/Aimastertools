@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, Layers, Star } from 'lucide-react';
+import { ArrowRight, Clock, Layers } from 'lucide-react';
 import { WORKFLOWS } from '../data/workflows';
 import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
@@ -92,10 +92,6 @@ const Workflows: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className={DIFFICULTY_STYLE[wf.difficulty] || 'badge'}>{wf.difficulty}</span>
-                  <span className="flex items-center gap-1 text-[12px] font-semibold text-[var(--color-text-secondary)]">
-                    <Star size={11} className="fill-[var(--color-accent)] text-[var(--color-accent)]" />
-                    <span className="tabular-nums">{wf.rating.toFixed(1)}</span>
-                  </span>
                 </div>
 
                 <h2 className="title-sm mt-4 text-[17px] text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)]">

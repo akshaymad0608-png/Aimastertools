@@ -88,7 +88,7 @@ const AlternativesPage: React.FC = () => {
     {
       question: `What is the best alternative to ${tool.name}?`,
       answer: alternatives.length
-        ? `${alternatives[0].name} is the closest match in our index — same category (${tool.category}), rated ${alternatives[0].rating.toFixed(1)}, priced as ${alternatives[0].pricing.toLowerCase()}. Whether it suits you depends on which of ${tool.name}'s features you actually use.`
+        ? `${alternatives[0].name} is the closest match in our index — same category (${tool.category}), priced as ${alternatives[0].pricing.toLowerCase()}. Whether it suits you depends on which of ${tool.name}'s features you actually use.`
         : `We do not currently list a close alternative to ${tool.name} in ${tool.category}.`,
     },
     {
@@ -99,7 +99,7 @@ const AlternativesPage: React.FC = () => {
     },
     {
       question: `Why would I switch from ${tool.name}?`,
-      answer: `${tool.name} is listed as ${tool.pricing.toLowerCase()} and rated ${tool.rating.toFixed(1)}. The usual reasons to look elsewhere are price, a missing feature, or wanting something narrower that does one job well rather than a whole suite.`,
+      answer: `${tool.name} is listed as ${tool.pricing.toLowerCase()}. The usual reasons to look elsewhere are price, a missing feature, or wanting something narrower that does one job well rather than a whole suite.`,
     },
   ];
 
@@ -107,7 +107,7 @@ const AlternativesPage: React.FC = () => {
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
         title={`${alternatives.length} Best ${tool.name} Alternatives (2026) — Free & Paid`}
-        description={`Real alternatives to ${tool.name}, drawn from ${tool.category}. Compare pricing, ratings and what each one does differently${free.length ? `, including ${free.length} free or freemium options` : ''}.`}
+        description={`Real alternatives to ${tool.name}, drawn from ${tool.category}. Compare pricing and what each one does differently${free.length ? `, including ${free.length} free or freemium options` : ''}.`}
         url={`/alternatives/${slugify(tool.id)}-alternatives`}
         keywords={[
           `${tool.name} alternatives`,

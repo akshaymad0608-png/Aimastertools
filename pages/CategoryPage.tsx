@@ -58,9 +58,6 @@ const CategoryPage: React.FC = () => {
   }
 
   const free = tools.filter((t) => t.pricing === 'Free' || t.pricing === 'Open Source').length;
-  const avg = tools.length
-    ? (tools.reduce((s, t) => s + t.rating, 0) / tools.length).toFixed(2)
-    : '—';
 
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
@@ -129,13 +126,12 @@ const CategoryPage: React.FC = () => {
               </div>
             </div>
             <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
-              {tools.length} tools filed under {category.name}, ranked by rating. Every entry lists real
+              {tools.length} tools filed under {category.name}, editor's picks first. Every entry lists real
               pricing and what it is actually good at.
             </p>
             <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
               <span className="label-mono tabular-nums">{tools.length} tools</span>
               <span className="label-mono tabular-nums">{free} free or open source</span>
-              <span className="label-mono tabular-nums">avg rating {avg}</span>
             </div>
 
             {tools.length > 0 ? (

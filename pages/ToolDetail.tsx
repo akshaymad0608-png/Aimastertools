@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ExternalLink, Star, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles, Instagram } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Share2, Calendar, Tag, Check, Globe, Twitter, Linkedin, Facebook, Sparkles, Instagram } from 'lucide-react';
 import { MOCK_TOOLS } from '../data/tools';
 import { PROMPT_LIBRARY } from '../data/prompts';
 import { Tool } from '../types';
@@ -103,8 +103,8 @@ const ToolDetail: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${tool.name} Review & Alternatives (2026) | AI Master Tools`}
-        description={`Our comprehensive review of ${tool.name}. Discover its features, pricing, rating, and best AI alternatives for ${tool.category.toLowerCase()}.`}
+        title={`${tool.name}: Features, Pricing & Alternatives (2026) | AI Master Tools`}
+        description={`${tool.name} at a glance: what it does, its pricing, and the closest AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
       >
@@ -299,18 +299,13 @@ const ToolDetail: React.FC = () => {
           <div className="space-y-6">
             <div className="glass-panel border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-8 sticky top-28 shadow-[var(--shadow-lift)]">
               <div className="flex items-center justify-between mb-8 pb-8 border-b border-[var(--color-border)]">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={20} 
-                        className={i < Math.floor(tool.rating) ? "fill-[var(--color-accent)] text-[var(--color-accent)]" : "text-[var(--color-text-muted)] opacity-30"} 
-                      />
-                    ))}
-                  </div>
-                  <span className="text-2xl font-bold text-[var(--color-text-primary)] ml-2">{tool.rating}</span>
-                </div>
+                {/*
+                  A 4.3-4.9 star score used to sit here. The dataset has no
+                  source for it (no reviews, no tests), so it was removed rather
+                  than shown as if it measured something. Real user reviews are
+                  further down the page.
+                */}
+                <span className="badge">{tool.pricing}</span>
                 <div className="flex gap-2">
                   <button
                     onClick={(e) => {

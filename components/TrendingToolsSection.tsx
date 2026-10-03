@@ -44,19 +44,18 @@ export const TrendingToolsSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] font-bold text-xs uppercase tracking-wider mb-4">
-              <TrendingUp size={14} /> Trending Now
+              <TrendingUp size={14} /> Editor's picks
             </div>
             {/* The list is MOCK_TOOLS sorted by rating. There is no traffic,
                 install or popularity data behind this site, so "trending in the
                 community" and "massive user growth" were describing numbers
                 that do not exist. The copy now says what the sort actually is. */}
             <h2 className="display-md text-[var(--color-text-primary)]">
-              Eight of the highest rated
+              Eight editor's picks
             </h2>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mt-4">
-              Ratings here are editorial rather than an average of user reviews, and a lot of
-              tools share the top score — so this is a sample of the best rated, not a
-              leaderboard. The full list is worth a scroll.
+              A starting point picked from the directory, not a leaderboard — there is no
+              traffic or review data behind the order. The full list is worth a scroll.
             </p>
           </div>
           <Link to="/?tab=Trending" className="inline-flex items-center gap-2 font-bold text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors whitespace-nowrap">

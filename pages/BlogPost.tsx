@@ -30,20 +30,15 @@ const BlogPost: React.FC = () => {
 
   if (!post) return null;
 
-  // Curated premium mock authors for maximum design consistency
-  const getAuthorByPostId = (idStr: string) => {
-    const id = parseInt(idStr) || 1;
-    const list = [
-      { name: "Akshay Mahajan", initials: "AM", role: "Founder & Lead", bg: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] ring-blue-500/20" },
-      { name: "Sarah Collins", initials: "SC", role: "AI Strategist", bg: "bg-rose-500/10 text-rose-500 ring-rose-500/20" },
-      { name: "Arjun Mehta", initials: "AM", role: "NLP Engineer", bg: "bg-emerald-500/10 text-[var(--color-primary)] ring-emerald-500/20" },
-      { name: "Lina Vance", initials: "LV", role: "UX Designer", bg: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] ring-violet-500/20" },
-      { name: "Marcus Thorne", initials: "MT", role: "Cloud Architect", bg: "bg-amber-500/10 text-[var(--color-accent)] ring-amber-500/20" },
-    ];
-    return list[id % list.length];
+  // Every post is written by the site's owner. This used to pick one of five
+  // names by post id, four of them invented ("Sarah Collins, AI Strategist"),
+  // the same fix /blog already had.
+  const author = {
+    name: "Akshay Mahajan",
+    initials: "AM",
+    role: "Founder, AI Master Tools",
+    bg: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] ring-blue-500/20",
   };
-
-  const author = getAuthorByPostId(post.id);
 
   const handleShare = async () => {
     const url = window.location.href;

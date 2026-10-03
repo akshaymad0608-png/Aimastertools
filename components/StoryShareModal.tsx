@@ -136,15 +136,6 @@ export function StoryShareModal({ isOpen, onClose, tool }: StoryShareModalProps)
                     {tool.description}
                   </p>
                   
-                  {tool.rating && (
-                    <div className="mt-12 flex items-center space-x-4 bg-gray-800/50 px-8 py-4 rounded-full border border-gray-700/50">
-                      <div className="flex text-[var(--color-accent)] text-4xl">
-                        {'★'.repeat(Math.floor(tool.rating))}
-                        {'☆'.repeat(5 - Math.floor(tool.rating))}
-                      </div>
-                      <span className="text-white text-4xl font-bold">{tool.rating}</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Bottom: Call to Action */}

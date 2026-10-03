@@ -10,7 +10,6 @@ import {
   CATEGORY_COUNT,
   FREE_TOOL_COUNT,
   LAST_UPDATED_LABEL,
-  AVERAGE_RATING,
 } from '../utils/stats';
 import { EARN_SITE_COUNT } from '../data/earn';
 import { COMPARISON_PAIRS } from '../utils/pairs';
@@ -53,7 +52,7 @@ const About: React.FC = () => {
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
         title={`About AI Master Tools — Who Compiles This Index, and How`}
-        description={`AI Master Tools is an independent index of ${TOOL_COUNT} AI tools, compiled and re-checked by hand. How tools get listed, how they are rated, and how the site makes money.`}
+        description={`AI Master Tools is an independent index of ${TOOL_COUNT} AI tools, compiled and re-checked by hand. How tools get listed, how the order is set, and how the site makes money.`}
         url="/about"
         keywords={[
           'about AI Master Tools',
@@ -84,7 +83,7 @@ const About: React.FC = () => {
         <PageHeader
           eyebrow="About"
           title="An index someone actually keeps"
-          lede={`${TOOL_COUNT} AI tools, checked and filed by hand rather than scraped. This page explains who compiles it, how a tool gets in, what the ratings mean, and how the site pays for itself.`}
+          lede={`${TOOL_COUNT} AI tools, checked and filed by hand rather than scraped. This page explains who compiles it, how a tool gets in, how the order is set, and how the site pays for itself.`}
         />
 
         <section className="mt-14 max-w-2xl" aria-labelledby="what-heading">
@@ -150,24 +149,22 @@ const About: React.FC = () => {
 
         <section className="mt-16 max-w-2xl" aria-labelledby="ratings-heading">
           <h2 id="ratings-heading" className="display-md text-[var(--color-text-primary)]">
-            About the ratings
+            Why there are no star scores
           </h2>
           <div className="mt-5 space-y-4 text-[15.5px] leading-relaxed text-[var(--color-text-secondary)]">
             <p>
-              Ratings are editorial. They are one person&rsquo;s read of how well a tool does the
-              job it claims, not an aggregate of user reviews, and they are not sold. No tool has
-              ever paid to be listed, ranked higher, or described differently.
+              Entries used to carry an editorial score out of five. Almost every tool landed
+              between 4.3 and 4.9, so the number told you very little, and it was not backed by
+              tests or user reviews. It is no longer shown.
             </p>
             <p>
-              They are also, right now, bunched together: the scale runs from 4.3 to 4.9 and
-              averages {AVERAGE_RATING}. That is worth saying out loud, because a directory
-              where everything scores well is a directory that is not telling you very much. A
-              tool nothing is wrong with and a tool with one real flaw currently sit a tenth of
-              a point apart, and pulling that scale open is the next job.
+              The order on category and list pages is the editor&rsquo;s picks: tools we would
+              try first for that job. It is not a measurement, and no tool has ever paid to be
+              listed, placed higher, or described differently.
             </p>
             <p>
-              Where a tool is strong at one thing and weak at another, the entry itself says so.
-              Read the description before the number.
+              Reviews on a tool page are written by signed-in visitors and shown as they were
+              left. Read the description and pricing before deciding.
             </p>
           </div>
         </section>
@@ -179,7 +176,7 @@ const About: React.FC = () => {
           <div className="mt-5 space-y-4 text-[15.5px] leading-relaxed text-[var(--color-text-secondary)]">
             <p>
               Some outbound links earn a commission when you sign up for a tool. It costs you
-              nothing, and it does not change how a tool is rated or where it is ranked — the
+              nothing, and it does not change where a tool is placed — the
               ranking is set before anyone checks whether a link pays.
             </p>
             <p>
