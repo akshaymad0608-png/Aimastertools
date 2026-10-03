@@ -129,7 +129,9 @@ const toolJsonLd = (t) => ({
   '@type': 'SoftwareApplication',
   '@id': `${SITE}/tool/${t.id}#software`,
   name: t.name,
-  description: t.longDescription || t.description,
+  // longDescription is a generated sentence restating category, pricing and
+  // the directory rating, so the hand-written one-liner goes first.
+  description: t.description || t.longDescription,
   url: `${SITE}/tool/${t.id}`,
   sameAs: t.url,
   applicationCategory: 'BusinessApplication',
@@ -210,6 +212,9 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
   const cat = (t.category || 'AI').toLowerCase();
   return {
     path: `/alternatives/${slugify(t.id)}-alternatives`,
+    // Templated from the tool records; kept for visitors, out of the index.
+    // See the note in scripts/generate-sitemap.mjs.
+    noindex: true,
     heading: `Best ${t.name} Alternatives`,
     title: pickTitle([
       // Names run from three characters ("Poe", "n8n") to the high thirties,
@@ -286,6 +291,7 @@ for (const list of byCategory.values()) {
       const cat = (x.category || 'AI').toLowerCase();
       COMPARE_ROUTES.push({
         path: `/compare/${slug}`,
+        noindex: true,
         // Read by comparesByTool below; stripped before the route is rendered.
         pairIds: [x.id, y.id],
         pairNames: [x.name, y.name],
@@ -964,6 +970,9 @@ for (const route of routes) {
   html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${d}" />`);
   if (route.keywords) html = html.replace(/<meta name="keywords"[^>]*>/, `<meta name="keywords" content="${esc(route.keywords)}" />`);
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url}" />`);
+  if (route.noindex) {
+    html = html.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />');
+  }
   html = html.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${t}" />`);
   html = html.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${d}" />`);
   html = html.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${url}" />`);

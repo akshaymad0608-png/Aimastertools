@@ -117,7 +117,9 @@ const AlternativesPage: React.FC = () => {
           `free ${tool.name} alternative`,
           `best ${tool.category} AI tools`,
         ]}
-        noindex={alternatives.length === 0}
+        // Every alternatives page is templated from the tool records, so none
+        // is indexed; see scripts/generate-sitemap.mjs.
+        noindex
         schema={[
           breadcrumbSchema([
             { label: tool.name, path: `/tool/${tool.id}` },
