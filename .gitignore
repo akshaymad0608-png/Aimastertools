@@ -67,3 +67,7 @@ coverage
 # Local scratch — anything you want kept out of a commit
 *.tmp
 .scratch/
+
+# SEO tooling output (generated / personal Search Console exports)
+reports/
+seo-data/

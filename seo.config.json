@@ -1,0 +1,8 @@
+{
+  "origin": "https://aimastertools.space",
+  "distDir": "dist",
+  "important": ["/", "/about", "/contact", "/privacy", "/terms"],
+  "minSitemapUrls": 750,
+  "adsense": true,
+  "gsc": { "brandTerms": ["aimastertools", "ai master tools"], "minImpressions": 20 }
+}
