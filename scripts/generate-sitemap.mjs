@@ -257,6 +257,7 @@ const urls = [
   { loc: '/workflows', changefreq: 'weekly', priority: '0.7', from: SRC_WF },
   { loc: '/discover', changefreq: 'weekly', priority: '0.6', from: SRC_TOOLS },
   { loc: '/about', changefreq: 'monthly', priority: '0.5', from: ['pages/About.tsx'] },
+  { loc: '/contact', changefreq: 'yearly', priority: '0.4', from: ['pages/Contact.tsx'] },
   { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8', from: SRC_SHOP },
   { loc: '/ai-shopping/finder', changefreq: 'monthly', priority: '0.7', from: SRC_SHOP },
   ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7', from: SRC_SHOP })),
