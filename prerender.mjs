@@ -696,6 +696,10 @@ const routes = [
     // The nav names this, and 654 /alternatives/* pages existed with no index
     // of their own — each reachable from a single tool page and nothing else.
     path: '/alternatives',
+    // No client-side route exists for the bare /alternatives URL (App.tsx only
+    // routes /alternatives/:slug), so it would render as a 404 once JS runs.
+    // Keep it out of the index; it stays as a crawlable list of the noindex pages.
+    noindex: true,
     heading: 'AI tool alternatives',
     keywords: 'AI tool alternatives, alternatives to AI tools, best AI tool alternatives, AI tool comparison, replace AI tools',
     title: `AI Tool Alternatives (${YEAR}) — Compare Every Tool's Rivals`,
