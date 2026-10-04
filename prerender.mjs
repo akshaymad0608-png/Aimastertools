@@ -112,39 +112,35 @@ for (const t of byId) {
 const TOOLS = byId.filter((t) => canon.get((t.name || '').trim().toLowerCase()) === t);
 
 /**
- * Real SoftwareApplication + Offer schema for a tool page, ported from
- * utils/seo.ts's toolSchema() so the prerendered HTML carries the same honest
- * claims the client-side <SEO> component already makes — an agent or crawler
- * that never runs React currently sees none of it.
+ * Schema for a tool page: a WebPage that is *about* the tool.
  *
- * Same restraint as the source: no `image` (every tool's imageUrl is an
- * Unsplash stock photo of something else, not the product), no invented
- * `price` (a paid tool gets a pricing *category*, never a number nobody
- * checked), and no `aggregateRating` — there is no real per-tool review count
- * in this dataset, so the field simply doesn't fire rather than being backed
- * by a fabricated count.
+ * It was a SoftwareApplication + Offer. Google's software-app rich result
+ * requires an aggregateRating or a review, and this directory has neither:
+ * the star scores were removed because nothing backed them, and there is no
+ * real per-tool review count. Without one, every one of the ~650 pages was
+ * reported as an invalid item ("missing field aggregateRating or review") —
+ * the same error Ahrefs raised for quickresume.business. Markup that cannot
+ * qualify for the rich result only produces errors, so the page now says what
+ * it actually is, a directory page about a product, using fields that need
+ * nothing invented: no `image` (the imageUrl is an Unsplash stock photo of
+ * something else), no `price`, no rating.
  */
 const toolJsonLd = (t) => ({
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  '@id': `${SITE}/tool/${t.id}#software`,
-  name: t.name,
+  '@type': 'WebPage',
+  '@id': `${SITE}/tool/${t.id}#webpage`,
+  url: `${SITE}/tool/${t.id}`,
+  name: `${t.name}: Features, Pricing and Alternatives`,
   // longDescription is a generated sentence restating category, pricing and
   // the directory rating, so the hand-written one-liner goes first.
   description: t.description || t.longDescription,
-  url: `${SITE}/tool/${t.id}`,
-  sameAs: t.url,
-  applicationCategory: 'BusinessApplication',
-  applicationSubCategory: t.category,
-  operatingSystem: 'Web',
-  ...(t.launchYear ? { datePublished: `${t.launchYear}-01-01` } : {}),
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'USD',
-    category: t.pricing,
-    ...(t.pricing === 'Free' || t.pricing === 'Open Source' ? { price: '0' } : {}),
-    availability: 'https://schema.org/OnlineOnly',
+  isPartOf: { '@id': `${SITE}/#website` },
+  about: {
+    '@type': 'Thing',
+    name: t.name,
+    description: t.description || t.longDescription,
     url: t.url,
+    sameAs: t.url,
   },
 });
 
@@ -499,13 +495,13 @@ const SHOPPING_ROUTES = [
     path: '/ai-shopping/finder',
     heading: 'AI Product Finder',
     title: 'AI Product Finder — Say Your Budget, Get a Shortlist',
-    description: 'Describe what you need and what you can spend. The category and budget are read from the sentence, matched against the catalogue, and each pick is explained from the record.',
+    description: 'Describe what you need and what you can spend. The category and budget are read from your sentence, matched to the catalogue, and each pick is explained.',
   },
   {
     path: '/affiliate-disclosure',
     heading: 'Affiliate Disclosure',
     title: 'Affiliate Disclosure — How AI Master Tools Makes Money',
-    description: 'AI Master Tools earns commission on some outbound links, including as an Amazon Associate. What that means, what it does not change, and how to tell which links pay.',
+    description: 'AI Master Tools earns commission on some outbound links, including as an Amazon Associate. What that means, what it does not change and how to spot paid links.',
   },
   ...SHOPPING_CATEGORIES.map((c) => ({
     path: `/ai-shopping/${c.slug}`,
@@ -997,6 +993,10 @@ for (const route of routes) {
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url}" />`);
   if (route.noindex) {
     html = html.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />');
+    // The shell also carries a Googlebot-specific `index, follow` meta. Two
+    // contradictory directives are read as the most restrictive one, but a
+    // page should not argue with itself, so that tag goes too.
+    html = html.replace(/\n?[ \t]*<meta name="googlebot"[^>]*>/, '');
   }
   html = html.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${t}" />`);
   html = html.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${d}" />`);
@@ -1039,7 +1039,7 @@ for (const route of routes) {
       .map(([href, label]) => `<a href="${href}">${label}</a>`)
       .join(' · ') +
     '</nav>';
-  const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check ratings and real pricing, and compare any two tools side by side to choose the right one in minutes.`;
+  const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check real pricing, and compare any two tools side by side to choose the right one in minutes.`;
   const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${siblingNav(route)}${nav}</div></div>`;
   html = html.replace('<div id="root"></div>', seoBlock);
 
@@ -1117,6 +1117,7 @@ const notFoundHtml = template
     '<meta name="description" content="That page does not exist. The tool directory, comparisons, alternatives and category guides are all still here." />',
   )
   .replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
+  .replace(/\n?[ \t]*<meta name="googlebot"[^>]*>/, '')
   .replace(
     /<div id="root"[^>]*><\/div>/,
     `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif">` +
