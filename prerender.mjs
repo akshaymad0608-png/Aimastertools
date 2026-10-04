@@ -993,6 +993,10 @@ for (const route of routes) {
   html = html.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${url}" />`);
   if (route.noindex) {
     html = html.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />');
+    // The shell also carries a Googlebot-specific `index, follow` meta. Two
+    // contradictory directives are read as the most restrictive one, but a
+    // page should not argue with itself, so that tag goes too.
+    html = html.replace(/\n?[ \t]*<meta name="googlebot"[^>]*>/, '');
   }
   html = html.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${t}" />`);
   html = html.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${d}" />`);
@@ -1035,7 +1039,7 @@ for (const route of routes) {
       .map(([href, label]) => `<a href="${href}">${label}</a>`)
       .join(' · ') +
     '</nav>';
-  const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check ratings and real pricing, and compare any two tools side by side to choose the right one in minutes.`;
+  const support = `Free to explore on AI Master Tools — the independent directory of ${TOOLS.length}+ AI tools. Search by name or by the job you need done, filter by free, freemium or paid, check real pricing, and compare any two tools side by side to choose the right one in minutes.`;
   const seoBlock = `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif"><h1 style="font-size:30px;line-height:1.2;margin:0 0 14px;font-weight:800">${heading}</h1><p style="font-size:17px;line-height:1.6;color:#475569">${d}</p><p style="font-size:15px;line-height:1.6;color:#64748b">${support}</p>${route.extraHtml || ''}${siblingNav(route)}${nav}</div></div>`;
   html = html.replace('<div id="root"></div>', seoBlock);
 
@@ -1113,6 +1117,7 @@ const notFoundHtml = template
     '<meta name="description" content="That page does not exist. The tool directory, comparisons, alternatives and category guides are all still here." />',
   )
   .replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />')
+  .replace(/\n?[ \t]*<meta name="googlebot"[^>]*>/, '')
   .replace(
     /<div id="root"[^>]*><\/div>/,
     `<div id="root"><div id="prerender-seo" style="max-width:820px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif">` +
