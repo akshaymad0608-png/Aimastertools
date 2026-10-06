@@ -32,6 +32,8 @@ import { FeaturedCarousel } from '../components/home/FeaturedCarousel';
 import { BrowseHub } from '../components/home/BrowseHub';
 import { ToolOfTheDay } from '../components/home/ToolOfTheDay';
 import { RecentlyViewed } from '../components/home/RecentlyViewed';
+import { YEAR } from '../utils/year';
+import { categoryLabel } from '../utils/categoryLabel.mjs';
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -221,8 +223,8 @@ const Home: React.FC = () => {
     setTimeout(() => setToastMessage(null), 4000);
   };
   const seoTitle = selectedCategory === 'All'
-    ? `AI Master Tools — Compare ${TOOL_COUNT}+ AI Tools by Price & Use Case (2026)`
-    : `Best ${selectedCategory} AI Tools (2026) — Compared & Ranked`;
+    ? `AI Master Tools — Compare ${TOOL_COUNT}+ AI Tools Free (${YEAR})`
+    : `Best ${categoryLabel(selectedCategory)} (${YEAR}) — Compared & Ranked`;
 
   const seoDesc = selectedCategory === 'All'
     ? `AI Master Tools is the master list of ${TOOL_COUNT}+ AI tools across ${CATEGORY_COUNT} categories, including ${FREE_TOOL_COUNT} free options. Search, compare and find the best one in under a minute.`
@@ -260,7 +262,7 @@ const Home: React.FC = () => {
         url="/"
         keywords={[
           'AI tools directory',
-          'best AI tools 2026',
+          `best AI tools ${YEAR}`,
           `${TOOL_COUNT} AI tools`,
           'free AI tools',
           'compare AI tools',

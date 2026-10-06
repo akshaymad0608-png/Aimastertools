@@ -12,6 +12,9 @@
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { suffixFor, categoryLabel, proseLabel } from './utils/categoryLabel.mjs';
+import { isPlaceholderUrl } from './utils/placeholderUrl.mjs';
+import { buildAltPage } from './utils/altEditorial.mjs';
 
 const DIST = 'dist';
 const SITE = 'https://aimastertools.space';
@@ -139,8 +142,10 @@ const toolJsonLd = (t) => ({
     '@type': 'Thing',
     name: t.name,
     description: t.description || t.longDescription,
-    url: t.url,
-    sameAs: t.url,
+    // Only a real vendor URL belongs in structured data. A placeholder host
+    // (https://<name>.example.com) was being published as the product's `url`
+    // and `sameAs` on ten tool pages.
+    ...(t.url && !isPlaceholderUrl(t.url) ? { url: t.url, sameAs: t.url } : {}),
   },
 });
 
@@ -203,7 +208,107 @@ const toolLine = (t) =>
     t.description || '',
   )} (${esc(t.pricing || 'Pricing varies')})</li>`;
 
+/**
+ * The twelve alternatives pages with a curated list (data/editorial/
+ * alternatives.json) are the only ones left in the index. Same copy and the
+ * same structure as pages/AlternativesPage.tsx, so the static page and the
+ * hydrated one say the same thing.
+ */
+const ALT_EDITORIAL = JSON.parse(readFileSync('data/editorial/alternatives.json', 'utf8'));
+
+const altEditorialHtml = (ed) => {
+  const h2 = 'style="font-size:20px;margin:28px 0 10px"';
+  const h3 = 'style="font-size:16px;margin:18px 0 4px"';
+  const p = 'style="font-size:15px;line-height:1.65;color:#475569;margin:6px 0"';
+  const link = (r) =>
+    r.external
+      ? `<a href="${esc(r.href)}" rel="noopener noreferrer" target="_blank">${esc(r.name)}</a>`
+      : `<a href="${esc(r.href)}">${esc(r.name)}</a>`;
+  const access = (r) => esc(r.access || 'Check the vendor’s site for current plans and limits.');
+  return (
+    `<p style="font-size:16px;line-height:1.65;color:#334155">${esc(ed.intro)}</p>` +
+    `<p ${p}><strong>${esc(ed.subject.name)}:</strong> ${esc(ed.subjectFact.what)}${
+      ed.subjectFact.access ? ` ${esc(ed.subjectFact.access)}` : ''
+    }</p>` +
+    `<h2 ${h2}>Quick comparison</h2>` +
+    `<table style="border-collapse:collapse;font-size:14px;line-height:1.5;width:100%"><thead><tr>` +
+    ['Alternative', 'Best for (our view)', 'What the official pages say']
+      .map((c) => `<th style="text-align:left;padding:6px 8px;border-bottom:1px solid #cbd5e1">${c}</th>`)
+      .join('') +
+    `</tr></thead><tbody>${ed.rows
+      .map(
+        (r) =>
+          `<tr><td style="padding:6px 8px;border-bottom:1px solid #e2e8f0;vertical-align:top"><strong>${link(r)}</strong></td>` +
+          `<td style="padding:6px 8px;border-bottom:1px solid #e2e8f0;vertical-align:top">${esc(r.bestFor)}</td>` +
+          `<td style="padding:6px 8px;border-bottom:1px solid #e2e8f0;vertical-align:top">${access(r)}</td></tr>`,
+      )
+      .join('')}</tbody></table>` +
+    `<h2 ${h2}>How each alternative differs from ${esc(ed.subject.name)}</h2>` +
+    ed.rows
+      .map(
+        (r) =>
+          `<h3 ${h3}>${link(r)}</h3><p ${p}>${esc(r.what)}</p><p ${p}><strong>How it differs:</strong> ${esc(r.differs)}</p>` +
+          (r.external
+            ? ''
+            : `<p ${p}><a href="${esc(r.href)}">Read our ${esc(r.name)} page</a> · <a href="/category/${slugify(r.category)}">More ${esc(r.category)} tools</a></p>`),
+      )
+      .join('') +
+    `<h2 ${h2}>How to choose</h2><ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${ed.pickIf
+      .map((x) => `<li>If ${esc(x.if)}, ${esc(x.then)}</li>`)
+      .join('')}</ul>` +
+    `<h2 ${h2}>Common questions</h2>${ed.faqs
+      .map((f) => `<h3 ${h3}>${esc(f.question)}</h3><p ${p}>${esc(f.answer)}</p>`)
+      .join('')}` +
+    `<h2 ${h2}>Sources and how we checked</h2>` +
+    `<p ${p}>Statements under “What the official pages say” come from the vendors’ own pages, linked below, as they read in ${esc(ed.checked)}. They were read through search extracts of those pages, so check the linked page for current terms. “Best for” and “How it differs” are our own editorial judgement.</p>` +
+    `<ul style="font-size:14px;line-height:1.7;color:#475569;padding-left:18px">${ed.sources
+      .map((s) => `<li><a href="${esc(s.url)}" rel="noopener noreferrer" target="_blank">${esc(s.label)}</a></li>`)
+      .join('')}</ul>` +
+    `<p ${p}>${ed.related.map((l) => `<a href="${esc(l.path)}">${esc(l.label)}</a>`).join(' · ')}</p>`
+  );
+};
+
+/** Free-access block for the tool pages that have a curated alternatives page. */
+const altToolBlockHtml = (t) => {
+  const ed = buildAltPage({ data: ALT_EDITORIAL, tools: TOOLS, subjectId: t.id, slugify, siteUrl: SITE, year: YEAR });
+  if (!ed) return '';
+  const p = 'style="font-size:15px;line-height:1.65;color:#475569;margin:6px 0"';
+  const names = ed.rows
+    .slice(0, 3)
+    .map((r) =>
+      r.external
+        ? `<a href="${esc(r.href)}" rel="noopener noreferrer" target="_blank">${esc(r.name)}</a>`
+        : `<a href="${esc(r.href)}">${esc(r.name)}</a>`,
+    )
+    .join(', ');
+  return (
+    `<h2 style="font-size:20px;margin:24px 0 8px">How ${esc(t.name)} works and what it costs</h2>` +
+    `<p ${p}>${esc(ed.subjectFact.what)}${ed.subjectFact.access ? ` ${esc(ed.subjectFact.access)}` : ''}</p>` +
+    (ed.subjectFact.sources.length
+      ? `<p ${p}>From the vendor’s own pages, as read in ${esc(ed.checked)}: ${ed.subjectFact.sources
+          .map((s) => `<a href="${esc(s.url)}" rel="noopener noreferrer" target="_blank">${esc(s.label)}</a>`)
+          .join(', ')}. Check them for current terms.</p>`
+      : '') +
+    `<p ${p}>Closest alternatives we compare: ${names}${
+      ed.rows.length > 3 ? ` and ${ed.rows.length - 3} more` : ''
+    }. <a href="${esc(ed.path)}">See all ${ed.rows.length} ${esc(t.name)} alternatives, compared</a>.</p>`
+  );
+};
+
 const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
+  const ed = buildAltPage({ data: ALT_EDITORIAL, tools: TOOLS, subjectId: t.id, slugify, siteUrl: SITE, year: YEAR });
+  if (ed) {
+    return {
+      path: ed.path,
+      heading: ed.heading,
+      title: ed.title,
+      description: ed.description,
+      extraHtml: altEditorialHtml(ed),
+      jsonLd: ed.schemas,
+      // The React page emits the same structured data once it mounts; see SEO.tsx.
+      jsonLdReplacedOnHydrate: true,
+    };
+  }
   const alts = sameCategory(t).slice(0, 8);
   const cat = (t.category || 'AI').toLowerCase();
   return {
@@ -211,7 +316,9 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
     // Templated from the tool records; kept for visitors, out of the index.
     // See the note in scripts/generate-sitemap.mjs.
     noindex: true,
-    heading: `Best ${t.name} Alternatives`,
+    // Same wording the React page renders (pages/AlternativesPage.tsx), so the
+    // static and hydrated H1 agree.
+    heading: `Alternatives to ${t.name}`,
     title: pickTitle([
       // Names run from three characters ("Poe", "n8n") to the high thirties,
       // so the ladder has to reach in both directions.
@@ -575,13 +682,8 @@ const LEGAL_ROUTES = [
  * naming an activity or a subject — "Social Media Automation", "Image & Art
  * Generation", "Marketing & SEO" — actually need a product noun after them.
  */
-const PRODUCT_NOUN = /\b(tools?|assistants?|engines?|builders?|extensions?|generators?|editors?|platforms?|apps?|bots?|apis?)$/i;
-
-const suffixFor = (name, lower = false) => {
-  const t = lower ? 'tools' : 'Tools';
-  if (PRODUCT_NOUN.test(name)) return '';
-  return /\bAI\b/.test(name) ? t : `AI ${t}`;
-};
+// suffixFor() lives in utils/categoryLabel.mjs so the React pages and this script
+// cannot drift apart again.
 
 const isFree = (t) => /^(free|open source)$/i.test(t.pricing || '');
 const isFreemium = (t) => /^freemium$/i.test(t.pricing || '');
@@ -613,20 +715,31 @@ const FREE_CATS = [...freeByCategory.entries()]
   .sort((a, b) => b.tools.length - a.tools.length);
 
 
+// The hub's FAQ lives in one JSON file shared with pages/FreeTools.tsx, so the static
+// HTML, the visible FAQ and the FAQPage JSON-LD are the same text.
+const FREE_HUB = JSON.parse(readFileSync('data/editorial/free-hub.json', 'utf8'));
+const BEST_FREE = JSON.parse(readFileSync('data/editorial/best-free.json', 'utf8'));
+const freeHubFaqs = FREE_HUB.faqs.map((f) => ({
+  q: f.q,
+  a: f.a.replaceAll('{{BEST_FREE_COUNT}}', String(BEST_FREE.tools.length)),
+}));
+
 const FREE_ROUTES = [
   {
     path: '/free',
-    heading: 'Free AI tools, honestly labelled',
+    // The category directory. The short, sourced "best" list is the flagship page
+    // /best-free-ai-tools.html, so this page does not compete for that intent.
+    heading: 'Free AI tools by category',
     title: pickTitle([
-      `Free AI Tools (${YEAR}) — ${FREE_CATS.length} Categories, Truly Free vs Freemium`,
-      `Free AI Tools (${YEAR}) — ${FREE_CATS.length} Categories Compared`,
-      `Free AI Tools (${YEAR}) | AI Master Tools`,
+      `Free AI Tools by Category (${YEAR}) | AI Master Tools`,
+      `Free AI Tools by Category (${YEAR})`,
+      `Free AI Tools by Category | AI Master Tools`,
     ], '/free'),
     description: clamp(
-      `AI tools you can use without paying, across ${FREE_CATS.length} categories — the genuinely free ones listed apart from the ones with a free tier, so you know which is which before signing up.`,
+      `Browse free AI tools by category, with fully free tools listed apart from freemium ones across ${FREE_CATS.length} areas. Want top picks? See the best free AI tools.`,
     ),
     extraHtml:
-      `<p style="font-size:15px;color:#475569">Some of these cost nothing at all. The rest are freemium — a real free tier with paid plans above it. Most directories blur the two; every page here keeps them apart, with the count for each.</p>` +
+      `<p style="font-size:15px;color:#475569">Some of these cost nothing at all. The rest are freemium: a free tier with paid plans above it. Most directories blur the two; every page here keeps them apart, with the count for each. Looking for a short list instead? See the <a href="/best-free-ai-tools.html">best free AI tools</a>.</p>` +
       `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${FREE_CATS.map(
         (c) =>
           // "AI tools" sits outside the link: category names here already run
@@ -637,7 +750,11 @@ const FREE_ROUTES = [
           `<li><a href="/free/${c.slug}">Free ${esc(c.name)}</a>${
             suffixFor(c.name, true) ? ' ' + suffixFor(c.name, true) : ''
           } — ${c.tools.length} tools, ${c.fullyFree.length} fully free</li>`,
-      ).join('')}</ul>`,
+      ).join('')}</ul>` +
+      `<h2 style="font-size:20px;margin:28px 0 10px">Frequently asked questions</h2>` +
+      freeHubFaqs
+        .map((f) => `<h3 style="font-size:16px;margin:16px 0 4px">${esc(f.q)}</h3><p style="font-size:15px;color:#475569">${esc(f.a)}</p>`)
+        .join(''),
   },
   ...FREE_CATS.map((c) => ({
     path: `/free/${c.slug}`,
@@ -666,7 +783,7 @@ const FREE_ROUTES = [
     */
     description: clamp(
       (() => {
-        const label = `${c.name.toLowerCase()} ${suffixFor(c.name, true)}`.replace(/ {2,}/g, ' ').trim();
+        const label = proseLabel(c.name); // keeps "AI" upper-case, unlike toLowerCase()
         const names = c.tools.slice(0, 3).map((t) => t.name).join(', ');
         return c.fullyFree.length
           ? `${c.tools.length} free ${label} — ${c.fullyFree.length} completely free, ${c.freemium.length} with a real free tier. ${names} and more, compared.`
@@ -687,7 +804,8 @@ const FREE_ROUTES = [
           `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${c.freemium
             .map(toolLine)
             .join('')}</ul>`
-        : ''),
+        : '') +
+      `<p style="font-size:15px;color:#475569">Want a short, sourced list instead? See the <a href="/best-free-ai-tools.html">best free AI tools</a>.</p>`,
   })),
 ];
 
@@ -802,7 +920,10 @@ const routes = [
   // Tool pages
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,
-    heading: `${t.name} Review`,
+    // Must read the same as the H1 pages/ToolDetail.tsx renders. The static copy
+    // used to say "<name> Review" on every tool page: a mismatch with the rendered
+    // page and a promise of a review the page does not contain.
+    heading: `${t.name}: Features, Pricing & Alternatives`,
     title: pickTitle([
       `${t.name} (${YEAR}) — Features, Pricing and the Best Alternatives`,
       `${t.name} (${YEAR}) — Features, Pricing and Alternatives`,
@@ -860,7 +981,7 @@ const routes = [
       const title = alts.length
         ? `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} alternatives</h2>`
         : '';
-      return `${title}${catLink}${list}${altPage}${compare}`;
+      return `${altToolBlockHtml(t)}${title}${catLink}${list}${altPage}${compare}`;
     })(),
   })),
   // Category pages
@@ -878,19 +999,19 @@ const routes = [
     const toolsInCat = toolsForCategory(c.name);
     return {
       path: `/category/${slugify(c.name)}`,
-      heading: `Best ${c.name} AI Tools`,
+      heading: `Best ${categoryLabel(c.name)}`,
       title: pickTitle([
-        `${n} Best ${c.name} AI Tools to Try in ${YEAR}, Compared`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared & Priced`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Compared Side by Side`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Free and Paid, Compared`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) | AI Master Tools`,
-        `${n} Best ${c.name} AI Tools (${YEAR}) — Free and Paid`,
-        `${n} Best ${c.name} AI Tools Compared (${YEAR})`,
-        `${n} Best ${c.name} AI Tools (${YEAR})`,
+        `${n} Best ${categoryLabel(c.name)} to Try in ${YEAR}, Compared`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR}) — Compared & Priced`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR}) — Compared Side by Side`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR}) — Free and Paid, Compared`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR}) | AI Master Tools`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR}) — Free and Paid`,
+        `${n} Best ${categoryLabel(c.name)} Compared (${YEAR})`,
+        `${n} Best ${categoryLabel(c.name)} (${YEAR})`,
       ], `/category/${slugify(c.name)}`),
       keywords: `best ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} AI tools, ${c.name.toLowerCase()} tools, ${c.name} AI, free ${c.name.toLowerCase()} AI tools`,
-      description: clamp(`Browse ${n} ${c.name.toLowerCase()} AI tools with pricing and what each one is for. Filter by free, freemium or paid and compare any two side by side.`),
+      description: clamp(`Browse ${n} ${proseLabel(c.name)} with pricing and what each one is for. Filter by free, freemium or paid and compare any two side by side.`),
       extraHtml: toolsInCat.length
         ? `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${toolsInCat
             .map((t) => `<li><a href="/tool/${esc(t.id)}"><strong>${esc(t.name)}</strong></a> — ${esc(clamp(t.description || t.longDescription || '', 100))}</li>`)
@@ -932,7 +1053,13 @@ const routes = [
  * other route. It also can't go stale again — this moves with the catalog on
  * every future build instead of needing a manual find-and-replace.
  */
-const template = readFileSync(join(DIST, 'index.html'), 'utf8').replaceAll('640+', `${TOOLS.length}+`);
+// "(2026)" and "best AI tools 2026" are hardcoded in index.html; swap in the build
+// year so the home page's title and OG title move with every other title.
+const template = readFileSync(join(DIST, 'index.html'), 'utf8')
+  .replaceAll('640+', `${TOOLS.length}+`)
+  .replaceAll('49 categories', `${CATEGORIES.length} categories`)
+  .replaceAll('(2026)', `(${YEAR})`)
+  .replaceAll('best AI tools 2026', `best AI tools ${YEAR}`);
 writeFileSync(join(DIST, 'index.html'), template);
 
 let n = 0;
@@ -1013,7 +1140,9 @@ for (const route of routes) {
   const heading = esc(route.heading || route.title.split(/ [|—] /)[0]);
   // Convert the generic <noscript> h1 to a paragraph so the injected #root h1
   // below is the single, per-route h1.
-  html = html.replace(/<h1>AI Master Tools[^<]*<\/h1>/, `<p style="font-size:20px;font-weight:700">${heading}</p>`);
+  // Anchored on the <noscript> that opens with the H1, not on the H1's wording, so
+  // editing that sentence in index.html cannot silently put a second H1 on every page.
+  html = html.replace(/(<noscript>\s*)<h1>[^<]*<\/h1>/, `$1<p style="font-size:20px;font-weight:700">${heading}</p>`);
   // Every top-level page, not just four of them. The nav is the only link
   // most of these hubs get: /discover, /find, /prompts, /workflows, /free,
   // /earn, /collections, /ai-shopping and the legal pages each sat at zero
@@ -1029,6 +1158,7 @@ for (const route of routes) {
       ['/discover', 'Discover'],
       ['/find', 'Tool finder'],
       ['/free', 'Free AI tools'],
+      ['/best-free-ai-tools.html', 'Best free AI tools'],
       ['/prompts', 'Prompts'],
       ['/workflows', 'Workflows'],
       ['/earn', 'Earn online'],
@@ -1051,7 +1181,9 @@ for (const route of routes) {
   // baked into the static file rather than left to appear only after React
   // hydrates. See toolJsonLd() above for what it does and does not claim.
   if (route.jsonLd) {
-    const script = `<script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script>`;
+    const script = `<script type="application/ld+json"${
+      route.jsonLdReplacedOnHydrate ? ' data-replaced-on-hydrate="true"' : ''
+    }>${JSON.stringify(route.jsonLd)}</script>`;
     html = html.replace('</head>', `${script}\n  </head>`);
   }
 

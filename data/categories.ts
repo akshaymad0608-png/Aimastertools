@@ -387,14 +387,6 @@ export const CATEGORY_META = [
     "bg": "#EAF3DE",
     "color": "#3B6D11",
     "emoji": "🚀"
-},
-  {
-    "id": "Personal Assistant",
-    "name": "Personal Assistant",
-    "icon": "ti-headphone-alt",
-    "bg": "#EEEDFE",
-    "color": "#534AB7",
-    "emoji": "🙋"
 }
 ];
 

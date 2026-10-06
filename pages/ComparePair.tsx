@@ -10,6 +10,7 @@ import { findPair, COMPARISON_PAIRS } from '../utils/pairs';
 import { slugify } from '../utils/slug';
 import { breadcrumbSchema, faqSchema, absoluteUrl } from '../utils/seo';
 import { Tool } from '../types';
+import { YEAR } from '../utils/year';
 
 /** Rows are declared once so both columns are guaranteed to line up. */
 const ROWS: { label: string; get: (t: Tool) => React.ReactNode; raw: (t: Tool) => string }[] = [
@@ -106,7 +107,7 @@ const ComparePair: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`${a.name} vs ${b.name} (2026) — Pricing, Ratings & Which to Pick`}
+        title={`${a.name} vs ${b.name} (${YEAR}) — Pricing, Ratings & Which to Pick`}
         description={`${a.name} vs ${b.name} compared side by side: pricing, ratings, what each is good at, and which one suits your job. Both are ${category} tools.`}
         url={`/compare/${pair.slug}`}
         // Templated from the tool records; see scripts/generate-sitemap.mjs.

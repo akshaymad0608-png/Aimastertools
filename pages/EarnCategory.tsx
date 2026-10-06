@@ -6,8 +6,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { EARN_CATEGORIES } from '../data/earn';
 import { SITE, absoluteUrl } from '../utils/seo';
+import { YEAR } from '../utils/year';
 
-const CURRENT_YEAR = new Date().getFullYear();
+const CURRENT_YEAR = YEAR;
 const clean = (name: string) => name.replace(/\s*\([^)]*\)/, '').trim();
 
 const EarnCategory: React.FC = () => {

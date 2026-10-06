@@ -28,6 +28,7 @@ const COLUMNS = [
       { label: 'AI Shopping', to: '/ai-shopping' },
       { label: 'Find a tool', to: '/find' },
       { label: 'Free tools', to: '/free' },
+      { label: 'Best free AI tools', to: '/best-free-ai-tools.html' },
       { label: 'Earn online', to: '/earn' },
       { label: 'Saved tools', to: '/bookmarks' },
       { label: 'Blog', to: '/blog' },
@@ -106,12 +107,22 @@ const Footer: React.FC = () => {
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      className="text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.to.endsWith('.html') ? (
+                      // A static page outside the SPA: a router <Link> would hand it to the not-found route.
+                      <a
+                        href={link.to}
+                        className="text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.to}
+                        className="text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

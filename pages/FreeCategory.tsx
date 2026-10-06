@@ -7,6 +7,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import SEO from '../components/SEO';
 import { freeCategories, findFreeCategory } from '../utils/freeTools';
 import { itemListSchema } from '../utils/seo';
+import { suffixFor } from '../utils/categoryLabel.mjs';
+import { YEAR } from '../utils/year';
 
 /**
  * One category's free tools, with the free ones and the freemium ones in
@@ -14,17 +16,6 @@ import { itemListSchema } from '../utils/seo';
  * whole reason this page exists next to /category/:slug — same catalogue,
  * a question the category page does not answer.
  */
-/**
- * What to append after a category name. Some already end in "Tools" ("AI
- * Ecommerce Tools"), some already carry "AI" ("AI Chatbots & Assistants"), some
- * carry neither ("3D & Animation") — a fixed suffix stutters on the first two.
- */
-const suffixFor = (name: string, lower = false) => {
-  const t = lower ? 'tools' : 'Tools';
-  if (/tools?$/i.test(name)) return '';
-  return /\bAI\b/.test(name) ? t : `AI ${t}`;
-};
-
 const FreeCategory: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const category = useMemo(() => findFreeCategory(slug), [slug]);
@@ -35,7 +26,7 @@ const FreeCategory: React.FC = () => {
 
   if (!category) return <Navigate to="/free" replace />;
 
-  const year = new Date().getFullYear();
+  const year = YEAR;
   const { name, tools, fullyFree, freemium } = category;
 
   const schema = [
@@ -163,6 +154,13 @@ const FreeCategory: React.FC = () => {
         >
           See every {name} tool, free or paid <ArrowRight size={14} />
         </Link>
+        <p className="mt-4 text-sm text-muted">
+          Want a short, sourced list instead? See the{' '}
+          <a href="/best-free-ai-tools.html" className="text-signal underline underline-offset-4">
+            best free AI tools
+          </a>
+          .
+        </p>
       </nav>
     </div>
   );

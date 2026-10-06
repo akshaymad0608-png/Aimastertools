@@ -12,6 +12,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -59,18 +60,43 @@ const lastChanged = (relPaths) => {
   return newest;
 };
 
-/* ------------------------------------------------- what the previous run -- */
+/* ----------------------------------------------------- lastmod manifest -- */
 
-const previous = new Map();
-{
-  const xml = read('public/sitemap.xml');
-  const re = /<url>\s*<loc>([^<]+)<\/loc>\s*(?:<lastmod>([^<]*)<\/lastmod>)?/g;
-  let m;
-  while ((m = re.exec(xml))) {
-    const loc = m[1].replace(SITE, '');
-    previous.set(loc, m[2] || '');
+/**
+ * <lastmod> comes from data/sitemap-lastmod.json, not from git.
+ *
+ * It used to be `git log -1` on the source files, with the previous sitemap as
+ * a fallback. Vercel builds from a shallow clone, where git stamps HEAD on every
+ * path, so that code deliberately refuses to run there — and the fallback
+ * (public/sitemap.xml) is gitignored and so never exists on a fresh build. The
+ * result: no URL had a <lastmod> in production.
+ *
+ * The manifest stores, per URL, a hash of the content the page is built from and
+ * the date that hash was first seen. Unchanged hash = keep the committed date;
+ * changed or new hash = today. Running the build locally updates the file, and
+ * CI fails if it is out of date, so the dates in production are the dates the
+ * content really changed — not the date of the last deploy.
+ */
+const MANIFEST_PATH = resolve(ROOT, 'data/sitemap-lastmod.json');
+const manifest = (() => {
+  try {
+    return JSON.parse(readFileSync(MANIFEST_PATH, 'utf8'));
+  } catch {
+    return {};
   }
-}
+})();
+const TODAY = process.env.SITEMAP_TODAY || new Date().toISOString().slice(0, 10);
+const sha = (value) => createHash('sha1').update(value).digest('hex').slice(0, 16);
+
+// Code files change constantly without changing what a visitor reads.
+const CODE_ONLY = new Set(['prerender.mjs', 'App.tsx']);
+const fileHash = (rels) =>
+  sha(
+    (rels || [])
+      .filter((p) => !CODE_ONLY.has(p))
+      .map((p) => read(p))
+      .join('\u0000'),
+  );
 
 /** Collect every value of `key` in a data file, de-duplicated, order preserved. */
 const pluck = (source, key) => {
@@ -124,6 +150,20 @@ const slugify = (v) =>
     .replace(/\+/g, ' plus ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+const altEditorial = (() => {
+  try {
+    return JSON.parse(read('data/editorial/alternatives.json'));
+  } catch {
+    return { pages: [], facts: {} };
+  }
+})();
+// Only subjects that have a canonical tool page, which is what prerender.mjs
+// builds the alternatives page from.
+const altPages = (altEditorial.pages || []).filter((p) => canonicalToolIds.includes(p.subject));
+if (altPages.length !== (altEditorial.pages || []).length) {
+  console.error('data/editorial/alternatives.json names a subject that is not a canonical tool id.');
+  process.exit(1);
+}
 const collectionSlugs = pluck(read('data/collections.ts'), 'slug');
 const blogSlugs = pluck(read('data/blog.ts') || read('data/blogs.ts'), 'slug');
 /**
@@ -156,7 +196,14 @@ const toolRecords = (() => {
   const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
   return eval(src.slice(start, src.indexOf('\n];', start) + 2))
     .filter(Boolean)
-    .map((t) => ({ id: t.id, category: t.category, rating: t.rating, pricing: t.pricing }));
+    .map((t) => ({
+      id: t.id,
+      category: t.category,
+      rating: t.rating,
+      pricing: t.pricing,
+      hash: sha(JSON.stringify(t)),
+      added: (t.dateAdded || '').slice(0, 10),
+    }));
 })();
 
 // Pair from canonical tools only — the same list the tool URLs below use.
@@ -284,12 +331,14 @@ const urls = [
     changefreq: 'weekly',
     priority: '0.7',
     from: SRC_TOOLS,
+    tool: id,
   })),
   ...categoryIds.map((id) => ({
     loc: `/category/${slugify(id)}`,
     changefreq: 'weekly',
     priority: '0.8',
     from: SRC_CATS,
+    category: id,
   })),
   ...earnCategoryIds.map((id) => ({
     loc: `/earn/${id}`,
@@ -320,11 +369,24 @@ const urls = [
   // and AdSense rejected the site for "low-value content". They stay reachable
   // for visitors but are noindex (prerender.mjs, components/SEO.tsx), so they
   // must not be advertised here either.
+  //
+  // The exception is the short whitelist in data/editorial/alternatives.json:
+  // pages with a curated list, sourced facts and a comparison table, for tools
+  // people are demonstrably searching alternatives for. Those are indexable
+  // (utils/altEditorial.mjs is the one definition) and listed here.
+  ...altPages.map((p) => ({
+    loc: `/alternatives/${slugify(p.subject)}-alternatives`,
+    changefreq: 'monthly',
+    priority: '0.6',
+    from: ['data/editorial/alternatives.json'],
+    alt: p.subject,
+  })),
   ...freeCategorySlugs.map((slug) => ({
     loc: `/free/${slug}`,
     changefreq: 'weekly',
     priority: '0.8',
     from: SRC_FREE,
+    category: categoryIds.find((id) => slugify(id) === slug),
   })),
 ];
 
@@ -334,10 +396,68 @@ const unique = urls.filter((u) => (seen.has(u.loc) ? false : seen.add(u.loc)));
 const esc = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+const toolById = new Map(toolRecords.map((t) => [t.id, t]));
+
+/** What the page at this URL is built from, reduced to a hash. */
+const identityOf = (u) => {
+  if (u.alt) {
+    const page = altEditorial.pages.find((p) => p.subject === u.alt);
+    const refs = [u.alt, ...page.alternatives.map((a) => a.ref)];
+    return sha(
+      JSON.stringify(page) +
+        '\u0000' +
+        JSON.stringify(refs.map((r) => altEditorial.facts[r] || null)) +
+        '\u0000' +
+        refs.map((r) => toolById.get(r)?.hash || '').join('|'),
+    );
+  }
+  if (u.tool) return toolById.get(u.tool)?.hash || fileHash(u.from);
+  if (u.category) {
+    const inCat = toolRecords.filter((t) => t.category === u.category).map((t) => `${t.id}:${t.hash}`);
+    return sha(`${u.category}\u0000${inCat.sort().join('|')}`);
+  }
+  return fileHash(u.from);
+};
+
+/** First-seen date for a URL with no manifest entry yet: the best honest source. */
+const bootstrapDate = (u) => {
+  if (u.alt) return altEditorial.checkedAt || '';
+  if (u.tool) return toolById.get(u.tool)?.added || '';
+  if (u.category) {
+    const dates = toolRecords.filter((t) => t.category === u.category).map((t) => t.added).filter(Boolean);
+    return dates.sort().pop() || '';
+  }
+  return lastChanged(u.from || []);
+};
+
+const nextManifest = {};
+let stamped = 0;
 const entries = unique.map((u) => {
-  const lastmod = lastChanged(u.from || []) || previous.get(u.loc) || '';
+  const hash = identityOf(u);
+  const known = manifest[u.loc];
+  let lastmod;
+  if (known && known.hash === hash && known.lastmod) {
+    lastmod = known.lastmod;
+  } else if (!known && bootstrapDate(u)) {
+    lastmod = bootstrapDate(u);
+  } else {
+    lastmod = TODAY; // the content changed (or nothing better is known)
+    stamped++;
+  }
+  nextManifest[u.loc] = { hash, lastmod };
   return { ...u, lastmod };
 });
+
+// Sorted, so the file only shows a diff when a date really moved.
+const manifestJson =
+  JSON.stringify(
+    Object.fromEntries(Object.keys(nextManifest).sort().map((k) => [k, nextManifest[k]])),
+    null,
+    1,
+  ) + '\n';
+if (manifestJson !== (existsSync(MANIFEST_PATH) ? readFileSync(MANIFEST_PATH, 'utf8') : '')) {
+  writeFileSync(MANIFEST_PATH, manifestJson, 'utf8');
+}
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -363,8 +483,12 @@ console.log(
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
-  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
+  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length - altPages.length} (${altPages.length} curated alternatives pages are indexed)`,
 );
 console.log(
-  `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,
+  `  ${dated} with lastmod (${stamped} stamped ${TODAY} because their content changed), manifest data/sitemap-lastmod.json`,
 );
+if (dated < entries.length * 0.95) {
+  console.error(`  Sitemap aborted: only ${dated}/${entries.length} URLs have a lastmod.`);
+  process.exit(1);
+}

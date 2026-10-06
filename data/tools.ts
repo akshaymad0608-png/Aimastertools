@@ -10051,12 +10051,12 @@ const _MOCK_TOOLS: Tool[] = [
     },
     {
         "id": "pexo",
-        "name": "PEXO",
-        "description": "AI-powered creative and design assistant.",
-        "longDescription": "PEXO helps users create stunning visuals and designs using advanced AI features.",
-        "category": "Image & Art Generation",
-        "url": "https://pexo.example.com",
-        "domain": "pexo.example.com",
+        "name": "Pexo",
+        "description": "AI video agent that turns a plain-language idea into a finished video.",
+        "longDescription": "Pexo offers text-to-video, image-to-video, AI avatars, image generation and music generation, and picks the underlying AI models for you.",
+        "category": "Video & Audio Generation",
+        "url": "https://pexo.ai",
+        "domain": "pexo.ai",
         "brandColor": "#2A5DEB",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Freemium",
@@ -10064,40 +10064,14 @@ const _MOCK_TOOLS: Tool[] = [
         "featured": false,
         "dateAdded": "2026-05-19T07:40:05.455Z",
         "tags": [
-            "Design",
-            "Creative",
+            "Video",
+            "AI agent",
             "Generative AI"
         ],
         "useCases": [
-            "Marketing assets",
-            "Social media graphics"
-        ],
-        "launchYear": 2024
-    },
-    {
-        "id": "magica",
-        "name": "MAGICa",
-        "description": "Magic AI tools for quick image manipulation.",
-        "longDescription": "MAGICa provides magical AI tools for instant image generation and editing.",
-        "category": "Image & Art Generation",
-        "url": "https://magica.example.com",
-        "domain": "magica.example.com",
-        "brandColor": "#FF007F",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-02-17T16:10:40.814Z",
-        "tags": [
-            "Editing",
-            "Manipulation",
-            "Magic"
-        ],
-        "useCases": [
-            "Photo editing",
-            "Rapid prototyping"
-        ],
-        "launchYear": 2023
+            "Marketing videos",
+            "Social media clips"
+        ]
     },
     {
         "id": "dzine",
@@ -10125,56 +10099,6 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2024
     },
     {
-        "id": "holo",
-        "name": "Holo",
-        "description": "Holographic and 3D AI generator.",
-        "longDescription": "Holo uses deep learning to generate 3D models and holographic displays from 2D images.",
-        "category": "3D & Animation",
-        "url": "https://holo.example.com",
-        "domain": "holo.example.com",
-        "brandColor": "#00E5FF",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Paid",
-        "rating": 4.4,
-        "featured": false,
-        "dateAdded": "2026-03-14T17:26:15.366Z",
-        "tags": [
-            "3D",
-            "Hologram",
-            "Modeling"
-        ],
-        "useCases": [
-            "Game development",
-            "AR/VR assets"
-        ],
-        "launchYear": 2023
-    },
-    {
-        "id": "ai-overview-optimizer",
-        "name": "AI Overview Optimizer",
-        "description": "Optimize your content for AI search overviews.",
-        "longDescription": "AI Overview Optimizer analyzes your content to ensure it is frequently cited by AI search engines like Google's SGE.",
-        "category": "SEO & Marketing Tools",
-        "url": "https://overviewoptimizer.example.com",
-        "domain": "overviewoptimizer.example.com",
-        "brandColor": "#FF5722",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Paid",
-        "rating": 4.8,
-        "featured": false,
-        "dateAdded": "2026-04-01T14:20:01.567Z",
-        "tags": [
-            "SEO",
-            "AEO",
-            "Search"
-        ],
-        "useCases": [
-            "Content optimization",
-            "AI rankings"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "capcut",
         "name": "CapCut",
         "description": "Versatile video editor with powerful AI tools.",
@@ -10198,31 +10122,6 @@ const _MOCK_TOOLS: Tool[] = [
             "YouTube Shorts"
         ],
         "launchYear": 2020
-    },
-    {
-        "id": "pixmax-ai",
-        "name": "Pixmax AI",
-        "description": "High-resolution AI image upscaling and enhancement.",
-        "longDescription": "Pixmax AI provides advanced algorithms to upscale, denoise, and enhance images without losing quality.",
-        "category": "Image & Art Generation",
-        "url": "https://pixmax.example.com",
-        "domain": "pixmax.example.com",
-        "brandColor": "#1E88E5",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-03-25T12:52:22.857Z",
-        "tags": [
-            "Upscaler",
-            "Enhancer",
-            "Photography"
-        ],
-        "useCases": [
-            "Restoring old photos",
-            "Print preparation"
-        ],
-        "launchYear": 2022
     },
     {
         "id": "terabox-ai",
@@ -10325,38 +10224,13 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2012
     },
     {
-        "id": "clico",
-        "name": "Clico",
-        "description": "AI-powered conversion rate optimization platform.",
-        "longDescription": "Clico uses AI to analyze user behavior dynamically and optimize website layouts and copy for maximum conversion.",
-        "category": "SEO & Marketing Tools",
-        "url": "https://clico.example.com",
-        "domain": "clico.example.com",
-        "brandColor": "#8B5CF6",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Paid",
-        "rating": 4.5,
-        "featured": false,
-        "dateAdded": "2026-05-09T18:00:33.401Z",
-        "tags": [
-            "CRO",
-            "Analytics",
-            "Optimization"
-        ],
-        "useCases": [
-            "Landing page testing",
-            "E-commerce sales"
-        ],
-        "launchYear": 2023
-    },
-    {
         "id": "i10x",
         "name": "i10x",
-        "description": "AI tool to boost developer productivity by 10x.",
-        "longDescription": "i10x integrates with your IDE to provide hyper-contextual code suggestions, tests, and refactoring tips.",
-        "category": "Code & Development",
-        "url": "https://i10x.example.com",
-        "domain": "i10x.example.com",
+        "description": "All-in-one AI workspace with access to models such as ChatGPT, Claude and Gemini under one subscription.",
+        "longDescription": "i10x bundles access to multiple leading language models and a library of task-specific AI agents (writing, coding, marketing and more) in one workspace, so you can compare models side by side.",
+        "category": "AI Chatbots & Assistants",
+        "url": "https://i10x.ai",
+        "domain": "i10x.ai",
         "brandColor": "#10B981",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
         "pricing": "Paid",
@@ -10364,15 +10238,14 @@ const _MOCK_TOOLS: Tool[] = [
         "featured": false,
         "dateAdded": "2026-04-17T05:46:52.508Z",
         "tags": [
-            "Coding Assistant",
-            "Developer Tool",
+            "AI workspace",
+            "Multi-model",
             "Productivity"
         ],
         "useCases": [
-            "Faster coding",
-            "Automated testing"
-        ],
-        "launchYear": 2024
+            "Compare AI models in one place",
+            "Replace several AI subscriptions"
+        ]
     },
     {
         "id": "manychat-ai",
@@ -10475,54 +10348,28 @@ const _MOCK_TOOLS: Tool[] = [
         "launchYear": 2023
     },
     {
-        "id": "whisper-flow",
-        "name": "Wisper Flow",
-        "description": "Seamless dictation and voice workflow automation.",
-        "longDescription": "Wisper Flow allows you to dictate your thoughts and automatically routes them to notes, emails, or tasks using AI formatting.",
-        "category": "Productivity & Collaboration",
-        "url": "https://wisperflow.example.com",
-        "domain": "wisperflow.example.com",
-        "brandColor": "#14B8A6",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.5,
-        "featured": false,
-        "dateAdded": "2026-04-14T20:23:41.893Z",
-        "tags": [
-            "Dictation",
-            "Voice to Text",
-            "Workflow"
-        ],
-        "useCases": [
-            "Meeting notes",
-            "Email drafting via voice"
-        ],
-        "launchYear": 2024
-    },
-    {
         "id": "novamira",
         "name": "Novamira",
-        "description": "Next-gen AI assistant for immersive world-building and writing.",
-        "longDescription": "Novamira specializes in maintaining deep lore, complex continuity, and dynamic character generation for authors and game designers.",
-        "category": "Text & Writing",
-        "url": "https://novamira.example.com",
-        "domain": "novamira.example.com",
+        "description": "Open-source WordPress plugin and MCP server that lets AI coding agents work directly inside a WordPress site.",
+        "longDescription": "Novamira runs inside the WordPress PHP process and gives a connected AI agent access to the site's database, files, active plugins and theme structure. It works with MCP-compatible clients such as Claude Code, Cursor and VS Code.",
+        "category": "Code & Development",
+        "url": "https://novamira.ai",
+        "domain": "novamira.ai",
         "brandColor": "#818CF8",
         "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Paid",
+        "pricing": "Open Source",
         "rating": 4.8,
         "featured": false,
         "dateAdded": "2026-03-20T20:43:07.017Z",
         "tags": [
-            "Worldbuilding",
-            "Storytelling",
-            "Lore"
+            "WordPress",
+            "MCP",
+            "AI agents"
         ],
         "useCases": [
-            "Novel writing",
-            "Tabletop RPG campaigns"
-        ],
-        "launchYear": 2024
+            "Let an AI agent edit a WordPress site",
+            "Connect Claude Code or Cursor to WordPress"
+        ]
     },
     {
         "id": "pictory",
@@ -10548,31 +10395,6 @@ const _MOCK_TOOLS: Tool[] = [
             "Faceless YouTube channels"
         ],
         "launchYear": 2020
-    },
-    {
-        "id": "aimey",
-        "name": "Aimey",
-        "description": "Your personal empathic AI conversational companion.",
-        "longDescription": "Aimey is designed to be a supportive active listener, helping people reflect on their day, practice mindfulness, and vent safely.",
-        "category": "Personal Assistant",
-        "url": "https://aimey.example.com",
-        "domain": "aimey.example.com",
-        "brandColor": "#F472B6",
-        "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-        "pricing": "Freemium",
-        "rating": 4.6,
-        "featured": false,
-        "dateAdded": "2026-03-07T06:56:24.251Z",
-        "tags": [
-            "Companion",
-            "Empathy",
-            "Wellness"
-        ],
-        "useCases": [
-            "Daily reflection",
-            "Stress management"
-        ],
-        "launchYear": 2023
     },
     {
         "id": "designrr",

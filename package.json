@@ -11,7 +11,7 @@
     "seo:gsc": "node scripts/gsc-analyze.mjs",
     "seo:report": "node scripts/seo-validate.mjs --json reports/seo-validate.json --md reports/seo-validate.md --no-fail && node scripts/seo-report.mjs",
     "dev": "tsx server.ts",
-    "build": "node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && vite build && node prerender.mjs && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "node scripts/build-best-free.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && vite build && node prerender.mjs && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "preview": "vite preview",
     "start": "node dist/server.cjs",
     "lint": "tsc --noEmit",
@@ -19,7 +19,13 @@
     "audit:links": "node scripts/tests/audit-affiliate-links.mjs",
     "test:intent": "node scripts/tests/test-intent.mjs",
     "test:outbound": "node scripts/tests/test-outbound.mjs",
-    "check": "npm run lint && npm run test:intent && npm run test:outbound && npm run audit:links"
+    "test:data": "node scripts/tests/test-data-integrity.mjs",
+    "test:labels": "node scripts/tests/test-category-label.mjs",
+    "build:bestfree": "node scripts/build-best-free.mjs",
+    "test:bestfree": "node scripts/tests/test-best-free.mjs",
+    "test:alternatives": "node scripts/tests/test-alternatives.mjs",
+    "test:sitemap": "node scripts/tests/test-sitemap-lastmod.mjs",
+    "check": "npm run lint && npm run test:intent && npm run test:outbound && npm run audit:links && npm run test:data && npm run test:labels && npm run test:bestfree && npm run test:alternatives && npm run test:sitemap"
   },
   "dependencies": {
     "@google/genai": "^1.43.0",

@@ -6,6 +6,9 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import SEO from '../components/SEO';
 import { CategoryIcon } from '../components/CategoryIcon';
 import { freeCategories, freeTotals } from '../utils/freeTools';
+import { YEAR } from '../utils/year';
+import hub from '../data/editorial/free-hub.json';
+import best from '../data/editorial/best-free.json';
 
 /**
  * The hub for everything free in the catalogue.
@@ -18,45 +21,31 @@ const FreeTools: React.FC = () => {
   const cats = useMemo(() => freeCategories(), []);
   const { categories } = useMemo(() => freeTotals(), []);
 
+  // One text for the visible FAQ, the FAQPage JSON-LD and the static HTML
+  // (prerender.mjs reads the same file).
+  const faqs = useMemo(
+    () => hub.faqs.map((f) => ({ q: f.q, a: f.a.replaceAll('{{BEST_FREE_COUNT}}', String(best.tools.length)) })),
+    [],
+  );
+
   const schema = [
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Are these AI tools completely free?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Some are free to use outright; the rest are freemium — a free tier that is genuinely usable, with paid plans above it. Every category page separates the two and gives the count for each, so you know which is which before you sign up.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is the difference between free and freemium AI tools?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'A free tool costs nothing to use. A freemium tool gives you a free tier with limits — generations per month, export quality, seats — and charges once you pass them. Both are worth knowing about; being told one is the other is what wastes your time.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Do free AI tools need a sign-up?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Most do, a few do not. Open the tool page for the ones you are considering — each lists the pricing model and links straight to the source so you can check before creating an account.',
-          },
-        },
-      ],
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
     },
   ];
 
   return (
     <div className="mx-auto max-w-shell px-4 py-8 sm:px-6">
       <SEO
-        title={`Free AI Tools (${new Date().getFullYear()}) — ${categories} Categories, Free & Freemium Split`}
-        description={`AI tools you can use without paying, across ${categories} categories — the genuinely free ones listed apart from the ones with a free tier, so you know which is which before signing up.`}
-        keywords={['free AI tools', 'best free AI tools', 'freemium AI tools', 'AI tools no cost']}
+        title={`Free AI Tools by Category (${YEAR})`}
+        description={`Browse free AI tools by category, with fully free tools listed apart from freemium ones across ${categories} areas. Want top picks? See the best free AI tools.`}
+        keywords={['free AI tools by category', 'free AI tools list', 'freemium AI tools']}
         url="/free"
         schema={schema}
       />
@@ -65,17 +54,37 @@ const FreeTools: React.FC = () => {
 
       <PageHeader
         eyebrow="Free"
-        title="Free AI tools, honestly labelled"
+        title="Free AI tools by category"
         lede={
           <>
-            Some cost nothing at all. The rest are freemium — a real
-            free tier with paid plans above it. Most directories blur the two; every page here keeps
-            them apart, so you know what you are signing up for.
+            Some cost nothing at all. The rest are freemium: a free tier with paid plans above it. Most
+            directories blur the two; every page here keeps them apart, so you know what you are signing up
+            for. Looking for a short list instead? See the{' '}
+            <a href="/best-free-ai-tools.html" className="text-signal underline underline-offset-4">
+              best free AI tools
+            </a>
+            .
           </>
         }
       />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <a
+        href="/best-free-ai-tools.html"
+        className="group mt-10 flex items-start gap-3 rounded-2xl border border-frame bg-panel p-5 transition-colors hover:border-signal/40"
+      >
+        <Gift size={18} className="mt-0.5 shrink-0 text-signal" />
+        <span className="min-w-0">
+          <span className="block font-semibold text-text group-hover:text-signal">
+            Best free AI tools: our {best.tools.length} picks
+          </span>
+          <span className="mt-1 block text-sm text-muted">
+            A short list with what each free plan includes, where it stops and where each detail came from.
+          </span>
+        </span>
+        <ArrowRight size={16} className="ml-auto mt-1 shrink-0 text-muted group-hover:text-signal" />
+      </a>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cats.map((c) => (
           <Link
             key={c.slug}
@@ -106,6 +115,20 @@ const FreeTools: React.FC = () => {
           straight to the source so you can check the current terms before you commit.
         </p>
       </div>
+
+      <section aria-labelledby="free-faq" className="mt-14">
+        <h2 id="free-faq" className="text-lg font-bold text-text">
+          Frequently asked questions
+        </h2>
+        <div className="mt-4 max-w-3xl divide-y divide-frame">
+          {faqs.map((f) => (
+            <div key={f.q} className="py-4">
+              <h3 className="font-semibold text-text">{f.q}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

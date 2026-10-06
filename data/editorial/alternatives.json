@@ -1,0 +1,584 @@
+{
+  "_comment": "Source of truth for the 12 indexable /alternatives/* pages (utils/altEditorial.mjs reads it for prerender.mjs, pages/AlternativesPage.tsx and scripts/generate-sitemap.mjs). Every other alternatives page stays noindex. Facts under 'facts' were taken from each vendor's own pages, listed under 'sources', as they read on 'checkedAt'; where a fact could not be confirmed from an official page it is left out rather than guessed, and no prices are quoted because they change. 'bestFor' and 'differs' are our editorial judgement, not vendor claims.",
+  "checkedAt": "2026-10-05",
+  "sourceNote": "Facts about access and free tiers come from each vendor's own pricing, help or about pages, linked under each tool. They were read through search extracts of those pages, not by loading the pages directly, so check the linked page for the current terms before relying on one. 'Best for' lines are editorial opinion.",
+  "externals": {
+    "ext:automatic1111": { "name": "AUTOMATIC1111 Stable Diffusion web UI", "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui" },
+    "ext:fooocus": { "name": "Fooocus", "url": "https://github.com/lllyasviel/Fooocus" },
+    "ext:upscayl": { "name": "Upscayl", "url": "https://upscayl.org/" },
+    "ext:topaz-gigapixel": { "name": "Topaz Gigapixel", "url": "https://www.topazlabs.com/topaz-gigapixel" },
+    "ext:wordpress-mcp-adapter": { "name": "WordPress MCP Adapter", "url": "https://github.com/WordPress/mcp-adapter" },
+    "ext:wordpress-com-mcp": { "name": "WordPress.com MCP server", "url": "https://wordpress.com/ai/mcp/" },
+    "ext:ai-engine": { "name": "AI Engine (WordPress plugin)", "url": "https://wordpress.org/plugins/ai-engine/" },
+    "ext:easy-mcp-ai": { "name": "Easy MCP AI (WordPress plugin)", "url": "https://wordpress.org/plugins/easy-mcp-ai/" }
+  },
+  "facts": {
+    "roadmap-sh": {
+      "what": "Community-curated roadmaps and study plans for developers, by role and by skill.",
+      "access": "The free plan includes one-time allowances for AI chats, AI courses, guides, roadmaps and quizzes; unlimited use of those features needs the paid Pro plan.",
+      "sources": [{ "label": "About roadmap.sh", "url": "https://roadmap.sh/about" }, { "label": "roadmap.sh premium features", "url": "https://roadmap.sh/premium" }]
+    },
+    "the-odin-project": {
+      "what": "A free, open-source web development curriculum that can be taken entirely online.",
+      "access": "The curriculum is free and open source. After the Foundations course there are two paths: Full Stack JavaScript and Full Stack Ruby on Rails.",
+      "sources": [{ "label": "About The Odin Project", "url": "https://www.theodinproject.com/about" }, { "label": "Full Stack JavaScript path", "url": "https://www.theodinproject.com/paths/full-stack-javascript" }]
+    },
+    "ibm-skillsbuild": {
+      "what": "IBM's free learning programme for adult learners, students and educators.",
+      "access": "IBM describes it as 100% free, with more than 1,000 online courses and shareable IBM-branded digital credentials on completion.",
+      "sources": [{ "label": "IBM SkillsBuild", "url": "https://skillsbuild.org/" }, { "label": "IBM SkillsBuild FAQ", "url": "https://skillsbuild.org/frequently-asked-questions" }]
+    },
+    "mit-opencourseware": {
+      "what": "A free online library of materials from MIT courses, including lecture notes, assignments, exams and many video lectures.",
+      "access": "Free with no registration or enrollment. MIT does not offer credit or certificates for using OpenCourseWare. Content can be reused for non-commercial purposes under a Creative Commons licence, with credit.",
+      "sources": [{ "label": "MIT OpenCourseWare: Get started", "url": "https://ocw.mit.edu/pages/get-started/" }, { "label": "About MIT OpenCourseWare", "url": "https://ocw.mit.edu/about/" }]
+    },
+    "phet-simulations": {
+      "what": "Interactive math and science simulations from the University of Colorado Boulder, founded in 2002 by Nobel laureate Carl Wieman.",
+      "access": "The simulations are free and open source, and run online or can be downloaded.",
+      "sources": [{ "label": "About PhET", "url": "https://phet.colorado.edu/en/about" }]
+    },
+    "codeforces": {
+      "what": "A competitive programming platform with regular rated contests.",
+      "access": "Rated rounds are split by rating: Div. 3 up to 1599, Div. 2 up to 2099 and Div. 1 from 1900, alongside Educational rounds and open Global rounds.",
+      "sources": [{ "label": "Codeforces contests", "url": "https://codeforces.com/contests" }, { "label": "Rated or not? (Codeforces blog)", "url": "https://codeforces.com/blog/entry/61906" }]
+    },
+    "freecodecamp": {
+      "what": "A nonprofit's browser-based curriculum where you learn by building projects.",
+      "access": "freeCodeCamp describes every aspect of it as 100% free, including courses, projects and certifications, and it operates as a 501(c)(3) public charity.",
+      "sources": [{ "label": "freeCodeCamp", "url": "https://www.freecodecamp.org/" }]
+    },
+    "cs50": {
+      "what": "Harvard's introduction to computer science and programming.",
+      "access": "Free to audit on edX. A free CS50 certificate requires at least 70% on every problem set plus the final project; a verified certificate from edX is an optional paid extra.",
+      "sources": [{ "label": "CS50 at Harvard", "url": "https://cs50.harvard.edu/" }]
+    },
+    "mdn": {
+      "what": "Mozilla's reference documentation for open web technologies such as HTML, CSS and JavaScript.",
+      "access": "Content is free and available under a Creative Commons Attribution-ShareAlike licence; the project is owned by Mozilla and developed with a volunteer community.",
+      "sources": [{ "label": "About MDN", "url": "https://developer.mozilla.org/en-US/about" }]
+    },
+    "w3schools": {
+      "what": "Tutorials, references and exercises for web languages.",
+      "access": "Tutorials, references and exercises are free; certifications and the W3Schools Plus subscription are paid.",
+      "sources": [{ "label": "W3Schools", "url": "https://www.w3schools.com/" }, { "label": "W3Schools certifications", "url": "https://campus.w3schools.com/" }]
+    },
+    "codecademy": {
+      "what": "Guided, in-browser coding courses and career paths.",
+      "access": "The free Basic plan covers courses labelled Free Course; Plus and Pro subscriptions unlock more of the catalogue.",
+      "sources": [{ "label": "Codecademy pricing", "url": "https://www.codecademy.com/pricing" }]
+    },
+    "microsoft-learn-ai": {
+      "what": "Microsoft's training modules and learning paths, including AI and Azure.",
+      "access": "Training is free and can be read without signing in; Microsoft certifications are earned by passing exams.",
+      "sources": [{ "label": "Microsoft Learn training", "url": "https://learn.microsoft.com/en-us/training/" }]
+    },
+    "kaggle": {
+      "what": "Short practical courses in Python, machine learning and data science.",
+      "access": "The courses are free of charge and certificates are available.",
+      "sources": [{ "label": "Kaggle Learn", "url": "https://www.kaggle.com/learn" }]
+    },
+    "coursera": {
+      "what": "Courses, certificates and degrees from universities and companies.",
+      "access": "Learners can preview the first module of nearly every course for free; finishing a course for a certificate is paid, and financial aid is available.",
+      "sources": [{ "label": "Coursera", "url": "https://www.coursera.org/" }]
+    },
+    "edx": {
+      "what": "University courses with an optional paid certificate track.",
+      "access": "Most courses can be audited for free: temporary access to materials, no graded assignments and no certificate. A verified certificate is a paid upgrade.",
+      "sources": [{ "label": "edX", "url": "https://www.edx.org/" }]
+    },
+    "datacamp": {
+      "what": "Interactive data and AI courses.",
+      "access": "The free plan covers the first chapter of courses; Premium unlocks the full library.",
+      "sources": [{ "label": "DataCamp pricing", "url": "https://www.datacamp.com/pricing" }]
+    },
+    "khan-academy": {
+      "what": "Free videos, articles and practice exercises from early maths through to college-level subjects.",
+      "access": "Free for learners, teachers and families; Khan Academy operates as a 501(c)(3) nonprofit.",
+      "sources": [{ "label": "Does it cost money to use Khan Academy?", "url": "https://support.khanacademy.org/hc/en-us/articles/202260114-Does-it-cost-money-to-use-Khan-Academy" }]
+    },
+    "openstax": {
+      "what": "Peer-reviewed, openly licensed textbooks from a Rice University nonprofit.",
+      "access": "Textbooks are free online and as PDF downloads under a Creative Commons licence, and most need no account. Low-cost print editions are available.",
+      "sources": [{ "label": "About OpenStax", "url": "https://openstax.org/about" }]
+    },
+    "nptel": {
+      "what": "Online courses from the IITs and IISc, with optional certification.",
+      "access": "Enrolling in and learning from courses is free; the proctored certification exam is optional and carries a fee.",
+      "sources": [{ "label": "About NPTEL", "url": "https://nptel.ac.in/aboutus" }]
+    },
+    "futurelearn": {
+      "what": "Short courses from universities and other providers.",
+      "access": "Free limited access lasts for the length of the course plus 14 days and does not include a certificate or the test steps; upgrading or subscribing adds certificates.",
+      "sources": [{ "label": "FutureLearn: limited access", "url": "https://futurelearn.com/info/faq/how-long-do-i-get-access-to-a-free-course-for" }]
+    },
+    "wolfram-demonstrations": {
+      "what": "A large collection of open, interactive demonstrations in maths, science and other subjects.",
+      "access": "The Demonstrations are free and their code is open; they run in the free Wolfram Player or in Wolfram products.",
+      "sources": [{ "label": "Wolfram Demonstrations Project", "url": "https://demonstrations.wolfram.com/" }]
+    },
+    "nasa-stem": {
+      "what": "NASA's classroom resources for students and educators.",
+      "access": "NASA publishes free lesson plans, activities and videos for K-12 students and educators.",
+      "sources": [{ "label": "NASA: for educators", "url": "https://www.nasa.gov/learning-resources/for-educators/" }]
+    },
+    "brilliant": {
+      "what": "Interactive lessons in maths, science and computer science.",
+      "access": "The free plan has daily limits: a couple of lessons or practice sets a day, worked through in order, with occasional ads. Premium removes those limits.",
+      "sources": [{ "label": "Brilliant: free vs Premium", "url": "https://brilliant.org/help/pricing-and-plans/what-s-the-difference-between-free-and-premium/" }]
+    },
+    "leetcode": {
+      "what": "Coding problems and weekly contests, widely used for interview practice.",
+      "access": "Free questions and articles with solutions; Premium adds exclusive questions and articles plus extra features. Contests need a free account.",
+      "sources": [{ "label": "What you get with LeetCode Premium", "url": "https://support.leetcode.com/hc/en-us/articles/360011884094-What-will-I-get-with-a-premium-subscription" }]
+    },
+    "atcoder": {
+      "what": "A Japanese programming contest site with weekly online contests.",
+      "access": "Contests come in several formats; the AtCoder Beginner Contest is a casual contest rated for 0 to 1999.",
+      "sources": [{ "label": "AtCoder", "url": "https://atcoder.jp/" }]
+    },
+    "codechef": {
+      "what": "A competitive programming community with monthly contests and practice problems.",
+      "access": "Contests are open to free and Pro users and need no separate registration; a free account covers practice problems, courses and contests.",
+      "sources": [{ "label": "CodeChef FAQ", "url": "https://www.codechef.com/faq" }]
+    },
+    "hackerrank": {
+      "what": "Practice challenges, contests and skill certifications for developers.",
+      "access": "Skill certifications are free for developers, and practice challenges are available with a developer account.",
+      "sources": [{ "label": "HackerRank skills verification", "url": "https://www.hackerrank.com/skills-verification" }]
+    },
+    "exercism": {
+      "what": "Coding exercises in many languages, with volunteer mentoring.",
+      "access": "Exercism describes itself as 100% free and is run as a not-for-profit; mentoring comes from volunteer mentors.",
+      "sources": [{ "label": "Exercism", "url": "https://exercism.org/" }]
+    },
+    "project-euler": {
+      "what": "A series of maths-flavoured programming problems.",
+      "access": "Registration is free and is only needed to track progress.",
+      "sources": [{ "label": "Project Euler", "url": "https://projecteuler.net/" }]
+    },
+    "qwen-chat": {
+      "what": "Alibaba's Qwen assistant, available on the web and in a mobile app.",
+      "access": "Described as free to use. Several Qwen model sizes are released as open weights under Apache 2.0, so some of them can also be run yourself.",
+      "sources": [{ "label": "Qwen", "url": "https://qwen.ai/" }, { "label": "Qwen3 announcement", "url": "https://qwenlm.github.io/blog/qwen3/" }]
+    },
+    "deepseek-chat": {
+      "what": "DeepSeek's chat assistant, on the web and as a mobile app.",
+      "access": "DeepSeek's own app announcement describes the app as completely free, with no ads or in-app purchases. That announcement dates from January 2025, so check current terms.",
+      "sources": [{ "label": "Introducing DeepSeek App", "url": "https://api-docs.deepseek.com/news/news250115/" }]
+    },
+    "kimi-ai": {
+      "what": "Moonshot AI's assistant, known for its focus on long context.",
+      "access": "",
+      "sources": []
+    },
+    "mistral-le-chat": {
+      "what": "Mistral's assistant, which the company now brands Mistral Vibe (formerly Le Chat).",
+      "access": "Mistral says a free plan covers most features, including recent models, image generation, document uploads and web search; the paid Pro plan raises the limits.",
+      "sources": [{ "label": "Mistral pricing", "url": "https://mistral.ai/pricing/" }, { "label": "Mistral Vibe (formerly Le Chat)", "url": "https://mistral.ai/products/vibe/" }]
+    },
+    "chatgpt": {
+      "what": "OpenAI's general-purpose assistant.",
+      "access": "The Free plan includes chat, web search, file uploads and image creation, with tighter usage limits than paid plans.",
+      "sources": [{ "label": "ChatGPT Free tier FAQ (OpenAI Help Center)", "url": "https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq" }]
+    },
+    "gemini": {
+      "what": "Google's assistant, built into Google's apps and services.",
+      "access": "The free plan includes image generation and editing, Deep Research, Gemini Live, Canvas and Gems, within standard usage limits.",
+      "sources": [{ "label": "Gemini Apps limits and upgrades", "url": "https://support.google.com/gemini/answer/16275805?hl=en" }]
+    },
+    "claude": {
+      "what": "Anthropic's assistant.",
+      "access": "The Free plan includes chat on web, desktop and mobile, web search, file creation, code execution, memory and Artifacts, within usage limits that reset on a rolling five-hour window.",
+      "sources": [{ "label": "Claude plans and pricing", "url": "https://claude.com/pricing" }]
+    },
+    "kiro": {
+      "what": "An agentic IDE from AWS that works from specs and plans.",
+      "access": "A perpetual Free tier includes a limited credit allowance and limited model access; paid tiers add more credits.",
+      "sources": [{ "label": "Kiro pricing", "url": "https://kiro.dev/pricing/" }]
+    },
+    "cursor": {
+      "what": "An AI-first code editor.",
+      "access": "The Hobby plan is free with limited Agent requests and no credit card required; Pro and higher tiers are paid.",
+      "sources": [{ "label": "Cursor pricing and plans", "url": "https://cursor.com/help/account-and-billing/pricing" }]
+    },
+    "github-copilot": {
+      "what": "GitHub's AI coding assistant, used inside editors such as VS Code.",
+      "access": "GitHub Copilot has a Free plan with monthly limits on code completions and chat requests; paid plans raise the limits.",
+      "sources": [{ "label": "GitHub Copilot plans", "url": "https://github.com/features/copilot/plans" }, { "label": "About individual Copilot plans (GitHub Docs)", "url": "https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits" }]
+    },
+    "windsurf": {
+      "what": "An agentic IDE (formerly Codeium).",
+      "access": "The Free plan includes a light quota to code with agents, limited model availability, unlimited inline edits and unlimited Tab completions.",
+      "sources": [{ "label": "Windsurf pricing", "url": "https://windsurf.com/pricing" }]
+    },
+    "cline": {
+      "what": "An open-source coding agent that works inside your editor.",
+      "access": "Cline itself is free and open source; you pay your chosen model provider directly with your own API key, or use local models.",
+      "sources": [{ "label": "Cline", "url": "https://cline.bot/" }]
+    },
+    "claude-code": {
+      "what": "Anthropic's coding agent for the terminal.",
+      "access": "There is no free tier: Claude Code needs a paid Claude plan or a Claude Console account billed at API rates.",
+      "sources": [{ "label": "Use Claude Code with your Pro or Max plan", "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" }]
+    },
+    "amazon-q": {
+      "what": "AWS's AI assistant for developers.",
+      "access": "A perpetual Free Tier with monthly limits is available to AWS IAM and AWS Builder ID users; the Pro tier adds higher limits.",
+      "sources": [{ "label": "Amazon Q Developer pricing", "url": "https://aws.amazon.com/q/developer/pricing/" }]
+    },
+    "zed": {
+      "what": "A fast code editor built in Rust with AI features.",
+      "access": "The editor is open source under GPL. The free Personal plan works with your own API keys or external agents; Zed Pro adds hosted models.",
+      "sources": [{ "label": "Zed pricing", "url": "https://zed.dev/pricing" }]
+    },
+    "magnific-ai": {
+      "what": "An upscaler that adds new detail while enlarging images.",
+      "access": "Magnific is sold through paid subscriptions with credit allowances. magnific.ai remains associated with existing (legacy) product access; new users and current pricing and subscription information are on magnific.com.",
+      "sources": [{ "label": "Magnific pricing", "url": "https://www.magnific.com/pricing" }]
+    },
+    "krea": {
+      "what": "An image generator with an enhancer and upscaler.",
+      "access": "The free plan includes a daily compute allowance, no credit card and basic upscaling; paid plans unlock higher-resolution upscalers.",
+      "sources": [{ "label": "Krea image enhancer", "url": "https://www.krea.ai/apps/enhance" }]
+    },
+    "leonardo-ai": {
+      "what": "A creative platform for image generation with a built-in upscaler.",
+      "access": "Free users get a daily allowance of 150 tokens that resets every 24 hours and does not roll over. Leonardo says the top 8x setting of its Pro Upscaler needs a paid subscription.",
+      "sources": [{ "label": "Tokens FAQ (Leonardo.Ai Help Center)", "url": "https://intercom.help/leonardo-ai/en/articles/9044700-tokens-frequently-asked-questions" }, { "label": "Leonardo Universal Upscaler", "url": "https://leonardo.ai/universal-upscaler" }]
+    },
+    "comfyui": {
+      "what": "An open-source, node-based interface for diffusion-model workflows.",
+      "access": "Open source. It runs locally and offline on Windows, Linux and macOS, or in the cloud.",
+      "sources": [{ "label": "ComfyUI on GitHub", "url": "https://github.com/comfy-org/comfyui" }]
+    },
+    "webui-forge": {
+      "what": "A faster, lower-memory fork of the AUTOMATIC1111 Stable Diffusion web UI.",
+      "access": "Free and open source, and runs on your own hardware.",
+      "sources": [{ "label": "stable-diffusion-webui-forge on GitHub", "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge" }]
+    },
+    "ext:automatic1111": {
+      "what": "The original open-source browser interface for Stable Diffusion.",
+      "access": "An open-source web UI built on Gradio, with text-to-image, image-to-image, inpainting, outpainting and upscaling.",
+      "sources": [{ "label": "AUTOMATIC1111 stable-diffusion-webui", "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui" }]
+    },
+    "ext:fooocus": {
+      "what": "A prompt-first image generator built on Stable Diffusion XL.",
+      "access": "Offline, open source and free. The project describes itself as in limited long-term support, with bug fixes only.",
+      "sources": [{ "label": "Fooocus on GitHub", "url": "https://github.com/lllyasviel/Fooocus" }]
+    },
+    "ext:upscayl": {
+      "what": "A free desktop app for upscaling images with AI models.",
+      "access": "Free and open source (the backend is AGPLv3) for Linux, macOS and Windows; it needs a Vulkan-compatible GPU and runs on your own computer.",
+      "sources": [{ "label": "Upscayl", "url": "https://upscayl.org/" }, { "label": "Upscayl on GitHub", "url": "https://github.com/upscayl/upscayl" }]
+    },
+    "ext:topaz-gigapixel": {
+      "what": "A desktop and web upscaler from Topaz Labs.",
+      "access": "The desktop app is sold by subscription, with a refund if you cancel within seven days; Topaz's web upscaler is free to try on a small number of images, for non-commercial use only.",
+      "sources": [{ "label": "Topaz Gigapixel", "url": "https://www.topazlabs.com/topaz-gigapixel" }, { "label": "Topaz Labs pricing", "url": "https://www.topazlabs.com/pricing" }]
+    },
+    "scenario-ai": {
+      "what": "A platform for generating game art, including models trained on your own style.",
+      "access": "There is a free plan with a daily credit allowance; free-plan outputs are for personal and evaluation use only. Paid plans include a commercial licence, and custom model training starts on the Pro plan.",
+      "sources": [{ "label": "Scenario pricing", "url": "https://www.scenario.com/pricing" }, { "label": "Scenario pricing and plans (help centre)", "url": "https://help.scenario.com/articles/4276871610-pricing-plans" }]
+    },
+    "meshy-ai": {
+      "what": "A text- and image-to-3D generator.",
+      "access": "There is a free plan with a monthly credit allowance and no credit card needed. A full generation uses a fixed number of credits, so the free allowance covers only a few full models a month.",
+      "sources": [{ "label": "Meshy pricing", "url": "https://www.meshy.ai/pricing" }, { "label": "Meshy pricing and credits", "url": "https://docs.meshy.ai/en/webapp/pricing" }]
+    },
+    "ludo-ai": {
+      "what": "A game-design and asset tool covering sprites, textures, icons, audio and more.",
+      "access": "There is a free trial with starter credits and no credit card; paid plans add more credits and features.",
+      "sources": [{ "label": "Ludo.ai pricing", "url": "https://ludo.ai/pricing" }]
+    },
+    "kaedim": {
+      "what": "An image-to-3D tool aimed at game production.",
+      "access": "Kaedim quotes custom plans rather than listing a public free plan; generations use credits, with higher quality levels costing more.",
+      "sources": [{ "label": "Kaedim FAQ", "url": "https://docs.kaedim3d.com/welcome/faq" }]
+    },
+    "novamira": {
+      "what": "An open-source WordPress plugin and MCP server that lets AI agents work inside a WordPress site.",
+      "access": "A free, open-source plugin from Ovation S.r.l. It runs inside the WordPress PHP process and gives connected MCP clients access to the database, filesystem, active plugins, theme structure and WP-CLI.",
+      "sources": [{ "label": "Novamira", "url": "https://novamira.ai/" }]
+    },
+    "ext:wordpress-mcp-adapter": {
+      "what": "The official WordPress project for exposing a site's capabilities to MCP clients.",
+      "access": "It adapts the Abilities API, introduced in WordPress 6.9, into MCP tools and resources. Local sites connect over STDIO through WP-CLI; public sites connect over HTTP using a remote proxy with application passwords or OAuth.",
+      "sources": [{ "label": "WordPress MCP Adapter", "url": "https://github.com/WordPress/mcp-adapter" }, { "label": "Introducing the WordPress MCP Adapter", "url": "https://developer.wordpress.org/news/2026/02/from-abilities-to-ai-agents-introducing-the-wordpress-mcp-adapter/" }]
+    },
+    "ext:wordpress-com-mcp": {
+      "what": "A hosted MCP endpoint for sites on WordPress.com.",
+      "access": "WordPress.com describes it as built into its paid plans, with 60+ tools covering posts, pages, plugins, themes, users, settings, media, comments and taxonomies.",
+      "sources": [{ "label": "WordPress.com MCP server", "url": "https://wordpress.com/ai/mcp/" }]
+    },
+    "ext:ai-engine": {
+      "what": "A WordPress plugin that adds chatbots and content tools and includes a built-in MCP server.",
+      "access": "The plugin is free, with chatbots, AI forms, content writing and an MCP server; a Pro version adds features.",
+      "sources": [{ "label": "AI Engine on WordPress.org", "url": "https://wordpress.org/plugins/ai-engine/" }]
+    },
+    "ext:easy-mcp-ai": {
+      "what": "A WordPress plugin that turns a site into an MCP server.",
+      "access": "A free plugin that its listing says includes 280+ MCP tools, OAuth 2.1 and an audit log.",
+      "sources": [{ "label": "Easy MCP AI on WordPress.org", "url": "https://wordpress.org/plugins/easy-mcp-ai/" }]
+    },
+    "10web": {
+      "what": "A managed AI website builder that produces WordPress sites.",
+      "access": "Generating a first site is free; full editing needs a 7-day Pro trial that is started with a credit card, and paid plans follow.",
+      "sources": [{ "label": "Get started for free on 10Web", "url": "https://help.10web.io/hc/en-us/articles/360021420139-Get-Started-for-Free-on-10Web" }]
+    }
+  },
+  "pages": [
+    {
+      "subject": "roadmap-sh",
+      "intro": "Roadmap.sh shows what to learn and in what order, but the learning itself happens somewhere else. If you want lessons, exercises or a full course to work through, these are the options we would check first. Many people use a roadmap alongside one of them rather than instead of it.",
+      "alternatives": [
+        { "ref": "freecodecamp", "bestFor": "Free, hands-on practice that ends in certifications", "differs": "You learn by building projects in the browser, where roadmap.sh points you to resources across the web." },
+        { "ref": "the-odin-project", "bestFor": "One structured path into full-stack web development", "differs": "A fixed curriculum with a set order, rather than a menu of roadmaps to choose from." },
+        { "ref": "cs50", "bestFor": "Computer science fundamentals before you specialise", "differs": "A university course, not a role-based roadmap." },
+        { "ref": "mdn", "bestFor": "Looking up how a web technology actually works", "differs": "A reference, not a course. It works best next to a roadmap or curriculum." },
+        { "ref": "kaggle", "bestFor": "Data science and machine learning basics in short lessons", "differs": "Short practical courses on one topic each, without a wider career map." },
+        { "ref": "codecademy", "bestFor": "Guided in-browser lessons with a free starting tier", "differs": "Only courses labelled Free Course are included on the free plan." }
+      ],
+      "pickIf": [
+        { "if": "you need to know what to learn next", "then": "stay with roadmap.sh and pair it with one hands-on option from this list." },
+        { "if": "you want to build projects from the first week", "then": "start with freeCodeCamp or The Odin Project." },
+        { "if": "you prefer theory before practice", "then": "start with CS50." }
+      ],
+      "faqs": [
+        { "q": "How does roadmap.sh's free plan work?", "a": "Its premium page says the free plan includes one-time allowances for AI chats, AI courses, guides, roadmaps and quizzes, and that unlimited use of those features needs the paid Pro plan. Check roadmap.sh for what is included today." },
+        { "q": "What can I use instead of roadmap.sh to learn the topics on a roadmap?", "a": "A roadmap lists topics; a curriculum teaches them. freeCodeCamp and The Odin Project both offer structured curricula, CS50 covers computer science fundamentals, and MDN is the reference to keep open while you build." }
+      ]
+    },
+    {
+      "subject": "mit-opencourseware",
+      "intro": "MIT OpenCourseWare publishes materials from MIT courses with no sign-up, but it does not give credit or certificates, and not every course has full video. These are the main alternatives when you want a different subject mix, a guided course with practice, or a certificate at the end.",
+      "alternatives": [
+        { "ref": "khan-academy", "bestFor": "Foundations and exam preparation, with practice exercises", "differs": "Built around short lessons and exercises rather than university course materials." },
+        { "ref": "openstax", "bestFor": "A free textbook to read alongside a course", "differs": "Textbooks, not lectures or assignments from a specific course." },
+        { "ref": "edx", "bestFor": "University courses with a structured schedule and an optional certificate", "differs": "Free auditing gives temporary access and no certificate; certificates are paid." },
+        { "ref": "coursera", "bestFor": "Courses from many universities and companies, with certificates available", "differs": "Free access is a preview of the first module; completing a course is paid." },
+        { "ref": "nptel", "bestFor": "Engineering and science courses from India's IITs and IISc", "differs": "Optional proctored certification exams, for a fee." },
+        { "ref": "futurelearn", "bestFor": "Short courses you can try for free for a limited time", "differs": "Free access is time-limited and has no certificate." }
+      ],
+      "pickIf": [
+        { "if": "you want MIT material specifically and no account", "then": "stay with MIT OpenCourseWare." },
+        { "if": "you need a certificate", "then": "look at edX, Coursera or NPTEL, which offer one as a paid option." },
+        { "if": "you want a textbook rather than lectures", "then": "try OpenStax." }
+      ],
+      "faqs": [
+        { "q": "Does MIT OpenCourseWare give certificates?", "a": "No. MIT says it does not offer credit or certificates for using OpenCourseWare. If you need a certificate, edX, Coursera and NPTEL each offer one as an optional paid step." },
+        { "q": "Is MIT OpenCourseWare really free without signing up?", "a": "MIT says there is no registration and no enrollment, and that you can read pages, watch videos and download files without an account. Content can be reused for non-commercial purposes under a Creative Commons licence, with credit." }
+      ]
+    },
+    {
+      "subject": "the-odin-project",
+      "intro": "The Odin Project is a free, open-source web development curriculum with a fixed order. If you would rather have shorter lessons, a reference, or a different language mix, these are the closest options. Combining one curriculum with a reference such as MDN is a common choice.",
+      "alternatives": [
+        { "ref": "freecodecamp", "bestFor": "Interactive, in-browser lessons with certifications", "differs": "Lessons run inside the site, where The Odin Project sends you to read and build outside it." },
+        { "ref": "cs50", "bestFor": "Computer science foundations, not only web development", "differs": "A university course that goes wider than the web." },
+        { "ref": "mdn", "bestFor": "A reference for HTML, CSS and JavaScript", "differs": "Documentation to look things up in, not a course." },
+        { "ref": "w3schools", "bestFor": "Quick tutorials and examples to try", "differs": "Shorter and lighter than a full curriculum; certifications are paid." },
+        { "ref": "codecademy", "bestFor": "Guided in-browser lessons with a free starting tier", "differs": "The free plan covers only courses labelled Free Course." },
+        { "ref": "exercism", "bestFor": "Practice exercises with volunteer mentoring", "differs": "Practice and feedback rather than a curriculum." }
+      ],
+      "pickIf": [
+        { "if": "you want a complete path with a fixed order", "then": "stay with The Odin Project." },
+        { "if": "you want to learn inside the browser", "then": "try freeCodeCamp." },
+        { "if": "you already know the basics and want practice", "then": "try Exercism." }
+      ],
+      "faqs": [
+        { "q": "Is The Odin Project free?", "a": "Its own pages describe the full stack curriculum as free and open source, supported by a community. After the Foundations course you choose between a Full Stack JavaScript path and a Full Stack Ruby on Rails path." },
+        { "q": "What is a good free alternative to The Odin Project?", "a": "freeCodeCamp is the nearest match: it describes itself as 100% free and teaches through projects in the browser. CS50 is a better fit if you want computer science foundations first." }
+      ]
+    },
+    {
+      "subject": "ibm-skillsbuild",
+      "intro": "IBM SkillsBuild is free and issues IBM-branded credentials. Other providers cover similar ground with different strengths: some are tied to a vendor's own products, some are broader university-style courses. Check which credential matters to the employer or course you have in mind before you choose.",
+      "alternatives": [
+        { "ref": "microsoft-learn-ai", "bestFor": "Cloud and AI skills on Microsoft's products", "differs": "Aimed at Microsoft technologies, with certifications earned through exams." },
+        { "ref": "coursera", "bestFor": "University and company courses with certificates", "differs": "Free access is a preview of the first module; completing a course is paid." },
+        { "ref": "edx", "bestFor": "University-style courses you can audit", "differs": "Free auditing has no certificate; verified certificates are paid." },
+        { "ref": "kaggle", "bestFor": "Data science and machine learning basics", "differs": "Short practical courses rather than broad career programmes." },
+        { "ref": "freecodecamp", "bestFor": "Free coding practice and certifications", "differs": "Focused on programming, where IBM covers workplace and technical skills." },
+        { "ref": "datacamp", "bestFor": "Interactive data and AI courses", "differs": "The free plan covers only the first chapter of courses." }
+      ],
+      "pickIf": [
+        { "if": "you want a free, shareable credential from a large vendor", "then": "compare IBM SkillsBuild with Microsoft Learn." },
+        { "if": "you want a university-style course", "then": "look at edX or Coursera." },
+        { "if": "your goal is data or coding skills specifically", "then": "try Kaggle Learn or freeCodeCamp." }
+      ],
+      "faqs": [
+        { "q": "Is IBM SkillsBuild really free?", "a": "IBM describes it as 100% free, with more than 1,000 online courses and shareable digital credentials on completion. Check skillsbuild.org for eligibility and what is currently offered in your region." },
+        { "q": "Which free IBM SkillsBuild alternatives give a credential?", "a": "Microsoft Learn training is free and certifications are earned by passing exams. freeCodeCamp offers free certifications. On edX and Coursera, certificates are a paid option." }
+      ]
+    },
+    {
+      "subject": "phet-simulations",
+      "intro": "PhET gives you free, open-source simulations you can run in a browser. Nothing else works in quite the same way, so the alternatives below are the nearest neighbours: other interactive tools, lesson libraries and free textbooks for the same subjects.",
+      "alternatives": [
+        { "ref": "khan-academy", "bestFor": "Lessons and practice questions that explain the concepts", "differs": "Videos, articles and exercises rather than open-ended simulations." },
+        { "ref": "wolfram-demonstrations", "bestFor": "Interactive demonstrations across maths and science", "differs": "A large collection of demonstrations with open code; they can be previewed on the web and run in the free Wolfram Player." },
+        { "ref": "nasa-stem", "bestFor": "Space and Earth science activities for the classroom", "differs": "Lesson plans, activities and videos rather than simulations." },
+        { "ref": "brilliant", "bestFor": "Interactive problem-solving in maths and science", "differs": "Guided lessons with daily limits on the free plan." },
+        { "ref": "openstax", "bestFor": "A free textbook to pair with simulations", "differs": "Reading material, not interactive models." }
+      ],
+      "pickIf": [
+        { "if": "you want to explore a concept by changing it", "then": "stay with PhET." },
+        { "if": "you need explanations and practice questions", "then": "use Khan Academy alongside it." },
+        { "if": "you teach space or Earth science", "then": "look at NASA's educator resources." }
+      ],
+      "faqs": [
+        { "q": "Are PhET simulations free?", "a": "PhET says the simulations are free and open source, and that they run online or can be downloaded." },
+        { "q": "What are good alternatives to PhET simulations?", "a": "For other interactive demonstrations, try the Wolfram Demonstrations Project. For explanations and practice, Khan Academy and Brilliant cover similar subjects, and OpenStax is a free textbook option." }
+      ]
+    },
+    {
+      "subject": "codeforces",
+      "intro": "Codeforces is built around regular rated contests. Other sites cover different needs: interview-style practice, beginner-friendly contests, or puzzle-style maths problems. Which one suits you depends on whether you want to compete, to prepare for interviews or to practise at your own pace.",
+      "alternatives": [
+        { "ref": "leetcode", "bestFor": "Interview preparation and weekly contests", "differs": "Problem-set oriented, with a Premium tier for extra questions." },
+        { "ref": "atcoder", "bestFor": "Regular contests, including a beginner-friendly format", "differs": "Weekly contests with a casual beginner contest rated for 0 to 1999." },
+        { "ref": "codechef", "bestFor": "Monthly contests with a beginner-only rated division", "differs": "Its Starters contests are rated for Division 3 coders." },
+        { "ref": "hackerrank", "bestFor": "Practice challenges and free skill certifications", "differs": "More practice-oriented, with skill certificates rather than a rating ladder." },
+        { "ref": "project-euler", "bestFor": "Maths-flavoured problems at your own pace", "differs": "Problems to solve at your own pace, with no timed rounds." }
+      ],
+      "pickIf": [
+        { "if": "you want rated, timed competition", "then": "stay with Codeforces, or add AtCoder or CodeChef." },
+        { "if": "you are preparing for interviews", "then": "use LeetCode or HackerRank." },
+        { "if": "you enjoy maths puzzles", "then": "try Project Euler." }
+      ],
+      "faqs": [
+        { "q": "How are Codeforces rounds divided?", "a": "According to Codeforces, Div. 3 rounds are rated for users up to 1599, Div. 2 up to 2099 and Div. 1 from 1900, alongside Educational rounds and open Global rounds." },
+        { "q": "What is a good beginner-friendly alternative to Codeforces?", "a": "The AtCoder Beginner Contest is a casual contest rated for 0 to 1999, and CodeChef Starters is rated for Division 3 coders. Both are open to anyone with an account." }
+      ]
+    },
+    {
+      "subject": "qwen-chat",
+      "intro": "Qwen Chat is a free assistant from Alibaba, and several Qwen models are also released as open weights. If you want a different model family, different limits or a different set of features, these are the assistants most people compare it with. Free plans change often, so each row links to the vendor page it comes from.",
+      "alternatives": [
+        { "ref": "deepseek-chat", "bestFor": "A free assistant from a different model family", "differs": "A separate model family, free in its own app and on the web." },
+        { "ref": "kimi-ai", "bestFor": "Working with long documents", "differs": "Built by Moonshot AI around long-context models." },
+        { "ref": "mistral-le-chat", "bestFor": "A European provider with a broad free plan", "differs": "A free plan covers most features, with a paid Pro tier for higher limits." },
+        { "ref": "chatgpt", "bestFor": "A first, general-purpose assistant", "differs": "Wide feature set on the free plan, with tighter limits than paid plans." },
+        { "ref": "gemini", "bestFor": "People who live in Google's apps", "differs": "Integrated with Google's products, with usage limits that vary by feature." },
+        { "ref": "claude", "bestFor": "Long writing and careful analysis", "differs": "A free plan with limits that reset on a rolling five-hour window." }
+      ],
+      "pickIf": [
+        { "if": "you want open weights you can also run yourself", "then": "Qwen is the one to keep." },
+        { "if": "you want the most established general assistant", "then": "start with ChatGPT, Gemini or Claude and compare on your own tasks." },
+        { "if": "your documents are long", "then": "try Kimi." }
+      ],
+      "faqs": [
+        { "q": "Is Qwen Chat free?", "a": "Qwen describes its assistant as free to use. Several Qwen model sizes are also released as open weights under Apache 2.0, so some of them can be run on your own hardware." },
+        { "q": "What are good free alternatives to Qwen Chat?", "a": "DeepSeek, Mistral, ChatGPT, Gemini and Claude all have free ways to use their assistants, each with its own limits. Compare two or three on tasks you actually do." }
+      ],
+      "flagship": true
+    },
+    {
+      "subject": "magnific-ai",
+      "intro": "Magnific is a paid, credit-based upscaler. If the cost, the credit model or the creative-reinterpretation style does not suit you, there are options with a free tier or ones you can run yourself. They differ in how much detail they invent, so test on the same image before you commit.",
+      "alternatives": [
+        { "ref": "krea", "bestFor": "An enhancer you can try on a free plan", "differs": "The free plan covers basic upscaling; higher-resolution upscalers are on paid plans." },
+        { "ref": "leonardo-ai", "bestFor": "Upscaling inside an image generator", "differs": "A daily token allowance on the free plan; the top setting of its Pro Upscaler is paid." },
+        { "ref": "ext:topaz-gigapixel", "bestFor": "Faithful enlargement of photos, from a dedicated upscaling company", "differs": "Sold as a desktop subscription, with a limited free web trial for non-commercial use." },
+        { "ref": "ext:upscayl", "bestFor": "Free, offline upscaling on your own computer", "differs": "Open source and local, but it needs a Vulkan-capable GPU and offers less creative control." },
+        { "ref": "comfyui", "bestFor": "Full control over an upscaling workflow, running locally", "differs": "Free and open source, but you assemble the workflow and supply the hardware." }
+      ],
+      "pickIf": [
+        { "if": "you want to try upscaling without paying", "then": "start with Krea or Leonardo's free allowance." },
+        { "if": "you have a capable GPU and want control", "then": "run Upscayl or ComfyUI locally." },
+        { "if": "you need very large, heavily reinterpreted outputs", "then": "test Magnific on a sample image first." }
+      ],
+      "faqs": [
+        { "q": "Is Magnific AI free?", "a": "Magnific sells paid subscriptions with credit allowances. magnific.ai remains associated with existing (legacy) product access, while new users and current pricing and subscription information are on magnific.com. If you need a free option, Krea and Leonardo have free tiers with limits, and Upscayl and ComfyUI are free to run yourself." },
+        { "q": "What is a free alternative to Magnific?", "a": "Krea's free plan includes basic upscaling, Leonardo gives free users a daily token allowance, and Upscayl and ComfyUI are open source. None produce identical results, so compare on the same image." }
+      ]
+    },
+    {
+      "subject": "kiro",
+      "intro": "Kiro is an agentic IDE from AWS that works from specs and plans. Other AI coding tools take different approaches, from editors with agents built in to terminal tools and assistants that plug into the editor you already use. Free tiers vary widely, and one of these has none.",
+      "alternatives": [
+        { "ref": "cursor", "bestFor": "An AI-first editor you can try without a card", "differs": "A free Hobby plan with limited Agent requests." },
+        { "ref": "github-copilot", "bestFor": "Staying in your current editor", "differs": "A Free plan with monthly limits on completions and chat requests." },
+        { "ref": "windsurf", "bestFor": "Another agentic IDE with a free plan", "differs": "A light agent quota and unlimited Tab completions on the Free plan." },
+        { "ref": "cline", "bestFor": "Using your own model API key", "differs": "Free and open source; you pay your model provider directly." },
+        { "ref": "claude-code", "bestFor": "Terminal-based agentic coding", "differs": "No free tier; needs a paid Claude plan or API billing." },
+        { "ref": "amazon-q", "bestFor": "Teams already building on AWS", "differs": "A Free Tier with monthly limits for AWS Builder ID users." },
+        { "ref": "zed", "bestFor": "A fast open-source editor with optional AI", "differs": "The free plan works with your own keys or external agents." }
+      ],
+      "pickIf": [
+        { "if": "you want spec-driven, planned changes", "then": "stay with Kiro." },
+        { "if": "you want to keep your current editor", "then": "try GitHub Copilot or Cline." },
+        { "if": "you want to avoid a subscription", "then": "compare the free tiers of Cursor, Windsurf and Amazon Q, or bring your own key with Cline." }
+      ],
+      "faqs": [
+        { "q": "Does Kiro have a free plan?", "a": "Kiro's pricing page describes a perpetual Free tier with a limited credit allowance and limited model access, with paid tiers adding more credits. Check kiro.dev for the current allowance." },
+        { "q": "What are good free alternatives to Kiro?", "a": "Cursor's Hobby plan, GitHub Copilot Free and Windsurf's Free plan all have usage limits. Cline is free and open source if you bring your own model API key. Claude Code has no free tier." }
+      ],
+      "flagship": true
+    },
+    {
+      "subject": "scenario-ai",
+      "intro": "Scenario focuses on game art, including models trained on your own style. Few tools do exactly that, so the alternatives below cover its neighbours: general image generators, 3D asset tools and game-design tools. Check licence terms on any plan before you ship generated assets in a game.",
+      "alternatives": [
+        { "ref": "leonardo-ai", "bestFor": "General image generation for concept and asset art", "differs": "A broader creative platform with a daily token allowance for free users." },
+        { "ref": "meshy-ai", "bestFor": "Turning text or images into 3D models", "differs": "3D rather than 2D; the free plan covers only a few full generations a month." },
+        { "ref": "ludo-ai", "bestFor": "Sprites, icons, audio and other game assets in one place", "differs": "A free trial with starter credits, then paid plans." },
+        { "ref": "kaedim", "bestFor": "Studios turning concept art into 3D game assets", "differs": "Custom-priced plans rather than a public free plan." },
+        { "ref": "comfyui", "bestFor": "Building your own repeatable image pipeline", "differs": "Free and open source, but you supply the hardware and the models." }
+      ],
+      "pickIf": [
+        { "if": "you need a consistent art style across many assets", "then": "stay with Scenario and look at its custom model training." },
+        { "if": "you need 3D models", "then": "look at Meshy or Kaedim." },
+        { "if": "you want to experiment for free first", "then": "try Leonardo's free allowance or run ComfyUI locally." }
+      ],
+      "faqs": [
+        { "q": "Is Scenario free to use?", "a": "Scenario has a free plan with a daily credit allowance, and says free-plan outputs are for personal and evaluation use only. Paid plans include a commercial licence, and custom model training starts on the Pro plan." },
+        { "q": "What are alternatives to Scenario for game assets?", "a": "Leonardo covers general image generation, Meshy and Kaedim cover 3D assets, Ludo covers a wider set of game assets, and ComfyUI lets you build your own pipeline." }
+      ]
+    },
+    {
+      "subject": "webui-forge",
+      "intro": "WebUI Forge is a faster, lower-memory fork of the AUTOMATIC1111 interface, so its closest alternatives are the other local Stable Diffusion front ends. If you do not want to run anything locally, hosted tools with free tiers are the other route.",
+      "alternatives": [
+        { "ref": "comfyui", "bestFor": "Building repeatable workflows as a node graph", "differs": "A graph interface rather than a form-style web UI; steeper to learn, more flexible." },
+        { "ref": "ext:automatic1111", "bestFor": "The original interface that Forge is based on", "differs": "The upstream project; Forge keeps its interface while changing memory handling." },
+        { "ref": "ext:fooocus", "bestFor": "Prompt-first image generation with little tweaking", "differs": "Built on Stable Diffusion XL and in limited long-term support, with bug fixes only." },
+        { "ref": "krea", "bestFor": "A hosted tool with a free plan and no setup", "differs": "Runs in the cloud on a daily compute allowance rather than on your GPU." },
+        { "ref": "leonardo-ai", "bestFor": "A hosted generator with a free daily allowance", "differs": "Runs in the cloud; free users get a daily token allowance." }
+      ],
+      "pickIf": [
+        { "if": "you want the familiar AUTOMATIC1111 layout with lower memory use", "then": "stay with Forge." },
+        { "if": "you want maximum control over a pipeline", "then": "try ComfyUI." },
+        { "if": "you have no suitable GPU", "then": "use a hosted tool such as Krea or Leonardo." }
+      ],
+      "faqs": [
+        { "q": "Is WebUI Forge free?", "a": "Forge is free and open source and runs on your own hardware, so there is no subscription; you need a computer with a capable GPU." },
+        { "q": "What is the difference between Forge and AUTOMATIC1111?", "a": "Forge keeps the AUTOMATIC1111 interface but changes how memory and models are handled, which helps on GPUs with limited VRAM. AUTOMATIC1111 is the upstream project." }
+      ]
+    },
+    {
+      "subject": "novamira",
+      "intro": "Novamira is an open-source plugin that gives AI agents access to a WordPress site through MCP. Alternatives fall into three groups: the official WordPress adapter, other plugins that also expose a site over MCP, and hosted or managed options. Because these tools give agents real access to a site, review permissions and take a backup before connecting any of them.",
+      "alternatives": [
+        { "ref": "ext:wordpress-mcp-adapter", "bestFor": "Building on the official WordPress approach", "differs": "A WordPress project that exposes the Abilities API over MCP, rather than a single plugin with its own toolset." },
+        { "ref": "ext:wordpress-com-mcp", "bestFor": "Sites hosted on WordPress.com", "differs": "A hosted endpoint built into WordPress.com's paid plans, not a plugin you install." },
+        { "ref": "ext:ai-engine", "bestFor": "A plugin that also adds a chatbot and content tools", "differs": "A wider AI plugin whose MCP server is one feature among several." },
+        { "ref": "ext:easy-mcp-ai", "bestFor": "A free MCP-focused plugin with a large toolset", "differs": "Lists 280+ tools and permission controls such as OAuth 2.1 and an audit log." },
+        { "ref": "10web", "bestFor": "Generating a WordPress site with AI rather than connecting an agent", "differs": "A managed builder, so a different approach to the same job." }
+      ],
+      "pickIf": [
+        { "if": "you want an agent working inside your own WordPress install", "then": "compare Novamira with the WordPress MCP Adapter and the plugins above." },
+        { "if": "your site is on WordPress.com", "then": "check its built-in MCP server first." },
+        { "if": "you just want a site built for you", "then": "look at a managed builder such as 10Web." }
+      ],
+      "faqs": [
+        { "q": "What is Novamira?", "a": "An open-source WordPress plugin and MCP server from Ovation S.r.l. It runs inside the WordPress PHP process and gives connected MCP clients access to the site's database, files, active plugins, theme structure and WP-CLI." },
+        { "q": "What are alternatives to Novamira?", "a": "The official WordPress MCP Adapter, the WordPress.com MCP server, and plugins such as AI Engine and Easy MCP AI all let an MCP client work with a WordPress site. Each handles permissions differently, so read the documentation before connecting one." }
+      ],
+      "clients": ["claude-code", "cursor"]
+    }
+  ]
+}

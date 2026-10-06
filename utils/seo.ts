@@ -6,6 +6,9 @@
  */
 
 import type { Tool, BlogPost, CategoryStat, SEOCollection } from '../types';
+import { YEAR } from './year';
+import { isPlaceholderUrl } from './placeholderUrl.mjs';
+import { categoryLabel, proseLabel } from './categoryLabel.mjs';
 
 /* ------------------------------------------------------------------ */
 /* Site constants                                                      */
@@ -44,7 +47,7 @@ export const clampDescription = (text: string, max = 158): string => {
   return `${flat.slice(0, max - 1).replace(/[\s,.;:-]+\S*$/, '')}…`;
 };
 
-const CURRENT_YEAR = new Date().getFullYear();
+const CURRENT_YEAR = YEAR;
 
 /* ------------------------------------------------------------------ */
 /* Keyword generation — every page is led by its own tool/topic name   */
@@ -119,11 +122,11 @@ export const toolDescription = (tool: Pick<Tool, 'name' | 'description' | 'prici
   );
 
 export const categoryTitle = (name: string, count: number): string =>
-  `${count} Best ${name} AI Tools (${CURRENT_YEAR})`;
+  `${count} Best ${categoryLabel(name)} (${CURRENT_YEAR})`;
 
 export const categoryDescription = (name: string, count: number): string =>
   clampDescription(
-    `Browse ${count} ${name.toLowerCase()} AI tools with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`,
+    `Browse ${count} ${proseLabel(name)} with pricing, ratings and honest reviews. Filter by free, freemium or paid and compare any two side by side.`,
   );
 
 /* ------------------------------------------------------------------ */
@@ -181,7 +184,8 @@ export const toolSchema = (tool: Tool, reviewCount = 0): Json => ({
   // the directory rating, so the hand-written one-liner goes first.
   description: tool.description || tool.longDescription,
   url: absoluteUrl(`/tool/${tool.id}`),
-  sameAs: tool.url,
+  // Never publish a placeholder host as the product's own URL.
+  ...(isPlaceholderUrl(tool.url) ? {} : { sameAs: tool.url }),
   /**
    * No `image`.
    *
@@ -207,7 +211,7 @@ export const toolSchema = (tool: Tool, reviewCount = 0): Json => ({
     priceCurrency: 'USD',
     category: tool.pricing,
     availability: 'https://schema.org/OnlineOnly',
-    url: tool.url,
+    ...(isPlaceholderUrl(tool.url) ? {} : { url: tool.url }),
   },
   ...(reviewCount > 0
     ? {

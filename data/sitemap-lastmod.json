@@ -1,0 +1,3318 @@
+{
+ "/": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/about": {
+  "hash": "a7ac8e7f6b7dae26",
+  "lastmod": "2026-10-03"
+ },
+ "/affiliate-disclosure": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/ai-shopping": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/cameras": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/computer-accessories": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/earbuds": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/finder": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/gaming": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/home-appliances": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/laptops": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/monitors": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/networking": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/power-banks": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/printers": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/smart-home": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/smart-tvs": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/smartphones": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/smartwatches": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/ai-shopping/tablets": {
+  "hash": "552077e5a41daf35",
+  "lastmod": "2026-09-29"
+ },
+ "/alternatives/codeforces-alternatives": {
+  "hash": "1f0da60537aab407",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/ibm-skillsbuild-alternatives": {
+  "hash": "53a963faaa95f2dc",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/kiro-alternatives": {
+  "hash": "9ff841e64f63cbd0",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/magnific-ai-alternatives": {
+  "hash": "3e988ef32c3fc288",
+  "lastmod": "2026-10-06"
+ },
+ "/alternatives/mit-opencourseware-alternatives": {
+  "hash": "5e2413b041800d51",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/novamira-alternatives": {
+  "hash": "39fcf7c7c27a5971",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/phet-simulations-alternatives": {
+  "hash": "411a89c030552bb6",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/qwen-chat-alternatives": {
+  "hash": "40952bd3e89c25ba",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/roadmap-sh-alternatives": {
+  "hash": "5139751d039afee6",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/scenario-ai-alternatives": {
+  "hash": "b25740f623ae61fb",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/the-odin-project-alternatives": {
+  "hash": "8ff3603c5de3256c",
+  "lastmod": "2026-10-05"
+ },
+ "/alternatives/webui-forge-alternatives": {
+  "hash": "53b78df1b20d57b3",
+  "lastmod": "2026-10-05"
+ },
+ "/best-ai-chatbots.html": {
+  "hash": "754a2d5627e67072",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-coding-tools.html": {
+  "hash": "95ec88da3cfcaf04",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-image-generators.html": {
+  "hash": "4bceb36bd7d6b07a",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-logo-makers.html": {
+  "hash": "c6f471f0e77e05f2",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-video-generators.html": {
+  "hash": "e188a218e17e11b8",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-voice-generators.html": {
+  "hash": "55df6a532a310ec1",
+  "lastmod": "2026-09-29"
+ },
+ "/best-ai-writing-tools.html": {
+  "hash": "e82a78724a456fe7",
+  "lastmod": "2026-09-29"
+ },
+ "/best-free-ai-tools.html": {
+  "hash": "3cf4df2b096f5b36",
+  "lastmod": "2026-10-06"
+ },
+ "/best-google-ai-tools.html": {
+  "hash": "ed976aa0c841b946",
+  "lastmod": "2026-09-29"
+ },
+ "/blog": {
+  "hash": "c8d58ce2b167682b",
+  "lastmod": "2026-10-03"
+ },
+ "/blog/ai-tool-changes-retired-renamed-repriced-2026": {
+  "hash": "c8d58ce2b167682b",
+  "lastmod": "2026-10-03"
+ },
+ "/blog/ai-tools-free-plans-what-you-really-get-2026": {
+  "hash": "c8d58ce2b167682b",
+  "lastmod": "2026-10-03"
+ },
+ "/blog/comfyui-vs-stable-diffusion-webui-forge": {
+  "hash": "c8d58ce2b167682b",
+  "lastmod": "2026-10-03"
+ },
+ "/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm": {
+  "hash": "c8d58ce2b167682b",
+  "lastmod": "2026-10-03"
+ },
+ "/careers": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/categories": {
+  "hash": "9004787f11345877",
+  "lastmod": "2026-10-05"
+ },
+ "/category/3d-and-animation": {
+  "hash": "49e63cd7030faf63",
+  "lastmod": "2026-10-05"
+ },
+ "/category/ai-agents-and-automation": {
+  "hash": "c802b0066703fbb7",
+  "lastmod": "2026-08-21"
+ },
+ "/category/ai-app-builders": {
+  "hash": "48b0b3dd858ec778",
+  "lastmod": "2026-08-21"
+ },
+ "/category/ai-chatbots-and-assistants": {
+  "hash": "70f13909a136cec3",
+  "lastmod": "2026-10-05"
+ },
+ "/category/ai-chrome-extensions": {
+  "hash": "839a8908c27c58fc",
+  "lastmod": "2026-07-11"
+ },
+ "/category/ai-cybersecurity-tools": {
+  "hash": "04278ad4d8535071",
+  "lastmod": "2026-07-11"
+ },
+ "/category/ai-ecommerce-tools": {
+  "hash": "73570a959de0c02a",
+  "lastmod": "2026-07-09"
+ },
+ "/category/ai-email-assistants": {
+  "hash": "302aab6804ad728e",
+  "lastmod": "2026-07-11"
+ },
+ "/category/ai-healthcare-tools": {
+  "hash": "c0088d484c5ab613",
+  "lastmod": "2026-05-29"
+ },
+ "/category/ai-meeting-assistants": {
+  "hash": "3029f5972ac50ca2",
+  "lastmod": "2026-06-26"
+ },
+ "/category/ai-pdf-and-document-tools": {
+  "hash": "7dce35237ee160c7",
+  "lastmod": "2026-06-23"
+ },
+ "/category/ai-presentation-tools": {
+  "hash": "b06878b587d37101",
+  "lastmod": "2026-06-02"
+ },
+ "/category/ai-real-estate-tools": {
+  "hash": "3e23f3996b0f2b91",
+  "lastmod": "2026-07-04"
+ },
+ "/category/ai-resume-and-career-tools": {
+  "hash": "4121e7a31bbf5bba",
+  "lastmod": "2026-06-29"
+ },
+ "/category/ai-search-engines": {
+  "hash": "e7734a966b1f4b84",
+  "lastmod": "2026-08-21"
+ },
+ "/category/ai-social-media-tools": {
+  "hash": "de5b8a917975b48c",
+  "lastmod": "2026-07-09"
+ },
+ "/category/ai-website-builders": {
+  "hash": "2f228b24b8af04a8",
+  "lastmod": "2026-07-10"
+ },
+ "/category/ai-workflow-automation": {
+  "hash": "e890d426bde96416",
+  "lastmod": "2026-08-21"
+ },
+ "/category/ai-writing-and-content": {
+  "hash": "92bd3a73f7279701",
+  "lastmod": "2026-05-28"
+ },
+ "/category/business-and-finance-ai": {
+  "hash": "44e044f187a461c2",
+  "lastmod": "2026-07-14"
+ },
+ "/category/chatbot-creator-tools": {
+  "hash": "1c78b34dbe1c4dc7",
+  "lastmod": "2026-08-21"
+ },
+ "/category/code-and-development": {
+  "hash": "bf42fa9925fd1213",
+  "lastmod": "2026-10-05"
+ },
+ "/category/crm-automation": {
+  "hash": "b983bc516b7dedf4",
+  "lastmod": "2026-08-21"
+ },
+ "/category/customer-support": {
+  "hash": "38202039532e5087",
+  "lastmod": "2026-08-21"
+ },
+ "/category/data-science-and-analytics": {
+  "hash": "183d639cc0b053cd",
+  "lastmod": "2026-08-21"
+ },
+ "/category/email-automation": {
+  "hash": "4a3d1a5d6124a189",
+  "lastmod": "2026-06-09"
+ },
+ "/category/gaming-and-entertainment": {
+  "hash": "0d11825cbecfe39d",
+  "lastmod": "2026-07-02"
+ },
+ "/category/gen-ai-creator-tools": {
+  "hash": "6ded9140260e8941",
+  "lastmod": "2026-07-12"
+ },
+ "/category/google": {
+  "hash": "f66ba4eca1f63901",
+  "lastmod": "2026-07-31"
+ },
+ "/category/hr-and-recruiting": {
+  "hash": "c7dbc0bef7b365d6",
+  "lastmod": "2026-07-05"
+ },
+ "/category/image-and-art-generation": {
+  "hash": "1025db7ec00b5e72",
+  "lastmod": "2026-10-05"
+ },
+ "/category/lead-generation-automation": {
+  "hash": "94928ad8793cfda5",
+  "lastmod": "2026-05-27"
+ },
+ "/category/learning-and-education": {
+  "hash": "3b01bc7130d73c83",
+  "lastmod": "2026-08-04"
+ },
+ "/category/legal-and-compliance": {
+  "hash": "2141bf72eea1aabd",
+  "lastmod": "2026-08-21"
+ },
+ "/category/llm-providers-and-apis": {
+  "hash": "d4794d4ace4434bd",
+  "lastmod": "2026-07-31"
+ },
+ "/category/marketing-and-seo": {
+  "hash": "d08f2664ead97cca",
+  "lastmod": "2026-07-09"
+ },
+ "/category/productivity-and-collaboration": {
+  "hash": "53afe3bf38884bef",
+  "lastmod": "2026-10-05"
+ },
+ "/category/productivity-automation": {
+  "hash": "ec9f24e1104779a1",
+  "lastmod": "2026-08-21"
+ },
+ "/category/research-and-analysis": {
+  "hash": "527654cf7d3a8cf2",
+  "lastmod": "2026-08-21"
+ },
+ "/category/seo-and-marketing-tools": {
+  "hash": "4d49ee64d30feab1",
+  "lastmod": "2026-10-05"
+ },
+ "/category/social-media-automation": {
+  "hash": "889d57dacfed6d7e",
+  "lastmod": "2026-05-02"
+ },
+ "/category/text-and-writing": {
+  "hash": "c018d1adc35c1249",
+  "lastmod": "2026-10-05"
+ },
+ "/category/ui-ux-and-design-tools": {
+  "hash": "5f0bdeaece739b42",
+  "lastmod": "2026-08-21"
+ },
+ "/category/video-and-audio-generation": {
+  "hash": "3a548357ff33436a",
+  "lastmod": "2026-10-05"
+ },
+ "/category/video-and-audio-tools": {
+  "hash": "f360361110cbaa20",
+  "lastmod": "2026-08-21"
+ },
+ "/category/voice-and-audio-ai": {
+  "hash": "492f95a7c3a26817",
+  "lastmod": "2026-08-21"
+ },
+ "/category/whatsapp-automation": {
+  "hash": "07579796b5febad0",
+  "lastmod": "2026-04-14"
+ },
+ "/category/workflow-automation": {
+  "hash": "a470e21a109df5b7",
+  "lastmod": "2026-05-30"
+ },
+ "/collections": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/collections/best-ai-image-generators": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/collections/best-ai-tools-for-developers": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/collections/best-ai-tools-for-students": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/collections/best-ai-tools-for-youtubers": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/collections/chatgpt-alternatives": {
+  "hash": "3c86649f1537ab9c",
+  "lastmod": "2026-10-05"
+ },
+ "/compare": {
+  "hash": "00b78242f61f0ca1",
+  "lastmod": "2026-10-05"
+ },
+ "/contact": {
+  "hash": "67be17703621e719",
+  "lastmod": "2026-09-29"
+ },
+ "/discover": {
+  "hash": "00b78242f61f0ca1",
+  "lastmod": "2026-10-05"
+ },
+ "/earn": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/affiliate": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/ai-data": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/cashback": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/country-jobs": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/creators": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/design": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/dev-gigs": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/ecommerce": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/freelance": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/gig-work": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/microtasks": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/print-on-demand": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/remote-jobs": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/rent-out": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/stock-media": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/surveys": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/teaching": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/testing": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/transcription": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/translation": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/tutoring": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/voice-over": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/wfh": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/earn/writing": {
+  "hash": "5b58e269d2929462",
+  "lastmod": "2026-09-29"
+ },
+ "/find": {
+  "hash": "00b78242f61f0ca1",
+  "lastmod": "2026-10-05"
+ },
+ "/free": {
+  "hash": "9004787f11345877",
+  "lastmod": "2026-10-05"
+ },
+ "/free/3d-and-animation": {
+  "hash": "49e63cd7030faf63",
+  "lastmod": "2026-10-05"
+ },
+ "/free/ai-agents-and-automation": {
+  "hash": "c802b0066703fbb7",
+  "lastmod": "2026-08-21"
+ },
+ "/free/ai-app-builders": {
+  "hash": "48b0b3dd858ec778",
+  "lastmod": "2026-08-21"
+ },
+ "/free/ai-chatbots-and-assistants": {
+  "hash": "70f13909a136cec3",
+  "lastmod": "2026-10-05"
+ },
+ "/free/ai-chrome-extensions": {
+  "hash": "839a8908c27c58fc",
+  "lastmod": "2026-07-11"
+ },
+ "/free/ai-ecommerce-tools": {
+  "hash": "73570a959de0c02a",
+  "lastmod": "2026-07-09"
+ },
+ "/free/ai-healthcare-tools": {
+  "hash": "c0088d484c5ab613",
+  "lastmod": "2026-05-29"
+ },
+ "/free/ai-meeting-assistants": {
+  "hash": "3029f5972ac50ca2",
+  "lastmod": "2026-06-26"
+ },
+ "/free/ai-pdf-and-document-tools": {
+  "hash": "7dce35237ee160c7",
+  "lastmod": "2026-06-23"
+ },
+ "/free/ai-presentation-tools": {
+  "hash": "b06878b587d37101",
+  "lastmod": "2026-06-02"
+ },
+ "/free/ai-real-estate-tools": {
+  "hash": "3e23f3996b0f2b91",
+  "lastmod": "2026-07-04"
+ },
+ "/free/ai-resume-and-career-tools": {
+  "hash": "4121e7a31bbf5bba",
+  "lastmod": "2026-06-29"
+ },
+ "/free/ai-search-engines": {
+  "hash": "e7734a966b1f4b84",
+  "lastmod": "2026-08-21"
+ },
+ "/free/ai-social-media-tools": {
+  "hash": "de5b8a917975b48c",
+  "lastmod": "2026-07-09"
+ },
+ "/free/ai-website-builders": {
+  "hash": "2f228b24b8af04a8",
+  "lastmod": "2026-07-10"
+ },
+ "/free/ai-workflow-automation": {
+  "hash": "e890d426bde96416",
+  "lastmod": "2026-08-21"
+ },
+ "/free/ai-writing-and-content": {
+  "hash": "92bd3a73f7279701",
+  "lastmod": "2026-05-28"
+ },
+ "/free/chatbot-creator-tools": {
+  "hash": "1c78b34dbe1c4dc7",
+  "lastmod": "2026-08-21"
+ },
+ "/free/code-and-development": {
+  "hash": "bf42fa9925fd1213",
+  "lastmod": "2026-10-05"
+ },
+ "/free/crm-automation": {
+  "hash": "b983bc516b7dedf4",
+  "lastmod": "2026-08-21"
+ },
+ "/free/customer-support": {
+  "hash": "38202039532e5087",
+  "lastmod": "2026-08-21"
+ },
+ "/free/data-science-and-analytics": {
+  "hash": "183d639cc0b053cd",
+  "lastmod": "2026-08-21"
+ },
+ "/free/email-automation": {
+  "hash": "4a3d1a5d6124a189",
+  "lastmod": "2026-06-09"
+ },
+ "/free/gen-ai-creator-tools": {
+  "hash": "6ded9140260e8941",
+  "lastmod": "2026-07-12"
+ },
+ "/free/google": {
+  "hash": "f66ba4eca1f63901",
+  "lastmod": "2026-07-31"
+ },
+ "/free/image-and-art-generation": {
+  "hash": "1025db7ec00b5e72",
+  "lastmod": "2026-10-05"
+ },
+ "/free/learning-and-education": {
+  "hash": "3b01bc7130d73c83",
+  "lastmod": "2026-08-04"
+ },
+ "/free/llm-providers-and-apis": {
+  "hash": "d4794d4ace4434bd",
+  "lastmod": "2026-07-31"
+ },
+ "/free/marketing-and-seo": {
+  "hash": "d08f2664ead97cca",
+  "lastmod": "2026-07-09"
+ },
+ "/free/productivity-and-collaboration": {
+  "hash": "53afe3bf38884bef",
+  "lastmod": "2026-10-05"
+ },
+ "/free/productivity-automation": {
+  "hash": "ec9f24e1104779a1",
+  "lastmod": "2026-08-21"
+ },
+ "/free/research-and-analysis": {
+  "hash": "527654cf7d3a8cf2",
+  "lastmod": "2026-08-21"
+ },
+ "/free/ui-ux-and-design-tools": {
+  "hash": "5f0bdeaece739b42",
+  "lastmod": "2026-08-21"
+ },
+ "/free/video-and-audio-generation": {
+  "hash": "3a548357ff33436a",
+  "lastmod": "2026-10-05"
+ },
+ "/free/video-and-audio-tools": {
+  "hash": "f360361110cbaa20",
+  "lastmod": "2026-08-21"
+ },
+ "/free/voice-and-audio-ai": {
+  "hash": "492f95a7c3a26817",
+  "lastmod": "2026-08-21"
+ },
+ "/privacy": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/prompts": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/terms": {
+  "hash": "fcfb2326bcbd8fe0",
+  "lastmod": "2026-10-05"
+ },
+ "/tool/10web": {
+  "hash": "c6ca815efbf0dea7",
+  "lastmod": "2026-06-16"
+ },
+ "/tool/abnormal-security": {
+  "hash": "28be83027fc02237",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/abridge": {
+  "hash": "45429a25603df951",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/activecampaign-automation": {
+  "hash": "9ad51a2153e7148b",
+  "lastmod": "2026-06-09"
+ },
+ "/tool/activepieces": {
+  "hash": "2a12107846d61b4e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/ada-ai-support": {
+  "hash": "6353bf5805e6affc",
+  "lastmod": "2026-02-16"
+ },
+ "/tool/ada-health": {
+  "hash": "109f485735ba4d38",
+  "lastmod": "2026-05-29"
+ },
+ "/tool/adcreative-ai": {
+  "hash": "71393dfe4d49d460",
+  "lastmod": "2026-05-24"
+ },
+ "/tool/adobe-acrobat-ai": {
+  "hash": "b9208a310a1d6af7",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/adobe-firefly": {
+  "hash": "d91370b1928b7c20",
+  "lastmod": "2026-06-01"
+ },
+ "/tool/adobe-learn": {
+  "hash": "8d502336cf684ea1",
+  "lastmod": "2026-05-09"
+ },
+ "/tool/adobe-podcast": {
+  "hash": "d99ee1032a369ee9",
+  "lastmod": "2026-06-18"
+ },
+ "/tool/ads-transparency-center": {
+  "hash": "1c59479a9746d5e7",
+  "lastmod": "2026-04-15"
+ },
+ "/tool/agentgpt": {
+  "hash": "9f8582a46d449210",
+  "lastmod": "2026-02-18"
+ },
+ "/tool/agenthub": {
+  "hash": "3c99522d93b9c669",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/ahrefs-academy": {
+  "hash": "4de7c8e394a34401",
+  "lastmod": "2026-02-18"
+ },
+ "/tool/ahrefs-ai": {
+  "hash": "4ad9fa4c03281bb9",
+  "lastmod": "2026-02-16"
+ },
+ "/tool/ai-tool-bland-ai": {
+  "hash": "9e27a955ffc2ca50",
+  "lastmod": "2026-05-29"
+ },
+ "/tool/ai-tool-copy-ai-workflows": {
+  "hash": "51c151cf032d9f04",
+  "lastmod": "2026-03-24"
+ },
+ "/tool/ai-tool-ui-path": {
+  "hash": "2a19acf000bfd2c2",
+  "lastmod": "2026-01-19"
+ },
+ "/tool/aider": {
+  "hash": "bd36e58a8526066b",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/airtable": {
+  "hash": "60fa762f6c294734",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/aisensy-automation": {
+  "hash": "6c6983f0165596a5",
+  "lastmod": "2026-04-14"
+ },
+ "/tool/aiva": {
+  "hash": "af44b1ec8f2dd60e",
+  "lastmod": "2026-05-25"
+ },
+ "/tool/akkio": {
+  "hash": "6e11d58b434e9b28",
+  "lastmod": "2026-06-23"
+ },
+ "/tool/alison": {
+  "hash": "e643732440f44a4f",
+  "lastmod": "2026-05-29"
+ },
+ "/tool/alpha-sense": {
+  "hash": "acfee6460dec293b",
+  "lastmod": "2026-04-13"
+ },
+ "/tool/alphafold-3": {
+  "hash": "93800f0c7367ca38",
+  "lastmod": "2026-06-29"
+ },
+ "/tool/amazon-q": {
+  "hash": "704f3ac9c49b479c",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/andi-ai": {
+  "hash": "a3398cebfff647c2",
+  "lastmod": "2026-05-14"
+ },
+ "/tool/android": {
+  "hash": "577de2ce50a0a5c2",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/anthropic-claude-api": {
+  "hash": "c85619351ed64a2c",
+  "lastmod": "2026-02-24"
+ },
+ "/tool/anythingllm": {
+  "hash": "c3ba1fa42e40ad5a",
+  "lastmod": "2026-05-26"
+ },
+ "/tool/anyword": {
+  "hash": "b480b0270ecb1c1c",
+  "lastmod": "2026-03-08"
+ },
+ "/tool/apollo-automation": {
+  "hash": "3691a5541121515c",
+  "lastmod": "2026-02-05"
+ },
+ "/tool/arc-search": {
+  "hash": "7c17ee27a5b91cb3",
+  "lastmod": "2026-04-12"
+ },
+ "/tool/artbreeder": {
+  "hash": "674fe381da6e1ced",
+  "lastmod": "2026-02-06"
+ },
+ "/tool/askyourpdf": {
+  "hash": "6e5cd053077c78f1",
+  "lastmod": "2026-04-26"
+ },
+ "/tool/atcoder": {
+  "hash": "cdb8e7c8d9d402e6",
+  "lastmod": "2026-07-02"
+ },
+ "/tool/attio": {
+  "hash": "a229c91e8fb43b8e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/augment-code": {
+  "hash": "4dcb57e3eeb198d8",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/autogpt": {
+  "hash": "d916d12f9a1a175d",
+  "lastmod": "2026-03-19"
+ },
+ "/tool/avoma": {
+  "hash": "c84cd216d0bb0b03",
+  "lastmod": "2026-04-04"
+ },
+ "/tool/b12": {
+  "hash": "822be6dc5d0eeb27",
+  "lastmod": "2026-07-10"
+ },
+ "/tool/bardeen-ai": {
+  "hash": "d4d076e093b5ceb8",
+  "lastmod": "2026-04-23"
+ },
+ "/tool/base44": {
+  "hash": "da14f4b1d4c5c74a",
+  "lastmod": "2026-04-22"
+ },
+ "/tool/beautiful-ai": {
+  "hash": "ba3fc6a6eb7a9a3b",
+  "lastmod": "2026-05-24"
+ },
+ "/tool/behance": {
+  "hash": "8e1dfdefe84e73d2",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/bing-image-creator": {
+  "hash": "94e29ca43c54869f",
+  "lastmod": "2026-06-22"
+ },
+ "/tool/blackbox-ai": {
+  "hash": "e959c6938ca7535d",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/blaze": {
+  "hash": "f984bb02545daaa5",
+  "lastmod": "2026-04-21"
+ },
+ "/tool/blaze-ai": {
+  "hash": "089d45bcd35e0f5b",
+  "lastmod": "2026-06-02"
+ },
+ "/tool/bolt-new": {
+  "hash": "5cece42c49c48742",
+  "lastmod": "2026-05-28"
+ },
+ "/tool/booke-ai": {
+  "hash": "ba85a1c7bd26ddf8",
+  "lastmod": "2026-03-20"
+ },
+ "/tool/botpress": {
+  "hash": "a9e8b5d6f940b35f",
+  "lastmod": "2026-04-29"
+ },
+ "/tool/botsonic": {
+  "hash": "e0325e962da3cc28",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/brevo-automation": {
+  "hash": "7e4c071692f057f2",
+  "lastmod": "2026-04-23"
+ },
+ "/tool/brex-ai": {
+  "hash": "5010c05975807740",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/brilliant": {
+  "hash": "8310da52a657a68a",
+  "lastmod": "2026-04-22"
+ },
+ "/tool/brisk-teaching": {
+  "hash": "46dc672ebec084db",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/bubble-ai": {
+  "hash": "078614c9ebc90b14",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/buffer-ai": {
+  "hash": "2b5f64d5eee3e348",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/buffer-automation": {
+  "hash": "0a42199e9ba73015",
+  "lastmod": "2026-03-18"
+ },
+ "/tool/builder-io": {
+  "hash": "1013781f656cab6f",
+  "lastmod": "2026-05-07"
+ },
+ "/tool/butterfly-network": {
+  "hash": "a5bb9ad711ceffc9",
+  "lastmod": "2026-04-09"
+ },
+ "/tool/byjus-free-resources": {
+  "hash": "41e44d3bf380da9f",
+  "lastmod": "2026-04-06"
+ },
+ "/tool/cal-com": {
+  "hash": "1d25b4837549dae1",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/calendly-automation": {
+  "hash": "d4c554b491d441ee",
+  "lastmod": "2026-03-25"
+ },
+ "/tool/campaign-url-builder": {
+  "hash": "79aa1936f78601c2",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/canva-ai": {
+  "hash": "29d635c6b8a09990",
+  "lastmod": "2026-02-19"
+ },
+ "/tool/canva-design-school": {
+  "hash": "ba39fb0637f1c89c",
+  "lastmod": "2026-04-18"
+ },
+ "/tool/canva-presentation": {
+  "hash": "8db85a5c24c455c9",
+  "lastmod": "2026-04-02"
+ },
+ "/tool/capcut": {
+  "hash": "b4b60a500b942e87",
+  "lastmod": "2026-07-10"
+ },
+ "/tool/capcut-ai": {
+  "hash": "485ca151173e596e",
+  "lastmod": "2026-03-31"
+ },
+ "/tool/captions-ai": {
+  "hash": "5db82d5dfd4be207",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/careerflow-ai": {
+  "hash": "ab6cb9a8c9ecdbd1",
+  "lastmod": "2026-06-06"
+ },
+ "/tool/casetext-cocounsel": {
+  "hash": "7a05ba9b3dd4dfec",
+  "lastmod": "2026-05-31"
+ },
+ "/tool/chalkie-ai": {
+  "hash": "2d44aab24ee213b8",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/character-ai": {
+  "hash": "bd966728ac54cef3",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/charisma-ai": {
+  "hash": "e869f82959e0bf0d",
+  "lastmod": "2026-02-28"
+ },
+ "/tool/chatbase": {
+  "hash": "03d52dd7ef8861cd",
+  "lastmod": "2026-02-24"
+ },
+ "/tool/chatbox": {
+  "hash": "2c903840d338d3e4",
+  "lastmod": "2026-02-26"
+ },
+ "/tool/chatgpt": {
+  "hash": "b6908ff2f7300c2f",
+  "lastmod": "2026-07-08"
+ },
+ "/tool/chatpdf": {
+  "hash": "1ce0021b618bda87",
+  "lastmod": "2026-02-01"
+ },
+ "/tool/circleback": {
+  "hash": "8ca7c361f7091135",
+  "lastmod": "2026-03-27"
+ },
+ "/tool/ck-12": {
+  "hash": "a778c7c52906cc93",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/claude": {
+  "hash": "96e7f54029e31066",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/claude-3-5": {
+  "hash": "13794a926b5646d5",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/claude-code": {
+  "hash": "1fa7efcb51d9b74d",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/clay-automation": {
+  "hash": "ff5b910ac4be1827",
+  "lastmod": "2026-02-02"
+ },
+ "/tool/clerk-io": {
+  "hash": "cccd184f06423063",
+  "lastmod": "2026-02-20"
+ },
+ "/tool/cline": {
+  "hash": "f7ad81f0b160a890",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/cocounsel": {
+  "hash": "da2e167e8dcac7d6",
+  "lastmod": "2026-04-11"
+ },
+ "/tool/coda": {
+  "hash": "3704a73e6c438c95",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/codecademy": {
+  "hash": "eb4d5e6d51947e6d",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/codechef": {
+  "hash": "8d2a553f05a6574d",
+  "lastmod": "2026-05-09"
+ },
+ "/tool/codeforces": {
+  "hash": "a1e2c73cf0469a80",
+  "lastmod": "2026-03-01"
+ },
+ "/tool/codeium": {
+  "hash": "58f76dcb7f96b29b",
+  "lastmod": "2026-01-31"
+ },
+ "/tool/coderabbit": {
+  "hash": "33e3c47e0165d316",
+  "lastmod": "2026-04-24"
+ },
+ "/tool/coderbyte": {
+  "hash": "860efe779bba0b5a",
+  "lastmod": "2026-03-19"
+ },
+ "/tool/cohere": {
+  "hash": "1f876e5af674904d",
+  "lastmod": "2026-02-18"
+ },
+ "/tool/color-hunt": {
+  "hash": "00150ea929f2a33b",
+  "lastmod": "2026-07-13"
+ },
+ "/tool/comfyui": {
+  "hash": "774b992baade8525",
+  "lastmod": "2026-04-19"
+ },
+ "/tool/compose-ai": {
+  "hash": "dddd88d3a31aa283",
+  "lastmod": "2026-02-10"
+ },
+ "/tool/connected-papers": {
+  "hash": "b7bc64b9f034d8b0",
+  "lastmod": "2026-04-11"
+ },
+ "/tool/consensus": {
+  "hash": "a3118c0200e305e7",
+  "lastmod": "2026-04-17"
+ },
+ "/tool/contentstudio": {
+  "hash": "4995bb90618a199c",
+  "lastmod": "2026-04-08"
+ },
+ "/tool/continue-dev": {
+  "hash": "8be7eb8624844403",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/copilot": {
+  "hash": "f3c02cef200bb89f",
+  "lastmod": "2026-01-21"
+ },
+ "/tool/copy-ai": {
+  "hash": "2bdd155bd047711b",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/corti": {
+  "hash": "29adf1d91eddab7c",
+  "lastmod": "2026-03-03"
+ },
+ "/tool/coursebox-ai-tutor": {
+  "hash": "005b58e8deb6b7f6",
+  "lastmod": "2026-06-17"
+ },
+ "/tool/coursera": {
+  "hash": "c7ef233396ee096d",
+  "lastmod": "2026-04-14"
+ },
+ "/tool/create-xyz": {
+  "hash": "d8499e5e64fb8ac0",
+  "lastmod": "2026-04-29"
+ },
+ "/tool/crewai": {
+  "hash": "e26f2f4b5ce7ca10",
+  "lastmod": "2026-06-29"
+ },
+ "/tool/crisp-ai": {
+  "hash": "862f4f1e154aa330",
+  "lastmod": "2026-04-29"
+ },
+ "/tool/crowdstrike": {
+  "hash": "fd9bc001d3f7e8ca",
+  "lastmod": "2026-03-10"
+ },
+ "/tool/crowdstrike-charlotte": {
+  "hash": "699b46f22246d991",
+  "lastmod": "2026-03-31"
+ },
+ "/tool/cs50": {
+  "hash": "1fcbc49fb180b407",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/csm": {
+  "hash": "4d7adbc032696c4b",
+  "lastmod": "2026-03-17"
+ },
+ "/tool/curipod": {
+  "hash": "5b8b9cbc339917a4",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/cursor": {
+  "hash": "745b5d41f1dc1c5f",
+  "lastmod": "2026-06-24"
+ },
+ "/tool/customgpt": {
+  "hash": "ea24b05d5f0bba80",
+  "lastmod": "2026-06-11"
+ },
+ "/tool/cylance": {
+  "hash": "79c6fdb41860b890",
+  "lastmod": "2026-05-28"
+ },
+ "/tool/d-id": {
+  "hash": "f8b0aeff18a9866c",
+  "lastmod": "2026-04-20"
+ },
+ "/tool/dall-e-3": {
+  "hash": "8a4368a0f2a50316",
+  "lastmod": "2026-04-05"
+ },
+ "/tool/dalle": {
+  "hash": "9b14308d1d8ca087",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/dante-ai": {
+  "hash": "88542cc5b8986adf",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/darktrace": {
+  "hash": "bee48f13908a8fde",
+  "lastmod": "2026-04-13"
+ },
+ "/tool/datacamp": {
+  "hash": "422e9cb49175cb1e",
+  "lastmod": "2026-04-30"
+ },
+ "/tool/datarails-ai": {
+  "hash": "62be85c9b9396ef0",
+  "lastmod": "2026-02-28"
+ },
+ "/tool/datarobot": {
+  "hash": "6bd63db20bcde076",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/decagon": {
+  "hash": "4b035366c0c6d10c",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/decktopus": {
+  "hash": "1f32c4fa48f941ca",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/deepdream": {
+  "hash": "6f635940b48ec46d",
+  "lastmod": "2026-05-18"
+ },
+ "/tool/deeplearning-ai": {
+  "hash": "2ebc73d452bfc518",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/deepnote": {
+  "hash": "0a4257f6615d4e89",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/deepseek": {
+  "hash": "f140154c93146c41",
+  "lastmod": "2026-04-06"
+ },
+ "/tool/deepseek-chat": {
+  "hash": "de103cd803d011c5",
+  "lastmod": "2026-06-04"
+ },
+ "/tool/descript": {
+  "hash": "de473a595a6cdd2d",
+  "lastmod": "2026-06-19"
+ },
+ "/tool/designrr": {
+  "hash": "759778c08672ceab",
+  "lastmod": "2026-03-31"
+ },
+ "/tool/devdocs": {
+  "hash": "fc024519f5d32470",
+  "lastmod": "2026-05-04"
+ },
+ "/tool/devin": {
+  "hash": "e667c340104f4145",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/diagram": {
+  "hash": "094e3f5004beadc3",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/diffit": {
+  "hash": "2024dd4c8e490359",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/digits-ai": {
+  "hash": "b33a35682f6b2733",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/docker-docs": {
+  "hash": "8ef1b9a22b10a310",
+  "lastmod": "2026-06-08"
+ },
+ "/tool/documind": {
+  "hash": "8db4199c62c69bcf",
+  "lastmod": "2026-02-10"
+ },
+ "/tool/dora": {
+  "hash": "3106287551f7e4d0",
+  "lastmod": "2026-02-21"
+ },
+ "/tool/dreamstudio": {
+  "hash": "d1881a7113156d5e",
+  "lastmod": "2026-03-26"
+ },
+ "/tool/dribbble": {
+  "hash": "8a818734d319396a",
+  "lastmod": "2026-05-21"
+ },
+ "/tool/dripify-automation": {
+  "hash": "6eb5645ac991ca2f",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/duolingo-max": {
+  "hash": "2eddf9d5dd2c64dc",
+  "lastmod": "2026-02-22"
+ },
+ "/tool/durable": {
+  "hash": "ee8c4fe9cc16e449",
+  "lastmod": "2026-02-28"
+ },
+ "/tool/dust-tt": {
+  "hash": "6c15e3318ed6894c",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/dynamic-yield": {
+  "hash": "176f1490c2013969",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/dzine": {
+  "hash": "4a96465a0e892dd5",
+  "lastmod": "2026-02-10"
+ },
+ "/tool/edurite": {
+  "hash": "9d8a2206bd1030e0",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/edx": {
+  "hash": "0e0b448466366110",
+  "lastmod": "2026-03-21"
+ },
+ "/tool/eightfold-ai": {
+  "hash": "3a23f08d2353799e",
+  "lastmod": "2026-04-22"
+ },
+ "/tool/elevenlabs": {
+  "hash": "5f2b3ce41f3aa781",
+  "lastmod": "2026-04-12"
+ },
+ "/tool/elicit": {
+  "hash": "5960746a31f2a0df",
+  "lastmod": "2026-05-11"
+ },
+ "/tool/ellie-ai": {
+  "hash": "93d2be44eee958a0",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/enhancv": {
+  "hash": "bb6d17e6cdc91b08",
+  "lastmod": "2026-04-11"
+ },
+ "/tool/epique": {
+  "hash": "13aacd493a0df92c",
+  "lastmod": "2026-04-25"
+ },
+ "/tool/epique-ai": {
+  "hash": "fd0fe3932774224d",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/exa-ai": {
+  "hash": "77863556a3c56da1",
+  "lastmod": "2026-05-13"
+ },
+ "/tool/excalidraw": {
+  "hash": "beac78178581d35e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/exercism": {
+  "hash": "c3c8f3fcff860f54",
+  "lastmod": "2026-02-18"
+ },
+ "/tool/explainpaper": {
+  "hash": "117462acc80a6525",
+  "lastmod": "2026-03-03"
+ },
+ "/tool/fal-ai": {
+  "hash": "c453ea32b4c6e50f",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/fast-ai": {
+  "hash": "591e0b8f2fd5a3f1",
+  "lastmod": "2026-03-31"
+ },
+ "/tool/fathom": {
+  "hash": "b67899321ad5d60b",
+  "lastmod": "2026-03-14"
+ },
+ "/tool/fathom-finance": {
+  "hash": "6402cf71dcba2d28",
+  "lastmod": "2026-07-12"
+ },
+ "/tool/feedhive": {
+  "hash": "eff882f4a2e3634f",
+  "lastmod": "2026-05-09"
+ },
+ "/tool/fetcher-ai": {
+  "hash": "45c5e74f2d8609df",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/figma-ai": {
+  "hash": "345b29481435b45f",
+  "lastmod": "2026-06-24"
+ },
+ "/tool/figma-learn": {
+  "hash": "60e36e42bdaa1346",
+  "lastmod": "2026-03-07"
+ },
+ "/tool/finaloop": {
+  "hash": "1cc465657fcafbf4",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/firebase-studio": {
+  "hash": "7cfbf88dc18a7b29",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/fireflies-ai": {
+  "hash": "95d4cd010f62d1f5",
+  "lastmod": "2026-03-10"
+ },
+ "/tool/flick-ai": {
+  "hash": "a31fd41b3269a04d",
+  "lastmod": "2026-04-12"
+ },
+ "/tool/fliki": {
+  "hash": "14d4ba6e1207d83a",
+  "lastmod": "2026-04-30"
+ },
+ "/tool/flowise": {
+  "hash": "6e923f5e818c77ea",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/flowrite": {
+  "hash": "71629fd0049fa8c5",
+  "lastmod": "2026-06-29"
+ },
+ "/tool/flutterflow-ai": {
+  "hash": "87636c77287427a0",
+  "lastmod": "2026-04-25"
+ },
+ "/tool/flux-ai": {
+  "hash": "f774340f87ae6582",
+  "lastmod": "2026-06-04"
+ },
+ "/tool/folk": {
+  "hash": "8dcaf1689dfaba59",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/forethought": {
+  "hash": "a0270ff8fa4ccd0b",
+  "lastmod": "2026-04-05"
+ },
+ "/tool/fotor": {
+  "hash": "14251a0db7ce9b4c",
+  "lastmod": "2026-07-02"
+ },
+ "/tool/framer-ai": {
+  "hash": "11df44796c217d48",
+  "lastmod": "2026-04-19"
+ },
+ "/tool/frase": {
+  "hash": "f3f49eb6433fca52",
+  "lastmod": "2026-03-01"
+ },
+ "/tool/freecodecamp": {
+  "hash": "52c7e0abe206a4fd",
+  "lastmod": "2026-01-30"
+ },
+ "/tool/freed-ai": {
+  "hash": "f40a840b909c609f",
+  "lastmod": "2026-03-17"
+ },
+ "/tool/freepik-ai": {
+  "hash": "496fdb239fe63da0",
+  "lastmod": "2026-07-12"
+ },
+ "/tool/freepik-pikaso": {
+  "hash": "8e4dfcc31e7f5569",
+  "lastmod": "2026-05-06"
+ },
+ "/tool/freshdesk-ai": {
+  "hash": "2c9cf0dc055f4dc3",
+  "lastmod": "2026-06-15"
+ },
+ "/tool/freshsales-automation": {
+  "hash": "aa4ce845968720c7",
+  "lastmod": "2026-05-16"
+ },
+ "/tool/frontend-mentor": {
+  "hash": "58cf22087d88cc5a",
+  "lastmod": "2026-06-21"
+ },
+ "/tool/full-stack-open": {
+  "hash": "4b378424ab5c82c6",
+  "lastmod": "2026-07-01"
+ },
+ "/tool/futurelearn": {
+  "hash": "2c787aa0ad99215d",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/fyxer-ai": {
+  "hash": "840b58a83bb531dd",
+  "lastmod": "2026-04-18"
+ },
+ "/tool/galileo-ai": {
+  "hash": "1df83e643df91c68",
+  "lastmod": "2026-06-18"
+ },
+ "/tool/gallabox-automation": {
+  "hash": "ee5628e627cecafb",
+  "lastmod": "2026-03-23"
+ },
+ "/tool/gamma": {
+  "hash": "b573b383c6c28a2f",
+  "lastmod": "2026-02-15"
+ },
+ "/tool/geeksforgeeks": {
+  "hash": "8faf6876617a3397",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/gemini": {
+  "hash": "794f8e00af6b4f8d",
+  "lastmod": "2026-03-25"
+ },
+ "/tool/gemini-flash": {
+  "hash": "70dcfba9b9e1d48b",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/genspark": {
+  "hash": "522675c1a5d5876d",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/git-immersion": {
+  "hash": "20ae2863e8b103f4",
+  "lastmod": "2026-03-21"
+ },
+ "/tool/github-copilot": {
+  "hash": "c893deea20c8ea81",
+  "lastmod": "2026-03-13"
+ },
+ "/tool/github-skills": {
+  "hash": "c12834f3d85a08bf",
+  "lastmod": "2026-04-01"
+ },
+ "/tool/glass-health": {
+  "hash": "cc916cb8c417671a",
+  "lastmod": "2026-01-17"
+ },
+ "/tool/glean": {
+  "hash": "66da3a5a50ebb377",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/gmail": {
+  "hash": "0d8deb336aa0cf41",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-ads": {
+  "hash": "61a4a883c5ca93f0",
+  "lastmod": "2026-03-08"
+ },
+ "/tool/google-ads-editor": {
+  "hash": "62adc6d1886fd2e9",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/google-ai": {
+  "hash": "2d6302ec7a0dc611",
+  "lastmod": "2026-01-31"
+ },
+ "/tool/google-ai-studio": {
+  "hash": "65d99ee5162dbdbf",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/google-alerts": {
+  "hash": "111afbbd04d1a4b7",
+  "lastmod": "2026-07-07"
+ },
+ "/tool/google-analytics-4": {
+  "hash": "10dc158333d53c0c",
+  "lastmod": "2026-06-07"
+ },
+ "/tool/google-analytics-demo": {
+  "hash": "bdc02308c8ac37f0",
+  "lastmod": "2026-05-19"
+ },
+ "/tool/google-business-profile": {
+  "hash": "91c6d121b04ff799",
+  "lastmod": "2026-01-22"
+ },
+ "/tool/google-calendar": {
+  "hash": "05943b053dae1a1b",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-chrome": {
+  "hash": "3a20aff1598b0154",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-cloud": {
+  "hash": "e5d3cff675038d45",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-colab": {
+  "hash": "f734402333d4aa2d",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-digital-garage": {
+  "hash": "ac72fe17e57acd1e",
+  "lastmod": "2026-02-27"
+ },
+ "/tool/google-docs": {
+  "hash": "7a381bf36b5e7981",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-drive": {
+  "hash": "49a4e67df86df4f5",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-flow": {
+  "hash": "04445def5221daed",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-fonts": {
+  "hash": "a805e28edd82408c",
+  "lastmod": "2026-04-02"
+ },
+ "/tool/google-fonts-knowledge": {
+  "hash": "30a6eb75cfd7f9fe",
+  "lastmod": "2026-05-21"
+ },
+ "/tool/google-forms": {
+  "hash": "481f1b3701ce4034",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-gemini-api": {
+  "hash": "ef5168f2b0c3325c",
+  "lastmod": "2026-02-04"
+ },
+ "/tool/google-keyword-planner": {
+  "hash": "6b3f666e5d54f153",
+  "lastmod": "2026-06-13"
+ },
+ "/tool/google-labs": {
+  "hash": "c5c255c79f78b009",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-lens": {
+  "hash": "5d989da578e3e30f",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-maps": {
+  "hash": "5958300b5fd99d95",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-maps-platform": {
+  "hash": "2429832539ea818d",
+  "lastmod": "2026-03-25"
+ },
+ "/tool/google-meet": {
+  "hash": "b678259e9b69663d",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-merchant-center": {
+  "hash": "bb70dfdb6961141b",
+  "lastmod": "2026-04-18"
+ },
+ "/tool/google-photos": {
+  "hash": "1d7d9130627bb996",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-scholar": {
+  "hash": "068c2434ae1616d4",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-search": {
+  "hash": "c9dab15631813b9b",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-search-console": {
+  "hash": "8ff4374948816b6f",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/google-sheets": {
+  "hash": "24d72f9ba24f1ab1",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-sites": {
+  "hash": "2c504caeffb29021",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/google-slides": {
+  "hash": "c5f47c524478a81c",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-stitch": {
+  "hash": "08c9da26dd6e35c3",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-tag-manager": {
+  "hash": "85df5b2f28763806",
+  "lastmod": "2026-04-19"
+ },
+ "/tool/google-translate": {
+  "hash": "a180531dbd4443bf",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/google-trends": {
+  "hash": "e0f584b34dd77d3d",
+  "lastmod": "2026-07-05"
+ },
+ "/tool/google-vids": {
+  "hash": "a7f5c95eee6d83c5",
+  "lastmod": "2026-04-26"
+ },
+ "/tool/google-workspace": {
+  "hash": "5e6c6f3c6ce1b0f5",
+  "lastmod": "2026-06-03"
+ },
+ "/tool/gorgias": {
+  "hash": "48b4ba062aa7e22b",
+  "lastmod": "2026-06-21"
+ },
+ "/tool/gpt4all": {
+  "hash": "702dc4f6a8692fed",
+  "lastmod": "2026-04-30"
+ },
+ "/tool/grammarly": {
+  "hash": "e96d08866408de4b",
+  "lastmod": "2026-03-20"
+ },
+ "/tool/granola": {
+  "hash": "72bab19a16180737",
+  "lastmod": "2026-03-14"
+ },
+ "/tool/graphite-dev": {
+  "hash": "fc5e23189bcf8fb2",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/greptile": {
+  "hash": "66e3e80d1abab923",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/grok": {
+  "hash": "3ed91c40fe570ccc",
+  "lastmod": "2026-06-09"
+ },
+ "/tool/groq": {
+  "hash": "85c77bbf5e24fff1",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/grow-with-google": {
+  "hash": "ae34b4d0bc22f9d7",
+  "lastmod": "2026-03-28"
+ },
+ "/tool/gumloop": {
+  "hash": "e6c2ba760b542cb3",
+  "lastmod": "2026-06-12"
+ },
+ "/tool/h2o-ai": {
+  "hash": "cad5a7c8a2cfc85e",
+  "lastmod": "2026-04-02"
+ },
+ "/tool/hackerrank": {
+  "hash": "2d3ffedbbceef0cb",
+  "lastmod": "2026-04-12"
+ },
+ "/tool/hailuo-ai": {
+  "hash": "9d56edae0ffa7582",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/hailuo-minimax": {
+  "hash": "bdaddc06fe6e0b3f",
+  "lastmod": "2026-06-12"
+ },
+ "/tool/harpa-ai": {
+  "hash": "1616317dc7639074",
+  "lastmod": "2026-03-27"
+ },
+ "/tool/harvey": {
+  "hash": "202140e01e70f20f",
+  "lastmod": "2026-06-14"
+ },
+ "/tool/hebbia": {
+  "hash": "bf86e3b0964029f2",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/hex-tech": {
+  "hash": "7557c30204afc9d2",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/heygen": {
+  "hash": "7509ec552df75ab2",
+  "lastmod": "2026-03-01"
+ },
+ "/tool/higgsfield": {
+  "hash": "417bce8b8e690ee3",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/highradius": {
+  "hash": "d5675287a9fe9570",
+  "lastmod": "2026-06-18"
+ },
+ "/tool/hippocratic-ai": {
+  "hash": "25a3fce06ba88ab5",
+  "lastmod": "2026-04-04"
+ },
+ "/tool/hirevue-ai": {
+  "hash": "0d99258d6526da68",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/hocoos": {
+  "hash": "430aa5a34a75483d",
+  "lastmod": "2026-07-07"
+ },
+ "/tool/hootsuite-ai": {
+  "hash": "0567fc1b468e414d",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/hostinger-ai": {
+  "hash": "91080f45624d5c94",
+  "lastmod": "2026-06-03"
+ },
+ "/tool/housecanary": {
+  "hash": "ce8681bef020b9f4",
+  "lastmod": "2026-01-23"
+ },
+ "/tool/hubspot-academy": {
+  "hash": "df1dd6b551304adf",
+  "lastmod": "2026-03-30"
+ },
+ "/tool/hubspot-ai": {
+  "hash": "8de637cfbf69037f",
+  "lastmod": "2026-05-16"
+ },
+ "/tool/hubspot-automation": {
+  "hash": "623b5dc8c63642cc",
+  "lastmod": "2026-02-27"
+ },
+ "/tool/hugging-face": {
+  "hash": "31a800369e50b3fa",
+  "lastmod": "2026-03-30"
+ },
+ "/tool/hugging-face-course": {
+  "hash": "21bb10bd93026172",
+  "lastmod": "2026-07-02"
+ },
+ "/tool/huggingchat": {
+  "hash": "55606ce7942c6693",
+  "lastmod": "2026-07-10"
+ },
+ "/tool/humata": {
+  "hash": "56c1a83a49ae6a48",
+  "lastmod": "2026-03-27"
+ },
+ "/tool/huntr": {
+  "hash": "27883235688687ef",
+  "lastmod": "2026-04-19"
+ },
+ "/tool/hyperwrite": {
+  "hash": "0a2c7208c90929c3",
+  "lastmod": "2026-02-22"
+ },
+ "/tool/hyro": {
+  "hash": "3b6d63adf4c8a64c",
+  "lastmod": "2026-05-05"
+ },
+ "/tool/i10x": {
+  "hash": "51b7c2a90e76b97a",
+  "lastmod": "2026-10-05"
+ },
+ "/tool/ibm-skillsbuild": {
+  "hash": "3f5836d206758c61",
+  "lastmod": "2026-04-11"
+ },
+ "/tool/iconify": {
+  "hash": "39564d52ac56b0a4",
+  "lastmod": "2026-02-06"
+ },
+ "/tool/ideogram": {
+  "hash": "a41a23529611c2bb",
+  "lastmod": "2026-05-19"
+ },
+ "/tool/iep": {
+  "hash": "4bc7a24db43807cc",
+  "lastmod": "2026-05-04"
+ },
+ "/tool/ifttt-automation": {
+  "hash": "a0d8405af0024eab",
+  "lastmod": "2026-02-05"
+ },
+ "/tool/imagefx": {
+  "hash": "17a5838b60b23e4b",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/inngest": {
+  "hash": "b393c397ddbb4c38",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/interakt-automation": {
+  "hash": "21a761627710e638",
+  "lastmod": "2026-01-23"
+ },
+ "/tool/intercom": {
+  "hash": "051901b96c6c025e",
+  "lastmod": "2026-04-10"
+ },
+ "/tool/intercom-fin": {
+  "hash": "81827f0ba5809f8a",
+  "lastmod": "2026-02-07"
+ },
+ "/tool/internet-archive": {
+  "hash": "fe3862401ac72102",
+  "lastmod": "2026-03-20"
+ },
+ "/tool/interview-warmup": {
+  "hash": "49ee19f93dda08b7",
+  "lastmod": "2026-04-06"
+ },
+ "/tool/invideo-ai": {
+  "hash": "a499a4f1fe66f57e",
+  "lastmod": "2026-05-08"
+ },
+ "/tool/inworld-ai": {
+  "hash": "75f6b5d24957a608",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/jasper": {
+  "hash": "27ed12b08ae37f35",
+  "lastmod": "2026-04-25"
+ },
+ "/tool/jasper-marketing": {
+  "hash": "bfc1175b42ecd936",
+  "lastmod": "2026-06-27"
+ },
+ "/tool/javatpoint": {
+  "hash": "9413e8006f4cc838",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/jenkins": {
+  "hash": "700e920d045ae396",
+  "lastmod": "2026-07-04"
+ },
+ "/tool/jenni-ai": {
+  "hash": "1bae02fe060b6efc",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/jimdo-ai": {
+  "hash": "47daf2b4b1e65ecb",
+  "lastmod": "2026-04-18"
+ },
+ "/tool/jobscan": {
+  "hash": "36ad1ae525e161a8",
+  "lastmod": "2026-02-22"
+ },
+ "/tool/jules": {
+  "hash": "df4002efcf4b2c57",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/julius-ai": {
+  "hash": "387a83c0ede3a6d2",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/kaedim": {
+  "hash": "44cd6bf4320ab390",
+  "lastmod": "2026-05-25"
+ },
+ "/tool/kaggle": {
+  "hash": "a7b7598f6469f18d",
+  "lastmod": "2026-01-15"
+ },
+ "/tool/khan-academy": {
+  "hash": "738a60531f78cbc5",
+  "lastmod": "2026-06-02"
+ },
+ "/tool/khanmigo": {
+  "hash": "da5270c18ac82e51",
+  "lastmod": "2026-05-10"
+ },
+ "/tool/khroma": {
+  "hash": "3d7bdf2723d9d0e6",
+  "lastmod": "2026-05-18"
+ },
+ "/tool/kickresume": {
+  "hash": "b965d1528efd60ca",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/kimi-ai": {
+  "hash": "61d9594bebb270ae",
+  "lastmod": "2026-06-11"
+ },
+ "/tool/kiro": {
+  "hash": "08bc4787afb4803d",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/kit-automation": {
+  "hash": "6314fe805cf4cf5f",
+  "lastmod": "2026-03-28"
+ },
+ "/tool/klap": {
+  "hash": "fc28b8d1ba6fe118",
+  "lastmod": "2026-04-28"
+ },
+ "/tool/klevu": {
+  "hash": "e3b6fe718cefb153",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/kling-ai": {
+  "hash": "5d8e857ef3791322",
+  "lastmod": "2026-04-04"
+ },
+ "/tool/knewton": {
+  "hash": "b6e24de871deb15f",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/komo-ai": {
+  "hash": "dec9397589debe15",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/krea": {
+  "hash": "6995f8efba40edb1",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/krisp": {
+  "hash": "136ba461d3597c7f",
+  "lastmod": "2026-03-10"
+ },
+ "/tool/krisp-ai": {
+  "hash": "f9284f3706b31cb6",
+  "lastmod": "2026-03-06"
+ },
+ "/tool/krisp-meeting": {
+  "hash": "5e397f883021c43c",
+  "lastmod": "2026-05-19"
+ },
+ "/tool/kubernetes-docs": {
+  "hash": "dbc042ce03a8d8a7",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/kuberns": {
+  "hash": "9cd0289b924ac4be",
+  "lastmod": "2026-05-21"
+ },
+ "/tool/kustomer": {
+  "hash": "0e23f0f6d74965ba",
+  "lastmod": "2026-02-01"
+ },
+ "/tool/lalals": {
+  "hash": "a583ff6234073da6",
+  "lastmod": "2026-01-16"
+ },
+ "/tool/landbot": {
+  "hash": "401af08db0c1ee74",
+  "lastmod": "2026-05-07"
+ },
+ "/tool/langchain": {
+  "hash": "d82a64a5bc3240ae",
+  "lastmod": "2026-01-29"
+ },
+ "/tool/lavender-ai": {
+  "hash": "dd885f13e13e6818",
+  "lastmod": "2026-06-19"
+ },
+ "/tool/lawgeex": {
+  "hash": "f264169381100c16",
+  "lastmod": "2026-02-04"
+ },
+ "/tool/learn-about": {
+  "hash": "2af82141dfc8a75b",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/learn-ui-design": {
+  "hash": "c0a655c2fdbdebb7",
+  "lastmod": "2026-04-03"
+ },
+ "/tool/leetcode": {
+  "hash": "a4284b6f3f46089d",
+  "lastmod": "2026-05-26"
+ },
+ "/tool/legora": {
+  "hash": "676d250f1e8e55cd",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/lemlist-automation": {
+  "hash": "e2226e17775c566a",
+  "lastmod": "2026-05-27"
+ },
+ "/tool/leonardo-ai": {
+  "hash": "ab31a622804053e8",
+  "lastmod": "2026-03-26"
+ },
+ "/tool/leonardo-phoenix": {
+  "hash": "85db6e3f9b16291e",
+  "lastmod": "2026-02-20"
+ },
+ "/tool/lexica": {
+  "hash": "2155fe67d2e85411",
+  "lastmod": "2026-02-19"
+ },
+ "/tool/lexion": {
+  "hash": "a7a87ee773c65ca4",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/lily-ai": {
+  "hash": "d5013726886587a3",
+  "lastmod": "2026-03-23"
+ },
+ "/tool/lindy-ai": {
+  "hash": "dfd66b4e7d7771e0",
+  "lastmod": "2026-06-06"
+ },
+ "/tool/linear": {
+  "hash": "bb4d073977a23177",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/linux-journey": {
+  "hash": "7562db0fda2c0488",
+  "lastmod": "2026-06-06"
+ },
+ "/tool/lm-studio": {
+  "hash": "e8327c7d2e0a5e09",
+  "lastmod": "2026-05-20"
+ },
+ "/tool/localize": {
+  "hash": "e2841ee3d857b8e7",
+  "lastmod": "2026-05-05"
+ },
+ "/tool/looker-studio": {
+  "hash": "93018ebd4ad11f63",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/lovable": {
+  "hash": "ec6ec82e26706803",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/lovable-dev": {
+  "hash": "6e6a2268ff02b98d",
+  "lastmod": "2026-06-04"
+ },
+ "/tool/ludo-ai": {
+  "hash": "90f52ee96ee3ab33",
+  "lastmod": "2026-07-02"
+ },
+ "/tool/luma-ai-3d": {
+  "hash": "edbdea62a8d24bc6",
+  "lastmod": "2026-07-04"
+ },
+ "/tool/luma-dream-machine": {
+  "hash": "e5af484e1afde253",
+  "lastmod": "2026-01-29"
+ },
+ "/tool/luminance": {
+  "hash": "80042b379fe8c489",
+  "lastmod": "2026-03-02"
+ },
+ "/tool/magical": {
+  "hash": "75a5d49d8ca642bd",
+  "lastmod": "2026-04-09"
+ },
+ "/tool/magician-for-figma": {
+  "hash": "b86a7e2efa813bc1",
+  "lastmod": "2026-01-24"
+ },
+ "/tool/magicschool-ai": {
+  "hash": "10047e9d9f59ec3b",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/magnific-ai": {
+  "hash": "f4cbda73fce76857",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/mailbutler": {
+  "hash": "3e910ecc62aa284f",
+  "lastmod": "2026-05-18"
+ },
+ "/tool/mailchimp-automation": {
+  "hash": "2f2fe7b68af7ad82",
+  "lastmod": "2026-04-27"
+ },
+ "/tool/mailerlite-automation": {
+  "hash": "6e51dc7e59394927",
+  "lastmod": "2026-03-01"
+ },
+ "/tool/make-ai": {
+  "hash": "caa8feb7582a2d6c",
+  "lastmod": "2026-02-06"
+ },
+ "/tool/make-automation": {
+  "hash": "22c5de24e991484b",
+  "lastmod": "2026-03-17"
+ },
+ "/tool/manatal-ai": {
+  "hash": "e382a7cc48ba8572",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/manus": {
+  "hash": "ade34719585ff549",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/manychat": {
+  "hash": "0ff22e02cf25c5f6",
+  "lastmod": "2026-03-12"
+ },
+ "/tool/manychat-ai": {
+  "hash": "a4e9da39ef91ef30",
+  "lastmod": "2026-03-23"
+ },
+ "/tool/mapdeduce": {
+  "hash": "bec9a5a3c4b1724d",
+  "lastmod": "2026-02-14"
+ },
+ "/tool/marimo": {
+  "hash": "ff7a271967736e33",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/marketmuse": {
+  "hash": "6f2d48d1e9cdfb05",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/masterpiece-studio": {
+  "hash": "42e222cb23c01345",
+  "lastmod": "2026-03-15"
+ },
+ "/tool/masterpiece-x": {
+  "hash": "f68796a0d2334544",
+  "lastmod": "2026-05-08"
+ },
+ "/tool/material-design": {
+  "hash": "ee075432199fc337",
+  "lastmod": "2026-04-28"
+ },
+ "/tool/maxai": {
+  "hash": "c84441523865fe39",
+  "lastmod": "2026-05-09"
+ },
+ "/tool/mdn": {
+  "hash": "8508003867fbb46e",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/meetgeek": {
+  "hash": "13f658e1ae742a6e",
+  "lastmod": "2026-04-12"
+ },
+ "/tool/mem-ai": {
+  "hash": "be5abe0b63d0ac82",
+  "lastmod": "2026-02-08"
+ },
+ "/tool/mendeley": {
+  "hash": "d50e9bbf77d8eca7",
+  "lastmod": "2026-06-06"
+ },
+ "/tool/merlin": {
+  "hash": "3a53efa7041810cf",
+  "lastmod": "2026-04-08"
+ },
+ "/tool/meshy-ai": {
+  "hash": "468997a7cfa7bc28",
+  "lastmod": "2026-03-19"
+ },
+ "/tool/meta-ai": {
+  "hash": "dbc124046907fc7c",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/meta-blueprint": {
+  "hash": "945046a229cd067d",
+  "lastmod": "2026-04-29"
+ },
+ "/tool/metricool-automation": {
+  "hash": "915d3fcef66165f5",
+  "lastmod": "2026-05-02"
+ },
+ "/tool/microsoft-designer": {
+  "hash": "c9b51dcc5088727c",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/microsoft-learn-ai": {
+  "hash": "06e247844304defc",
+  "lastmod": "2026-03-05"
+ },
+ "/tool/microsoft-security-copilot": {
+  "hash": "88d710a5ee995c0c",
+  "lastmod": "2026-04-03"
+ },
+ "/tool/midjourney": {
+  "hash": "ea46060f0f945899",
+  "lastmod": "2026-01-26"
+ },
+ "/tool/missive-ai": {
+  "hash": "4f7e840dd74342e1",
+  "lastmod": "2026-05-06"
+ },
+ "/tool/mistral-ai": {
+  "hash": "418bc23191897af6",
+  "lastmod": "2026-02-11"
+ },
+ "/tool/mistral-large": {
+  "hash": "d1969ac66f002322",
+  "lastmod": "2026-04-17"
+ },
+ "/tool/mistral-le-chat": {
+  "hash": "3cb6cad776dad4a4",
+  "lastmod": "2026-02-22"
+ },
+ "/tool/mit-opencourseware": {
+  "hash": "62486f80ac5461af",
+  "lastmod": "2026-01-17"
+ },
+ "/tool/monica": {
+  "hash": "55b18862a687aae8",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/monica-ai": {
+  "hash": "a65a543be6782b99",
+  "lastmod": "2026-07-11"
+ },
+ "/tool/motion-automation": {
+  "hash": "bb0a7f9c91d013af",
+  "lastmod": "2026-01-25"
+ },
+ "/tool/mozilla-observatory": {
+  "hash": "b470270ccd375813",
+  "lastmod": "2026-06-01"
+ },
+ "/tool/mubert": {
+  "hash": "b590ae10af3fb6f9",
+  "lastmod": "2026-02-19"
+ },
+ "/tool/munch-studio": {
+  "hash": "d870ec15c98a62b5",
+  "lastmod": "2026-01-22"
+ },
+ "/tool/murf-ai": {
+  "hash": "7b2917c816cfa7d6",
+  "lastmod": "2026-06-16"
+ },
+ "/tool/musicfx": {
+  "hash": "46cb2d8bd8620b57",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/mutable-ai": {
+  "hash": "476d5b2fa064941d",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/mutiny": {
+  "hash": "cddb11d5f64cec42",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/n8n": {
+  "hash": "4c7d1f1743105735",
+  "lastmod": "2026-06-05"
+ },
+ "/tool/nabla": {
+  "hash": "fab53e64c3b74d30",
+  "lastmod": "2026-03-15"
+ },
+ "/tool/napkin-ai": {
+  "hash": "02cd009f0939bed7",
+  "lastmod": "2026-01-17"
+ },
+ "/tool/nasa-stem": {
+  "hash": "16b0029002b2e835",
+  "lastmod": "2026-02-10"
+ },
+ "/tool/netlify-docs": {
+  "hash": "54aba84c1c31930e",
+  "lastmod": "2026-02-21"
+ },
+ "/tool/neuronwriter": {
+  "hash": "1afc6310d475283d",
+  "lastmod": "2026-01-24"
+ },
+ "/tool/nightcafe": {
+  "hash": "8819712d2ee69d28",
+  "lastmod": "2026-04-04"
+ },
+ "/tool/nosto-ai": {
+  "hash": "d2366d6325a92be9",
+  "lastmod": "2026-01-31"
+ },
+ "/tool/notebooklm": {
+  "hash": "02fddb84ca213e13",
+  "lastmod": "2026-03-04"
+ },
+ "/tool/notegpt": {
+  "hash": "9ea1a4e6b945b683",
+  "lastmod": "2026-03-24"
+ },
+ "/tool/notion-academy": {
+  "hash": "125eecdae77a2fa2",
+  "lastmod": "2026-04-05"
+ },
+ "/tool/notion-ai": {
+  "hash": "730d255b1f18cc39",
+  "lastmod": "2026-04-17"
+ },
+ "/tool/novamira": {
+  "hash": "54812f901e18a819",
+  "lastmod": "2026-10-05"
+ },
+ "/tool/nptel": {
+  "hash": "6b4234f6a56019a0",
+  "lastmod": "2026-05-22"
+ },
+ "/tool/observable": {
+  "hash": "02183ff8c59b7db4",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/obsidian": {
+  "hash": "0c6c5bc8672e506d",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/obsidian-help": {
+  "hash": "2e036152ec4b28a4",
+  "lastmod": "2026-04-20"
+ },
+ "/tool/obviously-ai": {
+  "hash": "fa92e94fcd378b71",
+  "lastmod": "2026-02-24"
+ },
+ "/tool/ocoya": {
+  "hash": "d37f52e8b44c471d",
+  "lastmod": "2026-07-03"
+ },
+ "/tool/octane-ai": {
+  "hash": "88b02c7316179183",
+  "lastmod": "2026-01-26"
+ },
+ "/tool/ollama": {
+  "hash": "0a36ed956a85905c",
+  "lastmod": "2026-06-22"
+ },
+ "/tool/open-library": {
+  "hash": "581d928fc107f62a",
+  "lastmod": "2026-01-26"
+ },
+ "/tool/openai-api": {
+  "hash": "bd27d18db848a0b9",
+  "lastmod": "2026-03-12"
+ },
+ "/tool/openai-codex": {
+  "hash": "92d78549b9434968",
+  "lastmod": "2026-03-30"
+ },
+ "/tool/openai-cookbook": {
+  "hash": "776b7ddf1d9d2376",
+  "lastmod": "2026-06-07"
+ },
+ "/tool/openevidence": {
+  "hash": "c8877c6c70986ed1",
+  "lastmod": "2026-05-12"
+ },
+ "/tool/openlearn": {
+  "hash": "95c0f9a533ccebdb",
+  "lastmod": "2026-01-31"
+ },
+ "/tool/openstax": {
+  "hash": "f9db4b27aa3cc87a",
+  "lastmod": "2026-07-02"
+ },
+ "/tool/opusclip": {
+  "hash": "da9eab3e7b281c67",
+  "lastmod": "2026-05-29"
+ },
+ "/tool/otter-ai": {
+  "hash": "3e55834ec276719b",
+  "lastmod": "2026-04-28"
+ },
+ "/tool/otter-ai-automation": {
+  "hash": "50820704635ceec3",
+  "lastmod": "2026-05-30"
+ },
+ "/tool/overthewire": {
+  "hash": "129ca6c65a8d465a",
+  "lastmod": "2026-06-30"
+ },
+ "/tool/pabbly-connect-automation": {
+  "hash": "f6fe449056af3cae",
+  "lastmod": "2026-05-30"
+ },
+ "/tool/paradox-ai": {
+  "hash": "1d2b0e0e2748697f",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/paradox-olivia": {
+  "hash": "f062cb200de80212",
+  "lastmod": "2026-02-01"
+ },
+ "/tool/pauls-online-math-notes": {
+  "hash": "b84ebd7f0dd79b58",
+  "lastmod": "2026-03-06"
+ },
+ "/tool/pdf-ai": {
+  "hash": "b0ac377f61347741",
+  "lastmod": "2026-06-23"
+ },
+ "/tool/penpot-ai": {
+  "hash": "7aaf5b057839f5e3",
+  "lastmod": "2026-06-03"
+ },
+ "/tool/performance-planner": {
+  "hash": "ebf710d34ff39462",
+  "lastmod": "2026-07-05"
+ },
+ "/tool/perplexity": {
+  "hash": "03426aa271b930fa",
+  "lastmod": "2026-02-27"
+ },
+ "/tool/perplexity-api": {
+  "hash": "5013fa2e387dcbf3",
+  "lastmod": "2026-07-05"
+ },
+ "/tool/perplexity-assistant": {
+  "hash": "fbe33b10188fdd18",
+  "lastmod": "2026-04-11"
+ },
+ "/tool/pexo": {
+  "hash": "2189ec8cf7f200bb",
+  "lastmod": "2026-10-05"
+ },
+ "/tool/phantombuster-automation": {
+  "hash": "b8c5768e2022441c",
+  "lastmod": "2026-05-20"
+ },
+ "/tool/phet-simulations": {
+  "hash": "f97cab14db10fb51",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/phind": {
+  "hash": "ba990ad7ec8d0911",
+  "lastmod": "2026-02-06"
+ },
+ "/tool/pi-ai": {
+  "hash": "c420a5ad5ba0168a",
+  "lastmod": "2026-01-24"
+ },
+ "/tool/pictory": {
+  "hash": "eeffc9130312f673",
+  "lastmod": "2026-05-01"
+ },
+ "/tool/pika": {
+  "hash": "dfbca1ec5652177c",
+  "lastmod": "2026-05-15"
+ },
+ "/tool/pika-art": {
+  "hash": "aef8752733ba2758",
+  "lastmod": "2026-06-19"
+ },
+ "/tool/pipedream": {
+  "hash": "64818fe29dd67086",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/pipedrive-automation": {
+  "hash": "ed9963b6da99a4e9",
+  "lastmod": "2026-03-28"
+ },
+ "/tool/pitch-ai": {
+  "hash": "c3ab9ad4c60521f2",
+  "lastmod": "2026-05-29"
+ },
+ "/tool/plask": {
+  "hash": "d000c7a8108ff549",
+  "lastmod": "2026-01-23"
+ },
+ "/tool/playground-ai": {
+  "hash": "b860fef602ba888c",
+  "lastmod": "2026-02-20"
+ },
+ "/tool/playht": {
+  "hash": "cd533efe3b00aff8",
+  "lastmod": "2026-04-03"
+ },
+ "/tool/plus-ai": {
+  "hash": "9467148053793668",
+  "lastmod": "2026-06-02"
+ },
+ "/tool/poe": {
+  "hash": "b94777a76cd55fe0",
+  "lastmod": "2026-06-22"
+ },
+ "/tool/polymer": {
+  "hash": "a50ee91932ac7c18",
+  "lastmod": "2026-04-21"
+ },
+ "/tool/polymer-search": {
+  "hash": "2010632c10a17e9e",
+  "lastmod": "2026-03-26"
+ },
+ "/tool/poolside": {
+  "hash": "96dff6ae617040eb",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/postman-learning": {
+  "hash": "42f0839c48425d0e",
+  "lastmod": "2026-03-18"
+ },
+ "/tool/power-bi-copilot": {
+  "hash": "4ceb20346997eb84",
+  "lastmod": "2026-06-02"
+ },
+ "/tool/predis-ai": {
+  "hash": "3f94c5c7c0e9eb77",
+  "lastmod": "2026-03-28"
+ },
+ "/tool/presentations-ai": {
+  "hash": "30585b9812ae9646",
+  "lastmod": "2026-03-22"
+ },
+ "/tool/programiz": {
+  "hash": "56935a044fbf2ba1",
+  "lastmod": "2026-06-03"
+ },
+ "/tool/project-euler": {
+  "hash": "f39db708d15b6a02",
+  "lastmod": "2026-04-09"
+ },
+ "/tool/publer-ai": {
+  "hash": "4c744be249834913",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/publer-automation": {
+  "hash": "ce43d84a053da670",
+  "lastmod": "2026-04-05"
+ },
+ "/tool/qodo": {
+  "hash": "062c21708228dc4d",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/questionwell": {
+  "hash": "273bd0c0eb886946",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/quillbot": {
+  "hash": "aeb1d1f6b67b80de",
+  "lastmod": "2026-05-04"
+ },
+ "/tool/quizlet-ai": {
+  "hash": "243f268756778bca",
+  "lastmod": "2026-01-22"
+ },
+ "/tool/quizlet-q-chat": {
+  "hash": "b92b035053fd8ebb",
+  "lastmod": "2026-02-01"
+ },
+ "/tool/qwen": {
+  "hash": "d2302a2485544e93",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/qwen-chat": {
+  "hash": "f264092455a9c1d6",
+  "lastmod": "2026-02-20"
+ },
+ "/tool/ramp-ai": {
+  "hash": "28f1496ad0982f79",
+  "lastmod": "2026-01-27"
+ },
+ "/tool/raycast": {
+  "hash": "9dd39fbbdb59b41c",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/read-ai": {
+  "hash": "7d1f798ddc5c0696",
+  "lastmod": "2026-03-13"
+ },
+ "/tool/realty-ai": {
+  "hash": "5f0345bf4f7f79e0",
+  "lastmod": "2026-03-04"
+ },
+ "/tool/rechat": {
+  "hash": "45b6463e9cd0f24e",
+  "lastmod": "2026-04-10"
+ },
+ "/tool/reclaim-ai-automation": {
+  "hash": "bde9ff8c99eb2d0f",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/recraft": {
+  "hash": "f6d5dcb9c5ab0227",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/reimaginehome": {
+  "hash": "d64dd51718d8980e",
+  "lastmod": "2026-02-02"
+ },
+ "/tool/relay-app": {
+  "hash": "e2965b10c5b0a417",
+  "lastmod": "2026-03-13"
+ },
+ "/tool/relevance-ai": {
+  "hash": "ae99a7ef88632e34",
+  "lastmod": "2026-06-09"
+ },
+ "/tool/relume-ai": {
+  "hash": "b32058966fe5308c",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/replicate": {
+  "hash": "2e4a8e9247093362",
+  "lastmod": "2026-01-18"
+ },
+ "/tool/replit": {
+  "hash": "aa2d35c8992453f4",
+  "lastmod": "2026-02-05"
+ },
+ "/tool/replit-agent": {
+  "hash": "4ce030b3992c52f7",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/replit-ai": {
+  "hash": "9a0393e2f54abcdf",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/research-rabbit": {
+  "hash": "ab1a24f0b578fd12",
+  "lastmod": "2026-05-11"
+ },
+ "/tool/resemble-ai": {
+  "hash": "75c6687742648e8c",
+  "lastmod": "2026-03-31"
+ },
+ "/tool/restb-ai": {
+  "hash": "fd6f7d7ac94639ec",
+  "lastmod": "2026-06-02"
+ },
+ "/tool/resume-io": {
+  "hash": "f535e20a93086834",
+  "lastmod": "2026-05-12"
+ },
+ "/tool/retool": {
+  "hash": "247a4e976f760a37",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/reve-image": {
+  "hash": "eb82ec5dcf01c910",
+  "lastmod": "2026-03-08"
+ },
+ "/tool/rezi": {
+  "hash": "27c5eeb50bae758b",
+  "lastmod": "2026-02-18"
+ },
+ "/tool/rive": {
+  "hash": "2f48911295f18c4e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/roadmap-sh": {
+  "hash": "6e2353ed37e36669",
+  "lastmod": "2026-06-08"
+ },
+ "/tool/roadmap-sh-devops": {
+  "hash": "0d0bf3971a9bd518",
+  "lastmod": "2026-07-12"
+ },
+ "/tool/robin-ai": {
+  "hash": "e094e72c6677a4ab",
+  "lastmod": "2026-05-26"
+ },
+ "/tool/roo-code": {
+  "hash": "20202a840cd1d2a3",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/rosebud-ai": {
+  "hash": "86eea6f6e8f9cd77",
+  "lastmod": "2026-05-31"
+ },
+ "/tool/rows": {
+  "hash": "b2b41e25ec81c6c5",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/runway": {
+  "hash": "d04db41c859ef71a",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/runway-gen3": {
+  "hash": "f28d44e542561a4b",
+  "lastmod": "2026-07-05"
+ },
+ "/tool/runway-ml": {
+  "hash": "ef773fe77c5bac2c",
+  "lastmod": "2026-04-21"
+ },
+ "/tool/rytr": {
+  "hash": "2a0cfa39dc53b49f",
+  "lastmod": "2026-05-28"
+ },
+ "/tool/salesforce-automation": {
+  "hash": "e87d89012c634a7d",
+  "lastmod": "2026-01-15"
+ },
+ "/tool/sanebox": {
+  "hash": "dae2102b6cde764c",
+  "lastmod": "2026-05-20"
+ },
+ "/tool/scenario-ai": {
+  "hash": "88085747358f34e5",
+  "lastmod": "2026-03-28"
+ },
+ "/tool/scholarcy": {
+  "hash": "82154192d2eb0dad",
+  "lastmod": "2026-03-09"
+ },
+ "/tool/schoolai": {
+  "hash": "3440f103376b0850",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/scispace": {
+  "hash": "3ac047da1ec5dd7c",
+  "lastmod": "2026-06-29"
+ },
+ "/tool/scispace-copilot": {
+  "hash": "792e9ccf77278c9a",
+  "lastmod": "2026-02-12"
+ },
+ "/tool/scite": {
+  "hash": "7962167b26ca2e0a",
+  "lastmod": "2026-06-11"
+ },
+ "/tool/seekout-ai": {
+  "hash": "659e5750071a51bb",
+  "lastmod": "2026-07-05"
+ },
+ "/tool/semantic-scholar": {
+  "hash": "20f895bedb494ba7",
+  "lastmod": "2026-03-14"
+ },
+ "/tool/sembly-ai": {
+  "hash": "d7ae54ebd04287e1",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/semrush-academy": {
+  "hash": "c208e9b6fecc1e0f",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/semrush-ai": {
+  "hash": "bf31d7d2b9d0ba78",
+  "lastmod": "2026-03-07"
+ },
+ "/tool/sentinelone": {
+  "hash": "1bf2cbbe59a87555",
+  "lastmod": "2026-04-17"
+ },
+ "/tool/sentinelone-purple": {
+  "hash": "2ad0064b5f564321",
+  "lastmod": "2026-07-11"
+ },
+ "/tool/sharly-ai": {
+  "hash": "73d016c0e92e9608",
+  "lastmod": "2026-06-14"
+ },
+ "/tool/shopify-magic": {
+  "hash": "6f8dd68ddf3485fa",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/shortwave": {
+  "hash": "d8358024a4e830b7",
+  "lastmod": "2026-07-11"
+ },
+ "/tool/sider": {
+  "hash": "39d417d7370c2fcf",
+  "lastmod": "2026-03-25"
+ },
+ "/tool/sider-ai": {
+  "hash": "7a30ecc1d7bbbf87",
+  "lastmod": "2026-05-23"
+ },
+ "/tool/sierra-ai": {
+  "hash": "23aa5a101c601af9",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/sifu-yik": {
+  "hash": "87ba4171038f2978",
+  "lastmod": "2026-03-26"
+ },
+ "/tool/skillate": {
+  "hash": "0a48f76121ab4f1f",
+  "lastmod": "2026-01-19"
+ },
+ "/tool/skillshop": {
+  "hash": "353b6581952db197",
+  "lastmod": "2026-07-09"
+ },
+ "/tool/slidesai": {
+  "hash": "6d8f3fe46768e7fa",
+  "lastmod": "2026-03-17"
+ },
+ "/tool/socialbee-automation": {
+  "hash": "2b05c2b0cebe4d20",
+  "lastmod": "2026-03-15"
+ },
+ "/tool/socratic": {
+  "hash": "cc5a7ad584e27e43",
+  "lastmod": "2026-04-06"
+ },
+ "/tool/softgen": {
+  "hash": "ffcaba53484affbc",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/softr": {
+  "hash": "883002a73f96f7ae",
+  "lastmod": "2026-05-17"
+ },
+ "/tool/softr-ai": {
+  "hash": "28c85eb2ea506e7b",
+  "lastmod": "2026-04-30"
+ },
+ "/tool/sora": {
+  "hash": "fa294676dc541bd4",
+  "lastmod": "2026-02-24"
+ },
+ "/tool/soundraw": {
+  "hash": "37e07220162b6c28",
+  "lastmod": "2026-02-15"
+ },
+ "/tool/sourcegraph": {
+  "hash": "56b7f1eb7748935d",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/sourcegraph-cody": {
+  "hash": "9412c173aab7f4db",
+  "lastmod": "2026-06-30"
+ },
+ "/tool/speechify": {
+  "hash": "c9a869baee940688",
+  "lastmod": "2026-03-07"
+ },
+ "/tool/spellbook": {
+  "hash": "ed5bff1c2177dd8e",
+  "lastmod": "2026-06-09"
+ },
+ "/tool/spline-ai": {
+  "hash": "4cdf62b9e3a88b54",
+  "lastmod": "2026-01-29"
+ },
+ "/tool/sqlbolt": {
+  "hash": "e903f3aff470c2e6",
+  "lastmod": "2026-05-10"
+ },
+ "/tool/stable-diffusion": {
+  "hash": "4aea76f90f312ca9",
+  "lastmod": "2026-04-07"
+ },
+ "/tool/studyable": {
+  "hash": "c692b186d11b3a04",
+  "lastmod": "2026-06-24"
+ },
+ "/tool/sudowrite": {
+  "hash": "c0c18e47d2b4e96e",
+  "lastmod": "2026-02-08"
+ },
+ "/tool/suno": {
+  "hash": "79fbcda8a8c7b5a0",
+  "lastmod": "2026-01-24"
+ },
+ "/tool/superhuman-ai": {
+  "hash": "9ae68d1330f7e672",
+  "lastmod": "2026-04-17"
+ },
+ "/tool/supermaven": {
+  "hash": "b08f1d5f2b421a97",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/supernormal": {
+  "hash": "9deb8bfc78c5401c",
+  "lastmod": "2026-05-09"
+ },
+ "/tool/superscale-ai": {
+  "hash": "d334504ac48545ca",
+  "lastmod": "2026-06-16"
+ },
+ "/tool/superwhisper": {
+  "hash": "245567ead6b38f18",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/surfer-seo": {
+  "hash": "bc8327b0c4aed162",
+  "lastmod": "2026-04-07"
+ },
+ "/tool/synthesia": {
+  "hash": "d46ab27208b5baac",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/syte": {
+  "hash": "d361a8d08e505188",
+  "lastmod": "2026-05-16"
+ },
+ "/tool/tableau-ai": {
+  "hash": "fd60c1466926b806",
+  "lastmod": "2026-02-11"
+ },
+ "/tool/tabnine": {
+  "hash": "ac1b6ae7214ba3bc",
+  "lastmod": "2026-05-06"
+ },
+ "/tool/taplio": {
+  "hash": "c9a0db921fec370e",
+  "lastmod": "2026-03-08"
+ },
+ "/tool/taskade": {
+  "hash": "e358e37c344aab14",
+  "lastmod": "2026-01-19"
+ },
+ "/tool/taskade-ai": {
+  "hash": "4f20e226ad43849b",
+  "lastmod": "2026-05-05"
+ },
+ "/tool/teachy-ai": {
+  "hash": "e339360bacbb6783",
+  "lastmod": "2026-08-04"
+ },
+ "/tool/teal": {
+  "hash": "63cbe3aea57f69c5",
+  "lastmod": "2026-01-26"
+ },
+ "/tool/tempo-labs": {
+  "hash": "aed493350784a1a7",
+  "lastmod": "2026-04-30"
+ },
+ "/tool/tensorflow-tutorials": {
+  "hash": "12353d739c09e527",
+  "lastmod": "2026-07-06"
+ },
+ "/tool/terabox-ai": {
+  "hash": "6c47850cd091fc9e",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/terraform-docs": {
+  "hash": "57623023668a079e",
+  "lastmod": "2026-05-03"
+ },
+ "/tool/textio": {
+  "hash": "d09e2a5a4f44c260",
+  "lastmod": "2026-06-04"
+ },
+ "/tool/the-odin-project": {
+  "hash": "c39a7188c4357e13",
+  "lastmod": "2026-06-24"
+ },
+ "/tool/think-with-google": {
+  "hash": "c4f4c231754db6d7",
+  "lastmod": "2026-02-11"
+ },
+ "/tool/tidio": {
+  "hash": "185b3b7306946dad",
+  "lastmod": "2026-03-29"
+ },
+ "/tool/tldraw": {
+  "hash": "0f9b70f63aa4f7c4",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/tldv": {
+  "hash": "9f2da7719c576cde",
+  "lastmod": "2026-05-11"
+ },
+ "/tool/together-ai": {
+  "hash": "9b21f455d917ecef",
+  "lastmod": "2026-05-23"
+ },
+ "/tool/tome": {
+  "hash": "690e51dc66095127",
+  "lastmod": "2026-04-18"
+ },
+ "/tool/topaz-video-ai": {
+  "hash": "5e01527368368163",
+  "lastmod": "2026-04-27"
+ },
+ "/tool/tray-io": {
+  "hash": "7600c02446416da7",
+  "lastmod": "2026-03-03"
+ },
+ "/tool/trigger-dev": {
+  "hash": "a0d70d0b843fdc07",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/tutor-ai": {
+  "hash": "989d490ed83e7ea8",
+  "lastmod": "2026-06-26"
+ },
+ "/tool/tweet-hunter": {
+  "hash": "24579fbfa4c52790",
+  "lastmod": "2026-03-10"
+ },
+ "/tool/twenty-crm": {
+  "hash": "729850a9fa8fbe4c",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/typebot": {
+  "hash": "a74c320331118a59",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/udio": {
+  "hash": "8ceb7d104423e30d",
+  "lastmod": "2026-02-22"
+ },
+ "/tool/uizard": {
+  "hash": "d7e0a707dd0eba4b",
+  "lastmod": "2026-02-11"
+ },
+ "/tool/updf-ai": {
+  "hash": "e4e92dc15771ff4e",
+  "lastmod": "2026-03-23"
+ },
+ "/tool/ux-planet": {
+  "hash": "6e9fa8925fa97e50",
+  "lastmod": "2026-04-08"
+ },
+ "/tool/v0": {
+  "hash": "16e3a01ad0059c5e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/v0-vercel": {
+  "hash": "97f84477254dbc55",
+  "lastmod": "2026-03-21"
+ },
+ "/tool/vectra-ai": {
+  "hash": "031e12a53cfaed0e",
+  "lastmod": "2026-04-04"
+ },
+ "/tool/veed-ai": {
+  "hash": "b23ac7c584d1c893",
+  "lastmod": "2026-03-20"
+ },
+ "/tool/veo": {
+  "hash": "a94cee5108699a53",
+  "lastmod": "2026-04-08"
+ },
+ "/tool/vercel-docs": {
+  "hash": "3e3af053bc788e5b",
+  "lastmod": "2026-01-15"
+ },
+ "/tool/vercel-v0": {
+  "hash": "944232331fd8f944",
+  "lastmod": "2026-05-01"
+ },
+ "/tool/vic-ai": {
+  "hash": "05ba8dc527de9227",
+  "lastmod": "2026-07-14"
+ },
+ "/tool/videogen": {
+  "hash": "e6e8ef494f5dc622",
+  "lastmod": "2026-06-22"
+ },
+ "/tool/vidnoz": {
+  "hash": "377200d7b012f822",
+  "lastmod": "2026-03-22"
+ },
+ "/tool/visenze-ai": {
+  "hash": "f9f666faf0bc0341",
+  "lastmod": "2026-01-21"
+ },
+ "/tool/visily": {
+  "hash": "960389a0cb5d8ca8",
+  "lastmod": "2026-03-10"
+ },
+ "/tool/vista-social": {
+  "hash": "5404052fef41ff30",
+  "lastmod": "2026-03-05"
+ },
+ "/tool/voiceflow": {
+  "hash": "6932ab393a56d1b2",
+  "lastmod": "2026-05-18"
+ },
+ "/tool/voicemod": {
+  "hash": "152bdf486b5c1f47",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/vue-ai": {
+  "hash": "af1b887574ad0d49",
+  "lastmod": "2026-02-23"
+ },
+ "/tool/w3schools": {
+  "hash": "ae6e3ce20967e854",
+  "lastmod": "2026-04-29"
+ },
+ "/tool/warp": {
+  "hash": "786249cd1c9c323e",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/wati-automation": {
+  "hash": "ef727a8f9f63eaa0",
+  "lastmod": "2026-03-05"
+ },
+ "/tool/webchatgpt": {
+  "hash": "5aeee157e787d400",
+  "lastmod": "2026-05-12"
+ },
+ "/tool/webflow-ai": {
+  "hash": "4339aafd78418e86",
+  "lastmod": "2026-03-16"
+ },
+ "/tool/webui-forge": {
+  "hash": "a0e3f85ba16f5461",
+  "lastmod": "2026-06-20"
+ },
+ "/tool/whisk": {
+  "hash": "88977300e6915c1d",
+  "lastmod": "2026-07-31"
+ },
+ "/tool/windmill": {
+  "hash": "5aeb9d76ae392313",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/windsurf": {
+  "hash": "5873711363bdbcfe",
+  "lastmod": "2026-04-15"
+ },
+ "/tool/wispr-flow": {
+  "hash": "326cd83a5e0241ba",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/wix-adi": {
+  "hash": "f37b85f6d7500136",
+  "lastmod": "2026-03-11"
+ },
+ "/tool/wix-ai": {
+  "hash": "d4ec1f331a0d842c",
+  "lastmod": "2026-01-18"
+ },
+ "/tool/wolfram-alpha": {
+  "hash": "5fd5571ecdd4c38d",
+  "lastmod": "2026-03-27"
+ },
+ "/tool/wolfram-demonstrations": {
+  "hash": "f422955e60e0004a",
+  "lastmod": "2026-02-08"
+ },
+ "/tool/wonsultingai": {
+  "hash": "7cdf2bcaed172774",
+  "lastmod": "2026-06-29"
+ },
+ "/tool/wordtune": {
+  "hash": "4aae26fd70d98d5d",
+  "lastmod": "2026-03-23"
+ },
+ "/tool/workato": {
+  "hash": "5bf03b424119b82d",
+  "lastmod": "2026-06-13"
+ },
+ "/tool/writer-com": {
+  "hash": "43b8327497c3f755",
+  "lastmod": "2026-01-18"
+ },
+ "/tool/writesonic": {
+  "hash": "b969f91b16c3a5e8",
+  "lastmod": "2026-01-18"
+ },
+ "/tool/you-ai": {
+  "hash": "4e7f7a06e54d5068",
+  "lastmod": "2026-05-23"
+ },
+ "/tool/you-ai-search": {
+  "hash": "d529ddb306aa35be",
+  "lastmod": "2026-03-15"
+ },
+ "/tool/you-com": {
+  "hash": "d8eb28e522f6bf40",
+  "lastmod": "2026-02-07"
+ },
+ "/tool/youtube": {
+  "hash": "5e901d2f1a2040fa",
+  "lastmod": "2026-02-27"
+ },
+ "/tool/zapier": {
+  "hash": "778150fa52dff594",
+  "lastmod": "2026-02-17"
+ },
+ "/tool/zapier-automation": {
+  "hash": "22f35091cb5d3342",
+  "lastmod": "2026-02-13"
+ },
+ "/tool/zed": {
+  "hash": "21284eeb1a351b61",
+  "lastmod": "2026-08-21"
+ },
+ "/tool/zendesk-ai": {
+  "hash": "f05b944c804a54a5",
+  "lastmod": "2026-06-03"
+ },
+ "/tool/zillow-ai": {
+  "hash": "560b0809f9feab2b",
+  "lastmod": "2026-07-04"
+ },
+ "/tool/zoho-crm-automation": {
+  "hash": "7455244a2fa5360a",
+  "lastmod": "2026-06-18"
+ },
+ "/tool/zoko-automation": {
+  "hash": "76209816370227da",
+  "lastmod": "2026-02-26"
+ },
+ "/workflows": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-1": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-10": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-2": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-3": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-4": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-5": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-6": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-7": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-8": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ },
+ "/workflows/wf-9": {
+  "hash": "cdb9b086dcad095f",
+  "lastmod": "2026-09-29"
+ }
+}

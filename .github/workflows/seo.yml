@@ -19,4 +19,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # The build rewrites data/sitemap-lastmod.json when a page's content changed.
+      # If that file is not committed, production would date those pages with the
+      # deploy date instead of the date the content really changed.
+      - name: sitemap lastmod manifest is committed
+        run: git diff --exit-code -- data/sitemap-lastmod.json
       - run: node scripts/seo-validate.mjs

@@ -10,8 +10,11 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import ToolLogo from '../components/ToolLogo';
 import { slugify } from '../utils/slug';
 import { pairsForTool } from '../utils/pairs';
-import { breadcrumbSchema, itemListSchema, faqSchema } from '../utils/seo';
+import { breadcrumbSchema, itemListSchema, faqSchema, SITE } from '../utils/seo';
+import { buildAltPage } from '../utils/altEditorial.mjs';
+import editorial from '../data/editorial/alternatives.json';
 import { Tool } from '../types';
+import { YEAR } from '../utils/year';
 
 /**
  * This page was a stub. It title-cased the URL to guess a tool name — breaking
@@ -57,6 +60,16 @@ const AlternativesPage: React.FC = () => {
       .map((x) => x.tool);
   }, [tool]);
 
+  // The twelve pages with a curated list (data/editorial/alternatives.json).
+  // Every other alternatives page stays noindex.
+  const curated = useMemo(
+    () =>
+      tool
+        ? buildAltPage({ data: editorial, tools: MOCK_TOOLS, subjectId: tool.id, slugify, siteUrl: SITE.url, year: YEAR })
+        : null,
+    [tool],
+  );
+
   if (!tool) {
     return (
       <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
@@ -77,6 +90,10 @@ const AlternativesPage: React.FC = () => {
         </div>
       </main>
     );
+  }
+
+  if (curated) {
+    return <CuratedAlternatives ed={curated} />;
   }
 
   const free = alternatives.filter(
@@ -106,7 +123,7 @@ const AlternativesPage: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`${alternatives.length} Best ${tool.name} Alternatives (2026) — Free & Paid`}
+        title={`${alternatives.length} Best ${tool.name} Alternatives (${YEAR}) — Free & Paid`}
         description={`Real alternatives to ${tool.name}, drawn from ${tool.category}. Compare pricing and what each one does differently${free.length ? `, including ${free.length} free or freemium options` : ''}.`}
         url={`/alternatives/${slugify(tool.id)}-alternatives`}
         keywords={[
@@ -228,6 +245,196 @@ const AlternativesPage: React.FC = () => {
           <Link to={`/category/${slugify(tool.category)}`} className="btn-secondary h-10 px-4 text-[13px]">
             All {tool.category} tools
           </Link>
+        </section>
+      </div>
+    </main>
+  );
+};
+
+type Curated = NonNullable<ReturnType<typeof buildAltPage>>;
+
+/**
+ * Same copy and order as altEditorialHtml() in prerender.mjs, so the static
+ * page and this one say the same thing. Facts in the table come from the
+ * vendors' own pages (linked under Sources); "Best for" and "How it differs"
+ * are editorial and labelled as such.
+ */
+const CuratedAlternatives: React.FC<{ ed: Curated }> = ({ ed }) => {
+  const { subject } = ed;
+  const comparisons = pairsForTool(subject.id, 4);
+  const nameLink = (r: Curated['rows'][number]) =>
+    r.external ? (
+      <a href={r.href} target="_blank" rel="noopener noreferrer" className="underline decoration-[var(--color-border)] underline-offset-2 hover:text-[var(--color-primary)]">
+        {r.name}
+      </a>
+    ) : (
+      <Link to={r.href} className="underline decoration-[var(--color-border)] underline-offset-2 hover:text-[var(--color-primary)]">
+        {r.name}
+      </Link>
+    );
+  return (
+    <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
+      <SEO
+        title={ed.title}
+        description={ed.description}
+        url={ed.path}
+        keywords={[`${subject.name} alternatives`, `alternative to ${subject.name}`, `tools like ${subject.name}`]}
+        // Breadcrumbs below emits the BreadcrumbList; the static page carries all three.
+        schema={ed.schemas.filter((x) => x['@type'] !== 'BreadcrumbList')}
+      />
+
+      <div className="container-custom">
+        <Breadcrumbs items={[{ label: subject.name, path: `/tool/${subject.id}` }, { label: 'Alternatives', path: ed.path }]} />
+
+        <PageHeader
+          eyebrow={subject.category}
+          title={
+            <>
+              Alternatives to <em>{subject.name}</em>
+            </>
+          }
+          lede={ed.intro}
+          meta={
+            <>
+              <span className="label-mono tabular-nums">{ed.rows.length} alternatives</span>
+              <span className="label-mono">Sources checked {ed.checked}</span>
+            </>
+          }
+        />
+
+        <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+          <strong className="text-[var(--color-text-primary)]">{subject.name}:</strong> {ed.subjectFact.what}
+          {ed.subjectFact.access ? ` ${ed.subjectFact.access}` : ''}
+        </p>
+
+        <section className="mt-10" aria-labelledby="alt-compare">
+          <h2 id="alt-compare" className="rule-label mb-5">
+            Quick comparison
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-left text-[14px] leading-snug">
+              <thead>
+                <tr>
+                  {['Alternative', 'Best for (our view)', 'What the official pages say'].map((c) => (
+                    <th key={c} className="border-b border-[var(--color-border)] px-3 py-2 font-semibold text-[var(--color-text-primary)]">
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {ed.rows.map((r) => (
+                  <tr key={r.ref}>
+                    <td className="border-b border-[var(--color-border)] px-3 py-3 align-top font-semibold text-[var(--color-text-primary)]">
+                      {nameLink(r)}
+                    </td>
+                    <td className="border-b border-[var(--color-border)] px-3 py-3 align-top text-[var(--color-text-secondary)]">{r.bestFor}</td>
+                    <td className="border-b border-[var(--color-border)] px-3 py-3 align-top text-[var(--color-text-secondary)]">
+                      {r.access || 'Check the vendor’s site for current plans and limits.'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="alt-differs">
+          <h2 id="alt-differs" className="rule-label mb-5">
+            How each alternative differs from {subject.name}
+          </h2>
+          <div className="max-w-3xl space-y-6">
+            {ed.rows.map((r) => (
+              <div key={r.ref}>
+                <h3 className="title-sm text-[16px] text-[var(--color-text-primary)]">{nameLink(r)}</h3>
+                <p className="mt-1 text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">{r.what}</p>
+                <p className="mt-1 text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">
+                  <strong>How it differs:</strong> {r.differs}
+                </p>
+                {!r.external && r.category && (
+                  <p className="mt-1 text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">
+                    <Link to={r.href} className="underline underline-offset-2">Read our {r.name} page</Link>
+                    {' · '}
+                    <Link to={`/category/${slugify(r.category)}`} className="underline underline-offset-2">More {r.category} tools</Link>
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12" aria-labelledby="alt-choose">
+          <h2 id="alt-choose" className="rule-label mb-5">
+            How to choose
+          </h2>
+          <ul className="max-w-3xl list-disc space-y-2 pl-5 text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">
+            {ed.pickIf.map((x) => (
+              <li key={x.if}>
+                If {x.if}, {x.then}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {comparisons.length > 0 && (
+          <section className="mt-12" aria-labelledby="head-to-head">
+            <h2 id="head-to-head" className="rule-label mb-5">
+              Head to head
+            </h2>
+            <ul className="flex flex-wrap gap-2">
+              {comparisons.map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/compare/${p.slug}`} className="link-chip">
+                    {p.a.name} vs {p.b.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section className="mt-12" aria-labelledby="alt-faq">
+          <h2 id="alt-faq" className="rule-label mb-5">
+            Common questions
+          </h2>
+          <dl className="max-w-3xl">
+            {ed.faqs.map((f) => (
+              <div key={f.question} className="accordion-item py-5">
+                <dt className="title-sm text-[16px] text-[var(--color-text-primary)]">{f.question}</dt>
+                <dd className="mt-2 text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">{f.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section className="mt-12 max-w-3xl" aria-labelledby="alt-sources">
+          <h2 id="alt-sources" className="rule-label mb-5">
+            Sources and how we checked
+          </h2>
+          <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
+            Statements under “What the official pages say” come from the vendors’ own pages, linked below, as they read in {ed.checked}. They were read through search extracts of those pages, so check the linked page for current terms. “Best for” and “How it differs” are our own editorial judgement.
+          </p>
+          <ul className="mt-3 list-disc space-y-1 pl-5 text-[14px] text-[var(--color-text-secondary)]">
+            {ed.sources.map((s) => (
+              <li key={s.url}>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-[14px] text-[var(--color-text-secondary)]">
+            {ed.related.map((l, i) => (
+              <React.Fragment key={l.path}>
+                {i > 0 && ' · '}
+                {l.path.endsWith('.html') ? (
+                  <a href={l.path} className="underline underline-offset-2">{l.label}</a>
+                ) : (
+                  <Link to={l.path} className="underline underline-offset-2">{l.label}</Link>
+                )}
+              </React.Fragment>
+            ))}
+          </p>
         </section>
       </div>
     </main>

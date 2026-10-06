@@ -15,6 +15,10 @@ import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
 import { StoryShareModal } from '../components/StoryShareModal';
 import { resolveToolLink } from '../lib/affiliate/outbound';
 import AffiliateDisclosure from '../components/shopping/AffiliateDisclosure';
+import { YEAR } from '../utils/year';
+import { SITE } from '../utils/seo';
+import { buildAltPage } from '../utils/altEditorial.mjs';
+import altEditorial from '../data/editorial/alternatives.json';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -69,6 +73,16 @@ const ToolDetail: React.FC = () => {
       .slice(0, 4);
   }, [tool]);
 
+  // Tools with a curated alternatives page (data/editorial/alternatives.json)
+  // also show how their free access works, from the vendor's own pages.
+  const curated = useMemo(
+    () =>
+      tool
+        ? buildAltPage({ data: altEditorial, tools: MOCK_TOOLS, subjectId: tool.id, slugify, siteUrl: SITE.url, year: YEAR })
+        : null,
+    [tool],
+  );
+
   const relatedPrompts = useMemo(() => {
     if (!tool) return [];
     return PROMPT_LIBRARY.filter(p => 
@@ -103,7 +117,7 @@ const ToolDetail: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${tool.name}: Features, Pricing & Alternatives (2026) | AI Master Tools`}
+        title={`${tool.name}: Features, Pricing & Alternatives (${YEAR}) | AI Master Tools`}
         description={`${tool.name} at a glance: what it does, its pricing, and the closest AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
@@ -181,7 +195,13 @@ const ToolDetail: React.FC = () => {
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-3 md:mb-4">
-                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] tracking-tight">{tool.name}</h1>
+                    {/* Same words as the prerendered H1 (prerender.mjs): the name stays the big line, the rest sits under it. */}
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] tracking-tight">
+                      {tool.name}:{' '}
+                      <span className="block mt-1 text-sm sm:text-base md:text-xl font-medium tracking-normal text-[var(--color-text-secondary)]">
+                        Features, Pricing &amp; Alternatives
+                      </span>
+                    </h1>
                     {tool.featured && (
                       <span className="flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] bg-[var(--color-primary-soft)] px-2 py-1 rounded-md border border-[var(--color-border)]" title="Verified Tool">
                         <Check size={14} /> Verified
@@ -225,6 +245,50 @@ const ToolDetail: React.FC = () => {
                   rating shown on this page are what we recorded when the listing was last checked.
                 </p>
               </div>
+
+              {curated && (
+                <div className="mt-8 border-t border-[var(--color-border)] pt-8">
+                  <h3 className="text-xl font-semibold mb-3 text-[var(--color-text-primary)]">
+                    How {tool.name} works and what it costs
+                  </h3>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                    {curated.subjectFact.what}
+                    {curated.subjectFact.access ? ` ${curated.subjectFact.access}` : ''}
+                  </p>
+                  {curated.subjectFact.sources.length > 0 && (
+                    <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
+                      From the vendor’s own pages, as read in {curated.checked}:{' '}
+                      {curated.subjectFact.sources.map((src, i) => (
+                        <React.Fragment key={src.url}>
+                          {i > 0 && ', '}
+                          <a href={src.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                            {src.label}
+                          </a>
+                        </React.Fragment>
+                      ))}
+                      . Check them for current terms.
+                    </p>
+                  )}
+                  <p className="mt-3 text-[var(--color-text-secondary)] leading-relaxed">
+                    Closest alternatives we compare:{' '}
+                    {curated.rows.slice(0, 3).map((r, i) => (
+                      <React.Fragment key={r.ref}>
+                        {i > 0 && ', '}
+                        {r.external ? (
+                          <a href={r.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{r.name}</a>
+                        ) : (
+                          <Link to={r.href} className="underline underline-offset-2">{r.name}</Link>
+                        )}
+                      </React.Fragment>
+                    ))}
+                    {curated.rows.length > 3 ? ` and ${curated.rows.length - 3} more` : ''}.{' '}
+                    <Link to={curated.path} className="underline underline-offset-2">
+                      See all {curated.rows.length} {tool.name} alternatives, compared
+                    </Link>
+                    .
+                  </p>
+                </div>
+              )}
               
               <div className="pt-10 mt-10 border-t border-[var(--color-border)]">
                 <h3 className="text-xl font-semibold mb-6 text-[var(--color-text-primary)]">What it covers</h3>

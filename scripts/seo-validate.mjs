@@ -18,6 +18,7 @@
  *   important       paths that MUST be indexable, e.g. ["/", "/about"]
  *   ignore          path prefixes to skip entirely (verification files, 404 ...)
  *   minSitemapUrls  fail if the sitemap has fewer URLs than this (regression guard)
+ *   minLastmodCoverage  share of sitemap URLs that must carry a valid <lastmod> (default 0.95)
  *
  * What this cannot tell you: whether Google indexed a page, how it ranks, or
  * how fast it loads. Those come from Search Console and a real Lighthouse run.
@@ -34,6 +35,7 @@ const ORIGIN = cfg.origin.replace(/\/$/, '');
 const DIST = cfg.distDir ?? 'dist';
 const IMPORTANT = cfg.important ?? ['/'];
 const IGNORE = [...(cfg.ignore ?? []), '/google', '/yandex', '/404'];
+const MIN_LASTMOD = cfg.minLastmodCoverage ?? 0.95;
 
 if (!existsSync(DIST)) {
   console.error(`seo-validate: "${DIST}" does not exist. Run the production build first.`);
@@ -109,6 +111,18 @@ for (const [url, { html }] of pages) {
   const headings = [...visible.matchAll(/<h([1-6])\b/gi)].map((m) => +m[1]);
   info.set(url, { title, desc, robots, canonical, noindex, words, h1s, headings, head, visible });
 
+  // "Best AI Chatbots & Assistants AI Tools", "ai agents & automation AI tools":
+  // a category name that already says "AI"/"Tools" with the suffix added again,
+  // or an acronym lower-cased in a description.
+  if (/^\/(category|free)\//.test(url)) {
+    const h1Text = decode((h1s[0] ?? '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+    const dupe = /\bAI\b.*\bAI [Tt]ools\b|\b[Tt]ools AI [Tt]ools\b|\b[Tt]ools [Tt]ools\b|\bAI AI\b/;
+    for (const [what, text] of [['title', title], ['description', desc ?? ''], ['h1', h1Text]]) {
+      if (dupe.test(text)) add('error', 'category-label-duplicated', url, `${what}: "${text.slice(0, 80)}"`);
+      if (/(^|[^.\w])ai\b/.test(text)) add('error', 'category-acronym-lowercased', url, `${what}: "${text.slice(0, 80)}"`);
+    }
+  }
+
   if (!title) add('error', 'title-missing', url);
   else if (title.length < 15 || title.length > 65) add('warn', 'title-length', url, `${title.length} chars: "${title.slice(0, 70)}"`);
   if (desc == null) { if (!noindex) add('error', 'description-missing', url); }
@@ -168,6 +182,13 @@ for (const [url, { html }] of pages) {
         add('info', 'softwareapp-no-rating', url, 'not eligible for the app rich result (needs genuine rating/review)');
       }
       if (types.includes('Article') && !n.headline) add('warn', 'article-no-headline', url);
+      // FAQ markup has to describe FAQs the visitor can read on the page.
+      if (types.includes('FAQPage')) {
+        const norm = (v) => decode(String(v ?? '')).replace(/\s+/g, ' ').trim().toLowerCase();
+        const page = norm(text);
+        const miss = (n.mainEntity ?? []).find((q) => !page.includes(norm(q.name)) || !page.includes(norm(q.acceptedAnswer?.text)));
+        if (miss) add('warn', 'faq-schema-not-visible', url, `"${String(miss.name).slice(0, 60)}" is in the FAQPage JSON-LD but not in the visible text`);
+      }
     }
   }
 }
@@ -216,6 +237,24 @@ else {
     add('error', 'sitemap-collapsed', '/sitemap.xml', `${locs.length} URLs < expected ${cfg.minSitemapUrls}`);
   }
   if (!/<lastmod>/.test(xml)) add('info', 'sitemap-no-lastmod', '/sitemap.xml');
+  {
+    const blocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
+    const today = new Date().toISOString().slice(0, 10);
+    let dated = 0;
+    for (const b of blocks) {
+      const lm = (b.match(/<lastmod>\s*([^<]+?)\s*<\/lastmod>/) || [])[1];
+      const loc = (b.match(/<loc>\s*([^<]+?)\s*<\/loc>/) || [])[1];
+      if (!lm) continue;
+      if (!/^\d{4}-\d{2}-\d{2}(T[\d:.+\-Z]+)?$/.test(lm) || Number.isNaN(Date.parse(lm))) {
+        add('error', 'sitemap-lastmod-invalid', loc, lm);
+      } else if (lm.slice(0, 10) > today) {
+        add('error', 'sitemap-lastmod-future', loc, lm);
+      } else dated++;
+    }
+    if (blocks.length && dated / blocks.length < MIN_LASTMOD) {
+      add('error', 'sitemap-lastmod-coverage', '/sitemap.xml', `${dated}/${blocks.length} URLs have a valid <lastmod> (need ${Math.round(MIN_LASTMOD * 100)}%)`);
+    }
+  }
   for (const [u, i] of info) {
     if (!i.noindex && u !== '/404' && !sitemapUrls.has(u)) add('warn', 'indexable-not-in-sitemap', u);
   }
@@ -246,6 +285,13 @@ for (const [u, i] of info) {
   else if (from.length === 1) add('info', 'one-inbound-link', u, `only linked from ${from[0]}`);
 }
 
+/* ---------- required internal links (cfg.mustLink: { "/from": ["/to", ...] }) ---------- */
+for (const [from, targets] of Object.entries(cfg.mustLink ?? {})) {
+  for (const to of targets) {
+    if (!(inbound.get(norm(to)) ?? new Set()).has(norm(from))) add('error', 'required-link-missing', from, `must link to ${to}`);
+  }
+}
+
 /* ---------- robots.txt ---------- */
 const rb = join(DIST, 'robots.txt');
 if (!existsSync(rb)) add('error', 'robots-txt-missing', '/robots.txt');
@@ -254,6 +300,19 @@ else {
   if (!/^sitemap:/im.test(t)) add('warn', 'robots-no-sitemap-line', '/robots.txt');
   if (/^disallow:\s*\/\s*$/im.test(t) && /^user-agent:\s*\*/im.test(t)) add('error', 'robots-disallow-all', '/robots.txt');
 }
+/* ---------- placeholder URLs anywhere in the build ---------- */
+// Reserved example domains are never a real vendor site. Ten tool records shipped
+// as https://<name>.example.com and that link was published on the page and as
+// `sameAs` in structured data. URL-shaped matches only: an email placeholder such
+// as "you@example.com" in a form field is not a link.
+const PLACEHOLDER = /https?:\/\/[^\s"'<>)\\]*\bexample\.(?:com|org|net|edu)\b/gi;
+for (const f of files) {
+  if (!/\.(html|xml|txt|json|js|css)$/.test(f)) continue;
+  const rel = relative(DIST, f).split(sep).join('/');
+  const hits = readFileSync(f, 'utf8').match(PLACEHOLDER);
+  if (hits) add('error', 'placeholder-url', '/' + rel, `${hits.length}× e.g. ${hits[0].slice(0, 70)}`);
+}
+
 if (!existsSync(join(DIST, 'ads.txt')) && cfg.adsense) add('warn', 'ads-txt-missing', '/ads.txt');
 
 /* ---------- important pages ---------- */

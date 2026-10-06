@@ -1,0 +1,239 @@
+{
+  "_comment": "Source of truth for public/best-free-ai-tools.html (built by scripts/build-best-free.mjs). Every free-plan fact below carries the vendor URL it came from. A fact with no source is not stated. checkedAt is the date those pages were read; update it only when the facts are re-checked.",
+  "checkedAt": "2026-10-05",
+  "sourceNote": "Facts were taken from each vendor's own pricing or help pages, listed under each tool, as they read on the check date. Vendor sites could not be opened directly from the build environment; the text was read from search-engine extracts of those pages.",
+  "tools": [
+    {
+      "id": "chatgpt",
+      "job": "Chat and writing",
+      "whatItDoes": "OpenAI's general-purpose AI assistant for writing, explaining ideas, brainstorming and analysing information.",
+      "bestFor": "A first AI assistant for everyday writing and questions",
+      "freeShort": "Free plan",
+      "freeDetail": "The Free plan includes chat, web search, file uploads and image creation.",
+      "limitShort": "Uploads, images, voice and data analysis have separate, tighter limits than paid plans",
+      "limitDetail": "Features such as file uploads, image creation, voice and data analysis have their own usage limits, which are stricter than on paid plans. ChatGPT tells you when you reach one.",
+      "sources": [
+        { "label": "ChatGPT Free tier FAQ (OpenAI Help Center)", "url": "https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq" },
+        { "label": "ChatGPT Free plan (chatgpt.com)", "url": "https://chatgpt.com/plans/free/" }
+      ],
+      "alternativesLink": true
+    },
+    {
+      "id": "gemini",
+      "job": "Chat and writing",
+      "whatItDoes": "Google's AI assistant, available in the Gemini app and on the web.",
+      "bestFor": "Chat plus image generation if you already use a Google account",
+      "freeShort": "Free plan",
+      "freeDetail": "The free plan includes image generation and editing, Deep Research, Gemini Live, Canvas and Gems, within standard usage limits.",
+      "limitShort": "Standard usage limits, lower than Google AI paid plans; access to the most advanced model varies",
+      "limitDetail": "Usage limits take into account the complexity of your prompt, the models and features you use and the length of the chat. Google AI paid plans raise them, and access to Google's most advanced model on the free plan varies.",
+      "sources": [
+        { "label": "Gemini Apps limits and upgrades (Gemini Apps Help)", "url": "https://support.google.com/gemini/answer/16275805?hl=en" },
+        { "label": "Google AI plans (gemini.google)", "url": "https://gemini.google/subscriptions/" }
+      ]
+    },
+    {
+      "id": "claude",
+      "job": "Chat and writing",
+      "whatItDoes": "Anthropic's AI assistant for writing, reasoning and working through long documents.",
+      "bestFor": "Long-form writing and document-heavy work",
+      "freeShort": "Free plan ($0)",
+      "freeDetail": "The Free plan is $0 and includes chat on web, desktop and mobile, web search, file creation, code execution, memory across conversations, connecting your apps and tools, and Artifacts.",
+      "limitShort": "Usage limits reset on a rolling five-hour window; no fixed message count",
+      "limitDetail": "Every plan has usage limits that reset on a rolling five-hour session window. How much you can do depends on the length and complexity of your conversations, the model you choose and the features you use, so there is no fixed message count.",
+      "sources": [
+        { "label": "Plans and pricing (claude.com)", "url": "https://claude.com/pricing" }
+      ]
+    },
+    {
+      "id": "perplexity",
+      "job": "Research with sources",
+      "whatItDoes": "An AI answer engine that searches the web to answer questions.",
+      "bestFor": "Research questions where you want to see where an answer came from",
+      "freeShort": "Free plan",
+      "freeDetail": "Free accounts can run standard searches, with a very limited number of Pro Searches.",
+      "limitShort": "Pro Search, Projects, file uploads and image generation are Pro features",
+      "limitDetail": "Perplexity lists Pro Search, Projects, file uploads, image generation and higher limits as features that Pro unlocks, and Free accounts get only a very limited number of Pro Searches.",
+      "sources": [
+        { "label": "Perplexity pricing", "url": "https://www.perplexity.ai/hub/pricing" },
+        { "label": "Which subscription plan is right for you? (Perplexity Help Center)", "url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you" }
+      ],
+      "alternativesLink": true
+    },
+    {
+      "id": "copilot",
+      "job": "Everyday assistant",
+      "whatItDoes": "Microsoft's AI assistant, available on the web, as a desktop or mobile app and in Microsoft Edge.",
+      "bestFor": "A general assistant if you already use Microsoft accounts or Edge",
+      "freeShort": "Free to use",
+      "freeDetail": "Microsoft Copilot is available at no cost. You can chat, create images and upload files for free, subject to available capacity and limits. Signing in is not required, but signing in with a personal account unlocks chat history, longer conversations, voice and other features.",
+      "limitShort": "Access is subject to capacity and limits that Microsoft does not state as fixed numbers",
+      "limitDetail": "Free use is subject to available capacity and usage limits. When you reach a limit you can upgrade to a paid option or come back later.",
+      "sources": [
+        { "label": "What is the difference between Microsoft Copilot (free) and Copilot in Microsoft 365 (Microsoft Support)", "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/what-s-the-difference-between-microsoft-copilot-free-and-copilot-in-microsoft-365" }
+      ]
+    },
+    {
+      "id": "leonardo-ai",
+      "job": "Images",
+      "whatItDoes": "An AI platform for generating images and videos from text prompts.",
+      "bestFor": "Image generation if a small daily allowance is enough",
+      "freeShort": "Free plan, daily tokens",
+      "freeDetail": "Free users get a daily allowance of 150 tokens that resets every 24 hours.",
+      "limitShort": "Unused tokens expire; different features cost different amounts",
+      "limitDetail": "Tokens do not accumulate: anything unused expires and does not carry over to the next day. The number of tokens an action costs depends on how much computing it needs, and once a free user has used their tokens they wait for the next daily reset.",
+      "sources": [
+        { "label": "Tokens FAQ (Leonardo.Ai Help Center)", "url": "https://intercom.help/leonardo-ai/en/articles/9044700-tokens-frequently-asked-questions" },
+        { "label": "Leonardo.Ai pricing", "url": "https://leonardo.ai/pricing" }
+      ],
+      "alternativesLink": true
+    },
+    {
+      "id": "ideogram",
+      "job": "Images",
+      "whatItDoes": "An AI image generator that lists text rendering, typography and editable text layers among its features.",
+      "bestFor": "Posters, logos and social graphics where the image needs words in it",
+      "freeShort": "Free plan, weekly credits",
+      "freeDetail": "Free accounts get a limited weekly allowance of credits. Generations on the free plan use slow credits, and priority credits are not included.",
+      "limitShort": "Slow queue (waits of up to several minutes); free-credit availability can vary by login method",
+      "limitDetail": "Slow credits are processed one at a time, so waits can reach several minutes depending on capacity. Free access requires an Ideogram account; current sign-up options and free-credit availability can vary by login method.",
+      "sources": [
+        { "label": "Plans and credits (Ideogram docs)", "url": "https://docs.ideogram.ai/plans-and-billing/available-plans" },
+        { "label": "Text rendering (ideogram.ai)", "url": "https://ideogram.ai/features/text-rendering/" }
+      ]
+    },
+    {
+      "id": "canva-ai",
+      "job": "Design and social graphics",
+      "whatItDoes": "Canva's design editor with built-in AI tools such as Magic Design, Magic Write and a background remover.",
+      "bestFor": "Quick graphics, presentations and social posts from templates",
+      "freeShort": "Free plan, monthly AI allowance",
+      "freeDetail": "Canva Free includes Canva AI features with a limited monthly allowance of uses for its standard and premium AI tools. Magic Design for presentations and video is also limited.",
+      "limitShort": "Limited AI uses per month; no Ultra AI tools on Free",
+      "limitDetail": "Canva Free has no access to its Ultra AI tools. When you reach your AI limit you see short pauses between generations for the standard and premium tools.",
+      "sources": [
+        { "label": "Understanding your AI usage (Canva Help Center)", "url": "https://www.canva.com/help/ai-access/" }
+      ]
+    },
+    {
+      "id": "capcut",
+      "job": "Video",
+      "whatItDoes": "A video editor with AI-assisted tools, on desktop and mobile.",
+      "bestFor": "Editing short social videos",
+      "freeShort": "Free Standard plan",
+      "freeDetail": "CapCut's free Standard plan covers essential editing, with limited access to premium templates, advanced effects, fonts and music.",
+      "limitShort": "Some AI tools and premium assets need Pro; the free/Pro split changes",
+      "limitDetail": "CapCut lists some AI tools, such as motion tracking and the auto caption generator, as Pro features on its Standard versus Pro page. Which features are free and which need Pro changes over time, so check that page before you rely on one.",
+      "sources": [
+        { "label": "CapCut Standard vs Pro (capcut.com)", "url": "https://www.capcut.com/resource/capcut-standard-vs-pro" }
+      ]
+    },
+    {
+      "id": "suno",
+      "job": "Music",
+      "whatItDoes": "An AI music generator that creates songs from text prompts.",
+      "bestFor": "Trying AI song creation for personal projects",
+      "freeShort": "Free plan, daily credits",
+      "freeDetail": "The Free plan gives 50 credits that replenish daily, which Suno says is enough for about 10 songs a day.",
+      "limitShort": "Free-plan songs are for non-commercial use",
+      "limitDetail": "On the Free plan you can use songs for personal, non-commercial projects and Suno keeps ownership of them. Subscribers to the Pro or Premier plans own the songs they make and receive a commercial use licence.",
+      "sources": [
+        { "label": "Suno pricing", "url": "https://suno.com/pricing" },
+        { "label": "What type of plan do I have? (Suno Help)", "url": "https://help.suno.com/en/articles/2410049" }
+      ]
+    },
+    {
+      "id": "elevenlabs",
+      "job": "Voice and narration",
+      "whatItDoes": "An AI voice platform for turning text into speech and other audio.",
+      "bestFor": "Trying text-to-speech for narration you won't publish commercially",
+      "freeShort": "Free plan, monthly credits",
+      "freeDetail": "The free plan includes 10,000 credits per month.",
+      "limitShort": "No commercial licence on the Free plan",
+      "limitDetail": "ElevenLabs says the free plan does not include a commercial licence and cannot be used for any commercial purpose. All of its paid plans include one.",
+      "sources": [
+        { "label": "ElevenLabs pricing", "url": "https://elevenlabs.io/pricing" },
+        { "label": "Can I publish the content I generate? (ElevenLabs Help)", "url": "https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform" }
+      ],
+      "alternativesLink": true
+    },
+    {
+      "id": "windsurf",
+      "job": "Coding",
+      "whatItDoes": "An AI coding assistant for editors. Its plugin was formerly called Codeium, and some of the vendor's pages now use the name Devin Desktop.",
+      "bestFor": "Developers who want free code completion and light agent use",
+      "freeShort": "Free plan, usage quota",
+      "freeDetail": "The Free plan includes a light quota to code with agents, limited model availability, unlimited inline edits and unlimited Tab completions.",
+      "limitShort": "Agent use is capped by a daily and weekly quota; model choice is limited",
+      "limitDetail": "Plans include a daily and weekly usage allowance that refreshes automatically. How quickly it is used depends on the model and the size of each request, and the Free plan has limited model availability.",
+      "sources": [
+        { "label": "Plans and pricing (windsurf.com)", "url": "https://windsurf.com/pricing" },
+        { "label": "Quota-based usage (Windsurf docs)", "url": "https://docs.windsurf.com/windsurf/accounts/quota" },
+        { "label": "Windsurf Plugin, formerly Codeium (Windsurf Marketplace)", "url": "https://marketplace.windsurf.com/extension/Codeium/codeium" }
+      ]
+    }
+  ],
+  "quickAnswer": {
+    "intro": "Start with one of the three general assistants (ChatGPT, Gemini or Claude) and add a specialist tool for the job you actually have. These are grouped by job, not ranked:"
+  },
+  "spokes": [
+    { "label": "free AI chatbots and assistants", "path": "/free/ai-chatbots-and-assistants" },
+    { "label": "free AI image generators", "path": "/free/image-and-art-generation" },
+    { "label": "free AI writing tools", "path": "/free/ai-writing-and-content" },
+    { "label": "free AI coding tools", "path": "/free/code-and-development" },
+    { "label": "free AI video and audio tools", "path": "/free/video-and-audio-generation" }
+  ],
+  "startWith": [
+    { "need": "a general assistant for writing and everyday questions", "ids": ["chatgpt", "gemini", "claude"], "why": "All three have a free plan with usage limits. Try one for a week on real tasks before deciding." },
+    { "need": "research where you want to see the sources", "ids": ["perplexity"], "why": "It is built around searching the web, and standard searches are available on the free plan." },
+    { "need": "images", "ids": ["leonardo-ai", "ideogram"], "why": "Both work on an allowance (daily tokens at Leonardo, weekly credits at Ideogram), so the better fit is the one whose allowance matches how many images you need." },
+    { "need": "graphics, presentations or social posts", "ids": ["canva-ai"], "why": "The editor and templates matter more than the AI features here, and the free AI allowance is limited each month." },
+    { "need": "short social videos", "ids": ["capcut"], "why": "The free Standard plan covers essential editing; check which AI features need Pro before planning around one." },
+    { "need": "music or voice-over", "ids": ["suno", "elevenlabs"], "why": "Both free plans are for non-commercial use, so they suit experiments, not client or commercial work." },
+    { "need": "help writing code", "ids": ["windsurf"], "why": "Unlimited Tab completions and inline edits on the free plan make it a low-risk place to start." }
+  ],
+  "faqs": [
+    {
+      "q": "What are the best free AI tools?",
+      "a": "Our 12 picks are ChatGPT, Google Gemini, Claude, Perplexity, Microsoft Copilot, Leonardo AI, Ideogram, Canva AI, CapCut, Suno AI, ElevenLabs and Windsurf. They are grouped by job rather than ranked, and each has a free plan with limits."
+    },
+    {
+      "q": "Which AI tools are completely free?",
+      "a": "None of the 12 picks on this page is unlimited. Each has a free plan with usage limits or an allowance of credits, tokens or quota, and some keep commercial use or advanced features for paid plans. Fully free tools exist, and our free AI tools pages list them apart from tools that only have a free tier."
+    },
+    {
+      "q": "Is ChatGPT free to use?",
+      "a": "Yes. ChatGPT has a Free plan that includes chat, web search, file uploads and image creation. Features such as uploads, image creation, voice and data analysis have separate usage limits that are stricter than on paid plans."
+    },
+    {
+      "q": "What is the best free AI image generator?",
+      "a": "Leonardo AI (a daily token allowance), Ideogram (a weekly credit allowance with a slower free queue) and Canva (a limited monthly allowance of AI uses) all have free plans for images. Which suits you depends on the look you want and how many images you need."
+    },
+    {
+      "q": "Which free AI tool is best for coding?",
+      "a": "Windsurf is our coding pick. Its Free plan includes unlimited Tab completions and inline edits, plus a light quota for agent coding, according to its pricing page."
+    },
+    {
+      "q": "Can I use free AI output commercially?",
+      "a": "Not always. Suno says songs made on its Free plan are for non-commercial use, and ElevenLabs says its free plan cannot be used for any commercial purpose. Check each tool's terms before you publish anything for business use."
+    },
+    {
+      "q": "Do I need a credit card to use free AI tools?",
+      "a": "We have not verified sign-up requirements for each tool, and they can change. Free access requires an Ideogram account; current sign-up options and free-credit availability can vary by login method. Check the sign-up page before you start."
+    },
+    {
+      "q": "How current is this list?",
+      "a": "The free-plan details on this page were last checked on {{CHECKED_LONG}}. Free plans change often, so treat the limits as a snapshot and confirm them on the vendor's page before you rely on them."
+    }
+  ],
+  "relatedGuides": [
+    { "label": "Google AI tools", "path": "/best-google-ai-tools.html" },
+    { "label": "AI image generators", "path": "/best-ai-image-generators.html" },
+    { "label": "AI writing tools", "path": "/best-ai-writing-tools.html" },
+    { "label": "AI chatbots", "path": "/best-ai-chatbots.html" },
+    { "label": "AI coding tools", "path": "/best-ai-coding-tools.html" },
+    { "label": "AI video generators", "path": "/best-ai-video-generators.html" },
+    { "label": "AI logo makers", "path": "/best-ai-logo-makers.html" },
+    { "label": "AI voice generators", "path": "/best-ai-voice-generators.html" }
+  ]
+}

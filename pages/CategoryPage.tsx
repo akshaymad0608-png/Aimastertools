@@ -16,6 +16,7 @@ import {
   categoryDescription,
   categoryKeywords,
 } from '../utils/seo';
+import { categoryLabel, suffixFor } from '../utils/categoryLabel.mjs';
 
 const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -72,7 +73,7 @@ const CategoryPage: React.FC = () => {
             { label: 'Categories', path: '/categories' },
             { label: category.name, path: `/category/${category.slug}` },
           ]),
-          itemListSchema(tools.slice(0, 25), `Best ${category.name} AI tools`),
+          itemListSchema(tools.slice(0, 25), `Best ${categoryLabel(category.name)}`),
         ]}
       />
 
@@ -121,7 +122,8 @@ const CategoryPage: React.FC = () => {
               <div>
                 <p className="eyebrow">Category</p>
                 <h1 className="display-md mt-1.5 text-[var(--color-text-primary)]">
-                  Best <em>{category.name}</em> AI tools
+                  Best <em>{category.name}</em>
+                  {suffixFor(category.name) ? ` ${suffixFor(category.name)}` : ''}
                 </h1>
               </div>
             </div>

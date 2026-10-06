@@ -1,5 +1,14 @@
 {
   "redirects": [
+    { "source": "/collections/best-free-ai-tools", "destination": "/best-free-ai-tools.html", "permanent": true },
+    { "source": "/tool/whisper-flow", "destination": "/tool/wispr-flow", "permanent": true },
+    { "source": "/tool/pixmax-ai", "destination": "/category/image-and-art-generation", "permanent": true },
+    { "source": "/tool/magica", "destination": "/category/image-and-art-generation", "permanent": true },
+    { "source": "/tool/holo", "destination": "/category/3d-and-animation", "permanent": true },
+    { "source": "/tool/clico", "destination": "/category/seo-and-marketing-tools", "permanent": true },
+    { "source": "/tool/ai-overview-optimizer", "destination": "/category/seo-and-marketing-tools", "permanent": true },
+    { "source": "/tool/aimey", "destination": "/categories", "permanent": true },
+    { "source": "/category/personal-assistant", "destination": "/categories", "permanent": true },
     { "source": "/blogs", "destination": "/blog", "permanent": true },
     { "source": "/blog/top-10-ai-tools-for-students-in-2026", "destination": "/blog", "permanent": true },
     { "source": "/blog/ai-vs-human-creativity-the-balance", "destination": "/blog", "permanent": true },

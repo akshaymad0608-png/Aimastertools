@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SITE, BRAND_KEYWORDS, absoluteUrl, clampDescription } from '../utils/seo';
 
@@ -77,6 +77,19 @@ const SEO: React.FC<SEOProps> = ({
   const mergedKeywords = Array.from(new Set([...keywords, ...BRAND_KEYWORDS])).slice(0, 25);
 
   const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+
+  /**
+   * A route that bakes its structured data into the static HTML marks the
+   * script data-replaced-on-hydrate when this component renders the same data
+   * itself. Without this, a hydrated page carried every FAQPage and ItemList
+   * twice: once from the file, once from Helmet.
+   */
+  useEffect(() => {
+    if (schemas.length === 0) return;
+    document
+      .querySelectorAll('script[type="application/ld+json"][data-replaced-on-hydrate]')
+      .forEach((node) => node.remove());
+  }, [schemas.length]);
 
   return (
     <Helmet prioritizeSeoTags>

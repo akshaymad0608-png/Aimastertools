@@ -12,6 +12,14 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react(), tailwindcss()],
       /*
+        Non-secret build constant: the year used in page titles, so the client
+        agrees with what prerender.mjs baked into the static HTML (see
+        utils/year.ts). Not related to the API-key `define` removed below.
+      */
+      define: {
+        __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+      },
+      /*
         No `define` for the API key.
 
         This used to carry:

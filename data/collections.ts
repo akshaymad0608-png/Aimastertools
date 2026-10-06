@@ -2,28 +2,6 @@ import { SEOCollection } from '../types';
 
 export const COLLECTIONS: SEOCollection[] = [
   {
-    id: 'best-free-ai-tools',
-    slug: 'best-free-ai-tools',
-    title: 'Best Free AI Tools for Everyone (2026)',
-    metaTitle: '10+ Best Free AI Tools You Can Use Today Without Paying',
-    metaDescription: 'Discover the top free AI tools for writing, coding, image generation, and productivity. Boost your workflow today without spending a dime.',
-    intro: 'Artificial intelligence is no longer just for big tech companies. There is an incredible ecosystem of free AI tools that can help you write faster, generate stunning images, and solve complex problems. We have curated the absolute best free AI applications you can start using today, no credit card required.',
-    toolIds: ['chatgpt', 'claude', 'perplexity-ai', 'hugging-face', 'canva-ai', 'notion-ai'],
-    faqs: [
-      {
-        question: 'Are these AI tools completely free?',
-        answer: 'Many of the tools listed offer a completely free tier with basic functionality. Some may have usage limits or premium upgrades, but you can achieve a lot without paying.'
-      },
-      {
-        question: 'What is the best free AI tool for writing?',
-        answer: 'ChatGPT (Free tier) and Claude are generally considered the best free AI tools for writing, brainstorming, and drafting content.'
-      }
-    ],
-    relatedCollectionIds: ['chatgpt-alternatives', 'best-ai-tools-for-students'],
-    ctaText: 'Find More Free Tools',
-    ctaUrl: '/find?pricing=Free'
-  },
-  {
     id: 'best-ai-tools-for-students',
     slug: 'best-ai-tools-for-students',
     title: 'Best AI Tools for Students (Study Smarter)',
@@ -41,7 +19,7 @@ export const COLLECTIONS: SEOCollection[] = [
         answer: 'Yes, many AI platforms like Notion and GitHub (Copilot) offer free or heavily discounted plans for students with a valid .edu email address.'
       }
     ],
-    relatedCollectionIds: ['best-free-ai-tools', 'best-ai-tools-for-youtubers']
+    relatedCollectionIds: ['best-ai-tools-for-youtubers']
   },
   {
     id: 'best-ai-tools-for-youtubers',
@@ -81,7 +59,7 @@ export const COLLECTIONS: SEOCollection[] = [
         answer: 'GitHub Copilot and Cursor are currently the industry leaders for integrated AI coding, while Claude 3.5 Sonnet is widely considered the best foundational model for coding tasks.'
       }
     ],
-    relatedCollectionIds: ['chatgpt-alternatives', 'best-free-ai-tools']
+    relatedCollectionIds: ['chatgpt-alternatives']
   },
   {
     id: 'chatgpt-alternatives',
@@ -101,7 +79,7 @@ export const COLLECTIONS: SEOCollection[] = [
         answer: 'Yes, Google Gemini, Microsoft Copilot, and Anthropic Claude all offer robust free tiers that rival or exceed ChatGPTs free version.'
       }
     ],
-    relatedCollectionIds: ['best-free-ai-tools', 'best-ai-tools-for-developers']
+    relatedCollectionIds: ['best-ai-tools-for-developers']
   },
   {
     id: 'best-ai-image-generators',
@@ -121,6 +99,6 @@ export const COLLECTIONS: SEOCollection[] = [
         answer: 'Most paid tiers of tools like Midjourney, DALL-E 3, and Adobe Firefly grant you commercial rights to the images you generate, but you should always check the specific licensing terms of the platform.'
       }
     ],
-    relatedCollectionIds: ['best-ai-tools-for-youtubers', 'best-free-ai-tools']
+    relatedCollectionIds: ['best-ai-tools-for-youtubers']
   }
 ];

@@ -12,6 +12,7 @@ import type { Product, EmptyReason } from '../../types/shopping';
 import ProductCard from '../../components/shopping/ProductCard';
 import CatalogueEmpty from '../../components/shopping/CatalogueEmpty';
 import AffiliateDisclosure from '../../components/shopping/AffiliateDisclosure';
+import { YEAR } from '../../utils/year';
 
 /**
  * One shopping category.
@@ -85,7 +86,7 @@ const ShoppingCategory: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`Best ${category.name} — Compared on What Matters (2026)`}
+        title={`Best ${category.name} — Compared on What Matters (${YEAR})`}
         description={`${category.blurb} Compared on ${category.compareFields.slice(0, 4).join(', ').toLowerCase()} and more.`}
         url={`/ai-shopping/${category.slug}`}
         keywords={[`best ${category.name.toLowerCase()}`, `${category.name.toLowerCase()} comparison`, `buy ${category.name.toLowerCase()}`]}

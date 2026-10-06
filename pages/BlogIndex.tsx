@@ -7,6 +7,7 @@ import PageHeader from '../components/PageHeader';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { BlogCoverImage } from '../components/BlogCoverImage';
 import { breadcrumbSchema } from '../utils/seo';
+import { YEAR } from '../utils/year';
 
 /**
  * The previous version of this page rendered the same featured post three
@@ -37,14 +38,14 @@ const BlogIndex: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title="AI Tools Blog — Guides, Comparisons & Prompt Engineering (2026)"
+        title={`AI Tools Blog — Guides, Comparisons & Prompt Engineering (${YEAR})`}
         description={`${BLOG_POSTS.length} in-depth articles on choosing AI tools, comparing models, and writing prompts that hold up. Written and edited by hand.`}
         url="/blog"
         keywords={[
           'AI blog',
           'AI tool guides',
           'prompt engineering tutorial',
-          'AI tool comparisons 2026',
+          `AI tool comparisons ${YEAR}`,
           'how to choose AI tools',
         ]}
         schema={[breadcrumbSchema([{ label: 'Blog', path: '/blog' }])]}

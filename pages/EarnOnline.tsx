@@ -7,10 +7,11 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { NewsletterSection } from '../components/home/NewsletterSection';
 import { EARN_CATEGORIES, EARN_SITE_COUNT, EARN_CATEGORY_COUNT } from '../data/earn';
 import { SITE, absoluteUrl } from '../utils/seo';
+import { YEAR } from '../utils/year';
 
 const clean = (name: string) => name.replace(/\s*\([^)]*\)/, '').trim();
 
-const TITLE = `Earn Online — ${EARN_SITE_COUNT}+ Websites to Make Money by Category (2026)`;
+const TITLE = `Earn Online — ${EARN_SITE_COUNT}+ Websites to Make Money by Category (${YEAR})`;
 const DESCRIPTION = `A curated directory of ${EARN_SITE_COUNT}+ real websites to earn online — remote jobs, freelance, work from home, surveys, testing, gig work, e-commerce and more.`;
 
 const EarnOnline: React.FC = () => {

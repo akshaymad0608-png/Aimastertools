@@ -9,8 +9,10 @@ import SEO from '../components/SEO';
 import { breadcrumbSchema, itemListSchema } from '../utils/seo';
 import { MOCK_TOOLS } from '../data/tools';
 import { TOOL_COUNT, CATEGORY_COUNT } from '../utils/stats';
+import { YEAR } from '../utils/year';
 
-const Categories: React.FC = () => {
+const Categories: React.FC = () => {
+
   const [query, setQuery] = useState('');
 
   const sorted = useMemo(() => [...CATEGORIES].sort((a, b) => b.count - a.count), []);
@@ -24,14 +26,14 @@ const Categories: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`All ${CATEGORY_COUNT} AI Tool Categories (2026) — Browse by Use Case`}
+        title={`All ${CATEGORY_COUNT} AI Tool Categories (${YEAR}) — Browse by Use Case`}
         description={`Every category in the index, from writing and image generation to workflow automation. ${TOOL_COUNT} AI tools sorted by what they actually do, with real counts and ratings.`}
         url="/categories"
         keywords={[
           'AI tool categories',
           'AI tools by use case',
           'types of AI tools',
-          'AI software categories 2026',
+          `AI software categories ${YEAR}`,
           ...sorted.slice(0, 10).map((c) => `${c.name} AI tools`),
         ]}
         schema={[

@@ -1,8 +1,82 @@
 {
   "origin": "https://aimastertools.space",
   "distDir": "dist",
-  "important": ["/", "/about", "/contact", "/privacy", "/terms"],
+  "important": [
+    "/",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/terms",
+    "/best-free-ai-tools.html",
+    "/free",
+    "/alternatives/roadmap-sh-alternatives",
+    "/alternatives/mit-opencourseware-alternatives",
+    "/alternatives/the-odin-project-alternatives",
+    "/alternatives/ibm-skillsbuild-alternatives",
+    "/alternatives/phet-simulations-alternatives",
+    "/alternatives/codeforces-alternatives",
+    "/alternatives/qwen-chat-alternatives",
+    "/alternatives/magnific-ai-alternatives",
+    "/alternatives/kiro-alternatives",
+    "/alternatives/scenario-ai-alternatives",
+    "/alternatives/webui-forge-alternatives",
+    "/alternatives/novamira-alternatives"
+  ],
   "minSitemapUrls": 750,
   "adsense": true,
-  "gsc": { "brandTerms": ["aimastertools", "ai master tools"], "minImpressions": 20 }
+  "gsc": {
+    "brandTerms": [
+      "aimastertools",
+      "ai master tools"
+    ],
+    "minImpressions": 20
+  },
+  "minLastmodCoverage": 0.95,
+  "mustLink": {
+    "/free": [
+      "/best-free-ai-tools.html"
+    ],
+    "/best-free-ai-tools.html": [
+      "/free"
+    ],
+    "/": [
+      "/best-free-ai-tools.html"
+    ],
+    "/tool/roadmap-sh": [
+      "/alternatives/roadmap-sh-alternatives"
+    ],
+    "/tool/mit-opencourseware": [
+      "/alternatives/mit-opencourseware-alternatives"
+    ],
+    "/tool/the-odin-project": [
+      "/alternatives/the-odin-project-alternatives"
+    ],
+    "/tool/ibm-skillsbuild": [
+      "/alternatives/ibm-skillsbuild-alternatives"
+    ],
+    "/tool/phet-simulations": [
+      "/alternatives/phet-simulations-alternatives"
+    ],
+    "/tool/codeforces": [
+      "/alternatives/codeforces-alternatives"
+    ],
+    "/tool/qwen-chat": [
+      "/alternatives/qwen-chat-alternatives"
+    ],
+    "/tool/magnific-ai": [
+      "/alternatives/magnific-ai-alternatives"
+    ],
+    "/tool/kiro": [
+      "/alternatives/kiro-alternatives"
+    ],
+    "/tool/scenario-ai": [
+      "/alternatives/scenario-ai-alternatives"
+    ],
+    "/tool/webui-forge": [
+      "/alternatives/webui-forge-alternatives"
+    ],
+    "/tool/novamira": [
+      "/alternatives/novamira-alternatives"
+    ]
+  }
 }

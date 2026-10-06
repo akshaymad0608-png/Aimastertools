@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import PageHeader from '../components/PageHeader';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { breadcrumbSchema } from '../utils/seo';
+import { YEAR } from '../utils/year';
 
 const DIFFICULTY_STYLE: Record<string, string> = {
   Beginner: 'badge badge-primary',
@@ -34,7 +35,7 @@ const Workflows: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`${WORKFLOWS.length} AI Workflows — Connect Tools into Automations (2026)`}
+        title={`${WORKFLOWS.length} AI Workflows — Connect Tools into Automations (${YEAR})`}
         description="Step-by-step guides for chaining AI tools into working automations. Each workflow lists the tools involved, the difficulty, and roughly how long setup takes."
         url="/workflows"
         keywords={[

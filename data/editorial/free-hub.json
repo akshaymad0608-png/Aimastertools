@@ -1,0 +1,21 @@
+{
+  "_comment": "Shared by pages/FreeTools.tsx (React) and prerender.mjs (static HTML) so the visible FAQ, the FAQPage JSON-LD and the static copy are one text. {{BEST_FREE_COUNT}} is the number of picks in data/editorial/best-free.json.",
+  "faqs": [
+    {
+      "q": "Are these AI tools completely free?",
+      "a": "Some are free to use outright, and the rest are freemium: a free tier with limits, with paid plans above it. Every category page keeps the two apart and gives the count for each, so you can see which is which before you sign up."
+    },
+    {
+      "q": "What is the difference between free and freemium AI tools?",
+      "a": "A free tool costs nothing to use. A freemium tool gives you a free tier with limits, such as generations per month, export quality or seats, and charges once you pass them. Both are listed here, in separate groups."
+    },
+    {
+      "q": "Do free AI tools need a sign-up?",
+      "a": "It varies by tool and can change, so we do not make a blanket claim. Each tool page links to the tool's own site, where you can check the current sign-up and pricing terms."
+    },
+    {
+      "q": "Where can I find a short list of the best free AI tools?",
+      "a": "Our best free AI tools page lists {{BEST_FREE_COUNT}} picks, with what each free plan includes, where it stops and the vendor page each detail came from. This page is the full directory by category."
+    }
+  ]
+}
