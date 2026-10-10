@@ -11,9 +11,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Start from whatever the inline script in index.html already applied: the
-  // saved choice, or the system setting when there is none. This used to
-  // default to 'dark' and write it back on mount, which overrode the system
-  // setting for every first-time visitor.
+  // saved choice, or light when there is none (light is the site's design;
+  // dark is opt-in). Nothing is saved until the visitor toggles.
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('theme');
     if (saved === 'light' || saved === 'dark') return saved;

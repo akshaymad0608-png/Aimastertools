@@ -18,10 +18,8 @@ interface LogoProps {
  *
  * Two things this fixes beyond the drawing:
  *
- *   The wordmark was set at font-weight 700 on --font-display. That is
- *   Instrument Serif now, which ships a single weight, so the browser was
- *   smearing a synthetic bold across the brand name. Weight 400 is the face as
- *   drawn.
+ *   The wordmark is set in --font-display (Urbanist) at 700, a real weight
+ *   of that face, so it matches the bold display headings.
  *
  *   It was also tricoloured — "AI" and "Tools" in the accent, "Master" in the
  *   text colour — which fights the one-accent rule the rest of the system
@@ -76,7 +74,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 'md', showWordmark = true }) 
             className="whitespace-nowrap"
             style={{
               fontFamily: 'var(--font-display)',
-              fontWeight: 400,
+              fontWeight: 700,
               fontSize: isSmall ? 19 : 22.5,
               letterSpacing: '-0.01em',
               color: 'var(--color-text-primary)',

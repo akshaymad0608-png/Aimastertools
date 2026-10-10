@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, ArrowRight } from 'lucide-react';
 import { TOOL_COUNT, CATEGORY_COUNT, FREE_TOOL_COUNT } from '../../utils/stats';
 import { CATEGORIES } from '../../data/categories';
+import { HeroArt } from './HeroArt';
 
 interface HeroBandProps {
   searchTerm: string;
@@ -25,9 +26,9 @@ interface HeroBandProps {
  * filter uses, so the two can never disagree — one is the way in, the other
  * refines once you are there.
  *
- * Asymmetric rather than centred: a centred hero is the default every landing
- * page reaches for, and this one has a real second column to fill — the
- * busiest categories, which double as the fastest route into the index.
+ * Light theme layout: a bold two-line headline and the search on the left,
+ * a soft pink-and-silver illustration with the tool finder on the right, and
+ * a quiet row underneath with the finder and the busiest categories.
  */
 export const HeroBand: React.FC<HeroBandProps> = ({
   searchTerm,
@@ -38,14 +39,14 @@ export const HeroBand: React.FC<HeroBandProps> = ({
   const top = CATEGORIES.slice(0, 6);
 
   return (
-    <section className="page-top border-b border-[var(--color-border)] bg-[var(--color-surface)]">
-      <div className="container-custom py-14 md:py-20">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-16">
+    <section className="page-top overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-background)]">
+      <div className="container-custom py-12 md:py-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-6">
           <div>
             <p className="eyebrow">Independent · no pay-to-rank</p>
 
             <h1 className="display-xl mt-5 text-[var(--color-text-primary)]">
-              Every AI tool worth knowing, in one place.
+              Every AI tool worth knowing. <em>In one place.</em>
             </h1>
 
             <p className="mt-6 max-w-xl text-[16.5px] leading-relaxed text-[var(--color-text-secondary)]">
@@ -95,7 +96,7 @@ export const HeroBand: React.FC<HeroBandProps> = ({
               ].map((c) => (
                 <li key={c} className="inline-flex items-center gap-2">
                   <span
-                    className="h-1 w-1 rounded-full bg-[var(--color-primary)]"
+                    className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] opacity-70"
                     aria-hidden="true"
                   />
                   {c}
@@ -104,29 +105,49 @@ export const HeroBand: React.FC<HeroBandProps> = ({
             </ul>
           </div>
 
-          <div className="lg:pt-2">
+          <HeroArt />
+        </div>
+
+        <div className="mt-12 grid gap-8 border-t border-[var(--color-border)] pt-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] md:gap-12">
+          <div className="flex items-start gap-4">
+            <span aria-hidden="true" className="relative mt-0.5 block h-12 w-12 shrink-0">
+              <span className="absolute left-0 top-0 h-7 w-7 rounded-full bg-gradient-to-br from-white to-[#f4b3c9] shadow-sm" />
+              <span className="absolute bottom-0 right-0 h-8 w-8 rounded-xl bg-gradient-to-br from-white to-[#c9cad1] shadow-sm" />
+            </span>
+            <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">
+              Not sure what you need? Answer three questions and get a short list.
+              <Link
+                to="/find"
+                className="mt-1 block font-semibold text-[var(--color-text-primary)] underline decoration-[1.5px] underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                Open the tool finder
+              </Link>
+            </p>
+          </div>
+
+          <div>
             <p className="label-mono">Start somewhere</p>
-            <ul className="mt-5 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+            <ul className="mt-3 flex flex-wrap gap-2">
               {top.map((cat) => (
                 <li key={cat.id}>
                   <Link
                     to={`/category/${cat.slug}`}
-                    className="group flex items-baseline justify-between gap-4 py-3.5 transition-colors hover:text-[var(--color-primary)]"
+                    className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-1.5 text-[13.5px] font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
                   >
-                    <span className="min-w-0 truncate text-[15px] font-medium text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-primary)]">
-                      {cat.name}
-                    </span>
-                    <span className="label-mono shrink-0 tabular-nums">{cat.count}</span>
+                    {cat.name}
+                    <span className="label-mono tabular-nums">{cat.count}</span>
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/categories"
+                  className="inline-flex items-center gap-1.5 px-2 py-1.5 text-[13.5px] font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
+                >
+                  All {CATEGORY_COUNT} <ArrowRight size={14} aria-hidden="true" />
+                </Link>
+              </li>
             </ul>
-            <Link
-              to="/categories"
-              className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
-            >
-              All {CATEGORY_COUNT} categories <ArrowRight size={14} aria-hidden="true" />
-            </Link>
           </div>
         </div>
       </div>
