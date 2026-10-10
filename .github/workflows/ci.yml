@@ -37,13 +37,14 @@ jobs:
 
       # The generated sitemap is not committed, so nothing else would notice it
       # collapsing. Assert it still carries a plausible number of URLs.
-      # About 830 since the noindexed /compare/* and /alternatives/* pages left
-      # it; the 654 tool pages alone keep it above this floor.
+      # About 210 since only tool pages with a researched write-up are listed
+      # (utils/editorial.ts); categories, collections, workflows, earn, free,
+      # blog and the static guides keep it above this floor.
       - name: Sanity-check the generated sitemap
         run: |
           count=$(grep -c '<loc>' public/sitemap.xml)
           echo "sitemap URLs: $count"
-          if [ "$count" -lt 750 ]; then
-            echo "::error::sitemap collapsed to $count URLs (expected >750)"
+          if [ "$count" -lt 180 ]; then
+            echo "::error::sitemap collapsed to $count URLs (expected >180)"
             exit 1
           fi

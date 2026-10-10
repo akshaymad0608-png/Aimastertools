@@ -151,13 +151,32 @@ const workflowIds = pluck(read('data/workflows.ts'), 'id').filter((id) => /^wf-/
  * different top four per category, and three comparison URLs published here
  * that no page was ever written for. One parser, one answer.
  */
+/** Mirrors utils/editorial.ts and prerender.mjs; keep the three in step. */
+const isEditorialTool = (t) => {
+  const text = (t && t.longDescription) || '';
+  return text.length >= 150 && !/AI Master Tools/.test(text);
+};
+
 const toolRecords = (() => {
   const src = read('data/tools.ts');
   const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
   return eval(src.slice(start, src.indexOf('\n];', start) + 2))
     .filter(Boolean)
-    .map((t) => ({ id: t.id, category: t.category, rating: t.rating, pricing: t.pricing }));
+    .map((t) => ({
+      id: t.id,
+      category: t.category,
+      rating: t.rating,
+      pricing: t.pricing,
+      editorial: isEditorialTool(t),
+    }));
 })();
+
+/**
+ * Tool pages that are indexed: only those with a researched write-up. The
+ * rest stay up for visitors but are noindex (prerender.mjs, ToolDetail), so
+ * listing them here would contradict their own robots tag.
+ */
+const editorialToolIds = new Set(toolRecords.filter((t) => t.editorial).map((t) => t.id));
 
 // Pair from canonical tools only — the same list the tool URLs below use.
 //
@@ -279,7 +298,7 @@ const urls = [
     'best-ai-voice-generators',
   ].map((slug) => ({ loc: `/${slug}.html`, changefreq: 'weekly', priority: '0.85', from: [`public/${slug}.html`] })),
 
-  ...canonicalToolIds.map((id) => ({
+  ...canonicalToolIds.filter((id) => editorialToolIds.has(id)).map((id) => ({
     loc: `/tool/${encodeURIComponent(id)}`,
     changefreq: 'weekly',
     priority: '0.7',
@@ -359,11 +378,11 @@ writeFileSync(resolve(ROOT, 'public/sitemap.xml'), xml, 'utf8');
 const dated = entries.filter((e) => e.lastmod).length;
 console.log(`sitemap.xml written — ${entries.length} URLs`);
 console.log(
-  `  tools ${canonicalToolIds.length} (of ${toolIds.length} raw) · categories ${categoryIds.length} · ` +
+  `  tools ${canonicalToolIds.filter((id) => editorialToolIds.has(id)).length} indexed of ${canonicalToolIds.length} (${toolIds.length} raw) · categories ${categoryIds.length} · ` +
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
-  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length}`,
+  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length} · tool pages without a write-up ${canonicalToolIds.filter((id) => !editorialToolIds.has(id)).length}`,
 );
 console.log(
   `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,
