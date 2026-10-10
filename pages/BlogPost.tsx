@@ -145,7 +145,7 @@ const BlogPost: React.FC = () => {
           {/* Action Footer share clusters */}
           <div className="pt-8 mt-14 border-t border-[var(--color-border)]/60 flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center">
             <div className="text-sm font-bold text-[var(--color-text-muted)] uppercase tracking-wider font-mono">
-              ⚡ Verified engineering resources by Akshay Mahajan
+              Published by Akshay Mahajan · AI Master Tools
             </div>
             
             <div className="flex gap-2.5">

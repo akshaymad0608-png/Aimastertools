@@ -7,6 +7,7 @@ import { COMPARISON_PAIRS, ComparisonPair } from '../utils/pairs';
 import { Tool } from '../types';
 import SEO from '../components/SEO';
 import ToolLogo from '../components/ToolLogo';
+import { pricingBadgeClass } from '../utils/pricingBadge';
 
 const Compare: React.FC = () => {
   const navigate = useNavigate();
@@ -184,11 +185,7 @@ const Compare: React.FC = () => {
                   <td className="p-6 font-medium text-[var(--color-text-primary)]">Pricing Model</td>
                   {selectedTools.map(tool => (
                     <td key={tool.id} className="p-6 border-l border-[var(--color-border)]/50 text-center">
-                      <span className={`inline-block px-3 py-1 text-sm font-bold rounded-full border ${
-                        tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
-                        tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                        'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
-                      }`}>
+                      <span className={`inline-block px-3 py-1 text-sm font-bold rounded-full border ${pricingBadgeClass(tool.pricing)}}`}>
                         {tool.pricing}
                       </span>
                     </td>

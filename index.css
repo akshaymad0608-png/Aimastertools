@@ -154,7 +154,7 @@
 
   --text-primary-color: #f4f2f0;   /* 17.36:1 on bg */
   --text-secondary-color: #b0a9a5; /* 8.37:1 */
-  --text-muted-color: #918a86;     /* 5.71:1 on bg, 5.40:1 on a card */
+  --text-muted-color: #a39c98;     /* ~7:1 on bg; was #918a86, read as faint on small text */
 
   --border-color: #2a2523;
   --border-strong-color: #3c3532;

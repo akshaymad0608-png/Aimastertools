@@ -16,6 +16,14 @@ import { StoryShareModal } from '../components/StoryShareModal';
 import { resolveToolLink } from '../lib/affiliate/outbound';
 import AffiliateDisclosure from '../components/shopping/AffiliateDisclosure';
 import { isEditorialTool } from '../utils/editorial';
+import { pricingBadgeClass, formatListedDate } from '../utils/pricingBadge';
+
+/**
+ * Most listings point imageUrl at one of a handful of Unsplash stock photos
+ * (one of them on 407 tools). A large generic picture says nothing about the
+ * tool, so it is only shown when the listing has an image of its own.
+ */
+const STOCK_IMAGE = /images\.unsplash\.com/;
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -172,22 +180,18 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="flex-grow">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full border ${
-                      tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
-                      tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                      'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
-                    }`}>
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full border ${pricingBadgeClass(tool.pricing)}`}>
                       {tool.pricing}
                     </span>
                     <span className="text-xs text-[var(--color-text-secondary)] flex items-center gap-1 bg-[var(--color-surface)] px-3 py-1 rounded-full border border-[var(--color-border)]">
-                      <Calendar size={12} /> Added {tool.dateAdded}
+                      <Calendar size={12} /> Listed {formatListedDate(tool.dateAdded)}
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-3 md:mb-4">
                     <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] tracking-tight">{tool.name}</h1>
                     {tool.featured && (
-                      <span className="flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] bg-[var(--color-primary-soft)] px-2 py-1 rounded-md border border-[var(--color-border)]" title="Verified Tool">
-                        <Check size={14} /> Verified
+                      <span className="flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] bg-[var(--color-primary-soft)] px-2 py-1 rounded-md border border-[var(--color-border)]" title="Editor's pick">
+                        <Check size={14} /> Featured
                       </span>
                     )}
                   </div>
@@ -206,7 +210,7 @@ const ToolDetail: React.FC = () => {
               desk, a skyline or a circuit board. Newer entries carry no image
               at all rather than a decorative one pretending to be evidence.
             */}
-            {tool.imageUrl && (
+            {tool.imageUrl && !STOCK_IMAGE.test(tool.imageUrl) && (
               <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[var(--color-border)] shadow-[var(--shadow-lift)] aspect-video">
                 <img src={tool.imageUrl} alt="" aria-hidden="true" width="800" height="450" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
               </div>
@@ -397,11 +401,7 @@ const ToolDetail: React.FC = () => {
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Pricing Model</span>
-                  <span className={`font-medium px-3 py-1 rounded-lg border ${
-                    tool.pricing === 'Free' ? 'bg-green-500/10 text-[var(--color-primary)] border-green-500/20' :
-                    tool.pricing === 'Paid' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
-                    'bg-amber-500/10 text-[var(--color-accent)] border-amber-500/20'
-                  }`}>{tool.pricing}</span>
+                  <span className={`font-medium px-3 py-1 rounded-lg border ${pricingBadgeClass(tool.pricing)}`}>{tool.pricing}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm py-3 border-b border-[var(--color-border)] border-dashed">
                   <span className="text-[var(--color-text-secondary)]">Website</span>
@@ -424,10 +424,6 @@ const ToolDetail: React.FC = () => {
                   >
                     <Globe size={14} /> {siteLabel}
                   </a>
-                </div>
-                <div className="flex justify-between items-center text-sm py-3">
-                  <span className="text-[var(--color-text-secondary)]">Last Updated</span>
-                  <span className="text-[var(--color-text-primary)] font-medium">Today</span>
                 </div>
                 
                 {tool.tags && tool.tags.length > 0 && (
