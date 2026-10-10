@@ -15,6 +15,7 @@ import TrendingSidebarWidget from '../components/TrendingSidebarWidget';
 import { StoryShareModal } from '../components/StoryShareModal';
 import { resolveToolLink } from '../lib/affiliate/outbound';
 import AffiliateDisclosure from '../components/shopping/AffiliateDisclosure';
+import { isEditorialTool } from '../utils/editorial';
 
 const ToolDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -98,6 +99,7 @@ const ToolDetail: React.FC = () => {
   */
   const link = resolveToolLink(tool);
   const siteLink = resolveToolLink({ name: tool.name, url: tool.url });
+  const editorial = isEditorialTool(tool);
   const siteLabel = siteLink.isFallbackSearch ? 'Search on Google' : new URL(siteLink.href).hostname;
 
   return (
@@ -107,6 +109,7 @@ const ToolDetail: React.FC = () => {
         description={`${tool.name} at a glance: what it does, its pricing, and the closest AI alternatives for ${tool.category.toLowerCase()}.`}
         image={tool.imageUrl}
         keywords={[tool.category, ...(tool.tags || []), 'AI Tool', 'Artificial Intelligence', 'best ai tools', 'free ai tools']}
+        noindex={!editorial}
       >
         {/*
           No SoftwareApplication+Offer script here anymore.
@@ -219,10 +222,12 @@ const ToolDetail: React.FC = () => {
                 <p className="mb-6 text-lg">
                   {tool.description}
                 </p>
+                {editorial && <p className="mb-6">{tool.longDescription}</p>}
                 <p>
                   {tool.name} is filed under {tool.category} and listed as {tool.pricing.toLowerCase()}.
-                  The summary above is the vendor's own description of the product; the pricing and
-                  rating shown on this page are what we recorded when the listing was last checked.
+                  {editorial
+                    ? ' The notes above were written from the vendor\'s own product and pricing pages; check them before you rely on a specific plan or price.'
+                    : ' The summary above is the vendor\'s own description of the product; the pricing shown on this page is what we recorded when the listing was last checked.'}
                 </p>
               </div>
               

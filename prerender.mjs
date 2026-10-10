@@ -111,6 +111,14 @@ for (const t of byId) {
 }
 const TOOLS = byId.filter((t) => canon.get((t.name || '').trim().toLowerCase()) === t);
 
+// Mirrors utils/editorial.ts (this script reads data/tools.ts without the TS
+// toolchain, so it cannot import it). Keep the two, and the copy in
+// scripts/generate-sitemap.mjs, in step.
+const isEditorialTool = (t) => {
+  const text = (t && t.longDescription) || '';
+  return text.length >= 150 && !/AI Master Tools/.test(text);
+};
+
 /**
  * Schema for a tool page: a WebPage that is *about* the tool.
  *
@@ -802,6 +810,9 @@ const routes = [
   // Tool pages
   ...TOOLS.map((t) => ({
     path: `/tool/${t.id}`,
+    // Only tools with a researched write-up are indexed; the rest are a
+    // vendor tagline plus a generated sentence. See utils/editorial.ts.
+    noindex: !isEditorialTool(t),
     heading: `${t.name} Review`,
     title: pickTitle([
       `${t.name} (${YEAR}) — Features, Pricing and the Best Alternatives`,
@@ -860,7 +871,12 @@ const routes = [
       const title = alts.length
         ? `<h2 style="font-size:20px;margin:24px 0 8px">${esc(t.name)} alternatives</h2>`
         : '';
-      return `${title}${catLink}${list}${altPage}${compare}`;
+      // The tool's own text, so the static HTML says what the tool is before
+      // listing what else to look at.
+      const about =
+        `<p style="font-size:16px;line-height:1.7">${esc(t.description || '')}</p>` +
+        (isEditorialTool(t) ? `<p style="font-size:16px;line-height:1.7">${esc(t.longDescription)}</p>` : '');
+      return `${about}${title}${catLink}${list}${altPage}${compare}`;
     })(),
   })),
   // Category pages
