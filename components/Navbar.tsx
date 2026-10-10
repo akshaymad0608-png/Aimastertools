@@ -23,6 +23,11 @@ import { useTheme } from '../context/ThemeContext';
  * what is behind it. Nothing was removed; /compare was added, because it is a
  * hub the site had no header route to at all.
  */
+/** The small dot between top-level nav items, as in the light theme's header. */
+const NavDot = () => (
+  <li aria-hidden="true" className="mx-1 h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-muted)] opacity-50" />
+);
+
 const NAV_GROUPS = [
   {
     name: 'Browse',
@@ -273,11 +278,13 @@ const Navbar: React.FC = () => {
             onMouseEnter={cancelClose}
           >
             <ul className="flex items-center gap-0.5 whitespace-nowrap">
-              {NAV_GROUPS.map((group) => {
+              {NAV_GROUPS.map((group, i) => {
                 const open = openGroup === group.name;
                 const active = groupIsActive(group);
                 return (
-                  <li key={group.name} className="relative">
+                  <React.Fragment key={group.name}>
+                  {i > 0 && <NavDot />}
+                  <li className="relative">
                     <button
                       type="button"
                       aria-expanded={open}
@@ -342,13 +349,16 @@ const Navbar: React.FC = () => {
                       )}
                     </AnimatePresence>
                   </li>
+                  </React.Fragment>
                 );
               })}
 
               {FLAT_LINKS.map((link) => {
                 const active = isActive(link.to);
                 return (
-                  <li key={link.to}>
+                  <React.Fragment key={link.to}>
+                  <NavDot />
+                  <li>
                     <Link
                       to={link.to}
                       aria-current={active ? 'page' : undefined}
@@ -368,6 +378,7 @@ const Navbar: React.FC = () => {
                       )}
                     </Link>
                   </li>
+                  </React.Fragment>
                 );
               })}
             </ul>
