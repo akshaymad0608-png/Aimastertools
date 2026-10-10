@@ -394,6 +394,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========================= Buttons =========================== */
 
+/* In the components layer so Tailwind utilities on a button win. Unlayered,
+   these rules beat every utility, so `hidden md:inline-flex`, `h-9` or
+   `px-4` on a .btn-* were silently ignored — the header's "Find a tool"
+   showed on phones and pushed the menu button off the screen. */
+@layer components {
+
 .btn-primary,
 .btn-secondary,
 .btn-ghost {
@@ -434,6 +440,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-ghost { background: transparent; color: var(--text-secondary-color); }
 .btn-ghost:hover { background: var(--surface-color); color: var(--text-primary-color); }
+}
 
 /* ========================== Cards ============================ */
 
@@ -853,4 +860,13 @@ html, body { overflow-x: clip; }
 /* Anchor targets need the same clearance or a jump-link lands under the bar. */
 [id] {
   scroll-margin-top: calc(var(--banner-h, 0px) + var(--header-h, 64px) + 1rem);
+}
+
+/* iOS Safari zooms the page into any focused field set below 16px and does
+   not zoom back out. Phones get 16px fields; wider screens keep the design's
+   smaller size. Unlayered, so it outranks the text-[14px] utilities. */
+@media (max-width: 767px) {
+  input:not([type=checkbox]):not([type=radio]):not([type=range]),
+  select,
+  textarea { font-size: 16px; }
 }

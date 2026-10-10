@@ -103,12 +103,12 @@ const Footer: React.FC = () => {
           {COLUMNS.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>
               <p className="label-mono">{column.heading}</p>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 space-y-1">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.to}
-                      className="text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
+                      className="inline-block py-1 text-[15px] text-[var(--color-text-secondary)] underline-offset-4 transition-colors hover:text-[var(--color-primary)] hover:underline"
                     >
                       {link.label}
                     </Link>

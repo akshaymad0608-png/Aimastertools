@@ -40,7 +40,7 @@ export const HeroBand: React.FC<HeroBandProps> = ({
 
   return (
     <section className="page-top overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-background)]">
-      <div className="container-custom py-12 md:py-16">
+      <div className="container-custom pb-12 pt-4 md:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-6">
           <div>
             <p className="eyebrow">Independent · no pay-to-rank</p>
