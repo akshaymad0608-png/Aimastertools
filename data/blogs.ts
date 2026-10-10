@@ -280,6 +280,147 @@ Many people start with Forge to learn how prompts, samplers and steps behave, th
 
 **Related:** [ComfyUI](/tool/comfyui) · [WebUI Forge](/tool/webui-forge) · [Magnific AI](/tool/magnific-ai) · [best AI image generators](/best-ai-image-generators.html)`
   },
+  {
+    id: '13',
+    slug: 'how-to-choose-an-ai-tool-checklist',
+    title: 'How to Choose an AI Tool: 8 Checks Before You Sign Up',
+    category: 'PRODUCTIVITY',
+    excerpt: 'A 20-minute checklist for picking the right AI tool: the job, a real test, free plan limits, true cost, ownership, privacy, export and longevity, with a scorecard.',
+    date: 'Oct 10, 2026',
+    readTime: '7 min read',
+    imageUrl: '',
+    url: '/blog/how-to-choose-an-ai-tool-checklist',
+    content: `Most people pick an AI tool the same way: a friend mentions it, the landing page looks good, they sign up, and a week later they are paying for something that does half of what they needed. A few checks before you sign up save that week. None of them need technical knowledge, and together they take about twenty minutes.
+
+These checks apply to any category, from writing and image tools to coding assistants and automation. Where a check depends on the vendor's own terms, read the current version on their site: plans and terms change often, as our post on [retired, renamed and repriced tools](/blog/ai-tool-changes-retired-renamed-repriced-2026) shows.
+
+## 1. Write down the job in one sentence
+
+"I need AI for marketing" is not a job. "I need to turn a 30-minute webinar recording into five short LinkedIn posts every week" is. The one-sentence version tells you which category to look in, what input the tool must accept (audio, video, a document) and what output you need. If you cannot write that sentence yet, start with our [tool finder](/find), which asks three questions and narrows the list.
+
+## 2. Test with your own material, not the demo
+
+Demos are chosen to look good. Before you decide, run one real task from your own work through the tool: your own document, your own photo, your own messy spreadsheet. If two or three tools look similar, give each the same input and the same instruction, then compare the results side by side. This one step rules out more tools than any review.
+
+## 3. Read what "free" actually means
+
+A free plan can be a daily allowance, a one-time batch of credits, a watermark on everything you export, or a trial that needs a card and renews automatically. Our guide to [AI tool free plans](/blog/ai-tools-free-plans-what-you-really-get-2026) breaks down each type. The question to answer is simple: can you finish your job from step 1 on the free plan, and if not, what is the cheapest plan that lets you?
+
+## 4. Work out the real monthly cost
+
+Pricing pages often show the lowest number: billed yearly, for one seat, with a credit allowance that runs out quickly. Work out the cost for your actual use:
+
+- **Seats:** will two or three people need their own accounts?
+- **Credits or usage limits:** how many of your step-2 tasks does one month of credits cover?
+- **Add-ons:** are features you tested on a trial, such as higher resolution or longer videos, part of the plan or extra?
+- **Currency and taxes:** prices shown in US dollars usually do not include local taxes or card conversion charges.
+
+## 5. Check who owns what you create
+
+If you will use the output commercially, for a client, a product or ads, read the vendor's terms on ownership and commercial use. Some tools restrict commercial use on free plans, and some require attribution. This matters most for images, music and video. If the terms are unclear, ask the vendor before you build anything that depends on it.
+
+## 6. Check what happens to your data
+
+Look for three answers in the privacy policy or help centre: whether your inputs are used to train the vendor's models, whether you can turn that off, and how long your files are kept. Our [privacy checklist for AI tools](/blog/ai-tool-privacy-data-checklist) walks through what to look for. If the tool will see client files, personal data or anything under an NDA, this check is not optional.
+
+## 7. Make sure you can get your work out
+
+A tool that holds your work in a format nothing else can open is expensive to leave. Check that you can export in a standard format, such as DOCX, PNG, MP4 or CSV, and whether exports are limited on the free plan. For automation tools, check whether your workflows can be exported or only rebuilt by hand.
+
+## 8. Judge whether the tool will still be around
+
+AI products launch, merge, rename and shut down quickly. Signs of a tool you can depend on: a clear pricing page, a changelog that shows recent updates, documentation, and a way to contact support. A tool with none of these may still be useful for a one-off task, but it is a poor choice for something your work depends on every week.
+
+## A simple scorecard
+
+Score each tool you are considering from 0 to 2 on each of the eight checks, where 0 means "fails", 1 means "acceptable" and 2 means "clearly good". A simple table with one column per tool works well:
+
+- Does the job from step 1
+- Result on your own test
+- Free plan covers your use
+- Real monthly cost
+- Ownership and commercial use
+- Data and privacy
+- Export
+- Likely to last
+
+The highest total is usually the right pick, but a 0 on ownership or privacy should rule a tool out on its own if your work depends on it.
+
+## Where to start
+
+Browse tools by [category](/categories), see what is genuinely free in our [free AI tools](/free) section, or use the [tool finder](/find) if you are not sure which category your job belongs in. Whatever you choose, run step 2 before you pay.
+
+**Related:** [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026) · [Retired, renamed, repriced](/blog/ai-tool-changes-retired-renamed-repriced-2026) · [Privacy checklist for AI tools](/blog/ai-tool-privacy-data-checklist)`
+  },
+  {
+    id: '14',
+    slug: 'ai-tool-privacy-data-checklist',
+    title: 'AI Tool Privacy: What to Check Before You Upload Data',
+    category: 'RESEARCH',
+    excerpt: 'Five questions to answer in any AI tool privacy policy, how plans differ, what never to upload, and when a local model is safer. With a two-minute checklist.',
+    date: 'Oct 10, 2026',
+    readTime: '6 min read',
+    imageUrl: '',
+    url: '/blog/ai-tool-privacy-data-checklist',
+    content: `Every AI tool you use sees what you give it: the document you paste, the photo you upload, the meeting it transcribes. Most of the time that is fine. Sometimes it is not, and the difference is usually written in the vendor's privacy policy and terms, in places few people read. This guide lists what to look for, in plain language, and what to keep out of AI tools whatever the policy says.
+
+This is general guidance, not legal advice. Terms differ between vendors and between plans of the same vendor, and they change, so read the current version for the specific plan you use.
+
+## The five questions to answer
+
+Open the tool's privacy policy, terms of service and help centre, and search for the words "train", "retain", "delete" and "third party". You are looking for answers to five questions.
+
+### 1. Are my inputs used to train the model?
+
+Some vendors use what you type or upload to improve their models, some do not, and many do on free and individual plans but not on business plans. Look for a clear statement either way. If the answer is yes, look for an opt-out, and note whether it is on by default.
+
+### 2. Can I turn training off, and does it apply to past data?
+
+An opt-out setting usually applies from the moment you turn it on. Check whether it also covers what you uploaded before. Some tools offer a temporary or incognito mode that is not saved to your history; check how long those chats are still kept on the vendor's side.
+
+### 3. How long are my files and chats kept?
+
+Look for a retention period. "Until you delete your account" and "30 days after deletion" are very different from "as long as necessary". Check whether deleting a chat or file in the app actually deletes it on the server, and how to delete your whole account.
+
+### 4. Does anyone else see it?
+
+Policies often say data may be shared with "service providers" or "subprocessors", such as cloud hosts, and sometimes with the company that supplies the underlying model. Some vendors also allow staff to review a sample of conversations for safety or quality. Look for which of these apply, and whether reviewed content is anonymised.
+
+### 5. Where is it stored, and which law applies?
+
+If you or your clients are in a regulated sector, where the data is stored can matter. In India, the Digital Personal Data Protection Act, 2023 gives people rights over their personal data, with its rules being brought into force in phases. If you upload other people's personal data to an AI tool, you are responsible for having a lawful reason to do so.
+
+## Free, individual and business plans differ
+
+The same product can have very different terms on different plans. Business and enterprise plans more often promise that your data is not used for training, offer admin controls and shorter retention, and come with a data processing agreement. If your company's or your clients' data is involved, the plan matters as much as the tool.
+
+## What not to put into any AI tool
+
+Whatever the policy says, keep these out unless your organisation has approved the specific tool and plan:
+
+- **Passwords, API keys and one-time codes.**
+- **Government ID numbers and financial details**, such as Aadhaar, PAN, bank account or card numbers.
+- **Health information** about you or anyone else.
+- **Client or employer documents under an NDA** or marked confidential.
+- **Other people's personal data**, such as customer lists or CVs, without a clear reason and permission.
+
+If you need AI help with a sensitive document, remove names and numbers first, or replace them with placeholders, and put them back afterwards.
+
+## When a local model is the better choice
+
+For truly private material, the safest option is a model that runs on your own computer, where nothing is sent anywhere. Our comparison of [Ollama, LM Studio, GPT4All and AnythingLLM](/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm) explains how to set one up and what hardware you need. Local models are less capable than the largest cloud models, but for summarising, drafting and searching your own files they are often enough.
+
+## A two-minute checklist
+
+- Inputs used for training: yes, no, or opt-out available.
+- Opt-out turned on, if one exists.
+- Retention period found, and deletion tested.
+- Sharing with third parties and human review understood.
+- Plan matches the sensitivity of the data.
+- Sensitive details removed before uploading.
+
+**Related:** [How to choose an AI tool: 8 checks](/blog/how-to-choose-an-ai-tool-checklist) · [Run AI models locally](/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm) · [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026)`
+  },
 ];
 
 /**
