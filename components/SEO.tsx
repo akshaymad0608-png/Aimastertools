@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { reportPageIndexable } from './ads/FooterAd';
 import { SITE, BRAND_KEYWORDS, absoluteUrl, clampDescription } from '../utils/seo';
 
 interface SEOProps {
@@ -37,6 +38,11 @@ const SEO: React.FC<SEOProps> = ({
   author = SITE.author,
   children,
 }) => {
+  React.useEffect(() => {
+    reportPageIndexable(!noindex);
+    return () => reportPageIndexable(null);
+  }, [noindex]);
+
   const currentPath =
     typeof window !== 'undefined' ? window.location.pathname + window.location.search : '/';
 
