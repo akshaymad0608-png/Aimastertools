@@ -25,7 +25,7 @@ const METHOD = [
   {
     step: 'Opened',
     body:
-      'Most entries come from actually opening the thing — enough to know what it does well, where it stops, and whether the free tier is usable or a demo with a paywall. Where an entry is written from documentation and reputation instead, the rating reflects that and is revised the moment it gets a proper session.',
+      'Some entries come from opening the tool; many are written from the vendor documentation and public information, and the long write-ups are the ones to trust most. Entries without a full write-up are short listings and are kept out of search results until they get one.',
   },
   {
     step: 'Filed',
@@ -83,7 +83,7 @@ const About: React.FC = () => {
         <PageHeader
           eyebrow="About"
           title="An index someone actually keeps"
-          lede={`${TOOL_COUNT} AI tools, checked and filed by hand rather than scraped. This page explains who compiles it, how a tool gets in, how the order is set, and how the site pays for itself.`}
+          lede={`${TOOL_COUNT} AI tools, compiled and filed by hand. This page explains who compiles it, how a tool gets in, how the order is set, and how the site pays for itself.`}
         />
 
         <section className="mt-14 max-w-2xl" aria-labelledby="what-heading">
@@ -98,9 +98,9 @@ const About: React.FC = () => {
               couple of free trials.
             </p>
             <p>
-              So entries are written from using the tool wherever that is possible, and from its
-              documentation and track record where it is not. Either way you are reading notes
-              from a person, not a rewritten press release.
+              Longer entries are researched write-ups; shorter ones are basic listings built from
+              the vendor's own description and public documentation. Guides compare tools using
+              that public information, not hands-on benchmarks.
             </p>
           </div>
         </section>

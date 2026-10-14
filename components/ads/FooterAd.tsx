@@ -9,6 +9,29 @@ const EXCLUDED_PATHS = new Set([
   '/affiliate-disclosure',
 ]);
 
+/**
+ * Ads only go on pages that are indexable AND have enough content of their own.
+ * An ad on a noindex page (compare pairs, alternatives, thin tool pages) or on a
+ * short utility page (careers, find, contact, workflows) is exactly what the
+ * AdSense "low-value content" review penalises, so those are never eligible.
+ */
+const AD_ELIGIBLE = [
+  /^\/$/,
+  /^\/blog(\/[^/]+)?$/,
+  /^\/categories$/,
+  /^\/category\/[^/]+$/,
+  /^\/free(\/[^/]+)?$/,
+  /^\/tool\/[^/]+$/,
+];
+
+/** null until the page's <SEO> has mounted, so no ad shows while a lazy route loads. */
+let pageIndexable: boolean | null = null;
+
+export function reportPageIndexable(value: boolean | null) {
+  pageIndexable = value;
+  listeners.forEach((l) => l());
+}
+
 let suppressed = false;
 const listeners = new Set<() => void>();
 
@@ -27,6 +50,8 @@ export const FooterAd: React.FC = () => {
   }, []);
 
   if (suppressed) return null;
+  if (pageIndexable !== true) return null;
+  if (!AD_ELIGIBLE.some((re) => re.test(pathname.replace(/\/+$/, '') || '/'))) return null;
   if (EXCLUDED_PATHS.has(pathname)) return null;
 
   return (
