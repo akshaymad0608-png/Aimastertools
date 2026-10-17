@@ -542,7 +542,8 @@ const _MOCK_TOOLS: Tool[] = [
     {
         "id": "google-analytics-4",
         "name": "Google Analytics 4 (GA4)",
-        "description": "Measure your advertising ROI as well as track your Flash, video, and social networking sites and applications.",
+        "description": "Google's free analytics platform for measuring website and app traffic, conversions and advertising performance.",
+        "longDescription": "Google Analytics 4 is the current version of Google's web and app analytics, and it replaced Universal Analytics, which stopped processing data in July 2023. Instead of sessions and pageviews, GA4 records everything as an event, so one property can follow a website and an app together and report on conversions, audiences and the path people take. It is free for most sites, with a paid Analytics 360 tier for large enterprises, links directly to Google Ads and Search Console, and can export raw data to BigQuery. The catch is a steeper learning curve than the old interface: reports are less ready-made and many setups need some configuration.",
         "category": "Google",
         "url": "https://analytics.google.com",
         "imageUrl": "https://images.unsplash.com/photo-1682687220199-d0124f48f95b?auto=format&fit=crop&q=80&w=800",
