@@ -488,6 +488,62 @@ const SHOPPING_CATEGORIES = (() => {
   }
 })();
 
+
+/*
+  The About and Affiliate Disclosure pages are written out in full by the React
+  app, but a crawler that does not run JavaScript only saw a title and a
+  one-line description (~125 words). These blocks mirror the published copy in
+  pages/About.tsx and pages/shopping/AffiliateDisclosurePage.tsx so the static
+  file says the same thing. If you change the wording there, change it here.
+*/
+const legalSection = (h, paras) =>
+  `<h2 style="font-size:20px;margin:28px 0 10px">${esc(h)}</h2>` +
+  paras.map((t) => `<p style="font-size:15px;line-height:1.7;color:#475569">${t}</p>`).join('');
+
+const ASSOCIATE_ID =
+  (readFileSync('lib/shopping/affiliate.ts', 'utf8').match(/DEFAULT_ASSOCIATE_ID\s*=\s*'([^']+)'/) || [])[1] || '';
+
+const ABOUT_HTML =
+  legalSection('What this is', [
+    'AI Master Tools is an independent directory of AI tools. It exists because the honest answer to “which AI tool should I use” is almost never the one with the biggest launch, and finding that out usually costs a few hours and a couple of free trials.',
+    'Longer entries are researched write-ups; shorter ones are basic listings built from the vendor’s own description and public documentation. Guides compare tools using that public information, not hands-on benchmarks.',
+  ]) +
+  legalSection('How a tool gets listed', [
+    '<strong>Found.</strong> Tools arrive from launches, from what people are actually asking for, and from gaps in a category that has none. A tool that only exists as a waitlist does not get an entry.',
+    '<strong>Opened.</strong> Some entries come from opening the tool; many are written from the vendor documentation and public information, and the long write-ups are the ones to trust most. Entries without a full write-up are short listings and are kept out of search results until they get one.',
+    `<strong>Filed.</strong> Each tool is filed by the job it does rather than the technology behind it, which is why there are ${CATEGORIES.length} categories and not five. Pricing is recorded as the tool actually charges: free, freemium, paid, usage-based, or open source.`,
+    '<strong>Re-checked.</strong> Pricing moves, free tiers get cut, and tools shut down. Entries are revisited rather than left to rot, and anything that dies is removed instead of being left to collect clicks.',
+  ]) +
+  legalSection('Why there are no star scores', [
+    'Entries used to carry an editorial score out of five. Almost every tool landed between 4.3 and 4.9, so the number told you very little, and it was not backed by tests or user reviews. It is no longer shown.',
+    'The order on category and list pages is the editor’s picks: tools we would try first for that job. It is not a measurement, and no tool has ever paid to be listed, placed higher, or described differently.',
+    'Reviews on a tool page are written by signed-in visitors and shown as they were left. Read the description and pricing before deciding.',
+  ]) +
+  legalSection('How the site makes money', [
+    'Some outbound links earn a commission when you sign up for a tool. It costs you nothing, and it does not change where a tool is placed — the ranking is set before anyone checks whether a link pays. See the <a href="/affiliate-disclosure">affiliate disclosure</a>.',
+    'That is the whole business model. There is no paid placement, no sponsored entry dressed up as a review, and no “featured” slot for sale.',
+  ]) +
+  legalSection('Who runs it', [
+    'Akshay Mahajan — an AI/ML engineer working in prompt engineering, who kept a private list of tools that were worth the time and eventually published it. Found a tool that should be here, or an entry that has gone out of date? <a href="/contact">Send it in</a>.',
+  ]);
+
+const AFFILIATE_HTML =
+  legalSection('Amazon Associates', [
+    'As an Amazon Associate, AI Master Tools earns from qualifying purchases. If you follow a link from this site to Amazon and buy something, Amazon pays a small percentage of that sale. The price you pay is exactly the same either way.',
+    `Links that pay are marked with rel="sponsored" in the page source, which is how search engines are told they are commercial.${ASSOCIATE_ID ? ` The store id these links report under is ${esc(ASSOCIATE_ID)}.` : ''}`,
+  ]) +
+  legalSection('What commission does not change', [
+    'No product is listed because it pays, ranked higher because it pays, or described more kindly because it pays. Nothing on this site is a paid placement, and there is no arrangement under which a brand can buy a position.',
+    'Where a product has a real drawback, the entry says so. A recommendation that only ever points at the highest commission is not a recommendation.',
+  ]) +
+  legalSection('About prices and specifications', [
+    'Any price shown here is a snapshot from the day it was recorded, and that date is printed beside it. Prices move constantly, so the price on Amazon at the moment you click is the one that counts — that is why every product links out rather than quoting a number as current.',
+    'Specifications are read from the listing or the manufacturer’s own page. Where something is not known, the field is left out rather than guessed at.',
+  ]) +
+  legalSection('Questions', [
+    'If something here looks wrong — an out-of-date price, a specification that does not match, a link that goes somewhere unexpected — that is worth reporting, and it gets fixed. See <a href="/about">how the index works</a>, the <a href="/privacy">privacy policy</a> and the <a href="/terms">terms of service</a>.',
+  ]);
+
 const SHOPPING_ROUTES = [
   {
     path: '/ai-shopping',
@@ -510,6 +566,7 @@ const SHOPPING_ROUTES = [
     heading: 'Affiliate Disclosure',
     title: 'Affiliate Disclosure — How AI Master Tools Makes Money',
     description: 'AI Master Tools earns commission on some outbound links, including as an Amazon Associate. What that means, what it does not change and how to spot paid links.',
+    extraHtml: AFFILIATE_HTML,
   },
   ...SHOPPING_CATEGORIES.map((c) => ({
     path: `/ai-shopping/${c.slug}`,
@@ -527,12 +584,14 @@ const SHOPPING_ROUTES = [
     description: fitDescription(c.blurb, DESC_TAILS, `/ai-shopping/${c.slug}`),
   })),
 ];
+
 const LEGAL_ROUTES = [
   {
     path: '/about',
     heading: 'About AI Master Tools',
     title: 'About AI Master Tools — Who Compiles This Index, and How',
     description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, how the order is set, and how the site makes money.',
+    extraHtml: ABOUT_HTML,
   },
   {
     path: '/contact',
