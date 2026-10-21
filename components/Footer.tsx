@@ -37,6 +37,7 @@ const COLUMNS = [
     heading: 'Site',
     links: [
       { label: 'About', to: '/about' },
+      { label: 'Contact', to: '/contact' },
       { label: 'Careers', to: '/careers' },
       { label: 'Affiliate disclosure', to: '/affiliate-disclosure' },
       { label: 'Privacy policy', to: '/privacy' },
