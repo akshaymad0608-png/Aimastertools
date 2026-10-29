@@ -157,6 +157,11 @@ const isEditorialTool = (t) => {
   return text.length >= 150 && !/AI Master Tools/.test(text);
 };
 
+/** Alternatives pages with a hand-written entry; mirrors prerender.mjs. */
+const curatedAlternativeIds = Object.keys(JSON.parse(read('data/curatedAlternatives.json'))).filter((id) =>
+  canonicalToolIds.includes(id),
+);
+
 const toolRecords = (() => {
   const src = read('data/tools.ts');
   const start = src.indexOf('Tool[] = [') + 'Tool[] = ['.length - 1;
@@ -339,6 +344,16 @@ const urls = [
   // and AdSense rejected the site for "low-value content". They stay reachable
   // for visitors but are noindex (prerender.mjs, components/SEO.tsx), so they
   // must not be advertised here either.
+  //
+  // The exception is an alternatives page with a hand-written entry in
+  // data/curatedAlternatives.json: it has a curated list and its own guidance,
+  // is indexed (prerender.mjs, AlternativesPage), and so is listed here.
+  ...curatedAlternativeIds.map((id) => ({
+    loc: `/alternatives/${slugify(id)}-alternatives`,
+    changefreq: 'monthly',
+    priority: '0.6',
+    from: ['data/curatedAlternatives.json'],
+  })),
   ...freeCategorySlugs.map((slug) => ({
     loc: `/free/${slug}`,
     changefreq: 'weekly',
@@ -382,7 +397,7 @@ console.log(
     `collections ${collectionSlugs.length} · blog ${blogSlugs.length} · workflows ${workflowIds.length}`,
 );
 console.log(
-  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length} · tool pages without a write-up ${canonicalToolIds.filter((id) => !editorialToolIds.has(id)).length}`,
+  `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length - curatedAlternativeIds.length} (${curatedAlternativeIds.length} curated and indexed) · tool pages without a write-up ${canonicalToolIds.filter((id) => !editorialToolIds.has(id)).length}`,
 );
 console.log(
   `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,

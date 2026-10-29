@@ -12,6 +12,23 @@ import { slugify } from '../utils/slug';
 import { pairsForTool } from '../utils/pairs';
 import { breadcrumbSchema, itemListSchema, faqSchema } from '../utils/seo';
 import { Tool } from '../types';
+import curatedAlternatives from '../data/curatedAlternatives.json';
+
+/**
+ * Hand-written entries (data/curatedAlternatives.json), keyed by tool id.
+ * prerender.mjs and scripts/generate-sitemap.mjs read the same file. A tool with
+ * an entry gets a curated list and written guidance and is indexed; every other
+ * alternatives page stays the templated, noindex version below.
+ */
+interface CuratedEntry {
+  title: string;
+  description: string;
+  quickAnswer: string;
+  alternatives: { id: string; bestFor: string; note: string }[];
+  stayWith: string;
+  faqs: { q: string; a: string }[];
+}
+const CURATED = curatedAlternatives as Record<string, CuratedEntry>;
 
 /**
  * This page was a stub. It title-cased the URL to guess a tool name — breaking
@@ -36,8 +53,15 @@ const AlternativesPage: React.FC = () => {
     );
   }, [slug]);
 
+  const curated = tool ? CURATED[tool.id] : undefined;
+
   const alternatives = useMemo<Tool[]>(() => {
     if (!tool) return [];
+    if (curated) {
+      return curated.alternatives
+        .map((a) => MOCK_TOOLS.find((t) => t.id === a.id))
+        .filter((t): t is Tool => Boolean(t));
+    }
     const subjectTags = new Set((tool.tags || []).map((t) => String(t).toLowerCase()));
 
     const score = (candidate: Tool) => {
@@ -55,7 +79,7 @@ const AlternativesPage: React.FC = () => {
       .sort((x, y) => y.s - x.s)
       .slice(0, 12)
       .map((x) => x.tool);
-  }, [tool]);
+  }, [tool, curated]);
 
   if (!tool) {
     return (
@@ -84,7 +108,9 @@ const AlternativesPage: React.FC = () => {
   );
   const comparisons = pairsForTool(tool.id, 4);
 
-  const faqs = [
+  const faqs = curated
+    ? curated.faqs.map((f) => ({ question: f.q, answer: f.a }))
+    : [
     {
       question: `What is the best alternative to ${tool.name}?`,
       answer: alternatives.length
@@ -106,8 +132,12 @@ const AlternativesPage: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title={`${alternatives.length} Best ${tool.name} Alternatives (2026) — Free & Paid`}
-        description={`Real alternatives to ${tool.name}, drawn from ${tool.category}. Compare pricing and what each one does differently${free.length ? `, including ${free.length} free or freemium options` : ''}.`}
+        title={curated ? curated.title : `${alternatives.length} Best ${tool.name} Alternatives (2026) — Free & Paid`}
+        description={
+          curated
+            ? curated.description
+            : `Real alternatives to ${tool.name}, drawn from ${tool.category}. Compare pricing and what each one does differently${free.length ? `, including ${free.length} free or freemium options` : ''}.`
+        }
         url={`/alternatives/${slugify(tool.id)}-alternatives`}
         keywords={[
           `${tool.name} alternatives`,
@@ -117,9 +147,9 @@ const AlternativesPage: React.FC = () => {
           `free ${tool.name} alternative`,
           `best ${tool.category} AI tools`,
         ]}
-        // Every alternatives page is templated from the tool records, so none
-        // is indexed; see scripts/generate-sitemap.mjs.
-        noindex
+        // A templated page is built from the tool records alone and is not
+        // indexed; one with a curated entry is (see scripts/generate-sitemap.mjs).
+        noindex={!curated}
         schema={[
           breadcrumbSchema([
             { label: tool.name, path: `/tool/${tool.id}` },
@@ -142,7 +172,11 @@ const AlternativesPage: React.FC = () => {
               Alternatives to <em>{tool.name}</em>
             </>
           }
-          lede={`${alternatives.length} tools that do a similar job, ranked by how closely they overlap with ${tool.name} rather than by who paid to be here.`}
+          lede={
+            curated
+              ? `${alternatives.length} alternatives to ${tool.name}, chosen by hand for what each one does differently.`
+              : `${alternatives.length} tools that do a similar job, ranked by how closely they overlap with ${tool.name} rather than by who paid to be here.`
+          }
           action={
             <Link
               to={`/tool/${tool.id}`}
@@ -168,7 +202,67 @@ const AlternativesPage: React.FC = () => {
           }
         />
 
-        {alternatives.length > 0 ? (
+        {curated && (
+          <section className="mt-10 max-w-3xl" aria-labelledby="quick-answer">
+            <h2 id="quick-answer" className="rule-label mb-4">
+              Quick answer
+            </h2>
+            <p className="text-[16px] leading-relaxed text-[var(--color-text-primary)]">
+              {curated.quickAnswer}
+            </p>
+            <div className="mt-8 overflow-x-auto">
+              <table className="w-full min-w-[480px] border-collapse text-left text-[14px]">
+                <thead>
+                  <tr className="border-b border-[var(--color-border)]">
+                    <th className="py-2 pr-4 font-semibold text-[var(--color-text-primary)]">Tool</th>
+                    <th className="py-2 pr-4 font-semibold text-[var(--color-text-primary)]">Pricing</th>
+                    <th className="py-2 font-semibold text-[var(--color-text-primary)]">Best for</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {curated.alternatives.map((a) => {
+                    const alt = alternatives.find((t) => t.id === a.id);
+                    if (!alt) return null;
+                    return (
+                      <tr key={a.id} className="border-b border-[var(--color-border)]">
+                        <td className="py-2 pr-4">
+                          <Link to={`/tool/${alt.id}`} className="font-medium text-[var(--color-primary)]">
+                            {alt.name}
+                          </Link>
+                        </td>
+                        <td className="py-2 pr-4 text-[var(--color-text-secondary)]">{alt.pricing}</td>
+                        <td className="py-2 text-[var(--color-text-secondary)]">{a.bestFor}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-10 space-y-8">
+              {curated.alternatives.map((a) => {
+                const alt = alternatives.find((t) => t.id === a.id);
+                if (!alt) return null;
+                return (
+                  <article key={a.id}>
+                    <h3 className="title-sm text-[18px] text-[var(--color-text-primary)]">
+                      <Link to={`/tool/${alt.id}`}>{alt.name}</Link>
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+                      {a.note}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+            <h2 className="rule-label mb-4 mt-12">When to stay with {tool.name}</h2>
+            <p className="text-[15px] leading-relaxed text-[var(--color-text-secondary)]">{curated.stayWith}</p>
+            <p className="mt-6 text-[13px] text-[var(--color-text-secondary)]">
+              Plans, limits and prices change. Check each vendor&apos;s own site before you commit.
+            </p>
+          </section>
+        )}
+
+        {curated ? null : alternatives.length > 0 ? (
           <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {alternatives.map((alt, i) => (
               <li key={alt.id}>

@@ -211,7 +211,53 @@ const toolLine = (t) =>
     t.description || '',
   )} (${esc(t.pricing || 'Pricing varies')})</li>`;
 
+/**
+ * Hand-written alternatives pages (data/curatedAlternatives.json).
+ *
+ * The rule above, same category sorted by rating, puts LeetCode next to Zed
+ * and GitHub Copilot next to Roadmap.sh, so a templated page is not an honest
+ * answer to "alternatives to X". A page with a curated list and written
+ * guidance is indexed and listed in the sitemap; every other alternatives page
+ * stays noindex. scripts/generate-sitemap.mjs reads the same file.
+ */
+const CURATED_ALTERNATIVES = JSON.parse(readFileSync('data/curatedAlternatives.json', 'utf8'));
+const toolsById = new Map(TOOLS.map((t) => [t.id, t]));
+
+const curatedAlternativesHtml = (t, cur) => {
+  const alts = cur.alternatives.map((a) => ({ ...a, tool: toolsById.get(a.id) })).filter((a) => a.tool);
+  return (
+    `<p style="font-size:16px;line-height:1.7">${esc(cur.quickAnswer)}</p>` +
+    `<h2 style="font-size:20px;margin:24px 0 8px">${alts.length} alternatives to ${esc(t.name)}</h2>` +
+    `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${alts
+      .map(
+        (a) =>
+          `<li><a href="/tool/${esc(a.tool.id)}"><strong>${esc(a.tool.name)}</strong></a> (${esc(
+            a.tool.pricing || 'Pricing varies',
+          )}) — best for ${esc(a.bestFor.charAt(0).toLowerCase() + a.bestFor.slice(1))}. ${esc(a.note)}</li>`,
+      )
+      .join('')}</ul>` +
+    `<h2 style="font-size:20px;margin:24px 0 8px">When to stay with ${esc(t.name)}</h2>` +
+    `<p style="font-size:15px;line-height:1.7;color:#475569">${esc(cur.stayWith)}</p>` +
+    `<h2 style="font-size:20px;margin:24px 0 8px">Common questions</h2>` +
+    cur.faqs
+      .map((f) => `<h3 style="font-size:16px;margin:12px 0 4px">${esc(f.q)}</h3><p style="font-size:15px;color:#475569">${esc(f.a)}</p>`)
+      .join('') +
+    `<p style="font-size:15px;line-height:1.6"><a href="/tool/${esc(t.id)}">Read the full ${esc(t.name)} review</a></p>`
+  );
+};
+
 const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
+  const cur = CURATED_ALTERNATIVES[t.id];
+  if (cur) {
+    return {
+      path: `/alternatives/${slugify(t.id)}-alternatives`,
+      noindex: false,
+      heading: `Best ${t.name} Alternatives`,
+      title: cur.title,
+      description: cur.description,
+      extraHtml: curatedAlternativesHtml(t, cur),
+    };
+  }
   const alts = sameCategory(t).slice(0, 8);
   const cat = (t.category || 'AI').toLowerCase();
   return {
