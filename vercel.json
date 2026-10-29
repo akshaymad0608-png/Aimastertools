@@ -1,6 +1,7 @@
 {
   "redirects": [
     { "source": "/blogs", "destination": "/blog", "permanent": true },
+    { "source": "/alternatives/claude-anthropic-alternatives", "destination": "/alternatives/claude-alternatives", "permanent": true },
     { "source": "/blog/top-10-ai-tools-for-students-in-2026", "destination": "/blog", "permanent": true },
     { "source": "/blog/ai-vs-human-creativity-the-balance", "destination": "/blog", "permanent": true },
     { "source": "/blog/latest-ai-trends-to-watch", "destination": "/blog", "permanent": true },

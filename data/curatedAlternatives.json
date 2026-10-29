@@ -1,0 +1,166 @@
+{
+  "mit-opencourseware": {
+    "title": "MIT OpenCourseWare Alternatives: 6 Ways to Learn Online",
+    "description": "MIT OpenCourseWare has no certificate, grading or instructor. Compare Khan Academy, edX, Coursera, OpenStax, NPTEL and PhET to see which suits you.",
+    "quickAnswer": "MIT OpenCourseWare gives you real university material for free with no sign-up: syllabi, lecture notes, problem sets, exams with solutions and, for many courses, lecture videos. What it does not give you is an enrolled course. There is no instructor, grading, MIT credit or certificate. If you want structure and a certificate, look at edX, Coursera or NPTEL. If you want practice with feedback, try Khan Academy. If you want a textbook or an interactive demo, OpenStax or PhET fit better.",
+    "alternatives": [
+      { "id": "khan-academy", "bestFor": "Practice with instant feedback", "note": "A nonprofit with free lessons, short videos and exercises from early years to college. You work through problems, get feedback and revisit weak spots. It is better for fundamentals than for advanced specialist topics, and it gives no formal qualification." },
+      { "id": "edx", "bestFor": "University-branded courses", "note": "A platform of online courses from universities and institutions. Many courses can be started without paying, and certificates are a paid option on some of them, so check the course page for what is included. Choose it over OpenCourseWare when you want deadlines, graded work or something to show on a CV." },
+      { "id": "coursera", "bestFor": "Structured courses and certificates", "note": "Courses, Specializations, Professional Certificates and some degrees from universities and companies. Many courses can be audited for free, while graded work and certificates generally need payment. Certificate value varies by employer and finishing depends on your own discipline." },
+      { "id": "openstax", "bestFor": "A free textbook to read alongside", "note": "Free, peer-reviewed, openly licensed textbooks from a nonprofit at Rice University, covering common introductory college subjects. It works well next to OpenCourseWare lectures. It is a textbook library, not an interactive course, so there is no tracking, tutoring or certificate." },
+      { "id": "nptel", "bestFor": "Indian engineering and science syllabi", "note": "An Indian programme of online courses and certification from the country's technical institutions. Learning the material is free, and certification usually involves a paid exam, so check the current rules for the course you want." },
+      { "id": "phet-simulations", "bestFor": "Seeing a concept move", "note": "Free browser simulations from the University of Colorado Boulder for physics, chemistry, biology, earth science and maths. They show an idea rather than teach a full course, so use them next to OpenCourseWare notes." }
+    ],
+    "stayWith": "Stay with MIT OpenCourseWare if you want depth, you are comfortable studying on your own, you do not need a certificate, and you want problem sets and exams without creating an account. How complete the material is differs from course to course, so look at the course page before you commit time.",
+    "faqs": [
+      { "q": "Does MIT OpenCourseWare give a certificate?", "a": "No. It is not an enrolled course, so there is no instructor access, grading, MIT credit or certificate." },
+      { "q": "Is MIT OpenCourseWare really free?", "a": "Yes. The material is free to use and no registration is needed." },
+      { "q": "What is the closest option that gives a certificate?", "a": "edX and Coursera both offer paid certificates on many courses. NPTEL is an option if you are in India and want exam-based certification." },
+      { "q": "Which is best for school-level maths and science?", "a": "Khan Academy, because it is built around exercises with feedback rather than lecture notes." }
+    ]
+  },
+  "edx": {
+    "title": "edX Alternatives: 6 Online Course Platforms Compared",
+    "description": "Looking beyond edX? Compare Coursera, FutureLearn, Alison, MIT OpenCourseWare, NPTEL and Khan Academy on cost, certificates and who each one suits.",
+    "quickAnswer": "edX offers online courses from universities and institutions. If you want the same style of course, Coursera and FutureLearn are the closest. If cost is the main concern, MIT OpenCourseWare and Khan Academy are free, Alison advertises free courses with certificates, and NPTEL is free to learn with paid certification. They differ most on whether you get a credential at the end.",
+    "alternatives": [
+      { "id": "coursera", "bestFor": "Professional certificates and degrees", "note": "Hosts courses, Specializations, Professional Certificates and some full degrees. Lessons are mostly short videos with quizzes and graded assignments. Many courses can be audited free; graded work and certificates generally need a paid course, subscription or financial aid." },
+      { "id": "futurelearn", "bestFor": "Short university-led courses", "note": "Online courses and degrees from universities and other institutions. Before you start, check how long free access to a course lasts and what the certificate option costs." },
+      { "id": "alison", "bestFor": "Free courses with certificates", "note": "Advertises free online courses with certificates and diplomas. Cost is the draw. Check which certificate options are paid, and consider how an employer will view the credential before relying on it." },
+      { "id": "mit-opencourseware", "bestFor": "University material with no sign-up", "note": "Free lecture notes, exams and videos from MIT. It is not an enrolled course, so there is no instructor, grading, credit or certificate." },
+      { "id": "nptel", "bestFor": "Indian engineering and science courses", "note": "Courses and certification from India's technical institutions. Learning is free, and the certificate normally comes from a paid exam, so confirm the current rules for your course." },
+      { "id": "khan-academy", "bestFor": "School to early-college practice", "note": "Free, nonprofit, exercise-led learning. Strong on fundamentals, weaker on advanced specialist topics, and it offers no formal qualification." }
+    ],
+    "stayWith": "Stay with edX if you want a course from a named university, you are happy to choose by institution, and you may want to pay for a certificate on the courses that offer one.",
+    "faqs": [
+      { "q": "Is edX free?", "a": "Many courses can be started without paying, and certificates are a paid option on some of them. Check the course page for exactly what is included." },
+      { "q": "What is the best free alternative to edX?", "a": "MIT OpenCourseWare for university-level material and Khan Academy for school-level practice. Neither gives a formal certificate." },
+      { "q": "Which platform gives the most recognised certificate?", "a": "That depends on the employer. If the credential matters for a job, check what the hiring company values before you pay." }
+    ]
+  },
+  "roadmap-sh": {
+    "title": "Roadmap.sh Alternatives: 6 Ways to Actually Learn to Code",
+    "description": "Roadmap.sh shows what to learn but does not teach it. Compare freeCodeCamp, The Odin Project, CS50, MDN, Codecademy and Full Stack Open.",
+    "quickAnswer": "Roadmap.sh is a map, not a course. It lays out what to learn, and in what order, for roles such as frontend, backend and DevOps, with further reading on each node. If you need something that teaches, pair it with a learning path. freeCodeCamp or The Odin Project give a free structured route, CS50 covers computer science fundamentals, MDN is the reference you will look things up in, Codecademy gives short in-browser exercises and Full Stack Open goes deep on modern web development.",
+    "alternatives": [
+      { "id": "freecodecamp", "bestFor": "A free, hands-on start", "note": "Free learning with projects and certifications. A good first stop if you want exercises rather than a list of topics." },
+      { "id": "the-odin-project", "bestFor": "Project-based full-stack learning", "note": "A free, open-source curriculum that builds from HTML, CSS and JavaScript to full-stack work, with an active community. You finish with a portfolio of your own work. It relies on self-motivation: no instructors, grades or formal certificate, and you are expected to read documentation and debug on your own." },
+      { "id": "cs50", "bestFor": "Computer science fundamentals", "note": "Harvard University's introduction to computer science and the art of programming. It teaches how to think about code more than any single web framework." },
+      { "id": "mdn", "bestFor": "Looking things up", "note": "Documentation for HTML, CSS and web APIs from Mozilla. Excellent when you know what you are searching for, but it is a reference, not a guided path." },
+      { "id": "codecademy", "bestFor": "Short interactive lessons", "note": "Learn by writing code in the browser, in small steps. Some content sits behind a paid plan, so check what the free tier covers." },
+      { "id": "full-stack-open", "bestFor": "A deep, demanding web course", "note": "A free course on modern web development covering React, Redux, Node.js, MongoDB, GraphQL and TypeScript. It assumes you already know basic JavaScript." }
+    ],
+    "stayWith": "Stay with Roadmap.sh when you already have a way to learn and just want to check you are not missing a topic, or when you are still deciding which role to aim for. The paths are broad guides, not strict requirements.",
+    "faqs": [
+      { "q": "Does Roadmap.sh teach you to code?", "a": "No. It shows a sensible sequence and links to further reading, so you still need courses, documentation or projects to learn each topic." },
+      { "q": "What should I use together with Roadmap.sh?", "a": "A course or project path such as freeCodeCamp or The Odin Project, plus MDN to look things up." },
+      { "q": "Is Roadmap.sh free?", "a": "Yes. The project is open source and free to use." }
+    ]
+  },
+  "full-stack-open": {
+    "title": "Full Stack Open Alternatives: 5 Free Web Dev Courses",
+    "description": "Full Stack Open is deep and demanding. See how The Odin Project, freeCodeCamp, CS50, Codecademy and Roadmap.sh compare for different starting points.",
+    "quickAnswer": "Full Stack Open is a free, in-depth course on modern web development with React, Redux, Node.js, MongoDB, GraphQL and TypeScript. It assumes you already know the basics. If you are starting from zero, begin with freeCodeCamp, The Odin Project or Codecademy and come back to it later. If you want computer science fundamentals first, take CS50.",
+    "alternatives": [
+      { "id": "the-odin-project", "bestFor": "A free full-stack path from scratch", "note": "A free open-source curriculum from HTML, CSS and JavaScript up to full-stack work. Project-based, so you finish with your own work, but you learn by reading and debugging." },
+      { "id": "freecodecamp", "bestFor": "Gentler interactive lessons", "note": "Free, interactive, with projects and certifications. Less demanding than Full Stack Open, which makes it a good on-ramp." },
+      { "id": "cs50", "bestFor": "Thinking like a programmer", "note": "Harvard's introduction to computer science. It builds general problem-solving skill rather than teaching one web framework." },
+      { "id": "codecademy", "bestFor": "Momentum from short lessons", "note": "Interactive lessons in the browser, with more content on a paid plan. Good for getting started; check how much real project structure the free tier covers." },
+      { "id": "roadmap-sh", "bestFor": "Choosing what to learn next", "note": "Not a course but a visual route. Useful for deciding what to study after Full Stack Open." }
+    ],
+    "stayWith": "Stay with Full Stack Open if you can already write basic JavaScript and want a rigorous, practical path through React, Node and testing.",
+    "faqs": [
+      { "q": "Is Full Stack Open free?", "a": "Yes, the course material is free to follow. Check the course site if you want anything beyond that, such as credit." },
+      { "q": "Is it good for complete beginners?", "a": "It is demanding, so most beginners do better starting with a gentler course and coming back to it." },
+      { "q": "What should I learn before it?", "a": "Basic JavaScript, HTML and CSS." }
+    ]
+  },
+  "zed": {
+    "title": "Zed Alternatives: 6 Code Editors and AI IDEs Compared",
+    "description": "Zed is a fast Rust-based editor with AI built in. Compare Cursor, Windsurf, GitHub Copilot, Kiro, Cline and Replit AI for different workflows.",
+    "quickAnswer": "Zed is a fast code editor built in Rust, with collaboration and model-assisted editing built in rather than bolted on. If you want AI that edits many files at once, Cursor and Windsurf are AI-first editors. If you would rather stay in VS Code, GitHub Copilot or the open-source Cline extension fit. Kiro works from specs and plans, and Replit AI suits coding in the browser.",
+    "alternatives": [
+      { "id": "cursor", "bestFor": "AI edits across several files", "note": "Built around AI and forked from Visual Studio Code, so existing extensions and settings feel familiar. It combines autocomplete, a project-aware chat and AI edits across files. Large AI-made edits still need careful review, and heavy use can run into plan limits." },
+      { "id": "windsurf", "bestFor": "An agentic IDE", "note": "Described as an agentic IDE that coordinates file editing, terminal execution and context mapping. Try the free tier on a real project to judge how much of the work you are happy to hand over." },
+      { "id": "github-copilot", "bestFor": "Suggestions inside the editor you already use", "note": "Works inside editors such as Visual Studio Code, suggests code as you type, answers questions in chat and can help explain, refactor and write tests. It is listed here as paid. Suggestions can be subtly wrong or insecure, so every change needs review." },
+      { "id": "kiro", "bestFor": "Spec-driven work", "note": "An agentic IDE from AWS that works from specs and plans rather than one prompt at a time. It is a newer product, so expect it to change." },
+      { "id": "cline", "bestFor": "An open-source agent in VS Code", "note": "An open-source coding agent that lives in VS Code and edits files, runs commands and reads the terminal. It typically connects to a model provider you choose, so you also manage that account." },
+      { "id": "replit-ai", "bestFor": "Coding in the browser", "note": "An AI coding companion built into the cloud-hosted Replit workspace. Convenient if you do not want to set up a local environment." }
+    ],
+    "stayWith": "Stay with Zed if editor speed matters to you, you work with others in the same file, and you want AI inside an editor that is not a VS Code fork. Zed uses its own extension system rather than VS Code's, so check that the tools you rely on are covered.",
+    "faqs": [
+      { "q": "Is Zed free?", "a": "It is listed as freemium. Check the current plan page for what the free tier includes." },
+      { "q": "Does Zed run VS Code extensions?", "a": "No. It is not a VS Code fork and has its own extension system." },
+      { "q": "Which has the best AI?", "a": "It depends on the task. Try the free tiers on a real project before paying for any of them." }
+    ]
+  },
+  "dribbble": {
+    "title": "Dribbble Alternatives: Design Inspiration and Portfolios",
+    "description": "Compare Behance, UX Planet and Color Hunt as Dribbble alternatives for inspiration, portfolios and UX learning. Each one does a different job.",
+    "quickAnswer": "Dribbble is a place to discover design work and share your own. Behance is the closest substitute and has more room for full case studies. UX Planet is for reading about user experience, and Color Hunt is for colour palettes. Only Behance really replaces Dribbble; the other two cover specific needs.",
+    "alternatives": [
+      { "id": "behance", "bestFor": "Full portfolio projects", "note": "Adobe's platform for showcasing and discovering creative work. Better than Dribbble if you want to present a whole project with its process rather than a single image." },
+      { "id": "ux-planet", "bestFor": "Learning UX through articles", "note": "A resource for articles on user experience. It is reading material, not a showcase, so it does not replace Dribbble for finding visual ideas." },
+      { "id": "color-hunt", "bestFor": "Colour palettes", "note": "Colour palettes for designers and artists. Use it when your question is which colours to use, not which layout." }
+    ],
+    "stayWith": "Stay with Dribbble if you want quick visual inspiration and an easy way to share small pieces of work.",
+    "faqs": [
+      { "q": "Is Behance better than Dribbble?", "a": "Behance suits full case studies. Dribbble suits short visual posts. Which is better depends on how you want to present your work." },
+      { "q": "Is Dribbble free?", "a": "It is listed as free to browse. Check the site for any paid features such as hiring tools or pro accounts." },
+      { "q": "Where can I learn UX instead of just browsing designs?", "a": "UX Planet publishes articles on user experience." }
+    ]
+  },
+  "ludo-ai": {
+    "title": "Ludo AI Alternatives: 4 AI Tools for Game Development",
+    "description": "Ludo AI helps brainstorm game mechanics. Compare Scenario, Rosebud AI, Inworld and Charisma AI, which each solve a different part of making a game.",
+    "quickAnswer": "These tools do different jobs, so the right alternative depends on what you need from Ludo AI. Ludo AI is a brainstorming companion that maps trending game mechanics and layouts. Scenario helps designers train visual styles to produce consistent game assets. Rosebud AI builds browser games from text instructions. Inworld creates AI-driven non-player characters, and Charisma AI builds dialogue and interactive narrative.",
+    "alternatives": [
+      { "id": "scenario-ai", "bestFor": "Consistent game art", "note": "Pick it when art is your bottleneck. It lets designers train visual styles so generated assets stay consistent." },
+      { "id": "rosebud-ai", "bestFor": "A quick browser game", "note": "Design responsive browser games by giving simple text instructions. Pick it when you want something playable fast without building the whole thing yourself." },
+      { "id": "inworld-ai", "bestFor": "Characters players can talk to", "note": "A platform for creating AI-driven non-player characters. It matters most once you already have a game to put them in." },
+      { "id": "charisma-ai", "bestFor": "Story and dialogue", "note": "Build dialogue maps for cinematic scripts and interactive literature. Pick it when narrative is the main thing you are making." }
+    ],
+    "stayWith": "Stay with Ludo AI if you are at the idea stage and want to see which mechanics are trending before you build. It does not generate art or characters, so it works best as a first step.",
+    "faqs": [
+      { "q": "Is there a free alternative to Ludo AI?", "a": "Scenario, Rosebud AI and Charisma AI list free tiers, but they do different jobs. Check each plan page for current limits." },
+      { "q": "Which tool makes a complete game?", "a": "Rosebud AI is the closest for simple browser games." },
+      { "q": "Can these tools be combined?", "a": "Yes. A common sequence is idea first, then art, then characters or story." }
+    ]
+  },
+  "claude": {
+    "title": "Claude Alternatives: 5 AI Chat Assistants Compared",
+    "description": "Claude suits long documents and careful writing, but free use is capped. Compare ChatGPT, Gemini, Microsoft Copilot, Perplexity and Mistral Le Chat.",
+    "quickAnswer": "Claude is Anthropic's assistant, known for handling large amounts of pasted or uploaded text in one conversation and for a measured, readable writing style. If you want the default all-rounder, try ChatGPT. If you live in Google's apps, Gemini. If your work is in Windows and Office, Microsoft Copilot. If you mainly want answers with web sources, Perplexity. Free Claude use is capped, which is the usual reason heavy users look elsewhere.",
+    "alternatives": [
+      { "id": "chatgpt", "bestFor": "A general-purpose assistant", "note": "OpenAI's assistant drafts and edits text, explains concepts, summarises documents, writes and debugs code, and works with uploaded files and images. It has a free tier and paid plans. It can state wrong information confidently, so check facts and citations." },
+      { "id": "gemini", "bestFor": "Google Search and Workspace", "note": "Google's multi-modal assistant, integrated with search and Google Workspace. A natural pick if your documents and email already live in Google's tools." },
+      { "id": "copilot", "bestFor": "Windows, Edge and Office", "note": "An everyday assistant built into Windows, Edge and Microsoft Office. A natural pick if your work happens in Microsoft apps." },
+      { "id": "perplexity-assistant", "bestFor": "Answers with sources", "note": "A conversational lookup engine that synthesises answers from web results. Better for finding sources than for long-form writing." },
+      { "id": "mistral-le-chat", "bestFor": "A European provider", "note": "Mistral AI's assistant, with free use up to a limit and a paid plan. Check the current plan page for what each tier includes." }
+    ],
+    "stayWith": "Stay with Claude if you work with long documents, want a measured writing style, or use it for coding help. Like every large language model it can produce confident mistakes, so verify anything important.",
+    "faqs": [
+      { "q": "Is Claude free?", "a": "You can start for free, and paid plans raise usage limits and open up more capable models. Free usage is capped, so heavy users tend to hit the limit quickly." },
+      { "q": "What is the best free alternative to Claude?", "a": "ChatGPT, Gemini and Microsoft Copilot all have free tiers. Which one suits you depends on which apps you already use." },
+      { "q": "Which is best for research with sources?", "a": "Perplexity, because it is built around answers that cite web results." }
+    ]
+  },
+  "mistral-large": {
+    "title": "Mistral Large Alternatives: 5 LLM APIs and When to Use Them",
+    "description": "Mistral Large is a general-purpose model with a pay-per-token API. Compare OpenAI API, Anthropic Claude API, Cohere, DeepSeek and Together AI.",
+    "quickAnswer": "Mistral Large is the top general-purpose model from French company Mistral AI, used for reasoning, multilingual writing and coding. It is available through the La Plateforme API and the Le Chat assistant. For hosted APIs from the largest vendors, look at OpenAI and Anthropic. For low per-token cost, DeepSeek, with a data-residency caveat. Cohere targets enterprise use, and Together AI is useful for trying several models through one provider.",
+    "alternatives": [
+      { "id": "openai-api", "bestFor": "The widest tool support", "note": "Access to OpenAI's models, including GPT models, DALL-E and Whisper. Listed as usage based. Most third-party tools support it, which makes switching in and out easy." },
+      { "id": "anthropic-claude-api", "bestFor": "Long documents and careful writing", "note": "The API for Claude, the family behind the Claude assistant. Pick it when long-document work and writing quality matter more than lowest price." },
+      { "id": "cohere", "bestFor": "Enterprise use cases", "note": "Describes itself as an AI platform for enterprise. Look at it if you are building for a business setting and want a vendor aimed at that." },
+      { "id": "deepseek", "bestFor": "Low per-token cost", "note": "Became widely known in 2025 when its R1 reasoning model performed close to leading closed models at a fraction of the cost. The API is pay-per-token at low rates and model weights are published for self-hosting. Consider data-residency rules before sending sensitive data to the hosted service." },
+      { "id": "together-ai", "bestFor": "Trying many models in one place", "note": "A cloud platform for training and running AI models. Useful when you want to compare several models without hosting them yourself." }
+    ],
+    "stayWith": "Stay with Mistral Large if you want a European provider, strong multilingual output, or a free experimentation tier before paying.",
+    "faqs": [
+      { "q": "Is the Mistral API free?", "a": "The API has a free experimentation tier and Le Chat offers free use with limits. Check the current plan page for the exact limits." },
+      { "q": "What is the cheapest alternative to Mistral Large?", "a": "DeepSeek advertises low per-token rates. Compare current price pages before you commit, because API pricing changes often." },
+      { "q": "Can I self-host any of these?", "a": "DeepSeek publishes model weights for self-hosting. For the others, check the licence of the specific model." }
+    ]
+  }
+}
