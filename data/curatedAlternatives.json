@@ -162,5 +162,96 @@
       { "q": "What is the cheapest alternative to Mistral Large?", "a": "DeepSeek advertises low per-token rates. Compare current price pages before you commit, because API pricing changes often." },
       { "q": "Can I self-host any of these?", "a": "DeepSeek publishes model weights for self-hosting. For the others, check the licence of the specific model." }
     ]
+  },
+  "zoko-automation": {
+    "title": "Zoko Alternatives: 4 WhatsApp Business Platforms Compared",
+    "description": "Looking beyond Zoko for WhatsApp sales and support? Compare WATI, Interakt, AiSensy and Gallabox on inbox, broadcasts, chatbots and fit.",
+    "quickAnswer": "Zoko is a WhatsApp Business API platform that puts customer chats, broadcast campaigns and automations in one shared workspace, with a focus on online stores. Most alternatives are built on the same official API, so the real differences are the team inbox, the chatbot builder, the store and CRM integrations, and how the plans are priced. WATI suits support-heavy teams, Interakt and AiSensy are popular with small Indian brands, and Gallabox leans towards selling inside the chat. Whichever you pick, Meta's own WhatsApp messaging charges usually apply on top of the platform fee.",
+    "alternatives": [
+      { "id": "wati-automation", "bestFor": "Support teams that share one WhatsApp number", "note": "A shared team inbox with chat assignment, broadcasts and a no-code chatbot builder. It is a common choice when several agents answer customers from one number. Compare plan limits on users and automations before you commit." },
+      { "id": "interakt-automation", "bestFor": "Small e-commerce and D2C brands", "note": "Aimed at small and mid-sized online stores, with catalogue sharing, order notifications and abandoned-cart style automations. Check that it connects to your store platform and that its plans cover your message volume." },
+      { "id": "aisensy-automation", "bestFor": "Broadcast campaigns on a small budget", "note": "Built around bulk broadcasts, retargeting and simple chatbots on the official WhatsApp API. It is widely used by small businesses and creators in India. Look at how campaign analytics and team seats are split across plans." },
+      { "id": "gallabox-automation", "bestFor": "Selling and taking payments in the chat", "note": "A conversational commerce platform with a chatbot builder, a shared inbox and in-chat ordering flows. It fits teams that want the sale to happen inside WhatsApp rather than on a website. Confirm the payment and CRM integrations you need are supported." }
+    ],
+    "stayWith": "Stay with Zoko if it already connects cleanly to your store, your team is comfortable in its inbox, and its campaign and automation features cover what you send. Moving to another platform can mean re-approving message templates and re-building flows, so switch only for a clear gain in price, features or integrations.",
+    "faqs": [
+      { "q": "Do all these tools use the official WhatsApp Business API?", "a": "Yes. They are all built on the official API, which is what lets them run broadcasts, chatbots and shared inboxes without the risk of a banned number." },
+      { "q": "Is there a free alternative to Zoko?", "a": "Not really for API features. The free WhatsApp Business app works for one person on one phone, but bulk messaging, chatbots and a team inbox need a paid API platform." },
+      { "q": "Are Meta's WhatsApp charges included in the price?", "a": "Usually not. Most platforms charge a subscription and pass on Meta's messaging charges separately, so check both when comparing costs." }
+    ]
+  },
+  "google-analytics-demo": {
+    "title": "Google Analytics Demo Account Alternatives to Learn GA4",
+    "description": "The GA demo account is read-only. Learn GA4 hands-on with your own free property, Looker Studio, Tag Manager, Search Console and the URL builder.",
+    "quickAnswer": "The Google Analytics demo account gives you free, read-only access to real data from Google's own properties, such as the Google Merchandise Store. It is good for exploring reports, but you cannot change settings, set up events or connect your own site. To learn by doing, create a free Google Analytics 4 property for your own website. Add Google Tag Manager to practise tracking, Looker Studio to build dashboards, Search Console for search traffic, and the Campaign URL Builder to see how campaign tagging shows up in reports.",
+    "alternatives": [
+      { "id": "google-analytics-4", "bestFor": "Hands-on practice with your own data", "note": "A free GA4 property for your own website or blog lets you configure events, conversions and audiences, which the demo account does not allow. Even a small site with little traffic is enough to learn the setup." },
+      { "id": "google-tag-manager", "bestFor": "Learning event tracking without code changes", "note": "Lets you add and test analytics tags and triggers from one dashboard, with a preview mode to check what fires. It is how most GA4 tracking is set up in practice, so it pairs naturally with your own property." },
+      { "id": "looker-studio", "bestFor": "Building reports and dashboards", "note": "Google's free dashboard tool connects to GA4 and other sources. Building a report teaches you which metrics and dimensions matter, and you can share it with clients or a team." },
+      { "id": "google-search-console", "bestFor": "Understanding search traffic", "note": "Shows the queries, clicks and rankings that bring people to your site from Google Search, plus indexing problems. It answers questions GA4 cannot, such as which searches showed your page." },
+      { "id": "campaign-url-builder", "bestFor": "Practising campaign tracking", "note": "A free tool that adds UTM parameters to links. Tag a few links, click them, and watch the traffic appear under the right source and medium in GA4." }
+    ],
+    "stayWith": "Stay with the demo account when you only want to explore GA4 reports with a realistic amount of data, for example while studying for a course or a certification. Because it is read-only, you can click around freely without breaking anything.",
+    "faqs": [
+      { "q": "Is the Google Analytics demo account free?", "a": "Yes. Anyone with a Google account can add it for free, with read-only access." },
+      { "q": "Can I change settings or add tracking in the demo account?", "a": "No. It is read-only, so for setup and configuration practice you need your own GA4 property." },
+      { "q": "What is the best way to learn GA4 for free?", "a": "Explore reports in the demo account, then create your own GA4 property and set up tracking through Google Tag Manager." }
+    ]
+  },
+  "otter-ai-automation": {
+    "title": "Otter AI Alternatives: 5 Meeting Note Takers Compared",
+    "description": "Compare Otter AI with Fireflies, Fathom, Granola, tl;dv and Read AI on free plans, bots in calls, summaries and integrations for meeting notes.",
+    "quickAnswer": "Otter AI records meetings, transcribes them live and writes summaries, with a free plan that has monthly limits. Most alternatives do the same core job, so choose on what matters to you: Fathom for a generous free option, Fireflies for searchable transcripts across many integrations, Granola if you do not want a recording bot joining calls, tl;dv for clips and multi-language meetings, and Read AI for meeting reports and engagement metrics. Always tell participants that a meeting is being recorded.",
+    "alternatives": [
+      { "id": "fathom", "bestFor": "A strong free plan for individuals", "note": "Records and transcribes Zoom, Google Meet and Microsoft Teams calls and writes summaries and action items. Its free tier is generous for one person; team features and CRM sync sit on paid plans." },
+      { "id": "fireflies-ai", "bestFor": "Searchable transcripts and integrations", "note": "Joins calls on the main platforms, then produces searchable transcripts, summaries and topic tracking. It connects to many CRM and productivity tools, which suits teams that want notes to flow into other apps." },
+      { "id": "granola", "bestFor": "Notes without a bot in the meeting", "note": "Runs as a desktop app and listens to your computer's audio, so no recording bot appears in the call. You type rough notes and it fills them out after the meeting. Check that this approach meets your company's recording rules." },
+      { "id": "tldv", "bestFor": "Clips, highlights and many languages", "note": "Records Zoom, Meet and Teams calls, transcribes in many languages and lets you clip key moments to share. Useful for sales and research teams who send highlights instead of full recordings." },
+      { "id": "read-ai", "bestFor": "Meeting reports and engagement metrics", "note": "Produces summaries plus reports on talk time and engagement, and can also summarise email and chat. Look closely at its data settings if your meetings are sensitive." }
+    ],
+    "stayWith": "Stay with Otter AI if you rely on live transcription during the meeting, you are happy with its free or paid limits, and your notes and recordings are already organised there. Its mobile app is also handy for recording in-person conversations and lectures.",
+    "faqs": [
+      { "q": "What is the best free alternative to Otter AI?", "a": "Fathom is a popular choice for individuals because its free plan covers recording, transcription and summaries. Check current limits on each plan before you switch." },
+      { "q": "Is there a note taker that does not join the call as a bot?", "a": "Yes. Granola records from your own computer, so no bot joins the meeting." },
+      { "q": "Do I need consent to record meetings?", "a": "In many places, yes. Tell everyone in the meeting that it is being recorded and follow your local laws and company policy." }
+    ]
+  },
+  "wix-adi": {
+    "title": "Wix AI Website Builder Alternatives: 6 Options Compared",
+    "description": "Compare the Wix AI website builder with Durable, Hostinger, Framer, Webflow, 10Web and Lovable on speed, design control, price and ownership.",
+    "quickAnswer": "Wix's AI website builder, which replaced the older Wix ADI, builds a full site from a short chat about your business, and you then edit it in the Wix Editor. Alternatives differ mainly in how much control you get and where the site lives. Durable and Hostinger are the quickest and cheapest way to get a simple business site online. Framer and Webflow give designers far more control. 10Web builds on WordPress, so you can move the site later. Lovable is for building a web app rather than a brochure site.",
+    "alternatives": [
+      { "id": "durable", "bestFor": "A simple business site in minutes", "note": "Generates a small-business website from a few answers and includes basic business extras. It is fast and easy, but design control is limited compared with Wix." },
+      { "id": "hostinger-ai", "bestFor": "A low-cost site bundled with hosting", "note": "An AI builder that comes with Hostinger's website plans, so hosting, domain and builder sit in one place. Good value for a basic site; check plan limits on pages and e-commerce." },
+      { "id": "framer-ai", "bestFor": "Design-led landing pages and portfolios", "note": "Generates a starting page from a prompt and then gives you fine visual control and smooth animations. It suits designers and startups more than shops with large catalogues." },
+      { "id": "webflow-ai", "bestFor": "Professional design and CMS control", "note": "A visual builder with a powerful CMS and clean code output, now with AI help. It has a steeper learning curve than Wix and the plans can cost more, but it scales well for marketing sites." },
+      { "id": "10web", "bestFor": "An AI site you can take with you", "note": "Builds the site on WordPress, so you get the WordPress plugin ecosystem and can move the site to another host later, which Wix does not allow." },
+      { "id": "lovable-dev", "bestFor": "Building a web app instead of a website", "note": "Creates a working app with a front end and back end from a chat prompt, with code you can export. Choose it when you need logins, data and custom features rather than pages." }
+    ],
+    "stayWith": "Stay with Wix if you want an easy editor, a large choice of templates and apps, and built-in hosting, booking and store features without touching code. Keep in mind that a Wix site cannot be exported to another host, so plan for that if you might move later.",
+    "faqs": [
+      { "q": "Is Wix ADI still available?", "a": "No. Wix replaced ADI with its newer AI website builder, and support for the old ADI ended in November 2024." },
+      { "q": "Which alternative is best if I might move my site later?", "a": "10Web, because the site runs on WordPress, which you can move to another host." },
+      { "q": "Which is the cheapest way to get a simple site online?", "a": "Durable or Hostinger's AI builder are usually the quickest and lowest-cost options for a basic business site. Compare current plans before buying." }
+    ]
+  },
+  "scispace-copilot": {
+    "title": "SciSpace Copilot Alternatives: 6 AI Research Tools Compared",
+    "description": "Compare SciSpace Copilot with Elicit, Consensus, Scite, Semantic Scholar, Research Rabbit and NotebookLM for reading and finding research papers.",
+    "quickAnswer": "SciSpace Copilot explains research papers as you read them, answering questions about terms, maths and methods. The alternatives cover different parts of the research process. Elicit and Consensus help you find and summarise relevant papers, Scite shows whether a finding has been supported or disputed by later work, Semantic Scholar and Research Rabbit help you discover and map the literature, and NotebookLM answers questions grounded in the papers you upload. Always check an AI answer against the paper itself before you cite it.",
+    "alternatives": [
+      { "id": "elicit", "bestFor": "Literature reviews and data extraction", "note": "Finds papers for a research question and pulls details such as methods and results into a table you can compare. It is designed for systematic and literature review work." },
+      { "id": "consensus", "bestFor": "Quick answers backed by papers", "note": "Answers a question by searching peer-reviewed research and summarising what the studies say, with links to each paper. Useful for a fast overview before you read in depth." },
+      { "id": "scite", "bestFor": "Checking whether a finding held up", "note": "Its Smart Citations show whether later papers support, contrast or simply mention a result. That makes it easier to judge a claim before you rely on it." },
+      { "id": "semantic-scholar", "bestFor": "Free academic search", "note": "A free search engine for scientific literature from the Allen Institute for AI, with short AI summaries and citation information. A good first stop before using a paid tool." },
+      { "id": "research-rabbit", "bestFor": "Mapping related papers", "note": "Builds visual maps of papers, authors and citations from a few starting papers, so you can spot important work you may have missed. It is free to use." },
+      { "id": "notebooklm", "bestFor": "Questions grounded in your own papers", "note": "Upload your PDFs and ask questions, and Google's NotebookLM answers from those sources with citations to the passages it used. It stays inside your documents rather than searching the web." }
+    ],
+    "stayWith": "Stay with SciSpace Copilot if your main need is help understanding papers while you read them, such as explaining jargon, equations and tables in plain language. It is a reading assistant first, so pair it with a search tool when you need to find new papers.",
+    "faqs": [
+      { "q": "What is the best free alternative to SciSpace Copilot?", "a": "Semantic Scholar and Research Rabbit are free for finding papers, and NotebookLM is free for asking questions about papers you upload." },
+      { "q": "Which tool is best for a literature review?", "a": "Elicit, because it is built to find papers and extract details from them into a comparison table." },
+      { "q": "Can I trust AI summaries of research papers?", "a": "Use them as a starting point only. Check every claim against the original paper before you cite it." }
+    ]
   }
 }
