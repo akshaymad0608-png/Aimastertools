@@ -1,4 +1,26 @@
 import React, { useState } from 'react';
+import {
+  BarChart3,
+  BellOff,
+  ClipboardCheck,
+  Coins,
+  Cpu,
+  Gift,
+  Image as ImageIcon,
+  Lock,
+  RefreshCw,
+  Scale,
+  Server,
+  Settings2,
+  ShieldAlert,
+  ShieldCheck,
+  ShoppingBag,
+  Sparkles,
+  UserCheck,
+  Users,
+  Workflow,
+  type LucideIcon,
+} from 'lucide-react';
 
 interface BlogCoverImageProps {
   category: string;
@@ -32,6 +54,38 @@ const hash = (s: string): number => {
 };
 
 const PATTERNS = ['rules', 'grid', 'arcs', 'stack'] as const;
+
+/**
+ * A topic icon for the cover, picked from the title. Abstract patterns alone
+ * made every post look alike; an icon says what the article is about at a
+ * glance. Rules run in order and the first match wins, so the specific ones
+ * (prompt injection) sit above the general ones (security).
+ */
+const TOPIC_ICONS: Array<[RegExp, LucideIcon]> = [
+  [/prompt injection/i, ShieldAlert],
+  [/linkedin/i, Users],
+  [/security|safe\b/i, ShieldCheck],
+  [/privacy/i, Lock],
+  [/\$vars|\$env|config/i, Settings2],
+  [/self-host|docker|cloud trial/i, Server],
+  [/silent|fail/i, BellOff],
+  [/human-in-the-loop|approval/i, UserCheck],
+  [/cost|price|paid|free plans/i, Coins],
+  [/shopping|shop assistant/i, ShoppingBag],
+  [/report|bi\b|analytics/i, BarChart3],
+  [/choos|compare|vs\b/i, Scale],
+  [/checklist/i, ClipboardCheck],
+  [/local|ollama|lm studio/i, Cpu],
+  [/image|comfyui|forge/i, ImageIcon],
+  [/retired|renamed|changes/i, RefreshCw],
+  [/free/i, Gift],
+  [/n8n|workflow|automation/i, Workflow],
+];
+
+const pickIcon = (title: string): LucideIcon => {
+  for (const [re, Icon] of TOPIC_ICONS) if (re.test(title)) return Icon;
+  return Sparkles;
+};
 
 /**
  * CSS custom properties do not work in SVG *presentation attributes* —
@@ -68,6 +122,9 @@ export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
   const density = 5 + ((h >> 12) % 4);
   const useAccent = ((h >> 16) & 1) === 1;
   const ink = useAccent ? 'var(--color-accent)' : 'var(--color-primary)';
+  const TopicIcon = pickIcon(title);
+  const tile = variant === 'thumbnail' ? 'h-9 w-9' : 'h-14 w-14';
+  const glyph = variant === 'thumbnail' ? 18 : 28;
 
   const heights: Record<BlogCoverImageProps['variant'], string> = {
     featured: 'aspect-[16/9]',
@@ -145,6 +202,17 @@ export const BlogCoverImage: React.FC<BlogCoverImageProps> = ({
           onError={() => setImgFailed(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />
+      )}
+
+      {/* Topic icon: says what the article is about at a glance */}
+      {!showPhoto && (
+        <span
+          aria-hidden="true"
+          className={`absolute left-4 top-4 z-10 grid place-items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm ${tile}`}
+          style={{ color: ink }}
+        >
+          <TopicIcon size={glyph} strokeWidth={1.6} />
+        </span>
       )}
 
       {/* The category is the only label — the title sits beside the cover already */}
