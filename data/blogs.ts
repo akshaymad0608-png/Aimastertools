@@ -1302,8 +1302,13 @@ For projects that mix code, AI and many scheduled jobs, I use n8n, and I keep ev
  * resolve to a single record. First occurrence wins.
  */
 const _seen_blog = new Set<string>();
-export const BLOG_POSTS = _RAW_BLOG_POSTS.filter((item) => {
-  if (!item || !item.id || _seen_blog.has(item.id)) return false;
-  _seen_blog.add(item.id);
-  return true;
-});
+// Newest first: ids only ever go up, so the highest id is the latest post. The
+// array is appended to in publishing order, which put the oldest post in the
+// "Latest" slot on /blog and the new ones below the fold.
+export const BLOG_POSTS = _RAW_BLOG_POSTS
+  .filter((item) => {
+    if (!item || !item.id || _seen_blog.has(item.id)) return false;
+    _seen_blog.add(item.id);
+    return true;
+  })
+  .sort((a, b) => Number(b.id) - Number(a.id));
