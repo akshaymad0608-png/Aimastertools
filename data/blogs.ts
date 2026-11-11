@@ -1288,6 +1288,301 @@ For projects that mix code, AI and many scheduled jobs, I use n8n, and I keep ev
 
 **Related:** [n8n](/tool/n8n) · [Workflow automation tools](/category/workflow-automation) · [AI agents and automation](/category/ai-agents-and-automation) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist)`,
   },
+  {
+    id: '27',
+    slug: 'how-to-write-better-ai-prompts-structure-and-mistakes',
+    title: 'How to Write Better AI Prompts: A Simple Structure',
+    category: 'PRODUCTIVITY',
+    excerpt: 'A five-part prompt structure, the five mistakes behind most bad AI output, and a step-by-step way to improve any prompt.',
+    date: 'Nov 11, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/how-to-write-better-ai-prompts-structure-and-mistakes.svg',
+    url: '/blog/how-to-write-better-ai-prompts-structure-and-mistakes',
+    content: `Most disappointing AI answers are not the model's fault. They come from a request that left out something the model could not guess: who the answer is for, what a good result looks like, what to avoid. A prompt is a short brief, and a good brief has the same parts whether you are writing to a colleague or to a chatbot. This guide gives you a simple structure, the five mistakes that cause most bad output, and a way to improve a prompt step by step. It works with any general assistant, such as [ChatGPT](/tool/chatgpt), [Claude](/tool/claude), [Gemini](/tool/gemini) or [Perplexity](/tool/perplexity). Details differ between them, but the principles do not.
+
+## A five-part structure that works
+
+You do not need all five parts every time. For a quick question, one line is fine. For anything you will use or send to someone, include as many as apply.
+
+1. **Task.** Start with a clear verb: summarise, rewrite, compare, draft, list, explain, critique. Say what the output is, for example "a 150-word email" or "a table of options".
+2. **Context.** Give the background the model cannot see: what the project is, who the reader is, what you have already tried. Two or three sentences of context often matter more than any clever wording.
+3. **Input.** Paste the material to work on, and mark where it starts and ends, for example between lines of three dashes. This keeps your instructions separate from your text.
+4. **Constraints.** Length, tone, reading level, things to include, things to leave out, the language, whether to use headings or bullets.
+5. **Format.** Describe the shape of the answer: a numbered list, two short paragraphs, a JSON object with named fields, a subject line followed by the body.
+
+Here is the difference in practice. A weak prompt: "Write about our product launch." A stronger one: "Write a 120-word announcement for existing customers about our new export feature. The tone is friendly and plain, no hype words. Mention that it is free on every plan. End with one sentence pointing to the help page. Give me two versions."
+
+## The five mistakes behind most bad output
+
+### 1. Asking for too much in one go
+
+"Research the market, write the strategy, build the plan and draft the emails" invites a shallow answer to every part. Split big jobs into steps, and use the result of each step as input to the next.
+
+### 2. Leaving out the audience
+
+"Explain how a VPN works" produces something different for a ten-year-old, a bank manager and a network engineer. Name the reader and their level.
+
+### 3. Vague quality words
+
+"Make it better", "more professional" and "punchier" mean different things to different people. Say what to change: shorter sentences, no jargon, a stronger first line, a more cautious tone.
+
+### 4. Giving no example of what you want
+
+If you have a sample of the style or format you like, paste it and say "match this style". One good example does more than a paragraph of description. If you want a certain structure, show one filled-in row or one sample entry.
+
+### 5. Trusting the first answer
+
+The first answer is a draft. Read it, say what is wrong, and ask again. "Keep the second paragraph, cut the first by half, and replace the statistic with a general statement" is a perfectly good follow-up. For anything factual, see [how to fact-check AI output](/blog/how-to-fact-check-ai-output-hallucinations).
+
+## Techniques worth knowing
+
+- **Role and perspective.** "Act as an editor reviewing for clarity" can focus the answer. It does not give the model knowledge it lacks, so do not rely on a role to make a weak answer accurate.
+- **Ask for questions first.** For open-ended work, add "Before you answer, ask me up to five questions that would improve the result." This surfaces missing context cheaply.
+- **Ask for options.** "Give three different approaches and the main trade-off of each" is better than a single answer when you are deciding something.
+- **Step-by-step for logic and maths.** For tasks with several stages, ask the model to work through the steps and show its reasoning, then check the steps yourself. A confident final answer is not proof.
+- **Set a stopping rule.** "If you are not sure, say so instead of guessing" reduces, but does not remove, made-up details.
+
+## A repeatable way to improve a prompt
+
+1. Run your first prompt and read the output critically.
+2. Write down in one sentence what is wrong: too long, wrong tone, missing the point, invented facts.
+3. Fix that one thing in the prompt, not five at once.
+4. Run it again and compare.
+5. When a prompt works, save it with a short note about when to use it. A small personal library of tested prompts saves more time than any single trick.
+
+## Keep private data out of prompts
+
+Whatever you paste goes to a service you do not control. Remove names, account numbers, client details and anything covered by an agreement before you send it, and check how the tool treats your data. Our [privacy checklist](/blog/ai-tool-privacy-data-checklist) lists what to look for, and [how to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) covers the wider decision.
+
+## A template you can copy
+
+Task: [what to produce, with the verb and the length]. Context: [who it is for and why]. Input: [your text between lines of three dashes]. Constraints: [tone, things to include, things to avoid]. Format: [shape of the answer]. If anything is unclear, ask me before you answer.
+
+Fill the brackets, remove the parts you do not need, and run it. Then improve it one change at a time.
+
+**Related:** [AI chatbots and assistants](/category/ai-chatbots-and-assistants) · [AI writing tools](/category/ai-writing-and-content) · [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026)`,
+  },
+  {
+    id: '28',
+    slug: 'ai-resume-cover-letter-tools-what-to-check-before-you-send',
+    title: 'AI Resume and Cover Letter Tools: What to Check Before You Send',
+    category: 'RESEARCH',
+    excerpt: 'What AI resume tools do well, where they invent or flatten your experience, and a checklist to run before you submit.',
+    date: 'Nov 11, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/ai-resume-cover-letter-tools-what-to-check-before-you-send.svg',
+    url: '/blog/ai-resume-cover-letter-tools-what-to-check-before-you-send',
+    content: `AI resume and cover letter tools can save hours on formatting and first drafts. They can also produce a document that sounds like everyone else's, or worse, one that claims things you never did. A recruiter or hiring manager reads your resume in moments, and an interview will test every line of it. This guide explains what these tools are good for, where they go wrong, and a checklist to run before you send anything. You can compare options in our [AI resume and career tools category](/category/ai-resume-and-career-tools), which includes tools such as [Kickresume](/tool/kickresume), [Rezi](/tool/rezi) and [Teal](/tool/teal). Features and limits change, so check each tool's current page.
+
+## What these tools do well
+
+- **Layout and formatting.** A clean single-column layout with clear headings is a real help, and templates remove the fiddly work.
+- **Turning notes into bullet points.** If you give a tool the facts of what you did, it can phrase them as short, action-first bullets.
+- **Tailoring to a job posting.** You can paste a posting and ask which of your real experiences match its requirements, and which keywords from the posting you have not used.
+- **Cover letter first drafts.** A draft gives you something to edit, which is easier than a blank page.
+- **Proofreading.** Catching typos, tense changes and inconsistent dates is a good use of any editor, human or automatic.
+
+## Where they go wrong
+
+### Invented experience
+
+Language models fill gaps. Ask for "a strong bullet about my sales role" with no facts, and you may get numbers and achievements that never happened. You are the one who signs the document and answers the questions about it. A false claim can end an interview, or a job later.
+
+### Generic wording
+
+Phrases such as "results-driven professional" and "proven track record" appear on thousands of resumes. They tell the reader nothing. Specific facts about what you did, for whom, and what changed are what get remembered.
+
+### Keyword stuffing
+
+Many people believe that a resume must be packed with keywords to pass an automated filter. Practices differ by employer, and many applications are read by people. A better approach is to use the real terms from the posting where they honestly describe your work, and to write clearly for a human reader.
+
+### Sameness
+
+If many applicants use the same tool and the same prompts, their letters start to sound alike. A letter that includes one real detail about the company and one real detail about you stands out.
+
+### Privacy
+
+A resume contains your name, contact details, work history and sometimes your address and date of birth. Before you upload it, read the tool's privacy policy: how long it keeps files, whether it uses your text to train models, and how to delete your account. Our [privacy checklist](/blog/ai-tool-privacy-data-checklist) lists the questions to ask. Consider leaving your full address and other unnecessary personal details off the document in any case.
+
+## A better way to use AI for your resume
+
+1. **Start with your facts.** Write plain notes for each job: what you were responsible for, what you built or fixed, any numbers you can honestly support, and tools you used.
+2. **Ask for phrasing, not facts.** Tell the tool: "Use only the information below. Do not add numbers, tools or achievements that are not listed. If something is missing, ask me." Then paste your notes.
+3. **Edit every line.** Read each bullet and ask: is this true, and can I talk about it for two minutes?
+4. **Match the posting honestly.** Ask the tool to compare the posting with your notes and list gaps. Do not copy skills you do not have. If there is a gap, consider whether to apply, or mention what you are learning.
+5. **Add a personal line.** In the cover letter, say why this company and this role, in your own words.
+6. **Proofread out loud.** Reading aloud finds awkward phrases that tools and silent reading miss.
+
+## Checklist before you send
+
+- Every date, title, employer and number is correct.
+- No tool, certificate or skill is listed that you could not explain.
+- The file opens cleanly as a PDF, and the text can be selected and copied.
+- The name of the company and the role are right in the cover letter, with no leftover text from another application.
+- Contact details are current, and the email address looks professional.
+- The resume is as short as the content allows, usually one or two pages.
+- You have read it once more on a phone screen, where many recruiters first see it.
+
+## When a human is better
+
+If you are changing careers, returning after a gap, or applying for a senior role, a conversation with someone who knows your field will improve the document more than any tool. Use AI to prepare for that conversation, not to replace it.
+
+**Related:** [How to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes) · [How to fact-check AI output](/blog/how-to-fact-check-ai-output-hallucinations) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist)`,
+  },
+  {
+    id: '29',
+    slug: 'ai-meeting-note-takers-privacy-accuracy-consent',
+    title: 'AI Meeting Note-Takers: Privacy, Accuracy and Consent',
+    category: 'RESEARCH',
+    excerpt: 'What AI note-takers collect, how reliable their summaries are, and how to ask for consent before you record a call.',
+    date: 'Nov 11, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/ai-meeting-note-takers-privacy-accuracy-consent.svg',
+    url: '/blog/ai-meeting-note-takers-privacy-accuracy-consent',
+    content: `An AI note-taker that joins your calls, records them and sends a summary is very convenient. It also puts a recording and a transcript of other people's words on someone else's servers. Before you use one, you should know what the tool collects, how accurate summaries really are, and what permission you need from the people on the call. This guide covers all three. Our [AI meeting assistants category](/category/ai-meeting-assistants) lists tools such as [Otter](/tool/otter-ai), [Fireflies](/tool/fireflies-ai), [Fathom](/tool/fathom), [tl;dv](/tool/tldv) and [Granola](/tool/granola). Features, limits and data policies change, so always read the current pages.
+
+## Two kinds of tools
+
+- **Bots that join the meeting.** A named participant appears in the call, records and transcribes. Everyone sees it, which is good for transparency but sometimes awkward.
+- **Tools that capture audio on your own device.** They record what your computer hears or what you say, with no visible participant. This is less visible, which makes consent easy to forget.
+
+In both cases, audio or text leaves your device and is processed by a service. That is the point to evaluate.
+
+## Consent and the law
+
+Recording rules differ by country and region. In some places you need the permission of everyone on the call. In others, one participant's consent is enough. Rules can also differ for calls that cross borders. This is not legal advice, and you should check what applies to you and to the people you meet.
+
+A simple rule that works almost everywhere: **tell people, and ask.** Say at the start, "I am using an AI note-taker to record and summarise this call. Is that okay with everyone?" Give people a real chance to say no. Put it in the calendar invite for recurring calls. For sensitive topics, such as health, legal matters, HR issues or a client's financial details, do not record unless you have clear written agreement and a reason that justifies it.
+
+Your employer or client may also have a policy that forbids third-party recording tools. Check before you use one on work calls.
+
+## Questions about privacy
+
+Before you connect a tool to your calendar, find answers to these on its policy or security page:
+
+1. **Where are recordings and transcripts stored, and for how long?** Can you delete them, and is deletion permanent?
+2. **Are your meetings used to train models?** Look for a clear statement, and check whether it applies to your plan.
+3. **Who inside the company can access content?** Look for details on staff access and logging.
+4. **What are the sharing defaults?** Some tools share a summary with every attendee, or create links that anyone can open. Change defaults before your first call.
+5. **What does the bot connect to?** A calendar integration may read details of all your meetings, not just the ones you choose. Limit the permissions if you can.
+6. **What certifications and controls are described?** Look for encryption, access controls and an account of how data requests are handled. A page that says nothing is itself an answer.
+
+For a longer list, see our [AI tool privacy checklist](/blog/ai-tool-privacy-data-checklist).
+
+## How accurate are the summaries?
+
+Transcripts are usually good for clear speech and get worse with accents, crosstalk, poor audio, jargon and names. Summaries are a second step, and a summary is a guess about what mattered. Typical problems:
+
+- **Wrong names and numbers.** A figure, a date or a name can be misheard.
+- **Missing nuance.** "We could look into it" may become "We agreed to do it."
+- **Wrong attribution.** A commitment may be assigned to the wrong person.
+- **Invented detail.** A summary may include a point that was never raised.
+- **Lost context.** The reason for a decision is often the first thing to disappear.
+
+The risk is not that the notes are bad. It is that they look polished, so nobody checks them.
+
+## A safe way to use meeting notes
+
+1. Use the tool for **internal, low-risk meetings** first, such as team syncs, and see how well it works.
+2. **Read the summary the same day**, while you still remember the call, and correct errors.
+3. **Treat action items as proposals.** Confirm owners and dates with the people involved, in writing.
+4. **Keep the human record for decisions.** For anything important, send your own short follow-up and keep that as the record.
+5. **Delete what you do not need.** Recordings you do not need are a liability. Set a retention period.
+6. **Do not paste transcripts into other AI tools** without thinking about what they contain. See [how to fact-check AI output](/blog/how-to-fact-check-ai-output-hallucinations) before you rely on a generated summary.
+
+## When not to use one
+
+Skip the tool when the meeting involves confidential personal matters, legal or medical topics, negotiations where a recording could change how people speak, or any call with a person who has said no. A notebook still works.
+
+## A short consent message you can reuse
+
+"I use an AI tool to record and summarise meetings so I can focus on the conversation. It creates a transcript that I will keep for [period] and share only with [who]. Please tell me if you would rather I do not record this call."
+
+**Related:** [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026) · [How to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes)`,
+  },
+  {
+    id: '30',
+    slug: 'how-to-fact-check-ai-output-hallucinations',
+    title: 'How to Fact-Check AI Output: Six Checks That Catch Hallucinations',
+    category: 'RESEARCH',
+    excerpt: 'Why AI answers sound right when they are wrong, what to verify first, and a five-minute routine for checking numbers, quotes and sources.',
+    date: 'Nov 11, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/how-to-fact-check-ai-output-hallucinations.svg',
+    url: '/blog/how-to-fact-check-ai-output-hallucinations',
+    content: `AI assistants write fluent, confident text. That is the problem: fluency is not accuracy. These systems predict likely words, and when they lack a fact they can produce one that sounds right. The result is often called a hallucination: a made-up statistic, an invented quote, a book that does not exist, a legal case with a convincing name. This guide gives you six practical checks, a short list of things that deserve extra suspicion, and a routine you can use in a few minutes. It applies to assistants such as [ChatGPT](/tool/chatgpt), [Claude](/tool/claude), [Gemini](/tool/gemini) and [Perplexity](/tool/perplexity), and to any tool that writes text for you.
+
+## Why wrong answers sound right
+
+A model is trained on large amounts of text and learns patterns of language. It does not look facts up in a reliable database unless the tool is connected to search or to your documents. Even then, it can misread a source or blend two. Fluent writing, a confident tone and neat formatting all make a wrong answer feel trustworthy. So the rule is simple: **the style of an answer tells you nothing about its truth.**
+
+## What to be extra careful with
+
+Treat these as claims to verify, every time:
+
+- **Numbers.** Statistics, percentages, prices, dates, measurements, and any figure with a precise-looking decimal.
+- **Names and quotes.** Who said what, titles, spellings, and any direct quotation.
+- **Citations.** Titles of papers, books, articles and cases, with authors, years and page numbers. Models sometimes generate references that look real and are not.
+- **Links.** Web addresses can be invented or may lead to a different page than described.
+- **Recent events.** A model without search may not know anything after its training period, and may not say so.
+- **Specialist advice.** Medical, legal, tax, financial and safety information, where an error can cause real harm.
+- **Code and commands.** Code can look right and fail, or use a function that does not exist.
+
+## Six checks
+
+### 1. Find the original source
+
+For any claim that matters, search for it yourself and find the primary source: the official statistics page, the paper, the company announcement, the law. If you cannot find it in a reasonable time, do not use it.
+
+### 2. Check quotes and references exist
+
+Search for the exact title in quotation marks. Open the link. Confirm that the author, year and publication match. If a source cannot be found, assume it was made up.
+
+### 3. Read laterally
+
+Do not stay on one page. Open a few independent, reliable sources and see whether they agree. If only one site says it, be careful.
+
+### 4. Ask the tool to show its basis, then check that too
+
+You can ask, "Which parts of this answer are you least sure about?" or "List the claims in your answer that I should verify." This helps you focus, but it is not proof. The model can be wrong about its own certainty, so use the list to guide your checks, not to replace them.
+
+### 5. Compare across two tools
+
+Ask the same factual question to two different assistants, ideally one with live search. If they disagree, you have found a place to look closely. If they agree, that is still not proof, because they may have learned the same error.
+
+### 6. Test numbers and logic yourself
+
+Redo the arithmetic. Check that totals add up, that percentages refer to the same base, that dates are in order, and that the conclusion actually follows from the facts.
+
+## Make it easier with better prompts
+
+You can reduce errors, although you cannot remove them:
+
+- Give the model the source text and say "Answer using only the text below. If it is not in the text, say so."
+- Ask for the answer and the exact passage that supports it, then check that passage.
+- Say "If you do not know, say you do not know instead of guessing."
+- Keep tasks narrow. Broad requests invite filler.
+
+See [how to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes) for more on structure.
+
+## A five-minute routine
+
+1. Highlight every number, name, quote, date and reference in the answer.
+2. Pick the three that matter most to your purpose.
+3. Verify each in a primary or reputable source.
+4. If any fails, check the rest more carefully, because errors tend to cluster.
+5. Rewrite in your own words, cite the real source, and remove anything you could not confirm.
+
+## A note on responsibility
+
+If you publish, send or submit text written with AI, you are responsible for what it says. That includes a school essay, a client report, a blog post and a legal filing. Readers and employers care whether it is true, not how it was drafted. If a task is high-stakes, use AI to draft and prepare questions, and use a qualified person to decide.
+
+## What these checks will not catch
+
+Some errors are subtle: a correct fact in the wrong context, a real study that does not say what the answer claims, or an old rule that has since changed. For this reason, read the source itself, not just its title, and note the date.
+
+**Related:** [AI tool privacy checklist](/blog/ai-tool-privacy-data-checklist) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [Prompt injection: a plain guide](/blog/prompt-injection-plain-guide-for-automators)`,
+  },
 ];
 
 /**

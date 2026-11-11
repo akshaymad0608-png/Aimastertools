@@ -249,6 +249,10 @@ const posts = {
   'why-scheduled-automations-fail-silently': 'calendar',
   'is-automating-linkedin-safe-rules-safer-setup': 'linkedin',
   'choosing-automation-platform-n8n-make-zapier': 'compare',
+  'how-to-write-better-ai-prompts-structure-and-mistakes': 'choose',
+  'ai-resume-cover-letter-tools-what-to-check-before-you-send': 'linkedin',
+  'ai-meeting-note-takers-privacy-accuracy-consent': 'phone',
+  'how-to-fact-check-ai-output-hallucinations': 'checklist',
 };
 
 // Subtle brand-tinted backgrounds, rotated so neighbouring cards differ.
