@@ -514,25 +514,6 @@ const WORKFLOW_ROUTES = WORKFLOWS.filter((w) => w.id).map((w) => ({
 }));
 
 
-/* ------------------------------------------------- AI Shopping routes -- */
-
-/**
- * Parsed from data/shoppingCategories.ts rather than repeated here. A second
- * copy of this list is a second thing to forget to update — which is exactly
- * how 57 comparison URLs ended up pointing at pages nobody had written.
- */
-const SHOPPING_CATEGORIES = (() => {
-  try {
-    const src = readFileSync('data/shoppingCategories.ts', 'utf8');
-    const open = 'ProductCategory[] = [';
-    const start = src.indexOf(open) + open.length - 1;
-    const end = src.indexOf('\n];', start);
-    if (start < open.length || end < 0) return [];
-    return eval(src.slice(start, end) + ']').filter(Boolean);
-  } catch {
-    return [];
-  }
-})();
 
 
 /*
@@ -590,23 +571,7 @@ const AFFILIATE_HTML =
     'If something here looks wrong — an out-of-date price, a specification that does not match, a link that goes somewhere unexpected — that is worth reporting, and it gets fixed. See <a href="/about">how the index works</a>, the <a href="/privacy">privacy policy</a> and the <a href="/terms">terms of service</a>.',
   ]);
 
-const SHOPPING_ROUTES = [
-  {
-    path: '/ai-shopping',
-    heading: 'AI Shopping',
-    title: 'AI Shopping — Find the Right Product Without the Research',
-    description: 'Tell us the budget and what it is for, and get products that fit — compared on the specifications that actually decide it, with prices you check yourself.',
-    // The per-category pages below were reachable from the sitemap only.
-    extraHtml: `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px"><li><a href="/ai-shopping/finder">AI Product Finder</a></li>${SHOPPING_CATEGORIES.map(
-      (c) => `<li><a href="/ai-shopping/${esc(c.slug)}">Best ${esc(c.name)}</a></li>`,
-    ).join('')}</ul>`,
-  },
-  {
-    path: '/ai-shopping/finder',
-    heading: 'AI Product Finder',
-    title: 'AI Product Finder — Say Your Budget, Get a Shortlist',
-    description: 'Describe what you need and what you can spend. The category and budget are read from your sentence, matched to the catalogue, and each pick is explained.',
-  },
+const AFFILIATE_ROUTES = [
   {
     path: '/affiliate-disclosure',
     heading: 'Affiliate Disclosure',
@@ -614,21 +579,6 @@ const SHOPPING_ROUTES = [
     description: 'AI Master Tools earns commission on some outbound links, including as an Amazon Associate. What that means, what it does not change and how to spot paid links.',
     extraHtml: AFFILIATE_HTML,
   },
-  ...SHOPPING_CATEGORIES.map((c) => ({
-    path: `/ai-shopping/${c.slug}`,
-    heading: c.name,
-    title: pickTitle([
-      `Best ${c.name} — Compared on What Matters (${YEAR})`,
-      `Best ${c.name} in ${YEAR} — Compared Spec by Spec`,
-      `${c.name} Compared — Specs, Prices and Picks (${YEAR})`,
-      `Best ${c.name} (${YEAR}) — Honest Comparison`,
-      `Best ${c.name} to Buy in ${YEAR} — Specs, Prices and Picks`,
-      `Best ${c.name} to Buy (${YEAR}) — Compared Side by Side`,
-      `${c.name}: What to Buy in ${YEAR}`,
-      `Best ${c.name} ${YEAR}`,
-    ], `/ai-shopping/${c.slug}`),
-    description: fitDescription(c.blurb, DESC_TAILS, `/ai-shopping/${c.slug}`),
-  })),
 ];
 
 const LEGAL_ROUTES = [
@@ -1035,7 +985,7 @@ const routes = [
   ...WORKFLOW_ROUTES,
   ...LEGAL_ROUTES,
   ...FREE_ROUTES,
-  ...SHOPPING_ROUTES,
+  ...AFFILIATE_ROUTES,
 ];
 
 /**
@@ -1155,7 +1105,6 @@ for (const route of routes) {
       ['/prompts', 'Prompts'],
       ['/workflows', 'Workflows'],
       ['/earn', 'Earn online'],
-      ['/ai-shopping', 'AI shopping'],
       ['/blog', 'Blog'],
       ['/about', 'About'],
       ['/contact', 'Contact'],

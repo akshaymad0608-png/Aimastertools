@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, X, Sun, Moon, Compass, Grid, Code, GitMerge, Sparkles, FileText, Layers,
   Search, Bookmark, Wallet, Gift, Columns2, ChevronDown,
-  ShoppingBag, Smartphone, Laptop,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -51,20 +50,6 @@ const NAV_GROUPS = [
       { name: 'Prompts', to: '/prompts', icon: Code, desc: 'Ready-made prompts to copy.' },
       { name: 'Workflows', to: '/workflows', icon: GitMerge, desc: 'Multi-tool workflows, step by step.' },
       { name: 'Earn online', to: '/earn', icon: Wallet, desc: 'Ways to earn using AI tools.' },
-    ],
-  },
-  {
-    /**
-     * A group rather than a flat link, because AI Shopping has the same shape
-     * as the other three — a landing page with destinations under it — and
-     * making it the one odd item in the rail would advertise it as bolted on
-     * rather than part of the site.
-     */
-    name: 'AI Shopping',
-    items: [
-      { name: 'Shopping home', to: '/ai-shopping', icon: ShoppingBag, desc: 'Find a product by budget and use.' },
-      { name: 'Smartphones', to: '/ai-shopping/smartphones', icon: Smartphone, desc: 'Chip, camera, battery, updates.' },
-      { name: 'Laptops', to: '/ai-shopping/laptops', icon: Laptop, desc: 'What the spec sheet means in practice.' },
     ],
   },
 ];

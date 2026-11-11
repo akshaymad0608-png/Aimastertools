@@ -25,7 +25,6 @@ const COLUMNS = [
     heading: 'Decide',
     links: [
       { label: 'Compare two tools', to: '/compare' },
-      { label: 'AI Shopping', to: '/ai-shopping' },
       { label: 'Find a tool', to: '/find' },
       { label: 'Free tools', to: '/free' },
       { label: 'Earn online', to: '/earn' },

@@ -247,16 +247,6 @@ const freeCategorySlugs = (() => {
 })();
 
 
-/**
- * Shopping category slugs, parsed rather than repeated. A second hand-kept
- * copy of this list is how the prerenderer and this file drift apart, which
- * is what put 57 comparison URLs in a sitemap with no page behind them.
- */
-const shoppingSlugs = (() => {
-  const src = read('data/shoppingCategories.ts');
-  if (!src) return [];
-  return pluck(src, 'slug');
-})();
 // Source-file sets used to derive lastmod for each URL group.
 const SRC_APP   = ['index.html', 'App.tsx', 'prerender.mjs'];
 const SRC_TOOLS = ['data/tools.ts', 'prerender.mjs'];
@@ -265,7 +255,6 @@ const SRC_EARN  = ['data/earn.ts'];
 const SRC_COLL  = ['data/collections.ts'];
 const SRC_BLOG  = ['data/blog.ts', 'data/blogs.ts'];
 const SRC_WF    = ['data/workflows.ts'];
-const SRC_SHOP  = ['data/shoppingCategories.ts'];
 const SRC_FREE  = ['data/categories.ts', 'data/tools.ts'];
 
 const urls = [
@@ -282,9 +271,6 @@ const urls = [
   { loc: '/discover', changefreq: 'weekly', priority: '0.6', from: SRC_TOOLS },
   { loc: '/about', changefreq: 'monthly', priority: '0.5', from: ['pages/About.tsx'] },
   { loc: '/contact', changefreq: 'yearly', priority: '0.4', from: ['pages/Contact.tsx'] },
-  { loc: '/ai-shopping', changefreq: 'weekly', priority: '0.8', from: SRC_SHOP },
-  { loc: '/ai-shopping/finder', changefreq: 'monthly', priority: '0.7', from: SRC_SHOP },
-  ...shoppingSlugs.map((slug) => ({ loc: `/ai-shopping/${slug}`, changefreq: 'weekly', priority: '0.7', from: SRC_SHOP })),
   { loc: '/affiliate-disclosure', changefreq: 'yearly', priority: '0.2', from: SRC_APP },
   { loc: '/careers', changefreq: 'monthly', priority: '0.3', from: SRC_APP },
   { loc: '/privacy', changefreq: 'yearly', priority: '0.2', from: SRC_APP },

@@ -1,5 +1,7 @@
 {
   "redirects": [
+    { "source": "/ai-shopping", "destination": "/", "permanent": true },
+    { "source": "/ai-shopping/:path*", "destination": "/", "permanent": true },
     { "source": "/blogs", "destination": "/blog", "permanent": true },
     { "source": "/alternatives/claude-anthropic-alternatives", "destination": "/alternatives/claude-alternatives", "permanent": true },
     { "source": "/blog/top-10-ai-tools-for-students-in-2026", "destination": "/blog", "permanent": true },

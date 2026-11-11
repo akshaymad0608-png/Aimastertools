@@ -17,10 +17,8 @@
     "lint": "tsc --noEmit",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "indexnow": "node scripts/indexnow-submit.mjs",
-    "audit:links": "node scripts/tests/audit-affiliate-links.mjs",
-    "test:intent": "node scripts/tests/test-intent.mjs",
     "test:outbound": "node scripts/tests/test-outbound.mjs",
-    "check": "npm run lint && npm run test:intent && npm run test:outbound && npm run audit:links"
+    "check": "npm run lint && npm run test:outbound"
   },
   "dependencies": {
     "@google/genai": "^1.43.0",
