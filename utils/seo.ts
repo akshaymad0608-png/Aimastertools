@@ -255,7 +255,8 @@ export const articleSchema = (post: BlogPost): Json => ({
   '@id': `${absoluteUrl(`/blog/${post.slug || post.id}`)}#article`,
   headline: post.title,
   description: post.excerpt,
-  ...(post.imageUrl ? { image: post.imageUrl } : {}),
+  // Article rich results want a raster image; the generated SVG covers are for the site only.
+  ...(post.imageUrl && !post.imageUrl.endsWith('.svg') ? { image: post.imageUrl } : {}),
   datePublished: post.date,
   dateModified: post.date,
   articleSection: post.category,

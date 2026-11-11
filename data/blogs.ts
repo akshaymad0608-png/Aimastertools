@@ -12,7 +12,7 @@ const _RAW_BLOG_POSTS: BlogPost[] = [
     excerpt: 'Four free ways to run open AI models offline in 2026, what each one is good at, what hardware you need, and how they fit together.',
     date: 'Oct 3, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm.svg',
     url: '/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm',
     content: `Running a language model on your own machine used to mean compiling code and reading GitHub issues. In 2026 it is a normal app install. The reasons people do it are practical: nothing you type leaves the computer, there is no per-token bill, it works offline, and you can try open models the week they are released.
 
@@ -85,7 +85,7 @@ Local models are not as capable as the largest cloud models on hard reasoning, a
     excerpt: 'Daily credits, one-time credits, no downloads, card-required trials: how AI tool free plans actually work, with real examples from October 2026.',
     date: 'Oct 3, 2026',
     readTime: '6 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/ai-tools-free-plans-what-you-really-get-2026.svg',
     url: '/blog/ai-tools-free-plans-what-you-really-get-2026',
     content: `"Free" on an AI tool's pricing page can mean very different things. Some free plans are genuinely usable every day, some are a one-off taste, and some let you create but not keep what you made. Knowing which kind you are looking at saves a lot of sign-ups.
 
@@ -168,7 +168,7 @@ You can filter the directory to [free AI tools](/free) to see tools with a free 
     excerpt: 'Quizlet retired Q-Chat, Wix ADI became the Wix AI Website Builder, Topaz went subscription-only: the AI tool changes that affect what you pay and use.',
     date: 'Oct 3, 2026',
     readTime: '5 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/ai-tool-changes-retired-renamed-repriced-2026.svg',
     url: '/blog/ai-tool-changes-retired-renamed-repriced-2026',
     content: `AI tools change faster than most software. Features get retired, products get renamed, and pricing models flip from one-time purchases to subscriptions. While updating the listings in this directory, these were the changes that most affect what people actually pay for and use.
 
@@ -225,7 +225,7 @@ We update tool listings when we find changes like these. If you spot one we have
     excerpt: 'Node graphs or tabs and sliders? How ComfyUI and WebUI Forge differ, what each needs, and which suits your way of making images.',
     date: 'Oct 3, 2026',
     readTime: '6 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/comfyui-vs-stable-diffusion-webui-forge.svg',
     url: '/blog/comfyui-vs-stable-diffusion-webui-forge',
     content: `If you want to generate images on your own computer with open models such as Stable Diffusion XL or Flux, two free interfaces dominate: [ComfyUI](/tool/comfyui) and [Stable Diffusion WebUI Forge](/tool/webui-forge). Both are open source and both run on your own GPU, but they suit very different working styles.
 
@@ -288,7 +288,7 @@ Many people start with Forge to learn how prompts, samplers and steps behave, th
     excerpt: 'A 20-minute checklist for picking the right AI tool: the job, a real test, free plan limits, true cost, ownership, privacy, export and longevity, with a scorecard.',
     date: 'Oct 10, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/how-to-choose-an-ai-tool-checklist.svg',
     url: '/blog/how-to-choose-an-ai-tool-checklist',
     content: `Most people pick an AI tool the same way: a friend mentions it, the landing page looks good, they sign up, and a week later they are paying for something that does half of what they needed. A few checks before you sign up save that week. None of them need technical knowledge, and together they take about twenty minutes.
 
@@ -360,7 +360,7 @@ Browse tools by [category](/categories), see what is genuinely free in our [free
     excerpt: 'Five questions to answer in any AI tool privacy policy, how plans differ, what never to upload, and when a local model is safer. With a two-minute checklist.',
     date: 'Oct 10, 2026',
     readTime: '6 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/ai-tool-privacy-data-checklist.svg',
     url: '/blog/ai-tool-privacy-data-checklist',
     content: `Every AI tool you use sees what you give it: the document you paste, the photo you upload, the meeting it transcribes. Most of the time that is fine. Sometimes it is not, and the difference is usually written in the vendor's privacy policy and terms, in places few people read. This guide lists what to look for, in plain language, and what to keep out of AI tools whatever the policy says.
 
@@ -429,7 +429,7 @@ For truly private material, the safest option is a model that runs on your own c
     excerpt: 'My n8n Cloud trial lapsed and the workspace was deleted a week later. What disappeared, what survived because it lived in Git, and how to avoid the same loss.',
     date: 'Nov 11, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/n8n-cloud-trial-ended-what-survived.svg',
     url: '/blog/n8n-cloud-trial-ended-what-survived',
     content: `Most advice about automation platforms is about what to build. This post is about what happens when the platform goes away. In September 2026 my n8n Cloud trial ended, I did not upgrade, and within about a week the whole workspace was gone. I had 29 workflows deployed across three projects. What I learned is useful to anyone building on a hosted automation tool, free trial or not.
 
@@ -489,7 +489,7 @@ If you are still choosing a platform, our [workflow automation category](/catego
     excerpt: 'The real problems I hit running n8n with Docker Compose and Postgres: sleeping laptops, Windows line endings, encryption keys, surviving volumes and more.',
     date: 'Nov 11, 2026',
     readTime: '9 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/self-hosting-n8n-docker-problems-that-bite.svg',
     url: '/blog/self-hosting-n8n-docker-problems-that-bite',
     content: `Installing n8n with Docker takes five minutes. Keeping it working takes longer, and the problems are rarely the ones the quick-start guides mention. This is a list of the issues I actually ran into while setting up three automation projects, 29 workflows in all, on one self-hosted instance with Docker Compose and Postgres. If you are about to self-host, reading this first will save you an evening.
 
@@ -571,7 +571,7 @@ None of this is a reason to avoid self-hosting. It is a reason to treat it as ru
     excerpt: 'Why the same n8n workflow can read its config on Cloud and get nothing on a self-hosted install, and how to build workflows that survive a move between them.',
     date: 'Nov 11, 2026',
     readTime: '6 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/n8n-vars-vs-env-config-silently-breaks.svg',
     url: '/blog/n8n-vars-vs-env-config-silently-breaks',
     content: `The most expensive bug in my automation projects did not throw an error. A workflow ran, every node showed green, and the result was wrong because a configuration value had quietly resolved to nothing. The cause was a difference between two ways of reading settings in n8n, and it only appears when you move a workflow from one kind of n8n to another.
 
@@ -629,7 +629,7 @@ The deeper point is not about n8n. Any platform that lets you read configuration
     excerpt: 'How I design AI automations so the model drafts and a person approves with one tap: config flags, a kill switch, a run log and honest limits.',
     date: 'Nov 11, 2026',
     readTime: '8 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/human-in-the-loop-ai-workflows-telegram-approval.svg',
     url: '/blog/human-in-the-loop-ai-workflows-telegram-approval',
     content: `A fully automatic AI system sounds efficient until it posts something wrong under your name. After building a content and lead system on n8n, I settled on a different design: the AI does most of the work, and a person approves the part that has consequences. This is called human-in-the-loop, and it is simpler to build than most people expect.
 
@@ -702,7 +702,7 @@ For platform options, see [n8n](/tool/n8n), [Make](/tool/make-automation) and ot
     excerpt: 'A realistic cost breakdown of running an AI automation system, from a free setup to a paid one, and the four levers that keep model spending in check.',
     date: 'Nov 11, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/what-ai-automation-really-costs-free-vs-paid.svg',
     url: '/blog/what-ai-automation-really-costs-free-vs-paid',
     content: `People ask what it costs to run AI automation, and the honest answer is a range. This post shows the cost structure of a content and lead system I built on n8n, a free version you can start with and a paid version you grow into, and the levers that control the bill. Prices are indicative figures for 2026 and change often, so use them to compare options and always check live pricing before you commit.
 
@@ -776,7 +776,7 @@ If you are comparing the model side, our [LLM providers and APIs category](/cate
     excerpt: 'What prompt injection is, why automations that read web pages or messages are exposed, and the defences that actually reduce the risk.',
     date: 'Nov 11, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/prompt-injection-plain-guide-for-automators.svg',
     url: '/blog/prompt-injection-plain-guide-for-automators',
     content: `If your automation reads text that you did not write and then hands it to a language model, you have a security problem that many builders have never heard of. It is called prompt injection, and it is ranked first in the OWASP list of the top risks for applications built on large language models. This guide explains it in plain terms and lists the defences that I use in my own n8n workflows.
 
@@ -854,7 +854,7 @@ Our [security checklist for AI automations](/blog/ai-automation-security-checkli
     excerpt: 'A practical security checklist for AI automations built on n8n or similar tools: secrets, personal data, webhooks, access control and a kill switch.',
     date: 'Nov 11, 2026',
     readTime: '8 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/ai-automation-security-checklist-keys-data-webhooks.svg',
     url: '/blog/ai-automation-security-checklist-keys-data-webhooks',
     content: `An automation that reads your email, writes to your spreadsheets and calls paid APIs is a small piece of infrastructure, and it deserves the same care as any other. Most of the security problems I see in hobby automations are boring ones: a key pasted into a workflow, a spreadsheet shared with anyone who has the link, a webhook with no password. This checklist is the one I follow for my own n8n projects. It is not a complete security programme, but it covers the mistakes that cause real harm.
 
@@ -946,7 +946,7 @@ For help choosing tools with sound data practices, read [AI tool privacy: what t
     excerpt: 'How a retrieval-augmented shopping assistant is put together with n8n, Postgres and Gemini, why live price and stock must never come from the vector store, and what I have not verified.',
     date: 'Nov 11, 2026',
     readTime: '9 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/build-ai-shopping-assistant-rag-what-works.svg',
     url: '/blog/build-ai-shopping-assistant-rag-what-works',
     content: `A shopping assistant sounds like a simple chatbot, but a chatbot that confidently quotes the wrong price or invents a product is worse than none. I built one with n8n, Postgres with the pgvector extension and a Gemini model, and I wrote down the design decisions and the defects the testing found. This post explains how it works, what I would do the same way and where I have not yet proved anything.
 
@@ -1023,7 +1023,7 @@ Building teaches you a great deal and gives you control. Buying saves time and m
     excerpt: 'How I structured a daily business report for a jewellery shop: data validation, KPIs, inventory alerts, an AI analyst that never sees customer data, and owner approval.',
     date: 'Nov 11, 2026',
     readTime: '9 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/daily-bi-report-small-shop-n8n-gemini.svg',
     url: '/blog/daily-bi-report-small-shop-n8n-gemini',
     content: `A small shop does not need a data warehouse. It needs to know, every evening, what sold, what is running out, which customers are slipping away and what to do about it. I built that as 13 n8n workflows over a Google Sheets database for a jewellery business, with Gemini as the analyst. This post describes the structure and the decisions that I think transfer to any small shop.
 
@@ -1090,7 +1090,7 @@ The pieces are [n8n](/tool/n8n) for the workflows, [Google Sheets](/tool/google-
     excerpt: 'A symptom-to-fix guide for n8n automations that stop running, duplicate items or write empty values, drawn from the problems I debugged myself.',
     date: 'Nov 11, 2026',
     readTime: '8 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/why-scheduled-automations-fail-silently.svg',
     url: '/blog/why-scheduled-automations-fail-silently',
     content: `The worst failure in automation is the one nobody notices. A report that does not arrive, a sheet that stops filling, a message that is sent twice: none of them raises an alarm. This guide collects the silent failures I met while running a set of n8n workflows, with the cause and the fix for each. Use it as a symptom checklist.
 
@@ -1166,7 +1166,7 @@ For self-hosting specific problems, read [Self-hosting n8n with Docker: problems
     excerpt: 'Which parts of LinkedIn automation are low risk and which can get an account restricted, and a safer design that keeps AI to research and drafting.',
     date: 'Nov 11, 2026',
     readTime: '7 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/is-automating-linkedin-safe-rules-safer-setup.svg',
     url: '/blog/is-automating-linkedin-safe-rules-safer-setup',
     content: `Every few weeks someone asks whether it is safe to put LinkedIn on autopilot with AI. The short answer is that part of it is safe, part of it is risky and part of it is against the rules. I built a LinkedIn content and lead system on n8n, and the first thing I wrote in its documentation was a section on the platform's rules. This post explains the reasoning, and it is general advice rather than legal advice, so check the current rules for yourself.
 
@@ -1228,7 +1228,7 @@ For the approval pattern, see [human-in-the-loop AI workflows](/blog/human-in-th
     excerpt: 'Eight questions to ask before you pick an automation platform, based on building 29 n8n workflows, with honest notes on what I have and have not used.',
     date: 'Nov 11, 2026',
     readTime: '8 min read',
-    imageUrl: '',
+    imageUrl: '/blog-covers/choosing-automation-platform-n8n-make-zapier.svg',
     url: '/blog/choosing-automation-platform-n8n-make-zapier',
     content: `Picking an automation platform is a decision that is easy to make badly, because every tool looks fine in the first hour. The differences show up in month three, when you have twenty workflows, a lost key and a bill. This post gives you eight questions that matter more than the feature list. I will be clear about my own basis: I have built and run 29 workflows on n8n, both on its hosted service and self-hosted. I have not run the same workload on the other platforms, so for them I point you to our directory and to each vendor's documentation rather than inventing a comparison.
 
