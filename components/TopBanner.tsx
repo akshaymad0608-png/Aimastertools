@@ -47,12 +47,12 @@ export const TopBanner: React.FC = () => {
       <div className="container-custom relative flex items-center justify-center gap-3 py-2 pr-8">
         <span className="badge badge-primary hidden sm:inline-flex">New</span>
         <p className="text-center text-[13px] text-[var(--color-text-secondary)]">
-          The directory is re-checked every week.{' '}
+          New guides: AI automation, security and self-hosting.{' '}
           <Link
             to="/blog"
             className="inline-flex items-center gap-1 font-semibold text-[var(--color-primary)] underline-offset-4 hover:underline"
           >
-            See what changed <ArrowRight size={12} />
+            Read the guides <ArrowRight size={12} />
           </Link>
         </p>
 

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, orderBy, getDocs, addDoc, serverTimestamp, deleteDoc, doc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { loadFirebaseApp, loadFirestore } from '../lib/firebaseLazy';
+
+const fs = async () => {
+  const [{ db }, store] = await Promise.all([loadFirebaseApp(), loadFirestore()]);
+  return { db, ...store };
+};
 import { useAuth } from '../context/AuthContext';
 import { Star, User, Trash2 } from 'lucide-react';
 import AuthModal from './AuthModal';
@@ -34,6 +38,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
   const fetchReviews = async () => {
     setLoading(true);
     try {
+      const { db, collection, query, where, orderBy, getDocs } = await fs();
       const q = query(
         collection(db, 'reviews'),
         where('toolId', '==', toolId),
@@ -67,6 +72,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
 
     setSubmitting(true);
     try {
+      const { db, collection, addDoc, serverTimestamp } = await fs();
       await addDoc(collection(db, 'reviews'), {
         toolId,
         userId: currentUser.uid,
@@ -91,6 +97,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ toolId }) => {
     if (!window.confirm("Are you sure you want to delete your review?")) return;
     
     try {
+      const { db, doc, deleteDoc } = await fs();
       await deleteDoc(doc(db, 'reviews', reviewId));
       setReviews(reviews.filter(r => r.id !== reviewId));
     } catch (error) {

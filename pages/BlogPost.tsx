@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Share2, ArrowLeft, Clock, Calendar, Bookmark, Heart } from 'lucide-react';
 import SEO from '../components/SEO';
-import { blogKeywords, articleSchema, breadcrumbSchema } from '../utils/seo';
+import { blogKeywords, articleSchema, breadcrumbSchema, postOgImage } from '../utils/seo';
 import { BLOG_POSTS as blogPosts } from '../data/blogs';
 import ReactMarkdown from 'react-markdown';
 import { BlogCoverImage } from '../components/BlogCoverImage';
@@ -66,7 +66,7 @@ const BlogPost: React.FC = () => {
         title={post.title}
         description={post.excerpt}
         url={`/blog/${post.slug || post.id}`}
-        image={post.imageUrl && !post.imageUrl.endsWith('.svg') ? post.imageUrl : undefined}
+        image={postOgImage(post)}
         type="article"
         publishedTime={new Date(post.date).toISOString()}
         section={post.category}

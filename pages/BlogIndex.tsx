@@ -38,7 +38,7 @@ const BlogIndex: React.FC = () => {
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
         title="AI Tools Blog — Guides, Comparisons & Prompt Engineering (2026)"
-        description={`${BLOG_POSTS.length} in-depth articles on choosing AI tools, comparing models, and writing prompts that hold up. Written and edited by hand.`}
+        description={`${BLOG_POSTS.length} in-depth articles on choosing AI tools, comparing models, and writing prompts that hold up.`}
         url="/blog"
         keywords={[
           'AI blog',

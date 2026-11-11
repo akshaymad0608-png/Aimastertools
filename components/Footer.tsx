@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Github, Linkedin, ArrowRight, Check, Loader2, ArrowUp } from 'lucide-react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
+import { loadFirebaseApp, loadFirestore } from '../lib/firebaseLazy';
 import Logo from './Logo';
 import { CATEGORIES } from '../data/categories';
 
@@ -54,6 +53,7 @@ const Footer: React.FC = () => {
     if (!email) return;
     setStatus('submitting');
     try {
+      const [{ db }, { collection, addDoc, serverTimestamp }] = await Promise.all([loadFirebaseApp(), loadFirestore()]);
       await addDoc(collection(db, 'newsletter_emails'), { email, subscribedAt: serverTimestamp() });
       setStatus('success');
       setEmail('');
@@ -73,8 +73,8 @@ const Footer: React.FC = () => {
               <Logo size="md" />
             </Link>
             <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
-              An independent index of AI tools. Every entry is opened, checked and
-              re-checked so you are not reading a press release.
+              An independent index of AI tools. Longer entries are researched
+              write-ups; shorter ones are built from each vendor's own documentation.
             </p>
             <div className="mt-6 flex gap-2">
               {[

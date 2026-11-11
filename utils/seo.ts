@@ -21,7 +21,7 @@ export const SITE = {
   author: 'Akshay Mahajan',
   tagline: 'Find, compare and review the best AI tools',
   description:
-    'AI Master Tools — the master list of 699+ hand-checked AI tools. Search by name, category and price, compare side by side and find the best one in under a minute.',
+    'AI Master Tools — the master list of 650+ curated AI tools. Search by name, category and price, compare side by side and find the best one in under a minute.',
   ogImage: 'https://aimastertools.space/og-cover.png',
   logo: 'https://aimastertools.space/icon-512.png',
 } as const;
@@ -149,11 +149,8 @@ export const websiteSchema = (): Json => ({
   description: SITE.description,
   inLanguage: SITE.lang,
   publisher: { '@id': ORG_ID },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: `${SITE.url}/?search={search_term_string}` },
-    'query-input': 'required name=search_term_string',
-  },
+  // No SearchAction: its target was /?search=, which robots.txt disallows, and
+  // Google retired the sitelinks search box.
 });
 
 /** Breadcrumbs. Pass the trail without "Home" — it is prepended for you. */
@@ -249,16 +246,33 @@ export const faqSchema = (faqs: { question: string; answer: string }[]): Json =>
   })),
 });
 
+/**
+ * Open Graph / Article image for a post. Posts use an SVG cover on the site,
+ * but social cards and Article rich results need a raster image, so each SVG
+ * cover has a 1200x630 PNG twin in /blog-covers/og/.
+ */
+export const postOgImage = (post: BlogPost): string | undefined => {
+  const u = post.imageUrl || '';
+  if (!u) return undefined;
+  if (u.endsWith('.svg')) return absoluteUrl(`/blog-covers/og/${post.slug || post.id}.png`);
+  return u;
+};
+
+/** schema.org wants ISO 8601; the post data stores 'Nov 11, 2026'. */
+export const isoDate = (d: string): string => {
+  const t = new Date(d);
+  return Number.isNaN(t.getTime()) ? d : t.toISOString().slice(0, 10);
+};
+
 export const articleSchema = (post: BlogPost): Json => ({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   '@id': `${absoluteUrl(`/blog/${post.slug || post.id}`)}#article`,
   headline: post.title,
   description: post.excerpt,
-  // Article rich results want a raster image; the generated SVG covers are for the site only.
-  ...(post.imageUrl && !post.imageUrl.endsWith('.svg') ? { image: post.imageUrl } : {}),
-  datePublished: post.date,
-  dateModified: post.date,
+  ...(postOgImage(post) ? { image: postOgImage(post) } : {}),
+  datePublished: isoDate(post.date),
+  dateModified: isoDate(post.date),
   articleSection: post.category,
   author: { '@type': 'Person', name: SITE.author, url: `${SITE.url}/discover#about` },
   publisher: { '@id': ORG_ID },

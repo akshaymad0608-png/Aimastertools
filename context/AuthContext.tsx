@@ -1,6 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { auth, googleProvider } from '../firebase';
-import { signInWithPopup, signInWithRedirect, signOut, User, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider } from 'firebase/auth';
+import type { User } from 'firebase/auth';
+import { loadFirebaseApp, loadFirebaseAuth, loaded } from '../lib/firebaseLazy';
+
+/** Both modules, from cache when already loaded. */
+const fb = async () => {
+  const [app, authMod] = await Promise.all([loadFirebaseApp(), loadFirebaseAuth()]);
+  return { auth: app.auth, googleProvider: app.googleProvider, ...authMod };
+};
 
 interface AuthContextType {
   currentUser: User | null;
@@ -19,11 +25,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
-      setLoading(false);
-    });
-    return unsubscribe;
+    let unsubscribe: (() => void) | undefined;
+    let cancelled = false;
+    const start = () => {
+      fb()
+        .then(({ auth, onAuthStateChanged }) => {
+          if (cancelled) return;
+          unsubscribe = onAuthStateChanged(auth, (user) => {
+            setCurrentUser(user);
+            setLoading(false);
+          });
+        })
+        .catch((err) => {
+          console.error('Firebase failed to load', err);
+          if (!cancelled) setLoading(false);
+        });
+    };
+    // Wait until the page has settled so the Firebase chunk never competes with
+    // the first paint. A visitor who signs in sooner just loads it on demand.
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    const handle = w.requestIdleCallback ? w.requestIdleCallback(start, { timeout: 3000 }) : window.setTimeout(start, 1500);
+    return () => {
+      cancelled = true;
+      unsubscribe?.();
+      if (w.requestIdleCallback && (window as any).cancelIdleCallback) (window as any).cancelIdleCallback(handle);
+      else window.clearTimeout(handle);
+    };
   }, []);
 
   const sendWelcome = async (user: User) => {
@@ -48,6 +75,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async () => {
     try {
+      // Use the already-loaded modules when we have them so the popup opens
+      // inside the click; the provider kicks the load off at mount.
+      const { auth, googleProvider, signInWithPopup } =
+        loaded.app && loaded.auth
+          ? { auth: loaded.app.auth, googleProvider: loaded.app.googleProvider, signInWithPopup: loaded.auth.signInWithPopup }
+          : await fb();
       const result = await signInWithPopup(auth, googleProvider);
       sendWelcome(result.user).catch(err => console.error('Background welcome email failed', err));
     } catch (error: any) {
@@ -87,6 +120,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const loginWithRedirect = async () => {
     try {
+      const { auth, googleProvider, signInWithRedirect } = await fb();
       await signInWithRedirect(auth, googleProvider);
     } catch (error: any) {
       console.error('Redirect login failed:', error);
@@ -101,6 +135,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const loginWithEmail = async (email: string, pass: string) => {
     try {
+      const { auth, signInWithEmailAndPassword } = await fb();
       const result = await signInWithEmailAndPassword(auth, email, pass);
       await sendWelcome(result.user);
     } catch (error) {
@@ -111,6 +146,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const registerWithEmail = async (email: string, pass: string, name: string) => {
     try {
+      const { auth, createUserWithEmailAndPassword, updateProfile } = await fb();
       const result = await createUserWithEmailAndPassword(auth, email, pass);
       await updateProfile(result.user, { displayName: name });
       await sendWelcome(result.user);
@@ -122,6 +158,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = async () => {
     try {
+      const { auth, signOut } = await fb();
       await signOut(auth);
     } catch (error) {
       console.error('Logout failed:', error);
