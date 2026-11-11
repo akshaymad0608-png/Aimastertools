@@ -43,14 +43,14 @@ export const HeroBand: React.FC<HeroBandProps> = ({
       <div className="container-custom pb-12 pt-4 md:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-6">
           <div>
-            <p className="eyebrow">Independent · no pay-to-rank</p>
+            <p className="eyebrow">Independent · affiliate links disclosed</p>
 
             <h1 className="display-xl mt-5 text-[var(--color-text-primary)]">
               Every AI tool worth knowing. <em>In one place.</em>
             </h1>
 
             <p className="mt-6 max-w-xl text-[16.5px] leading-relaxed text-[var(--color-text-secondary)]">
-              {TOOL_COUNT} tools, checked and filed by hand — with real pricing, honest
+              {TOOL_COUNT} tools, filed by hand — with real pricing, honest
               limits, and what to use instead when one does not fit.
             </p>
 
@@ -92,7 +92,7 @@ export const HeroBand: React.FC<HeroBandProps> = ({
               {[
                 `${CATEGORY_COUNT} categories`,
                 `${FREE_TOOL_COUNT} free or open source`,
-                'Re-checked, not scraped',
+                'Written, not scraped',
               ].map((c) => (
                 <li key={c} className="inline-flex items-center gap-2">
                   <span

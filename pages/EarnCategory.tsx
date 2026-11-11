@@ -19,7 +19,7 @@ const EarnCategory: React.FC = () => {
   const name = clean(category.name);
   const n = category.sites.length;
   const title = `Best ${name} Websites (${CURRENT_YEAR}) — ${n} Legit Sites`;
-  const description = `${category.blurb} ${n} hand-checked sites, each with an official link and an honest, no-hype intro.`;
+  const description = `${category.blurb} ${n} curated sites, each with an official link and an honest, no-hype intro.`;
 
   return (
     <div className="page-top min-h-screen bg-[var(--color-background)] pb-16">

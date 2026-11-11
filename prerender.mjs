@@ -442,6 +442,37 @@ const mdToHtml = (md = '') =>
     })
     .join('');
 
+const blogIso = (d) => {
+  const t = new Date(d);
+  return Number.isNaN(t.getTime()) ? d : t.toISOString().slice(0, 10);
+};
+const blogJsonLd = (b) => [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${SITE}/blog/${b.slug}#article`,
+    headline: b.title,
+    description: b.excerpt,
+    ...(b.imageUrl && b.imageUrl.endsWith('.svg') ? { image: `${SITE}/blog-covers/og/${b.slug}.png` } : {}),
+    datePublished: blogIso(b.date),
+    dateModified: blogIso(b.date),
+    articleSection: b.category,
+    author: { '@type': 'Person', name: 'Akshay Mahajan' },
+    publisher: { '@id': `${SITE}/#organization` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${b.slug}` },
+    inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+      { '@type': 'ListItem', position: 3, name: b.title, item: `${SITE}/blog/${b.slug}` },
+    ],
+  },
+];
+
 const BLOG_ROUTES = BLOGS.filter((b) => b.slug).map((b) => ({
   path: `/blog/${b.slug}`,
   heading: b.title,
@@ -453,6 +484,11 @@ const BLOG_ROUTES = BLOGS.filter((b) => b.slug).map((b) => ({
     b.title,
   ], `/blog/${b.slug || ''}`),
   description: fitDescription(b.excerpt || `${b.title} — a guide from AI Master Tools.`, DESC_TAILS, `/blog/${b.slug || ''}`),
+  // 1200x630 PNG twin of the post's SVG cover: social cards and Article rich
+  // results need a raster image, and without this every post shared as the
+  // site-wide default.
+  ogImage: b.imageUrl && b.imageUrl.endsWith('.svg') ? `${SITE}/blog-covers/og/${b.slug}.png` : undefined,
+  jsonLd: blogJsonLd(b),
   extraHtml: `<p style="font-size:15px;color:#475569">${esc(b.excerpt || '')}</p>` +
     (b.content ? `<article style="font-size:16px;line-height:1.7">${mdToHtml(b.content)}</article>` : ''),
 }));
@@ -539,7 +575,7 @@ const ABOUT_HTML =
     '<strong>Found.</strong> Tools arrive from launches, from what people are actually asking for, and from gaps in a category that has none. A tool that only exists as a waitlist does not get an entry.',
     '<strong>Opened.</strong> Some entries come from opening the tool; many are written from the vendor documentation and public information, and the long write-ups are the ones to trust most. Entries without a full write-up are short listings and are kept out of search results until they get one.',
     `<strong>Filed.</strong> Each tool is filed by the job it does rather than the technology behind it, which is why there are ${CATEGORIES.length} categories and not five. Pricing is recorded as the tool actually charges: free, freemium, paid, usage-based, or open source.`,
-    '<strong>Re-checked.</strong> Pricing moves, free tiers get cut, and tools shut down. Entries are revisited rather than left to rot, and anything that dies is removed instead of being left to collect clicks.',
+    '<strong>Revised.</strong> Pricing moves, free tiers get cut, and tools shut down. Entries are updated when we notice a change, and anything that dies is removed instead of being left to collect clicks.',
   ]) +
   legalSection('Why there are no star scores', [
     'Entries used to carry an editorial score out of five. Almost every tool landed between 4.3 and 4.9, so the number told you very little, and it was not backed by tests or user reviews. It is no longer shown.',
@@ -586,14 +622,14 @@ const LEGAL_ROUTES = [
     path: '/about',
     heading: 'About AI Master Tools',
     title: 'About AI Master Tools — Who Compiles This Index, and How',
-    description: 'An independent index of AI tools, opened and filed by hand. How a tool gets listed, how the order is set, and how the site makes money.',
+    description: 'An independent index of AI tools, compiled and filed by hand. How a tool gets listed, how the order is set, and how the site makes money.',
     extraHtml: ABOUT_HTML,
   },
   {
     path: '/contact',
     heading: 'Contact AI Master Tools',
-    title: 'Contact AI Master Tools — Suggestions, Corrections and Enquiries',
-    description: 'Suggest a tool, report an outdated entry or broken link, or ask about advertising. We read every message and reply to corrections and tool suggestions.',
+    title: 'Contact AI Master Tools — Suggestions and Corrections',
+    description: 'Suggest a tool, report an outdated entry or broken link, or ask about advertising. We aim to reply to corrections and tool suggestions.',
   },
   {
     path: '/privacy',
@@ -830,7 +866,7 @@ const routes = [
         ).join('')}</ul>`
       : '',
   },
-  { path: '/discover', keywords: 'discover AI tools, trending AI tools, new AI tools 2026, best new AI tools, AI tools to try', title: `Discover New and Trending AI Tools, Updated Weekly`, description: 'Discover new and trending AI tools across every category — chatbots, image, video, writing, coding and automation — with pricing, ratings and honest reviews.' },
+  { path: '/discover', keywords: 'discover AI tools, trending AI tools, new AI tools 2026, best new AI tools, AI tools to try', title: `Discover New and Trending AI Tools`, description: 'Discover new and trending AI tools across every category — chatbots, image, video, writing, coding and automation — with pricing, ratings and honest reviews.' },
   { path: '/find', keywords: 'AI tool finder, find the right AI tool, AI tool recommendation, best AI tool for me, which AI tool should I use', title: `AI Tool Finder — Answer 3 Questions | AI Master Tools`, description: 'Not sure which AI tool you need? Answer three quick questions about your job, budget and skill level, and we will shortlist the best tools for you — free.' },
   {
     path: '/earn',
@@ -858,7 +894,7 @@ const routes = [
         `Best ${cn} Websites to Earn Online (${YEAR})`,
         `Best ${cn} Websites (${YEAR})`,
       ], `/earn/${slugify(cn)}`),
-      description: clamp(`${c.blurb} ${c.sites.length} hand-checked sites, each with an official link and an honest intro.`),
+      description: clamp(`${c.blurb} ${c.sites.length} curated sites, each with an official link and an honest intro.`),
       extraHtml: `<ul style="font-size:15px;line-height:1.7;color:#475569;padding-left:18px">${c.sites
         .map((s) => `<li><strong>${esc(s.name)}</strong> — ${esc(s.intro)}</li>`)
         .join('')}</ul>`,
@@ -1126,6 +1162,11 @@ for (const route of routes) {
   if (route.jsonLd) {
     const script = `<script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script>`;
     html = html.replace('</head>', `${script}\n  </head>`);
+  }
+  if (route.ogImage) {
+    html = html
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${route.ogImage}$2`)
+      .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${route.ogImage}$2`);
   }
 
   const outPath = join(DIST, route.path.slice(1), 'index.html');

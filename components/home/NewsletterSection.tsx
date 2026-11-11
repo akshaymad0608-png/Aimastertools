@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Loader2, ArrowRight } from 'lucide-react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { loadFirebaseApp, loadFirestore } from '../../lib/firebaseLazy';
 
 interface NewsletterSectionProps {
   showToast: (type: 'success' | 'error', text: string) => void;
@@ -23,6 +22,7 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ showToast 
     }
     setStatus('submitting');
     try {
+      const [{ db }, { collection, addDoc, serverTimestamp }] = await Promise.all([loadFirebaseApp(), loadFirestore()]);
       await addDoc(collection(db, 'newsletter_emails'), { email, subscribedAt: serverTimestamp() });
       setStatus('idle');
       setEmail('');

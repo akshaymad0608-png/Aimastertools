@@ -32,9 +32,9 @@ const METHOD = [
     body: `Each tool is filed by the job it does rather than the technology behind it, which is why there are ${CATEGORY_COUNT} categories and not five. Pricing is recorded as the tool actually charges: free, freemium, paid, usage-based, or open source.`,
   },
   {
-    step: 'Re-checked',
+    step: 'Revised',
     body:
-      'Pricing moves, free tiers get cut, and tools shut down. Entries are revisited rather than left to rot, and anything that dies is removed instead of being left to collect clicks.',
+      'Pricing moves, free tiers get cut, and tools shut down. Entries are updated when we notice a change, and anything that dies is removed instead of being left to collect clicks.',
   },
 ];
 
@@ -52,7 +52,7 @@ const About: React.FC = () => {
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
         title={`About AI Master Tools — Who Compiles This Index, and How`}
-        description={`AI Master Tools is an independent index of ${TOOL_COUNT} AI tools, compiled and re-checked by hand. How tools get listed, how the order is set, and how the site makes money.`}
+        description={`AI Master Tools is an independent index of ${TOOL_COUNT} AI tools, compiled and revised by hand. How tools get listed, how the order is set, and how the site makes money.`}
         url="/about"
         keywords={[
           'about AI Master Tools',

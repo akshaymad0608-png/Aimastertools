@@ -26,7 +26,7 @@ const REASONS = [
     n: '02',
     title: 'Pricing as it is actually charged',
     body:
-      'Free, freemium, paid, usage-based or open source — recorded from the pricing page rather than the marketing one, and re-checked when it moves.',
+      'Free, freemium, paid, usage-based or open source — recorded from the pricing page rather than the marketing one, and revised when we notice it move.',
     to: '/free',
     cta: 'Tools with a free tier',
   },

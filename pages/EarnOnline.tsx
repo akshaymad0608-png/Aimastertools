@@ -59,7 +59,7 @@ const EarnOnline: React.FC = () => {
         <PageHeader
           eyebrow="Earn online"
           title={<>Websites to <em>earn online</em></>}
-          lede="A hand-checked directory of legitimate sites where people find work or sell what they make — remote jobs, freelance, surveys, testing, gig work, e-commerce, teaching and more. Every entry links straight to the official site."
+          lede="A curated directory of legitimate sites where people find work or sell what they make — remote jobs, freelance, surveys, testing, gig work, e-commerce, teaching and more. Every entry links straight to the official site."
           meta={
             <>
               <span className="label-mono tabular-nums">{EARN_SITE_COUNT}+ websites</span>

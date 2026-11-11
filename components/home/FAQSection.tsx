@@ -25,8 +25,8 @@ export const HOME_FAQS = [
   {
     question: 'How often is the directory updated?',
     answer:
-      'New tools are added continuously and every outbound link is re-checked weekly, so dead pages and ' +
-      'shut-down products get removed rather than left to rot. Pricing is reviewed whenever a tool announces a change.',
+      'New tools are added as they launch, with no fixed schedule. Dead pages and shut-down products are removed ' +
+      'when we notice them, and pricing is revised when a tool announces a change.',
   },
   {
     question: 'How do you decide which AI tools are featured?',

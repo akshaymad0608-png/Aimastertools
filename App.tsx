@@ -52,8 +52,11 @@ const EarnCategory = lazy(() => import('./pages/EarnCategory'));
 const FreeTools = lazy(() => import('./pages/FreeTools'));
 const FreeCategory = lazy(() => import('./pages/FreeCategory'));
 
+// min-h-screen, not a fraction of it: the footer sits right under this while a
+// route chunk loads, and if it is on screen when the page arrives it is pushed
+// out of view, which Chrome scores as a layout shift (CLS 0.4 at 1366px).
 const PageLoader = () => (
-  <div className="flex-grow flex items-center justify-center min-h-[60vh]">
+  <div className="flex-grow flex items-center justify-center min-h-screen">
     <Loader2 className="w-10 h-10 animate-spin text-[var(--color-primary)]" />
   </div>
 );

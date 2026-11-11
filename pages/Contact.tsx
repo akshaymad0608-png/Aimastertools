@@ -35,8 +35,8 @@ const Contact: React.FC = () => {
   return (
     <main className="page-top min-h-screen bg-[var(--color-background)] pb-24">
       <SEO
-        title="Contact AI Master Tools — Suggestions, Corrections and Enquiries"
-        description="Suggest a tool, report an outdated entry, or ask about advertising. We read every message and reply to corrections and tool suggestions."
+        title="Contact AI Master Tools — Suggestions and Corrections"
+        description="Suggest a tool, report an outdated entry, or ask about advertising. We aim to reply to corrections and tool suggestions."
         url="/contact"
         keywords={[
           'contact AI Master Tools',
