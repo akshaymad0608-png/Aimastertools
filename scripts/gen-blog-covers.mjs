@@ -223,6 +223,25 @@ const motifs = {
     p('M562 330 A40 40 0 0 1 632 312', 'none', P, 9) + p('M638 296 L632 318 L610 312', 'none', P, 9) +
     p('M638 360 A40 40 0 0 1 568 378', 'none', P, 9) + p('M562 394 L568 372 L590 378', 'none', P, 9) +
     l(250, 261, 440, 261, G3, 4) + sparkle(1030, 200, 22, PM),
+  code: () =>
+    card(250, 190, 700, 330) + r(250, 190, 700, 62, 22, G2, G3, 3) + c(290, 221, 9, PM) + c(322, 221, 9, G3) + c(354, 221, 9, G3) +
+    mono(330, 330, '&lt;/&gt;', 56, P, 'start') + l(330, 372, 640, 372, G3, 10) + l(330, 410, 560, 410, G2, 10) +
+    r(330, 438, 22, 40, 4, P, 'none', 0, 'opacity="0.85"') +
+    c(850, 420, 52, PL, P, 6) + check(850, 420, P, 1.6) + sparkle(1010, 170, 26, PM) + sparkle(190, 520, 16, PM),
+  student: () =>
+    p('M600 250 C520 215 420 215 340 240 V470 C420 445 520 445 600 480 Z', G1, P, 7) +
+    p('M600 250 C680 215 780 215 860 240 V470 C780 445 680 445 600 480 Z', G1, P, 7) +
+    l(600, 250, 600, 480, P, 7) + lines(380, 290, 4, 180, 30, G3, 9) + lines(640, 290, 4, 180, 30, G3, 9) +
+    c(890, 215, 56, PL, P, 6) + check(890, 215, P, 1.6) + sparkle(250, 190, 24, PM) + sparkle(1010, 520, 18, PM),
+  voice: () =>
+    r(540, 190, 120, 210, 60, G1, P, 8) + p('M480 340 C480 430 720 430 720 340', 'none', P, 8) + l(600, 430, 600, 500, P, 8) + l(540, 500, 660, 500, P, 8) +
+    [0, 1, 2, 3].map((i) => r(770 + i * 46, 300 - [30, 70, 50, 20][i] / 1, 22, 60 + [30, 70, 50, 20][i] * 1.4, 11, i % 2 ? P : PM)).join('') +
+    [0, 1, 2, 3].map((i) => r(376 - i * 46, 300 - [30, 70, 50, 20][i] / 1, 22, 60 + [30, 70, 50, 20][i] * 1.4, 11, i % 2 ? P : PM)).join('') +
+    sparkle(1010, 170, 24, PM),
+  image: () =>
+    card(310, 190, 580, 360) + r(340, 220, 520, 300, 14, PL) + c(740, 290, 38, G1, P, 6) +
+    p('M340 500 L470 350 L560 440 L650 330 L860 500 Z', P) + p('M340 500 L470 400 L540 470 L600 420 L860 500 Z', PD, 'none', 0, 'opacity="0.35"') +
+    sparkle(250, 200, 28, PM) + sparkle(960, 510, 22, PM) + sparkle(960, 190, 14, PM),
   gift: () =>
     r(430, 290, 340, 250, 22, G1, P, 7) + r(410, 230, 380, 76, 20, PL, P, 7) +
     r(572, 230, 56, 310, 0, P) + p('M600 230 C540 150 470 170 500 215 C520 240 580 232 600 230 C620 232 680 240 700 215 C730 170 660 150 600 230Z', 'none', P, 8) +
@@ -249,6 +268,10 @@ const posts = {
   'why-scheduled-automations-fail-silently': 'calendar',
   'is-automating-linkedin-safe-rules-safer-setup': 'linkedin',
   'choosing-automation-platform-n8n-make-zapier': 'compare',
+  'ai-coding-assistants-when-they-help-when-they-hurt': 'code',
+  'free-ai-tools-for-students-study-without-cheating': 'student',
+  'text-to-speech-ai-voices-free-vs-paid-what-to-check': 'voice',
+  'ai-image-generators-licensing-commercial-use-what-to-check': 'image',
   'how-to-write-better-ai-prompts-structure-and-mistakes': 'choose',
   'ai-resume-cover-letter-tools-what-to-check-before-you-send': 'linkedin',
   'ai-meeting-note-takers-privacy-accuracy-consent': 'phone',
