@@ -202,6 +202,16 @@ const Footer: React.FC = () => {
         <div className="mt-12 flex flex-col gap-6 border-t border-[var(--color-border)] pt-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-2xl space-y-2 text-[13px] text-[var(--color-text-secondary)]">
             <p>© {new Date().getFullYear()} AI Master Tools. All rights reserved.</p>
+            <p>
+              Built and maintained by{' '}
+              <a
+                href="https://akshay.website"
+                className="font-medium text-[var(--color-text-primary)] underline underline-offset-4 hover:text-[var(--color-primary)]"
+              >
+                Akshay Mahajan
+              </a>
+              , a full-stack and AI web developer in Surat, India.
+            </p>
             <p className="text-[var(--color-text-muted)]">
               <strong className="font-semibold text-[var(--color-text-secondary)]">Affiliate disclosure:</strong>{' '}
               some outbound links earn us a commission. It costs you nothing and it does not
