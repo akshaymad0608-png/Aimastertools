@@ -283,7 +283,7 @@ const ALTERNATIVES_ROUTES = TOOLS.map((t) => {
       `Best ${t.name} Alternatives (${YEAR})`,
     ], `/alternatives/${slugify(t.id)}-alternatives`),
     description: clamp(
-      `Looking for an alternative to ${t.name}? Compare ${alts.length} other ${cat} tools on pricing and what each one is actually good at.`,
+      `Looking for an alternative to ${t.name}? Compare ${alts.length} other ${/tools?$/.test(cat) ? cat : `${cat} tools`} on pricing and what each one is actually good at.`,
     ),
     extraHtml: alts.length
       ? `<p style="font-size:15px;color:#475569">${esc(t.name)} is a ${esc(cat)} tool${

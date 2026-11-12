@@ -1583,6 +1583,320 @@ Some errors are subtle: a correct fact in the wrong context, a real study that d
 
 **Related:** [AI tool privacy checklist](/blog/ai-tool-privacy-data-checklist) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [Prompt injection: a plain guide](/blog/prompt-injection-plain-guide-for-automators)`,
   },
+  {
+    id: '31',
+    slug: 'ai-coding-assistants-when-they-help-when-they-hurt',
+    title: 'AI Coding Assistants: When They Help and When They Hurt',
+    category: 'CODING',
+    excerpt: 'Where AI coding tools save time, where they cause bugs and security problems, and a review routine that keeps you in control.',
+    date: 'Nov 12, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/ai-coding-assistants-when-they-help-when-they-hurt.svg',
+    url: '/blog/ai-coding-assistants-when-they-help-when-they-hurt',
+    content: `AI coding assistants can write a function in seconds, explain an unfamiliar error and draft tests you would rather not type. They can also produce code that looks right, runs once, and fails later in a way that is hard to trace. The skill is knowing which jobs to hand over and which to keep. This guide covers where these tools help, where they hurt, and a review routine that keeps you in control. You can compare editors and agents in our [code and development category](/category/code-and-development), which includes tools such as [Cursor](/tool/cursor), [Windsurf](/tool/windsurf), [GitHub Copilot](/tool/github-copilot) and [Cline](/tool/cline), and general assistants such as [Claude](/tool/claude), [ChatGPT](/tool/chatgpt) and [Gemini](/tool/gemini). Features, limits and prices change, so check each tool's current page.
+
+## Three ways these tools work
+
+- **Autocomplete in your editor.** The tool suggests the next line or block as you type. It is fast and low risk, because you see each suggestion before you accept it.
+- **Chat about your code.** You ask a question, paste an error or request an explanation. It is good for learning and for getting unstuck.
+- **Agents that edit many files and run commands.** You describe a task and the tool plans, edits and sometimes runs tests. It saves the most time and carries the most risk, because one request can change many files.
+
+Start with the first two. Move to agents once you have a habit of reviewing every change.
+
+## Where they help
+
+- **Boilerplate.** Config files, repetitive data shapes, simple forms and standard setup are well covered by examples the models have seen many times.
+- **Explaining code.** Paste a block you do not understand and ask for a plain explanation, then check it against the documentation.
+- **First drafts of tests.** A model can list cases you forgot, such as empty input and wrong types. Read each test to make sure it checks something real.
+- **Small refactors.** Renaming, extracting a function or converting a loop is easier to review than to type.
+- **Translating between languages or frameworks.** The result is a starting point, not a finished port.
+- **Reading error messages.** Ask what an error means and what to try next.
+
+## Where they hurt
+
+### Plausible but wrong code
+
+A model can call a function that does not exist, use an option from an old version of a library, or misread what you meant. The code compiles in your head, not in reality. Always run it.
+
+### Security problems
+
+Generated code may build a database query from raw input, skip input checks, store secrets in plain text or use an outdated cryptographic method. Do not accept security-sensitive code without a careful review, and use your usual scanners. See our [security checklist for automation](/blog/ai-automation-security-checklist-keys-data-webhooks) for habits that also apply to code.
+
+### Your private code and keys
+
+Whatever you paste or let an agent read may leave your machine. Do not paste secrets, customer data or code you are not allowed to share. Check how the tool handles your data, and use ignore files to keep credentials out of reach. Our [privacy checklist](/blog/ai-tool-privacy-data-checklist) lists what to look for.
+
+### Licences and ownership
+
+Ask your tool vendor and your employer about their policies on generated code, and check whether the tool offers settings that limit suggestions to avoid code that matches public repositories. If you work for a company, follow its rules.
+
+### Large unreviewed changes
+
+An agent can change twenty files at once. If you cannot review the whole change, you do not understand what you are shipping.
+
+### Skills that fade
+
+If the tool always writes the hard parts, you stop learning them. Use it to explain and check your own attempts, especially when you are new.
+
+## A review routine for AI-written code
+
+1. **Read every line** before you accept it. If you cannot explain a line, ask the tool to explain it, then check the answer.
+2. **Run it.** Run the code, the tests and the linter. Try an empty input, a very large input and a wrong type.
+3. **Check every import and function name** against the real documentation for the version you use.
+4. **Look for hidden changes.** Use your version control diff to see everything that changed, not just the file you asked about.
+5. **Keep changes small.** Ask for one change, review it, commit it, and then ask for the next.
+6. **Write or review the tests yourself** for anything that matters, such as money, permissions and data deletion.
+7. **Never paste secrets.** Use placeholders and environment variables.
+
+## Prompts that give better code
+
+Include the language and version, the libraries you already use, the input and output you expect, an example, and the constraints, such as no new dependencies or must run on a particular version. Paste the full error message and the few lines around it. For more on structure, see [how to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes).
+
+## Choosing a tool
+
+Decide what you need: inline suggestions, chat, or an agent. Check which editors it supports, how it handles your code, whether a free plan is enough for a real project, and what happens when you hit a limit. Try it on a small, real task of your own before you commit. Our [guide to choosing an AI tool](/blog/how-to-choose-an-ai-tool-checklist) walks through the questions, and you can also run models yourself, as described in [running AI models locally](/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm).
+
+## A simple rule
+
+Treat AI-written code like code from a new colleague you have not worked with before: useful, fast, and in need of review before it goes anywhere important.
+
+**Related:** [Code and development tools](/category/code-and-development) · [How to fact-check AI output](/blog/how-to-fact-check-ai-output-hallucinations) · [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026)`,
+  },
+  {
+    id: '32',
+    slug: 'free-ai-tools-for-students-study-without-cheating',
+    title: 'Free AI Tools for Students: Study Better Without Cheating',
+    category: 'RESEARCH',
+    excerpt: 'Free AI tools that help you understand and practise, how to follow your school rules, and the mistakes that cost students marks.',
+    date: 'Nov 12, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/free-ai-tools-for-students-study-without-cheating.svg',
+    url: '/blog/free-ai-tools-for-students-study-without-cheating',
+    content: `AI tools can make studying faster, and they can also let you skip the learning that studying is for. The difference lies in how you use them. A tool that explains a hard idea, quizzes you and checks your reasoning builds understanding. A tool that writes your essay builds nothing, and may break your school's rules. This guide covers free AI tools that help students learn, how to use them honestly, and the mistakes to avoid. Browse more options in our [learning and education category](/category/learning-and-education). Features, free limits and age rules change, so check each tool's current page.
+
+## First, know your school's rules
+
+Policies on AI differ between schools, courses and even assignments. Some allow AI for brainstorming but not for writing. Some require you to state how you used it. Some forbid it for graded work. **Read the policy in your course outline, and ask your teacher if it is unclear.** Breaking the rules can cost you far more than the time you saved. If AI use is allowed, keep a note of what you asked and what you did with the answer, in case you need to show your process.
+
+## What free tools are good for
+
+### Understanding a topic
+
+General assistants such as [ChatGPT](/tool/chatgpt), [Claude](/tool/claude) and [Gemini](/tool/gemini) can explain an idea at your level, give another example or answer a follow-up question. Ask for a simple explanation first, then a more detailed one. [Khan Academy](/tool/khan-academy) offers free lessons, and [Khanmigo](/tool/khanmigo) is its AI tutor, so check its page for current access and any age or account requirements.
+
+### Studying your own notes
+
+A tool that works from the material you supply, such as [NotebookLM](/tool/notebooklm), can summarise your notes, answer questions about them and help you find gaps. Because it is based on your sources, you can check its answers against them.
+
+### Practice and quizzing
+
+Ask an assistant to quiz you on a chapter, one question at a time, wait for your answer and then explain what you missed. This kind of retrieval practice is more effective than re-reading, because it forces you to recall.
+
+### Language and writing feedback
+
+A grammar and writing tool such as [Grammarly](/tool/grammarly) can point out errors and unclear sentences. Learn from the corrections instead of accepting every change, and check what your school allows for graded writing.
+
+### Finding sources
+
+A search assistant such as [Perplexity](/tool/perplexity) can show sources next to an answer. Open the sources and read them, and do not rely on the summary alone. For structured courses, [Coursera](/tool/coursera) lists many options, with free and paid access that varies by course.
+
+## Good ways to use AI as a student
+
+1. **Ask it to teach, not to answer.** "Explain this to me step by step, then ask me a question to check that I understood."
+2. **Attempt first.** Try the problem yourself, then ask the tool to find the mistake in your work.
+3. **Ask for hints.** "Give me a hint, not the full solution."
+4. **Turn notes into questions.** Paste your own notes and ask for practice questions.
+5. **Check against your textbook.** Treat the AI as a study partner who is sometimes wrong.
+6. **Write in your own words.** Use it to improve your understanding, then write the answer yourself.
+
+## What to avoid
+
+- **Submitting AI-written work as your own.** It is dishonest, easy to detect by a teacher who knows your voice, and it leaves you unable to do the work in an exam.
+- **Trusting facts without checking.** AI can invent facts, dates, quotes and references. See [how to fact-check AI output](/blog/how-to-fact-check-ai-output-hallucinations).
+- **Fake citations.** Never cite a source you have not opened. Models sometimes produce references that do not exist.
+- **Pasting private data.** Do not paste personal details, other students' work or anything confidential. See our [privacy checklist](/blog/ai-tool-privacy-data-checklist).
+- **Using AI detectors as proof.** Detection tools are unreliable and can flag honest work. Keep your drafts and notes to show your process.
+- **Skipping the struggle.** Confusion is part of learning. If a tool removes all difficulty, little is learned.
+
+## Age and account rules
+
+Many services set minimum ages or require a parent or school account for younger users. If you are under the stated age, use a tool through a school or a parent, and follow your school's guidance.
+
+## A simple study routine with AI
+
+1. Read or watch the lesson.
+2. Write a short summary from memory.
+3. Ask an assistant to check your summary against the source and point out what is missing.
+4. Ask for five practice questions, answer them without help, and review the answers.
+5. Note what you still do not understand, and ask for a different explanation.
+6. Next day, quiz yourself again.
+
+## Writing better prompts
+
+Say your level, the subject and what you want: "I am in grade 10. Explain photosynthesis simply, then give me three questions to test me." For more, see [how to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes), and read about [free plans](/blog/ai-tools-free-plans-what-you-really-get-2026) before you rely on a tool that may add limits later.
+
+**Related:** [Learning and education tools](/category/learning-and-education) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [AI resume and cover letter tools](/blog/ai-resume-cover-letter-tools-what-to-check-before-you-send)`,
+  },
+  {
+    id: '33',
+    slug: 'text-to-speech-ai-voices-free-vs-paid-what-to-check',
+    title: 'Text-to-Speech AI Voices: Free vs Paid, and What to Check',
+    category: 'PRODUCTIVITY',
+    excerpt: 'What free text-to-speech plans allow, how to check commercial use and voice rights, and how to get a natural result from your script.',
+    date: 'Nov 12, 2026',
+    readTime: '7 min read',
+    imageUrl: '/blog-covers/text-to-speech-ai-voices-free-vs-paid-what-to-check.svg',
+    url: '/blog/text-to-speech-ai-voices-free-vs-paid-what-to-check',
+    content: `AI voices can narrate a video, read an article aloud or give a product demo a clear soundtrack in minutes. The best ones sound natural, and the worst ones sound flat or mispronounce names. Before you pick a tool, it helps to know what free plans usually allow, what to check about rights, and how to get a good result from the script. This guide covers all three. Compare options in our [voice and audio AI category](/category/voice-and-audio-ai), which includes tools such as [ElevenLabs](/tool/elevenlabs), [Play.ht](/tool/playht), [Murf](/tool/murf-ai), [Speechify](/tool/speechify) and [Descript](/tool/descript). Features, limits and prices change often, so check each tool's current page.
+
+## What text-to-speech tools do
+
+- **Text to speech.** You paste a script, pick a voice and language, and the tool produces audio.
+- **Voice cloning.** Some tools can create a synthetic copy of a voice from a sample. This is powerful and needs strict care about permission.
+- **Editing and dubbing.** Some tools let you edit audio by editing text, or translate and dub speech into other languages.
+
+## What to check before you choose
+
+### 1. Free plan limits
+
+Free plans usually limit the number of characters or minutes each month, the voices you can use and the export quality. They may add a watermark or require credit, or may not allow commercial use. Read the plan details, and test with a real script before you assume it fits.
+
+### 2. Commercial use
+
+If you will publish the audio in a video, an ad, a course or a product, check whether your plan allows commercial use. Terms often differ between free and paid plans. Keep a copy of the terms that applied on the day you made the audio.
+
+### 3. Voice rights
+
+Standard voices are licensed by the provider under their own terms. If a tool offers voices based on real people, check the rules for how those voices may be used. Never clone a real person's voice without their clear permission, and do not use a voice to imitate someone in a way that could mislead people. Laws on voice and likeness differ by place, so take this seriously.
+
+### 4. Languages and accents
+
+A voice may sound good in one language and poor in another. If you need a specific language or regional accent, test a sample paragraph with the words and names you will use.
+
+### 5. Control over delivery
+
+Look for controls for speed, pauses, emphasis and pronunciation. Being able to fix one mispronounced name saves a lot of time.
+
+### 6. Output formats and quality
+
+Check the audio formats you can export, such as MP3 or WAV, and the quality limits on the free plan.
+
+### 7. Privacy and data
+
+Your script is uploaded to the service. Do not upload confidential text, and read what the provider says about storing and reusing your content. See our [privacy checklist](/blog/ai-tool-privacy-data-checklist).
+
+### 8. Disclosure
+
+Platforms and some laws may require you to say when audio is AI-generated, especially if it could be mistaken for a real person. When in doubt, say so.
+
+## How to get a better result
+
+1. **Write for the ear.** Use short sentences and plain words. Read the script aloud first, and cut anything you stumble over.
+2. **Spell tricky words as they sound.** If a name or acronym is mispronounced, write it phonetically or use the tool's pronunciation setting.
+3. **Use punctuation to control pace.** Commas and full stops create pauses. Break long paragraphs into short ones.
+4. **Generate in small parts.** Make a paragraph at a time. If one part sounds wrong, you only redo that part.
+5. **Keep one voice per project.** Voices can differ slightly between generations, so stay consistent and keep the settings you used.
+6. **Listen on the device your audience will use.** Phone speakers and headphones reveal different problems.
+7. **Add light background music at a low level.** Make sure the voice stays clear.
+8. **Check the whole file before you publish.** Listen from start to end for errors, odd stress and clipped words.
+
+## Free versus paid, in practice
+
+A free plan is enough to test voices and make a short clip. If you need longer audio, many voices, high-quality export or clear commercial rights, a paid plan is usually where those arrive. Estimate your monthly volume before you pay, and read our [guide to free plans](/blog/ai-tools-free-plans-what-you-really-get-2026) and [what AI automation really costs](/blog/what-ai-automation-really-costs-free-vs-paid) for ways to compare cost fairly.
+
+## Using a voice for a reel or a short video
+
+Short videos need a clear, steady voice and captions, because many people watch without sound. Write a script of around two to three sentences per scene, generate each scene separately and cut the silence between them. Add a text overlay that matches the speech, so the message works with or without audio.
+
+## Quick checklist
+
+- Does the plan allow commercial use?
+- Is the voice licensed for my purpose?
+- Do I have permission for any real person's voice?
+- Did I test my real script, names and language?
+- Have I listened to the final file from start to end?
+- Have I disclosed AI use where required?
+
+**Related:** [Voice and audio AI tools](/category/voice-and-audio-ai) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [How to write better AI prompts](/blog/how-to-write-better-ai-prompts-structure-and-mistakes)`,
+  },
+  {
+    id: '34',
+    slug: 'ai-image-generators-licensing-commercial-use-what-to-check',
+    title: 'AI Image Generators: Licensing and Commercial Use Checklist',
+    category: 'DESIGN',
+    excerpt: 'Before you publish an AI image, check what the tool allows, who owns the copyright, what could infringe, and when to disclose.',
+    date: 'Nov 12, 2026',
+    readTime: '8 min read',
+    imageUrl: '/blog-covers/ai-image-generators-licensing-commercial-use-what-to-check.svg',
+    url: '/blog/ai-image-generators-licensing-commercial-use-what-to-check',
+    content: `AI image generators make it easy to produce a cover, a poster or a product mockup in a minute. The harder question comes after: **can you use the picture, and for what?** Terms differ between tools and plans, the law on AI-made images is still developing, and a mistake can mean a takedown or a legal claim. This guide explains the points to check before you use an AI image in your work. It is general information, not legal advice. Compare tools in our [image and art generation category](/category/image-and-art-generation), which includes [Midjourney](/tool/midjourney), [Stable Diffusion](/tool/stable-diffusion), [Ideogram](/tool/ideogram), [Leonardo AI](/tool/leonardo-ai) and [Adobe Firefly](/tool/adobe-firefly). Terms and prices change, so always read the current ones.
+
+## Four separate questions
+
+People often mix these up, so keep them apart:
+
+1. **Does the tool let me use the image commercially?** This is a contract question, answered by the terms of service and your plan.
+2. **Do I own the copyright in the image?** This is a legal question that depends on the country and on how much human creative input there was.
+3. **Could the image infringe someone else's rights?** This covers copyright, trademarks, likenesses and designs.
+4. **Do I need to disclose that it is AI-made?** Platforms, clients and some laws may require it.
+
+## 1. What the tool allows
+
+Read the terms and the pricing page for your plan. Look for:
+
+- Whether commercial use is allowed, and on which plans. Free and paid plans often differ.
+- Who the terms say owns the output, and what rights the provider keeps.
+- Whether images made on a free plan must be credited or are public by default.
+- Whether there are limits for large companies, or on uses such as selling the images as stock or as a product by themselves.
+- Whether the provider offers any legal protection for business users, and under what conditions. Do not assume it exists.
+
+Save a copy of the terms and a record of your plan on the date you created the image, since terms can change.
+
+## 2. Copyright in AI images
+
+The law varies by country and is changing. In the United States, the Copyright Office has said that material made entirely by AI, without enough human creative control, may not be protected by copyright, while human-made parts, such as your own edits, arrangement or text, may be. Other countries take different approaches. What this means in practice is that **you may not be able to stop others from copying a purely AI-made image**. If an image is central to your brand, such as a logo, add your own creative work and consider speaking to a lawyer.
+
+## 3. Avoiding infringement
+
+- **Do not ask for living artists' styles by name** for commercial work, and avoid prompts that try to copy a specific piece. Even where this is not clearly illegal, it can cause disputes and upset people.
+- **Avoid trademarks and characters.** Logos, brand names, mascots and film or game characters are protected. Images that include them can lead to takedown notices.
+- **Be careful with real people.** Do not create images that put a real person in a false or embarrassing situation, and do not use someone's likeness for advertising without permission. Some places have specific rules about deepfakes and synthetic media.
+- **Check the output.** Models can sometimes reproduce elements that look like existing work or contain garbled logos and text. Look closely before you publish.
+- **Do not generate images of children or intimate images of real people.** This is harmful and often illegal.
+
+## 4. Disclosure and platform rules
+
+Social platforms, stock sites, publishers and ad networks have their own rules about AI-made images, and some require labels. Clients may have their own policies. If an image could be taken for a real photograph, such as a news-style scene, label it clearly as AI-made. Our [guide to checking AI output](/blog/how-to-fact-check-ai-output-hallucinations) applies here as well, since images can contain wrong details, such as incorrect text, hands or maps.
+
+## A pre-publish checklist
+
+- My plan allows commercial use, and I saved the terms.
+- The image does not include logos, trademarks, characters or text I do not have rights to.
+- It does not copy a named living artist's style in a way that could mislead.
+- It does not show a real person without permission.
+- I checked the details closely for errors and odd artefacts.
+- I added my own creative work if the image is important to my brand.
+- I have disclosed AI use where required.
+- I kept the prompt, the tool name, the date and the plan, in case someone asks.
+
+## Practical tips
+
+- **Prefer tools with clear terms.** A tool that explains output rights in plain language is easier to rely on.
+- **Use the image as a base.** Edit, combine and add text yourself. The more of your own work, the clearer your position.
+- **Keep images for ads and logos under extra review.** They carry more risk than a blog illustration.
+- **Use your own photos where possible.** Real photos you own are the cleanest option for people and places.
+- **Do not upload private images** to a tool without checking what it does with them. See our [privacy checklist](/blog/ai-tool-privacy-data-checklist).
+
+## Running a model yourself
+
+Open-source models such as Stable Diffusion can run on your own machine, which gives you more control over your files. Their licences and the licences of any add-on models still apply, so read them. Our comparison of [ComfyUI and WebUI Forge](/blog/comfyui-vs-stable-diffusion-webui-forge) covers the interfaces, and [running AI models locally](/blog/run-ai-models-locally-ollama-lm-studio-gpt4all-anythingllm) explains the setup.
+
+## When to ask a lawyer
+
+If you plan to sell products with AI images, use them in a major campaign, build a brand around them or work for a client with strict rules, talk to a qualified lawyer in your country. The cost is small compared with a dispute.
+
+**Related:** [Image and art generation tools](/category/image-and-art-generation) · [How to choose an AI tool](/blog/how-to-choose-an-ai-tool-checklist) · [AI tool free plans explained](/blog/ai-tools-free-plans-what-you-really-get-2026)`,
+  },
 ];
 
 /**

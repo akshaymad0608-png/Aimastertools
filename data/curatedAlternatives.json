@@ -341,5 +341,57 @@
       { "q": "Which alternative is best for data science practice?", "a": "Kaggle Learn for free hands-on lessons, or DataCamp if you want a larger interactive library and can pay for it." },
       { "q": "Which option is best for learners in India?", "a": "NPTEL, for courses and exam-based certification from Indian technical institutes. IBM SkillsBuild is also available in India." }
     ]
+  },
+  "ux-planet": {
+    "title": "UX Planet Alternatives: 6 UX Learning Resources Compared",
+    "description": "UX Planet is a free UX reading resource. Compare Material Design, Figma Learn, Learn UI Design, Coursera, Canva Design School and Dribbble.",
+    "quickAnswer": "UX Planet is a free, article-style resource for user experience design. If you want exact rules and components, Material Design is a design system you can apply directly. For help with the tool itself, Figma Learn has tutorials. If you need a structured path, Learn UI Design is a paid video course and Coursera lists UX and design courses. Canva Design School covers visual basics, and Dribbble is for visual inspiration.",
+    "alternatives": [
+      {
+        "id": "material-design",
+        "bestFor": "Concrete design-system guidelines",
+        "note": "Described as an adaptable system of guidelines, components and tools. It is useful when you need specific rules for layout, components and behaviour rather than essays about UX. It reflects one company's design language, so judge how far it fits your own product."
+      },
+      {
+        "id": "figma-learn",
+        "bestFor": "Learning the Figma tool itself",
+        "note": "Tutorials, articles and videos on using Figma. It answers how to do something in the tool, not why a design decision is right, so use it alongside UX reading rather than instead of it."
+      },
+      {
+        "id": "learn-ui-design",
+        "bestFor": "A structured video course",
+        "note": "A complete video course aimed at developers, product managers and UX designers, listed here as paid. A course gives order and exercises that scattered articles do not. Check the current price and what is included before you buy."
+      },
+      {
+        "id": "coursera",
+        "bestFor": "Courses with certificates",
+        "note": "Courses, certificates and degrees from universities and companies, including design and UX topics. Browsing is free, but certificates and some course content usually need payment, so read each course page for price, length and what you receive."
+      },
+      {
+        "id": "canva-design-school",
+        "bestFor": "Visual design basics",
+        "note": "Free courses and tutorials on design and marketing. It is broader than UX, so it suits visual fundamentals such as layout and presentation more than user research or usability testing."
+      },
+      {
+        "id": "dribbble",
+        "bestFor": "Visual inspiration",
+        "note": "A showcase of work from designers around the world. It is good for ideas and current visual trends, but it shows finished visuals, not the research and reasoning behind them, so pair it with case studies."
+      }
+    ],
+    "stayWith": "Stay with UX Planet if you like free, article-style reading and want a steady stream of ideas on user experience. Move to a course when you need order and practice, to a design-system site when you need exact rules, and to a tool's own tutorials when your question is how to do something in that tool.",
+    "faqs": [
+      {
+        "q": "Is UX Planet free?",
+        "a": "Our directory lists UX Planet as free. Check the site for its current terms before you rely on it."
+      },
+      {
+        "q": "What should I use to learn UX in a structured way?",
+        "a": "A course gives structure and exercises. Learn UI Design is a paid video course and Coursera lists UX and design courses. Compare the syllabus, price and the work you will produce before choosing."
+      },
+      {
+        "q": "Where can I find design inspiration?",
+        "a": "Dribbble shows designers' finished visual work. Use it for ideas, and read case studies to see the thinking behind a design."
+      }
+    ]
   }
 }
