@@ -206,7 +206,7 @@ const Footer: React.FC = () => {
               Built and maintained by{' '}
               <a
                 href="https://akshay.website"
-                className="font-medium text-[var(--color-text)] underline underline-offset-4 hover:text-[var(--color-primary)]"
+                className="font-medium text-[var(--color-text-primary)] underline underline-offset-4 hover:text-[var(--color-primary)]"
               >
                 Akshay Mahajan
               </a>
