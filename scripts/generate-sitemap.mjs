@@ -40,15 +40,35 @@ const git = (args) => {
  * fallback (previous sitemap dates) stays honest.
  */
 const HISTORY_OK = (() => {
+  if (process.env.SITEMAP_NO_HISTORY) return false; // test hook: behave like a shallow clone
   if (!git(['rev-parse', '--git-dir'])) return false;
   if (existsSync(resolve(ROOT, '.git/shallow'))) return false;
   return Number(git(['rev-list', '--count', 'HEAD']) || 0) > 1;
 })();
 
+/**
+ * Vercel, GitHub Actions and most clones are shallow, so git cannot answer
+ * "when did these files last change". The answers are therefore kept in a small
+ * committed file, data/sitemap-lastmod.json, and used whenever there is no
+ * usable history. Whenever the script runs with full history (a developer
+ * machine, `git fetch --unshallow`) it refreshes that file from git, so the dates
+ * only go stale if nobody ever runs `npm run sitemap` with full history after a
+ * content change. A stale date is older than the truth, never newer.
+ */
+const SNAPSHOT_FILE = 'data/sitemap-lastmod.json';
+const snapshot = (() => {
+  try {
+    return JSON.parse(read(SNAPSHOT_FILE) || '{}');
+  } catch {
+    return {};
+  }
+})();
+const snapshotOut = {};
+
 const dateCache = new Map();
 const lastChanged = (relPaths) => {
-  if (!HISTORY_OK) return '';
   const key = relPaths.join('|');
+  if (!HISTORY_OK) return snapshot[key] || '';
   if (dateCache.has(key)) return dateCache.get(key);
   const dates = relPaths
     .filter((p) => existsSync(resolve(ROOT, p)))
@@ -56,6 +76,7 @@ const lastChanged = (relPaths) => {
     .filter(Boolean);
   const newest = dates.sort().pop() || '';
   dateCache.set(key, newest);
+  if (newest) snapshotOut[key] = newest;
   return newest;
 };
 
@@ -376,6 +397,11 @@ ${entries
 
 writeFileSync(resolve(ROOT, 'public/sitemap.xml'), xml, 'utf8');
 
+if (HISTORY_OK && Object.keys(snapshotOut).length) {
+  const sorted = Object.fromEntries(Object.entries(snapshotOut).sort(([a], [b]) => a.localeCompare(b)));
+  writeFileSync(resolve(ROOT, SNAPSHOT_FILE), JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+}
+
 const dated = entries.filter((e) => e.lastmod).length;
 console.log(`sitemap.xml written — ${entries.length} URLs`);
 console.log(
@@ -386,5 +412,5 @@ console.log(
   `  excluded (noindex): comparisons ${comparisonSlugs.length} · alternatives ${canonicalToolIds.length - curatedAlternativeIds.length} (${curatedAlternativeIds.length} curated and indexed) · tool pages without a write-up ${canonicalToolIds.filter((id) => !editorialToolIds.has(id)).length}`,
 );
 console.log(
-  `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used' : 'unavailable — previous dates preserved'}`,
+  `  ${dated} with lastmod, git history ${HISTORY_OK ? 'used (snapshot refreshed)' : 'unavailable — dates taken from ' + SNAPSHOT_FILE}`,
 );

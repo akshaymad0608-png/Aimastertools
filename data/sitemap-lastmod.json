@@ -1,0 +1,21 @@
+{
+  "data/blog.ts|data/blogs.ts": "2026-11-12",
+  "data/categories.ts|data/tools.ts": "2026-10-19",
+  "data/collections.ts": "2026-08-15",
+  "data/curatedAlternatives.json": "2026-11-12",
+  "data/earn.ts": "2026-08-15",
+  "data/tools.ts|prerender.mjs": "2026-11-12",
+  "data/workflows.ts": "2026-07-19",
+  "index.html|App.tsx|prerender.mjs": "2026-11-12",
+  "pages/About.tsx": "2026-11-11",
+  "pages/Contact.tsx": "2026-11-11",
+  "public/best-ai-chatbots.html": "2026-10-14",
+  "public/best-ai-coding-tools.html": "2026-10-19",
+  "public/best-ai-image-generators.html": "2026-10-21",
+  "public/best-ai-logo-makers.html": "2026-10-14",
+  "public/best-ai-video-generators.html": "2026-10-14",
+  "public/best-ai-voice-generators.html": "2026-10-19",
+  "public/best-ai-writing-tools.html": "2026-10-19",
+  "public/best-free-ai-tools.html": "2026-10-19",
+  "public/best-google-ai-tools.html": "2026-10-14"
+}
